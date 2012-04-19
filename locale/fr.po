@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-12 08:15+0000\n"
-"Last-Translator: TartinesKiller <Unknown>\n"
+"PO-Revision-Date: 2012-04-19 03:06+0000\n"
+"Last-Translator: Sebastien Belzile <seb.belzile@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-15 07:16+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3938,7 +3938,7 @@ msgstr ""
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
-msgstr ""
+msgstr "Et voilà..."
 
 #: data/scripts/fireball_passage.dat:8
 msgid "I still need a Fire Shield"
@@ -3980,7 +3980,7 @@ msgstr ""
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "Return to the Study"
-msgstr ""
+msgstr "Retourner au Bureau"
 
 #: data/scripts/wasteland_intro.dat:5
 msgid "Ouch, my head..."
@@ -4110,6 +4110,7 @@ msgstr "Peut-être devrais-je regarder ailleurs"
 #: data/scripts/left_tower_intro.dat:10
 msgid "Still, there might be something in here worth my time..."
 msgstr ""
+"Mais encore, il doit bien y avoir quelque chose ici qui en vaut la peine..."
 
 #: data/scripts/hidden_passage_hint.dat:1
 msgid ""
@@ -4245,7 +4246,7 @@ msgstr "Mais je dois trouver un chemin"
 
 #: data/scripts/hoover.dat:2
 msgid "There, looks like the little guy is full and is sleeping it off"
-msgstr ""
+msgstr "On dirait que le petit gars est plein et endormis."
 
 #: data/scripts/hoover.dat:3
 msgid "I should be able to get past him without any bother now"
@@ -4277,7 +4278,7 @@ msgstr "Pourquoi est-il ici ? Il doit-être effrayé"
 
 #: data/scripts/hoover.dat:20
 msgid "Hello little fella, are you lost?"
-msgstr ""
+msgstr "Salut petit gars, es-tu perdu?"
 
 #: data/scripts/hoover.dat:21
 msgid "Don't worry, I won't hurt you"
@@ -4444,11 +4445,11 @@ msgstr "Je n'ai pas encore tout les ingrédients."
 
 #: data/scripts/cauldron.dat:46
 msgid "The book said I needed to find the following"
-msgstr ""
+msgstr "Le livre dit que je dois trouver les objets suivant"
 
 #: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
-msgstr ""
+msgstr "Le souvenir du guerrier qui l'a battu"
 
 #: data/scripts/cauldron.dat:54
 msgid "Hopefully I'll never have to use this again"
@@ -4464,7 +4465,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
-msgstr ""
+msgstr "Je ne prends aucune chance cette fois..."
 
 #: data/scripts/cauldron.dat:75
 msgid "Did it work?"
@@ -4581,6 +4582,8 @@ msgid ""
 "Well, it might have just fallen further down into the cave, I'll just have "
 "to keep looking"
 msgstr ""
+"Et bien, ça doit avoir simplement tombé encore plus loin dans la cave. Je "
+"vais juste devoir continuer à regarder."
 
 #: data/scripts/fortress_mine_intro.dat:1
 msgid "Huh, déjà vu..."
@@ -4630,17 +4633,19 @@ msgstr "Hey, ça me semble familier"
 
 #: data/scripts/spores.dat:2
 msgid "They look like hypnotic spores"
-msgstr ""
+msgstr "Ils ressemblent à des spores hypnotiques"
 
 #: data/scripts/spores.dat:3
 msgid ""
 "Borgan told me that they can temporarily trick certain creatures into "
 "thinking that you're not a threat and leave you alone"
 msgstr ""
+"Borgan m'a déjà dit qu'elles peuvent tromper temporairement certaines "
+"créatures en leur faisant croire que l'on n'est pas une menace."
 
 #: data/scripts/spores.dat:5
 msgid "Maybe they'll work on the creatures here..."
-msgstr ""
+msgstr "Peut-être qu'elles fonctionneront sur les créatures ici..."
 
 #: data/scripts/tomb_door_open.dat:10
 msgid "Great, that worked!"
@@ -4652,12 +4657,12 @@ msgstr "Quel hymne épouvantable, presque complètement aléatoire"
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
-msgstr ""
+msgstr "Ça ressemble au souvenir"
 
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
 "Thank goodness for that, I really didn't want to have to open that coffin"
-msgstr ""
+msgstr "Oh! merci, Je n'avais vraiment pas envi d'ouvrir ce cercueil."
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
@@ -4830,6 +4835,8 @@ msgstr "Tu as survécu ?"
 msgid ""
 "You sound surprised, I thought you'd have known considering we're the same."
 msgstr ""
+"Tu me semble surpris, je pensais que tu saurais, considérant que nous sommes "
+"pareils."
 
 #: data/scripts/evil_edgar_start.dat:13
 msgid "Except you're evil"
@@ -4845,11 +4852,11 @@ msgstr "Peu importe, maintenant je..."
 
 #: data/scripts/evil_edgar_start.dat:21
 msgid "What is all this stuff?"
-msgstr ""
+msgstr "Qu'est-ce que c'est que tout ça?"
 
 #: data/scripts/evil_edgar_start.dat:22
 msgid "Your experiment separated part of your conscious"
-msgstr ""
+msgstr "Ton expérience a séparé des parties de ta conscience."
 
 #: data/scripts/evil_edgar_start.dat:23
 msgid "Yes I know that, you already told me"
@@ -4867,34 +4874,37 @@ msgstr ""
 
 #: data/scripts/evil_edgar_start.dat:27
 msgid "These machines will join us together"
-msgstr ""
+msgstr "Ces machines vont nous inifier"
 
 #: data/scripts/evil_edgar_start.dat:28
 msgid "The one on the left is for the original body, you"
-msgstr ""
+msgstr "Celle sur la gauche est pour le corps original, toi"
 
 #: data/scripts/evil_edgar_start.dat:29
 msgid "And the one on the right is for the new body, me"
-msgstr ""
+msgstr "Et celle sur la droite est pour le nouveau corps, moi"
 
 #: data/scripts/evil_edgar_start.dat:30
 msgid ""
 "You will go in the one on the left and I'll go in the one on the right"
 msgstr ""
+"Tu va aller dans celle sur la gauche et j'irai dans celle sur la droite"
 
 #: data/scripts/evil_edgar_start.dat:31
 msgid "It will then merge your body into mine, leaving just me"
-msgstr ""
+msgstr "Elle va mêler ton corps dans le mien, en laissant juste moi"
 
 #: data/scripts/evil_edgar_start.dat:32
 msgid "Merge us together? Over my dead body!"
-msgstr ""
+msgstr "Nous fusionner? Tu devra me passer sur le corps d'abord!"
 
 #: data/scripts/evil_edgar_start.dat:33
 msgid ""
 "That was the plan. Since you're alive though, you've saved me the bother of "
 "having to drag your carcass all the way back here"
 msgstr ""
+"C'était le plan. Puisque tu es toujours en vis, tu me fais sauver de "
+"l'ouvrage. Je n'aurai pas à traîner ta carcasse sur de longues distances."
 
 #: data/scripts/evil_edgar_start.dat:34
 msgid "Now get in the machine!"
@@ -4902,70 +4912,81 @@ msgstr "Maintenant vas dans la machine !"
 
 #: data/scripts/disintegration_shield.dat:1
 msgid "Wow, what a cool looking shield"
-msgstr ""
+msgstr "Wow, quel beau bouclier"
 
 #: data/scripts/disintegration_shield.dat:2
 msgid "Hopefully this will protect me from that spell"
-msgstr ""
+msgstr "J'espère qu'il me protégera contre ce sort"
 
 #: data/scripts/disintegration_shield.dat:3
 msgid "But there's only one way to find out..."
-msgstr ""
+msgstr "Il n'y a qu'un seul moyen de le vérifier..."
 
 #: data/scripts/disintegration_shield.dat:5
 msgid "Defeat the Sorceror"
-msgstr ""
+msgstr "Vaincre le sorcier"
 
 #: data/scripts/disable_study.dat:12
 msgid "It worked, I'm back!"
-msgstr ""
+msgstr "Ça a marché, je suis de retour !"
 
 #: data/scripts/disable_study.dat:13
 msgid "Now to create that shield and get that sorceror..."
-msgstr ""
+msgstr "Maintenant, créer ce bouclier et battre ce sorcier..."
 
 #: data/scripts/disable_study.dat:14
 msgid "Create a Resist Disintegration Shield"
-msgstr ""
+msgstr "Créer un Bouclier de résistance à la désintégration"
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
-msgstr ""
+msgstr "Utiliser un objet que vous avez ramassé est simple"
 
 #: data/scripts/tutorial_bomb.dat:2
 msgid ""
 "Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
 "the bomb"
 msgstr ""
+"Ouvrez votre inventaire ([INPUT_INVENTORY]) et utilisez les touches fléchées "
+"pour mettre en surbrillance la bombe"
 
 #: data/scripts/tutorial_bomb.dat:3
 msgid ""
 "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
 msgstr ""
+"Maintenant appuyez sur Attaquer ([INPUT_ATTACK]) ou Utiliser Objet "
+"([INPUT_ACTIVATE]) pour le sélectionner"
 
 #: data/scripts/tutorial_bomb.dat:4
 msgid "Now close the inventory ([INPUT_INVENTORY])"
-msgstr ""
+msgstr "Maintenant, fermez l'inventaire ([INPUT_INVENTORY])"
 
 #: data/scripts/tutorial_bomb.dat:5
 msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Vous pouvez maintenant utiliser l'objet en appuyant sur Utiliser Objet "
+"([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_bomb.dat:6
 msgid "Try it with the bomb, but make sure you stand well back!"
-msgstr ""
+msgstr "Essayez avec la bombe, mais assurez-vous de bien rester à distance !"
 
 #: data/scripts/tutorial_bomb.dat:7
 msgid ""
 "While you are in the inventory screen, the action is paused so you can take "
 "your time"
 msgstr ""
+"Pendant que vous êtes dans l'écran de l'inventaire, le temps est mis en "
+"pause donc vous pouvez prendre votre temps"
 
 #: data/scripts/tutorial_bomb.dat:8
 msgid ""
 "Some items, such as health potions and weapons can be used in the inventory "
 "screen, so there is no need to exit the inventory"
 msgstr ""
+"Certains objets, tels que les potions de soins et des armes peuvent-être "
+"utilisés directement dans l'écran de l'inventaire, donc il n'y a pas besoin "
+"de quitter l'inventaire"
 
 #: data/scripts/final_generator.dat:1
 msgid "This generator looks OK, it just isn't on"
@@ -4979,7 +5000,7 @@ msgstr ""
 
 #: data/scripts/final_generator.dat:4
 msgid "Turn on the generator?"
-msgstr ""
+msgstr "Démarrer le générateur ?"
 
 #: data/scripts/final_generator.dat:6
 msgid "Where's the switch?"
@@ -4991,7 +5012,7 @@ msgstr "Ah! ici!"
 
 #: data/scripts/final_generator.dat:36
 msgid "I'll leave it alone for the moment"
-msgstr ""
+msgstr "Je vais le laisser seul pour l'instant"
 
 #: src/enemy/baby_slime.c:201
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -5111,11 +5132,11 @@ msgstr "Tous vos progrès non sauvegardés seront perdus"
 
 #: src/input.c:904
 msgid "Joy Button #%d"
-msgstr ""
+msgstr "Bouton #%d du joystick"
 
 #: src/world/npc.c:78
 msgid "Press Action to talk to %s"
-msgstr ""
+msgstr "Appuyez sur Action pour parler à %s"
 
 #: src/event/objective.c:103
 msgid "New Objective: %s"
@@ -5514,7 +5535,7 @@ msgstr "Pause"
 
 #: src/menu/control_menu.c:225
 msgid "Dead Zone"
-msgstr ""
+msgstr "Zone morte"
 
 #: src/collisions.c:1013
 msgid "Sound"
@@ -5747,7 +5768,7 @@ msgstr "Un liquide composer de yeux et de tentacules"
 
 #: src/system/load_save.c:1685
 msgid "Patching your save game. Please wait..."
-msgstr ""
+msgstr "Construction de votre fichier de sauvegarde. Veuillez patienter..."
 
 #: src/enemy/huge_spider.c:272
 msgid "Now! Run while it's stunned!"
@@ -5829,7 +5850,7 @@ msgstr "Corde"
 
 #: src/item/extend_o_grab_button.c:42
 msgid "Extend-O-Grab"
-msgstr ""
+msgstr "Extend-O-Grab"
 
 #: data/maps/map13.dat:2968
 msgid "Water Purifiers"
@@ -5969,219 +5990,222 @@ msgstr "Amulette de résurrection utilisée"
 
 #: src/item/soul_merger.c:116
 msgid "Press Action to enter the Soul Merger"
-msgstr ""
+msgstr "Appuyez sur Action pour entrer dans le fusionneur d'âme"
 
 #: src/item/soul_merger.c:139
 msgid "An IN Chamber and an OUT Chamber are required"
-msgstr ""
+msgstr "Une Chambre d'Entrée et de Sortie sont requises"
 
 #: src/item/lava_door.c:101
 msgid "One blow from the pickaxe should shatter it"
-msgstr ""
+msgstr "Un coup de pioche devrait le briser"
 
 #: src/item/soul_merger_control_panel.c:85
 msgid "Press Action to reprogram the Soul Merger"
-msgstr ""
+msgstr "Appuyez sur Action pour reprogrammer le fusionneur d'âme"
 
 #: src/item/soul_merger_control_panel.c:93
 msgid "Spanner is required"
-msgstr ""
+msgstr "Clé requise"
 
 #: src/item/soul_merger_control_panel.c:150
 msgid "Press Action to Cancel"
-msgstr ""
+msgstr "Appuyez sur Action pour annuler"
 
 #: src/item/light_pillar.c:116
 msgid "%s is needed to activate this Light Pillar"
-msgstr ""
+msgstr "%s est requis pour activer ce Pilier de Lumière"
 
 #: data/scripts/soul_merger.dat:2
 msgid "Evil_Edgar"
-msgstr ""
+msgstr "Edgar_Maléfique"
 
 #: src/boss/evil_edgar.c:273
 msgid "I'm better than you in every single way..."
-msgstr ""
+msgstr "Je suis meilleur que toi, dans tous les domaines..."
 
 #: src/boss/evil_edgar.c:286
 msgid "Get down from there!"
-msgstr ""
+msgstr "Descend de là!"
 
 #: src/boss/evil_edgar.c:786
 msgid "Stupid duds..."
-msgstr ""
+msgstr "Stupides ratés..."
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
-msgstr ""
+msgstr "Meurt !"
 
 #: src/boss/evil_edgar.c:983
 msgid "Arghh! My eyes!"
-msgstr ""
+msgstr "Arghh ! Mes yeux !"
 
 #: data/props/item/spanner.props:6
 msgid "A spanner"
-msgstr ""
+msgstr "Une clé"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
-msgstr ""
+msgstr "Un oeil explosif. Un raté?"
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
-msgstr ""
+msgstr "Vous ramènera automatiquement à la vie une fois si vous mourrez"
 
 #: src/item/potions.c:247
 msgid "Flaming Arrows"
-msgstr ""
+msgstr "Flèches Enflammées"
 
 #: data/props/weapon/fire_shield.props:6
 msgid "A shield that can resist fire"
-msgstr ""
+msgstr "Un bouclier qui peut résister au feu"
 
 #: src/item/jigsaw_puzzle.c:98
 msgid "Solve the jigsaw puzzle"
-msgstr ""
+msgstr "Résoudre le casse-tête"
 
 #: src/boss/ant_lion.c:306
 msgid "Try luring something else into the Ant Lion's pit..."
 msgstr ""
+"Essaie d'attirer quelque chose d'autre dans le trou de la Fourmis-Lion..."
 
 #: data/props/item/puzzle_piece.props:5
 msgid "A piece of a puzzle"
-msgstr ""
+msgstr "Une pièce d'un puzzle"
 
 #: src/boss/centurion_boss.c:321
 msgid "The glass looks very weak now..."
-msgstr ""
+msgstr "Le verre semble très fragile maintenant..."
 
 #: src/system/error.c:53
 msgid "Press Escape to exit"
-msgstr ""
+msgstr "Appuyez sur Echap pour quitter"
 
 #: data/props/item/protection_ring.props:4
 msgid "A beautiful ring"
-msgstr ""
+msgstr "Un bel anneau"
 
 #: src/item/potions.c:213
 msgid "Normal Arrow is required"
-msgstr ""
+msgstr "Flèche Normale requise"
 
 #: src/item/potions.c:247
 msgid "Created %d Flaming Arrows"
-msgstr ""
+msgstr "%d Flèches Enflammées crées"
 
 #: src/enemy/giant_snowball.c:119
 msgid "Press buttons to escape the snowball!"
-msgstr ""
+msgstr "Appuie sur des boutons pour échapper à la boule de neige!"
 
 #: data/props/item/flaming_arrow_potion.props:6
 msgid "A potion to create flaming arrows"
-msgstr ""
+msgstr "Une potion pour créer des flèches enflammées"
 
 #: data/props/item/spike_ball.props:5
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
-msgstr ""
+msgstr "Une boule piquante d'Armadillo. Projette des piquants lorsque lancée"
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
-msgstr ""
+msgstr "Essayez de vous procurer la foreuse pour attraper une bombe"
 
 #: data/props/item/spores.props:5
 msgid "Spores that will make certain monsters temporarily harmless"
-msgstr ""
+msgstr "Des spores qui rendra certains monstres sans défense."
 
 #: src/item/apple_tree.c:172
 msgid "It's out of apples..."
-msgstr ""
+msgstr "Il n'y a plus de pommes"
 
 #: src/game.c:918
 msgid "Failed"
-msgstr ""
+msgstr "Échoué"
 
 #: src/item/mastermind_display.c:411
 msgid "Select a colour for every peg in the row"
-msgstr ""
+msgstr "Choisissez une couleur pour chaque pion dans la rangée"
 
 #: src/item/monster_skull.c:98
 msgid "Press Action to retrieve the Horn"
-msgstr ""
+msgstr "Appuyez sur Action pour récupérer la corne"
 
 #: src/item/memory_match_display.c:113
 msgid "Attempts remaining: %d"
-msgstr ""
+msgstr "Tentatives restantes : %d"
 
 #: src/item/colour_pot.c:183
 msgid "The pot is empty"
-msgstr ""
+msgstr "Le pot est vide"
 
 #: src/enemy/frog.c:370
 msgid "Your %s has been stolen!"
-msgstr ""
+msgstr "Votre %s a été volé !"
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
-msgstr ""
+msgstr "<Vide>"
 
 #: data/props/item/monster_horn.props:5
 msgid "The horn from a fearsome monster"
-msgstr ""
+msgstr "La corne d'un monstre effrayant"
 
 #: data/props/item/apple.props:5
 msgid "A delicious apple"
-msgstr ""
+msgstr "Une pomme délicieuse"
 
 #: data/props/item/tortoise_shell.props:5
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Un Fragment magique de carapace de Maître Tortue"
 
 #: data/props/weapon/disintegration_shield_1.props:5
 msgid "A shield that can resist disintegration"
-msgstr ""
+msgstr "Un bouclier qui peut résister à la désintégration"
 
 #: src/enemy/magic_missile.c:292
 msgid "Try using one of the artifacts to protect yourself..."
-msgstr ""
+msgstr "Essayez d'utiliser l'un de ces artefacts pour vous protéger..."
 
 #: src/menu/main_menu.c:389
 msgid "Failed to load game"
-msgstr ""
+msgstr "Échec du chargement du jeu"
 
 #: src/boss/grimlore.c:2752
 msgid "Your %s has been destroyed"
-msgstr ""
+msgstr "Votre %s a été détruit"
 
 #: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
-msgstr ""
+msgstr "Ligoter ne fonctionne que contre des démons affaiblis"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
-msgstr ""
+msgstr "Envoie un démon affaiblie dans sa propre dimension"
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
-msgstr ""
+msgstr "Un morceau de viande très poison"
 
 #: data/scripts/correct_combination.dat:4
 msgid "Scrap of Paper"
-msgstr ""
+msgstr "Bout de Papier"
 
 #: data/props/item/reflection_artifact.props:5
 msgid "Creates a temporary shield that reflects magic spells"
-msgstr ""
+msgstr "Créé un bouclier temporaire qui renvoie les sorts"
 
 #: data/props/item/protection_artifact.props:5
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr ""
+"Vous protège contre certaines attaques. Arrête de fonctionner si vous bougez"
 
 #: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr ""
+"Appuyez sur Attaquer en même temps que Parer pour utiliser votre bouclier..."
 
 #: src/game.c:918
 msgid "Play Time"
-msgstr ""
+msgstr "Durée de jeu"
 
 #: src/credits.c:866
 msgid "Kills"
@@ -6189,327 +6213,329 @@ msgstr "Victoires"
 
 #: src/credits.c:869
 msgid "Arrows Fired"
-msgstr ""
+msgstr "Flèches enflammées"
 
 #: src/credits.c:872
 msgid "Distanced Travelled"
-msgstr ""
+msgstr "Distance parcourue"
 
 #: src/credits.c:875
 msgid "Attacks Blocked"
-msgstr ""
+msgstr "Attaques bloquées"
 
 #: src/credits.c:878
 msgid "Time Spent As A Slime"
-msgstr ""
+msgstr "Temps passé en Slime"
 
 #: src/credits.c:881
 msgid "Secrets Found"
-msgstr ""
+msgstr "Secrets trouvés"
 
 #: src/credits.c:884
 msgid "Continues"
-msgstr ""
+msgstr "Continue"
 
 #: src/credits.c:940
 msgid "Defeated Bosses"
-msgstr ""
+msgstr "Boss vaincus"
 
 #: src/credits.c:1095
 msgid "Undefeated"
-msgstr ""
+msgstr "Invaincu"
 
 #: src/credits.c:152
 msgid "Defeated"
-msgstr ""
+msgstr "Vaincu"
 
 #: data/scripts/sorceror_intro_2.dat:1
 msgid "Sorceror"
-msgstr ""
+msgstr "Sorcier"
 
 #: src/boss/sorceror_2.c:361
 msgid "Enough! Prepare to die..."
-msgstr ""
+msgstr "Assez ! Prépare toi à mourir..."
 
 #: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
+"Tournez rapidement à gauche et à droite pour enlever le sort "
+"d'immobilisation !"
 
 #: src/player.c:1353
 msgid "Your shield is increasing in power..."
-msgstr ""
+msgstr "Votre bouclier est plus puissant..."
 
 #: src/menu/about_menu.c:75
 msgid "The Legend of Edgar v%0.2f"
-msgstr ""
+msgstr "The Legend of Edgar v%0.2f"
 
 #: src/credits.c:124
 msgid "King Grub"
-msgstr ""
+msgstr "Roi Larve"
 
 #: src/credits.c:125
 msgid "The Golem"
-msgstr ""
+msgstr "Le Golem"
 
 #: src/credits.c:126
 msgid "Queen Wasp"
-msgstr ""
+msgstr "Reine Abeille"
 
 #: src/credits.c:127
 msgid "The Swamp Guardian"
-msgstr ""
+msgstr "Le Gardien du Marais"
 
 #: src/credits.c:129
 msgid "The Blob"
-msgstr ""
+msgstr "Le Blob"
 
 #: src/credits.c:130
 msgid "The Watchdog"
-msgstr ""
+msgstr "Le chien de garde"
 
 #: src/credits.c:131
 msgid "The Awesome Foursome"
-msgstr ""
+msgstr "Les quatre fantastiques"
 
 #: data/scripts/black_book.dat:25
 msgid "Mataeus"
-msgstr ""
+msgstr "Mataeus"
 
 #: src/credits.c:133
 msgid "The Phoenix"
-msgstr ""
+msgstr "Le phénix"
 
 #: src/credits.c:134
 msgid "The Borer"
-msgstr ""
+msgstr "Le perforeur"
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Evil Edgar"
-msgstr ""
+msgstr "Edgar Maléfique"
 
 #: src/credits.c:136
 msgid "The Sewer Dweller"
-msgstr ""
+msgstr "L'habitant des égoûts"
 
 #: src/credits.c:137
 msgid "The Salamander"
-msgstr ""
+msgstr "La Salamande"
 
 #: src/credits.c:138
 msgid "The Black Book"
-msgstr ""
+msgstr "Le livre noir"
 
 #: src/credits.c:141
 msgid "The Sorceror"
-msgstr ""
+msgstr "Le Sorcier"
 
 #: data/medals.dat:1
 msgid "Became a legend"
-msgstr ""
+msgstr "Est devenu une légende"
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
-msgstr ""
+msgstr "A battu Chaos"
 
 #: data/medals.dat:3
 msgid "Defeated the Sorceror"
-msgstr ""
+msgstr "A battu le Sorcier"
 
 #: data/medals.dat:6
 msgid "Obtained the Dragon Shield"
-msgstr ""
+msgstr "A obtenu le bouclier du dragon"
 
 #: data/medals.dat:5
 msgid "Found all secrets"
-msgstr ""
+msgstr "A découvert tous les secrets"
 
 #: data/medals.dat:8
 msgid "Walked 50km"
-msgstr ""
+msgstr "A marché 50km"
 
 #: data/medals.dat:10
 msgid "Fired 500 arrows"
-msgstr ""
+msgstr "Lancer 500 flèches"
 
 #: data/medals.dat:11
 msgid "Defeated 1000 enemies"
-msgstr ""
+msgstr "Battre 1000 ennemis"
 
 #: data/medals.dat:12
 msgid "Defeated 2000 enemies"
-msgstr ""
+msgstr "Battre 2000 ennemis"
 
 #: data/medals.dat:14
 msgid "Defeated the Black Book"
-msgstr ""
+msgstr "Battre le livre noir"
 
 #: data/medals.dat:15
 msgid "Defeated Grimlore"
-msgstr ""
+msgstr "Battre Grimlore"
 
 #: data/medals.dat:16
 msgid "Defeated the Phoenix"
-msgstr ""
+msgstr "Battre le phénix"
 
 #: data/medals.dat:9
 msgid "Defeated Azriel"
-msgstr ""
+msgstr "Battre Azriel"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
-msgstr ""
+msgstr "Battre la gargouille"
 
 #: data/medals.dat:17
 msgid "Defeated a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Battre une maître tortue"
 
 #: data/medals.dat:18
 msgid "Obtained the Lightning Sword"
-msgstr ""
+msgstr "Obtenir l'épée de foudre"
 
 #: data/medals.dat:19
 msgid "Opened the safe in the Library"
-msgstr ""
+msgstr "Ouvrir la cachette dans la bibliothèque"
 
 #: data/medals.dat:20
 msgid "Located the Occult Section"
-msgstr ""
+msgstr "Localiser la Section Occulte"
 
 #: data/medals.dat:22
 msgid "Met the Sorceror"
-msgstr ""
+msgstr "Rencontrer le Sorcier"
 
 #: data/medals.dat:23
 msgid "Obtained 10 Hit Points"
-msgstr ""
+msgstr "Obtenir 10 vies"
 
 #: data/medals.dat:7
 msgid "Obtained 20 Hit Points"
-msgstr ""
+msgstr "Obtenir 20 vies"
 
 #: data/medals.dat:24
 msgid "Rescued all of Jacob's chickens"
-msgstr ""
+msgstr "Sauver tous les poulets de Jacob"
 
 #: data/medals.dat:25
 msgid "Fired 250 arrows"
-msgstr ""
+msgstr "Tirer 250 flèches"
 
 #: data/medals.dat:26
 msgid "Blocked 2000 attacks"
-msgstr ""
+msgstr "Bloquer 2000 attaques"
 
 #: data/medals.dat:27
 msgid "Continued 20 times"
-msgstr ""
+msgstr "Continuer 20 fois"
 
 #: data/medals.dat:28
 msgid "Drowned 20 Red Bats"
-msgstr ""
+msgstr "Noyer 20 Chauves-Souris Rouge"
 
 #: data/medals.dat:29
 msgid "Escaped the Dungeon"
-msgstr ""
+msgstr "S'échapper du donjon"
 
 #: data/medals.dat:30
 msgid "Got eaten 5 times"
-msgstr ""
+msgstr "Se faire manger 5 fois"
 
 #: data/medals.dat:31
 msgid "Entered the Forbidden Swamp"
-msgstr ""
+msgstr "Entrer dans le marais interdit"
 
 #: data/medals.dat:32
 msgid "Completed the Tutorial"
-msgstr ""
+msgstr "Compléter le Tutorial"
 
 #: data/medals.dat:33
 msgid "Obtained the Fire Shield"
-msgstr ""
+msgstr "Obtenir le bouclier de feu"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "Arriver à la forteresse"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
-msgstr ""
+msgstr "Battre le Golem avec l'attrapeur"
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
-msgstr ""
+msgstr "Battre 100 ennemis"
 
 #: data/medals.dat:37
 msgid "Defeated 200 enemies"
-msgstr ""
+msgstr "Battre 200 ennemis"
 
 #: data/medals.dat:38
 msgid "Defeated 500 enemies"
-msgstr ""
+msgstr "Battre 500 ennemis"
 
 #: data/medals.dat:39
 msgid "Defeated the Watchdog"
-msgstr ""
+msgstr "Battre le chien de garde"
 
 #: data/medals.dat:40
 msgid "Defeated the Awesome Foursome"
-msgstr ""
+msgstr "Battre les quatre fantastiques"
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
-msgstr ""
+msgstr "Battre le Blob"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
-msgstr ""
+msgstr "Battre le Perforeur"
 
 #: data/medals.dat:43
 msgid "Defeated Evil Edgar"
-msgstr ""
+msgstr "Battre le Edgar Maléfique"
 
 #: data/medals.dat:44
 msgid "Defeated the Queen Fly"
-msgstr ""
+msgstr "Battre la reine mouche"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem"
-msgstr ""
+msgstr "Battre le Golem"
 
 #: data/medals.dat:46
 msgid "Defeated the King Grub"
-msgstr ""
+msgstr "Battre le roi des vers"
 
 #: data/medals.dat:47
 msgid "Defeated Mataeus"
-msgstr ""
+msgstr "Battre Mataeus"
 
 #: data/medals.dat:48
 msgid "Defeated the Salamander"
-msgstr ""
+msgstr "Battre la salamandre"
 
 #: data/medals.dat:49
 msgid "Defeated the Sewer Dweller"
-msgstr ""
+msgstr "Battre l'habitant des égoûts"
 
 #: data/medals.dat:50
 msgid "Defeated the Forbidden Swamp Guardian"
-msgstr ""
+msgstr "Battre le gardien du marais interdit"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
-msgstr ""
+msgstr "Lire tous les compendiums de monstre"
 
 #: data/medals.dat:53
 msgid "Obtained the Amulet of Resurrection"
-msgstr ""
+msgstr "Obtenir l'amulette de résurrection"
 
 #: data/medals.dat:54
 msgid "Spent 10 minutes as a Slime"
-msgstr ""
+msgstr "Passer 10 minutes en Slime"
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
-msgstr ""
+msgstr "Médaille cachée"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
@@ -6517,19 +6543,19 @@ msgstr "Une Cloche"
 
 #: data/props/item/portable_save.props:4
 msgid "Creates a save point at your current position"
-msgstr ""
+msgstr "Crée un point de sauvegarde à votre position actuelle"
 
 #: src/player.c:2098
 msgid "Your controls have been reversed!"
-msgstr ""
+msgstr "Vos contrôles sont inversés!"
 
 #: src/item/portable_save.c:82
 msgid "You cannot use this here"
-msgstr ""
+msgstr "Vous ne pouvez pas utiliser cela ici"
 
 #: src/item/portable_save.c:87
 msgid "You can only use this item in an empty space"
-msgstr ""
+msgstr "Vous ne pouvez utiliser cet objet que dans un espace vide"
 
 #: src/item/key_items.c:260
 msgid "Bell"
@@ -6537,19 +6563,19 @@ msgstr "Cloche"
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
-msgstr ""
+msgstr "Une feuille de musique"
 
 #: src/menu/io_menu.c:125
 msgid "Choose slot to save to"
-msgstr ""
+msgstr "Choisissez un emplacement de sauvegarde"
 
 #: src/menu/io_menu.c:130
 msgid "Choose slot to load from"
-msgstr ""
+msgstr "Choisissez la partie à charger"
 
 #: src/world/level_exit.c:104
 msgid "Press Action to go to %s"
-msgstr ""
+msgstr "Appuie sur Action pour aller dans %s"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
@@ -6565,7 +6591,7 @@ msgstr "la Forêt"
 
 #: data/scripts/borgan.dat:44
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "le Marais Interdit"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
@@ -6573,7 +6599,7 @@ msgstr "la Grotte"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr ""
+msgstr "le faubourg"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
@@ -6581,11 +6607,11 @@ msgstr "les Égouts"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
-msgstr ""
+msgstr "le sous-sol de la forteresse"
 
 #: data/maps/map08.dat:3418
 msgid "the Fortress Ground Floor"
-msgstr ""
+msgstr "le rez de chaussé de la forteresse"
 
 #: data/scripts/old_shield.dat:17
 msgid "the Laboratory"
@@ -6597,7 +6623,7 @@ msgstr "la Bibliothèque"
 
 #: data/maps/map08.dat:12568
 msgid "the Fortress Mine"
-msgstr ""
+msgstr "la mine de la forteresse"
 
 #: data/maps/map09.dat:2918
 msgid "the Armoury"
@@ -6605,15 +6631,15 @@ msgstr "l'Armurie"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr ""
+msgstr "la grotte du perforeur"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
-msgstr ""
+msgstr "les Catacombes"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "the Study"
-msgstr ""
+msgstr "le bureau"
 
 #: data/medals.dat:29
 msgid "the Dungeon"
@@ -6621,15 +6647,15 @@ msgstr "le Donjon"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr ""
+msgstr "les plaines gelées"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
-msgstr ""
+msgstr "le réseau extérieur de grotte"
 
 #: data/maps/map19.dat:5643
 msgid "the Inner Cave Network"
-msgstr ""
+msgstr "le réseau intérieur de grotte"
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
@@ -6637,11 +6663,11 @@ msgstr "le Cimetière"
 
 #: data/maps/map09.dat:10018
 msgid "the Left Tower"
-msgstr ""
+msgstr "la tour de gauche"
 
 #: data/maps/map16.dat:1968
 msgid "the Right Tower"
-msgstr ""
+msgstr "la tour de droite"
 
 #: data/medals.dat:21
 msgid "the Crypt"
@@ -6661,7 +6687,7 @@ msgstr "Forêt"
 
 #: data/scripts/borgan.dat:44
 msgid "Forbidden Swamp"
-msgstr ""
+msgstr "Marais Interdit"
 
 #: data/scripts/intro_part1.dat:18
 msgid "Cave"
@@ -6669,7 +6695,7 @@ msgstr "Grotte"
 
 #: data/maps/map06.dat:1
 msgid "Fortress Outskirts"
-msgstr ""
+msgstr "Faubourg"
 
 #: data/scripts/mine2_exit.dat:5
 msgid "Sewer"
@@ -6677,11 +6703,11 @@ msgstr "Égout"
 
 #: data/maps/map08.dat:1
 msgid "Fortress Basement"
-msgstr ""
+msgstr "Sous-sol de la Forteresse"
 
 #: data/maps/map08.dat:3418
 msgid "Fortress Ground Floor"
-msgstr ""
+msgstr "Rez de chaussé de la Forteresse"
 
 #: data/scripts/old_shield.dat:17
 msgid "Laboratory"
@@ -6693,11 +6719,11 @@ msgstr "Bibliothèque"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr ""
+msgstr "Grotte du perforeur"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"
-msgstr ""
+msgstr "Catacombes"
 
 #: data/scripts/enable_study.dat:1
 msgid "Study"
@@ -6709,15 +6735,15 @@ msgstr "Donjon"
 
 #: data/maps/map18.dat:1
 msgid "Frozen Wastes"
-msgstr ""
+msgstr "Plaines gelées"
 
 #: data/maps/map18.dat:4918
 msgid "Outer Cave Network"
-msgstr ""
+msgstr "Réseaux extérieur de Grottes"
 
 #: data/maps/map19.dat:5643
 msgid "Inner Cave Network"
-msgstr ""
+msgstr "Réseau interne de grottes"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Graveyard"
@@ -6725,11 +6751,11 @@ msgstr "Cimetière"
 
 #: data/maps/map22.dat:1
 msgid "Left Tower"
-msgstr ""
+msgstr "Tour de gauche"
 
 #: data/scripts/final_battle.dat:7
 msgid "Right Tower"
-msgstr ""
+msgstr "Tour de droite"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
@@ -6741,27 +6767,28 @@ msgstr "Crypte"
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - 2012"
-msgstr ""
+msgstr "Copyright Parallel Realities 2009 - 2012"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
-msgstr ""
+msgstr "Recommencer au point de sauvegarde"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
 msgstr ""
+"Les codes de triche ne peuvent seulement être activer que pendant la partie"
 
 #: src/title.c:79
 msgid "Press any key"
-msgstr ""
+msgstr "Appuyez sur une touche"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
-msgstr ""
+msgstr "Impossible d'équiper un objet pendant une attaque"
 
 #: src/game.c:44
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: src/menu/medals_menu.h:20
 msgid "Medals"
@@ -6769,43 +6796,44 @@ msgstr "Médailles"
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
-msgstr ""
+msgstr "Qualité audio"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
-msgstr ""
+msgstr "Codes de triche"
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "Vie infinie"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "Flèches infinie"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "Lave est fatal"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
-msgstr ""
+msgstr "Utilise Haut et Bas pour sélectionner. Entrée pour changer."
 
 #: src/menu/control_menu.c:189
 msgid "Interact"
-msgstr ""
+msgstr "Interagir"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use"
-msgstr ""
+msgstr "Utiliser"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "S'il-vous-plait configurez tous les contrôles."
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
 msgstr ""
+"Tourne rapidement à gauche et à droite pour te débarrasser des pièces"
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
@@ -6813,238 +6841,250 @@ msgstr "Azraël"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
-msgstr ""
+msgstr "Jusqu'à notre prochaine rencontre..."
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
-msgstr ""
+msgstr "Souvenir d'Ivan"
 
 #: src/inventory.c:364
 msgid "Selected %s"
-msgstr ""
+msgstr "%s sélectionné"
 
 #: src/player.c:2995
 msgid "Press buttons to break the petrification!"
-msgstr ""
+msgstr "Appuie sur des touches pour briser la pétrification!"
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
-msgstr ""
+msgstr "Compléter le jeu avec seulement 5 vies"
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"
-msgstr ""
+msgstr "Compléter le jeu sans continu"
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
-msgstr ""
+msgstr "Accéder à la Crypte"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
 msgstr ""
+"Tourne rapidement de gauche à droite pour te débarrasser des gargouilles "
+"miniatures."
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
-msgstr ""
+msgstr "Bouclier du Dragon"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
-msgstr ""
+msgstr "Un bouclier résistant au souffle du dragon"
 
 #: src/game.c:870
 msgid ""
 "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
 "font"
 msgstr ""
+"SMALL_FONT_SIZE et LARGE_FONT_SIZE doivent être spécifié pour utiliser une "
+"police personalisée"
 
 #: src/menu/options_menu.c:354
 msgid ""
 "Enabling cheats will not allow you to achieve 100% completion in the game"
-msgstr ""
+msgstr "Activer les codes ne vous permettra pas de compléter le jeu à 100%"
 
 #: src/boss/evil_edgar.c:204
 msgid ""
 "You got into the machine by yourself?! You're even stupider than I thought "
 "you were!"
 msgstr ""
+"Tu es entré dans la machine par toi-même?! Tu es encore plus stupide que je "
+"le pensais!"
 
 #: src/boss/chaos.c:814
 msgid "Stalagmite"
-msgstr ""
+msgstr "Stalagmite"
 
 #: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
-msgstr ""
+msgstr "Brûle!"
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
-msgstr ""
+msgstr "Sens mon pouvoir!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
-msgstr ""
+msgstr "Souffre!"
 
 #: src/boss/chaos.c:1472
 msgid "Pathetic"
-msgstr ""
+msgstr "Pathetic"
 
 #: src/boss/chaos.c:1490
 msgid "Impale"
-msgstr ""
+msgstr "empaler"
 
 #: src/player.c:2031
 msgid "Confuse"
-msgstr ""
+msgstr "embrouiller"
 
 #: src/boss/chaos.c:1687
 msgid "Darkness"
-msgstr ""
+msgstr "Ténèbre"
 
 #: src/boss/chaos.c:1766
 msgid "Hold Person"
-msgstr ""
+msgstr "Tenir personne"
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr ""
+msgstr "Une Épée de Légende"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
+"Reflète les forces fantomatiques.  Bloquer à la dernier instant augmente le "
+"pouvoir."
 
 #: src/credits.c:458
 msgid "Chaos has been subdued"
-msgstr ""
+msgstr "Chaos a été soumis"
 
 #: src/credits.c:460
 msgid "For now..."
-msgstr ""
+msgstr "Pour l'instant..."
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"
-msgstr ""
+msgstr "Chaos sera bientôt libre"
 
 #: src/credits.c:467
 msgid "To terrorise the world once again"
-msgstr ""
+msgstr "Et terrorisera le monde une fois de plus"
 
 #: src/item/attractor.c:36
 msgid "Rift"
-msgstr ""
+msgstr "Crevasse"
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Vrilles"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
-msgstr ""
+msgstr "Orbes"
 
 #: src/boss/chaos.c:1312
 msgid "I will destroy you!"
-msgstr ""
+msgstr "Je vais te détruire!"
 
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
-msgstr ""
+msgstr "Il m'a probablement téléporté avec sa dernière magie"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
+"Même si je ne l'ai pas massacré, il est maintenant trop faible pour "
+"terroriser le monde."
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "C'est maintenant temps de retourner sauver mon père..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
-msgstr ""
+msgstr "C'est bien scellé. Je n'y retournerai pas."
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
-msgstr ""
+msgstr "C'est fini."
 
 #: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
-msgstr ""
+msgstr "Hey, qu'est-ce que c'est? On dirait une épée"
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
-msgstr ""
+msgstr "Ce doit être l'épée d'Ivan"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Toi... Tu ne me battra jamais"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Je vais m'échapper de cet endroit misérable"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Même si ça me prend un autre 100 ans"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Ces chaînes ne tiendront pas éternellement"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "C'est le temps d'en finir. Prépare-toi!"
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Non! Banni!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "Quelle horrible nuit"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Edgar, je dois sortir quelques heures"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
+"Tu peux rester debout un autre 30 minutes, mais après tu ranges tes jouets "
+"et tu vas au lit."
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "Le matin suivant..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Papa! Où es-tu"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "On ne dirait pas qu'il est revenu hier soir"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "Personne n'a dormi dans son lit et mon déjeuner n'est pas près"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "Cela ne peut vouloir dire qu'une seule chose..."
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "Il a été kidnappé par ce sorcier maléfique"
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Quelque chose de très puissant était ici"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
-msgstr ""
+msgstr "Je peux encore sentir la charge magique dans l'air"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr ""
+msgstr "Peu importe ce que c'était, c'est partie."

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-14 12:43+0000\n"
+"PO-Revision-Date: 2012-04-18 12:57+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-15 07:16+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -745,709 +745,779 @@ msgstr "Знищити всіх Поглиначів Енергії"
 #: data/scripts/safe_instructions.dat:1
 msgid "Use left and right to move the dial 1 unit at a time"
 msgstr ""
+"Використовуй клавіші вліво та вправо для переміщення циферблата на 1 позицию "
+"за раз"
 
 #: data/scripts/safe_instructions.dat:2
 msgid ""
 "Make sure you keep count of how many times you move the dial since no on-"
 "screen notification is given"
 msgstr ""
+"Переконайся, що ти враховуєш скільки раз ти повернув циферблат, бо на екрані "
+"нема такої інформації"
 
 #: data/scripts/safe_instructions.dat:3
 msgid ""
 "When you think you've entered the combination correctly, press Attack to try "
 "and open the door"
 msgstr ""
+"Коли впевнений, що введена комбінація вірна, натисни клавішу Атака, щоб "
+"відкрити двері"
 
 #: data/scripts/no_combination.dat:1
 msgid ""
 "There's no way I'll be able to figure out the combination, I'll have to find "
 "out what it is"
-msgstr ""
+msgstr "Я не можу вичислити комбінацію, мені її доведеться знайти"
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
-msgstr ""
+msgstr "Тренуйся!"
 
 #: data/scripts/borgan.dat:11
 msgid "Hi"
-msgstr ""
+msgstr "Привіт"
 
 #: data/scripts/borgan.dat:12
 msgid "Hello Edgar"
-msgstr ""
+msgstr "Здоров, Едгар"
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "Можна позичити ваш щит?"
 
 #: data/scripts/borgan.dat:14
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "Для тренування бойових навичок?"
 
 #: data/scripts/borgan.dat:15
 msgid "Something like that"
-msgstr ""
+msgstr "Щось подібне до цього"
 
 #: data/scripts/borgan.dat:16
 msgid "If you run me an errand then you can have the shield"
-msgstr ""
+msgstr "Якщо ти виконаєш моє доручення, то зможеш взяти мій щит"
 
 #: data/scripts/borgan.dat:17
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Що я повинен зробити?"
 
 #: data/scripts/borgan.dat:18
 msgid "Go to the mine and collect me some coal"
-msgstr ""
+msgstr "Сходи в шахту та набери мені трохи вугілля"
 
 #: data/scripts/borgan.dat:19
 msgid "But we have plenty of coal!"
-msgstr ""
+msgstr "Але у вас багато вугілля!"
 
 #: data/scripts/borgan.dat:20
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
 msgstr ""
+"Так, але це не аби-яке вугілля, воно особливе, горить жаркіше та довше"
 
 #: data/scripts/borgan.dat:21
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
+msgstr "Мені потрібно всього 10 вуглин, не думаю, що це займе багато часу"
 
 #: data/scripts/borgan.dat:22
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
 msgstr ""
+"Обов’язково поклади його в сумку, занадто довгий контакт з ним шкідливий для "
+"здоров’я"
 
 #: data/scripts/borgan.dat:23
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "У вас є сумка?"
 
 #: data/scripts/borgan.dat:24
 msgid "No, you can probably find one in the mine though"
-msgstr ""
+msgstr "Ні, ти можливо знайдеш одну в шахті"
 
 #: data/scripts/borgan.dat:25
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "Добре, я добуду вугілля"
 
 #: data/scripts/borgan.dat:27
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
 msgstr ""
+"Ось, візьми цю кирку. Ти можеш використовувати її для видобування вугілля та "
+"руйнування деяких стін, зустрічающихся на шляху"
 
 #: data/scripts/borgan.dat:29
 msgid "You'll also need this key to get into the mine"
-msgstr ""
+msgstr "Також тобі знадобиться ключ, щоб увійти в шахту."
 
 #: data/scripts/borgan.dat:31
 msgid "Collect 10 pieces of Coal"
-msgstr ""
+msgstr "Зібрати 10  шматків вугілля"
 
 #: data/scripts/borgan.dat:36
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
+"Дякую, Єдгаре. Це добряче вугілля! Сподіваюсь, кажани не налякали тебе."
 
 #: data/scripts/borgan.dat:37
 msgid "The bats were the least of my worries..."
-msgstr ""
+msgstr "Летючі миші були найменшою з проблем..."
 
 #: data/scripts/borgan.dat:38
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr ""
+msgstr "Я чув, щось трапилось у цій шахті кілька років тому"
 
 #: data/scripts/borgan.dat:39
 msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
 msgstr ""
+"Е, так, там було, що називається \"інцидентом\", але частина шахти була "
+"запечатана давним-давно"
 
 #: data/scripts/borgan.dat:40
 msgid "Right..."
-msgstr ""
+msgstr "Так..."
 
 #: data/scripts/borgan.dat:42
 msgid "Here, have my shield and have fun!"
-msgstr ""
+msgstr "Ось, володій моїм щитом та отримуй задоволення!"
 
 #: data/scripts/borgan.dat:44
 msgid "Just stay away from the Forbidden Swamp"
-msgstr ""
+msgstr "Тримайся подалі від Заборонного Болота"
 
 #: data/scripts/borgan.dat:45
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "Можна ненадовго взяти вашу кирку?"
 
 #: data/scripts/borgan.dat:46
 msgid "Sure thing, just bring it back in one piece"
-msgstr ""
+msgstr "Звичайно, тільки поверни її в цілості"
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
-msgstr ""
+msgstr "Дякую, Боргане!"
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
-msgstr ""
+msgstr "Тобі вже вдалося знайти вугілля?"
 
 #: data/scripts/safe.dat:5
 msgid "A safe in a library? Bit of a cliché..."
-msgstr ""
+msgstr "Сейф у бібліотеці? Таке кліше..."
 
 #: data/scripts/safe.dat:11
 msgid ""
 "It looks too thick to break open, I'll have to open it using the combination"
-msgstr ""
+msgstr "Дуже міцне, щоб відчинити силою, потрібна комбінація"
 
 #: data/scripts/statue_required.dat:1
 msgid ""
 "You must have the statue you wish to use highlighted in your inventory box"
-msgstr ""
+msgstr "Для використування статуї її потрібно виділити у вікні реманенту"
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
-msgstr ""
+msgstr "Ха, це що?"
 
 #: data/scripts/centurion_boss_start.dat:14
 msgid "ESCAPEE LOCATED"
-msgstr ""
+msgstr "ВИХІД ЗНАЙДЕНО"
 
 #: data/scripts/centurion_boss_start.dat:15
 msgid "TARGET IS ARMED AND DANGEROUS"
-msgstr ""
+msgstr "ЦІЛЬ ОЗБРОЄНА ТА НЕБЕЗПЕЧНА"
 
 #: data/scripts/centurion_boss_start.dat:16
 msgid "COMMENCING DESTRUCTION OF TARGET"
-msgstr ""
+msgstr "ПОЧАТОК ЗНИЩЕННЯ ЦІЛІ"
 
 #: data/scripts/blank_card_required.dat:1
 msgid "I need a blank card to put the instructions on"
-msgstr ""
+msgstr "Потрібна чиста карта для інструкцій"
 
 #: data/scripts/slime_potion_pool.dat:1
 msgid "That smell..."
-msgstr ""
+msgstr "Цей запах..."
 
 #: data/scripts/slime_potion_pool.dat:3
 msgid "It looks like..."
-msgstr ""
+msgstr "Вигляд..."
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
-msgstr ""
+msgstr "Густина..."
 
 #: data/scripts/slime_potion_pool.dat:5
 msgid "And it tastes like..."
-msgstr ""
+msgstr "Смак..."
 
 #: data/scripts/slime_potion_pool.dat:8
 msgid "It is! It's naturally occurring Slime potion!"
-msgstr ""
+msgstr "Це воно! Це справжнє зілля Слизня!"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "Gotcha!"
-msgstr ""
+msgstr "Впіймався!"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "Not so clever now are you?"
-msgstr ""
+msgstr "Зараз ти не такий спритний?"
 
 #: data/scripts/cave_boss_die.dat:79
 msgid "I REALLY have to get out of here!"
-msgstr ""
+msgstr "Я ДІЙСНО повинен вийти звідси!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
-msgstr ""
+msgstr "Привіт, Меггі"
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "Ох, Едгар, ти поранений! Дозволь мені полікувати твої рани!"
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
-msgstr ""
+msgstr "Дякую, Меггі!"
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
-msgstr ""
+msgstr "Стійкий, чи що?"
 
 #: data/scripts/sorceror_intro_3.dat:10
 msgid ""
 "I don't know what you did last time, but trust me, you won't escape again!"
 msgstr ""
+"Я не знаю, що ти створив попереднього разу, але повір мені, що тобі знову не "
+"врятуватись!"
 
 #: data/scripts/sorceror_intro_3.dat:20
 msgid "(Phew)"
-msgstr ""
+msgstr "(Фу)"
 
 #: data/scripts/sorceror_intro_3.dat:21
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
+msgstr "(Ей, дивись, один з шарів на щиті засвітився)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Твоє закляття на мене більше не подіє"
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
-msgstr ""
+msgstr "Зараз, якщо не скажеш, де мій батько"
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
-msgstr ""
+msgstr "Я повинен буду вбити тебе"
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
-msgstr ""
+msgstr "Ти ніколи не отримаєш такої можливості"
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore, I summon you! Destroy this pest!"
-msgstr ""
+msgstr "Грімлоре! Я призиваю тебе! Знищ цю комаху!"
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Прощавай, Едгаре"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
-msgstr ""
+msgstr "Хтось іде..."
 
 #: data/scripts/spirit.dat:1
 msgid ""
 "That spirit isn't going to let me past, I'll have to find a way to get rid "
 "of it"
 msgstr ""
+"Цей дух не дає мені пройти. Мені потрібно знайти спосіб від нього позбавитись"
 
 #: data/scripts/swamp_intro.dat:2
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "Це місце, на вигляд, не таке й погане..."
 
 #: data/scripts/swamp_intro.dat:13
 msgid "What was that?"
-msgstr ""
+msgstr "Що це було?"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Ах ох..."
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr ""
+msgstr "У грі існує два типа дверей. Ручні та автоматичні"
 
 #: data/scripts/tutorial_doors.dat:2
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
-msgstr ""
+msgstr "Ручні двері потребують відповідного ключа, автоматичні - перемикача"
 
 #: data/scripts/tutorial_doors.dat:3
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
+"Щоб відчинити заблоковані двері, від яких є ключ, потрібно просто йти на "
+"них. Для цього не треба вибирати ключ у реманенті."
 
 #: data/scripts/tutorial_doors.dat:4
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "Відчиняйте двері та рухайтесь далі"
 
 #: data/scripts/borer_cave_intro.dat:4
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "Ой, що трапилось?"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "Де це я?"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
-msgstr ""
+msgstr "Зараз спробуй свій щит"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr ""
+msgstr "Блокуй шарики від рослини та пригай вгору на слідуючий виступ"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
-msgstr ""
+msgstr "Я не вірю, що він покинув"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "Я так старався, щоб знайти його"
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
-msgstr ""
+msgstr "Та не зміг"
 
 #: data/scripts/ending_part1.dat:15
 msgid "What am I going to do now?"
-msgstr ""
+msgstr "Що мені робити?"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
-msgstr ""
+msgstr "*сопіння*"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr ""
+msgstr "Едгаре! Едгаре, де ти?"
 
 #: data/scripts/olaf.dat:6
 msgid "!"
-msgstr ""
+msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
-msgstr ""
+msgstr "Цей голос..."
 
 #: data/scripts/ending_part1.dat:22
 msgid "It can't be..."
-msgstr ""
+msgstr "Це може бути..."
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr ""
+msgstr "Татко!"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar!"
-msgstr ""
+msgstr "Едгар!"
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Якобе, я знайшов його!"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "Що ти тут робиш, синку? Небезпечно, ми повінні піти звидси"
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "Я прийшов тебе врятувати!"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
-msgstr ""
+msgstr "А? Ти що... Ні, розповіси мені пізніше, пішли додому"
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "Я спробую ще раз"
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
-msgstr ""
+msgstr "Відмовишся?"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "Я дізнаюсь про це потім"
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "Я спрагну"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
-msgstr ""
+msgstr "Можливо, що це ноти гімну. Я їх дам і піду"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
-msgstr ""
+msgstr "Мені потрібно знайти гімн Івана"
 
 #: data/scripts/tomb_door.dat:34
 msgid "Randomly ringing bells isn't going to work..."
-msgstr ""
+msgstr "Випадковий передзвін не працює..."
 
 #: data/scripts/tomb_door.dat:39
 msgid "Something is etched on this door"
-msgstr ""
+msgstr "Щось накарбовано на дверях"
 
 #: data/scripts/tomb_door.dat:40
 msgid "Enshrined in this tomb is the great warrior Ivan"
-msgstr ""
+msgstr "В цій могилі покоїться великий воїн Іван"
 
 #: data/scripts/tomb_door.dat:41
 msgid "Defeater of the evil dragon known as Chaos"
-msgstr ""
+msgstr "Переможець злого дракона Хоаса"
 
 #: data/scripts/tomb_door.dat:42
 msgid "Access to his tomb is granted only to those who play his anthem"
-msgstr ""
+msgstr "До могили допускається лиш той, хто грає свій гімн"
 
 #: data/scripts/tomb_door.dat:43
 msgid "His anthem? How on earth am I going to figure that out?!"
-msgstr ""
+msgstr "Свій гімн? Як це зрозуміти?"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
-msgstr ""
+msgstr "Це розділ про монстрів"
 
 #: data/scripts/monsters.dat:3
 msgid ""
 "I don't have any reason to read these but I'll keep it in mind in case I do"
 msgstr ""
+"Я не хочу це читати, але я повинен, на всякий випадок, тримати це в голові"
 
 #: data/scripts/monsters.dat:6
 msgid "I wonder what other monsters there are..."
-msgstr ""
+msgstr "Цікаво, які ще є монстри..."
 
 #: data/scripts/tomb_door.dat:41
 msgid "Chaos"
-msgstr ""
+msgstr "Хаос"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr ""
+msgstr "Хаос стародавній та злий дракон"
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
-msgstr ""
+msgstr "Дракон?! Батько казав, що вони всі вимерли!"
 
 #: data/scripts/monsters.dat:15
 msgid ""
 "For years he wreaked havoc across this land and took thousands of innocent "
 "lives, his fiery breath incinerated everything in its path"
 msgstr ""
+"Багато років він сіє хаос на землі та забрав тисячі безвинних життів, "
+"вогняним диханням спалюючи все на своему шляху"
 
 #: data/scripts/monsters.dat:16
 msgid ""
 "Finally a brave warrior and a group of magicians managed to overwhelm and "
 "bind him"
 msgstr ""
+"Нарешті хоробрий воїн та група магів змогли перемогти та скувати його"
 
 #: data/scripts/monsters.dat:17
 msgid "They sealed the dragon away beneath an old fortress"
-msgstr ""
+msgstr "Вони заточили дракона глибоко під старою фортецею"
 
 #: data/scripts/monsters.dat:18
 msgid "It is believed he is still there"
-msgstr ""
+msgstr "Можливо, він все ще там"
 
 #: data/scripts/monsters.dat:19
 msgid ""
 "Slowly regaining his power until he is strong enough to break free and "
 "terrorise the world once again"
 msgstr ""
+"Повільно відновлюються його сили, доки він не стане достатньо сильним, щоб "
+"вирватись на свободу та знову тероризувати світ"
 
 #: data/scripts/monsters.dat:21
 msgid "Beneath an old fortress? Maybe they mean this one..."
-msgstr ""
+msgstr "Під старою фортецею? Можливо мається на увазі ця..."
 
 #: data/scripts/monsters.dat:22
 msgid ""
 "If that dragon is regaining its power then it must be stopped before it's "
 "too late"
-msgstr ""
+msgstr "Доки дракон не відновить свої сили, його потрібно зупинити"
 
 #: data/scripts/monsters.dat:23
 msgid ""
 "But if its breath destroys anything then I won't be able to protect myself"
-msgstr ""
+msgstr "Але, якщо його подих зніщує все, я не зможу захистити себе"
 
 #: data/scripts/monsters.dat:24
 msgid "Unless..."
-msgstr ""
+msgstr "Якщо не..."
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore"
-msgstr ""
+msgstr "Грімлор"
 
 #: data/scripts/monsters.dat:32
 msgid ""
 "Grimlore is a creature from another dimension. It can be summoned using "
 "powerful dark magic"
 msgstr ""
+"Грімлор - це істота з іншого виміру. Може викликатись за допомогою чорної "
+"магії"
 
 #: data/scripts/monsters.dat:33
 msgid "The most common reason to summon this beast is to act as a bodyguard"
-msgstr ""
+msgstr "Найчастіше його викликають як особистого охоронця"
 
 #: data/scripts/monsters.dat:34
 msgid ""
 "There is no known way to kill Grimlore since upon sustaining critical "
 "injuries it will simply return to its own dimension"
 msgstr ""
+"Як вбити Грімлора невідомо, бо тяжко поранений він просто повертається у "
+"свій вимір"
 
 #: data/scripts/monsters.dat:35
 msgid ""
 "But even injuring it is a monumental task. Anyone encountering this creature "
 "is advised to escape as quickly as possible"
 msgstr ""
+"Але даже поранити його - неймовірна справа. При всякій зустрічі з цією "
+"істотою рекомендується тікати якомога швидше"
 
 #: data/scripts/monsters.dat:36
 msgid "Or they will die very quickly"
-msgstr ""
+msgstr "Або дуже швидко загинеш"
 
 #: data/scripts/monsters.dat:42
 msgid "Summoner, Dark"
-msgstr ""
+msgstr "Викликач, Чорный"
 
 #: data/scripts/monsters.dat:43
 msgid ""
 "Just like regular Summoners, Dark Summoners call in other beasts to do their "
 "bidding"
 msgstr ""
+"Так, як і звичайні Викликачі, Чорні Викликачі своїми призовами викликають "
+"інших творінь"
 
 #: data/scripts/monsters.dat:44
 msgid ""
 "Additionally though they can teleport short distances to escape from their "
 "opponents"
 msgstr ""
+"В додаток до всього, вони можуть миттєво переміщуватись на незначні відстані "
+"для втечі від своїх супротивників"
 
 #: data/scripts/monsters.dat:45
 msgid ""
 "Their staff is highly magical and although it cannot be used by humans "
 "directly, its magical properties are used in spell creation"
 msgstr ""
+"Їх посох чарівний та, хоча його неможливо використовувати людям "
+"безпосередньо, його магічні властивості застосовуються при створенні заклять"
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
-msgstr ""
+msgstr "Гувер, Рожевий"
 
 #: data/scripts/monsters.dat:52
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr ""
+msgstr "Рожеві Гувери - невеликі четвероногі з довгою мордою"
 
 #: data/scripts/monsters.dat:53
 msgid ""
 "The primary purpose of the snout is to forage for food but it also serves as "
 "a defence mechanism"
 msgstr ""
+"Основне призначення заклю полягає в доставці корму до рота для їжі, але "
+"також є механізмом захисту"
 
 #: data/scripts/monsters.dat:54
 msgid ""
 "and are more than capable of keeping a predator at bay by simply blowing "
 "them away"
 msgstr ""
+"і більш ніж в змозі тримати хижаків на відстані, та просто жене їх геть"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap, mobile"
-msgstr ""
+msgstr "Венерина Мухоловка, рухлива"
 
 #: data/scripts/monsters.dat:61
 msgid ""
 "Mobile Venus Flytraps have evolved roots and are able to move to their food "
 "rather than waiting for it to come to them"
 msgstr ""
+"Рухлива Венерина Мухоловка розвинула коріння та може пересуватись, полюючи "
+"на здобич, не чекаючи, доки та прийде сама"
 
 #: data/scripts/monsters.dat:62
 msgid ""
 "Their necks are incredibly elastic and are able to snap at their prey from a "
 "considerable distance away"
 msgstr ""
+"Їх стебла неймовірно пружні та в змозі вхопити свою жертву на значній "
+"відстані"
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
-msgstr ""
+msgstr "Черепаха, Головна"
 
 #: data/scripts/monsters.dat:69
 msgid ""
 "Master Tortoises are frightening beasts. Found in far away lands they "
 "possess the ability to change their heads"
 msgstr ""
+"Головні Черепахи - страшні тварини. Вони оволоділи знайденою в далеких "
+"землях здатністю переставляти свої голови"
 
 #: data/scripts/monsters.dat:70
 msgid ""
 "They combine all the abilities of their cousins to breathe fire, create ice "
 "and electrify themselves"
 msgstr ""
+"Вони поєднують в собі можливості своїх співбратів - вогняний та крижаний "
+"подих, електричні розряди"
 
 #: data/scripts/monsters.dat:71
 msgid ""
 "And of course they are also impervious to attacks from matching elements, "
 "absorbing the energy to heal themselves"
 msgstr ""
+"І, звісно, вони недоступні для атак відповідних їм сил, поглинаючи енергію "
+"для свого зцілення"
 
 #: data/scripts/monsters.dat:72
 msgid ""
 "But additionally, if they receive too much energy from healing, they evolve "
 "and go on the rampage"
 msgstr ""
+"В довершок, якщо отримують занадто багато енергії для зцїлення, вони "
+"еволюціонують і буянять"
 
 #: data/scripts/monsters.dat:73
 msgid ""
 "In this state they will smash through any defence and produce Dark Matter "
 "which destroys anything it touches"
 msgstr ""
+"В цьому стані воні здібні пробити будь-який захист і виробляють темну "
+"матерію, котра руйнує все, до чого торкнеться"
 
 #: data/scripts/monsters.dat:74
 msgid ""
 "However, the shell of a rampaging Master Tortoise is highly magical and is "
 "an essential ingredient when creating powerful magics and items"
 msgstr ""
+"Проте панцир розгніваної Головноі Черепахи надзвичайно чарівний і є важливим "
+"компонентом створення потужної магії та предметів"
 
 #: data/scripts/monsters.dat:80
 msgid "Grub, Red"
-msgstr ""
+msgstr "Личинка, Червона"
 
 #: data/scripts/monsters.dat:81
 msgid ""
 "Red Grubs are more aggressive than their green counterparts and will attack "
 "anything they view as a threat"
 msgstr ""
+"Червоні личинки більш агресивні, ніж їх зелені колеги, і атакують все, що ім "
+"загрожує"
 
 #: data/scripts/monsters.dat:82
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
-msgstr ""
+msgstr "Досягнувши зрілості, вони утворюють кокон і перетворюються в ос"
 
 #: data/scripts/monsters.dat:83
 msgid ""
 "Some however will morph into a queen wasp. These queens can produce a mucus-"
 "like substance capable of holding its prey in place"
 msgstr ""
+"Деякі можуть перетворюватися в Королеву Осу. Королеви можуть виробляти "
+"слизоподібну субстанцію, здатну утримувати здобич на місці"
 
 #: data/scripts/monsters.dat:89
 msgid "Splitter"
-msgstr ""
+msgstr "Роздільник"
 
 #: data/scripts/monsters.dat:90
 msgid "Splitters are harmless monsters unless attacked."
-msgstr ""
+msgstr "Роздільники - безпечні монстри, доки їх не атакують."
 
 #: data/scripts/monsters.dat:91
 msgid ""
 "Upon sustaining too much damage they will split in two and attack their "
 "predator"
-msgstr ""
+msgstr "При пораненні вони розділяються на дві частини та атакують хижака"
 
 #: data/scripts/monsters.dat:92
 msgid "If one of these sustains too much damage it will split once again"
-msgstr ""
+msgstr "Якщо враження занадто велике, то діляться ще раз"
 
 #: data/scripts/monsters.dat:93
 msgid ""
 "These versions are completely harmless and in this state can be simply "
 "stepped on"
 msgstr ""
+"В цьому випадку вони стають завсім безпечними та на них можливо просто "
+"наступити"
 
 #: data/scripts/monsters.dat:94
 msgid ""
 "If all its parts are still alive, a splitter will reform itself after a "
 "while and heal its wounds"
 msgstr ""
+"Якщо частини Роздільника живі, то через деякий час він себе відтворює та "
+"заліковує свої рани"
 
 #: data/scripts/monsters.dat:100
 msgid "Centurion, Grey"
-msgstr ""
+msgstr "Центуріон, Сірий"
 
 #: data/scripts/monsters.dat:101
 msgid ""
 "Centurions are magically created creatures, usually dispatched as sentries "
 "or guards"
 msgstr ""
+"Центуріони - магічні истоти, котрі звичайно використовуються як вартові чи "
+"охоронці"
 
 #: data/scripts/monsters.dat:102
 msgid ""
 "Though slow moving, their massive size allows them to simply march through "
 "any defence"
 msgstr ""
+"Незважаючи на повільний рух, Їх значні розміри дозволяють їм йти напролом "
+"крізь будь-яку оборону"
 
 #: data/scripts/monsters.dat:103
 msgid ""
 "Instead of arms, many have huge pile drivers which they use to shake the "
 "ground and disorientate threats"
 msgstr ""
+"Замість зброї у багатьох з них величезні молоти, котрими вони стрясають "
+"землю та дезорієнтують супротивника"
 
 #: data/scripts/monsters.dat:104
 msgid ""
@@ -6423,98 +6493,98 @@ msgstr ""
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
-msgstr ""
+msgstr "Хоч я його й не вбив, він дуже слабий, щоб являти загрозу світу"
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "Настав час повернутись до порятунку мого Татка..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
-msgstr ""
+msgstr "Він надійно запертий. Я не зможу туди повернутись"
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
-msgstr ""
+msgstr "Кінчено"
 
 #: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
-msgstr ""
+msgstr "А це що? Схоже на меч"
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
-msgstr ""
+msgstr "Це мабуть меч Івана"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Ти... Ти ніколи не здолаєш мене"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Я втечу з цього жахливого місця"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Навіть, якщо мені буде потрібно ще 100 років"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Ці ланцюги не зможуть тримати мене завжди"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "Настав час покласти цьому край. Приготуйся!"
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Ні! ВИГНАННЯ!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "Яка жахлива ніч"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Едгар, мені потрібно відлучитись на кілька годин"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
-msgstr ""
+msgstr "Ти можеш не лягати ще 30 хвилин, потім склади іграшки та йди спати"
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "Наступного ранку..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Татку! Де ти?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "Не схоже, щоб Татко ввечері повернувся додому"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "На ліжку не спали та мій сніданок не готовий"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "Це може означати тільки одне..."
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "Його викрав злий чаклун!"
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Тут було щось потужне"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
-msgstr ""
+msgstr "Все ще відчувається магічний заряд, що сходив раніше"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr ""
+msgstr "Щоб там не було, це було давним давно..."

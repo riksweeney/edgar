@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: The Legend of Edgar 0.98\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-11 20:39+0000\n"
+"PO-Revision-Date: 2012-04-15 07:24+0000\n"
 "Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-15 07:16+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -6159,7 +6159,7 @@ msgstr "The Sorcerer"
 
 #: data/medals.dat:1
 msgid "Became a legend"
-msgstr ""
+msgstr "Became a legend"
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
@@ -6863,50 +6863,52 @@ msgstr "No! BANISH!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "What a horrible night"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Edgar, I have to go out for a few hours"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "The following morning..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Dad! Where are you?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "It doesn't look like Dad came home last night"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "His bed hasn't been slept in and my breakfast isn't ready"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "That can only mean one thing..."
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "He must have been kidnapped by that evil sorceror!"
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Something very powerful was here"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
-msgstr ""
+msgstr "I can still feel the magical charge that it gave off"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr ""
+msgstr "Whatever it was, it's long gone..."
