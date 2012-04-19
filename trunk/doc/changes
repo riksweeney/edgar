@@ -6,6 +6,7 @@ Version 1.01
 * Bats and Books no longer get stuck after attacking you
 * Prevented certain items from being used when Edgar is a Slime, such as the Ice Spray
 * Resetting mirrors while they are reflecting light no longer leaves them unusable
+* Fixed a random crash when the Green Scanners spot you in the Armoury
 
 Version 1.00
 * Added a basic introduction to set up the story
