@@ -205,7 +205,7 @@ static void raiseOffGround()
 
 	checkToMap(self);
 
-	if (self->target->health > 0)
+	if (self->target->health > 0 && self->active == TRUE)
 	{
 		self->target->x = self->targetX;
 
@@ -223,6 +223,8 @@ static void raiseOffGround()
 		self->active = FALSE;
 
 		self->target = NULL;
+		
+		self->touch = NULL;
 
 		self->action = &vineMoveUp;
 	}

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-18 12:59+0000\n"
+"PO-Revision-Date: 2012-04-20 07:00+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
+"X-Launchpad-Export-Date: 2012-04-20 20:12+0000\n"
 "X-Generator: Launchpad (build 15120)\n"
 
 #: data/scripts/olaf.dat:6
@@ -1536,9 +1536,8 @@ msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
-"В то время как Серый Центурион используется для охраны внешнего периметра, "
-"Красные Центурионы, как известно, существуют и используются для защиты более "
-"важных мест"
+"В то время как Серый Центурион применяется для охраны внешнего периметра, "
+"Красные Центурионы, как известно, используются для защиты более важных мест"
 
 #: data/scripts/old_shield.dat:26
 msgid "Gazer"
@@ -1581,8 +1580,8 @@ msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
-"Глаз Наблюдателя содержит магические свойства и является общим ингредиентом "
-"для приготовления заклинаний"
+"Глаз Наблюдателя имеет магические свойства и является общим компонентом для "
+"приготовления заклинаний"
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
@@ -1683,15 +1682,15 @@ msgstr "Извините за неудобства"
 #: data/scripts/sewer_boss_start.dat:15
 msgid ""
 "So you're back? Well this time, only one of us is getting out of here alive!"
-msgstr "Так ты вернулся? В этот раз только один из нас уйдёт отсюда живим!"
+msgstr "Так ты вернулся? В этот раз только один из нас уйдёт отсюда живым!"
 
 #: data/scripts/enchanting_weapons.dat:2
 msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
-"Эта библиотека должна содержать информацию обо всём. Книга, в которой "
-"подробно описаны детали создания Щита против огня дракона, должна быть здесь"
+"В этой библиотеке есть информация обо всём. Книга, в которой подробно "
+"описано создание Щита против огня дракона, должна быть здесь..."
 
 #: data/scripts/enchanting_weapons.dat:8
 msgid ""
@@ -1759,7 +1758,7 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
-msgstr "Чёрт, всё сказал"
+msgstr "Чёрт, это всё что сказано"
 
 #: data/scripts/enchanting_weapons.dat:23
 msgid ""
@@ -1849,15 +1848,15 @@ msgid ""
 "There might be potions room or lab where I can find the roots, fat and bones "
 "so I don't need to worry about those"
 msgstr ""
-"Здесь возможно есть комната для приготовления зелий или лаборатория, где я "
-"смогу найти хвосты, жир и кости, так что мне не нужно беспокоиться о них"
+"Здесь, возможно, есть комната для приготовления зелий или лаборатория, где я "
+"смогу найти корни, жир и кости, так что мне не нужно беспокоиться о них"
 
 #: data/scripts/enchanting_weapons.dat:57
 msgid ""
 "The lab probably has the roots, fat and bones so I don't need to worry about "
 "those"
 msgstr ""
-"В лаборатории, вероятно, имеются корни, мази и кости, так что мне не нужно "
+"В лаборатории, вероятно, имеются корни, жир и кости, так что мне не нужно "
 "беспокоиться об этом"
 
 #: data/scripts/enchanting_weapons.dat:59
@@ -1891,7 +1890,7 @@ msgstr "Найдите другой щит"
 
 #: data/scripts/old_shield.dat:5
 msgid "Blend eyeballs and tentacle"
-msgstr "Смешать глаз и щупальце"
+msgstr "Смешать глаза и щупальце"
 
 #: data/scripts/enchanting_weapons.dat:78
 msgid "It's a book about enchanting equipment"
