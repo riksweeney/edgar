@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-18 12:57+0000\n"
+"PO-Revision-Date: 2012-04-20 06:39+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
+"X-Launchpad-Export-Date: 2012-04-20 20:12+0000\n"
 "X-Generator: Launchpad (build 15120)\n"
 
 #: data/scripts/olaf.dat:6
@@ -1524,324 +1524,370 @@ msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
+"Тоді як Сірий Центуріон використовується для охорони зовнішнього периметра, "
+"Червоні Центуріони, як відомо, охороняють більш важливі місця"
 
 #: data/scripts/old_shield.dat:26
 msgid "Gazer"
-msgstr ""
+msgstr "Спостерігач"
 
 #: data/scripts/monsters.dat:111
 msgid "Gazers are flying cycloptic creatures found in various places"
-msgstr ""
+msgstr "Спостерігачі - літаючі циклопи, котрих можна знайти в різних місцях"
 
 #: data/scripts/monsters.dat:112
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
+"Звичайно їх єдине око заплющене і вони покладаються на сонар для руху"
 
 #: data/scripts/monsters.dat:113
 msgid ""
 "They use their strong sense of smell to look out for predator and prey alike"
 msgstr ""
+"Вони використовують свою високу чутливість для пошуку жертв і спостереження "
+"за хижаками"
 
 #: data/scripts/monsters.dat:114
 msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
 msgstr ""
+"Спостерігачі атакують (і захищаються), разплющуючи око, котре вражає всіх, "
+"хто на них дивиться"
 
 #: data/scripts/monsters.dat:115
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
+"Ця атака ефективна лиш у тому разі, коли жертва знаходиться лицем до "
+"Спостерігача"
 
 #: data/scripts/monsters.dat:116
 msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
+"Око Спостерігача має магічні властивості та є загальною складовою для "
+"створення заклять"
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
-msgstr ""
+msgstr "Ах, ось Компендіум Монстрів"
 
 #: data/scripts/monsters.dat:121
 msgid "34 volumes! How can there be so many monsters in the world?!"
-msgstr ""
+msgstr "34 тома! Як може бути так багато монстрів у світі?!"
 
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
-msgstr ""
+msgstr "Це згодилось би під час мого полювання на Червону Багнюку"
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
-msgstr ""
+msgstr "Може в цих книгах може ще щось почитати..."
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
-msgstr ""
+msgstr "Здається, вони в алфавітному порядку"
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr ""
+msgstr "Слиз, Зелена... Слиз, Фіолетова... Багнюка, Зелена..."
 
 #: data/scripts/monsters.dat:132
 msgid "Sludge, Red"
-msgstr ""
+msgstr "Багнюка, Червона"
 
 #: data/scripts/monsters.dat:133
 msgid ""
 "Unlike its green cousin, the Red Sludge stays deep underground and rarely, "
 "if ever, surfaces"
 msgstr ""
+"На відміну від свого зеленого двоюрідного брата, Червона Багнюка зостається "
+"глибоко під землею та досить рідко, а може й ніколи не буває на поверхні"
 
 #: data/scripts/monsters.dat:134
 msgid ""
 "Its preferred habitat are dry and mineral rich areas and as a result have "
 "been found lurking in areas of mines abandoned by humans"
 msgstr ""
+"Мешкає переважно в сухих та багатих мінералами областях, траплялась в "
+"районах покинутих людьми копалень"
 
 #: data/scripts/monsters.dat:135
 msgid ""
 "They are very wary of humans and will attack on sight, usually vomiting up "
 "an acid which takes time to evaporate"
 msgstr ""
+"Вона сторожко відноситься до людей і відразу нападає, одригуючи кислоту, "
+"котра довго не вивітрюється"
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
-msgstr ""
+msgstr "Цілувальнік, Малий"
 
 #: data/scripts/monsters.dat:137
 msgid ""
 "Great, that's all it says. I don't even know how to tell the difference "
 "between a male and female. I'll just to take a chance..."
 msgstr ""
+"Це все, про що говориться. Я навіть не знаю, яка різниця між чоловічою та "
+"жіночою особою. Я ризикну..."
 
 #: data/scripts/monsters.dat:138
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
+msgstr "Що ще гірше цього може трапитись?"
 
 #: data/scripts/monsters.dat:139
 msgid ""
 "I didn't see any Sludges in the mine when I went to get Borgan's coal and "
 "even if there were any I can't get back there since my raft sank"
 msgstr ""
+"Я не бачив жодної Багнюки в шахті рудника, коли ходив за вугіллям для "
+"Бограна, і навіть, якщо там вони були, я не зможу повернутись туди, тому що "
+"мій пліт затонув"
 
 #: data/scripts/monsters.dat:140
 msgid "I'll have to find another mine around here..."
-msgstr ""
+msgstr "Доведеться знайти другий рудник десь тут..."
 
 #: data/scripts/mine2_exit.dat:1
 msgid "The boss that was guarding the Mine wasn't in the previous version"
-msgstr ""
+msgstr "Боса, охороняючого Рудник, в попередній версії не було"
 
 #: data/scripts/mine2_exit.dat:2
 msgid "Because it is in this version you won't be able to leave"
-msgstr ""
+msgstr "Тому в цій версії не можна вийти"
 
 #: data/scripts/mine2_exit.dat:3
 msgid "You will now be transported outside"
-msgstr ""
+msgstr "Буде переміщено назовні"
 
 #: data/scripts/mine2_exit.dat:4
 msgid "We apologize for the inconvenience"
-msgstr ""
+msgstr "Пробачте за незручність"
 
 #: data/scripts/sewer_boss_start.dat:15
 msgid ""
 "So you're back? Well this time, only one of us is getting out of here alive!"
-msgstr ""
+msgstr "Ти повернувся? Цього разу тільки один з нас вийде звідси живим!"
 
 #: data/scripts/enchanting_weapons.dat:2
 msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
+"В цій бібліотеці є інформація про все. Книга, в котрій до дрібниць описано "
+"створення Щита проти вогню дракона, повинна бути тут..."
 
 #: data/scripts/enchanting_weapons.dat:8
 msgid ""
 "That dragon stuff sounded interesting, but I'll read about it after I've "
 "created the Fire Shield"
 msgstr ""
+"Матеріал про дракона цікавий, але я прочитав його вже після створення "
+"Вогняного Щита"
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
+"Мені потрібно знайти 3 ока Спостерігача, 1 щупальце Червоної Багнюки та "
+"додатковий щит, щоб створити Вогнетривкий Щит"
 
 #: data/scripts/enchanting_weapons.dat:10
 msgid ""
 "Once I've found all these items I'll have to find a place to create the "
 "shield"
 msgstr ""
+"Як тільки я знайду всі ці предмети, мені потрібно буде знайти місце для "
+"створення щита"
 
 #: data/scripts/enchanting_weapons.dat:14
 msgid ""
 "That monster encyclopedia said the dragon's breath incinerated everything, "
 "but that warrior still managed to defeat it"
 msgstr ""
+"В енциклопедії монстрів розповідаеться, що подих дракона спалює все, але "
+"воїн все ж зміг одолати його"
 
 #: data/scripts/enchanting_weapons.dat:15
 msgid ""
 "Maybe this book has information about creating a shield to resist dragon "
 "breath"
 msgstr ""
+"Можливо ця книга містить інформацію про створення щита, що протистоїть "
+"диханню дракона"
 
 #: data/scripts/enchanting_weapons.dat:16
 msgid "Hmmm..."
-msgstr ""
+msgstr "Хммм..."
 
 #: data/scripts/enchanting_weapons.dat:2
 msgid "Shield of Dragon Fire Resistance"
-msgstr ""
+msgstr "Щит проти вогню Дракона"
 
 #: data/scripts/enchanting_weapons.dat:20
 msgid ""
 "Creation of shields of dragon fire resistance require occult magics and very "
 "little is known about their manufacture"
 msgstr ""
+"Створення щита, захищаючого від вогню дракона, потребує оккультної магії та "
+"надзвичайно мало відомо про його виготовлення"
 
 #: data/scripts/enchanting_weapons.dat:21
 msgid ""
 "Known ingredients include the shell fragment from a Rampaging Master "
 "Tortoise and the staff of a Dark Summoner"
 msgstr ""
+"Відомі компоненти включають уламок панциря Розгніваної Головної Черепахи та "
+"посох Чорного Викликача"
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
-msgstr ""
+msgstr "Чорт, це все що сказано"
 
 #: data/scripts/enchanting_weapons.dat:23
 msgid ""
 "This library is huge though, there must be a book in this place that "
 "describes the process"
-msgstr ""
+msgstr "Бібліотека величезна. Десь тут є книга, описуюча цей процес"
 
 #: data/scripts/enchanting_weapons.dat:24
 msgid "But I've looked everywhere, haven't I?"
-msgstr ""
+msgstr "Але я дивився всюди, чи не так?"
 
 #: data/scripts/enchanting_weapons.dat:33
 msgid "There's a book here about enchanting equipment"
-msgstr ""
+msgstr "Ось книга про чарівні речі"
 
 #: data/scripts/enchanting_weapons.dat:34
 msgid "Maybe I can create a shield..."
-msgstr ""
+msgstr "Можниво, я зможу зробити щит..."
 
 #: data/scripts/enchanting_weapons.dat:36
 msgid "Swords... Armour... Wands..."
-msgstr ""
+msgstr "Мечі... Лати... Жезли..."
 
 #: data/scripts/enchanting_weapons.dat:37
 msgid "Stupid book. It's not in order and there's no index"
-msgstr ""
+msgstr "Тупа книжка. Все не по порядку та немає індекса"
 
 #: data/scripts/enchanting_weapons.dat:39
 msgid "Here we go: Shields"
-msgstr ""
+msgstr "Знайшов: Щити"
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid "Shield of Fire Resistance"
-msgstr ""
+msgstr "Вогнетривкий Щит"
 
 #: data/scripts/enchanting_weapons.dat:41
 msgid "Ingredients"
-msgstr ""
+msgstr "Складові"
 
 #: data/scripts/enchanting_weapons.dat:42
 msgid "One must gather the following"
-msgstr ""
+msgstr "Потрібно зібрати таке"
 
 #: data/scripts/enchanting_weapons.dat:43
 msgid "The root of a Mandrake"
-msgstr ""
+msgstr "Корінь Мандрагори"
 
 #: data/scripts/enchanting_weapons.dat:44
 msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr ""
+msgstr "Жир Дарша (настояний впродовж 3 місяців)"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
-msgstr ""
+msgstr "Міцна кістка кондора"
 
 #: data/scripts/enchanting_weapons.dat:46
 msgid "3 eyes of the Gazer"
-msgstr ""
+msgstr "3 ока Спостерігача"
 
 #: data/scripts/enchanting_weapons.dat:47
 msgid "The freshly cut tentacle from a female Red Sludge"
-msgstr ""
+msgstr "Свіжозрізане щупальце Червоної Багнюки жіночого роду"
 
 #: data/scripts/enchanting_weapons.dat:48
 msgid "The shield to apply the enchantment"
-msgstr ""
+msgstr "Щит, який потрібно покращить"
 
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
-msgstr ""
+msgstr "Змішайте очі Спостерігача та щупальце Багнюки в однорідну рідину"
 
 #: data/scripts/enchanting_weapons.dat:50
 msgid ""
 "Add the root, fat and bones into the cauldron and mix together with the "
 "blended Gazer eyes and Sludge tentacle"
 msgstr ""
+"Добавте корінь, жир і кості в казан, та змішайте разом з сумішшю із очей "
+"Спостерігача та щупальця Багнюки"
 
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
-msgstr ""
+msgstr "Коли суміш стане яскраво синя, добавте щит"
 
 #: data/scripts/enchanting_weapons.dat:54
 msgid ""
 "There might be potions room or lab where I can find the roots, fat and bones "
 "so I don't need to worry about those"
 msgstr ""
+"Тут, можливо, є кімната для виготовлення зілля, або лабораторія, де я зможу "
+"знайти коріння, жир і кістки, так що мені не потрібно турбуватися про них"
 
 #: data/scripts/enchanting_weapons.dat:57
 msgid ""
 "The lab probably has the roots, fat and bones so I don't need to worry about "
 "those"
 msgstr ""
+"В лабораторії, ймовірно, є коріння, жир і кістки, так що мені не потрібно "
+"турбуватися про це"
 
 #: data/scripts/enchanting_weapons.dat:59
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr ""
+msgstr "Спостерігачі мешкають у підвалі, так що і це не проблема"
 
 #: data/scripts/enchanting_weapons.dat:60
 msgid ""
 "What I do need to find is a Red Sludge, but I have no idea where to find one"
-msgstr ""
+msgstr "Мені потрібно знайти Червону Багнюку, але я не знаю де"
 
 #: data/scripts/enchanting_weapons.dat:61
 msgid ""
 "I can't use my current shield in the experiment in case it backfires so I'll "
 "have to find another one"
 msgstr ""
+"Я не можу використати свій щит в експерименті, раптом він буде невдалим. Так "
+"що мені потрібно буде знайти інший"
 
 #: data/scripts/enchanting_weapons.dat:64
 msgid "Obtain 3 Gazer Eyes"
-msgstr ""
+msgstr "Отримати 3 Ока Спостерігача"
 
 #: data/scripts/monsters.dat:122
 msgid "Obtain 1 Red Sludge Tentacle"
-msgstr ""
+msgstr "Отримати 1 щупальце Червоної Багнюки"
 
 #: data/scripts/enchanting_weapons.dat:68
 msgid "Find another shield"
-msgstr ""
+msgstr "Знайти інший щит"
 
 #: data/scripts/old_shield.dat:5
 msgid "Blend eyeballs and tentacle"
-msgstr ""
+msgstr "Змішати очі та щупальця"
 
 #: data/scripts/enchanting_weapons.dat:78
 msgid "It's a book about enchanting equipment"
-msgstr ""
+msgstr "Це книга про чарівні речі"
 
 #: data/scripts/enchanting_weapons.dat:79
 msgid ""
 "I don't have any reason to read this but I'll keep it in mind in case I do"
-msgstr ""
+msgstr "Я не хочу це читати, але це потрібно запам’ятати на всякий випадок"
 
 #: data/scripts/items_found.dat:1
 msgid "Hmm, I've looked everywhere and this appears to be everything"

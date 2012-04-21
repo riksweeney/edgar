@@ -7,6 +7,7 @@ Version 1.01
 * Prevented certain items from being used when Edgar is a Slime, such as the Ice Spray
 * Resetting mirrors while they are reflecting light no longer leaves them unusable
 * Fixed a random crash when the Green Scanners spot you in the Armoury
+* Chaos's tendrils now release Edgar when he dies
 
 Version 1.00
 * Added a basic introduction to set up the story
