@@ -3,3 +3,4 @@ svn diff https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1
 svn diff https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1/src https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk/src --diff-cmd diff -x -uw >src_diff.diff
 svn diff https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1/data/scripts https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk/data/scripts --diff-cmd diff -x -uw >script_diff.diff
 svn diff https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1/data/patch https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk/data/patch --diff-cmd diff -x -uw >patch_diff.diff
+svn diff https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1/locale https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk/locale --diff-cmd diff -x -uw >locale_diff.diff

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-20 06:39+0000\n"
+"PO-Revision-Date: 2012-04-23 11:52+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-20 20:12+0000\n"
-"X-Generator: Launchpad (build 15120)\n"
+"X-Launchpad-Export-Date: 2012-04-24 17:36+0000\n"
+"X-Generator: Launchpad (build 15139)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -1891,346 +1891,367 @@ msgstr "Я не хочу це читати, але це потрібно зап�
 
 #: data/scripts/items_found.dat:1
 msgid "Hmm, I've looked everywhere and this appears to be everything"
-msgstr ""
+msgstr "Хмм, я дивився скрізь. І це, схоже, все"
 
 #: data/scripts/items_found.dat:2
 msgid ""
 "I guess the other things must have been destroyed when the sorceror used "
 "that spell"
-msgstr ""
+msgstr "А гадаю, що інші речі булі знищені закляттям чаклуна"
 
 #: data/scripts/items_found.dat:3
 msgid "Now to find out where I am and how I can get back"
-msgstr ""
+msgstr "Дізнаюсь де знаходиться вихід і як повернутися"
 
 #: data/scripts/items_found.dat:4
 msgid "If I can..."
-msgstr ""
+msgstr "Якщо зможу..."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
-msgstr ""
+msgstr "Ух, пішов дощ"
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr ""
+msgstr "Я потрапив до пастки і ситуація, на вигляд, безнадійна"
 
 #: data/scripts/sewer_trap_note.dat:3
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr ""
+msgstr "Щоб вибратися з цього місця, мені потрібно 3 Ключа Доступу до ліфтів"
 
 #: data/scripts/sewer_trap_note.dat:4
 msgid "So far I have only found 1"
-msgstr ""
+msgstr "Доси я знайшов лише 1"
 
 #: data/scripts/sewer_trap_note.dat:5
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
 "placed arrow"
 msgstr ""
+"А гірше всього те, що мені не завжди вдається влучити в перемикач стрілою"
 
 #: data/scripts/sewer_trap_note.dat:6
 msgid "But spares aren't common and I have run out"
-msgstr ""
+msgstr "Бо їх запас обмежений"
 
 #: data/scripts/sewer_trap_note.dat:7
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr ""
+msgstr "Якщо я не знайду вихід найближчим часом, то, боюсь, помру з голоду"
 
 #: data/scripts/sewer_trap_note.dat:9
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr ""
+msgstr "Якщо я не потраплю до виходу, мене жде така сама доля..."
 
 #: data/scripts/sewer_trap_note.dat:10
 msgid "Collect 3 Access Keys"
-msgstr ""
+msgstr "Зібрати 3 Ключа Доступу"
 
 #: data/scripts/tutorial_walls.dat:1
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr ""
+msgstr "Ця стіна слабка, її можливо зруйнувати киркою"
 
 #: data/scripts/tutorial_walls.dat:2
 msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
-msgstr ""
+msgstr "Для використання кирки, жми Атака ([INPUT_ATTACK])"
 
 #: data/scripts/tutorial_walls.dat:3
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
-msgstr ""
+msgstr "Зауважте, що не всі нетривкі стіни руйнуються киркою"
 
 #: data/scripts/tutorial_walls.dat:4
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr ""
+msgstr "Зруйнуй цю стіну киркою та продовж"
 
 #: data/scripts/grimlore_die.dat:3
 msgid "There, back to your own dimension"
-msgstr ""
+msgstr "Туди, назад в інший вимір"
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr ""
+msgstr "Куди пішов чаклун?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
-msgstr ""
+msgstr "Нарешті, ми зустрілись!"
 
 #: data/scripts/sorceror_intro_1.dat:9
 msgid "Who are you?"
-msgstr ""
+msgstr "Ти хто?"
 
 #: data/scripts/sorceror_intro_1.dat:10
 msgid ""
 "My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
-msgstr ""
+msgstr "Мене зовуть Едгар і [HOURS] останніх годин я намагаюсь знайти тебе!"
 
 #: data/scripts/sorceror_intro_1.dat:11
 msgid "Fascinating. What do you want?"
-msgstr ""
+msgstr "Чарівливо. Що ти хочеш?"
 
 #: data/scripts/sorceror_intro_1.dat:12
 msgid "I've come to rescue my father, tell me where he is!"
-msgstr ""
+msgstr "Я прийшов врятувати мого тата. Скажи, де він?"
 
 #: data/scripts/sorceror_intro_1.dat:13
 msgid ""
 "Your father? My dear child, I do not have the foggiest idea what you are "
 "talking about"
 msgstr ""
+"Твій батько?  Моє дитятко, я зовсім не маю ані найменшої уяви, про що ти "
+"говориш"
 
 #: data/scripts/sorceror_intro_1.dat:14
 msgid ""
 "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
 msgstr ""
+"Якщо його ніде нема, можливо вім у моїй темниці. Чому б тобі не подивитись "
+"там?"
 
 #: data/scripts/ant_lion.dat:1
 msgid "There's something moving around down there..."
-msgstr ""
+msgstr "Там хтось рухається..."
 
 #: data/scripts/ant_lion.dat:2
 msgid "It might be an ant lion looking for food"
-msgstr ""
+msgstr "Це можливо мурашиний лев шука їжу"
 
 #: data/scripts/ant_lion.dat:3
 msgid "If I go down there, it'll almost certainly eat me"
-msgstr ""
+msgstr "Якщо я піду туди, то мене, напевне, з’їдять"
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
+msgstr "Можливо, я зможу заманити когось у цю пастку"
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
-msgstr ""
+msgstr "Багато слизу"
 
 #: data/scripts/purifier.dat:4
 msgid ""
 "I don't think the Ice Spray will get across this since it only works on water"
 msgstr ""
+"Я не думаю, що розпилювач криги допоможе мені перебратися, бо він працює "
+"тільки в воді"
 
 #: data/scripts/purifier.dat:11
 msgid "Slimes can only swim in water so that's not going to help either"
-msgstr ""
+msgstr "Слизень плаває також у воді, так що і це не допоможе"
 
 #: data/scripts/purifier.dat:12
 msgid "I remember Borgan telling me how ironic that is"
-msgstr ""
+msgstr "Я пригадую, Борган розповідав мені про цей парадокс"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across..."
-msgstr ""
+msgstr "Мені потрібно знайти щось, що допоможе перебратися..."
 
 #: data/scripts/purple_gem.dat:1
 msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
-msgstr ""
+msgstr "Здається, там він міцно затиснутий. Спробую ослабити його киркою..."
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr ""
+msgstr "Це схоже на змішувач. Його можна використати, щоб взбовтати щось"
 
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
+"Мені потрібно 1 Щупальце Червоної Багнюки та 3 Ока Спостерігача для "
+"виготовлення зілля"
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr ""
+msgstr "Для зілля потрібна порожня пляшечка"
 
 #: data/scripts/blender.dat:22
 msgid "OK, here goes!"
-msgstr ""
+msgstr "Добре, поїхали!"
 
 #: data/scripts/tutorial_boxes.dat:1
 msgid "Some items in the game can be pushed and pulled"
-msgstr ""
+msgstr "Декотрі предмети ві грі можна товкати та тягти"
 
 #: data/scripts/tutorial_boxes.dat:2
 msgid "To push an item, simply walk into it"
-msgstr ""
+msgstr "Для товкання предмету просто йти на нього"
 
 #: data/scripts/tutorial_boxes.dat:3
 msgid "To pull an item, walk into while holding down Action"
-msgstr ""
+msgstr "Щоб тягти предмет, потрібно тиснути Дія та відходити від нього"
 
 #: data/scripts/tutorial_boxes.dat:4
 msgid "You can then pull the item around until you let go of Action"
-msgstr ""
+msgstr "Можна тягти предмет, доки не відпущена клавіша Дія"
 
 #: data/scripts/tutorial_boxes.dat:5
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr ""
+msgstr "Підтягни ящик на іншу сторону, щоб дістатися до виступа"
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "Ого, лабораторія!"
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
 msgstr ""
+"Я залюбки спостерігаю, як Меггі робе закляття та зілля, можливо тут я зможу "
+"це зробити самостійно!"
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr ""
+msgstr "Ніде сховатися"
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
-msgstr ""
+msgstr "Ти переміг Грімлора? Неймовірно!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
-msgstr ""
+msgstr "Він підкорився моєму мечу, як і всі в цьому загиблому місці"
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
-msgstr ""
+msgstr "Це твоя остання нагода. Скажи, де мій тато!"
 
 #: data/scripts/sorceror_start.dat:8
 msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
-msgstr ""
+msgstr "Я НЕ ЗНАЮ, ПРО ЩО ТИ ГОВОРИШ!"
 
 #: data/scripts/sorceror_start.dat:9
 msgid "LIAR! I've run out of patience, prepare to die!"
-msgstr ""
+msgstr "БРЕХУН! Моє терпіння закінчилось, готуйся до смерті!"
 
 #: data/scripts/sorceror_start.dat:11
 msgid "Very well. If that is your wish"
-msgstr ""
+msgstr "Відмінно. Якщо це твоє побажання"
 
 #: data/scripts/sorceror_start.dat:12
 msgid "Many have suffered at my hand"
-msgstr ""
+msgstr "Багато потерпіло від моїх рук"
 
 #: data/scripts/sorceror_start.dat:13
 msgid "Your death will be quick, but extremely painful"
-msgstr ""
+msgstr "Ти помреш швидко, але нестерпно болісно"
 
 #: data/scripts/sorceror_start.dat:14
 msgid ""
 "I will add your head to the long line of foolish adventurers who have tried "
 "to best me"
 msgstr ""
+"Я добавлю твою голову в довгий ряд безглуздих шукачів пригод, намагавшихся "
+"зробити мене кращим"
 
 #: data/scripts/sorceror_start.dat:16
 msgid "Prepare yourself, Edgar"
-msgstr ""
+msgstr "Приготуйся, Едгар"
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
 msgstr ""
+"Перемикач скиду використовується для відновлення положення об’єкта на карті"
 
 #: data/scripts/tutorial_reset_switch.dat:2
 msgid ""
 "If an object becomes unreachable then you can use the switch to put it back "
 "in its original place"
 msgstr ""
+"Якщо використання об’єкту стало неможливим, скид поверне його в початковий "
+"стан"
 
 #: data/scripts/black_book.dat:1
 msgid "This book is different to the rest"
-msgstr ""
+msgstr "Ця книга відрізняється від інших"
 
 #: data/scripts/black_book.dat:2
 msgid "I can feel a powerful magic emanating from it"
-msgstr ""
+msgstr "Я відчуваю потужну магію, випромінювану нею"
 
 #: data/scripts/black_book.dat:3
 msgid "A powerful evil magic"
-msgstr ""
+msgstr "Могутня чорна магія"
 
 #: data/scripts/black_book.dat:4
 msgid "Maybe I should leave it alone"
-msgstr ""
+msgstr "Можливо, я повинен зоставити її в спокої"
 
 #: data/scripts/black_book.dat:5
 msgid "Still, I could be wrong, maybe it's not evil magic..."
-msgstr ""
+msgstr "Але я можу помилятися. Можливо, це не чорна магія..."
 
 #: data/scripts/black_book.dat:6
 msgid "Examine the book?"
-msgstr ""
+msgstr "Прочитати книгу?"
 
 #: data/scripts/black_book.dat:20
 msgid "What just happened?"
-msgstr ""
+msgstr "Що сталося?"
 
 #: data/scripts/black_book.dat:22
 msgid "Maybe I shouldn't go around touching books that give off an evil aura"
 msgstr ""
+"Можливо, мені не терба ходити біля книг, випромінюючих злу ауру, та чіпати їх"
 
 #: data/scripts/black_book.dat:23
 msgid "And spend more time looking for my Dad"
-msgstr ""
+msgstr "І більше часу виділяти на пошуки мого татка"
 
 #: data/scripts/black_book.dat:25
 msgid ""
 "This would have allowed you to fight Mataeus, but it looks like you've "
 "already defeated him..."
-msgstr ""
+msgstr "Це дозволило б боротися з Матайоусом, але його вже переможено..."
 
 #: data/scripts/black_book.dat:29
 msgid "I'll leave it alone, I'm not getting a good feeling from it"
-msgstr ""
+msgstr "Зоставлю в спокої, бо не отримую від цього задоволення"
 
 #: data/scripts/catacombs_intro.dat:2
 msgid "Oh great, I can barely see anything"
-msgstr ""
+msgstr "Ох, я ледве бачу"
 
 #: data/scripts/catacombs_intro.dat:9
 msgid "I'll have to be careful where I tread..."
-msgstr ""
+msgstr "Мені доведеться обережно ступати..."
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "Escape the Catacombs"
-msgstr ""
+msgstr "Вибратися з Катакомб"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
-msgstr ""
+msgstr "Він тут, я це відчуваю"
 
 #: data/scripts/final_battle.dat:2
 msgid ""
 "There's no going back once I step through that door, I'd better make sure "
 "I'm ready"
 msgstr ""
+"Неможливо повернутися, коли вийду в ці двері. Подрібно переконатися, що я "
+"готовий"
 
 #: data/scripts/final_battle.dat:3
 msgid "Enter the door?"
-msgstr ""
+msgstr "Пройти в двері?"
 
 #: data/scripts/final_battle.dat:5
 msgid "OK, here we go..."
-msgstr ""
+msgstr "Добре, йдемо звідси..."
 
 #: data/scripts/final_battle.dat:11
 msgid "Maybe I should prepare a little bit more first"
-msgstr ""
+msgstr "Можливо, необхідно ще трішки приготуватись"
 
 #: data/scripts/tutorial_intro.dat:4
 msgid ""
 "Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
 "box"
 msgstr ""
+"Жми ([INPUT_JUMP]) після прочитання для переходу до слідуючого діалогового "
+"вікна"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid ""
@@ -2238,981 +2259,1058 @@ msgid ""
 "([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
 "([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Також можна перейти до слідуючого діалогового вікна, натиснувши Атака "
+"([INPUT_ATTACK]), Захист ([INPUT_BLOCK]), Стрибок ([INPUT_JUMP]), Дія "
+"([INPUT_INTERACT]) або Використати предмет ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
+"Це навчання грі Легенда про Едгара. В ньому разповідається, як грати в цю "
+"гру."
 
 #: data/scripts/tutorial_intro.dat:7
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
 msgstr ""
+"Для виходу з навчання, натисни Escape. Стрілками Вгору та Вниз здійснюється "
+"переміщення по меню. Для вибору використовується Enter."
 
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
 msgstr ""
+"Для переміщення Едгара вліво та вправо, використавуються ([INPUT_LEFT]) та "
+"([INPUT_RIGHT])."
 
 #: data/scripts/tutorial_intro.dat:9
 msgid ""
 "To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
 msgstr ""
+"Щоб Едгар здійснив стрибок, натисни ([INPUT_JUMP]). Під час стрибка можливо "
+"рухатись."
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Для дії тисни ([INPUT_INTERACT])"
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Проходь Точку Взаємодії та натисни ([INPUT_INTERACT])"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
-msgstr ""
+msgstr "Перше, ніж піти, необхідно повернути пропащі речі"
 
 #: data/scripts/azriel_start.dat:6
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
-msgstr ""
+msgstr "Хто осмілився обікрасти могилу великого воїна Івана?"
 
 #: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
-msgstr ""
+msgstr "Хто це сказав?"
 
 #: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
-msgstr ""
+msgstr "Нахабний невіглас, ти постраждаєш за свою неповагу"
 
 #: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
-msgstr ""
+msgstr "Я - Азраіл"
 
 #: data/scripts/centurion_note_1.dat:2
 msgid "I've managed to escape from my cell and am trying to find a way out"
-msgstr ""
+msgstr "Мені вдалося втекти з камери і я шукаю вихід"
 
 #: data/scripts/centurion_note_1.dat:3
 msgid ""
 "I found a door blocked by a frame which you need to put 9 jigsaw puzzle "
 "pieces in"
 msgstr ""
+"Я побачив, що двері заблоковано рамкою, в котру потрібно вставити 9 частин "
+"головоломки"
 
 #: data/scripts/centurion_note_1.dat:4
 msgid ""
 "The pieces are locked behind doors which seem to be linked to the Red "
 "Centurions"
 msgstr ""
+"Частини заперті за дверима, котрі, ймовірно, зв’язані з Червоним Центуріоном"
 
 #: data/scripts/centurion_note_1.dat:5
 msgid "The Centurions appear to be indestructible however"
-msgstr ""
+msgstr "Здається, що Центуріон невразливий"
 
 #: data/scripts/centurion_note_1.dat:6
 msgid "Unless I can find a way to destroy them I will die down here"
-msgstr ""
+msgstr "Якщо я не знайду спосіб знищення, то помру тут"
 
 #: data/scripts/centurion_note_1.dat:7
 msgid "I'll find a way to destroy them"
-msgstr ""
+msgstr "Я знайду спосіб знищити"
 
 #: data/scripts/centurion_note_1.dat:8
 msgid "I'm so close to rescuing Dad now..."
-msgstr ""
+msgstr "Так закінчиться врятування Тата..."
 
 #: data/scripts/centurion_note_1.dat:10
 msgid "Find 9 Puzzle Pieces"
-msgstr ""
+msgstr "Знайти 9 частин головоломки"
 
 #: data/scripts/wrong_order.dat:2
 msgid "Nothing happened. I don't think that's the right order"
-msgstr ""
+msgstr "Нічого не трапилось. Я не думаю, що це вірний лад"
 
 #: data/scripts/fortress_mine_exit_sign.dat:1
 msgid "There's another sign here"
-msgstr ""
+msgstr "Там ще один знак"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "If the exit lift is out of order then proceed to the left"
-msgstr ""
+msgstr "Якщо вихідний ліфт несправний, відправляйтесь наліво"
 
 #: data/scripts/fortress_mine_exit_sign.dat:3
 msgid "Warning : Exit route may be hazardous"
-msgstr ""
+msgstr "Увага: Вихід може бути небезпечним"
 
 #: data/scripts/fortress_mine_exit_sign.dat:5
 msgid "Maybe I should use the lift to get out"
-msgstr ""
+msgstr "Можливо, що для виходу потрібно скористуватись ліфтом"
 
 #: data/scripts/smoothie_colour.dat:1
 msgid "Cool, it worked!"
-msgstr ""
+msgstr "Круто, працює!"
 
 #: data/scripts/smoothie_colour.dat:2
 msgid "I'm not sure about the colour though, I thought it would be red?"
-msgstr ""
+msgstr "Хоч я не впевнений в кольорі, я гадаю, що він можливо червоний?"
 
 #: data/scripts/smoothie_colour.dat:3
 msgid "Maybe it's supposed to be yellow..."
-msgstr ""
+msgstr "Можливо, жовтий..."
 
 #: data/scripts/smoothie_colour.dat:10
 msgid "I just need to find another shield to enchant..."
-msgstr ""
+msgstr "Мені потрібно знайти інший щит для чар..."
 
 #: data/scripts/cauldron_exploded.dat:7
 msgid "Maybe that wasn't such a good idea after all..."
-msgstr ""
+msgstr "Можливо, в решті-решт, не така вже гарна ідея..."
 
 #: data/scripts/cauldron_exploded.dat:9
 msgid "Looks like I'll have to another way to get past those fireballs"
 msgstr ""
+"Схоже, мені прийдеться знайти інший шлях для обходу цих вогняних шарів"
 
 #: data/scripts/sleeping.dat:2
 msgid "It's sleeping"
-msgstr ""
+msgstr "Він спить"
 
 #: data/scripts/sleeping.dat:3
 msgid "I'm safe anyway since it's in that cage..."
-msgstr ""
+msgstr "Я в безпеці, тому що він у клітці..."
 
 #: data/scripts/gargoyle_start.dat:6
 msgid "I don't want to go back to the swamp"
-msgstr ""
+msgstr "Я не хочу повертатися в болото"
 
 #: data/scripts/gargoyle_start.dat:8
 msgid "I'm pretty sure Dad's in the fortress"
-msgstr ""
+msgstr "Я впевнений, що Татко в фортеці"
 
 #: data/scripts/gargoyle_start.dat:12
 msgid "Maybe I should check the swamp again..."
-msgstr ""
+msgstr "Можливо, мені варто перевірити болото ще..."
 
 #: data/scripts/gargoyle_start.dat:21
 msgid "What was that?!"
-msgstr ""
+msgstr "Що це було?"
 
 #: data/scripts/ending_part2.dat:32
 msgid "...and when you didn't come home last night I set off to find you"
 msgstr ""
+"... і коли ти не прийшов додому вчора ввечері, я відправився на твої пошуки"
 
 #: data/scripts/ending_part2.dat:33
 msgid "You went to the Sorceror's Fortress?!"
-msgstr ""
+msgstr "Ти пішов у фортецю чаклуна?!"
 
 #: data/scripts/ending_part2.dat:34
 msgid "I thought he'd kidnapped you! Where were you?"
-msgstr ""
+msgstr "Я вважав, що він полонив тебе! Де ти був?"
 
 #: data/scripts/ending_part2.dat:35
 msgid "Erm... well you see"
-msgstr ""
+msgstr "Хм... бачиш"
 
 #: data/scripts/ending_part2.dat:36
 msgid "When I went out last night I went to Jacob's for a couple of drinks"
-msgstr ""
+msgstr "Вчора ввечері я пішов до Якоба випити"
 
 #: data/scripts/ending_part2.dat:37
 msgid "*cough*"
-msgstr ""
+msgstr "*кашель*"
 
 #: data/scripts/ending_part2.dat:38
 msgid "several drinks"
-msgstr ""
+msgstr "кілька ковтків"
 
 #: data/scripts/ending_part2.dat:39
 msgid "On the way home I stopped by the well to have a drink of water"
-msgstr ""
+msgstr "На шляху додому я зупинився біля криниці напитись води"
 
 #: data/scripts/ending_part2.dat:40
 msgid "and I fell in"
-msgstr ""
+msgstr "і я впав"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?"
-msgstr ""
+msgstr "Що?"
 
 #: data/scripts/ending_part2.dat:45
 msgid "I fell down the well"
-msgstr ""
+msgstr "Я впав в колодязь"
 
 #: data/scripts/ending_part2.dat:46
 msgid "I was down there until only a couple of hours ago"
-msgstr ""
+msgstr "Я був внизу ще пару годин назад"
 
 #: data/scripts/ending_part2.dat:47
 msgid "Are you kidding me?"
-msgstr ""
+msgstr "Ти що, жартуєш?"
 
 #: data/scripts/ending_part2.dat:49
 msgid "I shouted down that well, didn't you hear me?"
-msgstr ""
+msgstr "Я кричав в колодязь, ти мене не чув?"
 
 #: data/scripts/ending_part2.dat:50
 msgid "I was out cold"
-msgstr ""
+msgstr "Я був без свідомості"
 
 #: data/scripts/ending_part2.dat:51
 msgid "Plus, the hangover was absolute murder"
-msgstr ""
+msgstr "Плюс, був смертельно п’яний"
 
 #: data/scripts/ending_part2.dat:53
 msgid "I crossed the swamp"
-msgstr ""
+msgstr "Я перейшов болото"
 
 #: data/scripts/ending_part2.dat:54
 msgid "Broke into the Sorceror's Fortress"
-msgstr ""
+msgstr "Увірвався в фортецю чаклуна"
 
 #: data/scripts/ending_part2.dat:55
 msgid "Fought countless numbers of ferocious monsters"
-msgstr ""
+msgstr "Переміг безліч лютих монстрів"
 
 #: data/scripts/ending_part2.dat:56
 msgid "Got imprisoned in his dungeon"
-msgstr ""
+msgstr "Був ув’язнений в темницю"
 
 #: data/scripts/ending_part2.dat:57
 msgid "And was teleported to another part of the world!"
-msgstr ""
+msgstr "Був перенесений в іншу частину світу!"
 
 #: data/scripts/ending_part2.dat:58
 msgid "I nearly died!"
-msgstr ""
+msgstr "Я ледве не загинув!"
 
 #: data/scripts/ending_part2.dat:61
 msgid "Near misses don't count"
-msgstr ""
+msgstr "Не злічити втрат"
 
 #: data/scripts/ending_part2.dat:64
 msgid "Only the once though"
-msgstr ""
+msgstr "Хоч тільки раз"
 
 #: data/scripts/ending_part2.dat:67
 msgid "[CONTINUE_COUNT] times according to my count"
-msgstr ""
+msgstr "По моїм підрахункам [CONTINUE_COUNT] раз"
 
 #: data/scripts/ending_part2.dat:73
 msgid ""
 "And after all that, when I defeated the Sorceror, he had no idea who you were"
-msgstr ""
+msgstr "Та після того, як переміг Чаклуна, поняття не мав, де ти"
 
 #: data/scripts/ending_part2.dat:74
 msgid "You killed the Sorceror?!"
-msgstr ""
+msgstr "Ти вбив Чаклуна?!"
 
 #: data/scripts/ending_part2.dat:75
 msgid "I thought he'd kidnapped Dad!"
-msgstr ""
+msgstr "Я гадав, що він викрав Татка!"
 
 #: data/scripts/ending_part2.dat:76
 msgid ""
 "Wow, that has to be the worst case of false accusation I think I'll ever "
 "hear!"
 msgstr ""
+"Нічого собі. Це повинне бути одним з самих страшних помилкових обвинувачень, "
+"котре я коли-небудь чув!"
 
 #: data/scripts/ending_part2.dat:78
 msgid "But more seriously, you disobeyed me, son"
-msgstr ""
+msgstr "Але, що ще більш серйозне, ти не послухав мене, сину"
 
 #: data/scripts/ending_part2.dat:79
 msgid "I told you to never set foot in the Forbidden Swamp"
-msgstr ""
+msgstr "Я казав тобі, щоб ти ніколи не ходив на Заборонне Болото"
 
 #: data/scripts/ending_part2.dat:80
 msgid "And for that, you'll have to be punished"
-msgstr ""
+msgstr "І за це ти будеш покараний"
 
 #: data/scripts/ending_part2.dat:82
 msgid "But Dad..."
-msgstr ""
+msgstr "Але татку..."
 
 #: data/scripts/ending_part2.dat:83
 msgid "Be quiet!"
-msgstr ""
+msgstr "Мовчи!"
 
 #: data/scripts/ending_part2.dat:84
 msgid "I just need to think of something suitable..."
-msgstr ""
+msgstr "Я повинен придумати щось відповідне..."
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
-msgstr ""
+msgstr "Поглянь, Якобе. Твоїм курчатам знову вдалося втекти з загону"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
-msgstr ""
+msgstr "Фактично, я думаю, твоїм покаранням буде..."
 
 #: data/scripts/jigsaw_puzzle.dat:3
 msgid "A jigsaw puzzle?!"
-msgstr ""
+msgstr "Головоломки?!"
 
 #: data/scripts/jigsaw_puzzle.dat:4
 msgid "I'm not really a fan of these"
-msgstr ""
+msgstr "Я, дійсно, не їх шанувальник"
 
 #: data/scripts/jigsaw_puzzle.dat:7
 msgid ""
 "I prefer the sliding puzzles, like the one I had to solve to get the "
 "Lightning Sword"
 msgstr ""
+"Я віддаю перевагу роздвижним головоломкам на зразок тієї, котру потрібно "
+"було розгадати для отримання Меча Блискавок"
 
 #: data/scripts/jigsaw_puzzle.dat:9
 msgid "Still, it looks like this is the only way out"
-msgstr ""
+msgstr "Однак, схоже, це єдиний вихід"
 
 #: data/scripts/jigsaw_puzzle.dat:16
 msgid "Looks like I need 9 pieces to slot into the frame"
-msgstr ""
+msgstr "Схоже, що в пазах рамки повинно бути 9 частин"
 
 #: data/scripts/jigsaw_puzzle.dat:19
 msgid "The frame is empty"
-msgstr ""
+msgstr "Рамка пуста"
 
 #: data/scripts/jigsaw_puzzle.dat:20
 msgid ""
 "Hopefully the pieces I need are around somewhere, otherwise I'm going to die "
 "down here"
-msgstr ""
+msgstr "Сподіваюсь, що необхідні частини близько, бо тут доведеться померти"
 
 #: data/scripts/jigsaw_puzzle.dat:23
 msgid ""
 "I've got all the pieces, I just need to place them in the frame and solve "
 "the puzzle"
 msgstr ""
+"У мене є всі частини. Просто потрібно їх вставити в рамку та розгадати "
+"головоломку"
 
 #: data/scripts/jigsaw_puzzle.dat:24
 msgid "Push left, right, up or down to move the cursor"
-msgstr ""
+msgstr "Тиснути вліво, вправо, вгору чи вниз для переміщення курсора."
 
 #: data/scripts/jigsaw_puzzle.dat:25
 msgid "Press Attack to select the current piece and move it around"
-msgstr ""
+msgstr "Натиснути Атака для вибору частини для переміщення"
 
 #: data/scripts/jigsaw_puzzle.dat:26
 msgid "Press Attack again to stop moving the current piece"
-msgstr ""
+msgstr "Знову натиснути Атака для припинення переміщення частини"
 
 #: data/scripts/jigsaw_puzzle.dat:27
 msgid "Press Action to quit the puzzle"
-msgstr ""
+msgstr "Натиснути Дія для виходу з головоломки"
 
 #: data/scripts/ice_spray.dat:1
 msgid "More water?!"
-msgstr ""
+msgstr "Ще вода?!"
 
 #: data/scripts/ice_spray.dat:7
 msgid ""
 "I don't think being able to turn into a Slime is going to help me here, "
 "since I might not be able to get back afterwards"
 msgstr ""
+"Я думаю, що перетворення в слизня мені тут не допоможе, бо я не зможу потім "
+"повернутися"
 
 #: data/scripts/ice_spray.dat:8
 msgid "Those fish look quite dangerous too"
-msgstr ""
+msgstr "На вигляд ці риби дуже небезпечні"
 
 #: data/scripts/ice_spray.dat:9
 msgid "I'll have to find another way of getting across"
-msgstr ""
+msgstr "Доведеться знайти інший спосіб потрапити на ту сторону"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across"
-msgstr ""
+msgstr "Необхідно щось знайти, що допоможе перебратись на ту сторону"
 
 #: data/scripts/tutorial_combat.dat:1
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
-msgstr ""
+msgstr "В останній частині навчимося захищатися та атакувати противників"
 
 #: data/scripts/tutorial_combat.dat:2
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
 msgstr ""
+"По-перше, потрібно озброїтись мечем, тому що він атакує на більшу відстань "
+"та більш вражає, ніж кирка"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid ""
 "Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
 "press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Натиснувши ([INPUT_INVENTORY]) відчиніть реманент, виберіть меч і натисніть "
+"Атака ([INPUT_ATTACK]) чи Використати ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_combat.dat:4
 msgid "Press [INPUT_INVENTORY] again to close your inventory"
-msgstr ""
+msgstr "Натисни ([INPUT_INVENTORY]) ще раз для закриття реманенту"
 
 #: data/scripts/tutorial_combat.dat:5
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
 msgstr ""
+"Деколи з переможених супротивників падає здоров’я, котре через мить зникає, "
+"так що підіймай його швидше!"
 
 #: data/scripts/tutorial_combat.dat:6
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
 msgstr ""
+"Якщо летюча миша зупиниться рядом, утримуй Захист і вона просто відскочить "
+"від тебе"
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "А зараз знищіть всіх кажанів!"
 
 #: data/scripts/raft_2.dat:8
 msgid "Aw, not again!"
-msgstr ""
+msgstr "О ні, знову!"
 
 #: data/scripts/raft_2.dat:9
 msgid "Collect 6 Chopped Logs"
-msgstr ""
+msgstr "Зібрати 6 колод"
 
 #: data/scripts/raft_2.dat:14
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr ""
+msgstr "Мені потрібно 6 колод, щоб зібрати пліт"
 
 #: data/scripts/raft_2.dat:18
 msgid "This had better be the last time I have to do this..."
-msgstr ""
+msgstr "Краще б це був останній раз, коли мені доводиться це робити..."
 
 #: data/scripts/coal_mining.dat:1
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr ""
+msgstr "Це, мабуть, вугілля, котре Борган попрохав принести йому з шахти"
 
 #: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
-msgstr ""
+msgstr "Що?!"
 
 #: data/scripts/evil_edgar_sighted.dat:25
 msgid "He looks just like me"
-msgstr ""
+msgstr "На вигляд він, як я"
 
 #: data/scripts/evil_edgar_sighted.dat:26
 msgid "AND HE HAS MY FIRE SHIELD!!"
-msgstr ""
+msgstr "І В НЬОГО МІЙ ВОГНЯНИЙ ЩИТ!"
 
 #: data/scripts/robot.dat:1
 msgid "Hey wow, what a cute little machine!"
-msgstr ""
+msgstr "О, яка приваблива машинка!"
 
 #: data/scripts/robot.dat:2
 msgid ""
 "It's got a little slot on the back of it. I guess I put something in there "
 "to make it do stuff"
 msgstr ""
+"У нього ззаду маленький слот. Я гадаю, що помістивши щось туди, його можливо "
+"змусити дещо зробити"
 
 #: data/scripts/robot.dat:3
 msgid "The robot uses instruction cards to move around"
-msgstr ""
+msgstr "Робот використовує карту інструкцій для переміщення"
 
 #: data/scripts/robot.dat:4
 msgid ""
 "Use the instructions to guide the robot to open areas that you cannot access"
 msgstr ""
+"Використовуйте інструкції керування роботом для проникнення в недоступні "
+"місця"
 
 #: data/scripts/robot.dat:5
 msgid ""
 "However, since you can't read the instructions on the card, you will have to "
 "try them all out until one works"
 msgstr ""
+"Одначе, тому що неможливо прочитати інструкції з карти, доведеться "
+"спробувати їх усі, доки одна не запрацює"
 
 #: data/scripts/robot.dat:6
 msgid ""
 "If the robot doesn't reach its target, then it will return to its starting "
 "position allowing you to try again"
 msgstr ""
+"Якщо робот не досягне цілі, він повернеться на початкову позицію, дозволивши "
+"повторити знову"
 
 #: data/scripts/dungeon_intro.dat:4
 msgid ""
 "Ugh, I'm getting really fed up of waking up in strange places with my eyes "
 "spinning around"
 msgstr ""
+"Ох, набридло ж мені очухуватися в дивних місцях з обертом ідучими очима"
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
-msgstr ""
+msgstr "О ні, я в пастці!"
 
 #: data/scripts/dungeon_intro.dat:13
 msgid "There must be a way to get this door open"
-msgstr ""
+msgstr "Повинен бути спосіб відчинити ці двері"
 
 #: data/scripts/dungeon_intro.dat:16
 msgid "Wait, perhaps that button unlocks it"
-msgstr ""
+msgstr "Постривай, можливо кнопка розблокує"
 
 #: data/scripts/dungeon_intro.dat:17
 msgid "If only I could reach it..."
-msgstr ""
+msgstr "Якщо тільки доберусь до неї..."
 
 #: data/scripts/tutorial_pickaxe.dat:1
 msgid "The pickaxe is one of many weapons you will encounter in the game"
-msgstr ""
+msgstr "Кирка є одним з небагатьох видів зброї, що зустрічаються у грі"
 
 #: data/scripts/tutorial_pickaxe.dat:2
 msgid "You can use it as both a weapon and a tool"
-msgstr ""
+msgstr "Ти можеш нею користуватися як зброєю та як інструментом"
 
 #: data/scripts/tutorial_pickaxe.dat:3
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr ""
+msgstr "Підійми кирку та продовжуй до слідуючої Точки Дії"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr ""
+msgstr "Тут план..."
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
-msgstr ""
+msgstr "одна з цих цеглин бовтається"
 
 #: data/scripts/hidden_passage.dat:7
 msgid "Aha! It's a hidden passage!"
-msgstr ""
+msgstr "Ага! Прихований прохід!"
 
 #: data/scripts/hidden_passage.dat:8
 msgid "Hopefully this will lead me to the sorceror..."
-msgstr ""
+msgstr "Сподіваюсь, що це приведе мене до чаклуна..."
 
 #: data/scripts/swamp_intro_2.dat:3
 msgid "Phew, I'm glad to be out of there"
-msgstr ""
+msgstr "Фу! Я радий вибратися звідти"
 
 #: data/scripts/swamp_intro_2.dat:5
 msgid "Now to get through this swamp"
-msgstr ""
+msgstr "А зараз потрібно пройти через болото"
 
 #: data/scripts/swamp_intro_2.dat:6
 msgid "Negotiate the Swamp"
-msgstr ""
+msgstr "Перейти Болото"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
-msgstr ""
+msgstr "Тут дощечка"
 
 #: data/scripts/statues.dat:2
 msgid "Place the 4 statues in the correct order"
-msgstr ""
+msgstr "Розмістіть 4 статуї у вірному порядку"
 
 #: data/scripts/flying_maggot_die_2.dat:8
 msgid "Strange creature..."
-msgstr ""
+msgstr "Дивна істота..."
 
 #: data/scripts/soul_merger.dat:2
 msgid "Ha ha ha!!!!"
-msgstr ""
+msgstr "Ха ха ха!"
 
 #: data/scripts/soul_merger.dat:3
 msgid "Soon we will be one again..."
-msgstr ""
+msgstr "Незабаром ми знову будемо єдиним цілим..."
 
 #: data/scripts/soul_merger.dat:29
 msgid "Wait, something's wrong..."
-msgstr ""
+msgstr "Постривай, щось не те..."
 
 #: data/scripts/soul_merger.dat:30
 msgid "OH NO! THIS IS THE WRONG MACHINE!!"
-msgstr ""
+msgstr "О НІ! ЦЕ НЕПРАВИЛЬНА МАШИНА!"
 
 #: data/scripts/soul_merger.dat:40
 msgid "ARGHHHHHH!!!!"
-msgstr ""
+msgstr "ОХ!!!"
 
 #: data/scripts/soul_merger.dat:53
 msgid "Phew, I feel whole again"
-msgstr ""
+msgstr "Фу, я знову почуваю себе єдиним цілим"
 
 #: data/scripts/soul_merger.dat:54
 msgid "And there's my Fire Shield!"
-msgstr ""
+msgstr "А ось і мій Вогняний Щит!"
 
 #: data/scripts/soul_merger.dat:56
 msgid "Hopefully this will get me past all those fireballs..."
-msgstr ""
+msgstr "Сподіваюсь, це допоможе мені пройти крізь вогняні шари..."
 
 #: data/scripts/soul_merger.dat:57
 msgid "Confront the Sorceror"
-msgstr ""
+msgstr "Протистояти Чаклуну"
 
 #: data/scripts/armour_boss_start.dat:13
 msgid "I should be safe up here, but I need to get rid of it"
-msgstr ""
+msgstr "Я повинен убезпечитися, позбувшись від нього"
 
 #: data/scripts/instruction_machine.dat:1
 msgid ""
 "This machine has a slot the same size as the cards. I guess I can use it to "
 "create new instructions."
 msgstr ""
+"Ця машина має слот такого ж розміру, як і карти. Вважаю, що зможу її "
+"використовувати для створення нових інструкцій"
 
 #: data/scripts/instruction_machine.dat:2
 msgid "To create a new set of instructions you need to insert a blank card"
-msgstr ""
+msgstr "Для створення нового набору інструкцій вставте чисту карту"
 
 #: data/scripts/instruction_machine.dat:3
 msgid ""
 "You will then be prompted to input the directions for the robot to follow. "
 "This is done in the same way as the sequence doors"
 msgstr ""
+"Необхідно ввести інструкції слідування робота. Складається відповідно "
+"порядку дверей"
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
-msgstr ""
+msgstr "Для завершення вводу інструкцій потрібно натиснути Атака"
 
 #: data/scripts/instruction_machine.dat:5
 msgid "The robot will then follow the instructions on the card"
-msgstr ""
+msgstr "Робот діє по інструкції на карті"
 
 #: data/scripts/instruction_machine.dat:6
 msgid "If the directions aren't correct you can try again"
-msgstr ""
+msgstr "Спробуй ще раз при помилці задання інструкцій"
 
 #: data/scripts/glass_wall.dat:1
 msgid ""
 "That glass looks too thick for me to crack, I'll have to find some other way "
 "of shattering it..."
 msgstr ""
+"Це скло занадто товсте, щоб я зміг його просто розбити. Доведеться знайти "
+"інший спосіб роздроблення..."
 
 #: data/scripts/mine_secret.dat:1
 msgid ""
 "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr ""
+msgstr "Борган казав, що частина рудника була запечатана після \"інциденту\""
 
 #: data/scripts/mine_secret.dat:7
 msgid "There must be something around here..."
-msgstr ""
+msgstr "Це повинно бути десь тут..."
 
 #: data/scripts/protection_ring.dat:3
 msgid "Wow, what a nice ring"
-msgstr ""
+msgstr "Нічого собі, яке гарне кільце"
 
 #: data/scripts/protection_ring.dat:5
 msgid ""
 "Hang on a second, Maggie told me to always ask if someone had lost something "
 "before taking it..."
 msgstr ""
+"Хвилинку, Меггі казала мені завжди спитати, че не згубив хто, перш ніж це "
+"взяти..."
 
 #: data/scripts/protection_ring.dat:8
 msgid "ANYONE LOST A RING?!"
-msgstr ""
+msgstr "НІХТО НЕ ГУБИВ КІЛЬЦЕ?!"
 
 #: data/scripts/protection_ring.dat:10
 msgid "No one? Guess it's mine then!"
-msgstr ""
+msgstr "Нікого? Так воно моє!"
 
 #: data/scripts/instruction_card.dat:1
 msgid ""
 "You must have the instruction card you wish to use highlighted in your "
 "inventory box"
 msgstr ""
+"Ви повинні вибрати в реманенті картку с інструкціями, котру хочете "
+"використати"
 
 #: data/scripts/boulder_boss_2_die.dat:3
 msgid "Good riddance..."
-msgstr ""
+msgstr "Позбавлення..."
 
 #: data/scripts/crossbow.dat:5
 msgid "OK, let's see if this works..."
-msgstr ""
+msgstr "Добре, дивись, якщо це працює..."
 
 #: data/scripts/crossbow.dat:17
 msgid ""
 "I'll have no problem walking over this rope either, thanks to my tightrope "
 "walking skills"
-msgstr ""
+msgstr "Завдяки навичкам еквілібриста, я без проблем йду по цьому канату"
 
 #: data/scripts/crossbow.dat:18
 msgid "And Dad said it'd never come in handy!"
-msgstr ""
+msgstr "І Татко казав, що це ніколи не знадобиться!"
 
 #: data/scripts/crossbow.dat:21
 msgid "I need a length of rope to attach to the bolt"
-msgstr ""
+msgstr "Потрібно кінець канату прив’язати до болта"
 
 #: data/scripts/crossbow.dat:25
 msgid "It's a giant crossbow"
-msgstr ""
+msgstr "Це гігантський арбалет"
 
 #: data/scripts/crossbow.dat:29
 msgid "I could probably use it to create a bridge over those spikes"
-msgstr ""
+msgstr "Я спробую скористатись ним для створення мосту через ці шипи"
 
 #: data/scripts/crossbow.dat:34
 msgid "I'll need some rope first though"
-msgstr ""
+msgstr "Все-таки необхідно якийсь канат"
 
 #: data/scripts/fortress_mine_lift.dat:1
 msgid "There's a sign here"
-msgstr ""
+msgstr "Тут напис"
 
 #: data/scripts/fortress_mine_lift.dat:2
 msgid "If the lift is out of order then it must be reset"
-msgstr ""
+msgstr "Якщо ліфт не в порядку, його необхидно відновити"
 
 #: data/scripts/fortress_mine_lift.dat:3
 msgid "There are 4 reset switches along the lift shaft which must be reset"
-msgstr ""
+msgstr "В шахті ліфта повинно бути скинуто 4 перемикачі"
 
 #: data/scripts/fortress_mine_lift.dat:4
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
 msgstr ""
+"Для уникнення тривалої прогулянки на поверхню не забудьте відновити ліфт..."
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr ""
+msgstr "Мені здається, я щось відчуваю. Там план..."
 
 #: data/scripts/tutorial_finish.dat:2
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
 msgstr ""
+"Поздоровляю! Зараз ви знаєте основи гри та можете спробувати пройти гру"
 
 #: data/scripts/tutorial_finish.dat:3
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
 msgstr ""
+"Якщо ви хочете переграти навчання, натисніть Escape і виберіть в меню "
+"Навчання"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
+"Щоб розпочати основну гру, натисніть Escape і виберіть в меню Нова Гра"
 
 #: data/scripts/grappling_hook.dat:5
 msgid "There, the rope's firmly attached"
-msgstr ""
+msgstr "Канат міцно закріплений"
 
 #: data/scripts/grappling_hook.dat:9
 msgid "I need to find some rope before I can fire it"
-msgstr ""
+msgstr "Я зможу стрілити після того, як знайду канат"
 
 #: data/scripts/grappling_hook.dat:13
 msgid "It's a Grappling Hook"
-msgstr ""
+msgstr "Це шлюпочний якір"
 
 #: data/scripts/grappling_hook.dat:14
 msgid ""
 "I could probably use it to form a bridge to the other side, but there's no "
 "rope"
 msgstr ""
+"Я міг би скористатися ним для наведення моста на ту сторону, але відсутній "
+"канат"
 
 #: data/scripts/apple_tree.dat:1
 msgid "It's an apple tree"
-msgstr ""
+msgstr "Це яблуня"
 
 #: data/scripts/apple_tree.dat:2
 msgid "Shame it's not a banana tree, I don't like apples"
-msgstr ""
+msgstr "Жаль, що не банан, я не полюбляю яблука"
 
 #: data/scripts/apple_tree.dat:4
 msgid "There aren't any apples left"
-msgstr ""
+msgstr "Ніяких яблук не зосталось"
 
 #: data/scripts/apple_tree.dat:7
 msgid "It looks like there are some apples in it..."
-msgstr ""
+msgstr "Схоже, є кілька яблук..."
 
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
-msgstr ""
+msgstr "Двері не відчиняються. Я думаю, що задав хибну комбінацію"
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
-msgstr ""
+msgstr "Безліч книг"
 
 #: data/scripts/occult_book.dat:3
 msgid "Nothing of interest here though"
-msgstr ""
+msgstr "Однак нічого цікавого"
 
 #: data/scripts/occult_book.dat:6
 msgid ""
 "I need the shell of a Rampaging Master Tortoise, the staff from a Dark "
 "Summoner"
 msgstr ""
+"Потрібно уламок панцира Розгніваної Головної Черепахи, посох Чорного "
+"Викликача"
 
 #: data/scripts/occult_book.dat:7
 msgid "The keepsake of a warrior who has previously defeated the dragon"
-msgstr ""
+msgstr "Подарунок воїна, перемігшого дракона"
 
 #: data/scripts/occult_book.dat:8
 msgid "The soul of a wandering spirit"
-msgstr ""
+msgstr "Душа блукаючого привида"
 
 #: data/scripts/occult_book.dat:9
 msgid "And a spare shield"
-msgstr ""
+msgstr "І запасний щит"
 
 #: data/scripts/occult_book.dat:10
 msgid ""
 "Once I have all of those items I need to place them in the cauldron..."
 msgstr ""
+"Як тільки в мене будуть всі ці предмети, я повинен буду покласти їх у "
+"казан..."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
-msgstr ""
+msgstr "Це книга про оккультну магію"
 
 #: data/scripts/occult_book.dat:14
 msgid "Hmm..."
-msgstr ""
+msgstr "Хмм..."
 
 #: data/scripts/occult_book.dat:15
 msgid "This is interesting:"
-msgstr ""
+msgstr "Цікаво:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Уламок панцира Розгніваної Головної Черепахи"
 
 #: data/scripts/occult_book.dat:20
 msgid "The staff of a Dark Summoner"
-msgstr ""
+msgstr "Посох Чорного Викликача"
 
 #: data/scripts/occult_book.dat:23
 msgid "If the dragon has been defeated in the past then one must also gather"
 msgstr ""
+"Якщо дракона було переможено в минулому, то необхідно також зібратися з "
+"силами"
 
 #: data/scripts/occult_book.dat:24
 msgid "The keepsake from a warrior that previously defeated it"
-msgstr ""
+msgstr "Подарок від воїна, що раніше переміг його"
 
 #: data/scripts/occult_book.dat:25
 msgid ""
 "Once the ingredients have been gathered, they must be placed in the "
 "cauldron..."
 msgstr ""
+"Як тільки складові будуть зібрані, вони повинні бути поміщені в казан..."
 
 #: data/scripts/occult_book.dat:26
 msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
-msgstr ""
+msgstr "О ні, не знову! Мені набридло користуватись цим дурним казаном!"
 
 #: data/scripts/occult_book.dat:35
 msgid "I've got the staff, but where do I find the shell or the keepsake?"
-msgstr ""
+msgstr "У мене є посох, та де я знайду панцир чи подарунок?"
 
 #: data/scripts/occult_book.dat:38
 msgid "I've got the shell, but where do I find the staff or the keepsake?"
-msgstr ""
+msgstr "У мене є панцир, та де я знайду посох чи подарунок?"
 
 #: data/scripts/occult_book.dat:41
 msgid "I've got the shell and the staff, but where do I find the keepsake?"
-msgstr ""
+msgstr "У мене є панцир та посох, але де я знайду подарунок?"
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
-msgstr ""
+msgstr "Дуже багато складових, котрі я не знаю, де знайти..."
 
 #: data/scripts/anti_gravity.dat:1
 msgid "Hmm, this is new."
-msgstr ""
+msgstr "Хмм, це щось новеньке."
 
 #: data/scripts/anti_gravity.dat:2
 msgid ""
 "It doesn't look like it can hurt me though, but there's only one way to find "
 "out..."
 msgstr ""
+"Це не схоже на те, що може мені пошкодити, хоч є лиш один спосіб дізнатись "
+"про це..."
 
 #: data/scripts/creepers.dat:2
 msgid "Those creepers look different to the others"
-msgstr ""
+msgstr "На вигляд ті ліани відрізняються від інших"
 
 #: data/scripts/creepers.dat:3
 msgid "They also look very dangerous..."
-msgstr ""
+msgstr "Здається, вони також дуже небезпечні..."
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
-msgstr ""
+msgstr "Це просто! Я завжди зможу повернутися назад!"
 
 #: data/scripts/raft_end.dat:9
 msgid "Oh...."
-msgstr ""
+msgstr "Ох..."
 
 #: data/scripts/raft_end.dat:11
 msgid "Guess I have no choice now."
-msgstr ""
+msgstr "Схоже, у мене немає вибору."
 
 #: data/scripts/raft_end.dat:12
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
+msgstr "Тримайся, Татко, я йду..."
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
-msgstr ""
+msgstr "Гей, Меч Блискавок!"
 
 #: data/scripts/lightning_sword.dat:3
 msgid "It looks a lot more powerful than my current sword too"
-msgstr ""
+msgstr "На вигляд потужніший за мого нинішнього меча"
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
-msgstr ""
+msgstr "З ним я стану майже нестримним"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
-msgstr ""
+msgstr "Майже"
 
 #: data/scripts/lightning_sword.dat:6
 msgid ""
 "The Lightning Sword has a limited number of charges and will lose its power "
 "when these charges are used up"
 msgstr ""
+"Меч Блискавок має обмежену кількість зарядів та втрачає силу після їх "
+"повного використання"
 
 #: data/scripts/lightning_sword.dat:7
 msgid "Enemies will randomly drop more charges when they are killed"
 msgstr ""
+"Повержені супротивники будуть випадковим чином можуть упускати заряди"
 
 #: data/scripts/lightning_sword.dat:8
 msgid ""
 "Note that if the sword completely loses its power it will revert to a "
 "regular sword with very little power until you can find more charges"
 msgstr ""
+"Втративши всю енергію, меч по силі стає як звичайний, доки знову не "
+"знадуться заряди"
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
-msgstr ""
+msgstr "Вдачі!"
 
 #: data/scripts/jacob.dat:10
 msgid ""
 "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
+msgstr "Дякую за врятування всіх моїх курчат. Приніс мені дві колоди з лісу?"
 
 #: data/scripts/jacob.dat:14
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
-msgstr ""
+msgstr "Дякую, Едгаре! Мої кури повернулись і колоди такі, які я й хотів"
 
 #: data/scripts/jacob.dat:16
 msgid "Take this sword, may it serve you well!"
-msgstr ""
+msgstr "Візьми цей меч, він може добре послужити тобі!"
 
 #: data/scripts/jacob.dat:17
 msgid "Thank you!"
-msgstr ""
+msgstr "Дякую!"
 
 #: data/scripts/jacob.dat:23
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr ""
+msgstr "Дякую за колоди. А як справи з пошуком моїх курчат?"
 
 #: data/scripts/jacob.dat:27
 msgid ""
 "I'll give you a sword if you get me 2 chopped logs from the forest and "
 "rescue at least 3 of my chickens"
 msgstr ""
+"Я дам тобі меч, якщо ти принесеш мені з лісу 2 колоди та збереш хоча б 3 "
+"моїх курчат"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar, what can I do for you today?"
-msgstr ""
+msgstr "Привіт, Єдгаре! Що я можу для тебе зробіти?"
 
 #: data/scripts/jacob.dat:33
 msgid "Do you have a sword I can borrow?"
-msgstr ""
+msgstr "В тебе є меч, котрий я зможу позичити?"
 
 #: data/scripts/jacob.dat:34
 msgid ""
 "I do have a sword and you can have it if you do something for me first"
 msgstr ""
+"У мене є меч і ти можеш його отримати, але спочатку дещо зроби для мене"
 
 #: data/scripts/jacob.dat:35
 msgid "OK... what do I have to do?"
-msgstr ""
+msgstr "Добре... Що мені зробити?"
 
 #: data/scripts/jacob.dat:36
 msgid ""
 "Some of my chickens have escaped from their pen and I would be very grateful "
 "if you can get them back for me"
 msgstr ""
+"Кілька моїх курчат втекло з загону. Буду дуже вдячний, якщо зможеш повернути "
+"їх"
 
 #: data/scripts/jacob.dat:38
 msgid ""
@@ -3220,249 +3318,276 @@ msgid ""
 "using this chicken feed. I don't need them all, but at least 3 would be very "
 "helpful. I can get the rest myself."
 msgstr ""
+"Я налаштував кілька пасток біля загону. Ти зможещ їх заманити за допомогою "
+"цього корму. Я не прошу всіх, було б добре хоч 3-х. Решту я можу знайти сам."
 
 #: data/scripts/jacob.dat:40
 msgid ""
 "Not quite. Can you also get me some wood from the forest? 2 logs should be "
 "sufficient"
 msgstr ""
+"Не зовсім. Не міг би ти принести мені трохи дерева з лісу? 2-х колод було б "
+"достатньо"
 
 #: data/scripts/jacob.dat:41
 msgid "Do you have an axe?"
-msgstr ""
+msgstr "У тебе є сокира?"
 
 #: data/scripts/jacob.dat:42
 msgid ""
 "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr ""
+msgstr "Ем... Я згубив свою сокиру десь у лісі. Вона ще знаходиться там"
 
 #: data/scripts/jacob.dat:43
 msgid "Isn't that forest dangerous?"
-msgstr ""
+msgstr "А цей ліс небезпечний?"
 
 #: data/scripts/jacob.dat:44
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
 msgstr ""
+"Не зовсім, якщо щось зустрінеш на своєму шляху, просто вдар це зброєю"
 
 #: data/scripts/jacob.dat:45
 msgid "Such as an axe?"
-msgstr ""
+msgstr "Такою, як сокира?"
 
 #: data/scripts/jacob.dat:46
 msgid "Yes, that would do the trick"
-msgstr ""
+msgstr "Так, це буде розвага"
 
 #: data/scripts/jacob.dat:48
 msgid ""
 "But seriously, there's nothing in there that can really harm you. That "
 "problem was dealt with a long time ago..."
 msgstr ""
+"Якщо серйозно, там нічого нема, що може тобі нашкодити. Проблеми бували дуже "
+"давно..."
 
 #: data/scripts/jacob.dat:49
 msgid "Good luck!"
-msgstr ""
+msgstr "Хай щастить!"
 
 #: data/scripts/jacob.dat:51
 msgid "Collect 2 Chopped Logs"
-msgstr ""
+msgstr "Зібрати 2 колоди"
 
 #: data/scripts/jacob.dat:53
 msgid "Rescue 3 Chickens"
-msgstr ""
+msgstr "Врятувати 3 курей"
 
 #: data/scripts/jacob.dat:62
 msgid ""
 "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
-msgstr ""
+msgstr "О, дякую, Едгаре! Я прохав лише 3, але дякую за додаткову допомогу!"
 
 #: data/scripts/jacob.dat:64
 msgid ""
 "Here, Maggie made me this health potion but I don't need it so why don't you "
 "have it?"
 msgstr ""
+"Ось, Меггі зробила для мене це цілюще зілля, але воно не портібне мені. Чому "
+"б тобі не взяти його?"
 
 #: data/scripts/jacob.dat:65
 msgid "Thanks Jacob"
-msgstr ""
+msgstr "Дякую, Якобе"
 
 #: data/scripts/jacob.dat:86
 msgid "Wow, you caught them all, thanks alot!"
-msgstr ""
+msgstr "Ого, ти спіймав їх всіх. Щиро дякую!"
 
 #: data/scripts/jacob.dat:87
 msgid "Here, I have these for you"
-msgstr ""
+msgstr "Ось, це тобі від мене"
 
 #: data/scripts/jacob.dat:89
 msgid "Maggie made me this health potion but you can have it"
-msgstr ""
+msgstr "Це цілюще зілля Меггі зробила для мене, можеш взяти його собі"
 
 #: data/scripts/jacob.dat:90
 msgid "And this is something very special"
-msgstr ""
+msgstr "І це дещо особливе"
 
 #: data/scripts/jacob.dat:92
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr ""
+msgstr "Можливо, це допоможе тобі на шляху становлення справжнім воїном"
 
 #: data/scripts/jacob.dat:126
 msgid ""
 "You saved me a lot of time. Maggie made me something else but since you have "
 "been so helpful, you can have it."
 msgstr ""
+"Ти зберіг мені багато часу. Меггі дещо зробила для мене, але, так як дуже "
+"сильно допоміг мені, можеш взяти собі."
 
 #: data/scripts/power_generators.dat:3
 msgid "These machines aren't working."
-msgstr ""
+msgstr "Ці машини не працюють."
 
 #: data/scripts/power_generators.dat:5
 msgid ""
 "It looks like a gem should fit in this hole, maybe I can find some "
 "replacements."
 msgstr ""
+"Схоже, що в цьому отворі знаходився камінь-самоцвіт. Можливо мені вдасться "
+"знайти йому заміну."
 
 #: data/scripts/power_generators.dat:6
 msgid "Find 4 Gems"
-msgstr ""
+msgstr "Знайти 4 самоцвіта"
 
 #: data/scripts/power_generators.dat:12
 msgid "Repair Generators"
-msgstr ""
+msgstr "Відремонтувати Генератор"
 
 #: data/scripts/gold_centurion.dat:7
 msgid "This centurion has no power"
-msgstr ""
+msgstr "Цей центуріон без енергії"
 
 #: data/scripts/gold_centurion.dat:9
 msgid ""
 "It's connected to this treadmill so I could probably charge it up with "
 "enough speed"
 msgstr ""
+"Він підключений до цієї біговоі доріжки. Щоб його зарядити, по ній треба "
+"бігти з неймовірною швидкістю"
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
-msgstr ""
+msgstr "Я не можу бігати в цих латах, однак"
 
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
 msgstr ""
+"Крім того, я заморився від всієї цієі ходьби, стрибків, сутичок, плавання..."
 
 #: data/scripts/gold_centurion.dat:12
 msgid "thinking, mining, chopping, pushing, pulling, carrying..."
-msgstr ""
+msgstr "міркування, копання, рубки, тягання, таскання, носіння..."
 
 #: data/scripts/gold_centurion.dat:13
 msgid "and catching chickens"
-msgstr ""
+msgstr "та лову курей"
 
 #: data/scripts/gold_centurion.dat:14
 msgid "I'll get something else to do it instead"
-msgstr ""
+msgstr "Мені треба взяти щось, що підходить взамін"
 
 #: data/scripts/gold_centurion.dat:2
 msgid "I'll find something else to work the treadmill for me"
-msgstr ""
+msgstr "Я пошукаю когось, хто займеться біговою доріжкою замість мене"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
-msgstr ""
+msgstr "Позбивай всіх кажанів!"
 
 #: data/scripts/cave_bomb.dat:1
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
 "to get through..."
 msgstr ""
+"Цей камінь, на вигляд, занадто твердий для моєї кирки. Щоб пройти, треба "
+"використати щось інше..."
 
 #: data/scripts/cave_intro.dat:11
 msgid "Looks like this wasn't such a good idea after all"
-msgstr ""
+msgstr "Після всього, що сталося, це вже не здається такою гарною ідеєю"
 
 #: data/scripts/cave_intro.dat:12
 msgid "There must be way out of here..."
-msgstr ""
+msgstr "Тут повинен бути вихід звідси..."
 
 #: data/scripts/cave_intro.dat:13
 msgid "Escape the Cave"
-msgstr ""
+msgstr "Вибратись з Печери"
 
 #: data/scripts/huge_spider.dat:6
 msgid "Wow, that thing is huge!"
-msgstr ""
+msgstr "Ничого собі, яке гормаддя!"
 
 #: data/scripts/huge_spider.dat:7
 msgid ""
 "I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
+"Мені потрібно пройти, але я маю сумнів, що мій меч зможе зробити хоч би "
+"подряпину..."
 
 #: data/scripts/has_combination.dat:1
 msgid "Hmmm, maybe this scrap of paper is the combination"
-msgstr ""
+msgstr "Хммм, ймовірно, що цей клаптик паперу і є комбінація"
 
 #: data/scripts/has_combination.dat:2
 msgid "I'll give it a try"
-msgstr ""
+msgstr "Я спробую її ввести"
 
 #: data/scripts/has_combination.dat:3
 msgid "Push left or right to move the dial 1 unit in that direction"
 msgstr ""
+"Жми вліво чи вправо для переміщення шкали на 1 поділку в потрібному напрямку"
 
 #: data/scripts/has_combination.dat:4
 msgid ""
 "When you think you've input the correct combination, press Attack to open "
 "the safe"
 msgstr ""
+"Якщо вважаєш, що ввів вірну комбінацію, для відкриття сейфу натисни Атака"
 
 #: data/scripts/resurrection_amulet.dat:1
 msgid "Is this what I think it is?"
-msgstr ""
+msgstr "Це те, що я думаю?"
 
 #: data/scripts/resurrection_amulet.dat:3
 msgid "It is! It's an Amulet of Resurrection!"
-msgstr ""
+msgstr "Це! Це Амулет Воскресіння!"
 
 #: data/scripts/resurrection_amulet.dat:4
 msgid ""
 "Borgan has one of these, but it's been used up. He must have had a lucky "
 "escape from something."
 msgstr ""
+"Боргана мав такий, але його використав. Мабуть, щасливо відбувся від чогось."
 
 #: data/scripts/resurrection_amulet.dat:5
 msgid "This should make my quest a lot easier"
-msgstr ""
+msgstr "Це повинно зробити мої пошуки набагото легшими"
 
 #: data/scripts/resurrection_amulet.dat:6
 msgid ""
 "The Amulet of Resurrection will restore all your health once when it drops "
 "to 0"
-msgstr ""
+msgstr "Амулет Воскресіння відновляє все здоров’я, якщо воно впало до нуля."
 
 #: data/scripts/resurrection_amulet.dat:7
 msgid ""
 "However, it will not save you from anything that causes instant death, such "
 "as lava or certain boss attacks"
 msgstr ""
+"Однак, це не врятує від викликаючого миттєву смерть - лави й атак певних "
+"босів"
 
 #: data/scripts/evil_edgar_encounter_1.dat:9
 msgid "Me? I'm you!"
-msgstr ""
+msgstr "Я? Я - це ти!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:10
 msgid "No you're not, where did you come from?"
-msgstr ""
+msgstr "Ні, це не так, звідки ти прийшов?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:11
 msgid ""
 "When your stupid experiment failed, part of your conscious separated and "
 "created me"
 msgstr ""
+"Коли твій дурний експерімент провалився, частина твоєї свідомості "
+"відокремилясь та виник я"
 
 #: data/scripts/evil_edgar_encounter_1.dat:12
 msgid "I'm like you in every way, just more evil"
-msgstr ""
+msgstr "Я - як ти, тільки зліше"
 
 #: data/scripts/evil_edgar_encounter_1.dat:13
 msgid "I'm not evil!"
-msgstr ""
+msgstr "Я не злий!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:14
 msgid ""
@@ -3813,6 +3938,8 @@ msgid ""
 "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
 "Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Можливо використати предмет безпосередньо, натиснувши Атака ([INPUT_ATTACK]) "
+"або Використання ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_items.dat:5
 msgid ""
@@ -4536,6 +4663,7 @@ msgstr ""
 msgid ""
 "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
 msgstr ""
+"Знову натиснути Атака ([INPUT_ATTACK]) або Використання ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_bomb.dat:4
 msgid "Now close the inventory ([INPUT_INVENTORY])"
@@ -4544,6 +4672,7 @@ msgstr ""
 #: data/scripts/tutorial_bomb.dat:5
 msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Тепер ним можна користуватися, натиснувши Використання ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_bomb.dat:6
 msgid "Try it with the bomb, but make sure you stand well back!"
@@ -6151,7 +6280,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:44
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "Заборонне Болото"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
@@ -6247,7 +6376,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:44
 msgid "Forbidden Swamp"
-msgstr ""
+msgstr "Заборонне Болото"
 
 #: data/scripts/intro_part1.dat:18
 msgid "Cave"

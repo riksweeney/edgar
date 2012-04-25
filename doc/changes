@@ -2,10 +2,11 @@ CHANGE LOG
 ----------
 
 Version 1.01
+* Updated Czech, French, Italian, Russian and Ukrainian translations (thanks translators) 
 * Fixed a problem where the player could get stuck in the Fortress Mine
 * Bats and Books no longer get stuck after attacking you
 * Prevented certain items from being used when Edgar is a Slime, such as the Ice Spray
-* Resetting mirrors while they are reflecting light no longer leaves them unusable
+* Resetting a mirror while it is reflecting light no longer leaves it unusable
 * Fixed a random crash when the Green Scanners spot you in the Armoury
 * Chaos's tendrils now release Edgar when he dies
 
