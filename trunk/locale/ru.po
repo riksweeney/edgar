@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-20 07:00+0000\n"
+"PO-Revision-Date: 2012-04-24 12:37+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-20 20:12+0000\n"
-"X-Generator: Launchpad (build 15120)\n"
+"X-Launchpad-Export-Date: 2012-04-24 17:36+0000\n"
+"X-Generator: Launchpad (build 15139)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -23,7 +23,7 @@ msgstr "Спасибо, это великолепно!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr "Теперь у тебя есть все что нужно?"
+msgstr "Теперь у тебя есть всё, что нужно?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -44,7 +44,7 @@ msgstr "Назад в крепость, мне всё ещё нужно спас
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
 msgstr ""
-"Хорошо,  помнишь что я рассказывал тебе о его расщепляюшем заклинании?"
+"Хорошо, помнишь что я рассказывал тебе о его расщепляющем заклинании?"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
@@ -1339,7 +1339,7 @@ msgid ""
 "opponents"
 msgstr ""
 "В добавок ко всему они могут телепортироваться на незначительные расстояния "
-"для побега от своих  противников"
+"для побега от своих противников"
 
 #: data/scripts/monsters.dat:45
 msgid ""
@@ -1637,14 +1637,14 @@ msgstr ""
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
-msgstr ""
+msgstr "Целовалник, Малый"
 
 #: data/scripts/monsters.dat:137
 msgid ""
 "Great, that's all it says. I don't even know how to tell the difference "
 "between a male and female. I'll just to take a chance..."
 msgstr ""
-"Это всё, что говорится об этом. Я даже не знаю, какая разница между  мужской "
+"Это всё, что говорится об этом. Я даже не знаю, какая разница между мужской "
 "особью и женской. Я рискну..."
 
 #: data/scripts/monsters.dat:138
@@ -1697,7 +1697,7 @@ msgid ""
 "That dragon stuff sounded interesting, but I'll read about it after I've "
 "created the Fire Shield"
 msgstr ""
-"Материал  о драконе интересен, но я прочёл об этом уже после создания "
+"Материал о драконе интересен, но я прочёл об этом уже после создания "
 "Огненного Щита"
 
 #: data/scripts/enchanting_weapons.dat:9
@@ -1705,7 +1705,7 @@ msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
-"Мне нужно найти 3 глаза Наблюдателя, 1 щупальце  Красной Грязи и "
+"Мне нужно найти 3 глаза Наблюдателя, 1 щупальце Красной Грязи и "
 "дополнительный щит, чтобы создать Огнеупорный щит"
 
 #: data/scripts/enchanting_weapons.dat:10
@@ -1745,7 +1745,7 @@ msgid ""
 "Creation of shields of dragon fire resistance require occult magics and very "
 "little is known about their manufacture"
 msgstr ""
-"Создание щита, защищающего от огня дракона,  требует оккультной магии и "
+"Создание щита, защищающего от огня дракона, требует оккультной магии и "
 "чрезвычайно мало известно об его изготовлении"
 
 #: data/scripts/enchanting_weapons.dat:21
@@ -2008,7 +2008,7 @@ msgid ""
 "Your father? My dear child, I do not have the foggiest idea what you are "
 "talking about"
 msgstr ""
-"Твой отец? Дитя моё, Я не имею ни малейшего представления, о чём ты говоришь"
+"Твой отец? Дитя моё, я не имею ни малейшего представления, о чём ты говоришь"
 
 #: data/scripts/sorceror_intro_1.dat:14
 msgid ""
@@ -2050,7 +2050,7 @@ msgstr "Слизень может плыть только в воде, так ч
 
 #: data/scripts/purifier.dat:12
 msgid "I remember Borgan telling me how ironic that is"
-msgstr "Я припоминаю, как  с долей иронии рассказывал мне Борган"
+msgstr "Я припоминаю, как рассказывал мне Борган про этот парадокс"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across..."
@@ -2060,8 +2060,7 @@ msgstr "Я должен найти что-то, что помогло бы мн�
 msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
-msgstr ""
-"Похоже, он крепко зажат там. Вероятно, я смогу ославить его киркой..."
+msgstr "Похоже, он крепко зажат там. Попробую ослабить его киркой..."
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
@@ -2079,7 +2078,7 @@ msgstr "Для зелья нужена пустая бутылочка"
 
 #: data/scripts/blender.dat:22
 msgid "OK, here goes!"
-msgstr "ОК, поехали!"
+msgstr "Хорошо, поехали!"
 
 #: data/scripts/tutorial_boxes.dat:1
 msgid "Some items in the game can be pushed and pulled"
@@ -2124,7 +2123,7 @@ msgstr "Ты поразил Гримлора? Невероятно!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
-msgstr ""
+msgstr "Он покорился моему мечу, как и все в этом гибельном месте"
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
@@ -2198,7 +2197,7 @@ msgstr "Однако, я могу ошибаться. Может быть это
 
 #: data/scripts/black_book.dat:6
 msgid "Examine the book?"
-msgstr "Изучишь книгу?"
+msgstr "Изучить книгу?"
 
 #: data/scripts/black_book.dat:20
 msgid "What just happened?"
@@ -2236,7 +2235,7 @@ msgstr "Выбраться из катакомб"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
-msgstr "Он здесь, Я это чувствую"
+msgstr "Он здесь. Я это чувствую"
 
 #: data/scripts/final_battle.dat:2
 msgid ""
@@ -2391,7 +2390,7 @@ msgstr "Возможно, что для выхода я должен воспо�
 
 #: data/scripts/smoothie_colour.dat:1
 msgid "Cool, it worked!"
-msgstr "Круто,  работает!"
+msgstr "Круто, работает!"
 
 #: data/scripts/smoothie_colour.dat:2
 msgid "I'm not sure about the colour though, I thought it would be red?"
@@ -2795,6 +2794,8 @@ msgid ""
 "Ugh, I'm getting really fed up of waking up in strange places with my eyes "
 "spinning around"
 msgstr ""
+"Ох, надоело мне приходить в себя в неизвестных местах с вращающимися кругом "
+"глазами"
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
@@ -3179,7 +3180,7 @@ msgstr "У меня есть посох, но где я возьму панци�
 
 #: data/scripts/occult_book.dat:38
 msgid "I've got the shell, but where do I find the staff or the keepsake?"
-msgstr "У меня есть  панцирь, но где я возьму посох или подарок?"
+msgstr "У меня есть панцирь, но где я возьму посох или подарок?"
 
 #: data/scripts/occult_book.dat:41
 msgid "I've got the shell and the staff, but where do I find the keepsake?"
@@ -3231,7 +3232,7 @@ msgstr "Эй, молниевый меч!"
 
 #: data/scripts/lightning_sword.dat:3
 msgid "It looks a lot more powerful than my current sword too"
-msgstr "На вид это значительно мощнее  моего нынешнего меча"
+msgstr "На вид это значительно мощнее моего нынешнего меча"
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
@@ -3239,7 +3240,7 @@ msgstr "С этим я стану почти неудержим"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
-msgstr ""
+msgstr "Почти"
 
 #: data/scripts/lightning_sword.dat:6
 msgid ""
@@ -3362,7 +3363,7 @@ msgstr "Таким, как топор?"
 
 #: data/scripts/jacob.dat:46
 msgid "Yes, that would do the trick"
-msgstr "Да, это будет достижение"
+msgstr "Да, это будет забава"
 
 #: data/scripts/jacob.dat:48
 msgid ""
@@ -3460,8 +3461,8 @@ msgid ""
 "It's connected to this treadmill so I could probably charge it up with "
 "enough speed"
 msgstr ""
-"Он  подключен к этой беговой дорожке. Чтобы его зарядить, по ней  надо "
-"бежать с невероятной скоростью"
+"Он подключен к этой беговой дорожке. Чтобы его зарядить, по ней надо бежать "
+"с невероятной скоростью"
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
@@ -3585,7 +3586,7 @@ msgstr "Я? Я - это ты!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:10
 msgid "No you're not, where did you come from?"
-msgstr ""
+msgstr "Нет, это не так, откуда ты пришёл?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:11
 msgid ""
@@ -3608,6 +3609,8 @@ msgid ""
 "Yes you are, you know that little part of you that enjoyed pulling the legs "
 "off insects?"
 msgstr ""
+"Да, ты такой. Ты знаешь, как маленькая часть тебя наслаждается витягиванием "
+"лапок у насекомых?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:15
 msgid "Hey, I don't do that anymore!"
@@ -3639,7 +3642,7 @@ msgstr "Это мой щит! Он мне нужен для спасения м�
 
 #: data/scripts/evil_edgar_encounter_1.dat:22
 msgid "Well it's mine now"
-msgstr ""
+msgstr "Теперь он мой"
 
 #: data/scripts/evil_edgar_encounter_1.dat:23
 msgid "Give it back!"
@@ -3655,7 +3658,7 @@ msgstr "Прекрасно, я хочу!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:34
 msgid "Loser"
-msgstr ""
+msgstr "Проигравший"
 
 #: data/scripts/evil_edgar_encounter_1.dat:35
 msgid ""
@@ -3781,7 +3784,7 @@ msgstr "Петли заржавели и прежде необходимо на�
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
-msgstr ""
+msgstr "Пойдём сюда..."
 
 #: data/scripts/fireball_passage.dat:8
 msgid "I still need a Fire Shield"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-06 11:57+0000\n"
+"PO-Revision-Date: 2012-04-24 02:16+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
-"X-Generator: Launchpad (build 15120)\n"
+"X-Launchpad-Export-Date: 2012-04-24 17:36+0000\n"
+"X-Generator: Launchpad (build 15139)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -795,7 +795,7 @@ msgstr "Něco takového"
 
 #: data/scripts/borgan.dat:16
 msgid "If you run me an errand then you can have the shield"
-msgstr "Když pro mě něco zařídíš, můžeš mít můj klíč"
+msgstr "Když pro mě něco zařídíš, můžeš mít můj štít"
 
 #: data/scripts/borgan.dat:17
 msgid "What do I have to do?"
@@ -3290,7 +3290,7 @@ msgstr "Neměl bys na půjčení meč?"
 #: data/scripts/jacob.dat:34
 msgid ""
 "I do have a sword and you can have it if you do something for me first"
-msgstr "M8m meč a mohu ti ho půjčit, pokud pro mě nejdřív něco uděláš"
+msgstr "Mám meč a mohu ti ho půjčit, pokud pro mě nejdřív něco uděláš"
 
 #: data/scripts/jacob.dat:35
 msgid "OK... what do I have to do?"
@@ -3318,7 +3318,7 @@ msgid ""
 "Not quite. Can you also get me some wood from the forest? 2 logs should be "
 "sufficient"
 msgstr ""
-"N0 úplně. Mohl bys mi taky přinést trochu dříví z lesa? 2 klády by měly "
+"Né úplně. Mohl bys mi taky přinést trochu dříví z lesa? 2 klády by měly "
 "stačit"
 
 #: data/scripts/jacob.dat:41
@@ -3344,7 +3344,7 @@ msgstr "Jako třeba sekerou?"
 
 #: data/scripts/jacob.dat:46
 msgid "Yes, that would do the trick"
-msgstr "Jo, to by mělo stačit"
+msgstr "Jako například sekerou!"
 
 #: data/scripts/jacob.dat:48
 msgid ""
@@ -3881,8 +3881,8 @@ msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
 msgstr ""
-"Jezero odděluje močál od vesnice, takže budu pořebovat vor, pokud se mám "
-"přez něj dostat."
+"Vesnici od močálu odděluje jezero, takže budu pořebovat vor, pokud se přez "
+"něj mám dostat."
 
 #: data/scripts/grasslands_intro.dat:10
 msgid ""
@@ -4836,7 +4836,7 @@ msgstr "%d zbývá..."
 
 #: src/item/potions.c:76
 msgid "Used %s"
-msgstr "%s použit"
+msgstr "Použil jsi %s"
 
 #: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
@@ -4972,7 +4972,7 @@ msgstr "Sebrán %s x %d"
 
 #: src/player.c:3243
 msgid "Picked up %s"
-msgstr "Sebrán %s"
+msgstr "Sebral jsi %s"
 
 #: src/inventory.c:661
 msgid "%s is required to carry this item"
@@ -6089,7 +6089,7 @@ msgstr "Černokněžník"
 
 #: data/medals.dat:1
 msgid "Became a legend"
-msgstr ""
+msgstr "Staň se legendou"
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
@@ -6101,11 +6101,11 @@ msgstr "Poraž černokněžníka"
 
 #: data/medals.dat:6
 msgid "Obtained the Dragon Shield"
-msgstr ""
+msgstr "Získej Dračí štít"
 
 #: data/medals.dat:5
 msgid "Found all secrets"
-msgstr ""
+msgstr "Najdi všechny tajné lokace"
 
 #: data/medals.dat:8
 msgid "Walked 50km"
@@ -6720,120 +6720,124 @@ msgstr "Aby opět terorizoval svět"
 
 #: src/item/attractor.c:36
 msgid "Rift"
-msgstr ""
+msgstr "Trhlina"
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Úponky"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
-msgstr ""
+msgstr "Orby"
 
 #: src/boss/chaos.c:1312
 msgid "I will destroy you!"
-msgstr ""
+msgstr "Zničím tě!"
 
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
-msgstr ""
+msgstr "Tím posledním kouzlem mě musel teleportovat pryč"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
+"I když se mi ho nepodařilo zabít, je teď příliš slabý na to, aby pro svět "
+"představoval nebezpečí"
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "A teď bych se měl vrátit k zachraňování svého otce..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
-msgstr ""
+msgstr "Je povně zapečetěn. Tam už se nevrátím"
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
-msgstr ""
+msgstr "To je konec"
 
 #: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
-msgstr ""
+msgstr "Hej, co je tohle? Vypadá to jako meč"
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
-msgstr ""
+msgstr "Tohle musí být Ivanův meč"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Ty... Ty mě nikdy neporazíš"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Nakonec uniknu z tohoto proklatého místa"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "I kdyby to mělo trvat další stovku let"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Tyhle okovy mě neudrží navždy"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "Je čas s tím skoncovat. Připrav se!"
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Ne! VYHOSTIT!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "Jaká strašná noc"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Edgare, musím jít pryč na pár hodin"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
+"Můžeš zůstat vzhůru ještě půl hodiny, ale pak si schováš svoje hračky a "
+"půjdeš do postele"
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "Další den ráno..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Táto! Kdepak jsi?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "Nevypadá to, jako kdyby se táta  včera v noci vrátil"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "V jeho postely nikdo nespal a nikdo my neudělal snídani"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "Což muže znamenat jen jediné..."
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "Musel být uchvácen zlým černokněžníkem!"
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Bylo tu něco velmi mocného"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
-msgstr ""
+msgstr "Pořád je tu cítit magická energie"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr ""
+msgstr "Ať už to bylo cokoliv, už je to nějaký čas pryč..."
