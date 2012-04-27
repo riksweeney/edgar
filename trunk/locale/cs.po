@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-24 02:16+0000\n"
+"PO-Revision-Date: 2012-04-26 23:02+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-24 17:36+0000\n"
-"X-Generator: Launchpad (build 15139)\n"
+"X-Launchpad-Export-Date: 2012-04-27 16:41+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -1924,7 +1924,7 @@ msgstr "Zdá se to jako věčnost, co jsem tu byl vězněn"
 #: data/scripts/sewer_trap_note.dat:3
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr ""
-"Abzch se odsud dostal, potřebuji 3 Přístupové klíče k ovládání výtahů"
+"Abych se odsud dostal, potřebuji 3 Přístupové klíče k ovládání výtahů"
 
 #: data/scripts/sewer_trap_note.dat:4
 msgid "So far I have only found 1"
