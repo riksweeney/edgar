@@ -769,7 +769,7 @@ void readNextScriptLine()
 					syncWeaponShieldToPlayer();
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "PROPERTIES") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
@@ -1123,6 +1123,35 @@ void readNextScriptLine()
 			}
 		}
 
+		else if (strcmpignorecase("RESET", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				showErrorAndExit("RESET command could not find Entity %s", token);
+			}
+
+			if (e->fallout != NULL)
+			{
+				self = e;
+
+				self->fallout();
+
+				self->thinkTime = 0;
+			}
+		}
+
 		else if (strcmpignorecase("FOLLOW", command) == 0)
 		{
 			freeDialogBox();
@@ -1348,7 +1377,7 @@ void readNextScriptLine()
 
 			setCameraSpeed(atof(token));
 		}
-		
+
 		else if (strcmpignorecase("CAMERA_START", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
