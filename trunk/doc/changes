@@ -9,6 +9,7 @@ Version 1.01
 * Resetting a mirror while it is reflecting light no longer leaves it unusable
 * Fixed a random crash when the Green Scanners spot you in the Armoury
 * Chaos's tendrils now release Edgar when he dies
+* Fixed a problem where Evil Edgar could get blocked by a spring during his first cutscene
 
 Version 1.00
 * Added a basic introduction to set up the story
