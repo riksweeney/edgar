@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-23 13:03+0000\n"
+"PO-Revision-Date: 2012-04-27 14:00+0000\n"
 "Last-Translator: Guybrush88 <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-24 17:36+0000\n"
-"X-Generator: Launchpad (build 15139)\n"
+"X-Launchpad-Export-Date: 2012-04-27 16:41+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -87,6 +87,8 @@ msgstr "(Forse dovrei restituirgliela, dopo tutto mi sta salvando)"
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
 msgstr ""
+"(Allora di nuovo, l'ha rubato davvero e io sono quasi morto provando a "
+"prenderlo)"
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
