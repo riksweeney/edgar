@@ -78,7 +78,7 @@ static void trapWait()
 
 	self->health = self->maxHealth;
 
-	self->thinkTime = 180;
+	self->thinkTime = self->maxThinkTime;
 
 	checkToMap(self);
 }
@@ -89,7 +89,7 @@ static void trapEntity()
 
 	playSoundToMap("sound/item/trap_close.ogg", -1, self->x, self->y, 0);
 
-	self->thinkTime = 180;
+	self->thinkTime = self->maxThinkTime;
 
 	if (self->target == NULL)
 	{
@@ -173,7 +173,7 @@ static void activateTrap()
 
 		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			if (el->entity->inUse == TRUE && el->entity->type == ENEMY && strcmpignorecase(el->entity->name, "enemy/chicken") == 0)
+			if (el->entity->inUse == TRUE && el->entity->mental == 1 && strcmpignorecase(el->entity->name, "enemy/chicken") == 0)
 			{
 				if (collision(self->x, self->y, self->w, self->h, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 				{
@@ -202,7 +202,7 @@ static void activateTrap()
 
 static void touch(Entity *other)
 {
-	if (self->active == TRUE && other->type == ENEMY && strcmpignorecase(other->name, "enemy/chicken") == 0)
+	if (self->active == TRUE && other->mental == 1 && strcmpignorecase(other->name, "enemy/chicken") == 0)
 	{
 		self->action = &activateTrap;
 
