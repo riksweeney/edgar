@@ -1473,6 +1473,10 @@ static void riftAttract()
 		self->touch = NULL;
 
 		setEntityAnimation(self, "STAND");
+		
+		stopSound(self->health);
+		
+		self->health = -1;
 
 		self->action = &riftSink;
 
@@ -1489,9 +1493,10 @@ static void riftAttract()
 
 static void riftSink()
 {
-	stopSound(self->health);
-
-	self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	if (self->health == -1)
+	{
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	}
 
 	self->y += 0.5;
 
@@ -1630,11 +1635,13 @@ static void riftKillBoss()
 
 		self->target->thinkTime = 420;
 
-		self->health = -1;
-
 		self->touch = NULL;
 
 		setEntityAnimation(self, "STAND");
+		
+		stopSound(self->health);
+		
+		self->health = -1;
 
 		self->action = &riftSink;
 
@@ -1766,6 +1773,10 @@ static void riftDestroyWait()
 	if (self->mental <= 0)
 	{
 		setEntityAnimation(self, "STAND");
+		
+		stopSound(self->health);
+		
+		self->health = -1;
 
 		self->action = &riftSink;
 	}

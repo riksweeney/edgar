@@ -804,7 +804,7 @@ static void superSpearAttack()
 
 			self->thinkTime = 60;
 
-			if (self->face == RIGHT)
+			if (self->face == RIGHT || self->target->health <= 0)
 			{
 				j = 1;
 
@@ -850,7 +850,7 @@ static void superSpearAttack()
 				self->action = &superSpearAttackFinished;
 			}
 
-			else if (self->endY == 0)
+			else if (self->endY == 0 || self->target->health <= 0)
 			{
 				j = 1;
 
@@ -903,7 +903,7 @@ static void superSpearAttackFinished()
 {
 	self->head->health = 0;
 
-	if (self->mental <= 0)
+	if (self->mental <= 0 || self->target->health <= 0)
 	{
 		self->action = &attackFinished;
 

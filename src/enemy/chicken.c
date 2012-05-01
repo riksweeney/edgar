@@ -76,6 +76,8 @@ static void lookForFood()
 	newDistance = distance = -1;
 	
 	self->target = NULL;
+	
+	self->mental = 0;
 
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
@@ -205,6 +207,8 @@ static void moveToFood()
 		{
 			self->target->thinkTime = 600;
 		}
+		
+		self->mental = 1;
 
 		self->action = &doNothing;
 
@@ -231,6 +235,8 @@ static void finishEating()
 		self->action = &lookForFood;
 
 		self->thinkTime = 0;
+		
+		self->mental = 0;
 	}
 
 	else

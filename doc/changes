@@ -10,6 +10,8 @@ Version 1.01
 * Fixed a random crash when the Green Scanners spot you in the Armoury
 * Chaos's tendrils now release Edgar when he dies
 * Fixed a problem where Evil Edgar could get blocked by a spring during his first cutscene
+* The Awesome Foursome now longer freeze if one of them is killed during their super attacks
+* More fixes to Mataeus's rift sounds
 
 Version 1.00
 * Added a basic introduction to set up the story
