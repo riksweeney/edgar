@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-24 12:37+0000\n"
+"PO-Revision-Date: 2012-05-01 13:09+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-24 17:36+0000\n"
-"X-Generator: Launchpad (build 15139)\n"
+"X-Launchpad-Export-Date: 2012-05-01 17:04+0000\n"
+"X-Generator: Launchpad (build 15177)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3935,7 +3935,7 @@ msgstr "Снова ты?!"
 
 #: data/scripts/left_tower_intro.dat:7
 msgid "What a hassle that was"
-msgstr ""
+msgstr "Какие были хлопоты"
 
 #: data/scripts/left_tower_intro.dat:8
 msgid "I don't think I'll find my Dad in here"
@@ -4255,6 +4255,8 @@ msgid ""
 "If it is this one then the only two places it could be are the catacombs and "
 "the dungeon"
 msgstr ""
+"Если это так, то только в двух местах это может быть - катакомбах или "
+"подземелье"
 
 #: data/scripts/cauldron.dat:42
 msgid "I should start my search there"
@@ -4266,7 +4268,7 @@ msgstr "У меня ещё не все составляющие."
 
 #: data/scripts/cauldron.dat:46
 msgid "The book said I needed to find the following"
-msgstr ""
+msgstr "В книге сказано, что я должен найти такую"
 
 #: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
@@ -4286,7 +4288,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
-msgstr ""
+msgstr "Я не буду рисковать в этот раз..."
 
 #: data/scripts/cauldron.dat:75
 msgid "Did it work?"
@@ -4302,7 +4304,7 @@ msgstr "Я должен использовать свой деревянный �
 
 #: data/scripts/cauldron.dat:139
 msgid "Stupid thing. Maggie makes it all look so easy..."
-msgstr ""
+msgstr "Глупое дело. Когда Мегги делает, всё выглядит так просто..."
 
 #: data/scripts/cauldron.dat:142
 msgid "It's a cauldron. Maggie has one just like this"
@@ -4372,7 +4374,7 @@ msgstr ""
 
 #: data/scripts/cave_statue.dat:1
 msgid "Hmm, what's that?"
-msgstr "Хмм, Что это?"
+msgstr "Хмм, что это?"
 
 #: data/scripts/cave_statue.dat:2
 msgid "It's a small statue. It must be the one that Olaf said he stole"
@@ -4425,7 +4427,7 @@ msgstr "Лучше сначала пойду и сделаю его"
 
 #: data/scripts/fortress_intro_2.dat:3
 msgid "Glad to be out of there"
-msgstr ""
+msgstr "Рад, что выбрался оттуда"
 
 #: data/scripts/fortress_intro_2.dat:4
 msgid "Now to get that shield back from my double..."
@@ -4437,7 +4439,7 @@ msgstr "Найти Злого Эдгара"
 
 #: data/scripts/spores.dat:1
 msgid "Hey, those look familiar"
-msgstr ""
+msgstr "Эй, похоже знакомые"
 
 #: data/scripts/spores.dat:2
 msgid "They look like hypnotic spores"
@@ -4646,19 +4648,19 @@ msgstr "Кроме твоего зла"
 
 #: data/scripts/evil_edgar_start.dat:14
 msgid "More evil"
-msgstr ""
+msgstr "Большого зла"
 
 #: data/scripts/evil_edgar_start.dat:15
 msgid "Whatever, now I..."
-msgstr ""
+msgstr "Как бы ни было, я..."
 
 #: data/scripts/evil_edgar_start.dat:21
 msgid "What is all this stuff?"
-msgstr ""
+msgstr "Что это за предметы?"
 
 #: data/scripts/evil_edgar_start.dat:22
 msgid "Your experiment separated part of your conscious"
-msgstr ""
+msgstr "Твой эксперимент отделил часть твоего сознания"
 
 #: data/scripts/evil_edgar_start.dat:23
 msgid "Yes I know that, you already told me"
@@ -4790,7 +4792,7 @@ msgstr "Генератор выглядит нормально, он прост�
 
 #: data/scripts/final_generator.dat:3
 msgid "I guess it powers that door, so I'll have to turn it on"
-msgstr ""
+msgstr "Думаю, что это питание дверей, так что мне придётся включить его"
 
 #: data/scripts/final_generator.dat:4
 msgid "Turn on the generator?"
@@ -4806,7 +4808,7 @@ msgstr "Ах, вот оно!"
 
 #: data/scripts/final_generator.dat:36
 msgid "I'll leave it alone for the moment"
-msgstr ""
+msgstr "Пока что оставлю его в покое"
 
 #: src/enemy/baby_slime.c:201
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -5474,7 +5476,7 @@ msgstr "Введите инструкции"
 
 #: src/item/instruction_machine.c:164
 msgid "Out of space for instructions"
-msgstr "Неодстаточно места для инструкций"
+msgstr "Недостаточно места для инструкций"
 
 #: data/props/item/ice_spray.props:5
 msgid "Creates ice cubes that expand on contact with water"
@@ -5550,7 +5552,7 @@ msgstr "Щупальце Красной Грязи"
 
 #: data/scripts/old_shield.dat:7
 msgid "Eyeball Smoothie"
-msgstr ""
+msgstr "Глаз Льстеца"
 
 #: data/props/item/eyeball_smoothie.props:5
 msgid "A liquid made from eyeballs and tentacles"
@@ -5598,7 +5600,7 @@ msgstr "Книга"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "Sign"
-msgstr ""
+msgstr "Надпись"
 
 #: data/scripts/tutorial_shield.dat:6
 msgid "Note"
@@ -5782,11 +5784,11 @@ msgstr "Нажмите Действие, чтобы войти в Соедини
 
 #: src/item/soul_merger.c:139
 msgid "An IN Chamber and an OUT Chamber are required"
-msgstr ""
+msgstr "Требуются ВХОД Камеры и ВЫХОД Камеры"
 
 #: src/item/lava_door.c:101
 msgid "One blow from the pickaxe should shatter it"
-msgstr ""
+msgstr "Можно разрушить одним ударом кирки"
 
 #: src/item/soul_merger_control_panel.c:85
 msgid "Press Action to reprogram the Soul Merger"
@@ -6042,7 +6044,7 @@ msgstr "Достаточно! Готовься к смерти..."
 
 #: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
-msgstr ""
+msgstr "Быстро вращайся для снятия заклятия остолбенения!"
 
 #: src/player.c:1353
 msgid "Your shield is increasing in power..."
@@ -6190,11 +6192,11 @@ msgstr "Встретил колдуна"
 
 #: data/medals.dat:23
 msgid "Obtained 10 Hit Points"
-msgstr ""
+msgstr "Обретено 10 единиц здоровья"
 
 #: data/medals.dat:7
 msgid "Obtained 20 Hit Points"
-msgstr ""
+msgstr "Обретено 20 единиц здоровья"
 
 #: data/medals.dat:24
 msgid "Rescued all of Jacob's chickens"
@@ -6638,7 +6640,7 @@ msgstr "Нажать кнопку для прекращения окаменен
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
-msgstr "Завершите игру с 5 очками жизни"
+msgstr "Пройдена игра только с 5 единицами здоровья"
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"

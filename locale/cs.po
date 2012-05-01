@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-26 23:02+0000\n"
+"PO-Revision-Date: 2012-04-29 16:05+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-27 16:41+0000\n"
-"X-Generator: Launchpad (build 15149)\n"
+"X-Launchpad-Export-Date: 2012-05-01 17:04+0000\n"
+"X-Generator: Launchpad (build 15177)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: data/scripts/drainers.dat:3
 msgid "Defeat all Energy Drainers"
-msgstr "Poraž všechny Vysávače energie"
+msgstr "Poraž všechny energopijavice"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use left and right to move the dial 1 unit at a time"
@@ -1111,7 +1111,7 @@ msgstr "*Fňuk*"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr "Edgare! Edgare, kde jsi byl_?"
+msgstr "Edgare! Edgare, jsi to ty?"
 
 #: data/scripts/olaf.dat:6
 msgid "!"
@@ -1911,7 +1911,7 @@ msgstr "Teď jen zjistit kde to jsem a jak se dostat zpátky"
 
 #: data/scripts/items_found.dat:4
 msgid "If I can..."
-msgstr "Kdybych jen mohl..."
+msgstr "Pokud to bude možné..."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
@@ -2061,7 +2061,7 @@ msgstr ""
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr "Vypadá to jako mixér. Mohu to použít na mixování"
+msgstr "Vypadá to jako mixér. Mohu bych tím něco rozmixovat"
 
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
@@ -2486,7 +2486,7 @@ msgstr "Dostal jsem se odtamtud jen před několika málo hodinami"
 
 #: data/scripts/ending_part2.dat:47
 msgid "Are you kidding me?"
-msgstr "No to si dělaš legraci?"
+msgstr "No to si dělaš legraci!"
 
 #: data/scripts/ending_part2.dat:49
 msgid "I shouted down that well, didn't you hear me?"
@@ -2534,7 +2534,7 @@ msgstr "Jenom ten jeden případ"
 
 #: data/scripts/ending_part2.dat:67
 msgid "[CONTINUE_COUNT] times according to my count"
-msgstr "[CONTINUE_COUNT] podle mých výpočtů"
+msgstr "[CONTINUE_COUNT] krát podle mých výpočtů"
 
 #: data/scripts/ending_part2.dat:73
 msgid ""
@@ -2589,7 +2589,7 @@ msgstr "Vypadá to, že tvé slepice opět utekly, Jákobe"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
-msgstr "Ve skutečnosti si myslím že už vím, jaký bude tvůj trest..."
+msgstr "Myslím, že už vím, jaký bude tvůj trest..."
 
 #: data/scripts/jigsaw_puzzle.dat:3
 msgid "A jigsaw puzzle?!"
@@ -2824,7 +2824,7 @@ msgstr "Seber krumpáč a pokračuj k dalšímu Action Pointu"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr "Je tu draft..."
+msgstr "Je tu průvan..."
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
@@ -3033,7 +3033,7 @@ msgstr ""
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr "Myslím, že jsem něco cítil. Je tu draft..."
+msgstr "Myslím, že jsem něco cítil. Je tu průvan..."
 
 #: data/scripts/tutorial_finish.dat:2
 msgid ""
@@ -3226,7 +3226,7 @@ msgstr "S tímhle mečem budu téměř k nezastavení"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
-msgstr "Téměěř"
+msgstr "Téměř"
 
 #: data/scripts/lightning_sword.dat:6
 msgid ""
@@ -3682,7 +3682,7 @@ msgstr "Mačkej vlevo a vpravo pro pohyb kurzorem"
 
 #: data/scripts/mastermind.dat:5
 msgid "Press Attack to change the colour of the peg"
-msgstr "Zmačkni útok pro změnu barvy klíčku"
+msgstr "Zmačkni útok pro změnu barvy kuličky"
 
 #: data/scripts/mastermind.dat:6
 msgid ""
@@ -4067,7 +4067,7 @@ msgid ""
 "I saw a grown up one in the big city when I went there with my Dad, they're "
 "completely harmless"
 msgstr ""
-"Jednou jsem viděl dospělého, když jsem byl ve městě se svým táto. Jsou "
+"Jednou jsem viděl dospělého, když jsem byl ve městě se svým tátou. Jsou "
 "docela neškodní..."
 
 #: data/scripts/hoover.dat:16
@@ -4287,7 +4287,7 @@ msgstr "Kotlík. Maggie má přesně takový"
 
 #: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
-msgstr "Dobrá, přidávám Gayerovu bulvu a chapadlo"
+msgstr "Jdem na to, nejdřív mix  z Gazerovy bulvy a chapadla"
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
@@ -4342,7 +4342,7 @@ msgid ""
 "Besides, this thing nearly killed me twice, I should have some sort of "
 "trophy of my victory"
 msgstr ""
-"Navíc, tahle věc mě dvakrát málem zabile, takže si zasloužím nějakou trofej"
+"Navíc, tahle věc mě dvakrát málem zabila, takže si zasloužím nějakou trofej"
 
 #: data/scripts/black_book_search.dat:25
 msgid "I'll leave it alone, especially after what happened last time..."
@@ -4468,7 +4468,7 @@ msgstr "Možná se mi ho podaří roztavit..."
 
 #: data/scripts/sliding_puzzle.dat:2
 msgid "Cool, a giant sliding puzzle! I have one of these back home!"
-msgstr "Hustý, obrovská posunovací hlavolam! Doma mám taky takový!"
+msgstr "Hustý, obrovský posunovací hlavolam! Doma mám taky takový!"
 
 #: data/scripts/sliding_puzzle.dat:3
 msgid "Well, not a giant one, obviously..."
@@ -4484,7 +4484,7 @@ msgid ""
 "right and the empty block is in the bottom right corner"
 msgstr ""
 "Uspořádej bloky tak, že čísla od 1 do 8 budou popřadě zleva doprava a "
-"prázdný blok bude v pravém dloním rohu"
+"prázdný blok bude v pravém dolním rohu"
 
 #: data/scripts/sliding_puzzle.dat:8
 msgid "Press Attack to quit the puzzle"
@@ -4693,7 +4693,7 @@ msgstr "Wau, krásný štít"
 
 #: data/scripts/disintegration_shield.dat:2
 msgid "Hopefully this will protect me from that spell"
-msgstr "Sand mě ochrání před tím kouzlem"
+msgstr "Snad mě ochrání před tím kouzlem"
 
 #: data/scripts/disintegration_shield.dat:3
 msgid "But there's only one way to find out..."
@@ -6666,7 +6666,7 @@ msgstr "Shoř na popel!"
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
-msgstr "Pociť mou sílu!"
+msgstr "Ochutnej moji sílu!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
@@ -6694,7 +6694,7 @@ msgstr "Drž osobu"
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr "Meč legendy"
+msgstr "Legendární meč"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""

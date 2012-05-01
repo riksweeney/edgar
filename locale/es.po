@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Traduccion de Edgar 0.75\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-29 18:09+0000\n"
+"PO-Revision-Date: 2012-04-30 23:39+0000\n"
 "Last-Translator: Eleanor Robinson <ellier8@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
-"X-Generator: Launchpad (build 15120)\n"
+"X-Launchpad-Export-Date: 2012-05-01 17:04+0000\n"
+"X-Generator: Launchpad (build 15177)\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -974,7 +974,7 @@ msgstr "Parece como..."
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
-msgstr ""
+msgstr "Es tan grueso como..."
 
 #: data/scripts/slime_potion_pool.dat:5
 msgid "And it tastes like..."
@@ -990,11 +990,11 @@ msgstr "¡Tocado!"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "Not so clever now are you?"
-msgstr ""
+msgstr "No eres tan inteligente ahora"
 
 #: data/scripts/cave_boss_die.dat:79
 msgid "I REALLY have to get out of here!"
-msgstr ""
+msgstr "¡Necesito MUCHO salir de aquí!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
@@ -1010,7 +1010,7 @@ msgstr "¡Gracias Maggie!"
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
-msgstr ""
+msgstr "Eres persistente"
 
 #: data/scripts/sorceror_intro_3.dat:10
 msgid ""
@@ -1036,7 +1036,7 @@ msgstr "A ver, si no me dices el paradero de mi padre"
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
-msgstr ""
+msgstr "Te golpearé hasta que lo tenga"
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
@@ -1133,7 +1133,7 @@ msgstr "¿Qué voy a hacer ahora?"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
-msgstr ""
+msgstr "*se sorbe las lágrimas*"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
@@ -1279,6 +1279,8 @@ msgid ""
 "Slowly regaining his power until he is strong enough to break free and "
 "terrorise the world once again"
 msgstr ""
+"Está recuperando lentamente hasta que sea bastante fuerte para liberarse y "
+"terrorizar el mundo otra vez"
 
 #: data/scripts/monsters.dat:21
 msgid "Beneath an old fortress? Maybe they mean this one..."
@@ -1289,6 +1291,8 @@ msgid ""
 "If that dragon is regaining its power then it must be stopped before it's "
 "too late"
 msgstr ""
+"Si ese dragón está recobrando su poder hay que prevenirlo antes de que sea "
+"demasiado tarde"
 
 #: data/scripts/monsters.dat:23
 msgid ""
@@ -1662,7 +1666,7 @@ msgstr ""
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
-msgstr ""
+msgstr "Smacker, Lesser..."
 
 #: data/scripts/monsters.dat:137
 msgid ""
@@ -1960,7 +1964,7 @@ msgstr "Si puedo..."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
-msgstr ""
+msgstr "Mira, ha empezado a llover"
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "I've been trapped down here for what seems like an eternity"
@@ -2021,7 +2025,7 @@ msgstr "Destruye la pared usando la piqueta y continua"
 
 #: data/scripts/grimlore_die.dat:3
 msgid "There, back to your own dimension"
-msgstr ""
+msgstr "Ya está, vuelve a tu propia dimensión"
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
@@ -2569,19 +2573,19 @@ msgstr "Crucé el pantano"
 
 #: data/scripts/ending_part2.dat:54
 msgid "Broke into the Sorceror's Fortress"
-msgstr ""
+msgstr "Forzaste la entrada de la Fortaleza del Hechicero"
 
 #: data/scripts/ending_part2.dat:55
 msgid "Fought countless numbers of ferocious monsters"
-msgstr ""
+msgstr "Luchaste contra numéros incontables de monstruos feroces"
 
 #: data/scripts/ending_part2.dat:56
 msgid "Got imprisoned in his dungeon"
-msgstr ""
+msgstr "Fue encarcelado en su mazmorra"
 
 #: data/scripts/ending_part2.dat:57
 msgid "And was teleported to another part of the world!"
-msgstr ""
+msgstr "¡Y fue teletransportado a otra parte del mundo!"
 
 #: data/scripts/ending_part2.dat:58
 msgid "I nearly died!"
@@ -2646,7 +2650,7 @@ msgstr "Sólo necesito pensar en algo adecuado..."
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
-msgstr ""
+msgstr "Parece que tus gallinas han escapado de su pocilga otra vez, Jacob"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
@@ -2666,7 +2670,7 @@ msgid ""
 "Lightning Sword"
 msgstr ""
 "Prefiero los puzzles deslizantes, como el que tuve que resolver para "
-"conseguir la espada relámpago"
+"conseguir la Espada Relámpago"
 
 #: data/scripts/jigsaw_puzzle.dat:9
 msgid "Still, it looks like this is the only way out"
@@ -3558,7 +3562,7 @@ msgstr "Conseguiré hacerlo de otra manera"
 
 #: data/scripts/gold_centurion.dat:2
 msgid "I'll find something else to work the treadmill for me"
-msgstr ""
+msgstr "Encontraré otra cosa para hacer funcionar la cinta de correr para mi"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
@@ -3827,7 +3831,7 @@ msgstr "No parece que esté funcionando bien"
 
 #: data/scripts/gargoyle_stone.dat:1
 msgid "It's petrified again"
-msgstr ""
+msgstr "Está petrificado otra vez"
 
 #: data/scripts/fish.dat:1
 msgid "The water is full of those carnivorous fish"
@@ -4907,7 +4911,7 @@ msgstr "¡Ah, aquí está!"
 
 #: data/scripts/final_generator.dat:36
 msgid "I'll leave it alone for the moment"
-msgstr ""
+msgstr "Lo dejaré en paz por el momento"
 
 #: src/enemy/baby_slime.c:201
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -5124,7 +5128,7 @@ msgstr "Bolsa de carbón"
 
 #: data/maps/map02.dat:5067
 msgid "Forest Cell Key"
-msgstr ""
+msgstr "La llave para la celda en el bosque"
 
 #: data/maps/map03.dat:5442
 msgid "Wood Axe"
@@ -5136,7 +5140,7 @@ msgstr "Poción de curación"
 
 #: data/maps/map07.dat:2218
 msgid "Outflow Key"
-msgstr ""
+msgstr "La llave para el flujo"
 
 #: data/maps/map07.dat:3642
 msgid "Flow Control Key"
@@ -5144,7 +5148,7 @@ msgstr "Llave de control de flujo"
 
 #: data/maps/map07.dat:3668
 msgid "Waste Processing Key"
-msgstr ""
+msgstr "La llave para procesar los desechos"
 
 #: data/scripts/sewer_trap_note.dat:12
 msgid "Access Key 1"
@@ -5160,7 +5164,7 @@ msgstr "Llave de acceso 3"
 
 #: data/maps/map07.dat:2518
 msgid "Trap Door Switch Key"
-msgstr ""
+msgstr "La llave para el interruptor de la trampilla"
 
 #: data/scripts/borgan.dat:7
 msgid "Coal"
@@ -5324,7 +5328,7 @@ msgstr "Llave de la sala de las pociones"
 
 #: data/maps/map08.dat:2643
 msgid "Surge Passage Key"
-msgstr ""
+msgstr "La llave del pasaje de la oleada"
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
@@ -5560,7 +5564,7 @@ msgstr "Una estatua de una Tortuga. Tiene 4 patas."
 
 #: data/props/item/tuning_fork.props:4
 msgid "A Tuning Fork"
-msgstr ""
+msgstr "Un Diapasón"
 
 #: data/props/misc/chopped_log.props:7
 msgid "A chopped log"
@@ -5608,15 +5612,15 @@ msgstr "Caro de la mina lleno"
 
 #: data/maps/map12.dat:2442
 msgid "Processing Lift Key"
-msgstr ""
+msgstr "La llave para el ascensor del procesamiento"
 
 #: data/maps/map12.dat:5318
 msgid "Right Grabber Key"
-msgstr ""
+msgstr "La llave para el capturador de la derecha"
 
 #: data/maps/map12.dat:5343
 msgid "Left Grabber Key"
-msgstr ""
+msgstr "La llave para el capturador de la izquierda"
 
 #: data/maps/map12.dat:5443
 msgid "Master Key"
@@ -5741,7 +5745,7 @@ msgstr "Cuerda"
 
 #: src/item/extend_o_grab_button.c:42
 msgid "Extend-O-Grab"
-msgstr ""
+msgstr "Extend-O-Grab"
 
 #: data/maps/map13.dat:2968
 msgid "Water Purifiers"
@@ -5817,11 +5821,11 @@ msgstr "Muertes: %d"
 
 #: src/menu/stats_menu.c:108
 msgid "Bats Drowned: %d"
-msgstr ""
+msgstr "Murciélagos ahogados"
 
 #: src/menu/stats_menu.c:112
 msgid "Times Eaten: %d"
-msgstr ""
+msgstr "Veces Comido: %d"
 
 #: src/menu/stats_menu.c:120
 msgid "Distanced Travelled: %0.1fKM"
@@ -5869,7 +5873,7 @@ msgstr "Eliminado %s"
 
 #: src/boss/awesome_boss.c:1147
 msgid "Their partner will heal them when they fall..."
-msgstr ""
+msgstr "Su compañero les curará cuando se caigan..."
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
@@ -5897,7 +5901,7 @@ msgstr "Pulsa Acción para reprogramar el fusionador de almas"
 
 #: src/item/soul_merger_control_panel.c:93
 msgid "Spanner is required"
-msgstr ""
+msgstr "Se necesita una Llave de Tuercas"
 
 #: src/item/soul_merger_control_panel.c:150
 msgid "Press Action to Cancel"
@@ -5933,7 +5937,7 @@ msgstr "¡Arghh!, ¡mis ojos!"
 
 #: data/props/item/spanner.props:6
 msgid "A spanner"
-msgstr ""
+msgstr "Una Llave de Tuercas"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
@@ -5998,7 +6002,7 @@ msgstr ""
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
-msgstr ""
+msgstr "Intenta obtener el calibrador para agarrar una bomba..."
 
 #: data/props/item/spores.props:5
 msgid "Spores that will make certain monsters temporarily harmless"
@@ -6054,47 +6058,47 @@ msgstr "Un escudo que puede soportar la desintegración"
 
 #: src/enemy/magic_missile.c:292
 msgid "Try using one of the artifacts to protect yourself..."
-msgstr ""
+msgstr "Intenta usar uno de los artefactos para protegerte..."
 
 #: src/menu/main_menu.c:389
 msgid "Failed to load game"
-msgstr ""
+msgstr "No consiguió cargar el juego"
 
 #: src/boss/grimlore.c:2752
 msgid "Your %s has been destroyed"
-msgstr ""
+msgstr "Se ha destruido tu %s"
 
 #: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
-msgstr ""
+msgstr "Amarrar sólo funciona contra los demonios debilitados"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
-msgstr ""
+msgstr "Hace volver un demonio debilitado a su propia dimensión"
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
-msgstr ""
+msgstr "Un trozo de carne muy venenosa"
 
 #: data/scripts/correct_combination.dat:4
 msgid "Scrap of Paper"
-msgstr ""
+msgstr "Un Trozito de Papel"
 
 #: data/props/item/reflection_artifact.props:5
 msgid "Creates a temporary shield that reflects magic spells"
-msgstr ""
+msgstr "Crea un escudo temporal que refleja encantos"
 
 #: data/props/item/protection_artifact.props:5
 msgid "Protects against certain attacks. Stops working if you move"
-msgstr ""
+msgstr "Protege contra ciertos ataques. Deja de funcionar si mueves"
 
 #: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
-msgstr ""
+msgstr "Pulsa Ataque cuando estás Bloqueando para usar tu escudo..."
 
 #: src/game.c:918
 msgid "Play Time"
-msgstr ""
+msgstr "Tiempo de Juega"
 
 #: src/credits.c:866
 msgid "Kills"
@@ -6102,119 +6106,121 @@ msgstr "Muertes"
 
 #: src/credits.c:869
 msgid "Arrows Fired"
-msgstr ""
+msgstr "Flechas Lanzadas"
 
 #: src/credits.c:872
 msgid "Distanced Travelled"
-msgstr ""
+msgstr "Distancia Viajada"
 
 #: src/credits.c:875
 msgid "Attacks Blocked"
-msgstr ""
+msgstr "Ataques Bloqueados"
 
 #: src/credits.c:878
 msgid "Time Spent As A Slime"
-msgstr ""
+msgstr "Tiempo Pasado Como Un Limo"
 
 #: src/credits.c:881
 msgid "Secrets Found"
-msgstr ""
+msgstr "Secretos Encontrados"
 
 #: src/credits.c:884
 msgid "Continues"
-msgstr ""
+msgstr "Continuaciónes"
 
 #: src/credits.c:940
 msgid "Defeated Bosses"
-msgstr ""
+msgstr "Jefes Vencidos"
 
 #: src/credits.c:1095
 msgid "Undefeated"
-msgstr ""
+msgstr "Invictos"
 
 #: src/credits.c:152
 msgid "Defeated"
-msgstr ""
+msgstr "Vencidos"
 
 #: data/scripts/sorceror_intro_2.dat:1
 msgid "Sorceror"
-msgstr ""
+msgstr "El Hechicero"
 
 #: src/boss/sorceror_2.c:361
 msgid "Enough! Prepare to die..."
-msgstr ""
+msgstr "¡Bastante! Prepárate a morir..."
 
 #: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
+"¡Rápidamente gira a la izquierda y a la derecha para quitar el encanto que "
+"agarra!"
 
 #: src/player.c:1353
 msgid "Your shield is increasing in power..."
-msgstr ""
+msgstr "Tu escudo aumenta en poder..."
 
 #: src/menu/about_menu.c:75
 msgid "The Legend of Edgar v%0.2f"
-msgstr ""
+msgstr "La Leyenda de Edgar v%0.2f"
 
 #: src/credits.c:124
 msgid "King Grub"
-msgstr ""
+msgstr "El Rey Grub"
 
 #: src/credits.c:125
 msgid "The Golem"
-msgstr ""
+msgstr "El Gólem"
 
 #: src/credits.c:126
 msgid "Queen Wasp"
-msgstr ""
+msgstr "La Reina Avispa"
 
 #: src/credits.c:127
 msgid "The Swamp Guardian"
-msgstr ""
+msgstr "El Defensor del Pantano"
 
 #: src/credits.c:129
 msgid "The Blob"
-msgstr ""
+msgstr "El Blob"
 
 #: src/credits.c:130
 msgid "The Watchdog"
-msgstr ""
+msgstr "El Perro Guardián"
 
 #: src/credits.c:131
 msgid "The Awesome Foursome"
-msgstr ""
+msgstr "El Cuarteto Maravilloso"
 
 #: data/scripts/black_book.dat:25
 msgid "Mataeus"
-msgstr ""
+msgstr "Mataeus"
 
 #: src/credits.c:133
 msgid "The Phoenix"
-msgstr ""
+msgstr "El Fénix"
 
 #: src/credits.c:134
 msgid "The Borer"
-msgstr ""
+msgstr "El Calibrador"
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Evil Edgar"
-msgstr ""
+msgstr "El Malo Edgar"
 
 #: src/credits.c:136
 msgid "The Sewer Dweller"
-msgstr ""
+msgstr "El Habitante de Las Alcantarillas"
 
 #: src/credits.c:137
 msgid "The Salamander"
-msgstr ""
+msgstr "La Salamandra"
 
 #: src/credits.c:138
 msgid "The Black Book"
-msgstr ""
+msgstr "El Libro Negro"
 
 #: src/credits.c:141
 msgid "The Sorceror"
-msgstr ""
+msgstr "El Hechicero"
 
 #: data/medals.dat:1
 msgid "Became a legend"
@@ -6222,11 +6228,11 @@ msgstr ""
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
-msgstr ""
+msgstr "Venciste al Caos"
 
 #: data/medals.dat:3
 msgid "Defeated the Sorceror"
-msgstr ""
+msgstr "Venciste al Hechicero"
 
 #: data/medals.dat:6
 msgid "Obtained the Dragon Shield"
@@ -6238,211 +6244,211 @@ msgstr ""
 
 #: data/medals.dat:8
 msgid "Walked 50km"
-msgstr ""
+msgstr "Caminaste 50 Km"
 
 #: data/medals.dat:10
 msgid "Fired 500 arrows"
-msgstr ""
+msgstr "Lanzaste 500 flechas"
 
 #: data/medals.dat:11
 msgid "Defeated 1000 enemies"
-msgstr ""
+msgstr "Venciste a 1000 enemigos"
 
 #: data/medals.dat:12
 msgid "Defeated 2000 enemies"
-msgstr ""
+msgstr "Venciste a 2000 enemigos"
 
 #: data/medals.dat:14
 msgid "Defeated the Black Book"
-msgstr ""
+msgstr "Venciste el Libro Negro"
 
 #: data/medals.dat:15
 msgid "Defeated Grimlore"
-msgstr ""
+msgstr "Venciste a Grimlore"
 
 #: data/medals.dat:16
 msgid "Defeated the Phoenix"
-msgstr ""
+msgstr "Venciste al Fénix"
 
 #: data/medals.dat:9
 msgid "Defeated Azriel"
-msgstr ""
+msgstr "Venciste a Azriel"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
-msgstr ""
+msgstr "Venciste a La Gárgola"
 
 #: data/medals.dat:17
 msgid "Defeated a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Venciste a una Tortuga Maestro Enloquecida"
 
 #: data/medals.dat:18
 msgid "Obtained the Lightning Sword"
-msgstr ""
+msgstr "Obtuviste la Espada Relámpago"
 
 #: data/medals.dat:19
 msgid "Opened the safe in the Library"
-msgstr ""
+msgstr "Abriste la caja fuerte en la Biblioteca"
 
 #: data/medals.dat:20
 msgid "Located the Occult Section"
-msgstr ""
+msgstr "Localizaste la Sección del Ocultismo"
 
 #: data/medals.dat:22
 msgid "Met the Sorceror"
-msgstr ""
+msgstr "Conociste al Hechicero"
 
 #: data/medals.dat:23
 msgid "Obtained 10 Hit Points"
-msgstr ""
+msgstr "Obtuviste 10 Puntos de Vida"
 
 #: data/medals.dat:7
 msgid "Obtained 20 Hit Points"
-msgstr ""
+msgstr "Obtuviste 20 Puntos de Vida"
 
 #: data/medals.dat:24
 msgid "Rescued all of Jacob's chickens"
-msgstr ""
+msgstr "Rescataste todas las gallinas de Jacob"
 
 #: data/medals.dat:25
 msgid "Fired 250 arrows"
-msgstr ""
+msgstr "Disaparaste 250 flechas"
 
 #: data/medals.dat:26
 msgid "Blocked 2000 attacks"
-msgstr ""
+msgstr "Bloqueaste 2000 ataques"
 
 #: data/medals.dat:27
 msgid "Continued 20 times"
-msgstr ""
+msgstr "Continuaste 20 veces"
 
 #: data/medals.dat:28
 msgid "Drowned 20 Red Bats"
-msgstr ""
+msgstr "Ahogaste 20 Murciélagos Rojos"
 
 #: data/medals.dat:29
 msgid "Escaped the Dungeon"
-msgstr ""
+msgstr "Escapaste de la Mazmorra"
 
 #: data/medals.dat:30
 msgid "Got eaten 5 times"
-msgstr ""
+msgstr "Fuiste comido 5 veces"
 
 #: data/medals.dat:31
 msgid "Entered the Forbidden Swamp"
-msgstr ""
+msgstr "Entraste en el Pantano Prohibido"
 
 #: data/medals.dat:32
 msgid "Completed the Tutorial"
-msgstr ""
+msgstr "Terminaste el Tutorial"
 
 #: data/medals.dat:33
 msgid "Obtained the Fire Shield"
-msgstr ""
+msgstr "Obtuviste el Escudo del Fuego"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "Va a la Fortaleza"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
-msgstr ""
+msgstr "Venciste al Gólem utilizando solamente los capturadores"
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
-msgstr ""
+msgstr "Venciste a 100 enemigos"
 
 #: data/medals.dat:37
 msgid "Defeated 200 enemies"
-msgstr ""
+msgstr "Venciste a 200 enemigos"
 
 #: data/medals.dat:38
 msgid "Defeated 500 enemies"
-msgstr ""
+msgstr "Venciste a 500 enemigos"
 
 #: data/medals.dat:39
 msgid "Defeated the Watchdog"
-msgstr ""
+msgstr "Venciste el Perro Guardián"
 
 #: data/medals.dat:40
 msgid "Defeated the Awesome Foursome"
-msgstr ""
+msgstr "Venciste al Cuarteto Maravilloso"
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
-msgstr ""
+msgstr "Venciste el Blob"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
-msgstr ""
+msgstr "Venciste al Calibrador"
 
 #: data/medals.dat:43
 msgid "Defeated Evil Edgar"
-msgstr ""
+msgstr "Venciste al Malo Edgar"
 
 #: data/medals.dat:44
 msgid "Defeated the Queen Fly"
-msgstr ""
+msgstr "Venciste la Reina de las Moscas"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem"
-msgstr ""
+msgstr "Venciste al Gólem"
 
 #: data/medals.dat:46
 msgid "Defeated the King Grub"
-msgstr ""
+msgstr "Venciste al Rey de los Gusanos"
 
 #: data/medals.dat:47
 msgid "Defeated Mataeus"
-msgstr ""
+msgstr "Venciste a Mataeus"
 
 #: data/medals.dat:48
 msgid "Defeated the Salamander"
-msgstr ""
+msgstr "Venciste la Salamandra"
 
 #: data/medals.dat:49
 msgid "Defeated the Sewer Dweller"
-msgstr ""
+msgstr "Venciste al Habitante de las Alcantarillas"
 
 #: data/medals.dat:50
 msgid "Defeated the Forbidden Swamp Guardian"
-msgstr ""
+msgstr "Venciste al Defensor del Pantano Prohibido"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
-msgstr ""
+msgstr "Leíste todo el Compendio de los Monstruos"
 
 #: data/medals.dat:53
 msgid "Obtained the Amulet of Resurrection"
-msgstr ""
+msgstr "Obtuviste el Amuleto de Resurrección"
 
 #: data/medals.dat:54
 msgid "Spent 10 minutes as a Slime"
-msgstr ""
+msgstr "Pasaste 10 minutos como Lodo"
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
-msgstr ""
+msgstr "Una Medalla Escondida"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
-msgstr ""
+msgstr "Un timbre"
 
 #: data/props/item/portable_save.props:4
 msgid "Creates a save point at your current position"
-msgstr ""
+msgstr "Crea un control para guardar en tu posición actual"
 
 #: src/player.c:2098
 msgid "Your controls have been reversed!"
-msgstr ""
+msgstr "¡Se han invertido tus mandos!"
 
 #: src/item/portable_save.c:82
 msgid "You cannot use this here"
-msgstr ""
+msgstr "No se puede usar esto aquí"
 
 #: src/item/portable_save.c:87
 msgid "You can only use this item in an empty space"
-msgstr ""
+msgstr "Solamente puedes usar este objeto en un espacio vacío"
 
 #: src/item/key_items.c:260
 msgid "Bell"
@@ -6450,15 +6456,15 @@ msgstr "Campana"
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
-msgstr ""
+msgstr "Una Partitura"
 
 #: src/menu/io_menu.c:125
 msgid "Choose slot to save to"
-msgstr ""
+msgstr "Escoge una caja para guardar tu juego"
 
 #: src/menu/io_menu.c:130
 msgid "Choose slot to load from"
-msgstr ""
+msgstr "Escoge una caja para cargar"
 
 #: src/world/level_exit.c:104
 msgid "Press Action to go to %s"
@@ -6466,99 +6472,99 @@ msgstr "Pulsa Acción para ir al %s"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
-msgstr ""
+msgstr "El Pueblo"
 
 #: data/scripts/mine2_exit.dat:1
 msgid "the Mine"
-msgstr ""
+msgstr "La Mina"
 
 #: data/maps/map01.dat:1843
 msgid "the Forest"
-msgstr ""
+msgstr "El Bosque"
 
 #: data/scripts/borgan.dat:44
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "El Pantano Prohibido"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
-msgstr ""
+msgstr "La Cueva"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr ""
+msgstr "Las Afueras de la Fortaleza"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
-msgstr ""
+msgstr "Las Ancantarillas"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
-msgstr ""
+msgstr "El Sótano de la Fortaleza"
 
 #: data/maps/map08.dat:3418
 msgid "the Fortress Ground Floor"
-msgstr ""
+msgstr "La Planta Baja de la Fortaleza"
 
 #: data/scripts/old_shield.dat:17
 msgid "the Laboratory"
-msgstr ""
+msgstr "El Laboratorio"
 
 #: data/medals.dat:19
 msgid "the Library"
-msgstr ""
+msgstr "La Biblioteca"
 
 #: data/maps/map08.dat:12568
 msgid "the Fortress Mine"
-msgstr ""
+msgstr "La Mina de la Fortaleza"
 
 #: data/maps/map09.dat:2918
 msgid "the Armoury"
-msgstr ""
+msgstr "La Armería"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr ""
+msgstr "La Cueva del Calibrador"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
-msgstr ""
+msgstr "Las Catacumbas"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "the Study"
-msgstr ""
+msgstr "El Estudio"
 
 #: data/medals.dat:29
 msgid "the Dungeon"
-msgstr ""
+msgstr "La Mazmorra"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr ""
+msgstr "Las Inmensidades Heladas"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
-msgstr ""
+msgstr "La Red de la Cueva Exterior"
 
 #: data/maps/map19.dat:5643
 msgid "the Inner Cave Network"
-msgstr ""
+msgstr "La Red de la Cueva Interior"
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
-msgstr ""
+msgstr "El Cementerio"
 
 #: data/maps/map09.dat:10018
 msgid "the Left Tower"
-msgstr ""
+msgstr "La Torre de la Izquierda"
 
 #: data/maps/map16.dat:1968
 msgid "the Right Tower"
-msgstr ""
+msgstr "La Torre de la Derecha"
 
 #: data/medals.dat:21
 msgid "the Crypt"
-msgstr ""
+msgstr "La Cripta"
 
 #: data/scripts/ending_part1.dat:35
 msgid "Village"
@@ -6590,7 +6596,7 @@ msgstr "Alcantarilla"
 
 #: data/maps/map08.dat:1
 msgid "Fortress Basement"
-msgstr ""
+msgstr "El Sótano de la Fortaleza"
 
 #: data/maps/map08.dat:3418
 msgid "Fortress Ground Floor"
@@ -6606,11 +6612,11 @@ msgstr "Biblioteca"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr ""
+msgstr "La Cueva del Calibrador"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"
-msgstr ""
+msgstr "Las Catacumbas"
 
 #: data/scripts/enable_study.dat:1
 msgid "Study"
@@ -6622,15 +6628,15 @@ msgstr "Mazmorra"
 
 #: data/maps/map18.dat:1
 msgid "Frozen Wastes"
-msgstr ""
+msgstr "Las Inmensidades Heladas"
 
 #: data/maps/map18.dat:4918
 msgid "Outer Cave Network"
-msgstr ""
+msgstr "La Red de la Cueva Exterior"
 
 #: data/maps/map19.dat:5643
 msgid "Inner Cave Network"
-msgstr ""
+msgstr "La Red de la Cueva Interior"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Graveyard"
@@ -6638,15 +6644,15 @@ msgstr "Cementerio"
 
 #: data/maps/map22.dat:1
 msgid "Left Tower"
-msgstr ""
+msgstr "La Torre de la Izquierda"
 
 #: data/scripts/final_battle.dat:7
 msgid "Right Tower"
-msgstr ""
+msgstr "La Torre de la Derecha"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
-msgstr ""
+msgstr "El Observatorio"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
@@ -6654,27 +6660,27 @@ msgstr "Cripta"
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - 2012"
-msgstr ""
+msgstr "Derechos de Autor Parallel Realities 2009-2012"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
-msgstr ""
+msgstr "Reiniciar Puesto de Control"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
-msgstr ""
+msgstr "Sólo se puede permitir a trucos dentro del juego"
 
 #: src/title.c:79
 msgid "Press any key"
-msgstr ""
+msgstr "Pulsa cualquiera tecla"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
-msgstr ""
+msgstr "No se puede equipar objetos mientras atacas"
 
 #: src/game.c:44
 msgid "Continue"
-msgstr ""
+msgstr "Continúa"
 
 #: src/menu/medals_menu.h:20
 msgid "Medals"
@@ -6682,93 +6688,99 @@ msgstr "Medallas"
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
-msgstr ""
+msgstr "Calidad de Sonido"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
-msgstr ""
+msgstr "Trucos"
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "Salud Infinita"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "Flechas Infinitas"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "La lava es mortal"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
 msgstr ""
+"Utiliza Flecha Arriba y Flecha Abajo para seleccionar, y Enter para cambiar."
 
 #: src/menu/control_menu.c:189
 msgid "Interact"
-msgstr ""
+msgstr "Interactúa"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use"
-msgstr ""
+msgstr "Usar"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "Por favor configura todos controles"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
 msgstr ""
+"¡Vuelve a la izquierda y a la derecha rápidamente para sacudir los trozos!"
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
-msgstr ""
+msgstr "Azriel"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
-msgstr ""
+msgstr "Hasta la vista..."
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
-msgstr ""
+msgstr "El recuerdo de Ivan"
 
 #: src/inventory.c:364
 msgid "Selected %s"
-msgstr ""
+msgstr "Escogiste %s"
 
 #: src/player.c:2995
 msgid "Press buttons to break the petrification!"
-msgstr ""
+msgstr "Pulsa botones para romper la petrificación"
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
-msgstr ""
+msgstr "Terminaste el juego con solamente 5 puntos de vida"
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"
-msgstr ""
+msgstr "Terminaste el juego sin continuar"
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
-msgstr ""
+msgstr "Accediste a la Cripta"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
 msgstr ""
+"¡Vuelve a la izquierda y a la derecha rápidamente para sacudir las gárgolas "
+"miniaturas!"
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
-msgstr ""
+msgstr "El Escudo del Dragón"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
-msgstr ""
+msgstr "Un escudo que resiste al aliento de un dragón"
 
 #: src/game.c:870
 msgid ""
 "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
 "font"
 msgstr ""
+"Hay que especificar la fuente pequeña - SMALL_FONT_SIZE - y la fuente grande "
+"- LARGE_FONT_SIZE cuando se utiliza una fuente de encargo"
 
 #: src/menu/options_menu.c:354
 msgid ""
@@ -6786,134 +6798,137 @@ msgstr ""
 
 #: src/boss/chaos.c:814
 msgid "Stalagmite"
-msgstr ""
+msgstr "La Estalagmita"
 
 #: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
-msgstr ""
+msgstr "¡Arde a cenizas!"
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
-msgstr ""
+msgstr "¡Siente mi poder!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
-msgstr ""
+msgstr "¡Sufre!"
 
 #: src/boss/chaos.c:1472
 msgid "Pathetic"
-msgstr ""
+msgstr "Patético"
 
 #: src/boss/chaos.c:1490
 msgid "Impale"
-msgstr ""
+msgstr "Atravesar"
 
 #: src/player.c:2031
 msgid "Confuse"
-msgstr ""
+msgstr "Confundir"
 
 #: src/boss/chaos.c:1687
 msgid "Darkness"
-msgstr ""
+msgstr "La Oscuridad"
 
 #: src/boss/chaos.c:1766
 msgid "Hold Person"
-msgstr ""
+msgstr "Detiene la Persona"
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr ""
+msgstr "Un Espada Legendario"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
+"Refleja las fuerzas fantasmales. Bloquear al último momento aumenta el poder."
 
 #: src/credits.c:458
 msgid "Chaos has been subdued"
-msgstr ""
+msgstr "Se ha contenido el caos"
 
 #: src/credits.c:460
 msgid "For now..."
-msgstr ""
+msgstr "Por el momento..."
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"
-msgstr ""
+msgstr "El caos pronto será libre"
 
 #: src/credits.c:467
 msgid "To terrorise the world once again"
-msgstr ""
+msgstr "Para aterrorizar el mundo una vez más"
 
 #: src/item/attractor.c:36
 msgid "Rift"
-msgstr ""
+msgstr "Fisura"
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Zarcillos"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
-msgstr ""
+msgstr "Orbes"
 
 #: src/boss/chaos.c:1312
 msgid "I will destroy you!"
-msgstr ""
+msgstr "¡Te destrozaré!"
 
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
-msgstr ""
+msgstr "Debe haberme teletransportado con el último de su magia"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
+"Aunque no logró matarle, ahora está demasiado débil para representar una "
+"amenaza al mundo"
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "Es tiempo de volver a rescatar a mi padre..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
-msgstr ""
+msgstr "Está sellado fuertemente. No podré entrar allí"
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
-msgstr ""
+msgstr "Está terminado"
 
 #: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
-msgstr ""
+msgstr "¿Pero qué es esto? Parece una espada"
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
-msgstr ""
+msgstr "Debe ser la espada de Ivan"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Tú...tú nunca me vencerás"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Escaparé de este horrible lugar"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Aunque me lleve otros 100 años"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Estas cadenas no me detenerán eternamente"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "Es tiempo de terminar esto. ¡Prepárate!"
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "¡No! ¡Desterra!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
@@ -6964,3 +6979,53 @@ msgstr ""
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
 msgstr ""
+
+#~ msgid ""
+#~ "Something is supposed to happen here, but it's not in this version so check "
+#~ "back later!"
+#~ msgstr ""
+#~ "¡Se supone que algo va a pasar aquí, pero no está en esta versión así que "
+#~ "prueba más tarde!"
+
+#~ msgid ""
+#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
+#~ "getting killed!"
+#~ msgstr ""
+#~ "¡Este lugar es de locos, será mejor que me dé prisa y encuentre a papá antes "
+#~ "de que termine asesinado!"
+
+#~ msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+#~ msgstr ""
+#~ "Así que, para crear el Escudo de fuego tengo que conseguir un tentáculo de "
+#~ "Lodo rojo"
+
+#~ msgid "Red Sludges live in mines so I'll have to find one around here"
+#~ msgstr ""
+#~ "Los Lodos rojos viven en las minas por lo que tengo que encontrar una por "
+#~ "aquí"
+
+#~ msgid "OK, off I go..."
+#~ msgstr "Vale, me voy..."
+
+#~ msgid ""
+#~ "I also need a spare shield, but I reckon there should be an Armoury around"
+#~ msgstr ""
+#~ "También necesito un escudo de más, pero creo que debería haber una armería "
+#~ "por ahí"
+
+#~ msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
+#~ msgstr ""
+#~ "Los globos oculares de Glazer son bastante fáciles a encontrar, sólo puedo "
+#~ "volver al Sótano"
+
+#~ msgid ""
+#~ "Now I must rest until I am strong enough to escape this wretched place"
+#~ msgstr ""
+#~ "Ahora tengo que tomarme un descanso hasta que sea bastante fuerte para "
+#~ "escaparme de este maldito lugar"
+
+#~ msgid "Even if it takes another 100 years"
+#~ msgstr "Aunque falten otros 100 años"
+
+#~ msgid "Now, begone from my sight, mighty warrior"
+#~ msgstr "Ahora, fuera de aquí, poderoso guerrero"
