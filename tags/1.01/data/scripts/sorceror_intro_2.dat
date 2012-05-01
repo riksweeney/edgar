@@ -1,0 +1,37 @@
+FIRE_TRIGGER Sorceror Trigger
+IF EXISTS TEMP_SORCEROR_POINT
+KILL TEMP_SORCEROR_POINT
+END
+WAIT 5
+SET SORCEROR FACE LEFT
+LIMIT_CAMERA 640 32 1280 480
+WALK_TO EDGAR 778 426 WAIT
+WAIT 30
+TALK Sorceror So, you escaped
+TALK Edgar Yes I did, and my father wasn't there
+TALK Sorceror Maybe you just didn't look hard enough
+TALK Sorceror Have another look
+SET SORCEROR PROPERTY MENTAL -3
+WHILE EXISTS SORCEROR_SPELL
+WAIT 60
+WALK_TO EDGAR 778 426 WAIT
+TALK Edgar Maybe you should work on your spells
+TALK Edgar NOW TELL ME WHERE MY FATHER IS!
+TALK Sorceror You annoying little brat
+TALK Sorceror I wouldn't be surprised if your father has abandoned you
+TALK Edgar What?!
+TALK Edgar I'll show you!
+EQUIP_WEAPON weapon/bow
+ADD_TO_INVENTORY weapon/normal_arrow QUIET
+ATTACK
+WAIT 120
+TALK Sorceror That, was a mistake
+TALK Sorceror Die
+SET SORCEROR PROPERTY MENTAL -2
+WHILE SORCEROR MENTAL -2
+WAIT 60
+SET SORCEROR ANIMATION STAND
+TALK Sorceror That was odd, he was supposed to explode
+TALK Sorceror Where did he go?
+LOAD_LEVEL map18 wasteland_entrance
+WAIT 300

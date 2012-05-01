@@ -1,0 +1,18 @@
+NAME weapon/pickaxe
+FRAMES 1
+1 30000 0 0
+NAME weapon/wood_axe
+FRAMES 1
+0 30000 0 0
+NAME weapon/basic_sword
+FRAMES 1
+2 30000 0 0
+NAME weapon/normal_arrow
+FRAMES 1
+3 30000 0 0
+NAME weapon/flaming_arrow
+FRAMES 1
+4 30000 0 0
+NAME weapon/lightning_sword
+FRAMES 1
+5 30000 0 0

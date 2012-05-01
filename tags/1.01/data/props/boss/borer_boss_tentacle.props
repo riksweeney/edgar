@@ -1,0 +1,6 @@
+DAMAGE 1
+HEALTH 70
+GFX_FILE data/gfx/boss/borer_boss_tentacle.dat
+ANIM_FILE data/anim/boss/borer_boss_tentacle.dat
+TYPE ENEMY
+FLAGS FLY|DO_NOT_PERSIST|UNBLOCKABLE

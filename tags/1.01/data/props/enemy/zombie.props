@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/zombie.dat
+ANIM_FILE data/anim/enemy/zombie.dat
+TYPE ENEMY
+SPEED 1.5
+HEALTH 80
+LAYER BACKGROUND_LAYER

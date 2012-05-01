@@ -1,0 +1,6 @@
+DAMAGE 100
+GFX_FILE data/gfx/weapon/legendary_sword.dat
+ANIM_FILE data/anim/weapon/legendary_sword.dat
+TYPE WEAPON
+OBJECTIVE_NAME Legendary Sword
+DESCRIPTION A Sword of Legend
