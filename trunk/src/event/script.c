@@ -21,6 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../audio/audio.h"
 #include "../audio/music.h"
+#include "../credits.h"
 #include "../custom_actions.h"
 #include "../dialog.h"
 #include "../entity.h"
@@ -53,9 +54,9 @@ static void setNo(void);
 
 void runScript(char *name)
 {
-	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
+	char filename[MAX_PATH_LENGTH], *line, *savePtr, **existingLines;
 	unsigned char *buffer;
-	int i;
+	int i, newCount;
 
 	/* Don't fire if the player's health is 0 */
 
@@ -64,46 +65,82 @@ void runScript(char *name)
 		return;
 	}
 
+	newCount = 0;
+
 	savePtr = NULL;
-
-	freeScript();
-
-	script.lineCount = 0;
 
 	snprintf(filename, sizeof(filename), "data/scripts/%s.dat", name);
 
 	buffer = loadFileFromPak(filename);
 
-	text = malloc((strlen((char *)buffer) + 1) * sizeof(char));
-
-	if (text == NULL)
+	if (script.text != NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * (strlen((char *)buffer) + 1)), filename);
+		printf("Appending to running script\n");
+
+		newCount = countTokens(buffer, "\n");
+
+		existingLines = malloc(sizeof(char *) * script.lineCount);
+
+		if (existingLines == NULL)
+		{
+			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * existingLines), filename);
+		}
+
+		for (i=0;i<script.lineCount;i++)
+		{
+			existingLines[i] = malloc(strlen(script.text[i]) + 1);
+
+			if (existingLines[i] == NULL)
+			{
+				showErrorAndExit("Failed to allocate %d bytes for script line %d", (int)(sizeof(char *) * strlen(script.text[i]) + 1), (i + 1));
+			}
+
+			STRNCPY(existingLines[i], script.text[i], strlen(script.text[i]) + 1);
+
+			free(script.text[i]);
+		}
+
+		free(script.text);
+
+		script.lineCount += newCount;
+
+		script.text = malloc(sizeof(char *) * script.lineCount);
+
+		if (script.text == NULL)
+		{
+			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * script.lineCount), filename);
+		}
+
+		for (i=0;i<script.lineCount;i++)
+		{
+			script.text[i] = malloc(strlen(existingLines[i]) + 1);
+
+			if (script.text[i] == NULL)
+			{
+				showErrorAndExit("Failed to allocate %d bytes for script line %d", (int)(sizeof(char *) * strlen(existingLines[i]) + 1), (i + 1));
+			}
+
+			STRNCPY(script.text[i], existingLines[i], strlen(existingLines[i]) + 1);
+
+			free(existingLines[i]);
+		}
+
+		free(existingLines);
 	}
 
-	STRNCPY(text, (char *)buffer, strlen((char *)buffer) + 1);
-
-	line = strtok_r((char *)text, "\n", &savePtr);
-
-	while (line != NULL)
+	else
 	{
-		script.lineCount++;
+		script.text = malloc(sizeof(char *) * script.lineCount);
 
-		line = strtok_r(NULL, "\n", &savePtr);
+		if (script.text == NULL)
+		{
+			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * script.lineCount), filename);
+		}
+
+		script.line = 0;
+
+		i = 0;
 	}
-
-	free(text);
-
-	script.text = malloc(sizeof(char *) * script.lineCount);
-
-	if (script.text == NULL)
-	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * script.lineCount), filename);
-	}
-
-	script.line = 0;
-
-	i = 0;
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
@@ -123,7 +160,7 @@ void runScript(char *name)
 
 		if (script.text[i] == NULL)
 		{
-			showErrorAndExit("Failed to allocate %d bytes for script line %d", (int)(sizeof(char *) * script.lineCount), (i + 1));
+			showErrorAndExit("Failed to allocate %d bytes for script line %d", (int)(sizeof(char *) * strlen(line) + 1), (i + 1));
 		}
 
 		STRNCPY(script.text[i], line, strlen(line) + 1);
@@ -135,15 +172,18 @@ void runScript(char *name)
 
 	free(buffer);
 
-	script.skipping = FALSE;
+	if (newCount == 0)
+	{
+		script.skipping = FALSE;
 
-	script.currentDepth = 0;
+		script.currentDepth = 0;
 
-	script.requiredDepth = 0;
+		script.requiredDepth = 0;
 
-	playerWaitForDialog();
+		playerWaitForDialog();
 
-	readNextScriptLine();
+		readNextScriptLine();
+	}
 }
 
 void readNextScriptLine()
@@ -1453,6 +1493,8 @@ void freeScript()
 		script.thinkTime = 0;
 
 		script.yesNoResult = 0;
+
+		script.lineCount = 0;
 	}
 
 	freeScriptMenu();
