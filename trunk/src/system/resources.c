@@ -161,6 +161,10 @@ void freeLevelResources()
 	/* Free the message queue */
 
 	freeMessageQueue();
+	
+	/* Free the scripts */
+
+	freeScript();
 }
 
 void freeGameResources()
