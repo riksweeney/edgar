@@ -167,7 +167,7 @@ static void activateTrap()
 
 	self->health = self->maxHealth;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && self->target == NULL)
 	{
 		self->thinkTime = 0;
 

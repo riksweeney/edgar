@@ -75,15 +75,13 @@ void runScript(char *name)
 
 	if (script.text != NULL)
 	{
-		printf("Appending to running script\n");
-
-		newCount = countTokens(buffer, "\n");
+		newCount = countTokens((char *)buffer, "\n");
 
 		existingLines = malloc(sizeof(char *) * script.lineCount);
 
 		if (existingLines == NULL)
 		{
-			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * existingLines), filename);
+			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * script.lineCount), filename);
 		}
 
 		for (i=0;i<script.lineCount;i++)
@@ -101,14 +99,14 @@ void runScript(char *name)
 		}
 
 		free(script.text);
+		
+		script.text = NULL;
 
-		script.lineCount += newCount;
-
-		script.text = malloc(sizeof(char *) * script.lineCount);
+		script.text = malloc(sizeof(char *) * (script.lineCount + newCount));
 
 		if (script.text == NULL)
 		{
-			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * script.lineCount), filename);
+			showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * (script.lineCount + newCount)), filename);
 		}
 
 		for (i=0;i<script.lineCount;i++)
@@ -124,12 +122,18 @@ void runScript(char *name)
 
 			free(existingLines[i]);
 		}
+		
+		script.lineCount += newCount;
 
 		free(existingLines);
+		
+		existingLines = NULL;
 	}
 
 	else
 	{
+		script.lineCount = countTokens((char *)buffer, "\n");
+		
 		script.text = malloc(sizeof(char *) * script.lineCount);
 
 		if (script.text == NULL)
@@ -173,7 +177,7 @@ void runScript(char *name)
 	free(buffer);
 
 	if (newCount == 0)
-	{
+	{		
 		script.skipping = FALSE;
 
 		script.currentDepth = 0;
