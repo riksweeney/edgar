@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-05-01 12:54+0000\n"
+"PO-Revision-Date: 2012-05-08 13:49+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-01 17:04+0000\n"
-"X-Generator: Launchpad (build 15177)\n"
+"X-Launchpad-Export-Date: 2012-05-08 17:41+0000\n"
+"X-Generator: Launchpad (build 15204)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -510,7 +510,7 @@ msgstr "Можливо я зможу прокласти тунель, щоб у�
 
 #: data/scripts/borer_boss_die.dat:3
 msgid "Gross..."
-msgstr "Чималенька..."
+msgstr "Чималенький..."
 
 #: data/scripts/knights.dat:1
 msgid "Oh, what's this?"
@@ -637,7 +637,7 @@ msgstr "Тут записка"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
-msgstr "Я знайшов спосіб вбити центуріона"
+msgstr "Я знайшов спосіб вбивати Центуріонів"
 
 #: data/scripts/centurion_note_2.dat:3
 msgid ""
@@ -1237,7 +1237,7 @@ msgid ""
 "Finally a brave warrior and a group of magicians managed to overwhelm and "
 "bind him"
 msgstr ""
-"Нарешті хоробрий воїн та група магів змогли перемогти та скувати його"
+"Нарешті, хоробрий воїн і група магів змогли перемогти та скувати його"
 
 #: data/scripts/monsters.dat:17
 msgid "They sealed the dragon away beneath an old fortress"
@@ -1524,7 +1524,7 @@ msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
-"Тоді як Сірий Центуріон використовується для охорони зовнішнього периметра, "
+"Тоді як Сірі Центуріони використовуються для охорони зовнішнього периметра, "
 "Червоні Центуріони, як відомо, охороняють більш важливі місця"
 
 #: data/scripts/old_shield.dat:26
@@ -2318,7 +2318,7 @@ msgstr "Нахабний невіглас, ти постраждаєш за св
 
 #: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
-msgstr "Я - Азраіл"
+msgstr "Я - Азраїл"
 
 #: data/scripts/centurion_note_1.dat:2
 msgid "I've managed to escape from my cell and am trying to find a way out"
@@ -2337,11 +2337,12 @@ msgid ""
 "The pieces are locked behind doors which seem to be linked to the Red "
 "Centurions"
 msgstr ""
-"Частини заперті за дверима, котрі, ймовірно, зв’язані з Червоним Центуріоном"
+"Частини заперті за дверима, котрі, ймовірно, зв’язані з Червоними "
+"Центуріонами"
 
 #: data/scripts/centurion_note_1.dat:5
 msgid "The Centurions appear to be indestructible however"
-msgstr "Здається, що Центуріон невразливий"
+msgstr "Здається, що Центуріони невразливі"
 
 #: data/scripts/centurion_note_1.dat:6
 msgid "Unless I can find a way to destroy them I will die down here"
@@ -2353,7 +2354,7 @@ msgstr "Я знайду спосіб знищити"
 
 #: data/scripts/centurion_note_1.dat:8
 msgid "I'm so close to rescuing Dad now..."
-msgstr "Так закінчиться врятування Тата..."
+msgstr "Я зараз так близько до врятування Тата..."
 
 #: data/scripts/centurion_note_1.dat:10
 msgid "Find 9 Puzzle Pieces"
@@ -2381,11 +2382,11 @@ msgstr "Можливо, що для виходу потрібно скорист
 
 #: data/scripts/smoothie_colour.dat:1
 msgid "Cool, it worked!"
-msgstr "Круто, працює!"
+msgstr "Чудово, працює!"
 
 #: data/scripts/smoothie_colour.dat:2
 msgid "I'm not sure about the colour though, I thought it would be red?"
-msgstr "Хоч я не впевнений в кольорі, я гадаю, що він можливо червоний?"
+msgstr "Хоч я не впевнений в кольорі, я гадав, що буде червоним?"
 
 #: data/scripts/smoothie_colour.dat:3
 msgid "Maybe it's supposed to be yellow..."
@@ -2393,7 +2394,7 @@ msgstr "Можливо, жовтий..."
 
 #: data/scripts/smoothie_colour.dat:10
 msgid "I just need to find another shield to enchant..."
-msgstr "Мені потрібно знайти інший щит для чар..."
+msgstr "Мені потрібно знайти інший щит для чаклування..."
 
 #: data/scripts/cauldron_exploded.dat:7
 msgid "Maybe that wasn't such a good idea after all..."
@@ -2914,7 +2915,7 @@ msgid ""
 "This is done in the same way as the sequence doors"
 msgstr ""
 "Необхідно ввести інструкції слідування робота. Складається відповідно "
-"порядку дверей"
+"напрямку руху"
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
@@ -2954,7 +2955,7 @@ msgid ""
 "Hang on a second, Maggie told me to always ask if someone had lost something "
 "before taking it..."
 msgstr ""
-"Хвилинку, Меггі казала мені завжди спитати, че не згубив хто, перш ніж це "
+"Хвилинку, Меггі казала мені завжди питати, че не згубив хто, перш ніж це "
 "взяти..."
 
 #: data/scripts/protection_ring.dat:8
@@ -2963,7 +2964,7 @@ msgstr "НІХТО НЕ ГУБИВ КІЛЬЦЕ?!"
 
 #: data/scripts/protection_ring.dat:10
 msgid "No one? Guess it's mine then!"
-msgstr "Нікого? Так воно моє!"
+msgstr "Нікого? Так, воно моє!"
 
 #: data/scripts/instruction_card.dat:1
 msgid ""
@@ -2979,13 +2980,13 @@ msgstr "Позбавлення..."
 
 #: data/scripts/crossbow.dat:5
 msgid "OK, let's see if this works..."
-msgstr "Добре, дивись, якщо це працює..."
+msgstr "Добре, подивимось, як це працює..."
 
 #: data/scripts/crossbow.dat:17
 msgid ""
 "I'll have no problem walking over this rope either, thanks to my tightrope "
 "walking skills"
-msgstr "Завдяки навичкам еквілібриста, я без проблем йду по цьому канату"
+msgstr "Завдяки навичкам еквілібриста, я без проблем піду по цьому канату"
 
 #: data/scripts/crossbow.dat:18
 msgid "And Dad said it'd never come in handy!"
@@ -2993,7 +2994,7 @@ msgstr "І Татко казав, що це ніколи не знадобить
 
 #: data/scripts/crossbow.dat:21
 msgid "I need a length of rope to attach to the bolt"
-msgstr "Потрібно кінець канату прив’язати до болта"
+msgstr "Потрібно кінець канату прив’язати до стріли"
 
 #: data/scripts/crossbow.dat:25
 msgid "It's a giant crossbow"
@@ -3538,7 +3539,7 @@ msgstr "Це те, що я думаю?"
 
 #: data/scripts/resurrection_amulet.dat:3
 msgid "It is! It's an Amulet of Resurrection!"
-msgstr "Це! Це Амулет Воскресіння!"
+msgstr "Це він! Це Амулет Воскресіння!"
 
 #: data/scripts/resurrection_amulet.dat:4
 msgid ""
@@ -3635,11 +3636,11 @@ msgstr "Віддай його!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:24
 msgid "Make me!"
-msgstr ""
+msgstr "Зроби мене!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:25
 msgid "Fine, I will!"
-msgstr ""
+msgstr "Добре, я хочу!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:34
 msgid "Loser"
@@ -3650,7 +3651,7 @@ msgid ""
 "I'll collect his corpse later. The equipment in the lab should be enough for "
 "me to carry out my plan..."
 msgstr ""
-"Зберу його тіло пізніше. Обладнання в лабораторії повинно бути достатньо, "
+"Заберу його тіло пізніше. Обладнання в лабораторії повинно бути достатньо, "
 "щоб виконати мій план..."
 
 #: data/scripts/centurion_pressure_plate.dat:1
@@ -3761,11 +3762,11 @@ msgstr "Треба якимсь чином їх позбутися"
 
 #: data/scripts/rusted.dat:4
 msgid "There, that's the hinges oiled. This should be as good as new now!"
-msgstr "Змастити та буде, як новеньке!"
+msgstr "Петлі змастити. Стане, як новеньке!"
 
 #: data/scripts/rusted.dat:7
 msgid "The hinges are rusted, I'll need to find some oil before I can use it"
-msgstr "Петлі заіржавіли та, насамперед, потрібно знайти масло"
+msgstr "Петлі заіржавіли, перед використанням потрібно знайти масло"
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
@@ -4265,7 +4266,7 @@ msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
 msgstr ""
-"Потрібно створити щит проти руйнування і врятувати Татка, а потім бігати за "
+"Потрібно створити щит проти розчеплення і врятувати Татка, а потім бігати за "
 "драконом"
 
 #: data/scripts/cauldron.dat:66
@@ -4326,33 +4327,36 @@ msgstr "Мені потрібно змішати очі та щупальце  �
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
-msgstr ""
+msgstr "Здається, мертва"
 
 #: data/scripts/black_book_search.dat:7
 msgid "Or at least as dead as a book can be"
-msgstr ""
+msgstr "Або ж мертва, наскільки може бути книга"
 
 #: data/scripts/black_book_search.dat:8
 msgid "It might be safe to touch now"
-msgstr ""
+msgstr "Зараз до неї можна безпечно доторкуватися"
 
 #: data/scripts/black_book_search.dat:18
 msgid "This page just has a sequence of numbers scrawled on it"
-msgstr ""
+msgstr "На цій сторінці недбало написана послідовність чисел"
 
 #: data/scripts/black_book_search.dat:19
 msgid "I'll take it with me, it might come in handy"
-msgstr ""
+msgstr "Візьму її з собою, може стати в нагоді"
 
 #: data/scripts/black_book_search.dat:20
 msgid ""
 "Besides, this thing nearly killed me twice, I should have some sort of "
 "trophy of my victory"
 msgstr ""
+"Крім того, ця штука майже двічі не вбила мене. Хотілося б мати який-небудь "
+"трофей з моєї перемоги"
 
 #: data/scripts/black_book_search.dat:25
 msgid "I'll leave it alone, especially after what happened last time..."
 msgstr ""
+"Залишу в спокої, особливо після того, що трапилося зі мною минулого разу..."
 
 #: data/scripts/cave_statue.dat:1
 msgid "Hmm, what's that?"
@@ -4371,13 +4375,13 @@ msgstr ""
 
 #: data/scripts/cave_statue.dat:7
 msgid "Typical..."
-msgstr ""
+msgstr "Типово..."
 
 #: data/scripts/cave_statue.dat:8
 msgid ""
 "Well, it might have just fallen further down into the cave, I'll just have "
 "to keep looking"
-msgstr ""
+msgstr "Можливо, впала далі в печеру, просто продовжу пошуки"
 
 #: data/scripts/fortress_mine_intro.dat:1
 msgid "Huh, déjà vu..."
@@ -4413,7 +4417,7 @@ msgstr "Радий, що вибрався"
 
 #: data/scripts/fortress_intro_2.dat:4
 msgid "Now to get that shield back from my double..."
-msgstr "Зараз забрати щит у мого двійника..."
+msgstr "Зараз потрібно забрати щит у мого двійника..."
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
@@ -4636,7 +4640,7 @@ msgstr "Як би не було, я..."
 
 #: data/scripts/evil_edgar_start.dat:21
 msgid "What is all this stuff?"
-msgstr "Що це за речі?"
+msgstr "Що це за прилади?"
 
 #: data/scripts/evil_edgar_start.dat:22
 msgid "Your experiment separated part of your conscious"
@@ -4685,6 +4689,8 @@ msgid ""
 "That was the plan. Since you're alive though, you've saved me the bother of "
 "having to drag your carcass all the way back here"
 msgstr ""
+"Це був план. Оскільки ти живий,  ти позбавив мене необхідності тягти твоє "
+"тіло весь цей шлях сюди"
 
 #: data/scripts/evil_edgar_start.dat:34
 msgid "Now get in the machine!"
@@ -4716,7 +4722,7 @@ msgstr "Зараз створити щит і до чаклуна..."
 
 #: data/scripts/disable_study.dat:14
 msgid "Create a Resist Disintegration Shield"
-msgstr "Створити Щит проти Руйнування"
+msgstr "Створити Щит проти Розчеплення"
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
@@ -5142,7 +5148,7 @@ msgstr "Батарейка Тесла. Повністю заряжена."
 
 #: data/props/item/empty_potion.props:6
 msgid "An empty potion bottle"
-msgstr "Порожня пляшка зілля"
+msgstr "Порожня пляшка для зілля"
 
 #: data/props/item/chicken_feed_bag.props:6
 msgid "A bag of chicken feed"
@@ -5594,7 +5600,7 @@ msgstr "Лати не по зубам..."
 
 #: data/props/item/rope.props:5
 msgid "A length of rope"
-msgstr "Довжина канату"
+msgstr "Канат"
 
 #: data/props/item/extend_o_grab.props:5
 msgid "A device for grabbing far away objects"
@@ -5658,7 +5664,7 @@ msgstr "Рудничний візок"
 
 #: src/player.c:3238
 msgid "%s has regained power"
-msgstr ""
+msgstr "%s відновив енергію"
 
 #: data/props/item/old_shield.props:5
 msgid "An old shield found in the Armoury"
@@ -5726,7 +5732,7 @@ msgstr "Зосталось 10 зарядів..."
 
 #: src/player.c:3170
 msgid "%s is out of power"
-msgstr ""
+msgstr "%s без енергії"
 
 #: src/enemy/lightning_tortoise.c:310
 msgid "The damage from this weapon is being absorbed..."
@@ -5738,7 +5744,7 @@ msgstr "Знайдено тайників: %d / %d"
 
 #: src/item/light_pillar.c:151
 msgid "Press Action to activate the Light Pillar"
-msgstr "Натисни Дія для активації Світлового Стовпа"
+msgstr "Натисни Дія для активації Стовпа Освітлення"
 
 #: src/inventory.c:754
 msgid "Removed %s"
@@ -5750,7 +5756,7 @@ msgstr "Напарники зцілюють, якщо вони падають в
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
-msgstr ""
+msgstr "Супер готовий..."
 
 #: src/player.c:1692
 msgid "Used Amulet of Resurrection"
@@ -5762,7 +5768,7 @@ msgstr "Натисни Дія для входу в Поєднувач Душ"
 
 #: src/item/soul_merger.c:139
 msgid "An IN Chamber and an OUT Chamber are required"
-msgstr "Потрібні ВХІД Камери та ВИХІД з Камери"
+msgstr "Потрібні Камера ВХОДУ (IN) та Камера ВИХОДУ (OUT)"
 
 #: src/item/lava_door.c:101
 msgid "One blow from the pickaxe should shatter it"
@@ -5782,7 +5788,7 @@ msgstr "Натисни Дія для відміни"
 
 #: src/item/light_pillar.c:116
 msgid "%s is needed to activate this Light Pillar"
-msgstr "Для активації Світлового Стовпа потрібно %s"
+msgstr "Для активації Стовпа Освітлення потрібно %s"
 
 #: data/scripts/soul_merger.dat:2
 msgid "Evil_Edgar"
@@ -5798,7 +5804,7 @@ msgstr "Спускайся звідди!"
 
 #: src/boss/evil_edgar.c:786
 msgid "Stupid duds..."
-msgstr ""
+msgstr "Безглузда осічка..."
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
@@ -5814,7 +5820,7 @@ msgstr "Гаєчний ключ"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
-msgstr ""
+msgstr "Вибухливе Око Спостерігача. Осічка?"
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
@@ -5882,7 +5888,7 @@ msgstr "Спори, тимчасово знешкоджуючі деяких м�
 
 #: src/item/apple_tree.c:172
 msgid "It's out of apples..."
-msgstr "Це з яблук..."
+msgstr "Вже без яблук..."
 
 #: src/game.c:918
 msgid "Failed"
@@ -5902,11 +5908,11 @@ msgstr "Залишилось спроб: %d"
 
 #: src/item/colour_pot.c:183
 msgid "The pot is empty"
-msgstr ""
+msgstr "Порожня ємність"
 
 #: src/enemy/frog.c:370
 msgid "Your %s has been stolen!"
-msgstr ""
+msgstr "У тебе вкрали %s!"
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
@@ -5926,7 +5932,7 @@ msgstr "Магічний уламок панцира Розгніваної Го
 
 #: data/props/weapon/disintegration_shield_1.props:5
 msgid "A shield that can resist disintegration"
-msgstr "Щит, що протидіє руйнуванню"
+msgstr "Щит, що протидіє розчепленню"
 
 #: src/enemy/magic_missile.c:292
 msgid "Try using one of the artifacts to protect yourself..."
@@ -5938,7 +5944,7 @@ msgstr "Помилка при завантаженні гри"
 
 #: src/boss/grimlore.c:2752
 msgid "Your %s has been destroyed"
-msgstr ""
+msgstr "Твій %s пошкоджено"
 
 #: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
@@ -5966,7 +5972,7 @@ msgstr "Захищає від деяких атак. Припиняє діяти
 
 #: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
-msgstr ""
+msgstr "Тисни Атака під час Захисту для використання твого щита..."
 
 #: src/game.c:918
 msgid "Play Time"
@@ -6050,7 +6056,7 @@ msgstr "Хранитель Болота"
 
 #: src/credits.c:129
 msgid "The Blob"
-msgstr ""
+msgstr "Блоб"
 
 #: src/credits.c:130
 msgid "The Watchdog"
@@ -6142,7 +6148,7 @@ msgstr "Переможено Фенікса"
 
 #: data/medals.dat:9
 msgid "Defeated Azriel"
-msgstr "Переможено Азріеля"
+msgstr "Переможено Азраїла"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
@@ -6246,7 +6252,7 @@ msgstr "Переможено Жахливий Квартет"
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
-msgstr ""
+msgstr "Переможено Блоба"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
@@ -6410,7 +6416,7 @@ msgstr "В’язниця"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr "Заморожена пустиня"
+msgstr "Заморожена пустеля"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
@@ -6498,7 +6504,7 @@ msgstr "В’язниця"
 
 #: data/maps/map18.dat:1
 msgid "Frozen Wastes"
-msgstr "Заморожена пустиня"
+msgstr "Заморожена пустеля"
 
 #: data/maps/map18.dat:4918
 msgid "Outer Cave Network"
@@ -6598,7 +6604,7 @@ msgstr "Швидко обертайся, щоб позбавитись шари�
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
-msgstr "Азріель"
+msgstr "Азраїл"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
@@ -6693,7 +6699,7 @@ msgstr "Спохмурнілий"
 
 #: src/boss/chaos.c:1766
 msgid "Hold Person"
-msgstr "Остовпівший чоловік"
+msgstr "Нерухомий"
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
@@ -6723,15 +6729,15 @@ msgstr "Щоб знову жахати світ"
 
 #: src/item/attractor.c:36
 msgid "Rift"
-msgstr ""
+msgstr "Прохід"
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Вуса"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
-msgstr ""
+msgstr "Шари"
 
 #: src/boss/chaos.c:1312
 msgid "I will destroy you!"
