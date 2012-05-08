@@ -14,7 +14,7 @@ CC       = ppc-amigaos-gcc
 LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
-CFLAGS = -mcrt=newlib -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = -mcrt=newlib -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
 LFLAGS = -lSDL_image -lpng -ljpeg -lz -lSDL_mixer -lm -lvorbisfile -lvorbis -logg -lstdc++ -lSDL_ttf -lfreetype -lz -lSDLmain -lSDL -lauto -lpthread -lm -lunix
 
