@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 1.02
+* Fixed some music tracks not playing in newer versions of SDL Mixer
+
 Version 1.01
 * Updated Spanish, Czech, French, Italian, Russian and Ukrainian translations (thanks translators) 
 * Fixed a problem where the player could get stuck in the Fortress Mine
