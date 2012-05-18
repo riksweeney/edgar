@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-19 03:06+0000\n"
-"Last-Translator: Sebastien Belzile <seb.belzile@gmail.com>\n"
+"PO-Revision-Date: 2012-05-15 16:46+0000\n"
+"Last-Translator: TartinesKiller <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
-"X-Generator: Launchpad (build 15120)\n"
+"X-Launchpad-Export-Date: 2012-05-15 20:36+0000\n"
+"X-Generator: Launchpad (build 15247)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -5700,7 +5700,7 @@ msgstr "Impossible de ramasser : %s. Inventaire plein."
 
 #: src/item/mine_cart.c:85
 msgid "Filling mine cart..."
-msgstr "Le chariot se remplis..."
+msgstr "Le chariot se rempli..."
 
 #: src/player.c:2181
 msgid "Out of arrows!"
@@ -5764,7 +5764,7 @@ msgstr "Smoothie au yeux"
 
 #: data/props/item/eyeball_smoothie.props:5
 msgid "A liquid made from eyeballs and tentacles"
-msgstr "Un liquide composer de yeux et de tentacules"
+msgstr "Un liquide composé d'yeux et de tentacules"
 
 #: src/system/load_save.c:1685
 msgid "Patching your save game. Please wait..."
@@ -5866,7 +5866,7 @@ msgstr "Clef de l'ascenseur de la catapulte"
 
 #: data/maps/map09.dat:2917
 msgid "Armoury"
-msgstr "Armurie"
+msgstr "Armurerie"
 
 #: data/scripts/maggie.dat:3
 msgid "Maggie"
@@ -5890,7 +5890,7 @@ msgstr "Charriot de Mine"
 
 #: src/player.c:3238
 msgid "%s has regained power"
-msgstr "%s a retrouver des forces"
+msgstr "%s a retrouvé des forces"
 
 #: data/props/item/old_shield.props:5
 msgid "An old shield found in the Armoury"
@@ -6179,11 +6179,11 @@ msgstr "Ligoter ne fonctionne que contre des démons affaiblis"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
-msgstr "Envoie un démon affaiblie dans sa propre dimension"
+msgstr "Envoie un démon affaibli dans sa propre dimension"
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
-msgstr "Un morceau de viande très poison"
+msgstr "Un morceau de viande très empoisonné"
 
 #: data/scripts/correct_combination.dat:4
 msgid "Scrap of Paper"
@@ -6209,7 +6209,7 @@ msgstr "Durée de jeu"
 
 #: src/credits.c:866
 msgid "Kills"
-msgstr "Victoires"
+msgstr "Victimes"
 
 #: src/credits.c:869
 msgid "Arrows Fired"
@@ -6775,8 +6775,7 @@ msgstr "Recommencer au point de sauvegarde"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
-msgstr ""
-"Les codes de triche ne peuvent seulement être activer que pendant la partie"
+msgstr "Les codes de triche ne peuvent être activés que pendant la partie"
 
 #: src/title.c:79
 msgid "Press any key"
@@ -6812,7 +6811,7 @@ msgstr "Flèches infinie"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr "Lave est fatal"
+msgstr "La lave est fatale"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
@@ -6995,7 +6994,7 @@ msgstr ""
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr "C'est maintenant temps de retourner sauver mon père..."
+msgstr "Il est maintenant temps de retourner sauver mon père..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
@@ -7023,7 +7022,7 @@ msgstr "Je vais m'échapper de cet endroit misérable"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr "Même si ça me prend un autre 100 ans"
+msgstr "Même si ça me prend 100 autres années"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
@@ -7050,8 +7049,8 @@ msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
-"Tu peux rester debout un autre 30 minutes, mais après tu ranges tes jouets "
-"et tu vas au lit."
+"Tu peux encore rester debout une demi-heure, mais après ranges tes jouets et "
+"va au lit"
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
@@ -7067,7 +7066,7 @@ msgstr "On ne dirait pas qu'il est revenu hier soir"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr "Personne n'a dormi dans son lit et mon déjeuner n'est pas près"
+msgstr "Personne n'a dormi dans son lit et mon déjeuner n'est pas prêt"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
@@ -7087,4 +7086,4 @@ msgstr "Je peux encore sentir la charge magique dans l'air"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr "Peu importe ce que c'était, c'est partie."
+msgstr "Peu importe ce que c'était, c'est parti..."

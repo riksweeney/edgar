@@ -2,7 +2,10 @@ CHANGE LOG
 ----------
 
 Version 1.02
+* Updated French, Italian, Russian and Ukrainian translations
 * Fixed some music tracks not playing in newer versions of SDL Mixer
+* Removed "O2" from the compiler flags to fix undesired behaviour
+* Fixed the fish floating in the corridor in the left tower (see above)
 
 Version 1.01
 * Updated Spanish, Czech, French, Italian, Russian and Ukrainian translations (thanks translators) 
