@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-18 01:12+0000\n"
+"X-Launchpad-Export-Date: 2012-05-20 15:44+0000\n"
 "X-Generator: Launchpad (build 15259)\n"
 
 #: data/scripts/olaf.dat:6
@@ -67,7 +67,7 @@ msgstr ""
 "Getta lo scudo e l'anello nel paiolo assieme a qualche radice di mandragola, "
 "dovrebbe funzionare"
 
-#: data/scripts/olaf.dat:17
+#: data/scripts/jacob.dat:35
 msgid "OK..."
 msgstr "Va bene..."
 
@@ -75,7 +75,7 @@ msgstr "Va bene..."
 msgid "Nothing will go wrong this time!"
 msgstr "Non andrà male nulla questa volta!"
 
-#: data/scripts/olaf.dat:13
+#: data/scripts/third_side.dat:5
 msgid "..."
 msgstr "..."
 
@@ -314,11 +314,11 @@ msgstr ""
 "Ci dovrebbero essere un sacco di ossa spare qui attorno, quindi non dovrai "
 "trovarne uno e ucciderlo. Basta prendere il corno e uscire"
 
-#: data/scripts/olaf.dat:123
+#: data/scripts/jacob.dat:39
 msgid "That's it?"
 msgstr "È tutto?"
 
-#: data/scripts/olaf.dat:83
+#: data/scripts/library_intro.dat:6
 msgid "Hmmm"
 msgstr "Hmmm"
 
@@ -373,7 +373,7 @@ msgstr ""
 msgid "Seriously, just get the horn"
 msgstr "Seriamente, prendi solo il corno"
 
-#: data/scripts/olaf.dat:12
+#: data/scripts/jacob.dat:35
 msgid "OK"
 msgstr "Va bene"
 
@@ -527,7 +527,7 @@ msgstr "Forse potrei scavare un percorso per entrare..."
 msgid "Gross..."
 msgstr "Disgustoso..."
 
-#: data/scripts/knights.dat:1
+#: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
 msgstr "Oh, cos'è questo?"
 
@@ -536,16 +536,16 @@ msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr ""
 "È un libro di Stephen J. Sweeney intitolato \"L'onore dei cavalieri\""
 
-#: data/scripts/knights.dat:3
+#: data/scripts/third_side.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
 msgstr "È disponibile su iBooks e su Amazon Kindle"
 
-#: data/scripts/knights.dat:4
+#: data/scripts/third_side.dat:4
 msgid ""
 "I'm not exactly sure what any of that means, but it sounds interesting"
 msgstr "Non sono proprio sicuro cosa significhi, ma sembra interessante"
 
-#: data/scripts/knights.dat:5
+#: data/scripts/third_side.dat:5
 msgid "I might read that later..."
 msgstr "Potrei leggerlo più tardi.."
 
@@ -605,7 +605,7 @@ msgstr "Che strano, doveva esplodere"
 msgid "Where did he go?"
 msgstr "Dov'è andato?"
 
-#: data/scripts/old_shield.dat:11
+#: data/scripts/old_shield.dat:12
 msgid ""
 "That's it? Just this old shield? It doesn't look any better than my current "
 "one."
@@ -613,23 +613,23 @@ msgstr ""
 "È tutto? Solo questo vecchio scudo? Non sembra molto migliore del mio scudo "
 "attuale."
 
-#: data/scripts/old_shield.dat:12
+#: data/scripts/old_shield.dat:13
 msgid "Still, I'll hold onto it for the time being, it might come in handy"
 msgstr "Tuttavia, lo terrò per il momento, potrebbe essere utile"
 
-#: data/scripts/old_shield.dat:15
+#: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
 msgstr "Grande, uno scudo di scorta!"
 
-#: data/scripts/old_shield.dat:16
+#: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
 msgstr "Ora ho tutto ciò di cui ho bisogno"
 
-#: data/scripts/old_shield.dat:17
+#: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
 msgstr "C'è un paiolo nel laboratorio, dovrei tornare lì"
 
-#: data/scripts/old_shield.dat:20
+#: data/scripts/old_shield.dat:21
 msgid ""
 "This doesn't look like a Fire Shield to me. I was really hoping to find one "
 "here too"
@@ -637,23 +637,23 @@ msgstr ""
 "Questo non mi sembra uno scudo del fuoco. Speravo proprio di trovarne uno "
 "anche qui"
 
-#: data/scripts/old_shield.dat:21
+#: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
 msgstr ""
 "Questo scudo non sembra neanche molto migliore del mio scudo corrente."
 
-#: data/scripts/old_shield.dat:26
+#: data/scripts/old_shield.dat:27
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
 msgstr ""
 "Devo solamente creare il liquido dal tentacolo di fango e gli occhi di "
 "osservatore"
 
-#: data/scripts/old_shield.dat:32
+#: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
 msgstr "Quello non è un buon segno..."
 
-#: data/scripts/centurion_note_2.dat:1
+#: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
 msgstr "C'è una nota qui"
 
@@ -800,11 +800,11 @@ msgstr ""
 msgid "Keep practising!"
 msgstr "Continua ad esercitarti!"
 
-#: data/scripts/borgan.dat:11
+#: data/scripts/maggie.dat:4
 msgid "Hi"
 msgstr "Ciao"
 
-#: data/scripts/borgan.dat:12
+#: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
 msgstr "Ciao Edgar"
 
@@ -1076,7 +1076,7 @@ msgstr ""
 msgid "This place doesn't look so bad..."
 msgstr "Questo posto non sembra così male..."
 
-#: data/scripts/swamp_intro.dat:13
+#: data/scripts/occult_book.dat:51
 msgid "What was that?"
 msgstr "Cos'era quello?"
 
@@ -1109,7 +1109,7 @@ msgstr ""
 msgid "Open the door and continue to the right"
 msgstr "Apri la porta e continua verso destra"
 
-#: data/scripts/borer_cave_intro.dat:4
+#: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
 msgstr "Argh, cos'è successo?"
 
@@ -1150,7 +1150,7 @@ msgstr "*sniff*"
 msgid "Edgar! Edgar, where are you?"
 msgstr "Edgar! Edgar, dove sei?"
 
-#: data/scripts/olaf.dat:6
+#: data/scripts/cave_boss_die.dat:10
 msgid "!"
 msgstr "!"
 
@@ -1166,7 +1166,7 @@ msgstr "Non può essere..."
 msgid "Daddy!"
 msgstr "Papà!"
 
-#: data/scripts/ending_part1.dat:19
+#: data/scripts/jacob.dat:14
 msgid "Edgar!"
 msgstr "Edgar!"
 
@@ -1250,7 +1250,7 @@ msgstr ""
 msgid "I wonder what other monsters there are..."
 msgstr "Mi chiedo quali altri mostri ci siano..."
 
-#: data/scripts/tomb_door.dat:41
+#: data/scripts/monsters.dat:8
 msgid "Chaos"
 msgstr "Caos"
 
@@ -1315,7 +1315,7 @@ msgstr "Ma se il suo alito distrugge tutto allora non potrò potreggermi"
 msgid "Unless..."
 msgstr "A meno che..."
 
-#: data/scripts/sorceror_intro_3.dat:29
+#: data/scripts/sorceror_start.dat:5
 msgid "Grimlore"
 msgstr "Grimlore"
 
@@ -1578,7 +1578,7 @@ msgstr ""
 "i centurioni rossi  si sa che esistono e sono usati per proteggere le aree "
 "di grande importanza"
 
-#: data/scripts/old_shield.dat:26
+#: data/scripts/cauldron.dat:153
 msgid "Gazer"
 msgstr "Osservatore"
 
@@ -1780,11 +1780,11 @@ msgstr ""
 "Forse questo libro ha informazioni su come creare uno scudo che resista "
 "all'alito del drago"
 
-#: data/scripts/enchanting_weapons.dat:16
+#: data/scripts/black_book_search.dat:11
 msgid "Hmmm..."
 msgstr "Hmmm..."
 
-#: data/scripts/enchanting_weapons.dat:2
+#: data/scripts/occult_book.dat:16
 msgid "Shield of Dragon Fire Resistance"
 msgstr "Scudo di resistenza al fuoco del drago"
 
@@ -1844,11 +1844,11 @@ msgstr "Ecco qua: Scudi"
 msgid "Shield of Fire Resistance"
 msgstr "Scudo di resistenza al fuoco"
 
-#: data/scripts/enchanting_weapons.dat:41
+#: data/scripts/occult_book.dat:17
 msgid "Ingredients"
 msgstr "Ingredienti"
 
-#: data/scripts/enchanting_weapons.dat:42
+#: data/scripts/occult_book.dat:18
 msgid "One must gather the following"
 msgstr "Si devono raccogliere i seguenti ingredienti"
 
@@ -1872,7 +1872,7 @@ msgstr "3 occhi dell'osservatore"
 msgid "The freshly cut tentacle from a female Red Sludge"
 msgstr "Il tentacolo appena tagliato da una femmina di fango rosso"
 
-#: data/scripts/enchanting_weapons.dat:48
+#: data/scripts/occult_book.dat:22
 msgid "The shield to apply the enchantment"
 msgstr "Lo scudo su cui applicare l'incantesimo"
 
@@ -1943,7 +1943,7 @@ msgstr "Ottieni 1 tentacolo di fango rosso"
 msgid "Find another shield"
 msgstr "Trova un altro scudo"
 
-#: data/scripts/old_shield.dat:5
+#: data/scripts/enchanting_weapons.dat:70
 msgid "Blend eyeballs and tentacle"
 msgstr "Mescola i bulbi oculari e il tentacolo"
 
@@ -2269,7 +2269,7 @@ msgstr "Forse dovrei lasciarlo stare"
 msgid "Still, I could be wrong, maybe it's not evil magic..."
 msgstr "Comunque, potrei sbagliarmi, forse non è magia malvagia..."
 
-#: data/scripts/black_book.dat:6
+#: data/scripts/black_book_search.dat:9
 msgid "Examine the book?"
 msgstr "Esaminare il libro?"
 
@@ -2471,7 +2471,7 @@ msgstr "Attenzione: Il percorso di uscita potrebbe essere pericoloso"
 msgid "Maybe I should use the lift to get out"
 msgstr "Forse dovrei usare l'ascensore per uscire"
 
-#: data/scripts/smoothie_colour.dat:1
+#: data/scripts/crossbow.dat:16
 msgid "Cool, it worked!"
 msgstr "Figo, ha funzionato!"
 
@@ -2836,11 +2836,11 @@ msgstr "Questo deve essere il carbone che Borgan vuole che estragga per lui"
 msgid "What the?!"
 msgstr "Cosa diavolo?!"
 
-#: data/scripts/evil_edgar_sighted.dat:25
+#: data/scripts/evil_edgar_sighted.dat:26
 msgid "He looks just like me"
 msgstr "Mi assomiglia proprio"
 
-#: data/scripts/evil_edgar_sighted.dat:26
+#: data/scripts/evil_edgar_sighted.dat:27
 msgid "AND HE HAS MY FIRE SHIELD!!"
 msgstr "E HA IL MIO SCUDO DEL FUOCO!!"
 
@@ -3755,11 +3755,11 @@ msgstr "Beh, è mio ora"
 msgid "Give it back!"
 msgstr "Ridammelo!"
 
-#: data/scripts/evil_edgar_encounter_1.dat:24
+#: data/scripts/evil_edgar_start.dat:35
 msgid "Make me!"
 msgstr "Obbligami!"
 
-#: data/scripts/evil_edgar_encounter_1.dat:25
+#: data/scripts/evil_edgar_start.dat:36
 msgid "Fine, I will!"
 msgstr "Bene, lo farò!"
 
@@ -3837,7 +3837,7 @@ msgstr ""
 msgid "You have 10 attempts to guess the sequence"
 msgstr "Hai 10 tentativi per indovinare la sequenza"
 
-#: data/scripts/jigsaw_puzzle.dat:27
+#: data/scripts/mastermind.dat:9
 msgid "Press Action to quit"
 msgstr "Premi Azione per uscire"
 
@@ -3914,7 +3914,7 @@ msgstr ""
 "Non penso che il mio scudo mi proteggerà da quelle palle di fuoco. Dovrò "
 "trovarne un più resistente..."
 
-#: data/scripts/old_shield.dat:3
+#: data/scripts/fireball_passage.dat:13
 msgid "Obtain a Fire Shield"
 msgstr "Ottieni uno scudo del fuoco"
 
@@ -4754,7 +4754,7 @@ msgstr "La scorsa notte sei venuto nel mio villaggio e hai rapito mio padre"
 msgid "Where is he?"
 msgstr "Dov'è?"
 
-#: data/scripts/sorceror_die.dat:13
+#: data/scripts/evil_edgar_start.dat:15
 msgid "I..."
 msgstr "Io..."
 
@@ -4955,20 +4955,20 @@ msgstr "Ah, eccolo!"
 msgid "I'll leave it alone for the moment"
 msgstr "Lo lascio solo per il momento"
 
-#: src/enemy/baby_slime.c:201
+#: src/graphics/font.c:61
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr ""
 "Girati velocemente a sinistra e a destra per scuoterti di dosso la melma!"
 
-#: src/player.c:64
+#: src/structs.h:212
 msgid "Bow"
 msgstr "Arco"
 
-#: src/item/catapult.c:137
+#: src/graphics/font.c:60
 msgid "Press Action to interact"
 msgstr "Premi Azione per interagire"
 
-#: src/item/potion_dispenser.c:101
+#: src/item/instruction_machine.c:85
 msgid "%s is required"
 msgstr "È richiesto %s"
 
@@ -4984,7 +4984,7 @@ msgstr "Roccia piccola"
 msgid "Press Action to retrieve the Purple Gem"
 msgstr "Premi Azione per recuperare la gemma viola"
 
-#: src/item/tesla_pack.c:47
+#: src/item/tesla_charger.c:146
 msgid "Tesla Pack"
 msgstr "Pacco Tesla"
 
@@ -4996,7 +4996,7 @@ msgstr "Premi Azione per recuperare il pacco Tesla"
 msgid "Press Action to replace Tesla Pack"
 msgstr "Premi Azione per sostituire il pacco Tesla"
 
-#: src/item/potion_dispenser.c:94
+#: src/item/slime_potion_pool.c:94
 msgid "Obtained %s"
 msgstr "Ottenuto %s"
 
@@ -5008,7 +5008,7 @@ msgstr "Completa"
 msgid "%d more to go..."
 msgstr "%d rimanenti..."
 
-#: src/item/potions.c:76
+#: src/item/light_pillar.c:109
 msgid "Used %s"
 msgstr "Usata %s"
 
@@ -5036,11 +5036,11 @@ msgstr "È richiesto un arco per utilizzare questo oggetto"
 msgid "Cannot transmogrify here..."
 msgstr "Non si può trasformarsi qui..."
 
-#: data/scripts/olaf.dat:29
+#: data/scripts/jacob.dat:46
 msgid "Yes"
 msgstr "Sì"
 
-#: data/scripts/olaf.dat:18
+#: data/scripts/cave_boss_die.dat:11
 msgid "No"
 msgstr "No"
 
@@ -5060,7 +5060,7 @@ msgstr "Uscire dalla partita?"
 msgid "Back"
 msgstr "Indietro"
 
-#: src/menu/main_menu.c:382
+#: src/menu/io_menu.c:260
 msgid "Game Loaded"
 msgstr "Partita caricata"
 
@@ -5088,7 +5088,7 @@ msgstr "Nuovo obiettivo: %s"
 msgid "Objective Completed: %s"
 msgstr "Obiettivo completato: %s"
 
-#: src/item/shrub.c:111
+#: src/item/lava_door.c:150
 msgid "This weapon is not having any effect..."
 msgstr "Quest'arma non sta avendo alcun effetto..."
 
@@ -5132,7 +5132,7 @@ msgstr "Questo teletrasportatore non è attivo"
 msgid "Push Up or Down to use this lift"
 msgstr "Premi Su o Giù per usare questo ascensore"
 
-#: src/world/lift.c:224
+#: src/entity.c:1329
 msgid "This lift is not active"
 msgstr "Questo ascensore non è attivo"
 
@@ -5152,7 +5152,7 @@ msgstr "Raccolto %s"
 msgid "%s is required to carry this item"
 msgstr "È richiesto %s per trasportare questo oggetto"
 
-#: data/maps/map08.dat:5793
+#: data/maps/map07.dat:4168
 msgid "Storage Key"
 msgstr "Chiave del magazzino"
 
@@ -5168,7 +5168,7 @@ msgstr "Chiave della sala grande"
 msgid "Coal Bag"
 msgstr "Sacco di carbone"
 
-#: data/maps/map02.dat:5067
+#: data/maps/map03.dat:5218
 msgid "Forest Cell Key"
 msgstr "Chiave della cella della foresta"
 
@@ -5212,7 +5212,7 @@ msgstr "Chiave dell'interruttore della botola"
 msgid "Coal"
 msgstr "Carbone"
 
-#: data/scripts/raft_2.dat:2
+#: data/scripts/jacob.dat:3
 msgid "Chopped Log"
 msgstr "Ciocco di legno"
 
@@ -5240,7 +5240,7 @@ msgstr "Chiave del teletrasportatore"
 msgid "New Game"
 msgstr "Nuova partita"
 
-#: data/scripts/tutorial_finish.dat:3
+#: data/scripts/tutorial_objective.dat:1
 msgid "Tutorial"
 msgstr "Esercitazione"
 
@@ -5256,7 +5256,7 @@ msgstr "Opzioni"
 msgid "About"
 msgstr "Informazioni su..."
 
-#: src/menu/main_menu.c:50
+#: src/tile_creator.c:265
 msgid "Quit"
 msgstr "Esci"
 
@@ -5428,11 +5428,11 @@ msgstr "Alto"
 msgid "Down"
 msgstr "Giù"
 
-#: src/collisions.c:72
+#: src/entity.c:424
 msgid "Left"
 msgstr "Sinistra"
 
-#: data/scripts/borgan.dat:40
+#: data/scripts/hidden_passage.dat:9
 msgid "Right"
 msgstr "Destra"
 
@@ -5440,11 +5440,11 @@ msgstr "Destra"
 msgid "Jump"
 msgstr "Salta"
 
-#: data/scripts/safe_instructions.dat:3
+#: data/scripts/tutorial_combat.dat:3
 msgid "Attack"
 msgstr "Attacca"
 
-#: data/scripts/tutorial_blocking.dat:2
+#: data/scripts/tutorial_items.dat:5
 msgid "Block"
 msgstr "Blocca"
 
@@ -5452,7 +5452,7 @@ msgstr "Blocca"
 msgid "Action"
 msgstr "Azione"
 
-#: data/scripts/tutorial_intro.dat:5
+#: data/scripts/tutorial_combat.dat:3
 msgid "Use Item"
 msgstr "Utilizza l'oggetto"
 
@@ -5464,11 +5464,11 @@ msgstr "Oggetto precedente"
 msgid "Next Item"
 msgstr "Oggetto successivo"
 
-#: src/draw.c:68
+#: src/credits.c:829
 msgid "Inventory"
 msgstr "Inventario"
 
-#: src/draw.c:64
+#: src/audio/audio.c:316
 msgid "Pause"
 msgstr "Metti in pausa"
 
@@ -5476,7 +5476,7 @@ msgstr "Metti in pausa"
 msgid "Dead Zone"
 msgstr "Zona morta"
 
-#: src/collisions.c:1013
+#: src/structs.h:156
 msgid "Sound"
 msgstr "Audio"
 
@@ -5520,7 +5520,7 @@ msgstr "Chiave di accesso al teletrasportatore 2"
 msgid "Teleporter Access Key 3"
 msgstr "Chiave di accesso al teletrasportatore 3"
 
-#: data/scripts/purifier.dat:8
+#: data/scripts/blender.dat:15
 msgid "Empty Bottle"
 msgstr "Bottiglia vuota"
 
@@ -5612,7 +5612,7 @@ msgstr "Un diapason"
 msgid "A chopped log"
 msgstr "Un ciocco di legno"
 
-#: data/scripts/tutorial_shield.dat:1
+#: data/scripts/tutorial_combat.dat:1
 msgid "Narrator"
 msgstr "Narratore"
 
@@ -5684,11 +5684,11 @@ msgstr "Un potente repellente"
 msgid "Repellent"
 msgstr "Repellente"
 
-#: data/maps/map08.dat:12568
+#: data/maps/map12.dat:1
 msgid "Fortress Mine"
 msgstr "Miniera della fortezza"
 
-#: data/scripts/monsters.dat:122
+#: data/scripts/cauldron.dat:204
 msgid "Sludge Tentacle"
 msgstr "Tentacolo di fango"
 
@@ -5696,7 +5696,7 @@ msgstr "Tentacolo di fango"
 msgid "A Red Sludge Tentacle"
 msgstr "Un tentacolo di fango rosso"
 
-#: data/scripts/old_shield.dat:7
+#: data/scripts/cauldron.dat:145
 msgid "Eyeball Smoothie"
 msgstr "Bulbo oculare viscido"
 
@@ -5704,7 +5704,7 @@ msgstr "Bulbo oculare viscido"
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Un liquido fatto da bulbi oculari e tentacoli"
 
-#: src/system/load_save.c:1685
+#: src/system/load_save.c:1673
 msgid "Patching your save game. Please wait..."
 msgstr "Sto riparando il salvataggio del gioco. Attendere prego..."
 
@@ -5729,7 +5729,7 @@ msgstr ""
 msgid "A Yellow Gem"
 msgstr "Una gemma gialla"
 
-#: src/pak_creator.c:352
+#: src/system/pak.c:45
 msgid "Failed to open PAK file %s"
 msgstr "Fallita l'apertura del file PAK %s"
 
@@ -5741,15 +5741,15 @@ msgstr "Trova un modo di rimuovere la gemma..."
 msgid "Press Action to retrieve the Yellow Gem"
 msgstr "Premi Azione per recuperare la gemma gialla"
 
-#: data/scripts/knights.dat:3
+#: data/scripts/third_side.dat:3
 msgid "Book"
 msgstr "Libro"
 
-#: data/scripts/fortress_mine_exit_sign.dat:2
+#: data/scripts/fortress_mine_lift.dat:2
 msgid "Sign"
 msgstr "Cartello"
 
-#: data/scripts/tutorial_shield.dat:6
+#: data/scripts/sewer_trap_note.dat:2
 msgid "Note"
 msgstr "Nota"
 
@@ -5777,7 +5777,7 @@ msgstr "Una bottiglia di pillole che trasforma la melma in acqua"
 msgid "Tutorial Key"
 msgstr "Tasto dell'esercitazione"
 
-#: data/maps/map15.dat:9668
+#: data/maps/map13.dat:6544
 msgid "Light Key"
 msgstr "Chiave della luce"
 
@@ -5785,7 +5785,7 @@ msgstr "Chiave della luce"
 msgid "Rope"
 msgstr "Corda"
 
-#: src/item/extend_o_grab_button.c:42
+#: src/item/extend_o_grab.c:47
 msgid "Extend-O-Grab"
 msgstr "Extend-O-Grab"
 
@@ -5797,7 +5797,7 @@ msgstr "Purificatori dell'acqua"
 msgid "Right Wing Key"
 msgstr "Chaive dell'ala destra"
 
-#: data/maps/map13.dat:3394
+#: data/maps/map13.dat:3993
 msgid "Catapult Lift Key"
 msgstr "Chiave dell'ascensore a catapulta"
 
@@ -5805,19 +5805,19 @@ msgstr "Chiave dell'ascensore a catapulta"
 msgid "Armoury"
 msgstr "Armeria"
 
-#: data/scripts/maggie.dat:3
+#: data/scripts/library_intro.dat:6
 msgid "Maggie"
 msgstr "Maggie"
 
-#: data/scripts/tutorial_secret.dat:5
+#: data/scripts/grasslands_intro.dat:10
 msgid "Jacob"
 msgstr "Jacob"
 
-#: data/scripts/borgan.dat:1
+#: data/scripts/grasslands_intro.dat:10
 msgid "Borgan"
 msgstr "Borgan"
 
-#: data/scripts/olaf.dat:7
+#: data/scripts/statues.dat:1
 msgid "Edgar"
 msgstr "Edgar"
 
@@ -5841,7 +5841,7 @@ msgstr "Una spada che può essere caricata con il fulmine"
 msgid "A Sword imbued with the power of lightning"
 msgstr "Una spada intrisa con la potenza del fulmine"
 
-#: data/scripts/jigsaw_puzzle.dat:5
+#: data/scripts/lightning_sword.dat:6
 msgid "Lightning Sword"
 msgstr "Spada del fulmine"
 
@@ -5897,7 +5897,7 @@ msgstr "10 cariche rimanenti..."
 msgid "%s is out of power"
 msgstr "% s è senza energia"
 
-#: src/enemy/lightning_tortoise.c:310
+#: src/enemy/book.c:632
 msgid "The damage from this weapon is being absorbed..."
 msgstr "Il danno da quest'arma sta venendo assorbito..."
 
@@ -5953,7 +5953,7 @@ msgstr "Premi Azione per annullare"
 msgid "%s is needed to activate this Light Pillar"
 msgstr "%s è necessaria per attivare questo pilastro di luce"
 
-#: data/scripts/soul_merger.dat:2
+#: data/scripts/evil_edgar_start.dat:11
 msgid "Evil_Edgar"
 msgstr "Edgar_malvagio"
 
@@ -6054,7 +6054,7 @@ msgstr "Spore che rendono temporaneamente inoffensivi alcuni mostri"
 msgid "It's out of apples..."
 msgstr "Sono finite le mele..."
 
-#: src/game.c:918
+#: src/credits.c:453
 msgid "Failed"
 msgstr "Fallito"
 
@@ -6094,7 +6094,7 @@ msgstr "Una deliziosa mela"
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
 msgstr "Un frammento di corazza magica di una tartaruga padrone infuriata"
 
-#: data/props/weapon/disintegration_shield_1.props:5
+#: data/props/weapon/disintegration_shield.props:5
 msgid "A shield that can resist disintegration"
 msgstr "Uno scudo che riesce a resistere alla disintegrazione"
 
@@ -6102,7 +6102,7 @@ msgstr "Uno scudo che riesce a resistere alla disintegrazione"
 msgid "Try using one of the artifacts to protect yourself..."
 msgstr "Prova a utilizzare uno degli artifatti per proteggerti..."
 
-#: src/menu/main_menu.c:389
+#: src/menu/io_menu.c:267
 msgid "Failed to load game"
 msgstr "Fallito il caricamento del gioco"
 
@@ -6138,7 +6138,7 @@ msgstr "Protegge contro certi attacchi. Smette di funzionare se ti sposti"
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr "Premi Attatto e Blocca contemporaneamente per usare il tuo scudo..."
 
-#: src/game.c:918
+#: src/credits.c:863
 msgid "Play Time"
 msgstr "Tempo di gioco"
 
@@ -6182,7 +6182,7 @@ msgstr "Non sconfitti"
 msgid "Defeated"
 msgstr "Sconfitti"
 
-#: data/scripts/sorceror_intro_2.dat:1
+#: data/scripts/disintegration_shield.dat:5
 msgid "Sorceror"
 msgstr "Mago"
 
@@ -6244,7 +6244,7 @@ msgstr "La fenice"
 msgid "The Borer"
 msgstr "Il perforatore"
 
-#: data/scripts/fortress_intro_2.dat:7
+#: data/scripts/evil_edgar_start.dat:1
 msgid "Evil Edgar"
 msgstr "Edgar malvagio"
 
@@ -6492,7 +6492,7 @@ msgstr "Non puoi usarlo qui"
 msgid "You can only use this item in an empty space"
 msgstr "Puoi usare questo oggetto solo in uno spazio vuoto"
 
-#: src/item/key_items.c:260
+#: src/item/bell_rope.c:42
 msgid "Bell"
 msgstr "Campana"
 
@@ -6524,7 +6524,7 @@ msgstr "la miniera"
 msgid "the Forest"
 msgstr "la foresta"
 
-#: data/scripts/borgan.dat:44
+#: data/scripts/grasslands_intro.dat:8
 msgid "the Forbidden Swamp"
 msgstr "la palude proibita"
 
@@ -6544,11 +6544,11 @@ msgstr "la fogna"
 msgid "the Fortress Basement"
 msgstr "il seminterrato della fortezza"
 
-#: data/maps/map08.dat:3418
+#: data/maps/map17.dat:11143
 msgid "the Fortress Ground Floor"
 msgstr "il piano terra della fortezza"
 
-#: data/scripts/old_shield.dat:17
+#: data/scripts/old_shield.dat:18
 msgid "the Laboratory"
 msgstr "il laboratorio"
 
@@ -6608,11 +6608,11 @@ msgstr "la torre destra"
 msgid "the Crypt"
 msgstr "la cripta"
 
-#: data/scripts/ending_part1.dat:35
+#: data/scripts/grasslands_intro.dat:9
 msgid "Village"
 msgstr "Villaggio"
 
-#: data/scripts/borgan.dat:28
+#: data/scripts/armour_boss_die.dat:4
 msgid "Mine"
 msgstr "Miniera"
 
@@ -6620,31 +6620,31 @@ msgstr "Miniera"
 msgid "Forest"
 msgstr "Foresta"
 
-#: data/scripts/borgan.dat:44
+#: data/scripts/grasslands_intro.dat:8
 msgid "Forbidden Swamp"
 msgstr "Palude proibita"
 
-#: data/scripts/intro_part1.dat:18
+#: data/scripts/cave_intro.dat:13
 msgid "Cave"
 msgstr "Grotta"
 
-#: data/maps/map06.dat:1
+#: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
 msgstr "Periferia della fortezza"
 
-#: data/scripts/mine2_exit.dat:5
+#: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
 msgstr "Fogna"
 
-#: data/maps/map08.dat:1
+#: data/maps/map09.dat:5943
 msgid "Fortress Basement"
 msgstr "Seminterrato della fortezza"
 
-#: data/maps/map08.dat:3418
+#: data/maps/map09.dat:1
 msgid "Fortress Ground Floor"
 msgstr "Piano terra della fortezza"
 
-#: data/scripts/old_shield.dat:17
+#: data/scripts/old_shield.dat:18
 msgid "Laboratory"
 msgstr "Laboratorio"
 
@@ -6684,11 +6684,11 @@ msgstr "Rete di grotte interna"
 msgid "Graveyard"
 msgstr "Cimitero"
 
-#: data/maps/map22.dat:1
+#: data/maps/map09.dat:10018
 msgid "Left Tower"
 msgstr "Torre sinistra"
 
-#: data/scripts/final_battle.dat:7
+#: data/scripts/hidden_passage.dat:9
 msgid "Right Tower"
 msgstr "Torre destra"
 
@@ -6721,11 +6721,11 @@ msgstr "Premi un tasto"
 msgid "Cannot equip items whilst attacking"
 msgstr "Non è possibile equipaggiare gli oggetti mentre si sta attaccando"
 
-#: src/game.c:44
+#: src/credits.c:884
 msgid "Continue"
 msgstr "Continua"
 
-#: src/menu/medals_menu.h:20
+#: src/init.c:128
 msgid "Medals"
 msgstr "Medaglie"
 
@@ -6757,7 +6757,7 @@ msgstr "Utilizza Su e Giù per selezionare. Invio per cambiare."
 msgid "Interact"
 msgstr "Interagisci"
 
-#: data/scripts/safe_instructions.dat:1
+#: data/scripts/tutorial_combat.dat:3
 msgid "Use"
 msgstr "Utilizza"
 
@@ -6862,7 +6862,7 @@ msgstr "Patetico"
 msgid "Impale"
 msgstr "Impala"
 
-#: src/player.c:2031
+#: src/player.h:61
 msgid "Confuse"
 msgstr "Confondi"
 
@@ -6870,7 +6870,7 @@ msgstr "Confondi"
 msgid "Darkness"
 msgstr "Oscurità"
 
-#: src/boss/chaos.c:1766
+#: src/boss/sorceror_2.c:1551
 msgid "Hold Person"
 msgstr "Trattieni persona"
 
@@ -7023,3 +7023,91 @@ msgstr "Sento ancora la carica magica che emanava"
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
 msgstr "Qualunque cosa fosse, se n'è andata da tempo..."
+
+#: data/props/boss/mataeus_knife.props:6
+msgid "A magical knife conjured by Mataeus"
+msgstr ""
+
+#: data/scripts/mataeus_boss_die.dat:1
+msgid "Magical Knife"
+msgstr ""
+
+#: data/maps/map11.dat:5217
+msgid "Third Floor Passage Key"
+msgstr ""
+
+#: data/maps/map11.dat:7267
+msgid "Third Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:9292
+msgid "Fourth Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:6368
+msgid "Anti-Gravity Switch Key 1"
+msgstr ""
+
+#: data/maps/map11.dat:6267
+msgid "Anti-Gravity Switch Key 2"
+msgstr ""
+
+#: data/scripts/cauldron.dat:147
+msgid "Old Shield"
+msgstr ""
+
+#: data/maps/map15.dat:2567
+msgid "Old Key"
+msgstr ""
+
+#: data/maps/map09.dat:7793
+msgid "Lava Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:5468
+msgid "Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:8967
+msgid "Study Lift Key"
+msgstr ""
+
+#: data/maps/map17.dat:2942
+msgid "Conveyor Belt Key"
+msgstr ""
+
+#: data/maps/map11.dat:6817
+msgid "Instruction Room Key"
+msgstr ""
+
+#: data/scripts/cauldron.dat:7
+msgid "Full Soul Bottle"
+msgstr ""
+
+#: data/maps/map10.dat:3167
+msgid "Potion of Invisibility"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:8
+msgid "Potion of Transmogrification"
+msgstr ""
+
+#: data/props/item/spike_ball.props:4
+msgid "Armadillo Spike Ball"
+msgstr ""
+
+#: data/scripts/cauldron.dat:153
+msgid "Gazer Eyeball"
+msgstr ""
+
+#: src/item/apple_tree.h:20
+msgid "Apple"
+msgstr ""
+
+#: src/boss/evil_edgar.c:703
+msgid "Dud Exploding Gazer Eyeball"
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:2
+msgid "Fire Shield"
+msgstr ""

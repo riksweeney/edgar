@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-01 17:04+0000\n"
-"X-Generator: Launchpad (build 15177)\n"
+"X-Launchpad-Export-Date: 2012-05-20 15:44+0000\n"
+"X-Generator: Launchpad (build 15259)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -66,7 +66,7 @@ msgstr ""
 "Vhoď štít a prsten do kotlíku společně s kořenem mandragory, to by mělo "
 "stačit"
 
-#: data/scripts/olaf.dat:17
+#: data/scripts/jacob.dat:35
 msgid "OK..."
 msgstr "Dobře..."
 
@@ -74,7 +74,7 @@ msgstr "Dobře..."
 msgid "Nothing will go wrong this time!"
 msgstr "Tentokrát se nic nepokazí!"
 
-#: data/scripts/olaf.dat:13
+#: data/scripts/third_side.dat:5
 msgid "..."
 msgstr "…"
 
@@ -304,11 +304,11 @@ msgstr ""
 "Měla by tam být hromada koster, takže není třeba tu potvoru zabíjet. Jen "
 "vezmi roh a vrať se"
 
-#: data/scripts/olaf.dat:123
+#: data/scripts/jacob.dat:39
 msgid "That's it?"
 msgstr "To je všechno?"
 
-#: data/scripts/olaf.dat:83
+#: data/scripts/library_intro.dat:6
 msgid "Hmmm"
 msgstr "Hmmm"
 
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Seriously, just get the horn"
 msgstr "Vážně, jen najdi ten roh"
 
-#: data/scripts/olaf.dat:12
+#: data/scripts/jacob.dat:35
 msgid "OK"
 msgstr "OK"
 
@@ -508,7 +508,7 @@ msgstr "Možná bych se mohl dovnitř prokopat..."
 msgid "Gross..."
 msgstr "Odporné..."
 
-#: data/scripts/knights.dat:1
+#: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
 msgstr "Jé, co to je?"
 
@@ -516,16 +516,16 @@ msgstr "Jé, co to je?"
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr "Je to kniha \"The Honour of the Knights\" od Stephena J. Sweeneyho"
 
-#: data/scripts/knights.dat:3
+#: data/scripts/third_side.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
 msgstr "Je k dostání na iBooks a na Amazon Kindle"
 
-#: data/scripts/knights.dat:4
+#: data/scripts/third_side.dat:4
 msgid ""
 "I'm not exactly sure what any of that means, but it sounds interesting"
 msgstr "Nejsem si jistý co přesně to znamená, ale zní to zajímavě"
 
-#: data/scripts/knights.dat:5
+#: data/scripts/third_side.dat:5
 msgid "I might read that later..."
 msgstr "Mohl byhc si ji přečíst později..."
 
@@ -585,30 +585,30 @@ msgstr "To bylo divné, správně měl vybouchnout"
 msgid "Where did he go?"
 msgstr "Kam se asi dostal?"
 
-#: data/scripts/old_shield.dat:11
+#: data/scripts/old_shield.dat:12
 msgid ""
 "That's it? Just this old shield? It doesn't look any better than my current "
 "one."
 msgstr ""
 "To je všechno? Jenom tenhle starý štít? Nevypadá o nic líp než můj stávající."
 
-#: data/scripts/old_shield.dat:12
+#: data/scripts/old_shield.dat:13
 msgid "Still, I'll hold onto it for the time being, it might come in handy"
 msgstr "Stejně si ho nechám, mohl by se hodit"
 
-#: data/scripts/old_shield.dat:15
+#: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
 msgstr "Skvělé, náhradní štít!"
 
-#: data/scripts/old_shield.dat:16
+#: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
 msgstr "Mám vše co potřebuji"
 
-#: data/scripts/old_shield.dat:17
+#: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
 msgstr "V laboratoři je kotlík, měl bych se tam vrátit"
 
-#: data/scripts/old_shield.dat:20
+#: data/scripts/old_shield.dat:21
 msgid ""
 "This doesn't look like a Fire Shield to me. I was really hoping to find one "
 "here too"
@@ -616,20 +616,20 @@ msgstr ""
 "Tohle mi nepřipadá jako Ohnivý štít. Vážně jsem doufal, že bych ho tu mohl "
 "najít"
 
-#: data/scripts/old_shield.dat:21
+#: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
 msgstr "Tenhle štít nevypadá o nic líp než můj stávající."
 
-#: data/scripts/old_shield.dat:26
+#: data/scripts/old_shield.dat:27
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
 msgstr "Potřebuji jen vytvořit dřeň z Bahňákova chapadla a Gazerových očí"
 
-#: data/scripts/old_shield.dat:32
+#: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
 msgstr "To není dobré znamení..."
 
-#: data/scripts/centurion_note_2.dat:1
+#: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
 msgstr "Je tu poznámka"
 
@@ -773,11 +773,11 @@ msgstr ""
 msgid "Keep practising!"
 msgstr "Pokračuj v tréninku!"
 
-#: data/scripts/borgan.dat:11
+#: data/scripts/maggie.dat:4
 msgid "Hi"
 msgstr "Ahoj"
 
-#: data/scripts/borgan.dat:12
+#: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
 msgstr "Ahoj Edgare"
 
@@ -1041,7 +1041,7 @@ msgstr "Tenhle duch mě nepustí dál, budu muset najít cestu jak se ho zbavit"
 msgid "This place doesn't look so bad..."
 msgstr "Tohle místo nevypadá tak špatně..."
 
-#: data/scripts/swamp_intro.dat:13
+#: data/scripts/occult_book.dat:51
 msgid "What was that?"
 msgstr "Co to bylo?"
 
@@ -1073,7 +1073,7 @@ msgstr ""
 msgid "Open the door and continue to the right"
 msgstr "Otevři dveře a pokračuj vpravo"
 
-#: data/scripts/borer_cave_intro.dat:4
+#: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
 msgstr "Uff, co se stalo?"
 
@@ -1113,7 +1113,7 @@ msgstr "*Fňuk*"
 msgid "Edgar! Edgar, where are you?"
 msgstr "Edgare! Edgare, jsi to ty?"
 
-#: data/scripts/olaf.dat:6
+#: data/scripts/cave_boss_die.dat:10
 msgid "!"
 msgstr "!"
 
@@ -1129,7 +1129,7 @@ msgstr "To nemůže být..."
 msgid "Daddy!"
 msgstr "Táto!"
 
-#: data/scripts/ending_part1.dat:19
+#: data/scripts/jacob.dat:14
 msgid "Edgar!"
 msgstr "Edgare!"
 
@@ -1210,7 +1210,7 @@ msgstr "Nemám žadný důvod číst tyto knihy, ale budu si pamatovat že tu js
 msgid "I wonder what other monsters there are..."
 msgstr "Zajímalo by mě, které další potvory tu jsou..."
 
-#: data/scripts/tomb_door.dat:41
+#: data/scripts/monsters.dat:8
 msgid "Chaos"
 msgstr "Chaos"
 
@@ -1273,7 +1273,7 @@ msgstr "Ale pokud jeho dech zničí cokoliv, pak bych se mu nemohl bránit"
 msgid "Unless..."
 msgstr "Ledaže..."
 
-#: data/scripts/sorceror_intro_3.dat:29
+#: data/scripts/sorceror_start.dat:5
 msgid "Grimlore"
 msgstr "Grimlore"
 
@@ -1528,7 +1528,7 @@ msgstr ""
 "Zatímco šedí centurioni jsou používáni k vnější ochraně, exitují ještě "
 "centurioni červení, kteří stráži nejdůležitější pozice"
 
-#: data/scripts/old_shield.dat:26
+#: data/scripts/cauldron.dat:153
 msgid "Gazer"
 msgstr "Gazer"
 
@@ -1719,11 +1719,11 @@ msgstr ""
 "Možná by tahle kniha mohla obsahovat informaci, jak vytvořit štít, který by "
 "odolal dračímu dechu"
 
-#: data/scripts/enchanting_weapons.dat:16
+#: data/scripts/black_book_search.dat:11
 msgid "Hmmm..."
 msgstr "Hmmm..."
 
-#: data/scripts/enchanting_weapons.dat:2
+#: data/scripts/occult_book.dat:16
 msgid "Shield of Dragon Fire Resistance"
 msgstr "Štít dračí odolnosti"
 
@@ -1783,11 +1783,11 @@ msgstr "A tady to máme: Štíty"
 msgid "Shield of Fire Resistance"
 msgstr "Ohnivý štít"
 
-#: data/scripts/enchanting_weapons.dat:41
+#: data/scripts/occult_book.dat:17
 msgid "Ingredients"
 msgstr "Suroviny"
 
-#: data/scripts/enchanting_weapons.dat:42
+#: data/scripts/occult_book.dat:18
 msgid "One must gather the following"
 msgstr "Je potřeba si připravit následující"
 
@@ -1811,7 +1811,7 @@ msgstr "3 Gazerovy oči"
 msgid "The freshly cut tentacle from a female Red Sludge"
 msgstr "Čerstvě useknuté chapadlo Červeného bahňáka"
 
-#: data/scripts/enchanting_weapons.dat:48
+#: data/scripts/occult_book.dat:22
 msgid "The shield to apply the enchantment"
 msgstr "Štít který chceme očarovat"
 
@@ -1878,7 +1878,7 @@ msgstr "Získej 1 chapadlo Červeného bahňáka"
 msgid "Find another shield"
 msgstr "Získej další štít"
 
-#: data/scripts/old_shield.dat:5
+#: data/scripts/enchanting_weapons.dat:70
 msgid "Blend eyeballs and tentacle"
 msgstr "Rozmixuj oči a chapadlo"
 
@@ -2190,7 +2190,7 @@ msgstr "Možná bych ji měl nechat být"
 msgid "Still, I could be wrong, maybe it's not evil magic..."
 msgstr "I když, můžu se mýlit, možná to není zlá magie..."
 
-#: data/scripts/black_book.dat:6
+#: data/scripts/black_book_search.dat:9
 msgid "Examine the book?"
 msgstr "Prozkoumat knihu?"
 
@@ -2387,7 +2387,7 @@ msgstr "Varování: Cesta k východu může být nebezpečná"
 msgid "Maybe I should use the lift to get out"
 msgstr "Možná bych měl použít výtah pro cestu ven"
 
-#: data/scripts/smoothie_colour.dat:1
+#: data/scripts/crossbow.dat:16
 msgid "Cool, it worked!"
 msgstr "Hustý, funguje to!"
 
@@ -2740,11 +2740,11 @@ msgstr "Tohle musí být to uhlí, které po mě chce Borgan natěžit"
 msgid "What the?!"
 msgstr "Co to?!"
 
-#: data/scripts/evil_edgar_sighted.dat:25
+#: data/scripts/evil_edgar_sighted.dat:26
 msgid "He looks just like me"
 msgstr "Vypadá přesně jako já"
 
-#: data/scripts/evil_edgar_sighted.dat:26
+#: data/scripts/evil_edgar_sighted.dat:27
 msgid "AND HE HAS MY FIRE SHIELD!!"
 msgstr "A MÁ MŮJ OHNIVÝ ŠTÍT!!"
 
@@ -3624,11 +3624,11 @@ msgstr "No, tak ten je teď můj"
 msgid "Give it back!"
 msgstr "Vrať mi ho!"
 
-#: data/scripts/evil_edgar_encounter_1.dat:24
+#: data/scripts/evil_edgar_start.dat:35
 msgid "Make me!"
 msgstr "Donuť mě!"
 
-#: data/scripts/evil_edgar_encounter_1.dat:25
+#: data/scripts/evil_edgar_start.dat:36
 msgid "Fine, I will!"
 msgstr "Dobře, jak si přeješ!"
 
@@ -3700,7 +3700,7 @@ msgstr "Číslo v rámečku značí počet správně umístěných čtverečků"
 msgid "You have 10 attempts to guess the sequence"
 msgstr "Máš 10 pokusů na uhodnutí posloupnosti"
 
-#: data/scripts/jigsaw_puzzle.dat:27
+#: data/scripts/mastermind.dat:9
 msgid "Press Action to quit"
 msgstr "Stiskni Akce pro ukončení"
 
@@ -3774,7 +3774,7 @@ msgstr ""
 "Nemyslím, že mě můj štít dokáže uchránit před ohnivými koulemi. Budu muset "
 "najít nějaký silnější..."
 
-#: data/scripts/old_shield.dat:3
+#: data/scripts/fireball_passage.dat:13
 msgid "Obtain a Fire Shield"
 msgstr "Získej Ohnivý štít"
 
@@ -4589,7 +4589,7 @@ msgstr "Včera v noci jsi přišel do naší vesnice a unesl mého otce"
 msgid "Where is he?"
 msgstr "Tak kde je?"
 
-#: data/scripts/sorceror_die.dat:13
+#: data/scripts/evil_edgar_start.dat:15
 msgid "I..."
 msgstr "Já..."
 
@@ -4782,19 +4782,19 @@ msgstr "Á, tady je!"
 msgid "I'll leave it alone for the moment"
 msgstr "Zatím ho nechám být"
 
-#: src/enemy/baby_slime.c:201
+#: src/graphics/font.c:61
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr "Rychle se otáčej  vlevo a vpravo abys setřásl slizáky"
 
-#: src/player.c:64
+#: src/structs.h:212
 msgid "Bow"
 msgstr "Luk"
 
-#: src/item/catapult.c:137
+#: src/graphics/font.c:60
 msgid "Press Action to interact"
 msgstr "Stiskni Akce pro použití"
 
-#: src/item/potion_dispenser.c:101
+#: src/item/instruction_machine.c:85
 msgid "%s is required"
 msgstr "%s je požadován"
 
@@ -4810,7 +4810,7 @@ msgstr "Kámen"
 msgid "Press Action to retrieve the Purple Gem"
 msgstr "Stiskni Akce pro získání Purpurového krystalu"
 
-#: src/item/tesla_pack.c:47
+#: src/item/tesla_charger.c:146
 msgid "Tesla Pack"
 msgstr "Tesla akumulátor"
 
@@ -4822,7 +4822,7 @@ msgstr "Stiskni Akce pro získání Tesla akumulátoru"
 msgid "Press Action to replace Tesla Pack"
 msgstr "Stiskni Akce pro výměnu Tesla akumulátoru"
 
-#: src/item/potion_dispenser.c:94
+#: src/item/slime_potion_pool.c:94
 msgid "Obtained %s"
 msgstr "Získán %s"
 
@@ -4834,7 +4834,7 @@ msgstr "Hotovo"
 msgid "%d more to go..."
 msgstr "%d zbývá..."
 
-#: src/item/potions.c:76
+#: src/item/light_pillar.c:109
 msgid "Used %s"
 msgstr "Použil jsi %s"
 
@@ -4862,11 +4862,11 @@ msgstr "K použití tohoto předmětu je třeba mít luk"
 msgid "Cannot transmogrify here..."
 msgstr "Tady se nemůžeš přeměnit..."
 
-#: data/scripts/olaf.dat:29
+#: data/scripts/jacob.dat:46
 msgid "Yes"
 msgstr "Ano"
 
-#: data/scripts/olaf.dat:18
+#: data/scripts/cave_boss_die.dat:11
 msgid "No"
 msgstr "Ne"
 
@@ -4886,7 +4886,7 @@ msgstr "Ukončit hru?"
 msgid "Back"
 msgstr "Zpět"
 
-#: src/menu/main_menu.c:382
+#: src/menu/io_menu.c:260
 msgid "Game Loaded"
 msgstr "Hra načtena"
 
@@ -4914,7 +4914,7 @@ msgstr "Nový úkol: %s"
 msgid "Objective Completed: %s"
 msgstr "Úkol dokončen: %s"
 
-#: src/item/shrub.c:111
+#: src/item/lava_door.c:150
 msgid "This weapon is not having any effect..."
 msgstr "Tato zbraň nemá žádný účinek..."
 
@@ -4958,7 +4958,7 @@ msgstr "Teleport není aktivní"
 msgid "Push Up or Down to use this lift"
 msgstr "Stiskni Nahoru nebo Dolu pro použití výtahu"
 
-#: src/world/lift.c:224
+#: src/entity.c:1329
 msgid "This lift is not active"
 msgstr "Výtah není aktivní"
 
@@ -4978,7 +4978,7 @@ msgstr "Sebral jsi %s"
 msgid "%s is required to carry this item"
 msgstr "%s je potřeba pro sebrání tohoto předmětu"
 
-#: data/maps/map08.dat:5793
+#: data/maps/map07.dat:4168
 msgid "Storage Key"
 msgstr "Klíč od skladiště"
 
@@ -4994,7 +4994,7 @@ msgstr "Klíč od velké místnosti"
 msgid "Coal Bag"
 msgstr "Pytel na uhlí"
 
-#: data/maps/map02.dat:5067
+#: data/maps/map03.dat:5218
 msgid "Forest Cell Key"
 msgstr "Klíč od lesní komnaty"
 
@@ -5038,7 +5038,7 @@ msgstr "Klíč od padacích dveří"
 msgid "Coal"
 msgstr "Uhlí"
 
-#: data/scripts/raft_2.dat:2
+#: data/scripts/jacob.dat:3
 msgid "Chopped Log"
 msgstr "Kláda"
 
@@ -5066,7 +5066,7 @@ msgstr "Klíč od teleportu"
 msgid "New Game"
 msgstr "Nová hra"
 
-#: data/scripts/tutorial_finish.dat:3
+#: data/scripts/tutorial_objective.dat:1
 msgid "Tutorial"
 msgstr "Tutoriál"
 
@@ -5082,7 +5082,7 @@ msgstr "Nastavení"
 msgid "About"
 msgstr "O programu"
 
-#: src/menu/main_menu.c:50
+#: src/tile_creator.c:265
 msgid "Quit"
 msgstr "Ukončit"
 
@@ -5254,11 +5254,11 @@ msgstr "Nahoru"
 msgid "Down"
 msgstr "Dolů"
 
-#: src/collisions.c:72
+#: src/entity.c:424
 msgid "Left"
 msgstr "Vlevo"
 
-#: data/scripts/borgan.dat:40
+#: data/scripts/hidden_passage.dat:9
 msgid "Right"
 msgstr "Vpravo"
 
@@ -5266,11 +5266,11 @@ msgstr "Vpravo"
 msgid "Jump"
 msgstr "Skok"
 
-#: data/scripts/safe_instructions.dat:3
+#: data/scripts/tutorial_combat.dat:3
 msgid "Attack"
 msgstr "Útok"
 
-#: data/scripts/tutorial_blocking.dat:2
+#: data/scripts/tutorial_items.dat:5
 msgid "Block"
 msgstr "Blok"
 
@@ -5278,7 +5278,7 @@ msgstr "Blok"
 msgid "Action"
 msgstr "Akce"
 
-#: data/scripts/tutorial_intro.dat:5
+#: data/scripts/tutorial_combat.dat:3
 msgid "Use Item"
 msgstr "Použij předmět"
 
@@ -5290,11 +5290,11 @@ msgstr "Předchozí předmět"
 msgid "Next Item"
 msgstr "Další předmět"
 
-#: src/draw.c:68
+#: src/credits.c:829
 msgid "Inventory"
 msgstr "Inventář"
 
-#: src/draw.c:64
+#: src/audio/audio.c:316
 msgid "Pause"
 msgstr "Pauza"
 
@@ -5302,7 +5302,7 @@ msgstr "Pauza"
 msgid "Dead Zone"
 msgstr "Zóna mrtvých"
 
-#: src/collisions.c:1013
+#: src/structs.h:156
 msgid "Sound"
 msgstr "Zvuk"
 
@@ -5346,7 +5346,7 @@ msgstr "Klíč pro přístup k teleportu 2"
 msgid "Teleporter Access Key 3"
 msgstr "Klíč pro přístup k teleportu 3"
 
-#: data/scripts/purifier.dat:8
+#: data/scripts/blender.dat:15
 msgid "Empty Bottle"
 msgstr "Prázdná lahev"
 
@@ -5438,7 +5438,7 @@ msgstr "Vidlicová ladička"
 msgid "A chopped log"
 msgstr "Kláda"
 
-#: data/scripts/tutorial_shield.dat:1
+#: data/scripts/tutorial_combat.dat:1
 msgid "Narrator"
 msgstr "Vypravěč"
 
@@ -5510,11 +5510,11 @@ msgstr "Silný repelent"
 msgid "Repellent"
 msgstr "Repelent"
 
-#: data/maps/map08.dat:12568
+#: data/maps/map12.dat:1
 msgid "Fortress Mine"
 msgstr "Pevnostní důl"
 
-#: data/scripts/monsters.dat:122
+#: data/scripts/cauldron.dat:204
 msgid "Sludge Tentacle"
 msgstr "Bahňákovo chapadlo"
 
@@ -5522,7 +5522,7 @@ msgstr "Bahňákovo chapadlo"
 msgid "A Red Sludge Tentacle"
 msgstr "Chapadlo Červeného bahňáka"
 
-#: data/scripts/old_shield.dat:7
+#: data/scripts/cauldron.dat:145
 msgid "Eyeball Smoothie"
 msgstr "Oční smoothie"
 
@@ -5530,7 +5530,7 @@ msgstr "Oční smoothie"
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Tekutina vyrobená z očí a chapadel"
 
-#: src/system/load_save.c:1685
+#: src/system/load_save.c:1673
 msgid "Patching your save game. Please wait..."
 msgstr "Patchuji uloženou pozici. Prosím čekejte..."
 
@@ -5555,7 +5555,7 @@ msgstr ""
 msgid "A Yellow Gem"
 msgstr "Žlutý krystal"
 
-#: src/pak_creator.c:352
+#: src/system/pak.c:45
 msgid "Failed to open PAK file %s"
 msgstr "Nepodařilo se otevřít PAK soubor %s"
 
@@ -5567,15 +5567,15 @@ msgstr "Najdi způsob pro sebrání krystalu..."
 msgid "Press Action to retrieve the Yellow Gem"
 msgstr "Stiskni Akce pro získání Žlutého krystalu"
 
-#: data/scripts/knights.dat:3
+#: data/scripts/third_side.dat:3
 msgid "Book"
 msgstr "Kniha"
 
-#: data/scripts/fortress_mine_exit_sign.dat:2
+#: data/scripts/fortress_mine_lift.dat:2
 msgid "Sign"
 msgstr "Nápis"
 
-#: data/scripts/tutorial_shield.dat:6
+#: data/scripts/sewer_trap_note.dat:2
 msgid "Note"
 msgstr "Poznámka"
 
@@ -5603,7 +5603,7 @@ msgstr "Lahev s pilulkami, které přeměňují sliz ve vodu"
 msgid "Tutorial Key"
 msgstr "Tutoriálový klíč"
 
-#: data/maps/map15.dat:9668
+#: data/maps/map13.dat:6544
 msgid "Light Key"
 msgstr "Klíč od světel"
 
@@ -5611,7 +5611,7 @@ msgstr "Klíč od světel"
 msgid "Rope"
 msgstr "Provaz"
 
-#: src/item/extend_o_grab_button.c:42
+#: src/item/extend_o_grab.c:47
 msgid "Extend-O-Grab"
 msgstr "Extend-O-Grab"
 
@@ -5623,7 +5623,7 @@ msgstr "Čistič vody"
 msgid "Right Wing Key"
 msgstr "Klíč od pravého křídla"
 
-#: data/maps/map13.dat:3394
+#: data/maps/map13.dat:3993
 msgid "Catapult Lift Key"
 msgstr "Klíč od výtahu katapultu"
 
@@ -5631,19 +5631,19 @@ msgstr "Klíč od výtahu katapultu"
 msgid "Armoury"
 msgstr "Zbrojnice"
 
-#: data/scripts/maggie.dat:3
+#: data/scripts/library_intro.dat:6
 msgid "Maggie"
 msgstr "Maggie"
 
-#: data/scripts/tutorial_secret.dat:5
+#: data/scripts/grasslands_intro.dat:10
 msgid "Jacob"
 msgstr "Jákob"
 
-#: data/scripts/borgan.dat:1
+#: data/scripts/grasslands_intro.dat:10
 msgid "Borgan"
 msgstr "Borgan"
 
-#: data/scripts/olaf.dat:7
+#: data/scripts/statues.dat:1
 msgid "Edgar"
 msgstr "Edgar"
 
@@ -5667,7 +5667,7 @@ msgstr "Meč, který muže být nabit blesky"
 msgid "A Sword imbued with the power of lightning"
 msgstr "Meč nabitý silou blesků"
 
-#: data/scripts/jigsaw_puzzle.dat:5
+#: data/scripts/lightning_sword.dat:6
 msgid "Lightning Sword"
 msgstr "Bleskový meč"
 
@@ -5723,7 +5723,7 @@ msgstr "Zbývá 10 nábojů..."
 msgid "%s is out of power"
 msgstr "%s je vybitý"
 
-#: src/enemy/lightning_tortoise.c:310
+#: src/enemy/book.c:632
 msgid "The damage from this weapon is being absorbed..."
 msgstr "Zranění této zbraně je pohlcováno..."
 
@@ -5779,7 +5779,7 @@ msgstr "Stiskni Akce pro zrušení"
 msgid "%s is needed to activate this Light Pillar"
 msgstr "Potřebuješ %s pro zapnutí Světelného majáku"
 
-#: data/scripts/soul_merger.dat:2
+#: data/scripts/evil_edgar_start.dat:11
 msgid "Evil_Edgar"
 msgstr "Zlý_Edgar"
 
@@ -5879,7 +5879,7 @@ msgstr "Houbičky, které dočasně zpacifikují některá monstra"
 msgid "It's out of apples..."
 msgstr "Jablka došla..."
 
-#: src/game.c:918
+#: src/credits.c:453
 msgid "Failed"
 msgstr "Nezdařilo se"
 
@@ -5919,7 +5919,7 @@ msgstr "Lahodné jablko"
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
 msgstr "Magický úlomek krunýře zuřící želvy královské"
 
-#: data/props/weapon/disintegration_shield_1.props:5
+#: data/props/weapon/disintegration_shield.props:5
 msgid "A shield that can resist disintegration"
 msgstr "Štít, který dokaže odolat disintegraci"
 
@@ -5927,7 +5927,7 @@ msgstr "Štít, který dokaže odolat disintegraci"
 msgid "Try using one of the artifacts to protect yourself..."
 msgstr "Zkus použít jeden z artefaktů na svou obranu..."
 
-#: src/menu/main_menu.c:389
+#: src/menu/io_menu.c:267
 msgid "Failed to load game"
 msgstr "Načtení hry selhalo"
 
@@ -5963,7 +5963,7 @@ msgstr "Chrání před určitými útoky. Přestane funogvat, pokud se pohneš"
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr "Stiskni Útok během blokování pro použití štítu..."
 
-#: src/game.c:918
+#: src/credits.c:863
 msgid "Play Time"
 msgstr "Herní čas"
 
@@ -6007,7 +6007,7 @@ msgstr "Neporažen"
 msgid "Defeated"
 msgstr "Poražen"
 
-#: data/scripts/sorceror_intro_2.dat:1
+#: data/scripts/disintegration_shield.dat:5
 msgid "Sorceror"
 msgstr "Černokněžník"
 
@@ -6067,7 +6067,7 @@ msgstr "Fénix"
 msgid "The Borer"
 msgstr "Borer"
 
-#: data/scripts/fortress_intro_2.dat:7
+#: data/scripts/evil_edgar_start.dat:1
 msgid "Evil Edgar"
 msgstr "Zlý Edgar"
 
@@ -6315,7 +6315,7 @@ msgstr "Tohle tu nemůžeš použít"
 msgid "You can only use this item in an empty space"
 msgstr "Tento předmět můžeš použít pouze na volném prostranství"
 
-#: src/item/key_items.c:260
+#: src/item/bell_rope.c:42
 msgid "Bell"
 msgstr "Zvonek"
 
@@ -6347,7 +6347,7 @@ msgstr "Důl"
 msgid "the Forest"
 msgstr "Les"
 
-#: data/scripts/borgan.dat:44
+#: data/scripts/grasslands_intro.dat:8
 msgid "the Forbidden Swamp"
 msgstr "Zakázaný močál"
 
@@ -6367,11 +6367,11 @@ msgstr "Stoky"
 msgid "the Fortress Basement"
 msgstr "Pevnostní sklepení"
 
-#: data/maps/map08.dat:3418
+#: data/maps/map17.dat:11143
 msgid "the Fortress Ground Floor"
 msgstr "Přízemí pevnosti"
 
-#: data/scripts/old_shield.dat:17
+#: data/scripts/old_shield.dat:18
 msgid "the Laboratory"
 msgstr "Laboratoř"
 
@@ -6431,11 +6431,11 @@ msgstr "Pravá věž"
 msgid "the Crypt"
 msgstr "Krypta"
 
-#: data/scripts/ending_part1.dat:35
+#: data/scripts/grasslands_intro.dat:9
 msgid "Village"
 msgstr "Vesnice"
 
-#: data/scripts/borgan.dat:28
+#: data/scripts/armour_boss_die.dat:4
 msgid "Mine"
 msgstr "Důl"
 
@@ -6443,31 +6443,31 @@ msgstr "Důl"
 msgid "Forest"
 msgstr "Les"
 
-#: data/scripts/borgan.dat:44
+#: data/scripts/grasslands_intro.dat:8
 msgid "Forbidden Swamp"
 msgstr "Zakázaný močál"
 
-#: data/scripts/intro_part1.dat:18
+#: data/scripts/cave_intro.dat:13
 msgid "Cave"
 msgstr "Jeskyně"
 
-#: data/maps/map06.dat:1
+#: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
 msgstr "Okolí pevnosti"
 
-#: data/scripts/mine2_exit.dat:5
+#: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
 msgstr "Stoky"
 
-#: data/maps/map08.dat:1
+#: data/maps/map09.dat:5943
 msgid "Fortress Basement"
 msgstr "Pevnostní sklep"
 
-#: data/maps/map08.dat:3418
+#: data/maps/map09.dat:1
 msgid "Fortress Ground Floor"
 msgstr "Přízemí pevnosti"
 
-#: data/scripts/old_shield.dat:17
+#: data/scripts/old_shield.dat:18
 msgid "Laboratory"
 msgstr "Laboratoř"
 
@@ -6507,11 +6507,11 @@ msgstr "Vnitřní jeskynní systém"
 msgid "Graveyard"
 msgstr "Hřbitov"
 
-#: data/maps/map22.dat:1
+#: data/maps/map09.dat:10018
 msgid "Left Tower"
 msgstr "Levá věž"
 
-#: data/scripts/final_battle.dat:7
+#: data/scripts/hidden_passage.dat:9
 msgid "Right Tower"
 msgstr "Pravá věž"
 
@@ -6543,11 +6543,11 @@ msgstr "Stiskni libovolnou klávesu"
 msgid "Cannot equip items whilst attacking"
 msgstr "Nemůže vybavit předmět během útočení"
 
-#: src/game.c:44
+#: src/credits.c:884
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: src/menu/medals_menu.h:20
+#: src/init.c:128
 msgid "Medals"
 msgstr "Medaile"
 
@@ -6579,7 +6579,7 @@ msgstr "Použij šipky pro vybrání. Stiskni Enter pro změnu"
 msgid "Interact"
 msgstr "Interakce"
 
-#: data/scripts/safe_instructions.dat:1
+#: data/scripts/tutorial_combat.dat:3
 msgid "Use"
 msgstr "Použít"
 
@@ -6680,7 +6680,7 @@ msgstr "Ubohý"
 msgid "Impale"
 msgstr "Narazit"
 
-#: src/player.c:2031
+#: src/player.h:61
 msgid "Confuse"
 msgstr "Zmatení"
 
@@ -6688,7 +6688,7 @@ msgstr "Zmatení"
 msgid "Darkness"
 msgstr "Temnota"
 
-#: src/boss/chaos.c:1766
+#: src/boss/sorceror_2.c:1551
 msgid "Hold Person"
 msgstr "Drž osobu"
 
@@ -6841,3 +6841,91 @@ msgstr "Pořád je tu cítit magická energie"
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
 msgstr "Ať už to bylo cokoliv, už je to nějaký čas pryč..."
+
+#: data/props/boss/mataeus_knife.props:6
+msgid "A magical knife conjured by Mataeus"
+msgstr ""
+
+#: data/scripts/mataeus_boss_die.dat:1
+msgid "Magical Knife"
+msgstr ""
+
+#: data/maps/map11.dat:5217
+msgid "Third Floor Passage Key"
+msgstr ""
+
+#: data/maps/map11.dat:7267
+msgid "Third Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:9292
+msgid "Fourth Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:6368
+msgid "Anti-Gravity Switch Key 1"
+msgstr ""
+
+#: data/maps/map11.dat:6267
+msgid "Anti-Gravity Switch Key 2"
+msgstr ""
+
+#: data/scripts/cauldron.dat:147
+msgid "Old Shield"
+msgstr ""
+
+#: data/maps/map15.dat:2567
+msgid "Old Key"
+msgstr ""
+
+#: data/maps/map09.dat:7793
+msgid "Lava Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:5468
+msgid "Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:8967
+msgid "Study Lift Key"
+msgstr ""
+
+#: data/maps/map17.dat:2942
+msgid "Conveyor Belt Key"
+msgstr ""
+
+#: data/maps/map11.dat:6817
+msgid "Instruction Room Key"
+msgstr ""
+
+#: data/scripts/cauldron.dat:7
+msgid "Full Soul Bottle"
+msgstr ""
+
+#: data/maps/map10.dat:3167
+msgid "Potion of Invisibility"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:8
+msgid "Potion of Transmogrification"
+msgstr ""
+
+#: data/props/item/spike_ball.props:4
+msgid "Armadillo Spike Ball"
+msgstr ""
+
+#: data/scripts/cauldron.dat:153
+msgid "Gazer Eyeball"
+msgstr ""
+
+#: src/item/apple_tree.h:20
+msgid "Apple"
+msgstr ""
+
+#: src/boss/evil_edgar.c:703
+msgid "Dud Exploding Gazer Eyeball"
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:2
+msgid "Fire Shield"
+msgstr ""

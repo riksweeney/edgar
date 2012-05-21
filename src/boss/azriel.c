@@ -561,6 +561,8 @@ static void lightningCage()
 static void lightningCageMoveBackToPlayer()
 {
 	self->targetX = player.x - self->w / 2 + player.w / 2;
+	
+	checkToMap(self);
 
 	/* Position above the player */
 
@@ -579,8 +581,6 @@ static void lightningCageMoveBackToPlayer()
 	{
 		self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
 	}
-
-	checkToMap(self);
 
 	becomeTransparent();
 }

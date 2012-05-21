@@ -32,11 +32,14 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include <time.h>
 #include <zlib.h>
 
-#ifndef _WIN32
+#if UNIX == 1
 	#include <pwd.h>
 	#include <unistd.h>
 #else
 	#include "strtok_r.h"
+#endif
+
+#ifdef _WIN32
 	#include <windows.h>
 #endif
 
