@@ -6,19 +6,19 @@ DOCS = doc/*
 ICONS = icons/
 UNIX = 0
 
-PROG      = edgar.exe
-ED_PROG   = mapeditor.exe
-PAK_PROG  = pak.exe
+PROG      = edgar
+ED_PROG   = mapeditor
+PAK_PROG  = pak
 
-CC        = i586-mingw32msvc-gcc
-SDLC      = /opt/Windows/bin/sdl-config
+CC        = i386-aros-gcc
+STRIP     = i386-aros-strip --strip-unneeded --remove-section .comment
 
 LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
-CFLAGS = `$(SDLC) --cflags` -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 
-LFLAGS = `$(SDLC) --libs` -lz -lSDL_mixer -lSDL_image -lSDL_ttf -lSDLmain
+LFLAGS = -nix -lSDL_gfx -lSDL_net -lSDL_image -lpng -ljpeg -lz -lSDL_mixer -lvorbisfile -lvorbis -logg -lSDL_ttf -lfreetype2 -lz -lSDL -lm
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
@@ -83,6 +83,7 @@ makefile.dep : src/*/*.h src/*.h
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
 	$(CC) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
+	$(STRIP) $(PROG)
 	
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
@@ -97,7 +98,7 @@ clean:
 	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
 	
 buildpak: $(PAK_PROG)
-	wine $(PAK_PROG) data gfx music sound font $(PAK_FILE)
-	wine $(PAK_PROG) -test $(PAK_FILE)
+	$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	$(PAK_PROG) -test $(PAK_FILE)
 
 include makefile.dep

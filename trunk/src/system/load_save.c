@@ -51,7 +51,7 @@ static void showPatchMessage(char *);
 
 extern Game game;
 
-#ifndef _WIN32
+#if UNIX == 1
 	void setupUserHomeDirectory()
 	{
 		char *userHome;
@@ -69,11 +69,7 @@ extern Game game;
 
 		userHome = pass->pw_dir;
 
-		#ifdef __AMIGA__
-			snprintf(dir, sizeof(dir), "parallelrealities");
-		#else
-			snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
-		#endif
+		snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -82,11 +78,7 @@ extern Game game;
 			exit(1);
 		}
 
-		#ifdef __AMIGA__
-			snprintf(dir, sizeof(dir), "parallelrealities/edgar");
-		#else
-			snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
-		#endif
+		snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -95,11 +87,7 @@ extern Game game;
 			exit(1);
 		}
 
-		#ifdef __AMIGA__
-			snprintf(gameSavePath, sizeof(gameSavePath), "parallelrealities/edgar/");
-		#else
-			snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
-		#endif
+		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 
 		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 

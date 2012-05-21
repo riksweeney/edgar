@@ -4,8 +4,9 @@ DEV = 0
 PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
+UNIX = 1
 
-ifeq ($(OS),Windows_NT)
+ifeq ($(UNIX),0)
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
@@ -29,16 +30,16 @@ DESKTOP_DIR = $(PREFIX)/share/applications/
 LOCALE_DIR = $(PREFIX)/share/locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
-ifeq ($(OS),Windows_NT)
+ifeq ($(UNIX),0)
 DATA_DIR =
 else
 DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
 ifeq ($(DEV),1)
-CFLAGS = -Wall -g -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = -Wall -g -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 else
-CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 endif
 
 LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
@@ -87,7 +88,7 @@ CORE_OBJS += poison_meat.o train.o train_track.o flame_statue.o armour_changer.o
 CORE_OBJS += sorceror_floor.o medals_menu.o skull_door.o ghost.o slug.o portable_save.o crypt_skull.o skeleton.o bell_rope.o
 CORE_OBJS += music_sheet_display.o title.o azriel.o zombie.o mini_gargoyle.o gargoyle.o chaos.o chaos_vine.o i18n.o azriel_grave.o
 
-ifeq ($(OS),Windows_NT)
+ifeq ($(UNIX),0)
 CORE_OBJS += strtok_r.o
 endif
 

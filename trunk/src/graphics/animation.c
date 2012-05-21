@@ -649,10 +649,10 @@ Sprite *getCurrentSprite(Entity *e)
 {
 	if (self->face == LEFT)
 	{
-		return getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
+		return getSprite(animation[e->currentAnim].frameID[e->currentFrame] + 1);
 	}
 
-	return getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
+	return getSprite(animation[e->currentAnim].frameID[e->currentFrame]);
 }
 
 int getFrameCount(Entity *e)
