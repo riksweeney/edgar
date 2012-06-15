@@ -151,7 +151,7 @@
 220 220 220 Wind3 as (breathe_in.ogg)
 220 220 220 by pushtobreak
 220 220 220 #
-220 220 220 Glass_Break (as smash.ogg)
+220 220 220 bm_Glass_Break (as smash.ogg)
 220 220 220 by cmusounddesign
 220 220 220 #
 220 220 220 snow4 (as crumble.ogg)
@@ -241,9 +241,6 @@
 220 220 220 flak_hit (as spirit_explode.ogg)
 220 220 220 by smcameron
 220 220 220 #
-220 220 220 chain (as chain.ogg)
-220 220 220 by smargroth
-220 220 220 #
 220 220 220 System_Background (as rift.ogg)
 220 220 220 by gcmax
 220 220 220 #
@@ -265,14 +262,26 @@
 220 220 220 electrocute.wav (as azriel_lightning_cage.ogg)
 220 220 220 by aust-paul
 220 220 220 #
-220 220 220 swosh-22.wav (as azriel_scythe_throw.ogg)
+220 220 220 swosh-whoosh-air-cut (as azriel_scythe_throw.ogg)
 220 220 220 by qubodup
 220 220 220 #
-220 220 220 usat-bomb.wav (as azriel_die.ogg)
+220 220 220 usat-bomb (as azriel_die.ogg)
 220 220 220 by sandyrb
 220 220 220 #
-220 220 220 Monster 4.wav (as gargoyle_roar.ogg)
+220 220 220 Monster 4 (as gargoyle_roar.ogg)
 220 220 220 by seafury
 220 220 220 #
-220 220 220 anotherdancingmarble.wav (as gargoyle_stone_to_flesh.ogg)
+220 220 220 swosh-43 (as gargoyle_lance_stab.ogg)
+220 220 220 by qubodup
+220 220 220 #
+220 220 220 fx-time-freeze (as gargoyle_create_lance.ogg)
+220 220 220 by v0idation
+220 220 220 #
+220 220 220 whatever as (gargoyle_petrify.ogg)
+220 220 220 by aust-paul
+220 220 220 #
+220 220 220 rubble-012 (as petrify_shake.ogg)
+220 220 220 by dj-chronos
+220 220 220 #
+220 220 220 anotherdancingmarble (as gargoyle_stone_to_flesh.ogg)
 220 220 220 by herbertboland
