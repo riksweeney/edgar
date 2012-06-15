@@ -548,10 +548,12 @@ void getInput(int gameType)
 					if (event.jaxis.value < -control.deadZone)
 					{
 						input.left = TRUE;
+						input.right = FALSE;
 					}
 
 					else if (event.jaxis.value > control.deadZone)
 					{
+						input.left = FALSE;
 						input.right = TRUE;
 					}
 
@@ -567,10 +569,12 @@ void getInput(int gameType)
 					if (event.jaxis.value < -control.deadZone)
 					{
 						input.up = TRUE;
+						input.down = FALSE;
 					}
 
 					else if (event.jaxis.value > control.deadZone)
 					{
+						input.up = FALSE;
 						input.down = TRUE;
 					}
 
@@ -718,10 +722,6 @@ int getSingleInput()
 
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
-			break;
-
-			case SDL_JOYAXISMOTION:
-				return -1;
 			break;
 
 			case SDL_JOYBUTTONDOWN:

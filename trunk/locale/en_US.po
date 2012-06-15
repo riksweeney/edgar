@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: The Legend of Edgar 0.98\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-15 07:24+0000\n"
+"PO-Revision-Date: 2012-05-22 08:14+0000\n"
 "Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-20 15:44+0000\n"
-"X-Generator: Launchpad (build 15259)\n"
+"X-Launchpad-Export-Date: 2012-05-22 17:26+0000\n"
+"X-Generator: Launchpad (build 15275)\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -6915,88 +6915,88 @@ msgstr "Whatever it was, it's long gone..."
 
 #: data/props/boss/mataeus_knife.props:6
 msgid "A magical knife conjured by Mataeus"
-msgstr ""
+msgstr "A magical knife conjured by Mataeus"
 
 #: data/scripts/mataeus_boss_die.dat:1
 msgid "Magical Knife"
-msgstr ""
+msgstr "Magical Knife"
 
 #: data/maps/map11.dat:5217
 msgid "Third Floor Passage Key"
-msgstr ""
+msgstr "Third Floor Passage Key"
 
 #: data/maps/map11.dat:7267
 msgid "Third Floor Keycard"
-msgstr ""
+msgstr "Third Floor Keycard"
 
 #: data/maps/map11.dat:9292
 msgid "Fourth Floor Keycard"
-msgstr ""
+msgstr "Fourth Floor Keycard"
 
 #: data/maps/map11.dat:6368
 msgid "Anti-Gravity Switch Key 1"
-msgstr ""
+msgstr "Anti-Gravity Switch Key 1"
 
 #: data/maps/map11.dat:6267
 msgid "Anti-Gravity Switch Key 2"
-msgstr ""
+msgstr "Anti-Gravity Switch Key 2"
 
 #: data/scripts/cauldron.dat:147
 msgid "Old Shield"
-msgstr ""
+msgstr "Old Shield"
 
 #: data/maps/map15.dat:2567
 msgid "Old Key"
-msgstr ""
+msgstr "Old Key"
 
 #: data/maps/map09.dat:7793
 msgid "Lava Lift Key"
-msgstr ""
+msgstr "Lava Lift Key"
 
 #: data/maps/map09.dat:5468
 msgid "Lift Key"
-msgstr ""
+msgstr "Lift Key"
 
 #: data/maps/map09.dat:8967
 msgid "Study Lift Key"
-msgstr ""
+msgstr "Study Lift Key"
 
 #: data/maps/map17.dat:2942
 msgid "Conveyor Belt Key"
-msgstr ""
+msgstr "Conveyor Belt Key"
 
 #: data/maps/map11.dat:6817
 msgid "Instruction Room Key"
-msgstr ""
+msgstr "Instruction Room Key"
 
 #: data/scripts/cauldron.dat:7
 msgid "Full Soul Bottle"
-msgstr ""
+msgstr "Full Soul Bottle"
 
 #: data/maps/map10.dat:3167
 msgid "Potion of Invisibility"
-msgstr ""
+msgstr "Potion of Invisibility"
 
 #: data/scripts/slime_potion.dat:8
 msgid "Potion of Transmogrification"
-msgstr ""
+msgstr "Potion of Transmogrification"
 
 #: data/props/item/spike_ball.props:4
 msgid "Armadillo Spike Ball"
-msgstr ""
+msgstr "Armadillo Spike Ball"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer Eyeball"
-msgstr ""
+msgstr "Gazer Eyeball"
 
 #: src/item/apple_tree.h:20
 msgid "Apple"
-msgstr ""
+msgstr "Apple"
 
 #: src/boss/evil_edgar.c:703
 msgid "Dud Exploding Gazer Eyeball"
-msgstr ""
+msgstr "Dud Exploding Gazer Eyeball"
 
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
-msgstr ""
+msgstr "Fire Shield"
