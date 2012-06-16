@@ -1,0 +1,28 @@
+PORTING
+
+Updated: April 2012
+
+In order to successfully port The Legend of Edgar to another platform you will need,
+
+* SDL
+* SDL Image
+* SDL Mixer
+* SDL TTF
+
+There are a few considerations when porting to other platforms,
+
+- The makefile is for *nix systems, but will also compile on Windows automagically. For
+  other OSes (Amiga, Mac, PSP) you may need to tailor the makefile to get it to compile.
+  
+- To create the PAK file you can run "make buildpak" after running "make". This will
+  be required if you are building the game from source on non *nix platforms (note that
+  make install builds the pak file).
+
+If you encounter any bugs please let me know where you encountered it and most importantly
+how to reproduce it!
+
+One final note, there is an editor for the game, but it is shipped as is without support.
+
+Richard Sweeney
+riksweeney@users.sourceforge.net
+http://www.parallelrealities.co.uk/p/legend-of-edgar.html

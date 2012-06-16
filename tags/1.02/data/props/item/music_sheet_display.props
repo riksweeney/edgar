@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/item/music_sheet_display.dat
+ANIM_FILE data/anim/item/music_sheet_display.dat
+TYPE KEY_ITEM

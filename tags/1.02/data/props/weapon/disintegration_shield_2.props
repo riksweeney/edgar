@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/weapon/disintegration_shield_2.dat
+ANIM_FILE data/anim/weapon/disintegration_shield.dat
+TYPE SHIELD
+OBJECTIVE_NAME Disintegration Shield
+DESCRIPTION A shield that can resist disintegration
+SPEED 12
