@@ -1,0 +1,53 @@
+SET MAGGIE FACE Edgar
+IF Edgar HEALTH MAX
+TALK Maggie Hello Edgar
+TALK Edgar Hi Maggie
+END
+IF Edgar HEALTH NOT_MAX
+TALK Maggie Oh Edgar, you're hurt! Let me heal your wounds
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 5
+ADD DECORATION decoration/multiple_sparkles "Edgar"
+WAIT 20
+SET Edgar HEALTH MAX
+TALK Edgar Thanks Maggie!
+END

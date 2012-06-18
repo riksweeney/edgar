@@ -1,0 +1,207 @@
+IF CAULDRON HEALTH 11
+TALK Edgar Maybe this thing isn't so bad after all
+END
+IF CAULDRON HEALTH 8
+HAS_ITEM "Tortoise Shell" 1 1 CAULDRON 9 10
+IF CAULDRON HEALTH 9
+HAS_ITEM "Full Soul Bottle" 1 1 CAULDRON 9 10
+END
+IF CAULDRON HEALTH 9
+HAS_ITEM "Summoner's Staff" 1 1 CAULDRON 9 10
+END
+IF CAULDRON HEALTH 9
+HAS_ITEM "Keepsake" 1 1 CAULDRON 9 10
+END
+END
+IF CAULDRON HEALTH 9
+REMOVE "Tortoise Shell" 1 1 CAULDRON 11 11
+REMOVE "Full Soul Bottle" 1 1 CAULDRON 11 11
+REMOVE "Summoner's Staff" 1 1 CAULDRON 11 11
+REMOVE "Keepsake" 1 1 CAULDRON 11 11
+TALK Edgar That's all the ingredients, I just need to add a shield
+TALK Edgar I don't think I'll need the Phantasmal Shield anymore...
+REMOVE "Phantasmal Shield" 1 1 CAULDRON 11 11
+WAIT 30
+WALK_TO Edgar 21146 13322 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar Please don't make another evil version of me...
+WAIT 120
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 120
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 60
+ADD ENTITY SHIELD weapon/dragon_shield " " 21280 13320
+WAIT 60
+WALK_TO Edgar 21280 13322 WAIT
+ADD_MEDAL dragon_shield
+TALK Edgar What a fine looking shield
+TALK Edgar But will it protect me from that dragon's flames?
+TALK Edgar I guess there's only one way to find out...
+TALK Edgar The book said it was sealed below a fortress
+TALK Edgar If it is this one then the only two places it could be are the catacombs and the dungeon
+TALK Edgar I should start my search there
+END
+IF CAULDRON HEALTH 10
+TALK Edgar I don't have all the ingredients yet.
+TALK Edgar The book said I needed to find the following
+TALK Edgar The shell fragment of a Rampaging Master Tortoise
+TALK Edgar The staff of a Dark Summoner
+TALK Edgar The soul of a wandering spirit
+TALK Edgar The keepsake of the warrior that previously defeated it
+SET CAULDRON HEALTH 8
+END
+IF CAULDRON HEALTH 6
+TALK Edgar Hopefully I'll never have to use this again
+END
+IF CAULDRON HEALTH 7
+TALK Edgar I should create the disintegration shield and rescue my Dad before I go chasing after that dragon
+REMOVE "Small Wooden Shield" 1 1 CAULDRON 5 5
+REMOVE "Protection Ring" 1 1 CAULDRON 5 5
+FOLLOW NONE
+WAIT 30
+WALK_TO Edgar 21146 13322 WAIT
+JUMP Edgar
+WALK_TO Edgar 21093 13322 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar I'm not taking any chances this time...
+SET EDGAR FACE LEFT
+JUMP Edgar
+WALK_TO Edgar 20868 13322 WAIT
+WAIT 30
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 120
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 60
+TALK Edgar Did it work?
+WALK_TO Edgar 21150 13322 WAIT
+WAIT 30
+SET CAULDRON PROPERTY MENTAL 1
+WALK_TO_RELATIVE Edgar -64 0 WAIT
+WAIT 30
+SET CAULDRON PROPERTY MENTAL 0
+WALK_TO Edgar 21150 13322 WAIT
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 15
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 15
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 15
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 60
+TALK Edgar I think it's safe now...
+ADD ENTITY SHIELD weapon/disintegration_shield " " 21280 13320
+ADD TRIGGER "Disintegration Shield" 1 RUN_SCRIPT "disintegration_shield"
+SET CAULDRON HEALTH 8
+FOLLOW EDGAR
+END
+IF CAULDRON HEALTH 5
+TALK Edgar I'll use my wooden shield...
+REMOVE "Small Wooden Shield" 1 1 CAULDRON 5 5
+REMOVE "Protection Ring" 1 1 CAULDRON 5 5
+FOLLOW NONE
+WAIT 30
+WALK_TO Edgar 21146 13322 WAIT
+JUMP Edgar
+WALK_TO Edgar 21093 13322 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar I'm not taking any chances this time...
+SET EDGAR FACE LEFT
+JUMP Edgar
+WALK_TO Edgar 20868 13322 WAIT
+WAIT 30
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 120
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 60
+TALK Edgar Did it work?
+WALK_TO Edgar 21150 13322 WAIT
+WAIT 30
+SET CAULDRON PROPERTY MENTAL 1
+WALK_TO_RELATIVE Edgar -64 0 WAIT
+WAIT 30
+SET CAULDRON PROPERTY MENTAL 0
+WALK_TO Edgar 21150 13322 WAIT
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 15
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 15
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 15
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 60
+TALK Edgar I think it's safe now...
+ADD ENTITY SHIELD weapon/disintegration_shield " " 21280 13320
+ADD TRIGGER "Disintegration Shield" 1 RUN_SCRIPT "disintegration_shield"
+SET CAULDRON HEALTH 6
+FOLLOW EDGAR
+END
+IF CAULDRON HEALTH 4
+TALK Edgar Stupid thing. Maggie makes it all look so easy...
+END
+IF CAULDRON HEALTH 0
+TALK Edgar It's a cauldron. Maggie has one just like this
+END
+IF CAULDRON HEALTH 1
+HAS_ITEM "Eyeball Smoothie" 1 1 CAULDRON 2 3
+IF CAULDRON HEALTH 2
+HAS_ITEM "Old Shield" 1 1 CAULDRON 2 3
+END
+END
+IF CAULDRON HEALTH 2
+REMOVE "Eyeball Smoothie" 1 1 CAULDRON 2 2
+ADD_TO_INVENTORY item/empty_potion
+TALK Edgar OK, that's the Gazer Eyeball and Tentacle added
+WALK_TO Edgar 21155 13322 WAIT
+ADD_TO_INVENTORY item/mandrake_root
+ADD_TO_INVENTORY item/darsh_fat
+ADD_TO_INVENTORY item/condor_bones
+WAIT 90
+WALK_TO Edgar 21280 13322 WAIT
+WAIT 60
+REMOVE "Mandrake Root" 1 1 CAULDRON 2 2
+REMOVE "Darsh Fat" 1 1 CAULDRON 2 2
+REMOVE "Condor Bones" 1 1 CAULDRON 2 2
+TALK Edgar And the rest of the ingredients too
+WAIT 60
+SET CAULDRON ANIMATION WALK
+TALK Edgar Aha! It's gone blue, just like the book said it would
+TALK Edgar Now to add the shield
+REMOVE "Old Shield" 1 1 CAULDRON 2 2
+WAIT 30
+WALK_TO Edgar 21340 13322 WAIT
+SET EDGAR FACE LEFT
+WAIT 60
+SET CAULDRON PROPERTY MENTAL 1
+MUSIC FADE_DOWN 2000
+WAIT 60
+TALK Edgar Uh-Oh...
+FLASH_SCREEN 45
+PLAY_SOUND sound/common/explosion.ogg
+SET CAULDRON PROPERTY MENTAL 2
+WAIT 90
+FLASH_SCREEN 45
+PLAY_SOUND sound/common/explosion.ogg
+SET EDGAR ANIMATION DIE
+WAIT 90
+FLASH_SCREEN 300
+PLAY_SOUND sound/common/massive_explosion.ogg
+WAIT 180
+PLAY_SOUND sound/boss/evil_edgar/evil_edgar_appear.ogg
+ACTIVATE_REQUIRED EVIL_EDGAR_TRIGGER
+WHILE EVIL_EDGAR MENTAL 0
+WALK_TO EVIL_EDGAR 21580 13322 WAIT
+WAIT 30
+SET EVIL_EDGAR FACE LEFT
+WAIT 60
+WALK_TO EVIL_EDGAR 21700 13322 WAIT
+KILL EVIL_EDGAR
+ADD MAP_TRIGGER "map10" RUN_SCRIPT "cauldron_exploded"
+LOAD_LEVEL map10 cauldron_explode
+WAIT 300
+END
+IF CAULDRON HEALTH 3
+TALK Edgar I need all the main ingredients
+TALK Edgar 3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield
+TALK Edgar I also need to blend the eyeballs and the tentacle into a liquid
+SET CAULDRON HEALTH 1
+END

@@ -1,0 +1,8 @@
+HEALTH 50
+DAMAGE 1
+GFX_FILE data/gfx/enemy/mouth_stalk.dat
+ANIM_FILE data/anim/enemy/mouth_stalk.dat
+TYPE ENEMY
+FLAGS FLY
+SPEED 2
+MENTAL 8

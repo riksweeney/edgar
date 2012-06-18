@@ -1,0 +1,4 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/black_book_die.dat
+ANIM_FILE data/anim/common/no_anim.dat
+OBJECTIVE_NAME BLACK_BOOK_3

@@ -1,0 +1,3 @@
+MAP_NAME MAP10
+REMOVE_OBJECTIVE "Create a Disintegration Shield"
+REMOVE_TRIGGER "Disintegration Shield"
