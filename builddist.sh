@@ -65,8 +65,7 @@ rm $APPDIR/*.sh
 rm $APPDIR/*.nsi
 rm $APPDIR/*.txt
 rm $APPDIR/*.dat
-rm $APPDIR/makefile.windows
-rm $APPDIR/makefile.amiga
+rm $APPDIR/makefile.*
 
 for i in `find . -name *.wav | grep -v doc`;do
 	rm $i
