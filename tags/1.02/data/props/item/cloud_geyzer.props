@@ -1,5 +1,0 @@
-GFX_FILE data/gfx/item/cloud_geyzer.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE KEY_ITEM
-THINKTIME 300
-FLAGS FLY

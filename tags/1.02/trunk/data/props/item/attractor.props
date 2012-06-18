@@ -1,7 +1,0 @@
-MAX_THINKTIME 15
-GFX_FILE data/gfx/item/attractor.dat
-ANIM_FILE data/anim/item/attractor.dat
-TYPE KEY_ITEM
-FLAGS FLY
-SPEED 2
-MENTAL 256

@@ -1,6 +1,0 @@
-HEALTH 15
-GFX_FILE data/gfx/boss/chaos_vine.dat
-ANIM_FILE data/anim/boss/chaos_vine.dat
-TYPE ENEMY
-LAYER BACKGROUND_LAYER
-FLAGS FLY

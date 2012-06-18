@@ -1,8 +1,0 @@
-# 3 chickens, 0 logs
-IF Jacob HEALTH 2
-SET Jacob HEALTH 5
-END
-# 3 chickens, 2 logs
-IF Jacob HEALTH 3
-SET Jacob HEALTH 7
-END

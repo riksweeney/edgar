@@ -1,7 +1,0 @@
-GFX_FILE data/gfx/enemy/dragon_fly_pod.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE ENEMY
-FLAGS DO_NOT_PERSIST
-DAMAGE 1
-HEALTH 30
-THINKTIME 180

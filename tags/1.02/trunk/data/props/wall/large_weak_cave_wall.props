@@ -1,6 +1,0 @@
-GFX_FILE data/gfx/wall/large_weak_cave_wall.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE WEAK_WALL
-FLAGS FLY
-REQUIRES common/explosion
-HEALTH 40

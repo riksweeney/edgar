@@ -1,4 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/black_book_side.dat
-ANIM_FILE data/anim/common/no_anim.dat
-FLAGS FLY

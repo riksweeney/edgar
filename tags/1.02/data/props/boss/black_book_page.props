@@ -1,5 +1,0 @@
-TYPE TEMP_ITEM
-GFX_FILE data/gfx/boss/black_book_page.dat
-ANIM_FILE data/anim/common/no_anim.dat
-FLAGS FLY
-THINKTIME 120

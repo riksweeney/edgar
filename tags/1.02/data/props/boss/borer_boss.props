@@ -1,7 +1,0 @@
-HEALTH 3000
-DAMAGE 1
-GFX_FILE data/gfx/boss/borer_boss.dat
-ANIM_FILE data/anim/boss/borer_boss.dat
-TYPE ENEMY
-FLAGS FLY
-LAYER FOREGROUND_LAYER
