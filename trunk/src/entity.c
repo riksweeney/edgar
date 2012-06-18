@@ -865,24 +865,16 @@ void pushEntity(Entity *other)
 				other->dirX = dirX;
 			}
 
-			if (self->type != AUTO_DOOR)
-			{
-				/* Place the entity as close as possible */
+			/* Place the entity as close as possible */
 
-				other->y = self->y + self->box.y;
-				other->y -= other->box.h + other->box.y;
+			other->y = self->y + self->box.y;
+			other->y -= other->box.h + other->box.y;
 
-				other->standingOn = self;
-				other->dirY = 0;
-				other->flags |= ON_GROUND;
+			other->standingOn = self;
+			other->dirY = 0;
+			other->flags |= ON_GROUND;
 
-				collided = TRUE;
-			}
-			
-			else
-			{
-				self->y = other->y - other->h;
-			}
+			collided = TRUE;
 		}
 	}
 
@@ -899,16 +891,6 @@ void pushEntity(Entity *other)
 
 			other->dirY = 0;
 
-			collided = TRUE;
-		}
-	}
-	
-	else if (self->type == AUTO_DOOR && other->dirY == 0 && self->dirY > 0)
-	{
-		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + floor(other->dirY), other->box.w, other->box.h) == TRUE)
-		{
-			self->y = other->y - self->h;
-			
 			collided = TRUE;
 		}
 	}
