@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/enemy/small_boulder.dat
+ANIM_FILE data/anim/enemy/small_boulder.dat
+TYPE ENEMY
+DAMAGE 1
+HEALTH 3
+SPEED 2.75
+FLAGS UNBLOCKABLE

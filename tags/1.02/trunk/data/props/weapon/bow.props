@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/weapon/bow.dat
+ANIM_FILE data/anim/weapon/bow.dat
+TYPE WEAPON
+OBJECTIVE_NAME Bow
+DESCRIPTION A bow
+REQUIRES Normal Arrow

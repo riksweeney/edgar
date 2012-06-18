@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/decoration/bolt_trail.dat
+ANIM_FILE data/anim/common/no_anim.dat
+FLAGS FLY
+THINKTIME 30
