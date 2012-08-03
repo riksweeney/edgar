@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: The Legend of Edgar 0.98\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-05-22 08:14+0000\n"
+"PO-Revision-Date: 2012-07-22 07:57+0000\n"
 "Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-22 17:26+0000\n"
-"X-Generator: Launchpad (build 15275)\n"
+"X-Launchpad-Export-Date: 2012-07-24 17:04+0000\n"
+"X-Generator: Launchpad (build 15668)\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -398,7 +398,8 @@ msgstr "Thanks, Olaf"
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
 msgstr ""
-"This lift is not working. I won't be able to use it until I restore the power"
+"This elevator is not working. I won't be able to use it until I restore the "
+"power"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
@@ -744,7 +745,7 @@ msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
 "drainers should restore the power here."
 msgstr ""
-"That might explain why that lift wasn't working. Defeating the other "
+"That might explain why that elevator wasn't working. Defeating the other "
 "drainers should restore the power here."
 
 #: data/scripts/drainers.dat:3
@@ -1944,7 +1945,7 @@ msgstr "I've been trapped down here for what seems like an eternity"
 
 #: data/scripts/sewer_trap_note.dat:3
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "To get out of this place I need 3 Access Keys to work the elevators"
 
 #: data/scripts/sewer_trap_note.dat:4
 msgid "So far I have only found 1"
@@ -2396,7 +2397,7 @@ msgstr "There's another sign here"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "If the exit lift is out of order then proceed to the left"
-msgstr "If the exit lift is out of order then proceed to the left"
+msgstr "If the exit elevator is out of order then proceed to the left"
 
 #: data/scripts/fortress_mine_exit_sign.dat:3
 msgid "Warning : Exit route may be hazardous"
@@ -2404,7 +2405,7 @@ msgstr "Warning : Exit route may be hazardous"
 
 #: data/scripts/fortress_mine_exit_sign.dat:5
 msgid "Maybe I should use the lift to get out"
-msgstr "Maybe I should use the lift to get out"
+msgstr "Maybe I should use the elevator to get out"
 
 #: data/scripts/crossbow.dat:16
 msgid "Cool, it worked!"
@@ -3046,16 +3047,17 @@ msgstr "There's a sign here"
 
 #: data/scripts/fortress_mine_lift.dat:2
 msgid "If the lift is out of order then it must be reset"
-msgstr "If the lift is out of order then it must be reset"
+msgstr "If the elevator is out of order then it must be reset"
 
 #: data/scripts/fortress_mine_lift.dat:3
 msgid "There are 4 reset switches along the lift shaft which must be reset"
-msgstr "There are 4 reset switches along the lift shaft which must be reset"
+msgstr ""
+"There are 4 reset switches along the elevator shaft which must be reset"
 
 #: data/scripts/fortress_mine_lift.dat:4
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
 msgstr ""
-"Be sure to reset the lift to avoid a long walk back to the surface..."
+"Be sure to reset the elevator to avoid a long walk back to the surface..."
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
@@ -3694,8 +3696,8 @@ msgid ""
 "This lift is controlled by that pressure plate, but I can't stand on it and "
 "use the lift at the same time"
 msgstr ""
-"This lift is controlled by that pressure plate, but I can't stand on it and "
-"use the lift at the same time"
+"This elevator is controlled by that pressure plate, but I can't stand on it "
+"and use the elevator at the same time"
 
 #: data/scripts/centurion_pressure_plate.dat:2
 msgid ""
@@ -3885,7 +3887,7 @@ msgid ""
 "That should do it. Hopefully that other lift by the Sewer should now be "
 "working"
 msgstr ""
-"That should do it. Hopefully that other lift by the Sewer should now be "
+"That should do it. Hopefully that other elevator by the Sewer should now be "
 "working"
 
 #: data/scripts/monster_horn.dat:1
@@ -5027,11 +5029,11 @@ msgstr "This teleporter is not active"
 
 #: src/world/lift.c:158
 msgid "Push Up or Down to use this lift"
-msgstr "Push Up or Down to use this lift"
+msgstr "Push Up or Down to use this elevator"
 
 #: src/entity.c:1329
 msgid "This lift is not active"
-msgstr "This lift is not active"
+msgstr "This elevator is not active"
 
 #: src/inventory.c:114
 msgid "Cannot carry any more %s"
@@ -5391,7 +5393,7 @@ msgstr "Ice Spray"
 
 #: data/maps/map09.dat:5468
 msgid "Right Wing Lift Key"
-msgstr "Right Wing Lift Key"
+msgstr "Right Wing Elevator Key"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine Entrance Door Key"
@@ -5551,7 +5553,7 @@ msgstr "Full Mine Cart"
 
 #: data/maps/map12.dat:2442
 msgid "Processing Lift Key"
-msgstr "Processing Lift Key"
+msgstr "Processing Elevator Key"
 
 #: data/maps/map12.dat:5318
 msgid "Right Grabber Key"
@@ -5695,7 +5697,7 @@ msgstr "Right Wing Key"
 
 #: data/maps/map13.dat:3993
 msgid "Catapult Lift Key"
-msgstr "Catapult Lift Key"
+msgstr "Catapult Elevator Key"
 
 #: data/maps/map09.dat:2917
 msgid "Armoury"
@@ -6951,15 +6953,15 @@ msgstr "Old Key"
 
 #: data/maps/map09.dat:7793
 msgid "Lava Lift Key"
-msgstr "Lava Lift Key"
+msgstr "Lava Elevator Key"
 
 #: data/maps/map09.dat:5468
 msgid "Lift Key"
-msgstr "Lift Key"
+msgstr "Elevator Key"
 
 #: data/maps/map09.dat:8967
 msgid "Study Lift Key"
-msgstr "Study Lift Key"
+msgstr "Study Elevator Key"
 
 #: data/maps/map17.dat:2942
 msgid "Conveyor Belt Key"

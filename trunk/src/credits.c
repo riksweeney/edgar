@@ -205,7 +205,7 @@ static void doEndCredits()
 
 	for (i=0;i<credits.lineCount;i++)
 	{
-		credits.creditLine[i].y -= 0.5;
+		credits.creditLine[i].y -= 0.6;
 
 		if (credits.creditLine[i].y < -64)
 		{

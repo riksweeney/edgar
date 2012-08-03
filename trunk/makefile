@@ -1,4 +1,4 @@
-VERSION = 1.02
+VERSION = 1.03
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -147,15 +147,17 @@ else
 	mkdir -p $(DOC_DIR)
 	mkdir -p $(ICON_DIR)16x16/apps
 	mkdir -p $(ICON_DIR)32x32/apps
+	mkdir -p $(ICON_DIR)48x48/apps
 	mkdir -p $(ICON_DIR)64x64/apps
 	mkdir -p $(DESKTOP_DIR)
 
 	cp $(PROG) $(BIN_DIR)$(PROG)
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
 	cp $(DOCS) $(DOC_DIR)
-	cp $(ICONS)$(PROG).png $(ICON_DIR)16x16/apps/
-	cp $(ICONS)$(PROG).png $(ICON_DIR)32x32/apps/
-	cp $(ICONS)$(PROG).png $(ICON_DIR)64x64/apps/
+	cp $(ICONS)16x16.png $(ICON_DIR)16x16/apps/$(PROG).png
+	cp $(ICONS)32x32.png $(ICON_DIR)32x32/apps/$(PROG).png
+	cp $(ICONS)48x48.png $(ICON_DIR)48x48/apps/$(PROG).png
+	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
 	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
 
 	@for f in $(LOCALE_MO); do \
@@ -174,6 +176,7 @@ uninstall:
 	$(RM) $(ICON_DIR)$(ICONS)$(PROG).png
 	$(RM) $(ICON_DIR)16x16/apps/$(PROG).png
 	$(RM) $(ICON_DIR)32x32/apps/$(PROG).png
+	$(RM) $(ICON_DIR)48x48/apps/$(PROG).png
 	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)$(PROG).desktop
 

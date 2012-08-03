@@ -90,7 +90,7 @@ static void roll()
 
 		if (self->health != 1)
 		{
-			self->targetX = playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+			self->targetX = playSoundToMap("sound/boss/boulder_boss/roll.ogg", -1, self->x, self->y, -1);
 
 			self->health = 1;
 		}

@@ -1,6 +1,12 @@
 CHANGE LOG
 ----------
 
+Version 1.03
+* Updated French, German, Greek, Italian, Spanish and Russian translations
+* Added Malaysian and Portuguese translations
+* Completing the bell puzzle in the Crypt without the music sheet activate no longer causes a crash
+* Fixed a crash after collecting the Disintegration Shield
+
 Version 1.02
 * Updated French, German, Italian, Russian and Ukrainian translations
 * Fixed some music tracks not playing in newer versions of SDL Mixer

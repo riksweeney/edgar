@@ -73,6 +73,14 @@ int main(int argc, char *argv[])
 	{
 		if (strcmpignorecase("-record", argv[i]) == 0)
 		{
+			if (i + 1 >= argc)
+			{
+				printf("You must specify a file to record to\n");
+				printf("Type %s -h for help\n", argv[0]);
+				
+				exit(1);
+			}
+			
 			if (recordingID == -1)
 			{
 				recordingID = i + 1;
@@ -83,6 +91,14 @@ int main(int argc, char *argv[])
 
 		else if (strcmpignorecase("-playback", argv[i]) == 0)
 		{
+			if (i + 1 >= argc)
+			{
+				printf("You must specify a file to playback from\n");
+				printf("Type %s -h for help\n", argv[0]);
+				
+				exit(1);
+			}
+			
 			if (replayingID == -1)
 			{
 				replayingID = i + 1;
@@ -93,6 +109,14 @@ int main(int argc, char *argv[])
 
 		else if (strcmpignorecase("-load", argv[i]) == 0)
 		{
+			if (i + 1 >= argc)
+			{
+				printf("You must specify a slot to load from\n");
+				printf("Type %s -h for help\n", argv[0]);
+				
+				exit(1);
+			}
+			
 			loadSlot = atoi(argv[i + 1]);
 
 			i++;
@@ -105,6 +129,14 @@ int main(int argc, char *argv[])
 
 		else if (strcmpignorecase("-joystick", argv[i]) == 0)
 		{
+			if (i + 1 >= argc)
+			{
+				printf("You must specify a joystick slot to use\n");
+				printf("Type %s -h for help\n", argv[0]);
+				
+				exit(1);
+			}
+			
 			joystick = atoi(argv[i + 1]);
 
 			i++;
@@ -115,8 +147,16 @@ int main(int argc, char *argv[])
 			showCredits = TRUE;
 		}
 		
-		else if (strcmpignorecase("-language", argv[i]) == 0)
+		else if (strstr("-lang", argv[i]) != NULL)
 		{
+			if (i + 1 >= argc)
+			{
+				printf("You must specify a language to use\n");
+				printf("Type %s -h for help\n", argv[0]);
+				
+				exit(1);
+			}
+			
 			languageID = i + 1;
 			
 			i++;

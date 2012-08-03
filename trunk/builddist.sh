@@ -25,7 +25,7 @@ APPNAME="edgar"
 APPDIR="$APPNAME-$APPVERSION/"
 
 DISTNAME="$APPNAME-$APPVERSION-$APPRELEASE.tar.gz"
-DATADIRS="data music sound gfx font"
+DFSGNAME="$APPNAME-$APPVERSION-$APPRELEASE-dfsg.tar.gz"
 
 RPMROOT="/home/$SUDO_USER/rpmbuild"
 
@@ -97,6 +97,26 @@ for f in `ls $APPDIR/locale/*.po`; do \
 done
 
 tar zhcf $DISTNAME $APPDIR
+
+echo "Creating DFSG version"
+
+cp ../doc/*dfsg* $APPDIR
+
+mv edgar.spec $APPDIR
+
+cd $APPDIR
+
+patch -p0 <dfsg_diff.patch
+
+rm -rf music sound
+
+for i in `find . -name *.orig | grep -v doc`;do
+	rm $i
+done
+
+cd ..
+
+tar zhcf $DFSGNAME $APPDIR
 
 echo "Removing Copied Data..."
 
