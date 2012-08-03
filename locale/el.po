@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-20 09:54+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2012-06-22 09:26+0000\n"
+"Last-Translator: Χρήστος Ροδόπουλος <xr_ro@yahoo.gr>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-20 15:44+0000\n"
-"X-Generator: Launchpad (build 15259)\n"
+"X-Launchpad-Export-Date: 2012-06-23 15:30+0000\n"
+"X-Generator: Launchpad (build 15461)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr ""
+msgstr "Ευχαριστώ, αυτό είναι τέλειο!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr ""
+msgstr "Χρειάζεται κάτι να ξέρεις;"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -31,61 +31,64 @@ msgstr ""
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
-msgstr ""
+msgstr "Και τώρα τι γίνεται;"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
-msgstr ""
+msgstr "Μπορούμε να βγούμε από εδώ! Που θέλεις να πάμε;"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
-msgstr ""
+msgstr "Πίσω στο φρούριο, ακόμη πρέπει να σώσω τον πατέρα μου από τον μάγο."
 
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
-msgstr ""
+msgstr "Λοιπόν, θυμάσαι τι σου είπα για αυτό το αποσυνθετικό ξόρκι;"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr ""
+msgstr "Έτσι νομίζω..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
-msgstr ""
+msgstr "Πήγαινε στο εργαστήριο και ένωσε αυτό το δαχτυλίδι με την ασπίδα σου"
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
-msgstr ""
+msgstr "Πως;"
 
 #: data/scripts/olaf.dat:16
 msgid ""
 "Throw the shield and ring into the cauldron along with some mandrake root, "
 "that should do it"
 msgstr ""
+"Πέτα την ασπίδα και το δαχτυλίδι στo καζάνι με λίγη ρίζα μανδραγόρα και θα "
+"είναι μια χαρά."
 
 #: data/scripts/jacob.dat:35
 msgid "OK..."
-msgstr ""
+msgstr "Εντάξει..."
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
-msgstr ""
+msgstr "Τίποτα δεν θα πάει στραβά αυτήν την φορά!"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr ""
+msgstr "Έχω το άγαλμα που έκλεψε ο Όλαφ"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr ""
+msgstr "Ίσως πρέπει να του το επιστρέψω, εξάλλου αυτός με σώζει"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
 msgstr ""
+"Από την άλλη, αυτός το έκλεψε και εγώ σχεδόν πέθανα προσπαθώντας να το πάρω"
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
@@ -93,51 +96,51 @@ msgstr ""
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
-msgstr ""
+msgstr "Βρήκα αυτό στην σπηλιά, είναι το άγαλμα που πήρες;"
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr ""
+msgstr "Ναι! Σε ευχαριστώ που το βρήκες!"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "Θα μπορούσα να το πούλαγα για μια καλή τιμή στην αγορά."
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
-msgstr ""
+msgstr "Μάλλον θα το κρατήσω για μένα."
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "Έτοιμος;"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "Επιστροφή στο Κάστρο;"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
-msgstr ""
+msgstr "Όχι ακόμα, υπάρχει και κάτι άλλο να κάνω"
 
 #: data/scripts/olaf.dat:47
 msgid "OK, let me know when you're ready"
-msgstr ""
+msgstr "Εντάξει, πες που όταν είσαι έτοιμος"
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "Βρήκες τελικά τo κέρας;"
 
 #: data/scripts/olaf.dat:62
 msgid "Have you found everything yet?"
-msgstr ""
+msgstr "Τα βρήκες όλα;"
 
 #: data/scripts/olaf.dat:63
 msgid "Not yet, I'm still looking"
-msgstr ""
+msgstr "Όχι, ακόμα ψάχνω"
 
 #: data/scripts/olaf.dat:68
 msgid "OK, I've found everything now"
-msgstr ""
+msgstr "Εντάξει, τα έχω βρεί όλα τώρα"
 
 #: data/scripts/olaf.dat:77
 msgid "ARGHHHHH!!"
@@ -155,83 +158,95 @@ msgstr ""
 
 #: data/scripts/olaf.dat:83
 msgid "Hmmm, what's that on your hand?"
-msgstr ""
+msgstr "Χμ, τι έχεις στο χέρι σου;"
 
 #: data/scripts/olaf.dat:84
 msgid "This? This is just a ring I found in his fortress"
-msgstr ""
+msgstr "Αυτό; Είναι απλά ένα δαχτυλίδι που βρήκα στο κάστρο του"
 
 #: data/scripts/olaf.dat:85
 msgid ""
 "It looks like a ring of protection, it must have saved you. Why were you in "
 "his fortress?"
 msgstr ""
+"Μοιάζει με ένα δαχτυλίδι προστασίας, θα πρέπει να σε έχει σώσει. Γιατί ήσουν "
+"στο κάστρο του;"
 
 #: data/scripts/olaf.dat:86
 msgid "He's kidnapped my Dad and I was there trying to save him"
-msgstr ""
+msgstr "Απήγαγε τον πατέρα μου και ήμουν εκεί προσπαθώντας να τον σώσω"
 
 #: data/scripts/olaf.dat:87
 msgid "Well, it looks like the ring's power is almost completely gone"
-msgstr ""
+msgstr "Λοιπόν, από ότι φαίνεται η δύναμη του δαχτυλιδιού έχει χαθεί εντελώς"
 
 #: data/scripts/olaf.dat:88
 msgid ""
 "If he hits you with that spell again it will almost certainly kill you"
 msgstr ""
+"Αν σε ξαναχτυπήσει με αυτό ξόρκι, είναι σχεδόν σίγουρο ότι θα σε σκοτώσει"
 
 #: data/scripts/olaf.dat:91
 msgid ""
 "Something must have protected you from the spell. Were you wearing a pendant "
 "or a ring?"
 msgstr ""
+"Κάτι θα πρέπει να σε προστάτεψε από αυτό το ξόρκι. Μήπως φορούσες κανένα "
+"μπρελόκ ή κανένα δαχτυλίδι;"
 
 #: data/scripts/olaf.dat:92
 msgid ""
 "I did find a ring in the fortress but it didn't seem to have any powers"
 msgstr ""
+"Βρήκα ένα δαχτυλίδι στο κάστρο, αλλά δεν μου φάνηκε να έχει καμιά δύναμη"
 
 #: data/scripts/olaf.dat:93
 msgid ""
 "It might have been a ring of protection. I imagine that the protection would "
 "have been limited to a single use"
 msgstr ""
+"Ίσως να ήταν ένα δαχτυλίδι προστασίας. Πιθανόν η προστασία να ήταν μόνο για "
+"μια φορά."
 
 #: data/scripts/olaf.dat:96
 msgid ""
 "What you could do though is combine the ring and your shield together to "
 "create a shield that will protect you from the spell"
 msgstr ""
+"Αυτό που μπορείς να κάνεις είναι να συνδυάσεις το δαχτυλίδι και την ασπίδα "
+"σου μαζί για να φτιάξεις μια ασπίδα προστασίας από το ξόρκι"
 
 #: data/scripts/olaf.dat:97
 msgid "Do you have any experience mixing spells?"
-msgstr ""
+msgstr "Έχεις καθόλου εμπειρία από ανάμιξη ξόρκιων;"
 
 #: data/scripts/olaf.dat:98
 msgid ""
 "Kind of, but the last time I tried creating a shield the spell backfired "
 "and..."
 msgstr ""
+"Περίπου, αλλά την τελευταία φορά που προσπάθησα να φτιάξω μια ασπίδα, το "
+"ξόρκι γύρισε πίσω και..."
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
-msgstr ""
+msgstr "Έφτιαξε μια κακή εκδοχή του εαυτού σου;"
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
-msgstr ""
+msgstr "Ναι, πως το κατάλαβες;"
 
 #: data/scripts/olaf.dat:101
 msgid "Where I'm from it used to happen at least once a month"
-msgstr ""
+msgstr "Από εκεί που είμαι, συνέβαινε τουλάχιστον μια φορά τον μήνα"
 
 #: data/scripts/olaf.dat:103
 msgid "Why are you here?"
-msgstr ""
+msgstr "Γιατί είσαι εδώ;"
 
 #: data/scripts/olaf.dat:104
 msgid "The sorceror caught me looting his fortress and he banished me here"
-msgstr ""
+msgstr "Ο μάγος με έπιασε να κλέβω το κάστρο του και με εξόρισε εδώ"
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"

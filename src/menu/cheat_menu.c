@@ -239,6 +239,8 @@ void freeCheatMenu()
 		}
 
 		free(menu.widgets);
+		
+		menu.widgets = NULL;
 	}
 
 	if (menu.background != NULL)

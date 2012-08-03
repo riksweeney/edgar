@@ -1,9 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Categories=Application;Game;
-X-Desktop-File-Install-Version=1.0
+Type=Application
 Name=The Legend of Edgar
+GenericName=The Legend of Edgar
+Comment=A 2D platform game with a persistent world
 Icon=edgar
 Exec=edgar
 Terminal=false
-Type=Application
+Categories=Game
