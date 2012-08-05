@@ -1,8 +1,0 @@
-GFX_FILE data/gfx/wall/drawbridge_down.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE WEAK_WALL
-FLAGS FLY
-REQUIRES boss/gargoyle_lance_2
-MENTAL -1
-MAX_THINKTIME 300
-HEALTH 1

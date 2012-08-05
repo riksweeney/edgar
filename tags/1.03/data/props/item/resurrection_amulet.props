@@ -1,5 +1,0 @@
-GFX_FILE data/gfx/item/resurrection_amulet.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE ITEM
-OBJECTIVE_NAME Amulet of Resurrection
-DESCRIPTION Automatically brings you back to life once if you die
