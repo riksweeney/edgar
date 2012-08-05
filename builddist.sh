@@ -102,7 +102,7 @@ echo "Creating DFSG version"
 
 cp ../doc/*dfsg* $APPDIR
 
-mv edgar.spec $APPDIR
+cp edgar.spec $APPDIR
 
 cd $APPDIR
 
