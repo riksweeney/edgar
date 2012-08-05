@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-07-28 20:02+0000\n"
+"PO-Revision-Date: 2012-07-29 21:24+0000\n"
 "Last-Translator: Atadam <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-29 08:24+0000\n"
-"X-Generator: Launchpad (build 15694)\n"
+"X-Launchpad-Export-Date: 2012-08-05 07:56+0000\n"
+"X-Generator: Launchpad (build 15742)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -718,7 +718,7 @@ msgstr "Verschwinde jetzt, wenn du noch am Leben bleiben willst"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Gehe Zurück"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
@@ -1132,14 +1132,16 @@ msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
+"Um eine geschlossene Tür zu öffnen muss der Schlüssel im Inventar nicht "
+"ausgewählt sein, man muss nur durch die Tür hindurchgehen."
 
 #: data/scripts/tutorial_doors.dat:4
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "Öffne die Tür und gehe nach rechts weiter ."
 
 #: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "Urgh, was ist passiert?"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
@@ -1152,6 +1154,8 @@ msgstr "Probiere jetzt deinen Schild aus"
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
 msgstr ""
+"Blockiere die Kugeln die die Pflanze ausspuckt und springe zur nächsten "
+"Ebene."
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
@@ -1159,7 +1163,7 @@ msgstr "Ich kann nicht fassen, dass er fort ist"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "Ich habe mich so sehr bemüht Ihn zu finden."
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
@@ -1203,7 +1207,7 @@ msgstr "Jacob, ich habe ihn gefunden!"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "Was machst du hier mein Sohn? Es ist gefährlich, wir müssen gehen."
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
@@ -1212,10 +1216,11 @@ msgstr "Ich kam um dich zu retten!"
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
 msgstr ""
+"Ääh? Was machst du....Nein, sag es mir später, lass uns nach Hause gehen."
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "Ich versuche es noch einmal."
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
@@ -1223,11 +1228,11 @@ msgstr "Aufgeben?"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "Das versuche ich zu einer anderen Zeit zu lösen."
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "Ich versuche es weiter"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
@@ -1235,19 +1240,19 @@ msgstr "Dieses Notenblatt könnte seine Hymne sein, ich probiere es aus"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
-msgstr ""
+msgstr "Ich muß herausfinden was Ivans Fanfare ist."
 
 #: data/scripts/tomb_door.dat:34
 msgid "Randomly ringing bells isn't going to work..."
-msgstr ""
+msgstr "Die Glocken in beliebiger Weise anzuschlagen funktioniert nicht....."
 
 #: data/scripts/tomb_door.dat:39
 msgid "Something is etched on this door"
-msgstr ""
+msgstr "Etwas ist auf dieser Tür eingraviert."
 
 #: data/scripts/tomb_door.dat:40
 msgid "Enshrined in this tomb is the great warrior Ivan"
-msgstr ""
+msgstr "In diesem Grab ist der große Krieger Ivan aufgebahrt."
 
 #: data/scripts/tomb_door.dat:41
 msgid "Defeater of the evil dragon known as Chaos"
@@ -1263,16 +1268,18 @@ msgstr "Seine Hymne? Wie soll ich die nur herausfinden?!"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
-msgstr ""
+msgstr "Die gesammte Abteilung ist über Monster."
 
 #: data/scripts/monsters.dat:3
 msgid ""
 "I don't have any reason to read these but I'll keep it in mind in case I do"
 msgstr ""
+"Ich habe keinen Grund das jetzt zu lesen, aber ich sollte es mir merken für "
+"den Fall das ich es brauche."
 
 #: data/scripts/monsters.dat:6
 msgid "I wonder what other monsters there are..."
-msgstr ""
+msgstr "Ich wundere mich was es da noch für Monster gibt..."
 
 #: data/scripts/monsters.dat:8
 msgid "Chaos"
@@ -1280,27 +1287,31 @@ msgstr "Chaos"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr ""
+msgstr "Chaos ist ein alter, böser Drache."
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
-msgstr ""
+msgstr "Ein Drache? Vater hat gesagt das Sie ausgestorben sind."
 
 #: data/scripts/monsters.dat:15
 msgid ""
 "For years he wreaked havoc across this land and took thousands of innocent "
 "lives, his fiery breath incinerated everything in its path"
 msgstr ""
+"Lange Jahre hat er das Land verwüstet und tausenden Unschuldigen das Leben "
+"genommen, sein Feueratem brennt alles in seinem Wege nieder."
 
 #: data/scripts/monsters.dat:16
 msgid ""
 "Finally a brave warrior and a group of magicians managed to overwhelm and "
 "bind him"
 msgstr ""
+"Zu guter Letzt hat ein mutiger Krieger und eine Gruppe von Zauberern es "
+"geschaft ihn zu überwätigen und anzubinden."
 
 #: data/scripts/monsters.dat:17
 msgid "They sealed the dragon away beneath an old fortress"
-msgstr ""
+msgstr "Sie haben Ihn in der Nähe eines alten Schlosses eingesperrt....."
 
 #: data/scripts/monsters.dat:18
 msgid "It is believed he is still there"
@@ -1311,6 +1322,8 @@ msgid ""
 "Slowly regaining his power until he is strong enough to break free and "
 "terrorise the world once again"
 msgstr ""
+".....wo er langsam seine Kraft regeneriert um auszubrechen und die Welt "
+"erneut zu terrorisieren."
 
 #: data/scripts/monsters.dat:21
 msgid "Beneath an old fortress? Maybe they mean this one..."
