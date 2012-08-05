@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/enemy/arrow_skeleton_piece.dat
+ANIM_FILE data/anim/enemy/arrow_skeleton_piece.dat
+TYPE ENEMY
+FLAGS DO_NOT_PERSIST
+THINKTIME 60

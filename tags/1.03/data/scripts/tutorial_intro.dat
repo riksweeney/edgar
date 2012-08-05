@@ -1,0 +1,11 @@
+CUSTOM_ACTION EDGAR REGENERATE
+SET EDGAR FACE RIGHT
+WAIT 60
+TALK Narrator Press [INPUT_JUMP] when you have finished reading to go to the next dialog box
+TALK Narrator You can also move to the next dialog box by pressing Attack ([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action ([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])
+TALK Narrator This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game.
+TALK Narrator To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it.
+TALK Narrator To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT].
+TALK Narrator To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping.
+TALK Narrator To interact with an item, press [INPUT_INTERACT]
+TALK Narrator Walk over to the Action Point and press [INPUT_INTERACT]
