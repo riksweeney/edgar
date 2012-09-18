@@ -956,7 +956,7 @@ static void fallToGround()
 
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime == 0)
 	{
 		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 

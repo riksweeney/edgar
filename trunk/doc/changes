@@ -1,6 +1,12 @@
 CHANGE LOG
 ----------
 
+Version 1.04
+* Updated French, German, Japanese and Russian translations
+* Added a reset switch for the first mirror in the Armoury
+* Certain items collected with the Extend-O-Grab no longer double up
+* Gettext files should now work on big endian (PPC, 68k) machines
+
 Version 1.03
 * Updated French, German, Greek, Italian, Spanish and Russian translations
 * Added Malaysian and Portuguese translations

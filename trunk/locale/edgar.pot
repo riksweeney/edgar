@@ -6539,3 +6539,7 @@ msgstr ""
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
 msgstr ""
+
+#: data/scripts/intro_part1.dat:12
+msgid "Edgar's_Father"
+msgstr ""

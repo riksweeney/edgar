@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-07-25 12:39+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2012-08-24 13:07+0000\n"
+"Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-27 19:20+0000\n"
-"X-Generator: Launchpad (build 15694)\n"
+"X-Launchpad-Export-Date: 2012-09-12 21:24+0000\n"
+"X-Generator: Launchpad (build 15936)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -644,7 +644,8 @@ msgstr "Я нашёл способ убивать Центурионов"
 #: data/scripts/centurion_note_2.dat:3
 msgid ""
 "They will reform unless one of their parts falls into the slime or lava"
-msgstr "Они будут исправны пока одна из их частей попадёт в слизь или лаву"
+msgstr ""
+"Они будут исправны, пока одна из их частей не попадёт в слизь или лаву"
 
 #: data/scripts/centurion_note_2.dat:4
 msgid ""
@@ -765,8 +766,8 @@ msgid ""
 "When you think you've entered the combination correctly, press Attack to try "
 "and open the door"
 msgstr ""
-"Когда уверен, что введённая комбинации верна, нажми кнопку атаки, чтобы "
-"попытаться открыть дверь"
+"Когда уверен, что введённая комбинации верна, нажми кнопку Атака, чтобы "
+"попытаться открыть дверцу"
 
 #: data/scripts/no_combination.dat:1
 msgid ""
@@ -825,7 +826,7 @@ msgstr ""
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
 msgstr ""
-"Мне нужно всего 10 кусочков угля. Не думаю, что это займет много времени"
+"Мне нужно всего 10 кусочков угля. Не думаю, что это займёт много времени"
 
 #: data/scripts/borgan.dat:22
 msgid ""
@@ -867,7 +868,8 @@ msgstr "Соберите 10 кусочков Угля"
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
-"Спасибо, Эдгар, этот уголь прекрасен! Надеюсь, летучие мыши не напугали тебя."
+"Спасибо, Эдгар, за этот замечательный уголь! Надеюсь, летучие мыши не "
+"напугали тебя."
 
 #: data/scripts/borgan.dat:37
 msgid "The bats were the least of my worries..."
@@ -1329,7 +1331,7 @@ msgid ""
 "Just like regular Summoners, Dark Summoners call in other beasts to do their "
 "bidding"
 msgstr ""
-"Так же, как и обычные Призыватели, Чёрные призыватели своими призывами "
+"Так же, как и обычные Призыватели, Чёрные Призыватели своими призывами "
 "вызывают других тварей"
 
 #: data/scripts/monsters.dat:44
@@ -1596,7 +1598,7 @@ msgstr "Это пригодилось бы во время моей охоты �
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
-msgstr "Однако, в этих книгах может быть ещё что почитать..."
+msgstr "Однако, в этих книгах может быть есть ещё что почитать..."
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
@@ -3993,7 +3995,7 @@ msgid ""
 "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
 "([INPUT_INTERACT])"
 msgstr ""
-"При готовности в использованию предмета жми Защита ([INPUT_BLOCK]) или "
+"При готовности к использованию предмета жми Защита ([INPUT_BLOCK]) или "
 "Действие ([INPUT_INTERACT])"
 
 #: data/scripts/tutorial_items.dat:6
@@ -6651,7 +6653,7 @@ msgstr "Пройдена игра только с 5 единицами здор�
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"
-msgstr "Игру пройдена без использования Продолжений"
+msgstr "Игра пройдена без использования Продолжений"
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
@@ -6959,3 +6961,7 @@ msgstr "Врывающийся глаз Наблюдателя с осечкой
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
 msgstr "Огненный щит"
+
+#: data/scripts/intro_part1.dat:12
+msgid "Edgar's_Father"
+msgstr ""

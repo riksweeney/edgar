@@ -145,8 +145,6 @@ static void extend()
 
 static void retract()
 {
-	Entity *temp;
-
 	setCustomAction(&player, &helpless, 2, 0, 0);
 
 	self->x += self->face == LEFT ? self->speed : -self->speed;
@@ -160,16 +158,7 @@ static void retract()
 
 	if ((self->face == RIGHT && self->x <= self->startX) || (self->face == LEFT && self->x >= self->startX))
 	{
-		if (self->target != NULL)
-		{
-			temp = self;
-
-			self = self->target;
-
-			self->touch(&player);
-
-			self = temp;
-		}
+		self->target = NULL;
 
 		self->inUse = FALSE;
 	}
