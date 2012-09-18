@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-07-29 21:24+0000\n"
+"PO-Revision-Date: 2012-09-12 10:11+0000\n"
 "Last-Translator: Atadam <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-05 07:56+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-09-12 21:24+0000\n"
+"X-Generator: Launchpad (build 15936)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr "Danke, das ist perfekt!"
+msgstr "Danke, das ist genau das was ich brauche"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
@@ -27,7 +27,7 @@ msgstr "Hast du alles, was du jetzt benötigst?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr "Ich tue dies sicherlich"
+msgstr "aber sicher"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
@@ -86,8 +86,7 @@ msgstr "(Ich habe die Statue, die Olaf gestohlen hat)"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr ""
-"(Vielleicht sollte ich sie ihm zurück geben, er rettet mich nach allem)"
+msgstr "(Vielleicht sollte ich sie ihm zurückgeben, immerhin rettet er mich)"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
@@ -97,7 +96,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr "Willst du die Statue Olaf zurück geben?"
+msgstr "Willst du die Statue Olaf zurückgeben?"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
@@ -111,8 +110,8 @@ msgstr "Ja, sie ist es! Vielen Dank fürs finden und zurück bringen!"
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
 msgstr ""
-"Es sollte möglich sein dies für einen anständigen Preis am Markt verkaufen "
-"zu können."
+"Es sollte möglich sein dies für einen anständigen Preis am Markt zu "
+"verkaufen."
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
@@ -128,11 +127,11 @@ msgstr "Zurück zur Festung?"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
-msgstr "Nein, noch nicht, da ist noch etwas zu erledigen"
+msgstr "Nein, noch nicht, ich habe noch etwas zu erledigen"
 
 #: data/scripts/olaf.dat:47
 msgid "OK, let me know when you're ready"
-msgstr "OK, lass es mich wissen, wann du fertig bist."
+msgstr "Gut, sag mir bescheid wenn du fertig bist."
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
@@ -156,7 +155,7 @@ msgstr "ARGHHHHH!!"
 
 #: data/scripts/olaf.dat:79
 msgid "Another human, out here? How did you get out here?"
-msgstr "Noch ein Mensch hier draussen? Wie kamst du denn hierher?"
+msgstr "Ein weiterer Mensch, hier draussen? Wie kamst du denn hierher?"
 
 #: data/scripts/olaf.dat:80
 msgid ""
@@ -203,7 +202,7 @@ msgid ""
 "Something must have protected you from the spell. Were you wearing a pendant "
 "or a ring?"
 msgstr ""
-"Etwas muss dich beschützt haben vor diesem Zauberspruch? Hast du einen "
+"Etwas muss dich vor diesem Zauberspruch beschützt haben? Hast du einen "
 "Schmuckanhänger oder einen Ring getragen?"
 
 #: data/scripts/olaf.dat:92
@@ -238,9 +237,8 @@ msgid ""
 "Kind of, but the last time I tried creating a shield the spell backfired "
 "and..."
 msgstr ""
-"So in der Art, als ich das letzte Mal versucht habe ein Schild mit einem "
-"Zauberspruch zu kombinieren, hat sich dieser verselbstständigt und ist auf "
-"mich zurück gefallen."
+"Ein bisschen, das letzte Mal als ich versuchte einen Schild zu verzaubern "
+"fiel der Zauber auf mich zurück und....."
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
@@ -518,8 +516,8 @@ msgstr "Hab es!"
 msgid ""
 "What a ridiculous amount of effort to go through just to get a statue..."
 msgstr ""
-"Was für ein lächerlicher Aufwand, da durch zu gehen, nur um die Statue zu "
-"bekommen"
+"Was für ein unangemessener Aufwand, und das alles nur um eine Statue zu "
+"bekommen...."
 
 #: data/scripts/scorpion_statue.dat:3
 msgid "I'd better get out of here and get back to the Fortress..."
@@ -1111,7 +1109,7 @@ msgstr "Was war das?"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Ohaa"
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
@@ -1363,18 +1361,24 @@ msgstr ""
 #: data/scripts/monsters.dat:33
 msgid "The most common reason to summon this beast is to act as a bodyguard"
 msgstr ""
+"Die Nutzung als Leibwache, ist der vornehmliche Grund diese Bestie zu "
+"beschwören."
 
 #: data/scripts/monsters.dat:34
 msgid ""
 "There is no known way to kill Grimlore since upon sustaining critical "
 "injuries it will simply return to its own dimension"
 msgstr ""
+"Es ist unmöglich den Grimlore zu töten, da dieser bei grösseren Verletzungen "
+"einfach in seine eigene Dimension zurückkehrt."
 
 #: data/scripts/monsters.dat:35
 msgid ""
 "But even injuring it is a monumental task. Anyone encountering this creature "
 "is advised to escape as quickly as possible"
 msgstr ""
+"Jedoch İhn zu verletzen ist eine Monumentale Aufgabe. Jeder der dieser "
+"Kreatur begegnet ist angewiesen schnellstens abzuhauen."
 
 #: data/scripts/monsters.dat:36
 msgid "Or they will die very quickly"
@@ -1389,94 +1393,122 @@ msgid ""
 "Just like regular Summoners, Dark Summoners call in other beasts to do their "
 "bidding"
 msgstr ""
+"Ebenso wie der normale Beschwörer ruft der Dunkle Beschwörer Kreaturen "
+"herbei die ihm zu Willen sind."
 
 #: data/scripts/monsters.dat:44
 msgid ""
 "Additionally though they can teleport short distances to escape from their "
 "opponents"
 msgstr ""
+"Zusätzlich können Sie, um Ihren Gegnern auszuweichen, kurze Strecken "
+"teleportieren."
 
 #: data/scripts/monsters.dat:45
 msgid ""
 "Their staff is highly magical and although it cannot be used by humans "
 "directly, its magical properties are used in spell creation"
 msgstr ""
+"Ihr Stab ist in höchsten Maße magisch und kann von Menschen nicht direkt "
+"verwendet werden. Seine magischen Fähigkeiten werden beim herstellen von "
+"Zaubern genutzt."
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
-msgstr ""
+msgstr "Hoover, Rosa"
 
 #: data/scripts/monsters.dat:52
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr ""
+msgstr "Rosa Hoover, sind Vierbeiner mit einem langen Rüssel."
 
 #: data/scripts/monsters.dat:53
 msgid ""
 "The primary purpose of the snout is to forage for food but it also serves as "
 "a defence mechanism"
 msgstr ""
+"Die Hauptfunktion des Rüssels besteht in der Aufnahme von Futter, dient aber "
+"zugleich der Verteidigung."
 
 #: data/scripts/monsters.dat:54
 msgid ""
 "and are more than capable of keeping a predator at bay by simply blowing "
 "them away"
 msgstr ""
+"...und ist äußerst ausreichend einen Angreifer hinzuhalten indem er ihn "
+"einfach wegbläst."
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap, mobile"
-msgstr ""
+msgstr "Venus Fliegenfalle, beweglich"
 
 #: data/scripts/monsters.dat:61
 msgid ""
 "Mobile Venus Flytraps have evolved roots and are able to move to their food "
 "rather than waiting for it to come to them"
 msgstr ""
+"Die bewegliche Venus Fliegenfalle hat fortschrittliche Wurzeln und ist in "
+"der Lage zu ihrem Futter zu laufen anstatt auf es zu warten."
 
 #: data/scripts/monsters.dat:62
 msgid ""
 "Their necks are incredibly elastic and are able to snap at their prey from a "
 "considerable distance away"
 msgstr ""
+"Der Hals ist unglaublich elastisch so das Sie aus einiger Entfernung "
+"zuschnappen können."
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
-msgstr ""
+msgstr "Schildkröte, Meister"
 
 #: data/scripts/monsters.dat:69
 msgid ""
 "Master Tortoises are frightening beasts. Found in far away lands they "
 "possess the ability to change their heads"
 msgstr ""
+"Die in fernen Ländern zu findende Meister Schildkröten sind "
+"furchteinflössende Bestien. Sie sind in der Lage den Kopf zu wechseln."
 
 #: data/scripts/monsters.dat:70
 msgid ""
 "They combine all the abilities of their cousins to breathe fire, create ice "
 "and electrify themselves"
 msgstr ""
+"Dadurch vereinen Sie die Fähigkeiten ihrer Cousins Feuer zu spucken, Eis zu "
+"erzeugen und sich zu elektrifizieren."
 
 #: data/scripts/monsters.dat:71
 msgid ""
 "And of course they are also impervious to attacks from matching elements, "
 "absorbing the energy to heal themselves"
 msgstr ""
+"Selbstredend sind Sie unempfindlich gegen eben diese Elemente und nutzen "
+"diese um sich zu regenerieren."
 
 #: data/scripts/monsters.dat:72
 msgid ""
 "But additionally, if they receive too much energy from healing, they evolve "
 "and go on the rampage"
 msgstr ""
+"Sollten Sie mehr Energie abbekommen als zur Heilung notwendig ist, mutieren "
+"Sie und gehen wild."
 
 #: data/scripts/monsters.dat:73
 msgid ""
 "In this state they will smash through any defence and produce Dark Matter "
 "which destroys anything it touches"
 msgstr ""
+"In diesem Zustand brechen Sie durch jedes Hinderniss und produzieren dunkle "
+"Materie die alles zerstört was Sie berührt."
 
 #: data/scripts/monsters.dat:74
 msgid ""
 "However, the shell of a rampaging Master Tortoise is highly magical and is "
 "an essential ingredient when creating powerful magics and items"
 msgstr ""
+"Wie auch immer, die Schale der wilden Meister Schildkröte ist sehr magisch "
+"und ein wichtiger Bestandteil bei der Herstellung von Zaubern und magischen "
+"Gegenständen."
 
 #: data/scripts/monsters.dat:80
 msgid "Grub, Red"
@@ -1487,6 +1519,8 @@ msgid ""
 "Red Grubs are more aggressive than their green counterparts and will attack "
 "anything they view as a threat"
 msgstr ""
+"Rote Raupen sind aggressiver als ihre grünen Verwandten und attackieren "
+"alles was Sie als Bedrohung ansehen."
 
 #: data/scripts/monsters.dat:82
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
@@ -1499,103 +1533,135 @@ msgid ""
 "Some however will morph into a queen wasp. These queens can produce a mucus-"
 "like substance capable of holding its prey in place"
 msgstr ""
+"Manche von Ihnen verpuppen sich und verwandeln sich in Königs Wespen. Diese "
+"Königinnen sind in der Lage einen grünen Schleim zu produzieren der die "
+"Beute sicher an der Stelle hält."
 
 #: data/scripts/monsters.dat:89
 msgid "Splitter"
-msgstr ""
+msgstr "Trenner"
 
 #: data/scripts/monsters.dat:90
 msgid "Splitters are harmless monsters unless attacked."
-msgstr ""
+msgstr "Trenner sind harmlose Monster bis jemand Sie angreift."
 
 #: data/scripts/monsters.dat:91
 msgid ""
 "Upon sustaining too much damage they will split in two and attack their "
 "predator"
 msgstr ""
+"Wenn Sie zuviel Schaden abbekommen spalten Sie sich auf und attackieren "
+"Ihren Angreifer."
 
 #: data/scripts/monsters.dat:92
 msgid "If one of these sustains too much damage it will split once again"
 msgstr ""
+"Sollte einer dieser Teile wiederum zu stark geschädigt sein spalten Sie sich "
+"noch einmal."
 
 #: data/scripts/monsters.dat:93
 msgid ""
 "These versions are completely harmless and in this state can be simply "
 "stepped on"
 msgstr ""
+"Diese Abspaltungen sind vollkommen harmlos und man kann in diesem Zustand "
+"einfach auf Sie drauftreten."
 
 #: data/scripts/monsters.dat:94
 msgid ""
 "If all its parts are still alive, a splitter will reform itself after a "
 "while and heal its wounds"
 msgstr ""
+"Wenn seine Teile am Leben sind, wird ein Trenner nach einiger Zeit sich "
+"reformieren und seine Wunden heilen."
 
 #: data/scripts/monsters.dat:100
 msgid "Centurion, Grey"
-msgstr ""
+msgstr "Wachsoldat, Grau"
 
 #: data/scripts/monsters.dat:101
 msgid ""
 "Centurions are magically created creatures, usually dispatched as sentries "
 "or guards"
 msgstr ""
+"Wachsoldaten sind mit Magie erstellte Kreaturen und werden im Normalfall als "
+"Wache oder Grenzgänger eingesetzt."
 
 #: data/scripts/monsters.dat:102
 msgid ""
 "Though slow moving, their massive size allows them to simply march through "
 "any defence"
 msgstr ""
+"Trotz Ihrer langsamen Bewegung, erlaubt Ihnen Ihr massiver Körperbau es "
+"Ihnen, durch jedwede Abwehr durch zu marschieren."
 
 #: data/scripts/monsters.dat:103
 msgid ""
 "Instead of arms, many have huge pile drivers which they use to shake the "
 "ground and disorientate threats"
 msgstr ""
+"Anstelle von Armen sind viele mit Rammen ausgestattet mit denen Sie den "
+"Boden erschüttern um Angreifer orientierungslos zu machen."
 
 #: data/scripts/monsters.dat:104
 msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
+"Während graue Wachsoldaten zur äußeren Verteidigung genutzt werden weiß man "
+"das rote Wachsoldaten existieren und bei der Bewachung von wichtigen "
+"Bereichen Verwendung finden."
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer"
-msgstr ""
+msgstr "Kucker"
 
 #: data/scripts/monsters.dat:111
 msgid "Gazers are flying cycloptic creatures found in various places"
 msgstr ""
+"Kucker sind einäugige fliegende Kreaturen die an unterschiedlichen Orten "
+"anzutreffen sind."
 
 #: data/scripts/monsters.dat:112
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
+"Ihr einziges Auge ist im Normalfall geschlossen und Sie benutzen "
+"Geräuschreflektionen zur Bewegungsortung."
 
 #: data/scripts/monsters.dat:113
 msgid ""
 "They use their strong sense of smell to look out for predator and prey alike"
 msgstr ""
+"Sie benutzen Ihren ausgeprägten Geruchssinn um Beute und Jäger sogleich "
+"aufzuspüren."
 
 #: data/scripts/monsters.dat:114
 msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
 msgstr ""
+"Kucker greifen an (und verteidigen sich) durch das öffnen Ihres Auges das "
+"jeden blendet der hineinschaut."
 
 #: data/scripts/monsters.dat:115
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
+"Diese Art des Angriffs ist aber nur effektiv solange man dem Kucker "
+"zugewendet ist."
 
 #: data/scripts/monsters.dat:116
 msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
+"Der Augapfel des Kuckers hat magische Eigenschaften und ist ein "
+"gebräuchlicher Bestandteil bei der Zubereitung von Zaubern."
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
-msgstr ""
+msgstr "Aha, hier gibt es ein Handbuch über Monster"
 
 #: data/scripts/monsters.dat:121
 msgid "34 volumes! How can there be so many monsters in the world?!"
@@ -1604,6 +1670,8 @@ msgstr "34 Bände! Wie können so viele Monster auf dieser Welt sein?!"
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
 msgstr ""
+"Das wäre sicher Vorteilhaft gewesen als ich auf der Suche nach den roten "
+"Schleimschnecken war."
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
@@ -1613,32 +1681,39 @@ msgstr ""
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
 msgstr ""
+"Es sieht zumindest so aus als ob Sie in alphabetitscher Reihenfolge sind....."
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr ""
+msgstr "Schleim,......Grüner.....Schleim, Purpurne Schnecke, Grün....."
 
 #: data/scripts/monsters.dat:132
 msgid "Sludge, Red"
-msgstr ""
+msgstr "Schleimschnecke, Rot"
 
 #: data/scripts/monsters.dat:133
 msgid ""
 "Unlike its green cousin, the Red Sludge stays deep underground and rarely, "
 "if ever, surfaces"
 msgstr ""
+"Ungleich Ihrer Cousins bleiben die roten Schleimschnecken tief im Untergrund "
+"und kommen nur selten wenn Überhaupt an die Oberfläche."
 
 #: data/scripts/monsters.dat:134
 msgid ""
 "Its preferred habitat are dry and mineral rich areas and as a result have "
 "been found lurking in areas of mines abandoned by humans"
 msgstr ""
+"Ihr bevorzugter Lebensraum sind trockene, Mineralreiche Gebiete. In Folge "
+"dessen fand man Sie in von Menschen verlassenen Mienen lungernd."
 
 #: data/scripts/monsters.dat:135
 msgid ""
 "They are very wary of humans and will attack on sight, usually vomiting up "
 "an acid which takes time to evaporate"
 msgstr ""
+"Sie sind sehr argwöhnisch gegenüber Menschen und greifen sofort an. Im "
+"Allgemeinen erbrechen Sie dazu eine Säure die nach einiger Zeit verdampft."
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
@@ -1649,16 +1724,21 @@ msgid ""
 "Great, that's all it says. I don't even know how to tell the difference "
 "between a male and female. I'll just to take a chance..."
 msgstr ""
+"Na Klasse, das war schon alles. Ich weiß noch nicht einmal den Unterschied "
+"zwischen Mänchen und Weibchen. Ich werde es wohl riskieren müßen......"
 
 #: data/scripts/monsters.dat:138
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
+msgstr "Ganz nebenbei, was ist das schlimmste was passieren kann?"
 
 #: data/scripts/monsters.dat:139
 msgid ""
 "I didn't see any Sludges in the mine when I went to get Borgan's coal and "
 "even if there were any I can't get back there since my raft sank"
 msgstr ""
+"Als ich die Kohle für Borgan besorgte habe keine Schleimschnecken in der "
+"Mine gesehen und sollten dort welche sein kann ich ohnehin nicht zurück weil "
+"mein Floß gesunken ist."
 
 #: data/scripts/monsters.dat:140
 msgid "I'll have to find another mine around here..."
@@ -1666,15 +1746,16 @@ msgstr "Ich muss hier irgendwo noch eine Mine finden..."
 
 #: data/scripts/mine2_exit.dat:1
 msgid "The boss that was guarding the Mine wasn't in the previous version"
-msgstr ""
+msgstr "Der Boss der die Miene bewacht gab es in der vorigen Version nicht"
 
 #: data/scripts/mine2_exit.dat:2
 msgid "Because it is in this version you won't be able to leave"
 msgstr ""
+"Weil es Ihn in dieser Version gibt wirst du die Miene nicht verlassen können."
 
 #: data/scripts/mine2_exit.dat:3
 msgid "You will now be transported outside"
-msgstr ""
+msgstr "Du wirst nun nach draußen befördert."
 
 #: data/scripts/mine2_exit.dat:4
 msgid "We apologize for the inconvenience"
@@ -1691,36 +1772,49 @@ msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
+"Die Bücheri hat informationen über alles mögliche, es sollte sich also ein "
+"Buch finden lassen daß die Herstellung eines Drachenfeuer resistenten "
+"Schildes beschreibt......"
 
 #: data/scripts/enchanting_weapons.dat:8
 msgid ""
 "That dragon stuff sounded interesting, but I'll read about it after I've "
 "created the Fire Shield"
 msgstr ""
+"Das Drachenzeug hörte sich interesannt an aber ich lese darüber nachdem ich "
+"einen Feuer Schild erschaffen habe."
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
+"Ich muß 3 Kuckeraugen, den Tentakel einer roten Schleimschnecke und einen "
+"extra Schild finden um ein Feuer Schild zu erschaffen."
 
 #: data/scripts/enchanting_weapons.dat:10
 msgid ""
 "Once I've found all these items I'll have to find a place to create the "
 "shield"
 msgstr ""
+"Wenn ich all daß gefunden habe brauche ich einen Platz um den Schild zu "
+"erschaffen."
 
 #: data/scripts/enchanting_weapons.dat:14
 msgid ""
 "That monster encyclopedia said the dragon's breath incinerated everything, "
 "but that warrior still managed to defeat it"
 msgstr ""
+"Die Monster Enzyklopädie sagt das der Atem eines Drachen alles verbrennt "
+"aber der Krieger hat es trotzdem geschaft ihn zu bezwingen."
 
 #: data/scripts/enchanting_weapons.dat:15
 msgid ""
 "Maybe this book has information about creating a shield to resist dragon "
 "breath"
 msgstr ""
+"Vielleicht hat dieses Buch Informationen über die Erschaffung eines Schildes "
+"das dem Atem eines Drachen wiedersteht."
 
 #: data/scripts/black_book_search.dat:11
 msgid "Hmmm..."
@@ -1728,29 +1822,35 @@ msgstr "Hmmm..."
 
 #: data/scripts/occult_book.dat:16
 msgid "Shield of Dragon Fire Resistance"
-msgstr ""
+msgstr "Drachenschild"
 
 #: data/scripts/enchanting_weapons.dat:20
 msgid ""
 "Creation of shields of dragon fire resistance require occult magics and very "
 "little is known about their manufacture"
 msgstr ""
+"Die Erschaffung eines Drachenschildes erfordert okulte Magie und es ist "
+"wenig bekannt über seine Herstellung."
 
 #: data/scripts/enchanting_weapons.dat:21
 msgid ""
 "Known ingredients include the shell fragment from a Rampaging Master "
 "Tortoise and the staff of a Dark Summoner"
 msgstr ""
+"Die bekannten Zutaten beinhalten einen Teil von der Schale einer wilden "
+"Meister Schildkröte und den Stab eines Dunklen Beschwörers."
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
-msgstr ""
+msgstr "Mist, das ist alles was es sagt."
 
 #: data/scripts/enchanting_weapons.dat:23
 msgid ""
 "This library is huge though, there must be a book in this place that "
 "describes the process"
 msgstr ""
+"Die Bücherei hat gewaltige Ausmaße, es muss ein Buch geben das den "
+"Fertigungsprozess beschreibt."
 
 #: data/scripts/enchanting_weapons.dat:24
 msgid "But I've looked everywhere, haven't I?"
@@ -1758,15 +1858,15 @@ msgstr "Aber ich habe doch überall nachgesehen, oder nicht?"
 
 #: data/scripts/enchanting_weapons.dat:33
 msgid "There's a book here about enchanting equipment"
-msgstr ""
+msgstr "Hier ist ein Buch über die Verzauberung von Gegenständen."
 
 #: data/scripts/enchanting_weapons.dat:34
 msgid "Maybe I can create a shield..."
-msgstr ""
+msgstr "Vielleicht kann ich einen Schild erschaffen..."
 
 #: data/scripts/enchanting_weapons.dat:36
 msgid "Swords... Armour... Wands..."
-msgstr ""
+msgstr "Schwerter.....Rüstungen.....Zauberstäbe......."
 
 #: data/scripts/enchanting_weapons.dat:37
 msgid "Stupid book. It's not in order and there's no index"
@@ -1774,11 +1874,11 @@ msgstr "Blödes Buch. Es ist unsortiert und es hat keinen Index"
 
 #: data/scripts/enchanting_weapons.dat:39
 msgid "Here we go: Shields"
-msgstr ""
+msgstr "Hier ist es: Schilde"
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid "Shield of Fire Resistance"
-msgstr ""
+msgstr "Feuerschild"
 
 #: data/scripts/occult_book.dat:17
 msgid "Ingredients"
@@ -1786,440 +1886,509 @@ msgstr "Zutaten"
 
 #: data/scripts/occult_book.dat:18
 msgid "One must gather the following"
-msgstr ""
+msgstr "Man muss das folgende beschaffen"
 
 #: data/scripts/enchanting_weapons.dat:43
 msgid "The root of a Mandrake"
-msgstr ""
+msgstr "Die Wurzeln einer Alraune"
 
 #: data/scripts/enchanting_weapons.dat:44
 msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr ""
+msgstr "Das Fett von einem Dorsch"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
-msgstr ""
+msgstr "Gemahlene Kondor Knochen"
 
 #: data/scripts/enchanting_weapons.dat:46
 msgid "3 eyes of the Gazer"
-msgstr ""
+msgstr "3 Kuckeraugen"
 
 #: data/scripts/enchanting_weapons.dat:47
 msgid "The freshly cut tentacle from a female Red Sludge"
 msgstr ""
+"Einen frisch abgeschnittenen Tentakel einer weiblichen roten Schleimschnecke"
 
 #: data/scripts/occult_book.dat:22
 msgid "The shield to apply the enchantment"
-msgstr ""
+msgstr "Einen Schild zum verzaubern"
 
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr ""
+"Belassen Sie die Kuckeraugen und den Schleimschnecken Tentakel so lange im "
+"Mixer bis dieses eine feine Flüssigkeit bildet..."
 
 #: data/scripts/enchanting_weapons.dat:50
 msgid ""
 "Add the root, fat and bones into the cauldron and mix together with the "
 "blended Gazer eyes and Sludge tentacle"
 msgstr ""
+"setzen Sie Wurzeln, Fett und Knochen im Kessel auf und vermiscshen Sie diese "
+"mit dem Kuckeraugen-Tentakel Gemisch."
 
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
 msgstr ""
+"Wenn die Mischung eine leuchtend blaue Farbe annimmt geben Sie den Schild in "
+"den Kessel."
 
 #: data/scripts/enchanting_weapons.dat:54
 msgid ""
 "There might be potions room or lab where I can find the roots, fat and bones "
 "so I don't need to worry about those"
 msgstr ""
+"Es gibt vielleicht ein Zaubertränke Zimmer oder das Laboratorium wo ich "
+"Wurzeln, Fett und Knochen finde also brauche ich mir darüber keine Gedanken "
+"zu machen."
 
 #: data/scripts/enchanting_weapons.dat:57
 msgid ""
 "The lab probably has the roots, fat and bones so I don't need to worry about "
 "those"
 msgstr ""
+"Es gibt die Wurzeln, Fett und Knochen voraussichtlich im Laboratorium also "
+"brauche ich mich nicht darum zu kümmern."
 
 #: data/scripts/enchanting_weapons.dat:59
 msgid "And the Gazers hang around in the basement so that's not a problem"
 msgstr ""
+"Und die Kucker schwirren im Keller herum so ist das auch kein Problem"
 
 #: data/scripts/enchanting_weapons.dat:60
 msgid ""
 "What I do need to find is a Red Sludge, but I have no idea where to find one"
 msgstr ""
+"Was ich finden muss ist eine rote Schleimschnecke und ich habe keine Ahnung "
+"wo eine zu finden ist."
 
 #: data/scripts/enchanting_weapons.dat:61
 msgid ""
 "I can't use my current shield in the experiment in case it backfires so I'll "
 "have to find another one"
 msgstr ""
+"Ich kann meinen eigenen Schild nicht für das Experiment benutzen, für den "
+"Fall das es schief geht werde ich einen anderen Schild auftreiben müssen."
 
 #: data/scripts/enchanting_weapons.dat:64
 msgid "Obtain 3 Gazer Eyes"
-msgstr ""
+msgstr "Besorgen Sie 3 Kuckeraugen"
 
 #: data/scripts/monsters.dat:122
 msgid "Obtain 1 Red Sludge Tentacle"
-msgstr ""
+msgstr "Besorgen Sie den Tentakel einer roten Schleimschnecke"
 
 #: data/scripts/enchanting_weapons.dat:68
 msgid "Find another shield"
-msgstr ""
+msgstr "Finde ein Schild"
 
 #: data/scripts/enchanting_weapons.dat:70
 msgid "Blend eyeballs and tentacle"
-msgstr ""
+msgstr "Mixe Augen und Tentakel"
 
 #: data/scripts/enchanting_weapons.dat:78
 msgid "It's a book about enchanting equipment"
-msgstr ""
+msgstr "Es ist ein Buch über die Verzauberung von Gegenständen"
 
 #: data/scripts/enchanting_weapons.dat:79
 msgid ""
 "I don't have any reason to read this but I'll keep it in mind in case I do"
 msgstr ""
+"Ich habe keinen Grund das zu lesen aber ich behalte es mir im Gedächtniss "
+"für den Fall das ich es brauche."
 
 #: data/scripts/items_found.dat:1
 msgid "Hmm, I've looked everywhere and this appears to be everything"
-msgstr ""
+msgstr "Hmm, ich habe überall nachgesehen und das scheint alles zu sein."
 
 #: data/scripts/items_found.dat:2
 msgid ""
 "I guess the other things must have been destroyed when the sorceror used "
 "that spell"
 msgstr ""
+"Ich vermute das die anderen Sachen zerstört worden sind als der Zauberer "
+"seinen Spruch verwendet hat."
 
 #: data/scripts/items_found.dat:3
 msgid "Now to find out where I am and how I can get back"
-msgstr ""
+msgstr "Jetzt muss ich herausfinden wo ich bin und wie ich zurück komme."
 
 #: data/scripts/items_found.dat:4
 msgid "If I can..."
-msgstr ""
+msgstr "Wenn ich kann...."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
-msgstr ""
+msgstr "Oho, es hat angefangen zu regnen."
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr ""
+msgstr "Es fühlt sich an als ob ich hier schon eine Ewigkeit gefangen bin."
 
 #: data/scripts/sewer_trap_note.dat:3
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr ""
+"Um hier herauszukommen brauche ich 3 Zugangsschlüssel um die Fahrstühle zu "
+"betreiben."
 
 #: data/scripts/sewer_trap_note.dat:4
 msgid "So far I have only found 1"
-msgstr ""
+msgstr "Bis jetzt habe ich nur einen gefunden."
 
 #: data/scripts/sewer_trap_note.dat:5
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
 "placed arrow"
 msgstr ""
+"Am Schlimmsten ist das ich manche Schalter nur mit einem gezielten "
+"Bogenschuss erreichen kann."
 
 #: data/scripts/sewer_trap_note.dat:6
 msgid "But spares aren't common and I have run out"
-msgstr ""
+msgstr "Ersatz für die Pfeile ist spärlich und ich habe keine mehr."
 
 #: data/scripts/sewer_trap_note.dat:7
 msgid "If I don't find a way out of here soon, I fear I may starve"
 msgstr ""
+"Ich fürchte ich werde verhungern wenn ich hier nicht bald herauskomme."
 
 #: data/scripts/sewer_trap_note.dat:9
 msgid "If I don't get out of here I'll suffer the same fate..."
 msgstr ""
+"Wenn ich hier nicht herauskomme wird mich das gleiche Schicksal ereilen...."
 
 #: data/scripts/sewer_trap_note.dat:10
 msgid "Collect 3 Access Keys"
-msgstr ""
+msgstr "Sammle 3 Zugangsschlüssel"
 
 #: data/scripts/tutorial_walls.dat:1
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
 msgstr ""
+"Dies ist eine schwache Wand und kann mit dem Pickel durchbrochen werden."
 
 #: data/scripts/tutorial_walls.dat:2
 msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
-msgstr ""
+msgstr "Um den Pickel zu verwenden drücke auf Angriff ([INPUT_ATTACK])"
 
 #: data/scripts/tutorial_walls.dat:3
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
 msgstr ""
+"Merke dir daß nicht alle schwachen Wände mit dem Pickel durchbrochen werden "
+"können."
 
 #: data/scripts/tutorial_walls.dat:4
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr ""
+msgstr "Zerstöre die Wand mit dem Pickel und gehe weiter."
 
 #: data/scripts/grimlore_die.dat:3
 msgid "There, back to your own dimension"
-msgstr ""
+msgstr "Hier, zurück zu deiner Dimension"
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr ""
+msgstr "Wohin ist der Zauberer gegangen?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
-msgstr ""
+msgstr "Endlich treffen wir zusammen!"
 
 #: data/scripts/sorceror_intro_1.dat:9
 msgid "Who are you?"
-msgstr ""
+msgstr "Wer bist du?"
 
 #: data/scripts/sorceror_intro_1.dat:10
 msgid ""
 "My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
 msgstr ""
+"Ich heiße Edgar und habe die letzten [HOURS] Stunden damit zugebracht dich "
+"zu finden."
 
 #: data/scripts/sorceror_intro_1.dat:11
 msgid "Fascinating. What do you want?"
-msgstr ""
+msgstr "Faszinierend, was willst du?"
 
 #: data/scripts/sorceror_intro_1.dat:12
 msgid "I've come to rescue my father, tell me where he is!"
-msgstr ""
+msgstr "Ich bin gekommen um meinen Vater zu retten, sag mir wo er ist!"
 
 #: data/scripts/sorceror_intro_1.dat:13
 msgid ""
 "Your father? My dear child, I do not have the foggiest idea what you are "
 "talking about"
 msgstr ""
+"Dein Vater? Mein Kind ich habe nicht die geringste Ahnung worüber du "
+"sprichst."
 
 #: data/scripts/sorceror_intro_1.dat:14
 msgid ""
 "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
 msgstr ""
+"Aber wenn er hier irgendwo zu finden ist, dann ist er im Kerker.  Warum "
+"schaust du nicht einfach dort nach?"
 
 #: data/scripts/ant_lion.dat:1
 msgid "There's something moving around down there..."
-msgstr ""
+msgstr "Irgend etwas bewegt sich da unten....."
 
 #: data/scripts/ant_lion.dat:2
 msgid "It might be an ant lion looking for food"
-msgstr ""
+msgstr "Es könnte ein Ameisenlöwe auf der Suche nach Futter sein."
 
 #: data/scripts/ant_lion.dat:3
 msgid "If I go down there, it'll almost certainly eat me"
-msgstr ""
+msgstr "Wenn ich hinunter gehe wird er mich sicher fressen."
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
+msgstr "Vielleicht kann ich etwas anderes in sein Nest locken...."
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
-msgstr ""
+msgstr "Das ist eine Menge Schleim"
 
 #: data/scripts/purifier.dat:4
 msgid ""
 "I don't think the Ice Spray will get across this since it only works on water"
 msgstr ""
+"Da das Eis Spray nur auf dem Wasser funktioniert wird es mir hier nicht "
+"behilflich sein"
 
 #: data/scripts/purifier.dat:11
 msgid "Slimes can only swim in water so that's not going to help either"
 msgstr ""
+"Da Schleimer nur im Wasser schwimmen können wird das auch nichts nützen"
 
 #: data/scripts/purifier.dat:12
 msgid "I remember Borgan telling me how ironic that is"
-msgstr ""
+msgstr "Ich kann mich erinnern wie Borgan sagte das dies sehr ironisch ist"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across..."
 msgstr ""
+"Ich muß etwas finden das mir hilft auf die andere Seite zu kommen......"
 
 #: data/scripts/purple_gem.dat:1
 msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
 msgstr ""
+"Es sieht so aus als ob es eingeklemmt ist. Wahrscheinlich kann ich es mit "
+"dem Pickel lösen."
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr ""
+msgstr "Es sieht aus wie ein Mixer. Ich könnte damit etwas verflüssigen."
 
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
+"Um den Trank zu bereiten benötige ich den Tentakel von einer roten "
+"Schleimschnecke und 3 Kuckeraugen."
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr ""
+msgstr "Ich brauche immer noch eine leere Flasche um den Trank abzufüllen."
 
 #: data/scripts/blender.dat:22
 msgid "OK, here goes!"
-msgstr ""
+msgstr "...und ab die Post!"
 
 #: data/scripts/tutorial_boxes.dat:1
 msgid "Some items in the game can be pushed and pulled"
-msgstr ""
+msgstr "Manche Dinge im Spiel lassen sich ziehen oder verschieben."
 
 #: data/scripts/tutorial_boxes.dat:2
 msgid "To push an item, simply walk into it"
 msgstr ""
+"Um einen Gegenstand voran zu treiben genügt es in ihn hinein zu laufen."
 
 #: data/scripts/tutorial_boxes.dat:3
 msgid "To pull an item, walk into while holding down Action"
 msgstr ""
+"Um einen Gegenstand zu ziehen , hält man Aktion gedrückt und läuft hinein."
 
 #: data/scripts/tutorial_boxes.dat:4
 msgid "You can then pull the item around until you let go of Action"
 msgstr ""
+"Der Gegenstand kann so lange wie Aktion gedrückt bleibt, bewegt werden."
 
 #: data/scripts/tutorial_boxes.dat:5
 msgid "Pull the box over the other side and use it to reach the ledge"
 msgstr ""
+"Ziehe die Kiste auf die andere Seite und benutze Sie um die nächste Ebene zu "
+"erreichen."
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "Unglaublich, ein Labor."
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
 msgstr ""
+"Ich sehe gerne zu wenn Maggie Zauber und Tränke bereitet, vielleicht kann "
+"ich hier einige selbst erstellen."
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr ""
+msgstr "Es gibt keinen Ausweg mehr Zauberer."
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
-msgstr ""
+msgstr "Du hast den Grimlore besiegt? Unmöglich!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
 msgstr ""
+"Er musste sich unter meinem Schwert beugen wie alles andere auch an diesem "
+"faulen Ort."
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
-msgstr ""
+msgstr "Dies ist deine letzte Gelegenheit, sag mir wo mein Vater ist!"
 
 #: data/scripts/sorceror_start.dat:8
 msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
-msgstr ""
+msgstr "! ICH HABE KEINNEN SCHIMMER WOVON DU SPRICHST!"
 
 #: data/scripts/sorceror_start.dat:9
 msgid "LIAR! I've run out of patience, prepare to die!"
-msgstr ""
+msgstr "LÜGNER! Meine Geduld ist am Ende, mache dich aud deinen Tod gefasst."
 
 #: data/scripts/sorceror_start.dat:11
 msgid "Very well. If that is your wish"
-msgstr ""
+msgstr "Nun gut. Wenn du das so willst...."
 
 #: data/scripts/sorceror_start.dat:12
 msgid "Many have suffered at my hand"
-msgstr ""
+msgstr "Viele sind durch meine Hand gestorben."
 
 #: data/scripts/sorceror_start.dat:13
 msgid "Your death will be quick, but extremely painful"
-msgstr ""
+msgstr "Dein Tod wird schnell aber extrem schmerzhaft sein."
 
 #: data/scripts/sorceror_start.dat:14
 msgid ""
 "I will add your head to the long line of foolish adventurers who have tried "
 "to best me"
 msgstr ""
+"Ich werde dein Haupt in die lange Reihe törichter Abenteurer einreihen, die "
+"versucht haben mich zu bezwingen."
 
 #: data/scripts/sorceror_start.dat:16
 msgid "Prepare yourself, Edgar"
-msgstr ""
+msgstr "Rüste dich, Edgar!"
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
 msgstr ""
+"Das zurücksetzen des Schalters erlaubt dir die Objekte in Ihre Orginale "
+"Position zurück zu versetzen."
 
 #: data/scripts/tutorial_reset_switch.dat:2
 msgid ""
 "If an object becomes unreachable then you can use the switch to put it back "
 "in its original place"
 msgstr ""
+"Wenn ein Objekt unerreichbar wird kannst du es mit Hilfe des Schalter in "
+"seine Ausgangsposition zurück versetzen."
 
 #: data/scripts/black_book.dat:1
 msgid "This book is different to the rest"
-msgstr ""
+msgstr "Dieses Buch ist anders als die Übrigen."
 
 #: data/scripts/black_book.dat:2
 msgid "I can feel a powerful magic emanating from it"
-msgstr ""
+msgstr "Ich fühle eine starke magische Ausstrahlung die davon ausgeht."
 
 #: data/scripts/black_book.dat:3
 msgid "A powerful evil magic"
-msgstr ""
+msgstr "Eine starke dunkle Magie."
 
 #: data/scripts/black_book.dat:4
 msgid "Maybe I should leave it alone"
-msgstr ""
+msgstr "Vielleicht ist es besser es in Ruhe zu lassen."
 
 #: data/scripts/black_book.dat:5
 msgid "Still, I could be wrong, maybe it's not evil magic..."
 msgstr ""
+"Nun, es ist gut möglich das ich falsch liege und es ist nicht dunkle Magie.."
 
 #: data/scripts/black_book_search.dat:9
 msgid "Examine the book?"
-msgstr ""
+msgstr "Untersuche das Buch?"
 
 #: data/scripts/black_book.dat:20
 msgid "What just happened?"
-msgstr ""
+msgstr "Was ist gerade passiert?"
 
 #: data/scripts/black_book.dat:22
 msgid "Maybe I shouldn't go around touching books that give off an evil aura"
 msgstr ""
+"Vielleicht sollte ich nicht herumlaufen und an Büchern herum fummeln die "
+"eine dunkle Aura haben."
 
 #: data/scripts/black_book.dat:23
 msgid "And spend more time looking for my Dad"
 msgstr ""
+"...und sollte mehr Zeit damit verbringen nach meinem Vater auschau zu halten."
 
 #: data/scripts/black_book.dat:25
 msgid ""
 "This would have allowed you to fight Mataeus, but it looks like you've "
 "already defeated him..."
 msgstr ""
+"Dies hätte dir erlaubt Mataeus zu besiegen, aber es sieht so aus als ob du "
+"das schon getan hast."
 
 #: data/scripts/black_book.dat:29
 msgid "I'll leave it alone, I'm not getting a good feeling from it"
-msgstr ""
+msgstr "ich habe kein gutes Gefühl dabei, ich lasse es besser stehen."
 
 #: data/scripts/catacombs_intro.dat:2
 msgid "Oh great, I can barely see anything"
-msgstr ""
+msgstr "Na Klasse, ich kann kaum etwas sehen."
 
 #: data/scripts/catacombs_intro.dat:9
 msgid "I'll have to be careful where I tread..."
-msgstr ""
+msgstr "Ich werde aufpassen müssen wo ich hintrete."
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "Escape the Catacombs"
-msgstr ""
+msgstr "Entkomme den Katakomben"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
-msgstr ""
+msgstr "Ich fühle dass er hier durchgekommen ist"
 
 #: data/scripts/final_battle.dat:2
 msgid ""
 "There's no going back once I step through that door, I'd better make sure "
 "I'm ready"
 msgstr ""
+"Es gibt kein zurück mehr sobald ich durch diese Tür trete, ich sehe besser "
+"das ich dazu bereit bin."
 
 #: data/scripts/final_battle.dat:3
 msgid "Enter the door?"
-msgstr ""
+msgstr "Betrete den Raum?"
 
 #: data/scripts/final_battle.dat:5
 msgid "OK, here we go..."
-msgstr ""
+msgstr ".....los gehts"
 
 #: data/scripts/final_battle.dat:11
 msgid "Maybe I should prepare a little bit more first"
-msgstr ""
+msgstr "Vielleich sollte ich mich zuerst etwas vorbereiten."
 
 #: data/scripts/tutorial_intro.dat:4
 msgid ""
 "Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
 "box"
 msgstr ""
+"Wenn du mit dem lesen fertig bist drücke [INPUT_JUMP] um zum nächsten Dialog "
+"zu kommen"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid ""
@@ -2227,561 +2396,626 @@ msgid ""
 "([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
 "([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Du kannst auch den Dialog wechseln indem du Angriff ([INPUT_ATTACK]), "
+"Blockieren([INPUT_BLOCK]), Springen ([INPUT_JUMP]), Aktion "
+"([INPUT_INTERACT]) oder verwende Gegenstand ([INPUT_ACTIVATE])drückst."
 
 #: data/scripts/tutorial_intro.dat:6
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
+"Dies ist die Anleitung für Edgars Legende. Die Anleitung wird dir erklären "
+"wie das Spiel gespielt wird."
 
 #: data/scripts/tutorial_intro.dat:7
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
 msgstr ""
+"Um diese Anleitung zu verlassen drücke ESC und benutze die Pfeiltasten zur "
+"Auswahl. Drücke Eingabe um es auszuwählen."
 
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
 msgstr ""
+"Benutze [INPUT_LEFT] und [INPUT_RIGHT] um Edgar nach links und rechts zu "
+"bewegen."
 
 #: data/scripts/tutorial_intro.dat:9
 msgid ""
 "To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
 msgstr ""
+"Um Edgar springen zu lassen, drücke [INPUT_JUMP]. Du kannst dich in der Luft "
+"bewegen."
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Um einen Gegenstand zu beinflussen drücke [INPUT_INTERACT]."
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Laufe zum Aktionspunkt und drücke [INPUT_INTERACT]."
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
-msgstr ""
+msgstr "Bevor ich gehe muß meine verlorenen Sachen finden."
 
 #: data/scripts/azriel_start.dat:6
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
-msgstr ""
+msgstr "Wer wagt es das Grab des großen Kriegers Ivan zu plündern."
 
 #: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
-msgstr ""
+msgstr "Wer hat das gesagt?"
 
 #: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
-msgstr ""
+msgstr "Du unverschämter Köter, du wirst für deine respektlosigkeit zahlen."
 
 #: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
-msgstr ""
+msgstr "Ich bin Azrael"
 
 #: data/scripts/centurion_note_1.dat:2
 msgid "I've managed to escape from my cell and am trying to find a way out"
 msgstr ""
+"Ich habe es geschafft aus meiner Zelle zu entkommen und versuche nun einen "
+"Weg nach draußen zu finden."
 
 #: data/scripts/centurion_note_1.dat:3
 msgid ""
 "I found a door blocked by a frame which you need to put 9 jigsaw puzzle "
 "pieces in"
 msgstr ""
+"Ich habe eine Tür gefunden die durch einen Rahmen blockiert ist und in den "
+"du 9 Puzzleteile einfügen mußt."
 
 #: data/scripts/centurion_note_1.dat:4
 msgid ""
 "The pieces are locked behind doors which seem to be linked to the Red "
 "Centurions"
 msgstr ""
+"Die Teile sind hinter Türen verschlossen die mit den roten Wachsoldaten "
+"verbunden sind."
 
 #: data/scripts/centurion_note_1.dat:5
 msgid "The Centurions appear to be indestructible however"
-msgstr ""
+msgstr "Die Wachsoldaten sind aber scheinbar unzerstörbar."
 
 #: data/scripts/centurion_note_1.dat:6
 msgid "Unless I can find a way to destroy them I will die down here"
 msgstr ""
+"Solange ich keine Möglichkeit finde Sie zu zerstören werde ich hier unten "
+"sterben."
 
 #: data/scripts/centurion_note_1.dat:7
 msgid "I'll find a way to destroy them"
-msgstr ""
+msgstr "Ich werde einen Weg finden um Sie zu zerstören"
 
 #: data/scripts/centurion_note_1.dat:8
 msgid "I'm so close to rescuing Dad now..."
-msgstr ""
+msgstr "Ich bin so nahe daran Vater zu retten......"
 
 #: data/scripts/centurion_note_1.dat:10
 msgid "Find 9 Puzzle Pieces"
-msgstr ""
+msgstr "Finde 9 Puzzleteile"
 
 #: data/scripts/wrong_order.dat:2
 msgid "Nothing happened. I don't think that's the right order"
-msgstr ""
+msgstr "Es ist nichts geschehen. Ich glaube das war die falsche Reihenfolge"
 
 #: data/scripts/fortress_mine_exit_sign.dat:1
 msgid "There's another sign here"
-msgstr ""
+msgstr "Hier ist ein weiteres Schild"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "If the exit lift is out of order then proceed to the left"
 msgstr ""
+"Sollte der Aufzug außer Betrieb sein so folge dem Weg zu deiner Linken."
 
 #: data/scripts/fortress_mine_exit_sign.dat:3
 msgid "Warning : Exit route may be hazardous"
-msgstr ""
+msgstr "Warnung: Der Weg zum Ausgang ist gefährlich"
 
 #: data/scripts/fortress_mine_exit_sign.dat:5
 msgid "Maybe I should use the lift to get out"
-msgstr ""
+msgstr "Vielleicht sollte ich den Aufzug benutzen um hier heraus zu kommen"
 
 #: data/scripts/crossbow.dat:16
 msgid "Cool, it worked!"
-msgstr ""
+msgstr "Stark, es hat funktioniert!"
 
 #: data/scripts/smoothie_colour.dat:2
 msgid "I'm not sure about the colour though, I thought it would be red?"
 msgstr ""
+"Ich bin mir etwas unsicher über die Farbe. Ich dachte es sollte rot sein."
 
 #: data/scripts/smoothie_colour.dat:3
 msgid "Maybe it's supposed to be yellow..."
-msgstr ""
+msgstr "Vermutlich hat es gelb zu sein...."
 
 #: data/scripts/smoothie_colour.dat:10
 msgid "I just need to find another shield to enchant..."
-msgstr ""
+msgstr "Ich muß nur einen anderen Schild finden den ich verzaubern kann...."
 
 #: data/scripts/cauldron_exploded.dat:7
 msgid "Maybe that wasn't such a good idea after all..."
-msgstr ""
+msgstr "Vielleicht war das doch nicht eine so gute Idee...."
 
 #: data/scripts/cauldron_exploded.dat:9
 msgid "Looks like I'll have to another way to get past those fireballs"
 msgstr ""
+"Es sieht so aus als ob ich einen anderen Weg finden muß um an den "
+"Feuerbällen vorbei zu kommen"
 
 #: data/scripts/sleeping.dat:2
 msgid "It's sleeping"
-msgstr ""
+msgstr "Es schläft"
 
 #: data/scripts/sleeping.dat:3
 msgid "I'm safe anyway since it's in that cage..."
-msgstr ""
+msgstr "Nachdem es in dem Käfig ist bin ich in Sicherheit...."
 
 #: data/scripts/gargoyle_start.dat:6
 msgid "I don't want to go back to the swamp"
-msgstr ""
+msgstr "Ich möchte nicht zum Sumpf zurück"
 
 #: data/scripts/gargoyle_start.dat:8
 msgid "I'm pretty sure Dad's in the fortress"
-msgstr ""
+msgstr "Ich bin mir ziemlich sicher daß Vater im Schloss ist"
 
 #: data/scripts/gargoyle_start.dat:12
 msgid "Maybe I should check the swamp again..."
-msgstr ""
+msgstr "Vielleicht sollte ich mich noch einmal im Sumpf umschauen....."
 
 #: data/scripts/gargoyle_start.dat:21
 msgid "What was that?!"
-msgstr ""
+msgstr "Was war dass?"
 
 #: data/scripts/ending_part2.dat:32
 msgid "...and when you didn't come home last night I set off to find you"
 msgstr ""
+"....und als du gestern Abend nicht nach Hause gekommen bist zog ich los um "
+"dich zu finden."
 
 #: data/scripts/ending_part2.dat:33
 msgid "You went to the Sorceror's Fortress?!"
-msgstr ""
+msgstr "Du bist zum Schloss des Zauberers gegangen?"
 
 #: data/scripts/ending_part2.dat:34
 msgid "I thought he'd kidnapped you! Where were you?"
-msgstr ""
+msgstr "Ich dachte er hätte dich entführt! Wo warst du?"
 
 #: data/scripts/ending_part2.dat:35
 msgid "Erm... well you see"
-msgstr ""
+msgstr "äh... nun ja"
 
 #: data/scripts/ending_part2.dat:36
 msgid "When I went out last night I went to Jacob's for a couple of drinks"
-msgstr ""
+msgstr "Letze Nacht ging ich zu Jakob um ein paar Becher zu heben"
 
 #: data/scripts/ending_part2.dat:37
 msgid "*cough*"
-msgstr ""
+msgstr "*hust*"
 
 #: data/scripts/ending_part2.dat:38
 msgid "several drinks"
-msgstr ""
+msgstr "mehrere Becher"
 
 #: data/scripts/ending_part2.dat:39
 msgid "On the way home I stopped by the well to have a drink of water"
 msgstr ""
+"Auf dem Weg nach Hause hielt ich beim Brunnen um etwas Wasser zu trinken"
 
 #: data/scripts/ending_part2.dat:40
 msgid "and I fell in"
-msgstr ""
+msgstr "und fiel hinein"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?"
-msgstr ""
+msgstr "Was?"
 
 #: data/scripts/ending_part2.dat:45
 msgid "I fell down the well"
-msgstr ""
+msgstr "Ich bin in den Brunnen gefallen"
 
 #: data/scripts/ending_part2.dat:46
 msgid "I was down there until only a couple of hours ago"
-msgstr ""
+msgstr "Bis hin vor ein paar Stunden war ich dort unten"
 
 #: data/scripts/ending_part2.dat:47
 msgid "Are you kidding me?"
-msgstr ""
+msgstr "Nimmst du mich auf den Arm?"
 
 #: data/scripts/ending_part2.dat:49
 msgid "I shouted down that well, didn't you hear me?"
-msgstr ""
+msgstr "Ich habe in den Brunnen gerufen, hast du mich den nicht gehört?"
 
 #: data/scripts/ending_part2.dat:50
 msgid "I was out cold"
-msgstr ""
+msgstr "Ich war besoffen"
 
 #: data/scripts/ending_part2.dat:51
 msgid "Plus, the hangover was absolute murder"
-msgstr ""
+msgstr "Zusätzlich hatte ich einen gewalltigen Kater"
 
 #: data/scripts/ending_part2.dat:53
 msgid "I crossed the swamp"
-msgstr ""
+msgstr "Ich habe den Sumpf überquert...."
 
 #: data/scripts/ending_part2.dat:54
 msgid "Broke into the Sorceror's Fortress"
-msgstr ""
+msgstr "...bin in das Schloss des Zauberers eingebrochen...."
 
 #: data/scripts/ending_part2.dat:55
 msgid "Fought countless numbers of ferocious monsters"
-msgstr ""
+msgstr "....habe unzählige mörderisch Monster bestritten..."
 
 #: data/scripts/ending_part2.dat:56
 msgid "Got imprisoned in his dungeon"
-msgstr ""
+msgstr "...wurde eingekerkert...."
 
 #: data/scripts/ending_part2.dat:57
 msgid "And was teleported to another part of the world!"
-msgstr ""
+msgstr "...und zu einem anderen Teil der Welt teleportiert..."
 
 #: data/scripts/ending_part2.dat:58
 msgid "I nearly died!"
-msgstr ""
+msgstr "...bin beinahe gestorben!"
 
 #: data/scripts/ending_part2.dat:61
 msgid "Near misses don't count"
-msgstr ""
+msgstr "Beinahe zählt nicht"
 
 #: data/scripts/ending_part2.dat:64
 msgid "Only the once though"
-msgstr ""
+msgstr "Beinahe..."
 
 #: data/scripts/ending_part2.dat:67
 msgid "[CONTINUE_COUNT] times according to my count"
-msgstr ""
+msgstr "[CONTINUE_COUNT] Mal, wenn ich richtig gezählt habe"
 
 #: data/scripts/ending_part2.dat:73
 msgid ""
 "And after all that, when I defeated the Sorceror, he had no idea who you were"
 msgstr ""
+"und nach alle dem hatte der Zauberer keine Ahnung wo du warts als ich ihn "
+"besiegte."
 
 #: data/scripts/ending_part2.dat:74
 msgid "You killed the Sorceror?!"
-msgstr ""
+msgstr "Du hast den Zauberer getötet?"
 
 #: data/scripts/ending_part2.dat:75
 msgid "I thought he'd kidnapped Dad!"
-msgstr ""
+msgstr "Ich dachte er hätte meinen Vater entführt"
 
 #: data/scripts/ending_part2.dat:76
 msgid ""
 "Wow, that has to be the worst case of false accusation I think I'll ever "
 "hear!"
 msgstr ""
+"Wahnsinn, das ist der schlimmste Fall von Verleumdung von dem ich jemals "
+"gehört habe!"
 
 #: data/scripts/ending_part2.dat:78
 msgid "But more seriously, you disobeyed me, son"
-msgstr ""
+msgstr "Aber bleiben wir ernst, du hast mir nicht gehorcht mein Sohn"
 
 #: data/scripts/ending_part2.dat:79
 msgid "I told you to never set foot in the Forbidden Swamp"
 msgstr ""
+"Ich habe dir gesagt das du niemals den verbotenen Sumpf betreten sollst"
 
 #: data/scripts/ending_part2.dat:80
 msgid "And for that, you'll have to be punished"
-msgstr ""
+msgstr "...und dafür muß du bestraft werden"
 
 #: data/scripts/ending_part2.dat:82
 msgid "But Dad..."
-msgstr ""
+msgstr "Aber Vater...."
 
 #: data/scripts/ending_part2.dat:83
 msgid "Be quiet!"
-msgstr ""
+msgstr "Sei still"
 
 #: data/scripts/ending_part2.dat:84
 msgid "I just need to think of something suitable..."
-msgstr ""
+msgstr "Ich muß mir etwas geeignetes einfallen lassen..."
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
-msgstr ""
+msgstr "Es sieht so aus als ob deine Hühner wieder ausgebrochen sind, Jacob"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
-msgstr ""
+msgstr "Genaugenommen denke ich, ich weiss was deine Stafe sein wird...."
 
 #: data/scripts/jigsaw_puzzle.dat:3
 msgid "A jigsaw puzzle?!"
-msgstr ""
+msgstr "Ein Puzzle?!"
 
 #: data/scripts/jigsaw_puzzle.dat:4
 msgid "I'm not really a fan of these"
-msgstr ""
+msgstr "Für die kann ich mich nicht sonderlich begeistern"
 
 #: data/scripts/jigsaw_puzzle.dat:7
 msgid ""
 "I prefer the sliding puzzles, like the one I had to solve to get the "
 "Lightning Sword"
 msgstr ""
+"Ich mag eher Schiebepuzzles, so wie das dass ich lösen mußte um das "
+"Blitzschwert zu bekommen."
 
 #: data/scripts/jigsaw_puzzle.dat:9
 msgid "Still, it looks like this is the only way out"
 msgstr ""
+"Nun, es sieht so aus als ob es die einzige Möglichkeit ist um hier raus zu "
+"kommen."
 
 #: data/scripts/jigsaw_puzzle.dat:16
 msgid "Looks like I need 9 pieces to slot into the frame"
-msgstr ""
+msgstr "Es scheint als ob ich 9 Teile in den Rahmen einfügen muß"
 
 #: data/scripts/jigsaw_puzzle.dat:19
 msgid "The frame is empty"
-msgstr ""
+msgstr "Der Rahmen ist leer"
 
 #: data/scripts/jigsaw_puzzle.dat:20
 msgid ""
 "Hopefully the pieces I need are around somewhere, otherwise I'm going to die "
 "down here"
 msgstr ""
+"Hoffentlich sind die Teile die ich brauche hier irgendwo zu finden, "
+"ansonsten werde ich hier noch eingehen."
 
 #: data/scripts/jigsaw_puzzle.dat:23
 msgid ""
 "I've got all the pieces, I just need to place them in the frame and solve "
 "the puzzle"
 msgstr ""
+"Ich habe alle Teile, ich muß Sie nur noch in den Rahmen einfügen und das "
+"Puzzle lösen"
 
 #: data/scripts/jigsaw_puzzle.dat:24
 msgid "Push left, right, up or down to move the cursor"
-msgstr ""
+msgstr "Drücke links, rechts, oben oder unten um den Zeiger zu bewegen"
 
 #: data/scripts/jigsaw_puzzle.dat:25
 msgid "Press Attack to select the current piece and move it around"
-msgstr ""
+msgstr "Drücke Angriff um das angezeigte Teil zu bewegen"
 
 #: data/scripts/jigsaw_puzzle.dat:26
 msgid "Press Attack again to stop moving the current piece"
-msgstr ""
+msgstr "Drücke wieder Angriff um das Teil loszulassen."
 
 #: data/scripts/jigsaw_puzzle.dat:27
 msgid "Press Action to quit the puzzle"
-msgstr ""
+msgstr "Drücke Aktion um das Puzzle zu verlassen"
 
 #: data/scripts/ice_spray.dat:1
 msgid "More water?!"
-msgstr ""
+msgstr "Noch mehr Wasser?!"
 
 #: data/scripts/ice_spray.dat:7
 msgid ""
 "I don't think being able to turn into a Slime is going to help me here, "
 "since I might not be able to get back afterwards"
 msgstr ""
+"Ich denke es hilft mir nichts wenn ich mich hier in einen Schleimer "
+"verwandle weil ich vielleicht nicht mehr zurück kommen kann"
 
 #: data/scripts/ice_spray.dat:8
 msgid "Those fish look quite dangerous too"
-msgstr ""
+msgstr "Die Fische sehen außerdem recht gefährlich aus"
 
 #: data/scripts/ice_spray.dat:9
 msgid "I'll have to find another way of getting across"
 msgstr ""
+"Ich werde eine andere Möglichkeit finden müssen um auf die andere Seite zu "
+"kommen"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across"
-msgstr ""
+msgstr "Ich muß etwas finden das mir auf die andere Seite hilft"
 
 #: data/scripts/tutorial_combat.dat:1
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
 msgstr ""
+"Dies ist der letzte Teil der Übung und bringt dir bei Feinde zu blockieren "
+"und zu attackieren."
 
 #: data/scripts/tutorial_combat.dat:2
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
 msgstr ""
+"Zuerst solltest du dich mit dem Schwert ausrüsten da es eine größere "
+"Reichweite hat und mehr Schaden zufügt als der Pickel"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid ""
 "Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
 "press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Drücke [INPUT_INVENTORY] um dein Inventar anzuzeigen, wähle das Schwert und "
+"drücke Angriff [INPUT_ATTACK] oder benutze Gegenstand ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_combat.dat:4
 msgid "Press [INPUT_INVENTORY] again to close your inventory"
-msgstr ""
+msgstr "Drücke ([INPUT_INVENTORY]) noch einmal um dein Inventar zu schließen"
 
 #: data/scripts/tutorial_combat.dat:5
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
 msgstr ""
+"Hin und wieder lassen deine Gegner ein Herz fallen, nimm es schnell auf da "
+"es nach wenigen Sekunden wieder verschwindet"
 
 #: data/scripts/tutorial_combat.dat:6
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
 msgstr ""
+"Wenn dir eine Fledermaus zu nahe kommt blockiere Sie mit deinem Schild und "
+"Sie wird harmloss abprallen"
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "Töte jetzt alle Fledermäuse in der Umgebung!"
 
 #: data/scripts/raft_2.dat:8
 msgid "Aw, not again!"
-msgstr ""
+msgstr "Ooh, nicht schon wieder!"
 
 #: data/scripts/raft_2.dat:9
 msgid "Collect 6 Chopped Logs"
-msgstr ""
+msgstr "Sammle 6 Holzstämme"
 
 #: data/scripts/raft_2.dat:14
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr ""
+msgstr "Ich brauche 6 Holzstämme um ein Floß zu bauen"
 
 #: data/scripts/raft_2.dat:18
 msgid "This had better be the last time I have to do this..."
-msgstr ""
+msgstr "Das ist hoffentlich das letze Mal das ich dass tun muß...."
 
 #: data/scripts/coal_mining.dat:1
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr ""
+msgstr "Das muss die Kohle sein die ich für Borgan abbauen soll"
 
 #: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
-msgstr ""
+msgstr "Was zum ....?!"
 
 #: data/scripts/evil_edgar_sighted.dat:26
 msgid "He looks just like me"
-msgstr ""
+msgstr "Er sieht genau so aus wie ich"
 
 #: data/scripts/evil_edgar_sighted.dat:27
 msgid "AND HE HAS MY FIRE SHIELD!!"
-msgstr ""
+msgstr "UND ER HAT MEINEN FEUERSCHILD!!"
 
 #: data/scripts/robot.dat:1
 msgid "Hey wow, what a cute little machine!"
-msgstr ""
+msgstr "Wow, was für eine niedliche Maschine!"
 
 #: data/scripts/robot.dat:2
 msgid ""
 "It's got a little slot on the back of it. I guess I put something in there "
 "to make it do stuff"
 msgstr ""
+"Es hat einen Eingabeschlitz auf der Rückseite. Ich glaube ich werde etwas "
+"hineinstecken müssen damit die Maschine etwas tut."
 
 #: data/scripts/robot.dat:3
 msgid "The robot uses instruction cards to move around"
-msgstr ""
+msgstr "Der Roboter benutzt zur Bewegungskontrolle Eingabekarten"
 
 #: data/scripts/robot.dat:4
 msgid ""
 "Use the instructions to guide the robot to open areas that you cannot access"
 msgstr ""
+"Benutze den Eingabe Lochstreifen um den Roboter an nicht erreichbare Orte zu "
+"steuern"
 
 #: data/scripts/robot.dat:5
 msgid ""
 "However, since you can't read the instructions on the card, you will have to "
 "try them all out until one works"
 msgstr ""
+"Nach dem du ,wie auch immer, nicht in der Lage bist die Eingabekarten zu "
+"lesen wird dir nichts anderes übrig bleiben als Sie der Reihe nach "
+"auszuprobieren."
 
 #: data/scripts/robot.dat:6
 msgid ""
 "If the robot doesn't reach its target, then it will return to its starting "
 "position allowing you to try again"
 msgstr ""
+"Wenn der Roboter sein Ziel nicht erreicht, wird er zum Ausgangspunkt "
+"zurückkehren und somit es dir erlauben es noch einmal zu versuchen."
 
 #: data/scripts/dungeon_intro.dat:4
 msgid ""
 "Ugh, I'm getting really fed up of waking up in strange places with my eyes "
 "spinning around"
 msgstr ""
+"Ugh, Ich habe wirklich die Schnauze voll davon in fremden Orten mit "
+"brummendem Schädel aufzuwachen."
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
-msgstr ""
+msgstr "Oh nein, ich bin eingesperrt."
 
 #: data/scripts/dungeon_intro.dat:13
 msgid "There must be a way to get this door open"
-msgstr ""
+msgstr "Es muss eine Möglichkeit geben diese Tür zu öffnen"
 
 #: data/scripts/dungeon_intro.dat:16
 msgid "Wait, perhaps that button unlocks it"
-msgstr ""
+msgstr "Moment mal, vermutlich dient der Knopf dazu die Tür aufzumachen"
 
 #: data/scripts/dungeon_intro.dat:17
 msgid "If only I could reach it..."
-msgstr ""
+msgstr "Wenn ich Ihn nur erreichen könnte...."
 
 #: data/scripts/tutorial_pickaxe.dat:1
 msgid "The pickaxe is one of many weapons you will encounter in the game"
 msgstr ""
+"Der Pickel ist eine von vielen Waffen, die dir im Spiel begegnen werden"
 
 #: data/scripts/tutorial_pickaxe.dat:2
 msgid "You can use it as both a weapon and a tool"
-msgstr ""
+msgstr "Du kannst ihn als Waffe wie auch als Werkzeug benutzen"
 
 #: data/scripts/tutorial_pickaxe.dat:3
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr ""
+msgstr "Nimm den Pickel auf und begebe dich zum nächsten Aktionspunkt"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr ""
+msgstr "Es gibt hier einen Durchzug......"
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
-msgstr ""
+msgstr "....und einer der Ziegel ist lose."
 
 #: data/scripts/hidden_passage.dat:7
 msgid "Aha! It's a hidden passage!"
-msgstr ""
+msgstr "Aha, es ist ein geheimer Durchgang"
 
 #: data/scripts/hidden_passage.dat:8
 msgid "Hopefully this will lead me to the sorceror..."
-msgstr ""
+msgstr "Hoffentlich bringt mich das zum Zauberer"
 
 #: data/scripts/swamp_intro_2.dat:3
 msgid "Phew, I'm glad to be out of there"
-msgstr ""
+msgstr "Puh, bin ich froh das ich hier raus bin"
 
 #: data/scripts/swamp_intro_2.dat:5
 msgid "Now to get through this swamp"
-msgstr ""
+msgstr "Jetzt geht es darum durch den Sumpf zu gelangen"
 
 #: data/scripts/swamp_intro_2.dat:6
 msgid "Negotiate the Swamp"
-msgstr ""
+msgstr "Überwinde den Sumpf"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
-msgstr ""
+msgstr "Es gibt hier eine Plage"
 
 #: data/scripts/statues.dat:2
 msgid "Place the 4 statues in the correct order"
-msgstr ""
+msgstr "Ordne die 4 Statuen in der richtigen Reihenfolge an"
 
 #: data/scripts/flying_maggot_die_2.dat:8
 msgid "Strange creature..."
-msgstr ""
+msgstr "Eine seltsame Kreatur...."
 
 #: data/scripts/soul_merger.dat:2
 msgid "Ha ha ha!!!!"
@@ -2789,15 +3023,15 @@ msgstr ""
 
 #: data/scripts/soul_merger.dat:3
 msgid "Soon we will be one again..."
-msgstr ""
+msgstr "Bald werden wir wieder vereint sein"
 
 #: data/scripts/soul_merger.dat:29
 msgid "Wait, something's wrong..."
-msgstr ""
+msgstr "Moment, etwas stimmt nicht..."
 
 #: data/scripts/soul_merger.dat:30
 msgid "OH NO! THIS IS THE WRONG MACHINE!!"
-msgstr ""
+msgstr "OH NEIN! DAS IST DIE FALSCHE MASCHINE!!"
 
 #: data/scripts/soul_merger.dat:40
 msgid "ARGHHHHHH!!!!"
@@ -2805,233 +3039,268 @@ msgstr ""
 
 #: data/scripts/soul_merger.dat:53
 msgid "Phew, I feel whole again"
-msgstr ""
+msgstr "Puh, ich fühle mich wieder ganz"
 
 #: data/scripts/soul_merger.dat:54
 msgid "And there's my Fire Shield!"
-msgstr ""
+msgstr "...und hier ist mein Feuerschild!"
 
 #: data/scripts/soul_merger.dat:56
 msgid "Hopefully this will get me past all those fireballs..."
-msgstr ""
+msgstr "Hoffentlich komme ich damit an den Feuerbällen vorbei...."
 
 #: data/scripts/soul_merger.dat:57
 msgid "Confront the Sorceror"
-msgstr ""
+msgstr "Konfrontiere den Zauberer"
 
 #: data/scripts/armour_boss_start.dat:13
 msgid "I should be safe up here, but I need to get rid of it"
 msgstr ""
+"Ich denke ich bin hier oben in Sicherheit aber ich muss ihn loswerden"
 
 #: data/scripts/instruction_machine.dat:1
 msgid ""
 "This machine has a slot the same size as the cards. I guess I can use it to "
 "create new instructions."
 msgstr ""
+"Die Maschine hat einen Eingabeschlitz in der größe der Eingabekarten. Ich "
+"kann es dazu benutzen neue Programme zu erstellen."
 
 #: data/scripts/instruction_machine.dat:2
 msgid "To create a new set of instructions you need to insert a blank card"
 msgstr ""
+"Um eine neue Eingabe zu erstellen musst du eine leere Karte einstecken"
 
 #: data/scripts/instruction_machine.dat:3
 msgid ""
 "You will then be prompted to input the directions for the robot to follow. "
 "This is done in the same way as the sequence doors"
 msgstr ""
+"Du wirst dann dazu Aufgerufen die Richtungen denen der Roboter folgen soll "
+"einzugeben. Dies wird genau so gemacht wie die Eingabe an den Stockwerkstüren"
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
-msgstr ""
+msgstr "Wenn du fertig bist, drücke Angriff"
 
 #: data/scripts/instruction_machine.dat:5
 msgid "The robot will then follow the instructions on the card"
-msgstr ""
+msgstr "Der Roboter wird danach den Eingaben auf der Karte folgen"
 
 #: data/scripts/instruction_machine.dat:6
 msgid "If the directions aren't correct you can try again"
 msgstr ""
+"Wenn die Richtungsangaben falsch sind kannst du es noch einmal versuchen"
 
 #: data/scripts/glass_wall.dat:1
 msgid ""
 "That glass looks too thick for me to crack, I'll have to find some other way "
 "of shattering it..."
 msgstr ""
+"Das Glass ist zu stark um es einzuschlagen. Ich muss einen anderen Weg "
+"finden um es zu zerbrechen...."
 
 #: data/scripts/mine_secret.dat:1
 msgid ""
 "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
+"Borgan sagte dass dieser Teil der Mine nache einem \"Vorfall\" geschlossen "
+"wurde"
 
 #: data/scripts/mine_secret.dat:7
 msgid "There must be something around here..."
-msgstr ""
+msgstr "Es muss hier irgend etwas geben..."
 
 #: data/scripts/protection_ring.dat:3
 msgid "Wow, what a nice ring"
-msgstr ""
+msgstr "Was für ein schöner Ring"
 
 #: data/scripts/protection_ring.dat:5
 msgid ""
 "Hang on a second, Maggie told me to always ask if someone had lost something "
 "before taking it..."
 msgstr ""
+"Einen Augenblick, Maggie hat mir immer gesagt das ich nachfragen soll bevor "
+"ich ein Fundstück an mich nehme....."
 
 #: data/scripts/protection_ring.dat:8
 msgid "ANYONE LOST A RING?!"
-msgstr ""
+msgstr "HAT JEMAND EINEN RING VERLOREN?!"
 
 #: data/scripts/protection_ring.dat:10
 msgid "No one? Guess it's mine then!"
-msgstr ""
+msgstr "Keiner? Ich denke dann gehört er mir!"
 
 #: data/scripts/instruction_card.dat:1
 msgid ""
 "You must have the instruction card you wish to use highlighted in your "
 "inventory box"
 msgstr ""
+"Die Eingabekarte die du benutzen willst muss in deinem Inventarfeld "
+"ausgewählt sein"
 
 #: data/scripts/boulder_boss_2_die.dat:3
 msgid "Good riddance..."
-msgstr ""
+msgstr "Ein erfreulicher Verlust..."
 
 #: data/scripts/crossbow.dat:5
 msgid "OK, let's see if this works..."
-msgstr ""
+msgstr "Gut, nun sehen wir ob es funktioniert...."
 
 #: data/scripts/crossbow.dat:17
 msgid ""
 "I'll have no problem walking over this rope either, thanks to my tightrope "
 "walking skills"
 msgstr ""
+"Dank meiner Balancierkünste habe ich kein Problem damit auf dem Seil zu "
+"laufen"
 
 #: data/scripts/crossbow.dat:18
 msgid "And Dad said it'd never come in handy!"
-msgstr ""
+msgstr "...und Papa hat immer gesagt dass niemals etwas nützen wird!"
 
 #: data/scripts/crossbow.dat:21
 msgid "I need a length of rope to attach to the bolt"
-msgstr ""
+msgstr "Ich brauche ein Seil das ich am Bolzen anbringen kann"
 
 #: data/scripts/crossbow.dat:25
 msgid "It's a giant crossbow"
-msgstr ""
+msgstr "Eine Balliste!"
 
 #: data/scripts/crossbow.dat:29
 msgid "I could probably use it to create a bridge over those spikes"
 msgstr ""
+"Wahrscheinlich kann ich es dazu benutzen um eine Brücke über die Speere zu "
+"bauen."
 
 #: data/scripts/crossbow.dat:34
 msgid "I'll need some rope first though"
-msgstr ""
+msgstr "Aber zuerst muss ich ein Seil finden"
 
 #: data/scripts/fortress_mine_lift.dat:1
 msgid "There's a sign here"
-msgstr ""
+msgstr "Hier steht ein Schild"
 
 #: data/scripts/fortress_mine_lift.dat:2
 msgid "If the lift is out of order then it must be reset"
-msgstr ""
+msgstr "Wenn der Aufzug nicht funktioniert, muss er zurückgesetzt werden"
 
 #: data/scripts/fortress_mine_lift.dat:3
 msgid "There are 4 reset switches along the lift shaft which must be reset"
 msgstr ""
+"Es gibt vier  verschiedene Schalter am Verlauf des Schachtes die umgelegt "
+"werden müssen"
 
 #: data/scripts/fortress_mine_lift.dat:4
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
 msgstr ""
+"Um einen langen Heimweg zu vermeiden vergewissere dich dass der Aufzug "
+"funktioniert"
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr ""
+msgstr "Ich denke ich fühle hier etwas. Hier ist ein Durchzug....."
 
 #: data/scripts/tutorial_finish.dat:2
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
 msgstr ""
+"Herzlichen Glückwunsch! Nachdem du es nun geschafft hast die Grundlagen des "
+"Spieles zu meistern wäre es angebracht mit dem Hauptspiel zu beginnen."
 
 #: data/scripts/tutorial_finish.dat:3
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
 msgstr ""
+"Wenn du diese Übung wiederholen möchtest drücke ESC und wähle Anleitung vom "
+"Hauptmenü"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
+"Um zum eigentlichen Spiel zu gelangen drücke ESC und wähle Neues Spiel vom "
+"Hauptmenü"
 
 #: data/scripts/grappling_hook.dat:5
 msgid "There, the rope's firmly attached"
-msgstr ""
+msgstr "Nun ist das Seil fest verankert"
 
 #: data/scripts/grappling_hook.dat:9
 msgid "I need to find some rope before I can fire it"
-msgstr ""
+msgstr "Ich muss zuerst ein Seil finden bevor ich den Bolzen abschieße"
 
 #: data/scripts/grappling_hook.dat:13
 msgid "It's a Grappling Hook"
-msgstr ""
+msgstr "Es ist ein Enterhaken"
 
 #: data/scripts/grappling_hook.dat:14
 msgid ""
 "I could probably use it to form a bridge to the other side, but there's no "
 "rope"
 msgstr ""
+"Wahrscheinlich kann ich ihn dazu benutzen um eine Brücke zur anderen Seite "
+"zu schlagen aber ich habe kein Seil dazu."
 
 #: data/scripts/apple_tree.dat:1
 msgid "It's an apple tree"
-msgstr ""
+msgstr "Es ist ein Apfelbaum"
 
 #: data/scripts/apple_tree.dat:2
 msgid "Shame it's not a banana tree, I don't like apples"
-msgstr ""
+msgstr "Schade das es kein Bananenstrauch ist. Ich mag keine Äpfel"
 
 #: data/scripts/apple_tree.dat:4
 msgid "There aren't any apples left"
-msgstr ""
+msgstr "Es sind keine Äpfel mehr übrig"
 
 #: data/scripts/apple_tree.dat:7
 msgid "It looks like there are some apples in it..."
-msgstr ""
+msgstr "Es scheint als ob er Äpfel trägt..."
 
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
 msgstr ""
+"Das Schloss öffnet sich nicht. Wahrscheinlich habe ich die Kombination "
+"falsch eingegeben."
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
-msgstr ""
+msgstr "Eine unmenge von Büchern"
 
 #: data/scripts/occult_book.dat:3
 msgid "Nothing of interest here though"
-msgstr ""
+msgstr "Trotz allem, nichts interessantes"
 
 #: data/scripts/occult_book.dat:6
 msgid ""
 "I need the shell of a Rampaging Master Tortoise, the staff from a Dark "
 "Summoner"
 msgstr ""
+"Ich brauche ein Stück vom Panzer einer wilden Meisterschildkröte, den Stab "
+"eines dunklen Beschwörers......"
 
 #: data/scripts/occult_book.dat:7
 msgid "The keepsake of a warrior who has previously defeated the dragon"
-msgstr ""
+msgstr "Das Andenken eines Kriegers der den Drachen besiegt hat...."
 
 #: data/scripts/occult_book.dat:8
 msgid "The soul of a wandering spirit"
-msgstr ""
+msgstr "Die Seele eines unruhigen Geistes...."
 
 #: data/scripts/occult_book.dat:9
 msgid "And a spare shield"
-msgstr ""
+msgstr "....und einen Ersatzschild."
 
 #: data/scripts/occult_book.dat:10
 msgid ""
 "Once I have all of those items I need to place them in the cauldron..."
-msgstr ""
+msgstr "Wenn ich all dies habe muß ich diese in den Kessel werfen...."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
-msgstr ""
+msgstr "Das ist ein Buch über okkulteZauberei"
 
 #: data/scripts/occult_book.dat:14
 msgid "Hmm..."
@@ -3039,19 +3308,21 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:15
 msgid "This is interesting:"
-msgstr ""
+msgstr "Das ist interessant:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Ein Stück vom Panzer einer Meisterschildkröte"
 
 #: data/scripts/occult_book.dat:20
 msgid "The staff of a Dark Summoner"
-msgstr ""
+msgstr "Den Stab eines dunklen Beschwörers"
 
 #: data/scripts/occult_book.dat:23
 msgid "If the dragon has been defeated in the past then one must also gather"
 msgstr ""
+"Sollte der Drache in der Verganenheit bzwungen worden sein muß zusätzlich "
+"folgendes beschafft werden..."
 
 #: data/scripts/occult_book.dat:24
 msgid "The keepsake from a warrior that previously defeated it"
@@ -3062,48 +3333,59 @@ msgid ""
 "Once the ingredients have been gathered, they must be placed in the "
 "cauldron..."
 msgstr ""
+"Sind alle Zutaten beschafft müssen diese in den Kessel geworfen werden...."
 
 #: data/scripts/occult_book.dat:26
 msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
-msgstr ""
+msgstr "Oh nein, nicht schon wieder der dämliche Kessel!"
 
 #: data/scripts/occult_book.dat:35
 msgid "I've got the staff, but where do I find the shell or the keepsake?"
 msgstr ""
+"Ich habe den Stab, aber wo finde ich den Schildkrötenpanzer oder das "
+"Andenken?"
 
 #: data/scripts/occult_book.dat:38
 msgid "I've got the shell, but where do I find the staff or the keepsake?"
 msgstr ""
+"Ich habe den Schildkrötenpanzer aber wo finde ich den Stab oder das Andenken "
+"des Kriegers?"
 
 #: data/scripts/occult_book.dat:41
 msgid "I've got the shell and the staff, but where do I find the keepsake?"
 msgstr ""
+"Ich habe den Schildkrötenpanzer und den Stab aber wo finde ich das Andenken "
+"des Kriegers?"
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
 msgstr ""
+"Das sind eine menge Zutaten von denen ich keine Ahnung habe wo Sie zu finden "
+"sind....."
 
 #: data/scripts/anti_gravity.dat:1
 msgid "Hmm, this is new."
-msgstr ""
+msgstr "Hmmm. das ist etwas neues."
 
 #: data/scripts/anti_gravity.dat:2
 msgid ""
 "It doesn't look like it can hurt me though, but there's only one way to find "
 "out..."
 msgstr ""
+"Es sieht nicht so aus als ob es mich verletzen könnte aber es gibt nur einen "
+"Weg das wirklich herauszufinden...."
 
 #: data/scripts/creepers.dat:2
 msgid "Those creepers look different to the others"
-msgstr ""
+msgstr "Diese Schlingpflanzen sehen anders aus als die anderen"
 
 #: data/scripts/creepers.dat:3
 msgid "They also look very dangerous..."
-msgstr ""
+msgstr "Sie sehen auch sehr gefählich aus...."
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
-msgstr ""
+msgstr "Das war einfach und ich kann später immer wieder zurück!"
 
 #: data/scripts/raft_end.dat:9
 msgid "Oh...."
@@ -6548,31 +6830,31 @@ msgstr ""
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
-msgstr ""
+msgstr "Das muß Ivans Schwert sein"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Du...Du wirst mich niemals besiegen"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Ich werde diesem jämerlichen Ort entfliehen"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Auch wenn es mich noch einmal hundert Jahre kosten sollte"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Diese Ketten werden mich nicht für ewig halten"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "Es ist Zeit dies zu beenden. Bereite dich vor..."
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Nein! SEI VERBANNT!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
@@ -6592,99 +6874,100 @@ msgstr ""
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "Am nächsten Morgen ..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Papa, wo bist du?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
 msgstr ""
+"Es sieht nich so aus als ob Vater gestern Nacht nach Hause gekommen ist"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "Sein Bett ist unberührt und mein Frühstück noch nicht zubereitet"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "Das kann nur eins bedeuten...."
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "Der böse Zauberer wird Ihn entführt haben."
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Etwas sehr mächtiges war hier"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
-msgstr ""
+msgstr "Ich fühle immer noch die Magische Ladung die es abgegeben hat"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr ""
+msgstr "Was auch immer es war, es ist schon lange fort"
 
 #: data/props/boss/mataeus_knife.props:6
 msgid "A magical knife conjured by Mataeus"
-msgstr ""
+msgstr "Ein von Mataeus herbeigezaubertes magisches Messer"
 
 #: data/scripts/mataeus_boss_die.dat:1
 msgid "Magical Knife"
-msgstr ""
+msgstr "Zaubermesser"
 
 #: data/maps/map11.dat:5217
 msgid "Third Floor Passage Key"
-msgstr ""
+msgstr "Schlüssel für den Gang im dritten Stock"
 
 #: data/maps/map11.dat:7267
 msgid "Third Floor Keycard"
-msgstr ""
+msgstr "Schlüsselkarte für den dritten Stock"
 
 #: data/maps/map11.dat:9292
 msgid "Fourth Floor Keycard"
-msgstr ""
+msgstr "Schlüsselkarte für den vierten Stock"
 
 #: data/maps/map11.dat:6368
 msgid "Anti-Gravity Switch Key 1"
-msgstr ""
+msgstr "Anti Gravitationsschlüssel No.1"
 
 #: data/maps/map11.dat:6267
 msgid "Anti-Gravity Switch Key 2"
-msgstr ""
+msgstr "Anti Gravitationsschlüssel No.2"
 
 #: data/scripts/cauldron.dat:147
 msgid "Old Shield"
-msgstr ""
+msgstr "Alter Schild"
 
 #: data/maps/map15.dat:2567
 msgid "Old Key"
-msgstr ""
+msgstr "Rostiger Schlüssel"
 
 #: data/maps/map09.dat:7793
 msgid "Lava Lift Key"
-msgstr ""
+msgstr "Lava Aufzugschlüssel"
 
 #: data/maps/map09.dat:5468
 msgid "Lift Key"
-msgstr ""
+msgstr "Aufzugschlüssel"
 
 #: data/maps/map09.dat:8967
 msgid "Study Lift Key"
-msgstr ""
+msgstr "Studierzimmer Aufzugschlüssel"
 
 #: data/maps/map17.dat:2942
 msgid "Conveyor Belt Key"
-msgstr ""
+msgstr "Förderband Schlüssel"
 
 #: data/maps/map11.dat:6817
 msgid "Instruction Room Key"
-msgstr ""
+msgstr "Programmierraum Schlüssel"
 
 #: data/scripts/cauldron.dat:7
 msgid "Full Soul Bottle"
-msgstr ""
+msgstr "volle Geisterflasche"
 
 #: data/maps/map10.dat:3167
 msgid "Potion of Invisibility"
@@ -6708,8 +6991,12 @@ msgstr "Apfel"
 
 #: src/boss/evil_edgar.c:703
 msgid "Dud Exploding Gazer Eyeball"
-msgstr ""
+msgstr "Fehlzündender Kucheraugen Sprengsatz"
 
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
 msgstr "Feuerschild"
+
+#: data/scripts/intro_part1.dat:12
+msgid "Edgar's_Father"
+msgstr ""

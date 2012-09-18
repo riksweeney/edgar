@@ -1,4 +1,4 @@
-VERSION = 1.03
+VERSION = 1.04
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -10,7 +10,7 @@ PROG      = edgar
 ED_PROG   = mapeditor
 PAK_PROG  = pak
 
-CC       = ppc-amigaos-gcc
+CC        = ppc-amigaos-gcc
 
 LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))

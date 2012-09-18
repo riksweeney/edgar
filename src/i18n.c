@@ -121,19 +121,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	read = fread(&header, sizeof(header), 1, fp);
 	
-	swap = FALSE;
-	
-	#if SDL_BYTEORDER == SDL_LIL_ENDIAN
-	if (header.magicNumber == 0xde120495)
-	{
-		swap = TRUE;
-	}
-	#else
-	if (header.magicNumber == 0x950412de)
-	{
-		swap = TRUE;
-	}
-	#endif
+	swap = header.magicNumber == 0x950412de ? FALSE : TRUE;
 	
 	if (swap == TRUE)
 	{

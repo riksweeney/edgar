@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-03 11:59+0000\n"
+"PO-Revision-Date: 2012-08-05 09:54+0000\n"
 "Last-Translator: Munehiro Yamamoto <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-20 15:44+0000\n"
-"X-Generator: Launchpad (build 15259)\n"
+"X-Launchpad-Export-Date: 2012-09-12 21:24+0000\n"
+"X-Generator: Launchpad (build 15936)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -338,7 +338,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
@@ -4523,7 +4523,7 @@ msgstr "ゲームを終了しますか？"
 
 #: data/scripts/olaf.dat:11
 msgid "Back"
-msgstr ""
+msgstr "戻る"
 
 #: src/menu/io_menu.c:260
 msgid "Game Loaded"
@@ -4535,7 +4535,7 @@ msgstr "ゲームを保存しました"
 
 #: src/menu/yes_no_menu.c:117
 msgid "Any unsaved progress will be lost"
-msgstr ""
+msgstr "保存していない場合は、進行中の状態が消えてしまいます。"
 
 #: src/input.c:904
 msgid "Joy Button #%d"
@@ -4703,43 +4703,43 @@ msgstr ""
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "New Game"
-msgstr ""
+msgstr "新しいゲームを開始"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Tutorial"
-msgstr ""
+msgstr "チュートリアル"
 
 #: src/menu/main_menu.c:176
 msgid "Load Game"
-msgstr ""
+msgstr "保存したゲームを再開"
 
 #: data/scripts/tutorial_keys.dat:1
 msgid "Options"
-msgstr ""
+msgstr "オプション"
 
 #: src/menu/main_menu.c:52
 msgid "About"
-msgstr ""
+msgstr "edgarについて"
 
 #: src/tile_creator.c:265
 msgid "Quit"
-msgstr ""
+msgstr "ゲームを終了"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Configure Controls"
-msgstr ""
+msgstr "操作設定..."
 
 #: src/menu/options_menu.c:191
 msgid "Configure Sound"
-msgstr ""
+msgstr "サウンド設定..."
 
 #: src/menu/options_menu.c:49
 msgid "Fullscreen"
-msgstr ""
+msgstr "全画面表示する"
 
 #: src/menu/options_menu.c:197
 msgid "Show Hints"
-msgstr ""
+msgstr "ヒントを表示する"
 
 #: data/props/item/slime_potion.props:6
 msgid "A potion which will transform you..."
@@ -4887,31 +4887,31 @@ msgstr ""
 
 #: data/scripts/monsters.dat:82
 msgid "Up"
-msgstr ""
+msgstr "上"
 
 #: data/scripts/tutorial_intro.dat:7
 msgid "Down"
-msgstr ""
+msgstr "下"
 
 #: src/entity.c:424
 msgid "Left"
-msgstr ""
+msgstr "左"
 
 #: data/scripts/hidden_passage.dat:9
 msgid "Right"
-msgstr ""
+msgstr "右"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid "Jump"
-msgstr ""
+msgstr "ジャンプ"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Attack"
-msgstr ""
+msgstr "攻撃"
 
 #: data/scripts/tutorial_items.dat:5
 msgid "Block"
-msgstr ""
+msgstr "防御"
 
 #: data/scripts/box_pushing.dat:1
 msgid "Action"
@@ -4919,15 +4919,15 @@ msgstr ""
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Use Item"
-msgstr ""
+msgstr "アイテムを使う"
 
 #: data/scripts/tutorial_items.dat:6
 msgid "Previous Item"
-msgstr ""
+msgstr "前のアイテム"
 
 #: data/scripts/tutorial_items.dat:6
 msgid "Next Item"
-msgstr ""
+msgstr "次のアイテム"
 
 #: src/credits.c:829
 msgid "Inventory"
@@ -4935,7 +4935,7 @@ msgstr ""
 
 #: src/audio/audio.c:316
 msgid "Pause"
-msgstr ""
+msgstr "一時停止"
 
 #: src/menu/control_menu.c:225
 msgid "Dead Zone"
@@ -4943,15 +4943,15 @@ msgstr ""
 
 #: src/structs.h:156
 msgid "Sound"
-msgstr ""
+msgstr "サウンド"
 
 #: src/menu/sound_menu.c:151
 msgid "SFX Volume"
-msgstr ""
+msgstr "SFXボリューム"
 
 #: src/menu/sound_menu.c:159
 msgid "Music Volume"
-msgstr ""
+msgstr "音量"
 
 #: data/scripts/purifier.dat:2
 msgid "Ice Spray"
@@ -5315,15 +5315,15 @@ msgstr ""
 
 #: src/credits.c:861
 msgid "Statistics"
-msgstr ""
+msgstr "統計"
 
 #: src/menu/stats_menu.c:94
 msgid "Play Time: %s"
-msgstr ""
+msgstr "プレイ時間: %s"
 
 #: src/menu/stats_menu.c:100
 msgid "Kills: %d"
-msgstr ""
+msgstr "死亡回数: %d"
 
 #: src/menu/stats_menu.c:108
 msgid "Bats Drowned: %d"
@@ -6163,11 +6163,11 @@ msgstr ""
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - 2012"
-msgstr ""
+msgstr "Copyright Parallel Realities 2009 - 2012"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
-msgstr ""
+msgstr "チェックポイントを再開"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
@@ -6175,7 +6175,7 @@ msgstr ""
 
 #: src/title.c:79
 msgid "Press any key"
-msgstr ""
+msgstr "何かキーを押してください"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
@@ -6187,11 +6187,11 @@ msgstr ""
 
 #: src/init.c:128
 msgid "Medals"
-msgstr ""
+msgstr "獲得したメダル"
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
-msgstr ""
+msgstr "サンプリング周波数"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
@@ -6211,7 +6211,7 @@ msgstr ""
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
-msgstr ""
+msgstr "上下キーを使って選択してください。変更するにはEnterキーを押します。"
 
 #: src/menu/control_menu.c:189
 msgid "Interact"
@@ -6557,4 +6557,8 @@ msgstr ""
 
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:12
+msgid "Edgar's_Father"
 msgstr ""
