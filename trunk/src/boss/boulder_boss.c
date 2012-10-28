@@ -200,6 +200,8 @@ static void chasePlayer()
 		self->health = 1;
 
 		addDust();
+		
+		stopSound(BOSS_CHANNEL);
 	}
 }
 

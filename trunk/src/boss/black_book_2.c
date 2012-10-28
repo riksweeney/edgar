@@ -1783,10 +1783,7 @@ static void gargoyleTakeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
+			enemyPain();
 
 			/* Don't die if you've still got lances to wield */
 

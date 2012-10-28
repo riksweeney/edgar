@@ -35,14 +35,14 @@ int main(int argc, char *argv[])
 	SDL_Rect src, dest;
 	unsigned char r, g, b;
 	int *pixels, xx, yy, pixel;
-	int color;
+	int colour;
 
 	i = 0;
-	
+
 	if (argc != 3)
 	{
 		printf("Usage: %s <PNG File> <Start_Index>\n", argv[0]);
-		
+
 		exit(0);
 	}
 
@@ -54,32 +54,32 @@ int main(int argc, char *argv[])
 
 		exit(1);
 	}
-	
+
 	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
 
 	image = loadImage(argv[1]);
-	
+
 	i = atoi(argv[2]);
-	
+
 	startIndex = i;
 
 	temp = SDL_CreateRGBSurface(SDL_HWSURFACE, TILE_SIZE, TILE_SIZE, image->format->BitsPerPixel, image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
 
 	newSurface = SDL_DisplayFormat(temp);
 
-	color = SDL_MapRGB(image->format, TRANS_R, TRANS_G, TRANS_B);
+	colour = SDL_MapRGB(image->format, TRANS_R, TRANS_G, TRANS_B);
 
 	for (y=0;y<image->h;y+=TILE_SIZE)
 	{
 		for (x=0;x<image->w;x+=TILE_SIZE)
 		{
-			SDL_FillRect(newSurface, NULL, color);
+			SDL_FillRect(newSurface, NULL, colour);
 
 			src.x = x;
 			src.y = y;
 			src.w = image->w - x >= TILE_SIZE ? TILE_SIZE : image->w - x;
 			src.h = image->h - y >= TILE_SIZE ? TILE_SIZE : image->h - y;
-			
+
 			dest.x = 0;
 			dest.y = 0;
 			dest.w = src.w;
@@ -168,19 +168,19 @@ static int isDuplicate(SDL_Surface *surface, int startIndex, int currentIndex)
 	char name[10];
 	int i, x, y, duplicate;
 	SDL_Surface *temp;
-	
+
 	duplicate = FALSE;
-	
+
 	for (i=startIndex;i<currentIndex;i++)
 	{
 		sprintf(name, "%d.png", i);
-		
+
 		printf("Checking if %d.png is a duplicate of %d.png\n", currentIndex, startIndex);
-		
+
 		temp = loadImage(name);
-		
+
 		duplicate = TRUE;
-		
+
 		for (y=0;y<temp->h;y++)
 		{
 			for (x=0;x<temp->w;x++)
@@ -191,20 +191,20 @@ static int isDuplicate(SDL_Surface *surface, int startIndex, int currentIndex)
 				}
 			}
 		}
-		
+
 		SDL_FreeSurface(temp);
-		
+
 		if (duplicate == TRUE)
 		{
 			break;
 		}
 	}
-	
+
 	if (duplicate == TRUE)
 	{
 		printf("Image is a duplicate\n");
 	}
-	
+
 	return duplicate;
 }
 
