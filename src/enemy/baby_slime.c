@@ -254,6 +254,11 @@ static void stickToTargetAndDrain()
 
 		self->mental = 0;
 	}
+	
+	else if (self->target->maxThinkTime == 99)
+	{
+		self->mental = 0;
+	}
 
 	self->x = self->target->x + (self->target->w - self->w) / 2 + self->startX;
 	self->y = self->target->y + self->startY;

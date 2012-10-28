@@ -64,6 +64,8 @@ Entity *addExtendOGrabButton(int x, int y, char *name)
 static void init()
 {
 	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
+	
+	self->dirY = 0;
 
 	self->action = &entityWait;
 }
@@ -94,6 +96,8 @@ static void entityWait()
 			stopSound(self->endX);
 		}
 	}
+	
+	checkToMap(self);
 }
 
 static void touch(Entity *other)

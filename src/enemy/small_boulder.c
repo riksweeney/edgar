@@ -167,6 +167,8 @@ static void dieInLava()
 
 	if (self->flags & ON_GROUND)
 	{
+		stopSound(self->targetX);
+		
 		self->inUse = FALSE;
 	}
 }

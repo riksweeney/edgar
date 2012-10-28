@@ -292,7 +292,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	entityTakeDamageNoFlinch(other, damage);
 
-	if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && self->dirX != 0)
+	if ((prand() % 2 == 0) && self->face == other->face && self->health > 0 && self->dirX != 0 && self->speed == self->originalSpeed)
 	{
 		self->dirX = 0;
 
@@ -536,6 +536,8 @@ static void riftDestroyWait()
 
 	if (self->mental <= 0)
 	{
+		stopSound(self->health);
+		
 		self->thinkTime = 20;
 
 		self->action = &riftClose;

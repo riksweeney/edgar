@@ -1,6 +1,12 @@
 CHANGE LOG
 ----------
 
+Version 1.05
+* Updated Italian, Russian and Ukrainian translations
+* Added a call switch to a lift in the Sewer
+* Added a reset switch for the crate behind the bombable wall in the Basement
+* Other minor bug fixes
+
 Version 1.04
 * Updated French, German, Japanese and Russian translations
 * Added a reset switch for the first mirror in the Armoury
@@ -10,7 +16,7 @@ Version 1.04
 Version 1.03
 * Updated French, German, Greek, Italian, Spanish and Russian translations
 * Added Malaysian and Portuguese translations
-* Completing the bell puzzle in the Crypt without the music sheet activate no longer causes a crash
+* Completing the bell puzzle in the Crypt without the music sheet activated no longer causes a crash
 * Fixed a crash after collecting the Disintegration Shield
 
 Version 1.02

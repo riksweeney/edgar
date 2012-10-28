@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../collisions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
@@ -66,6 +67,8 @@ static void entityWait()
 {
 	if (self->active == TRUE)
 	{
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
+		
 		self->action = &sink;
 	}
 
@@ -78,6 +81,8 @@ static void sink()
 
 	if (self->y >= self->endY)
 	{
+		stopSound(self->health);
+		
 		self->inUse = FALSE;
 	}
 

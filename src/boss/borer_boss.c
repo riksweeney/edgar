@@ -508,6 +508,8 @@ static void rockMove()
 
 	if (self->dirX == 0)
 	{
+		playSoundToMap("sound/common/rock_bounce.ogg", -1, self->x, self->y, 0);
+		
 		e = addSmallRock(self->x, self->y, "common/small_rock");
 
 		e->x += (self->w - e->w) / 2;
@@ -550,9 +552,9 @@ static void boulderMove()
 			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
-
-			stopSound(self->targetX);
 		}
+		
+		playSoundToMap("sound/common/rock_shatter.ogg", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
 	}

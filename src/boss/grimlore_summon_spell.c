@@ -262,7 +262,7 @@ static void disappearDone()
 		self = temp;
 	}
 	
-	stopSound(self->targetX);
+	stopSound(BOSS_CHANNEL);
 	
 	self->inUse = FALSE;
 }
