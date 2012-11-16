@@ -154,7 +154,7 @@ static void introWait()
 
 		addSwordSwing();
 
-		playBossMusic("music/battle_for_life.xm");
+		playBossMusic("EVIL_EDGAR_MUSIC");
 
 		initBossHealthBar();
 

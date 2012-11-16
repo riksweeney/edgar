@@ -122,6 +122,11 @@ Mix_Chunk *loadSoundFromPak(char *name)
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	Mix_Chunk *chunk;
+	
+	if (existsInPak(name) == FALSE)
+	{
+		return NULL;
+	}
 
 	buffer = uncompressFileRW(name, &size);
 
@@ -160,6 +165,11 @@ unsigned char *loadFileFromPak(char *name)
 Mix_Music *loadMusicFromPak(char *name)
 {
 	Mix_Music *music;
+	
+	if (existsInPak(name) == FALSE)
+	{
+		return NULL;
+	}
 
 	#if DEV == 1
 		FILE *fp;

@@ -1,5 +1,5 @@
 MAP_NAME Laboratory
-MUSIC music/technology.xm
+MUSIC MAP10_MUSIC
 TILESET laboratory
 AMBIENCE laboratory
 BACKGROUND_SPEED 1.0

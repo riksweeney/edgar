@@ -1,5 +1,5 @@
 MAP_NAME Graveyard
-MUSIC music/horror.it
+MUSIC MAP21_MUSIC
 TILESET graveyard
 AMBIENCE caves
 BACKGROUND_SPEED 0.3

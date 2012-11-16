@@ -1,5 +1,5 @@
 MAP_NAME Village
-MUSIC music/jk_village.xm
+MUSIC MAP01_MUSIC
 TILESET grasslands
 AMBIENCE grasslands
 BACKGROUND_SPEED 0.3

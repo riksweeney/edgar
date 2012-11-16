@@ -1,5 +1,5 @@
 MAP_NAME Fortress Ground Floor
-MUSIC music/battle_of_the_fireflies.s3m
+MUSIC MAP09_MUSIC
 TILESET castle
 AMBIENCE castle
 BACKGROUND_SPEED 0.3

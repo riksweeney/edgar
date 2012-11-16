@@ -1,5 +1,5 @@
 MAP_NAME Fortress Basement
-MUSIC music/aow-macabre.xm
+MUSIC MAP08_MUSIC
 TILESET basement
 AMBIENCE basement
 BACKGROUND_SPEED 0.3

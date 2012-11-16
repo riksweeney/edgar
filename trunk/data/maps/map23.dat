@@ -1,5 +1,5 @@
 MAP_NAME Right Tower
-MUSIC music/battle_cry.mod
+MUSIC MAP23_MUSIC
 TILESET armoury
 AMBIENCE grasslands
 BACKGROUND_SPEED 1.0

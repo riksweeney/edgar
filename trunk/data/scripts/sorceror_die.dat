@@ -20,7 +20,7 @@ TALK Sorceror I don't know where your father is...
 TALK Sorceror ...
 KILL SORCEROR
 WAIT 180
-MUSIC LOAD music/oxide_-_sadness.xm
+MUSIC LOAD GAMEOVER_MUSIC
 SET EDGAR ANIMATION SAD
 TALK Edgar But if you didn't take my Dad
 TALK Edgar Where is he?

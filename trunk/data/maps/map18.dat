@@ -1,5 +1,5 @@
 MAP_NAME Frozen Wastes
-MUSIC music/fb-snow.it
+MUSIC MAP18_MUSIC
 TILESET snow
 AMBIENCE snow
 BACKGROUND_SPEED 0.3
