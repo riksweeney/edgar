@@ -1,5 +1,5 @@
 MAP_NAME Inner Cave Network
-MUSIC music/bj_unkow.s3m
+MUSIC MAP20_MUSIC
 TILESET caves
 AMBIENCE caves
 BACKGROUND_SPEED 0.3

@@ -106,9 +106,7 @@ cp edgar.spec $APPDIR
 
 cd $APPDIR
 
-patch -p0 <dfsg_diff.patch
-
-rm -rf music sound
+rm -rf music/* sound/*
 
 for i in `find . -name *.orig | grep -v doc`;do
 	rm $i

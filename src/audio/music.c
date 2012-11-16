@@ -29,12 +29,54 @@ static void playGameOverMusic(void);
 
 static Mix_Music *music;
 static char musicName[MAX_VALUE_LENGTH];
+static char *getSongName(char *);
 
-void loadMusic(char *name)
+static char *musicTracks[] = {
+			"TITLE_MUSIC", "music/march13.it",
+			"MAP01_MUSIC", "music/jk_village.xm",
+			"MAP02_MUSIC", "music/cavesii.xm",
+			"MAP03_MUSIC", "music/countryside.mod",
+			"MAP04_MUSIC", "music/forbidden_zone.mod",
+			"MAP05_MUSIC", "music/caverns_of_time.xm",
+			"MAP06_MUSIC", "music/town4.xm",
+			"MAP07_MUSIC", "music/exploring_new_worlds.xm",
+			"MAP08_MUSIC", "music/aow-macabre.xm",
+			"MAP09_MUSIC", "music/battle_of_the_fireflies.s3m",
+			"MAP10_MUSIC", "music/technology.xm",
+			"MAP11_MUSIC", "music/bookofshadows.xm",
+			"MAP12_MUSIC", "music/cavesii.xm",
+			"MAP13_MUSIC", "music/mystery.it",
+			"MAP14_MUSIC", "NO_MUSIC",
+			"MAP15_MUSIC", "music/cavern.it",
+			"MAP16_MUSIC", "music/climax.it",
+			"MAP17_MUSIC", "music/trapped.xm",
+			"MAP18_MUSIC", "music/fb-snow.it",
+			"MAP19_MUSIC", "music/book_of_desire_2.xm",
+			"MAP20_MUSIC", "music/bj_unkow.s3m",
+			"MAP21_MUSIC", "music/horror.it",
+			"MAP22_MUSIC", "music/mystery.xm",
+			"MAP23_MUSIC", "music/battle_cry.mod",
+			"MAP24_MUSIC", "music/climax.it",
+			"MAP25_MUSIC", "music/crypt.xm",
+			"MAP26_MUSIC", "music/szc2_-_fight_for_your_lives.xm",
+			"MAP25_MUSIC", "music/crypt",
+			"TUTORIAL_MUSIC", "music/jk_village.xm",
+			"CREDITS_MUSIC", "music/credits.mod",
+			"GAMEOVER_MUSIC", "music/oxide_-_sadness.xm",
+			"BOSS_MUSIC", "music/terrortech_inc_.xm",
+			"EVIL_EDGAR_MUSIC", "music/battle_for_life.xm",
+			"SORCEROR_MUSIC", "music/dgt_enemy.it",
+			"HAPPY_MUSIC", "music/GSLINGER.MOD"
+};
+static int musicTracksLength = sizeof(musicTracks) / sizeof(char *);
+
+void loadMusic(char *musicToLoad)
 {
-	if (strcmpignorecase(musicName, name) != 0)
+	char *name;
+	
+	if (strcmpignorecase(musicName, musicToLoad) != 0)
 	{
-		STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+		STRNCPY(musicName, musicToLoad, MAX_VALUE_LENGTH);
 	}
 
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
@@ -43,8 +85,10 @@ void loadMusic(char *name)
 	}
 
 	freeMusic();
+	
+	name = getSongName(musicToLoad);
 
-	if (strcmpignorecase(name, "NO_MUSIC") == 0)
+	if (name == NULL || strcmpignorecase(name, "NO_MUSIC") == 0)
 	{
 		return;
 	}
@@ -134,12 +178,12 @@ void updateMusicVolume()
 
 void playDefaultBossMusic()
 {
-	loadMusic("music/terrortech_inc_.xm");
+	loadMusic("BOSS_MUSIC");
 
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
 	{
-		printf("%f music/terrortech_inc_.xm\n", (float)game.frames / 60);
+		printf("%f BOSS_MUSIC\n", (float)game.frames / 60);
 	}
 	#endif
 
@@ -187,7 +231,7 @@ void loadGameOverMusic()
 
 static void playGameOverMusic()
 {
-	STRNCPY(musicName, "music/oxide_-_sadness.xm", MAX_VALUE_LENGTH);
+	STRNCPY(musicName, "GAMEOVER_MUSIC", MAX_VALUE_LENGTH);
 
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
@@ -196,9 +240,26 @@ static void playGameOverMusic()
 
 	Mix_HookMusicFinished(NULL);
 
-	loadMusic("music/oxide_-_sadness.xm");
+	loadMusic("GAMEOVER_MUSIC");
 
 	Mix_PlayMusic(music, -1);
 	
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+}
+
+static char *getSongName(char *name)
+{
+	int i;
+	
+	for (i=0;i<musicTracksLength;i+=2)
+	{
+		if (strcmpignorecase(name, musicTracks[i]) == 0)
+		{
+			return musicTracks[i + 1];
+		}
+	}
+	
+	printf("Could not match song: %s\n", name);
+	
+	return NULL;
 }

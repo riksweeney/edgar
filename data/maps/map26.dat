@@ -1,5 +1,5 @@
 MAP_NAME Dragon's Lair
-MUSIC music/szc2_-_fight_for_your_lives.xm
+MUSIC MAP26_MUSIC
 TILESET dungeon
 AMBIENCE outskirts
 BACKGROUND_SPEED 1.0

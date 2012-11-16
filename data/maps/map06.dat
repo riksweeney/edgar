@@ -1,5 +1,5 @@
 MAP_NAME Fortress Outskirts
-MUSIC music/town4.xm
+MUSIC MAP06_MUSIC
 TILESET outskirts
 AMBIENCE outskirts
 BACKGROUND_SPEED 0.3

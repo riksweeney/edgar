@@ -1,5 +1,5 @@
 MAP_NAME Dungeon
-MUSIC music/trapped.xm
+MUSIC MAP17_MUSIC
 TILESET dungeon
 AMBIENCE outskirts
 BACKGROUND_SPEED 1.0

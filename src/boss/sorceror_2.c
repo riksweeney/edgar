@@ -2510,7 +2510,7 @@ static void plasmaTakeDamage(Entity *other, int damage)
 
 static void continuePoint()
 {
-	playBossMusic("music/dgt_enemy.it");
+	playBossMusic("SORCEROR_MUSIC");
 
 	self->action = &init;
 }

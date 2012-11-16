@@ -1,5 +1,5 @@
 MAP_NAME Sewer
-MUSIC music/exploring_new_worlds.xm
+MUSIC MAP07_MUSIC
 TILESET sewer
 AMBIENCE sewer
 BACKGROUND_SPEED 0.3

@@ -93,7 +93,7 @@ static void initTitle()
 	
 	setTransition(TRANSITION_IN, NULL);
 	
-	loadMusic("music/march13.it");
+	loadMusic("TITLE_MUSIC");
 	
 	playLoadedMusic();
 }

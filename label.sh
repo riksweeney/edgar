@@ -80,4 +80,4 @@ then
 	exit 1
 fi
 
-svn copy https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1 -m "Tagging $1"
+svn copy svn://svn.code.sf.net/p/legendofedgar/code/trunk svn://svn.code.sf.net/p/legendofedgar/code/tags/$1 -m "Tagging $1"

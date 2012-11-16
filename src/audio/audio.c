@@ -110,6 +110,11 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		if (strcmpignorecase(sound[i].name, name) == 0)
 		{
 			chunk = sound[i].effect;
+			
+			if (chunk == NULL)
+			{
+				return -1;
+			}
 
 			break;
 		}
@@ -128,6 +133,11 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;
+		
+		if (chunk == NULL)
+		{
+			return;
+		}
 	}
 
 	/* The further away the camera is, the quieter the sound */
@@ -182,6 +192,11 @@ void playSound(char *name)
 		if (strcmpignorecase(sound[i].name, name) == 0)
 		{
 			chunk = sound[i].effect;
+			
+			if (chunk == NULL)
+			{
+				return;
+			}
 
 			break;
 		}
@@ -201,6 +216,11 @@ void playSound(char *name)
 		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;
+		
+		if (chunk == NULL)
+		{
+			return;
+		}
 	}
 
 	Mix_VolumeChunk(chunk, game.sfxDefaultVolume * VOLUME_STEPS);
@@ -233,7 +253,7 @@ Mix_Chunk *loadSound(char *name)
 
 	if (chunk == NULL)
 	{
-		showErrorAndExit("Failed to load sound %s", path);
+		printf("Failed to load sound %s\n", path);
 	}
 
 	return chunk;

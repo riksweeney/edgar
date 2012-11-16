@@ -1,5 +1,5 @@
 MAP_NAME Catacombs
-MUSIC music/cavern.it
+MUSIC MAP15_MUSIC
 TILESET catacombs
 AMBIENCE grasslands
 BACKGROUND_SPEED 0.5

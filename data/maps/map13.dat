@@ -1,5 +1,5 @@
 MAP_NAME Armoury
-MUSIC music/mystery.it
+MUSIC MAP13_MUSIC
 TILESET armoury
 AMBIENCE grasslands
 BACKGROUND_SPEED 1.0

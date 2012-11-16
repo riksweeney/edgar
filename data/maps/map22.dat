@@ -1,5 +1,5 @@
 MAP_NAME Left Tower
-MUSIC music/mystery.xm
+MUSIC MAP22_MUSIC
 TILESET castle
 AMBIENCE castle
 BACKGROUND_SPEED 1.0

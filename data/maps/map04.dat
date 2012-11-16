@@ -1,5 +1,5 @@
 MAP_NAME Forbidden Swamp
-MUSIC music/forbidden_zone.mod
+MUSIC MAP04_MUSIC
 TILESET swamp
 AMBIENCE AMBIENCE
 BACKGROUND_SPEED 0.5

@@ -21,7 +21,7 @@ TALK Edgar !
 TALK Edgar That voice...
 TALK Edgar It can't be...
 WALK_TO_RELATIVE EDGAR -360 0 WAIT
-MUSIC LOAD music/GSLINGER.MOD
+MUSIC LOAD HAPPY_MUSIC
 TALK Edgar Daddy!
 TALK Edgar's_Father Edgar!
 SET EDGAR_FATHER FACE LEFT

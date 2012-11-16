@@ -1,5 +1,5 @@
 MAP_NAME Crypt
-MUSIC music/crypt.xm
+MUSIC MAP25_MUSIC
 TILESET crypt
 AMBIENCE grasslands
 BACKGROUND_SPEED 1.0

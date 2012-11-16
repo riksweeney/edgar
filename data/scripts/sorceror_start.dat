@@ -12,6 +12,6 @@ TALK Sorceror Very well. If that is your wish
 TALK Sorceror Many have suffered at my hand
 TALK Sorceror Your death will be quick, but extremely painful
 TALK Sorceror I will add your head to the long line of foolish adventurers who have tried to best me
-MUSIC LOAD music/dgt_enemy.it
+MUSIC LOAD SOCEROR_MUSIC
 TALK Sorceror Prepare yourself, Edgar
 ACTIVATE_OBJECTIVE SORCEROR

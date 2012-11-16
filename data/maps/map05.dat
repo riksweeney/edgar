@@ -1,5 +1,5 @@
 MAP_NAME Cave
-MUSIC music/caverns_of_time.xm
+MUSIC MAP05_MUSIC
 TILESET caves
 AMBIENCE caves
 BACKGROUND_SPEED 0.3

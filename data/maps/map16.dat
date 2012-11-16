@@ -1,5 +1,5 @@
 MAP_NAME Study
-MUSIC music/climax.it
+MUSIC MAP16_MUSIC
 TILESET study
 AMBIENCE outskirts
 BACKGROUND_SPEED 0.3

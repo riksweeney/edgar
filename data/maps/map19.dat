@@ -1,5 +1,5 @@
 MAP_NAME Outer Cave Network
-MUSIC music/book_of_desire_2.xm
+MUSIC MAP19_MUSIC
 TILESET caves
 AMBIENCE caves
 BACKGROUND_SPEED 0.3

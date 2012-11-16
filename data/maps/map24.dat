@@ -1,5 +1,5 @@
 MAP_NAME The Observatory
-MUSIC music/climax.it
+MUSIC MAP24_MUSIC
 TILESET observatory
 AMBIENCE grasslands
 BACKGROUND_SPEED 0.3
