@@ -5,6 +5,7 @@ Version 1.05
 * Updated Italian, Russian and Ukrainian translations
 * Added a call switch to a lift in the Sewer
 * Added a reset switch for the crate behind the bombable wall in the Basement
+* Spiders are now colour coded based upon their energy
 * Other minor bug fixes
 
 Version 1.04
