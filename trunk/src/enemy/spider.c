@@ -74,6 +74,34 @@ Entity *addSpider(int x, int y, char *name)
 	return e;
 }
 
+static void init()
+{
+	if (strcmpignorecase(self->name, "enemy/red_spider") == 0)
+	{
+		if (self->health > 20)
+		{
+			setEntityAnimation(self, "PURPLE");
+		}
+		
+		else if (self->health > 10)
+		{
+			setEntityAnimation(self, "BLUE");
+		}
+	}
+	
+	if (self->y == self->startY)
+	{
+		self->targetY = self->endY;
+	}
+
+	else
+	{
+		self->targetY = self->weight == 2 ? self->endY : self->startY;
+	}
+
+	self->action = &move;
+}
+
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
@@ -273,19 +301,4 @@ static int draw()
 	drawLoopingAnimationToMap();
 
 	return TRUE;
-}
-
-static void init()
-{
-	if (self->y == self->startY)
-	{
-		self->targetY = self->endY;
-	}
-
-	else
-	{
-		self->targetY = self->weight == 2 ? self->endY : self->startY;
-	}
-
-	self->action = &move;
 }
