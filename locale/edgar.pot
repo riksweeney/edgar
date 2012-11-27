@@ -466,7 +466,7 @@ msgid "Maybe I could tunnel my way in..."
 msgstr ""
 
 #: data/scripts/borer_boss_die.dat:3
-msgid "Gross..."
+msgid "Yuck..."
 msgstr ""
 
 #: data/scripts/third_side.dat:1
@@ -6542,4 +6542,8 @@ msgstr ""
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
+msgstr ""
+
+#: data/scripts/attribute.dat:2
+msgid "It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
 msgstr ""
