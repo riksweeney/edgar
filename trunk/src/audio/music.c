@@ -66,7 +66,7 @@ static char *musicTracks[] = {
 			"BOSS_MUSIC", "music/terrortech_inc_.xm",
 			"EVIL_EDGAR_MUSIC", "music/battle_for_life.xm",
 			"SORCEROR_MUSIC", "music/dgt_enemy.it",
-			"HAPPY_MUSIC", "music/GSLINGER.MOD"
+			"REUNION_MUSIC", "music/GSLINGER.MOD"
 };
 static int musicTracksLength = sizeof(musicTracks) / sizeof(char *);
 

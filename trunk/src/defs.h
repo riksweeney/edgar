@@ -110,7 +110,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define MAX_PROPS_FILES 256
 
-#define MAX_CUSTOM_ACTIONS 4
+#define MAX_CUSTOM_ACTIONS 8
 
 #define MAX_AMBIENT_SOUNDS 10
 
