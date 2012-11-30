@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/code_display.dat
+ANIM_FILE data/anim/item/code_display.dat
+TYPE KEY_ITEM
+FLAGS PLAYER_TOUCH_ONLY|FLY
+HEALTH 0
