@@ -25,7 +25,7 @@ static unsigned char *decompressFile64(char *);
 
 void compressFile(char *sourceName)
 {
-	int read, result;
+	int result;
 	unsigned char *source, *dest;
 	int32_t fileSize, ensuredSize;
 	unsigned long compressedSize;
@@ -57,7 +57,7 @@ void compressFile(char *sourceName)
 
 	compressedSize = ensuredSize;
 
-	read = fread(source, fileSize, 1, fp);
+	fread(source, fileSize, 1, fp);
 
 	fclose(fp);
 

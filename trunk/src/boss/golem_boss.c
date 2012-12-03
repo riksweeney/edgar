@@ -226,11 +226,6 @@ static void shatter()
 
 static void initialise()
 {
-	int minX, minY;
-
-	minX = getMapStartX();
-	minY = getMapStartY();
-
 	if (self->active == TRUE)
 	{
 		if (cameraAtMinimum())
@@ -576,10 +571,7 @@ static void jumpAttack()
 {
 	int i;
 	int wasOnGround = self->flags & ON_GROUND;
-	float dirX;
 	Entity *e;
-
-	dirX = self->dirX;
 
 	checkToMap(self);
 

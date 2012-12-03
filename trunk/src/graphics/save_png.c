@@ -25,7 +25,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 SDL PNG saving routine taken from pygame - Python Game Library
 */
 
-static void writeData(char *name, png_bytep *rows, int w, int h, int colortype, int bitdepth)
+static void writeData(char *name, png_bytep *rows, int w, int h, int colourtype, int bitdepth)
 {
 	png_structp pngPtr;
 	png_infop infoPtr;
@@ -67,7 +67,7 @@ static void writeData(char *name, png_bytep *rows, int w, int h, int colortype, 
 
 	png_init_io(pngPtr, fp);
 
-	png_set_IHDR(pngPtr, infoPtr, w, h, bitdepth, colortype, PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE);
+	png_set_IHDR(pngPtr, infoPtr, w, h, bitdepth, colourtype, PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE);
 
 	png_write_info(pngPtr, infoPtr);
 
@@ -175,11 +175,11 @@ void savePNG(SDL_Surface *surface, char *name)
 
 	if (alpha)
 	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB_ALPHA, 8);
+		writeData(name, ss_rows, surface->w, surface->h, PNG_colour_TYPE_RGB_ALPHA, 8);
 	}
 	else
 	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB, 8);
+		writeData(name, ss_rows, surface->w, surface->h, PNG_colour_TYPE_RGB, 8);
 	}
 
 	free(ss_rows);

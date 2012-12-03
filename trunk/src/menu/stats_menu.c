@@ -67,14 +67,12 @@ static void doMenu()
 static void loadMenuLayout()
 {
 	char menuName[MAX_VALUE_LENGTH], *token;
-	int w, y, i, width, maxWidth;
+	int w, y, i, maxWidth;
 	float distance;
 
 	w = 0;
 
 	i = 0;
-
-	width = 0;
 
 	maxWidth = 0;
 

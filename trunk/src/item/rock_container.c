@@ -62,19 +62,19 @@ Entity *addRockContainer(int x, int y, char *name)
 
 static void init()
 {
-	float height, circ;
-
-	height = (self->endY - self->startY) * 2 / self->speed;
-	circ = 360 * (self->speed * 0.5);
-
 	#if DEV == 1
-	if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
-	{
-		printf("Length is %f\n", circ + height);
-		printf("Speed is %f\n", self->speed);
+		float height, circ;
 
-		printf("Time to move is %f\n", height + circ);
-	}
+		height = (self->endY - self->startY) * 2 / self->speed;
+		circ = 360 * (self->speed * 0.5);
+		
+		if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
+		{
+			printf("Length is %f\n", circ + height);
+			printf("Speed is %f\n", self->speed);
+
+			printf("Time to move is %f\n", height + circ);
+		}
 	#endif
 
 	if (self->thinkTime > 0)

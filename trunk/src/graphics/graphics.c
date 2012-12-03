@@ -205,7 +205,7 @@ SDL_Surface *flipImage(SDL_Surface *image)
 
 void drawBox(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int b)
 {
-	int color = SDL_MapRGB(surface->format, r, g, b);
+	int colour = SDL_MapRGB(surface->format, r, g, b);
 	SDL_Rect rect;
 
 	rect.x = x;
@@ -213,12 +213,12 @@ void drawBox(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int
 	rect.w = w;
 	rect.h = h;
 
-	SDL_FillRect(surface, &rect, color);
+	SDL_FillRect(surface, &rect, colour);
 }
 
 void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 {
-	int color;
+	int colour;
 	SDL_Rect rect;
 
 	rect.x = x - getMapStartX();
@@ -228,15 +228,15 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
-		color = SDL_MapRGB(game.screen->format, r, g, b);
+		colour = SDL_MapRGB(game.screen->format, r, g, b);
 
-		SDL_FillRect(game.screen, &rect, color);
+		SDL_FillRect(game.screen, &rect, colour);
 	}
 }
 
 void putPixelToMap(int x, int y, int r, int g, int b)
 {
-	Uint32 color = SDL_MapRGB(game.screen->format, r, g, b);
+	Uint32 colour = SDL_MapRGB(game.screen->format, r, g, b);
 	int startX, startY;
 
 	startX = getMapStartX();
@@ -255,7 +255,7 @@ void putPixelToMap(int x, int y, int r, int g, int b)
 		SDL_LockSurface(game.screen);
 	}
 
-	putPixel(game.screen, x, y, color);
+	putPixel(game.screen, x, y, colour);
 
 	if (SDL_MUSTLOCK(game.screen))
 	{
@@ -265,7 +265,7 @@ void putPixelToMap(int x, int y, int r, int g, int b)
 
 void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 {
-	Uint32 color = SDL_MapRGB(game.screen->format, r, g, b);
+	Uint32 colour = SDL_MapRGB(game.screen->format, r, g, b);
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
 	int clipX, clipY, clipW, clipH;
@@ -315,7 +315,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 		{
 			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 			{
-				putPixel(game.screen, x1, y1, color);
+				putPixel(game.screen, x1, y1, colour);
 			}
 
 			cycle += sDelta;
@@ -332,7 +332,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			putPixel(game.screen, x1, y1, color);
+			putPixel(game.screen, x1, y1, colour);
 		}
 	}
 
@@ -342,7 +342,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	{
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			putPixel(game.screen, x1, y1, color);
+			putPixel(game.screen, x1, y1, colour);
 		}
 
 		cycle += lDelta;
@@ -359,7 +359,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 	{
-		putPixel(game.screen, x1, y1, color);
+		putPixel(game.screen, x1, y1, colour);
 	}
 
 	if (SDL_MUSTLOCK(game.screen))
@@ -368,7 +368,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	}
 }
 
-void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 color2, Uint32 color3)
+void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 colour2, Uint32 colour3)
 {
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
@@ -419,11 +419,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 		{
 			if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 			{
-				putPixel(game.screen, x1, y1 - 2, color3);
-				putPixel(game.screen, x1, y1 - 1, color2);
-				putPixel(game.screen, x1, y1, color1);
-				putPixel(game.screen, x1, y1 + 1, color2);
-				putPixel(game.screen, x1, y1 + 2, color3);
+				putPixel(game.screen, x1, y1 - 2, colour3);
+				putPixel(game.screen, x1, y1 - 1, colour2);
+				putPixel(game.screen, x1, y1, colour1);
+				putPixel(game.screen, x1, y1 + 1, colour2);
+				putPixel(game.screen, x1, y1 + 2, colour3);
 			}
 
 			cycle += sDelta;
@@ -440,11 +440,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 
 		if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 		{
-			putPixel(game.screen, x1, y1 - 2, color3);
-			putPixel(game.screen, x1, y1 - 1, color2);
-			putPixel(game.screen, x1, y1, color1);
-			putPixel(game.screen, x1, y1 + 1, color2);
-			putPixel(game.screen, x1, y1 + 2, color3);
+			putPixel(game.screen, x1, y1 - 2, colour3);
+			putPixel(game.screen, x1, y1 - 1, colour2);
+			putPixel(game.screen, x1, y1, colour1);
+			putPixel(game.screen, x1, y1 + 1, colour2);
+			putPixel(game.screen, x1, y1 + 2, colour3);
 		}
 	}
 
@@ -454,11 +454,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 	{
 		if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 		{
-			putPixel(game.screen, x1, y1 - 2, color3);
-			putPixel(game.screen, x1, y1 - 1, color2);
-			putPixel(game.screen, x1, y1, color1);
-			putPixel(game.screen, x1, y1 + 1, color2);
-			putPixel(game.screen, x1, y1 + 2, color3);
+			putPixel(game.screen, x1, y1 - 2, colour3);
+			putPixel(game.screen, x1, y1 - 1, colour2);
+			putPixel(game.screen, x1, y1, colour1);
+			putPixel(game.screen, x1, y1 + 1, colour2);
+			putPixel(game.screen, x1, y1 + 2, colour3);
 		}
 
 		cycle += lDelta;
@@ -475,11 +475,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 
 	if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 	{
-		putPixel(game.screen, x1, y1 - 2, color3);
-		putPixel(game.screen, x1, y1 - 1, color2);
-		putPixel(game.screen, x1, y1, color1);
-		putPixel(game.screen, x1, y1 + 1, color2);
-		putPixel(game.screen, x1, y1 + 2, color3);
+		putPixel(game.screen, x1, y1 - 2, colour3);
+		putPixel(game.screen, x1, y1 - 1, colour2);
+		putPixel(game.screen, x1, y1, colour1);
+		putPixel(game.screen, x1, y1 + 1, colour2);
+		putPixel(game.screen, x1, y1 + 2, colour3);
 	}
 
 	if (SDL_MUSTLOCK(game.screen))
@@ -490,202 +490,175 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)
 {
-	int y1, y2, xr;
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int f, ddF_x, ddF_y, xx, yy, colour;
 	SDL_Rect rect;
-
-	for (y1=-radius,y2=radius;y1;++y1,--y2)
-	{
-		xr = (int)(sqrt(radius * radius - y1 * y1) + 0.5);
-
-		rect.x = x - xr;
-		rect.y = y + y1;
-		rect.w = 2 * xr;
-		rect.h = 1;
-
-		SDL_FillRect(game.screen, &rect, color);
-
-		rect.y = y + y2;
-		rect.h = 1;
-
-		SDL_FillRect(game.screen, &rect, color);
-	}
-
+	
+	f = 1 - radius;
+	ddF_x = 1;
+	ddF_y = -2 * radius;
+	xx = 0;
+	yy = radius;
+	colour = SDL_MapRGB(game.screen->format, r, g, b);
+	
+	rect.x = x;
+	rect.y = y - radius;
+	rect.w = 1;
+	rect.h = radius * 2;
+	
+	SDL_FillRect(game.screen, &rect, colour);
+	
 	rect.x = x - radius;
 	rect.y = y;
-	rect.w = 2 * radius;
+	rect.w = radius * 2;
 	rect.h = 1;
+	
+	SDL_FillRect(game.screen, &rect, colour);
 
-	SDL_FillRect(game.screen, &rect, color);
+	while (xx < yy)
+	{
+		if (f >= 0) 
+		{
+			yy--;
+			ddF_y += 2;
+			f += ddF_y;
+		}
+		
+		xx++;
+		ddF_x += 2;
+		f += ddF_x;
+		
+		rect.x = x - xx;
+		rect.y = y + yy;
+		rect.w = xx * 2;
+		rect.h = 1;
+		
+		SDL_FillRect(game.screen, &rect, colour);
+		
+		rect.x = x - xx;
+		rect.y = y - yy;
+		rect.w = xx * 2;
+		rect.h = 1;
+		
+		SDL_FillRect(game.screen, &rect, colour);
+		
+		rect.x = x - yy;
+		rect.y = y + xx;
+		rect.w = yy * 2;
+		rect.h = 1;
+		
+		SDL_FillRect(game.screen, &rect, colour);
+		
+		rect.x = x - yy;
+		rect.y = y - xx;
+		rect.w = yy * 2;
+		rect.h = 1;
+		
+		SDL_FillRect(game.screen, &rect, colour);
+	}
 }
 
 void drawCircleFromSurface(int x, int y, int radius)
 {
-	int y1, y2, xr;
+	int f, ddF_x, ddF_y, xx, yy;
 	SDL_Rect src, dest;
+	
+	f = 1 - radius;
+	ddF_x = 1;
+	ddF_y = -2 * radius;
+	xx = 0;
+	yy = radius;
 
 	game.tempSurface = createSurface(game.screen->w, game.screen->h);
 
 	SDL_BlitSurface(game.screen, NULL, game.tempSurface, NULL);
 
 	SDL_FillRect(game.screen, NULL, 0);
-
-	for (y1=-radius,y2=radius;y1;++y1,--y2)
-	{
-		xr = (int)(sqrt(radius * radius - y1 * y1) + 0.5);
-
-		src.x = x - xr;
-		src.y = y + y1;
-		src.w = 2 * xr;
-		src.h = 1;
-
-		if (src.x < 0)
-		{
-			src.x = 0;
-		}
-
-		if (src.y < 0)
-		{
-			src.y = 0;
-		}
-
-		if (src.x + src.w > SCREEN_WIDTH)
-		{
-			src.w = SCREEN_WIDTH - src.x;
-		}
-
-		if (src.y + src.h > SCREEN_HEIGHT)
-		{
-			src.h = SCREEN_HEIGHT - src.y;
-		}
-
-		dest.x = x - xr;
-		dest.y = y + y1;
-		dest.w = 2 * xr;
-		dest.h = 1;
-
-		if (dest.x < 0)
-		{
-			dest.x = 0;
-		}
-
-		if (dest.y < 0)
-		{
-			dest.y = 0;
-		}
-
-		if (dest.x + dest.w > SCREEN_WIDTH)
-		{
-			dest.w = SCREEN_WIDTH - dest.x;
-		}
-
-		if (dest.y + dest.h > SCREEN_HEIGHT)
-		{
-			dest.h = SCREEN_HEIGHT - dest.y;
-		}
-
-		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-
-		src.y = y + y2;
-		src.h = 1;
-
-		if (src.x < 0)
-		{
-			src.x = 0;
-		}
-
-		if (src.y < 0)
-		{
-			src.y = 0;
-		}
-
-		if (src.x + src.w > SCREEN_WIDTH)
-		{
-			src.w = SCREEN_WIDTH - src.x;
-		}
-
-		if (src.y + src.h > SCREEN_HEIGHT)
-		{
-			src.h = SCREEN_HEIGHT - src.y;
-		}
-
-		dest.y = y + y2;
-		dest.h = 1;
-
-		if (dest.x < 0)
-		{
-			dest.x = 0;
-		}
-
-		if (dest.y < 0)
-		{
-			dest.y = 0;
-		}
-
-		if (dest.x + dest.w > SCREEN_WIDTH)
-		{
-			dest.w = SCREEN_WIDTH - dest.x;
-		}
-
-		if (dest.y + dest.h > SCREEN_HEIGHT)
-		{
-			dest.h = SCREEN_HEIGHT - dest.y;
-		}
-
-		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-	}
-
+	
+	src.x = x;
+	src.y = y - radius;
+	src.w = 1;
+	src.h = radius * 2;
+	
+	dest.x = x;
+	dest.y = y - radius;
+	dest.w = 1;
+	dest.h = radius * 2;
+	
+	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+	
 	src.x = x - radius;
 	src.y = y;
-	src.w = 2 * radius;
+	src.w = radius * 2;
 	src.h = 1;
-
-	if (src.x < 0)
-	{
-		src.x = 0;
-	}
-
-	if (src.y < 0)
-	{
-		src.y = 0;
-	}
-
-	if (src.x + src.w > SCREEN_WIDTH)
-	{
-		src.w = SCREEN_WIDTH - src.x;
-	}
-
-	if (src.y + src.h > SCREEN_HEIGHT)
-	{
-		src.h = SCREEN_HEIGHT - src.y;
-	}
-
+	
 	dest.x = x - radius;
 	dest.y = y;
-	dest.w = 2 * radius;
+	dest.w = radius * 2;
 	dest.h = 1;
-
-	if (dest.x < 0)
-	{
-		dest.x = 0;
-	}
-
-	if (dest.y < 0)
-	{
-		dest.y = 0;
-	}
-
-	if (dest.x + dest.w > SCREEN_WIDTH)
-	{
-		dest.w = SCREEN_WIDTH - dest.x;
-	}
-
-	if (dest.y + dest.h > SCREEN_HEIGHT)
-	{
-		dest.h = SCREEN_HEIGHT - dest.y;
-	}
-
+	
 	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+
+	while (xx < yy)
+	{
+		if (f >= 0) 
+		{
+			yy--;
+			ddF_y += 2;
+			f += ddF_y;
+		}
+		
+		xx++;
+		ddF_x += 2;
+		f += ddF_x;
+		
+		src.x = x - xx;
+		src.y = y + yy;
+		src.w = xx * 2;
+		src.h = 1;
+		
+		dest.x = x - xx;
+		dest.y = y + yy;
+		dest.w = xx * 2;
+		dest.h = 1;
+		
+		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+		
+		src.x = x - xx;
+		src.y = y - yy;
+		src.w = xx * 2;
+		src.h = 1;
+		
+		dest.x = x - xx;
+		dest.y = y - yy;
+		dest.w = xx * 2;
+		dest.h = 1;
+		
+		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+		
+		src.x = x - yy;
+		src.y = y + xx;
+		src.w = yy * 2;
+		src.h = 1;
+		
+		dest.x = x - yy;
+		dest.y = y + xx;
+		dest.w = yy * 2;
+		dest.h = 1;
+		
+		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+		
+		src.x = x - yy;
+		src.y = y - xx;
+		src.w = yy * 2;
+		src.h = 1;
+		
+		dest.x = x - yy;
+		dest.y = y - xx;
+		dest.w = yy * 2;
+		dest.h = 1;
+		
+		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+	}
 
 	SDL_FreeSurface(game.tempSurface);
 
@@ -694,7 +667,7 @@ void drawCircleFromSurface(int x, int y, int radius)
 
 SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, int bb)
 {
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int colour = SDL_MapRGB(game.screen->format, r, g, b);
 	SDL_Rect rect;
 	SDL_Surface *newSurface;
 
@@ -716,7 +689,7 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	rect.w = newSurface->w;
 	rect.h = 1;
 
-	SDL_FillRect(newSurface, &rect, color);
+	SDL_FillRect(newSurface, &rect, colour);
 
 	/* Left */
 
@@ -725,7 +698,7 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	rect.w = 1;
 	rect.h = newSurface->h;
 
-	SDL_FillRect(newSurface, &rect, color);
+	SDL_FillRect(newSurface, &rect, colour);
 
 	/* Right */
 
@@ -734,7 +707,7 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	rect.w = 1;
 	rect.h = newSurface->h;
 
-	SDL_FillRect(newSurface, &rect, color);
+	SDL_FillRect(newSurface, &rect, colour);
 
 	/* Bottom */
 
@@ -743,7 +716,7 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	rect.w = newSurface->w;
 	rect.h = 1;
 
-	SDL_FillRect(newSurface, &rect, color);
+	SDL_FillRect(newSurface, &rect, colour);
 
 	SDL_SetColorKey(newSurface, SDL_RLEACCEL|SDL_SRCCOLORKEY, SDL_MapRGB(newSurface->format, TRANS_R, TRANS_G, TRANS_B));
 
@@ -754,9 +727,9 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 
 void clearScreen(int r, int g, int b)
 {
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int colour = SDL_MapRGB(game.screen->format, r, g, b);
 
-	SDL_FillRect(game.screen, NULL, color);
+	SDL_FillRect(game.screen, NULL, colour);
 }
 
 void drawHitBox(int startX, int startY, int w, int h)
@@ -820,7 +793,7 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 	unsigned char r, g, b, transR, transG, transB;
 	int x, y;
 	Uint32 pixel;
-	Uint32 color = SDL_MapRGB(game.screen->format, 255, 255, 255);
+	Uint32 colour = SDL_MapRGB(game.screen->format, 255, 255, 255);
 	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
 	SDL_Rect dest;
 	SDL_Surface *flipped;
@@ -842,7 +815,7 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 
 			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
 
-			putPixel(flipped, x, y, (r == transR && g == transG && b == transB) ? pixel : color);
+			putPixel(flipped, x, y, (r == transR && g == transG && b == transB) ? pixel : colour);
 		}
 	}
 

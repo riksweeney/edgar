@@ -365,8 +365,6 @@ static void changeWalkDirectionFinish()
 
 static void riftMove()
 {
-	float dirY;
-
 	self->dirX *= 0.95;
 
 	if (fabs(self->dirX) <= 0.5)
@@ -398,8 +396,6 @@ static void riftMove()
 			self->action = &riftWait;
 		}
 	}
-
-	dirY = self->dirY;
 
 	checkToMap(self);
 }

@@ -291,13 +291,8 @@ Entity *addBlackBook2(int x, int y, char *name)
 
 static void initialise()
 {
-	int minX, minY;
-
 	if (self->active == TRUE)
 	{
-		minX = getMapStartX();
-		minY = getMapStartY();
-
 		self->flags &= ~NO_DRAW;
 
 		if (cameraAtMinimum())
@@ -564,7 +559,7 @@ static void gargoyleWait()
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		self->startX = getMapStartX();
-		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
+		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w - 1;
 
 		if ((self->target == NULL || self->target->inUse == FALSE) && self->maxThinkTime < 3)
 		{

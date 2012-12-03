@@ -258,10 +258,7 @@ static void drawRain()
 
 static void drawSnow()
 {
-	int i, startX, startY;
-
-	startX = getMapStartX();
-	startY = getMapStartY();
+	int i;
 
 	for (i=0;i<MAX_DROPS;i++)
 	{

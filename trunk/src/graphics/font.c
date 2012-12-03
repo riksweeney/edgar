@@ -118,15 +118,15 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 {
 	SDL_Rect dest;
 	SDL_Surface *surface;
-	SDL_Color foregroundColor;
+	SDL_Color foregroundcolour;
 
-	foregroundColor.r = r;
-	foregroundColor.g = g;
-	foregroundColor.b = b;
+	foregroundcolour.r = r;
+	foregroundcolour.g = g;
+	foregroundcolour.b = b;
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
-	surface = TTF_RenderText_Blended(font, text, foregroundColor);
+	surface = TTF_RenderText_Blended(font, text, foregroundcolour);
 
 	if (surface == NULL)
 	{
@@ -152,19 +152,19 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb, int br, int bg, int bb)
 {
 	SDL_Surface *surface;
-	SDL_Color foregroundColor, backgroundColor;
+	SDL_Color foregroundcolour, backgroundcolour;
 
-	foregroundColor.r = fr;
-	foregroundColor.g = fg;
-	foregroundColor.b = fb;
+	foregroundcolour.r = fr;
+	foregroundcolour.g = fg;
+	foregroundcolour.b = fb;
 
-	backgroundColor.r = br;
-	backgroundColor.g = bg;
-	backgroundColor.b = bb;
+	backgroundcolour.r = br;
+	backgroundcolour.g = bg;
+	backgroundcolour.b = bb;
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
-	surface = TTF_RenderUTF8_Shaded(font, text, foregroundColor, backgroundColor);
+	surface = TTF_RenderUTF8_Shaded(font, text, foregroundcolour, backgroundcolour);
 
 	if (surface == NULL)
 	{
@@ -181,11 +181,11 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb, int blend)
 {
 	SDL_Surface *surface;
-	SDL_Color foregroundColor;
+	SDL_Color foregroundcolour;
 
-	foregroundColor.r = fr;
-	foregroundColor.g = fg;
-	foregroundColor.b = fb;
+	foregroundcolour.r = fr;
+	foregroundcolour.g = fg;
+	foregroundcolour.b = fb;
 
 	if (blend == FALSE)
 	{
@@ -193,14 +193,14 @@ SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, 
 
 		/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
-		surface = TTF_RenderUTF8_Solid(font, text, foregroundColor);
+		surface = TTF_RenderUTF8_Solid(font, text, foregroundcolour);
 
 		TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
 	}
 
 	else
 	{
-		surface = TTF_RenderUTF8_Blended(font, text, foregroundColor);
+		surface = TTF_RenderUTF8_Blended(font, text, foregroundcolour);
 	}
 
 	if (surface == NULL)

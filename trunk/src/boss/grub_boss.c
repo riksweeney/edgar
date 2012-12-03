@@ -144,11 +144,6 @@ static void takeDamage(Entity *other, int damage)
 
 static void initialise()
 {
-	int minX, minY;
-
-	minX = getMapStartX();
-	minY = getMapStartY();
-
 	if (self->active == TRUE)
 	{
 		if (cameraAtMinimum())

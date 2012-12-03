@@ -628,9 +628,6 @@ static void ceilingDropInit()
 	EntityList *list = getEntitiesByObjectiveName("MATAEUS_CEILING");
 	EntityList *l;
 	Entity *e;
-	int i;
-
-	i = 0;
 
 	for (l=list->next;l!=NULL;l=l->next)
 	{

@@ -331,17 +331,12 @@ static void rotateAroundTarget()
 
 static void bookAttackPlayer()
 {
-	float dirX, dirY;
-
 	self->startX += self->speed;
 
 	if (self->startX >= 360)
 	{
 		self->startX = 0;
 	}
-
-	dirX = self->dirX;
-	dirY = self->dirY;
 
 	checkToMap(self);
 

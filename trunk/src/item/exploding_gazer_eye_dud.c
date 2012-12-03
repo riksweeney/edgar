@@ -66,10 +66,6 @@ Entity *addExplodingGazerEyeDud(int x, int y, char *name)
 
 static void entityWait()
 {
-	long onGround;
-	
-	onGround = self->flags & ON_GROUND;
-
 	checkToMap(self);
 
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)

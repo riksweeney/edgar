@@ -130,8 +130,6 @@ static void sprayTouch(Entity *other)
 
 static void sprayMove()
 {
-	float dirY;
-
 	self->dirX *= 0.95;
 
 	if (self->mental < 2)
@@ -154,8 +152,6 @@ static void sprayMove()
 
 		self->dirY = -self->speed;
 	}
-
-	dirY = self->dirY;
 
 	checkToMap(self);
 

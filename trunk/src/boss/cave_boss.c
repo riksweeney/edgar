@@ -176,8 +176,6 @@ static void doIntro()
 
 		initBossHealthBar();
 
-		self->takeDamage = &takeDamage;
-
 		self->action = &attackFinished;
 
 		self->startX = 0;
@@ -1322,10 +1320,6 @@ static void changeToIceInit()
 
 	t = getTargetByName(self->x < startX ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
 
-	self->startX = 1;
-
-	self->endX = 2;
-
 	if (t == NULL)
 	{
 		showErrorAndExit("Cave Boss cannot find target");
@@ -1372,10 +1366,6 @@ static void changeToFireInit()
 	startX = getMapStartX() + SCREEN_WIDTH / 2;
 
 	t = getTargetByName(self->x < startX ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
-
-	self->startX = 1;
-
-	self->endX = 2;
 
 	if (t == NULL)
 	{
@@ -1981,7 +1971,7 @@ static void acidStreamMoveToTop()
 
 		self->face = prand() % 2 == 0 ? LEFT : RIGHT;
 
-		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w - 1;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
@@ -2124,6 +2114,8 @@ static void changeToFire()
 		self->action = &attackFinished;
 
 		self->draw = &drawCaveBoss;
+		
+		self->takeDamage = &takeDamage;
 
 		self->mental = 0;
 
@@ -2159,6 +2151,8 @@ static void changeToIce()
 		self->action = &attackFinished;
 
 		self->draw = &drawCaveBoss;
+		
+		self->takeDamage = &takeDamage;
 
 		self->mental = 0;
 
@@ -2354,7 +2348,7 @@ static void touch(Entity *other)
 		other->mental = -2;
 	}
 
-	else if (self->startX != -1 && self->endX == 1
+	else if (self->startX == 1 && self->endX == 1
 		&& other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
 	{
 		self->maxThinkTime--;
@@ -2386,7 +2380,7 @@ static void touch(Entity *other)
 		}
 	}
 
-	else if (self->startX != -1 && self->endX == 2
+	else if (self->startX == 1 && self->endX == 2
 		&& other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
 	{
 		self->maxThinkTime--;
@@ -2576,11 +2570,15 @@ static void stunFinish()
 
 		else if (self->health <= 1000)
 		{
+			self->takeDamage = NULL;
+			
 			self->endX = 1;
 		}
 
 		else
 		{
+			self->takeDamage = NULL;
+			
 			self->endX = 0;
 		}
 
@@ -2634,7 +2632,7 @@ static void addElementParticles()
 {
 	Entity *e = NULL;
 
-	if (prand() % 3 == 0)
+	if (self->startX == 1 && prand() % 3 == 0)
 	{
 		if (self->endX == 1)
 		{

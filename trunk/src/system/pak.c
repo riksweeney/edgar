@@ -34,7 +34,7 @@ void initPakFile()
 	#if DEV == 0
 		int32_t offset;
 		FILE *fp;
-		int read, i;
+		int i;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
 
@@ -52,8 +52,8 @@ void initPakFile()
 
 		fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);
 
-		read = fread(&offset, sizeof(int32_t), 1, fp);
-		read = fread(&fileCount, sizeof(int32_t), 1, fp);
+		fread(&offset, sizeof(int32_t), 1, fp);
+		fread(&fileCount, sizeof(int32_t), 1, fp);
 
 		offset = SWAP32(offset);
 		fileCount = SWAP32(fileCount);
@@ -67,7 +67,7 @@ void initPakFile()
 
 		fseek(fp, offset, SEEK_SET);
 
-		read = fread(fileData, sizeof(FileData), fileCount, fp);
+		fread(fileData, sizeof(FileData), fileCount, fp);
 
 		printf("Loaded up PAK file with %d entries\n", fileCount);
 
@@ -165,11 +165,6 @@ unsigned char *loadFileFromPak(char *name)
 Mix_Music *loadMusicFromPak(char *name)
 {
 	Mix_Music *music;
-	
-	if (existsInPak(name) == FALSE)
-	{
-		return NULL;
-	}
 
 	#if DEV == 1
 		FILE *fp;
@@ -189,6 +184,11 @@ Mix_Music *loadMusicFromPak(char *name)
 	#else
 		unsigned char *file;
 		char temp[MAX_PATH_LENGTH];
+		
+		if (existsInPak(name) == FALSE)
+		{
+			return NULL;
+		}
 
 		printf("Uncompressing %s\n", name);
 
@@ -215,12 +215,11 @@ Mix_Music *loadMusicFromPak(char *name)
 
 static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 {
-	int i, index;
 	unsigned char *source, *dest;
 	FILE *fp;
-	int read;
-
-	index = i = -1;
+	#if DEV != 1
+		int i, index;
+	#endif
 
 	#if DEV == 1
 		fp = fopen(name, "rb");
@@ -243,7 +242,7 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s", (*size) * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(dest, (*size), 1, fp);
+		fread(dest, (*size), 1, fp);
 
 		source = NULL;
 	#else
@@ -287,7 +286,7 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 			showErrorAndExit("Failed to allocate %d bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(source, fileData[i].compressedSize, 1, fp);
+		fread(source, fileData[i].compressedSize, 1, fp);
 		
 		(*size) = fileData[index].fileSize;
 
@@ -311,13 +310,13 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 
 static unsigned char *uncompressFile(char *name, int writeToFile)
 {
-	int i, index, read;
 	char *filename;
 	unsigned long size;
 	unsigned char *source, *dest;
 	FILE *fp;
-
-	index = i = -1;
+	#if DEV != 1
+		int i, index;
+	#endif
 
 	filename = NULL;
 
@@ -349,7 +348,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s", (size + 2) * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(dest, size, 1, fp);
+		fread(dest, size, 1, fp);
 
 		dest[size] = '\n';
 		dest[size + 1] = '\0';
@@ -396,7 +395,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(source, fileData[index].compressedSize, 1, fp);
+		fread(source, fileData[index].compressedSize, 1, fp);
 		
 		size = fileData[index].fileSize;
 
@@ -455,12 +454,12 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 int existsInPak(char *name)
 {
-	int i, exists;
-	FILE *fp;
-
-	fp = NULL;
-	exists = FALSE;
-	i = 0;
+	int exists;
+	#if DEV == 1
+		FILE *fp;
+	#else
+		int i;
+	#endif
 
 	#if DEV == 1
 		fp = fopen(name, "rb");
@@ -477,6 +476,8 @@ int existsInPak(char *name)
 			exists = TRUE;
 		}
 	#else
+		exists = FALSE;
+		
 		for (i=0;i<fileCount;i++)
 		{
 			if (strcmpignorecase(fileData[i].filename, name) == 0)

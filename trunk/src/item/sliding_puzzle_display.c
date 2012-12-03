@@ -121,14 +121,8 @@ static void validate()
 
 static void activate(int val)
 {
-	int x, y, dirX, dirY, found;
+	int dirX, dirY;
 	Entity *e;
-
-	x = self->targetX;
-	y = self->targetY;
-
-	dirY = 0;
-	dirX = 0;
 
 	switch (val)
 	{
@@ -148,8 +142,6 @@ static void activate(int val)
 			dirX = self->target->w;
 		break;
 	}
-
-	found = FALSE;
 
 	for (e=self->target;e!=NULL;e=e->target)
 	{

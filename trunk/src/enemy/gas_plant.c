@@ -196,8 +196,6 @@ static void sprayGasWait()
 
 static void sprayMove()
 {
-	float dirY;
-
 	self->dirX *= 0.98;
 
 	if (self->mental < 2)
@@ -218,8 +216,6 @@ static void sprayMove()
 	{
 		self->dirX = 0;
 	}
-
-	dirY = self->dirY;
 
 	checkToMap(self);
 

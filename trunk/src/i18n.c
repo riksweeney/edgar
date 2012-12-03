@@ -29,10 +29,13 @@ void setLanguage(char *applicationName, char *languageCode)
 {
 	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
 	char *lang, **key, **value;
-	int read, i, swap;
+	int i, swap;
 	FILE *fp;
 	MOHeader header;
 	MOEntry *original, *translation;
+	#if DEV == 1
+		int read;
+	#endif
 
 	initTable();
 
@@ -119,7 +122,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		}
 	}
 
-	read = fread(&header, sizeof(header), 1, fp);
+	fread(&header, sizeof(header), 1, fp);
 	
 	swap = header.magicNumber == 0x950412de ? FALSE : TRUE;
 	
