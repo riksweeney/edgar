@@ -136,12 +136,8 @@ static void bodyWait()
 
 static void initialise()
 {
-	int minX, minY;
 	Target *t;
-
-	minX = getMapStartX();
-	minY = getMapStartY();
-
+	
 	self->flags |= NO_DRAW;
 
 	if (self->active == TRUE)

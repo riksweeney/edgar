@@ -270,13 +270,13 @@ static void beamAttack()
 
 static int drawBeam()
 {
-	int color1, color2, color3;
+	int colour1, colour2, colour3;
 
-	color1 = getColour(231, 231, 231);
-	color2 = getColour(57, 57, 224);
-	color3 = getColour(41, 41, 160);
+	colour1 = getColour(231, 231, 231);
+	colour2 = getColour(57, 57, 224);
+	colour3 = getColour(41, 41, 160);
 
-	drawDisintegrationLine(self->startX, self->startY, self->x, self->y, color1, color2, color3);
+	drawDisintegrationLine(self->startX, self->startY, self->x, self->y, colour1, colour2, colour3);
 
 	return TRUE;
 }

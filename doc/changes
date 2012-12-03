@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 1.06
+* The Salamander no longer sometimes gets stuck after performing its ground charge
+* Bombs no longer respawn if dropped in water, slime etc.
+* Fixed a problem with the light beams in the Armoury
+
 Version 1.05
 * Updated Italian, Russian and Ukrainian translations
 * Added a call switch to a lift in the Sewer

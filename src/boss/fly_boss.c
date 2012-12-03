@@ -902,15 +902,13 @@ static void reactToHeadButtBlock(Entity *other)
 
 static void takeDamage(Entity *other, int damage)
 {
-	int i, minHealth;
+	int minHealth;
 	Entity *temp;
 
 	minHealth = self->maxHealth / 10;
 
 	if (!(self->flags & INVULNERABLE))
 	{
-		i = self->health;
-
 		/* Take minimal damage from bombs */
 
 		if (other->type == EXPLOSION)

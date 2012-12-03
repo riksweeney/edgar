@@ -496,7 +496,7 @@ static void lightningCageMoveAbovePlayer()
 		{
 			self->action = &lightningCage;
 
-			self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+			self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w - 1;
 
 			self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
 
@@ -570,7 +570,7 @@ static void lightningCageMoveBackToPlayer()
 	{
 		self->action = &lightningCage;
 
-		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w - 1;
 
 		self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
 
@@ -890,13 +890,13 @@ static void soulStealSpellAttack()
 
 int drawSoulStealSpell()
 {
-	int color1, color2, color3;
+	int colour1, colour2, colour3;
 
-	color1 = getColour(38, 152, 38);
-	color2 = getColour(50, 200, 50);
-	color3 = getColour(56, 225, 56);
+	colour1 = getColour(38, 152, 38);
+	colour2 = getColour(50, 200, 50);
+	colour3 = getColour(56, 225, 56);
 
-	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, color1, color2, color3);
+	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, colour1, colour2, colour3);
 
 	return TRUE;
 }
@@ -1096,11 +1096,7 @@ static void beamAppearFinish()
 
 static int drawBeam()
 {
-	int y;
-
 	self->y = self->startY;
-
-	y = self->y;
 
 	drawLoopingAnimationToMap();
 
@@ -2283,7 +2279,6 @@ static void dieMoveToTop()
 {
 	EntityList *l, *list;
 	Entity *e;
-	int i;
 
 	self->thinkTime--;
 
@@ -2319,8 +2314,6 @@ static void dieMoveToTop()
 
 			default:
 				list = createPixelsFromSprite(getCurrentSprite(self));
-
-				i = 0;
 
 				for (l=list->next;l!=NULL;l=l->next)
 				{

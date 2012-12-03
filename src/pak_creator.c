@@ -339,7 +339,7 @@ static void compressFile(char *filename, DIR *dirp)
 static void testPak(char *pakFile)
 {
 	FileData *fileData;
-	int i, read;
+	int i;
 	int32_t offset, fileCount;
 	unsigned long size;
 	FILE *fp;
@@ -356,8 +356,8 @@ static void testPak(char *pakFile)
 
 	fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);
 
-	read = fread(&offset, sizeof(int32_t), 1, fp);
-	read = fread(&fileCount, sizeof(int32_t), 1, fp);
+	fread(&offset, sizeof(int32_t), 1, fp);
+	fread(&fileCount, sizeof(int32_t), 1, fp);
 
 	offset = SWAP32(offset);
 	fileCount = SWAP32(fileCount);
@@ -373,7 +373,7 @@ static void testPak(char *pakFile)
 
 	fseek(fp, offset, SEEK_SET);
 
-	read = fread(fileData, sizeof(FileData), fileCount, fp);
+	fread(fileData, sizeof(FileData), fileCount, fp);
 
 	printf("Loaded up PAK file with %d entries\n", fileCount);
 
@@ -410,7 +410,7 @@ static void testPak(char *pakFile)
 			exit(1);
 		}
 
-		read = fread(source, fileData[i].compressedSize, 1, fp);
+		fread(source, fileData[i].compressedSize, 1, fp);
 
 		size = fileData[i].fileSize;
 

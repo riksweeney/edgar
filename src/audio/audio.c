@@ -136,7 +136,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		
 		if (chunk == NULL)
 		{
-			return;
+			return -1;
 		}
 	}
 

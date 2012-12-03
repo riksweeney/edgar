@@ -1152,10 +1152,6 @@ static void redTentacleAttackInit()
 
 static void redTentacleAttack()
 {
-	float dirX;
-
-	dirX = self->dirX;
-
 	checkToMap(self);
 
 	if (self->dirX == 0)

@@ -107,13 +107,8 @@ static void activate(int val)
 
 static void initialise()
 {
-	int minX, minY;
-
 	if (self->active == TRUE)
 	{
-		minX = getMapStartX();
-		minY = getMapStartY();
-
 		self->flags &= ~NO_DRAW;
 
 		if (cameraAtMinimum())

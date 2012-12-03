@@ -53,6 +53,8 @@ Entity *addLightBeam(int x, int y, char *name)
 	e->draw = &draw;
 
 	e->face = RIGHT;
+	
+	e->health = 5;
 
 	setEntityAnimation(e, "STAND");
 
@@ -87,6 +89,13 @@ static void entityWait()
 		self->y = getMapCeiling(self->startX, self->startY);
 
 		self->box.h = self->startY - self->y;
+	}
+	
+	self->health--;
+	
+	if (self->health <= 0)
+	{
+		self->health = 0;
 	}
 }
 
@@ -148,5 +157,7 @@ static void touch(Entity *other)
 
 			self->box.h = self->startY - self->y;
 		}
+		
+		self->health = 5;
 	}
 }

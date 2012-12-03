@@ -69,7 +69,6 @@ static void init()
 	EntityList *list;
 	EntityList *l;
 	Entity *e;
-	int i;
 
 	if (strlen(self->objectiveName) == 0)
 	{
@@ -77,8 +76,6 @@ static void init()
 	}
 
 	list = getEntitiesByObjectiveName(self->objectiveName);
-
-	i = 0;
 
 	for (l=list->next;l!=NULL;l=l->next)
 	{

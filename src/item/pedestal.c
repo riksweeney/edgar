@@ -147,12 +147,10 @@ static void touch(Entity *other)
 
 static void validate()
 {
-	int i, allStatues, orderCorrect;
+	int allStatues, orderCorrect;
 	EntityList *list = getEntitiesByName(self->name);
 	EntityList *l;
 	Entity *e;
-
-	i = 0;
 
 	allStatues = TRUE;
 

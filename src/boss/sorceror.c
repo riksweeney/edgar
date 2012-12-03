@@ -420,13 +420,13 @@ static void disintegrationTouch(Entity *other)
 
 int drawDisintegrationSpell()
 {
-	int color1, color2, color3;
+	int colour1, colour2, colour3;
 
-	color1 = getColour(231, 231, 231);
-	color2 = getColour(57, 57, 224);
-	color3 = getColour(41, 41, 160);
+	colour1 = getColour(231, 231, 231);
+	colour2 = getColour(57, 57, 224);
+	colour3 = getColour(41, 41, 160);
 
-	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, color1, color2, color3);
+	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, colour1, colour2, colour3);
 
 	return TRUE;
 }
@@ -500,10 +500,10 @@ static void arrowTakeDamage(Entity *other, int damage)
 	}
 }
 
-void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int color2, int color3)
+void drawDisintegrationLine(int x1, int y1, int x2, int y2, int colour1, int colour2, int colour3)
 {
 	int speed;
-	float dirX, dirY, x, y, ix, iy, xx, yy;
+	float dirX, dirY, x, y, xx, yy;
 
 	speed = 8;
 
@@ -515,21 +515,18 @@ void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int colo
 	x = x1;
 	y = y1;
 
-	ix = x1;
-	iy = y1;
-
 	if (fabs(dirX) > fabs(dirY))
 	{
 		while (!(fabs(x2 - x) <= fabs(dirX)))
 		{
 			yy = (prand() % 8) * (prand() % 2 == 0 ? -1 : 1);
 
-			drawColouredLine(x, y, x + dirX, y + dirY + yy, color1, color2, color3);
+			drawColouredLine(x, y, x + dirX, y + dirY + yy, colour1, colour2, colour3);
 
 			x += dirX;
 			y += dirY + yy;
 
-			drawColouredLine(x, y, x + dirX, y + dirY - yy, color1, color2, color3);
+			drawColouredLine(x, y, x + dirX, y + dirY - yy, colour1, colour2, colour3);
 
 			x += dirX;
 			y += dirY - yy;
@@ -542,12 +539,12 @@ void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int colo
 		{
 			xx = (prand() % 8) * (prand() % 2 == 0 ? -1 : 1);
 
-			drawColouredLine(x, y, x + dirX + xx, y + dirY, color1, color2, color3);
+			drawColouredLine(x, y, x + dirX + xx, y + dirY, colour1, colour2, colour3);
 
 			x += dirX + xx;
 			y += dirY;
 
-			drawColouredLine(x, y, x + dirX - xx, y + dirY, color1, color2, color3);
+			drawColouredLine(x, y, x + dirX - xx, y + dirY, colour1, colour2, colour3);
 
 			x += dirX - xx;
 			y += dirY;

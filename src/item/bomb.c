@@ -40,6 +40,7 @@ static void touch(Entity *);
 static void resumeNormalFunction(void);
 static void miniExplode(void);
 static void startMiniFuse(void);
+static void fallout(void);
 
 Entity *addBomb(int x, int y, char *name)
 {
@@ -166,6 +167,8 @@ static void dropBomb(int val)
 		self->mental = 1;
 
 		self->action = &startFuse;
+		
+		self->fallout = &fallout;
 
 		addEntity(*self, player.x, player.y);
 
@@ -265,4 +268,11 @@ static void resumeNormalFunction()
 	self->dirY = 0;
 
 	self->action = &startFuse;
+}
+
+static void fallout()
+{
+	stopSound(self->endX);
+	
+	entityDieNoDrop();
 }

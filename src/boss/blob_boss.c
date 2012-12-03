@@ -135,11 +135,6 @@ Entity *addBlobBoss(int x, int y, char *name)
 
 static void initialise()
 {
-	int minX, minY;
-
-	minX = getMapStartX();
-	minY = getMapStartY();
-
 	if (self->active == TRUE)
 	{
 		if (cameraAtMinimum())
