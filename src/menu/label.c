@@ -81,14 +81,14 @@ void drawLabel(Label *l, Menu *m)
 {
 	int x, y;
 
-	x = l->x < 0 ? (m->w - l->text->w) / 2 : l->x;
-	y = l->y < 0 ? (m->h - l->text->h) / 2 : l->y;
-
-	x += m->x;
-	y += m->y;
-
 	if (l != NULL)
 	{
+		x = l->x < 0 ? (m->w - l->text->w) / 2 : l->x;
+		y = l->y < 0 ? (m->h - l->text->h) / 2 : l->y;
+
+		x += m->x;
+		y += m->y;
+
 		drawImage(l->text, x, y - m->startY, FALSE, 255);
 	}
 }

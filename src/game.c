@@ -842,22 +842,22 @@ void readGameSettingsFromFile(char *buffer)
 
 		else if (strcmpignorecase(token, "SMALL_FONT_SIZE") == 0)
 		{
+			token = strtok(NULL, "\0");
+			
 			if (token != NULL)
 			{
-				token = strtok(NULL, "\0");
+				game.fontSizeSmall = atoi(token);
 			}
-
-			game.fontSizeSmall = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "LARGE_FONT_SIZE") == 0)
 		{
+			token = strtok(NULL, "\0");
+			
 			if (token != NULL)
 			{
-				token = strtok(NULL, "\0");
+				game.fontSizeLarge = atoi(token);
 			}
-
-			game.fontSizeLarge = atoi(token);
 		}
 
 		line = strtok_r(NULL, "\n", &savePtr);

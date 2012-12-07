@@ -130,7 +130,7 @@ static void touch(Entity *other)
 	}
 }
 
-static void moveToTarget(void)
+static void moveToTarget()
 {
 	if (self->type == AUTO_DOOR)
 	{

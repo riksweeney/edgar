@@ -1673,11 +1673,11 @@ static void orbWait()
 	{
 		e = addSmoke(0, 0, "decoration/dust");
 
-		e->x = self->face == LEFT ? self->x - (128 + prand() % 64) : self->x + self->w + (128 + prand() % 64);
-		e->y = self->y - 64;
-
 		if (e != NULL)
 		{
+			e->x = self->face == LEFT ? self->x - (128 + prand() % 64) : self->x + self->w + (128 + prand() % 64);
+			e->y = self->y - 64;
+			
 			e->y += prand() % (self->h + 128);
 
 			calculatePath(e->x, e->y, self->x + self->w / 2, self->y + self->h / 2, &e->dirX, &e->dirY);

@@ -79,12 +79,10 @@ static void init()
 
 	if (self->thinkTime > 0)
 	{
-		self->weight = 0;
-
-		self->originalWeight = self->weight;
+		self->damage = 0;
 	}
 
-	self->action = self->weight == 0 ? &move : &rotateAroundTarget;
+	self->action = self->damage == 0 ? &move : &rotateAroundTarget;
 }
 
 static void touch(Entity *other)
@@ -150,6 +148,8 @@ static void move()
 			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
+			
+			self->damage = 1;
 		}
 
 		else if (self->y >= self->endY)
@@ -167,6 +167,8 @@ static void move()
 			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
+			
+			self->damage = 1;
 		}
 	}
 }
@@ -195,6 +197,8 @@ static void rotateAroundTarget()
 		self->originalWeight = self->weight;
 
 		self->action = &move;
+		
+		self->damage = 0;
 	}
 
 	radians = DEG_TO_RAD(self->endX);

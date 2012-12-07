@@ -135,6 +135,8 @@ unsigned char *decompressFile(char *sourceName)
 
 	if (read != 1)
 	{
+		fclose(fp);
+		
 		return decompressFile64(sourceName);
 	}
 
@@ -142,6 +144,8 @@ unsigned char *decompressFile(char *sourceName)
 
 	if (source == NULL)
 	{
+		fclose(fp);
+		
 		return decompressFile64(sourceName);
 	}
 
@@ -150,11 +154,15 @@ unsigned char *decompressFile(char *sourceName)
 	if (dest == NULL)
 	{
 		free(source);
+		
+		fclose(fp);
 
 		return decompressFile64(sourceName);
 	}
 
 	read = fread(source, compressedSize, 1, fp);
+	
+	fclose(fp);
 
 	if (read != 1)
 	{
@@ -168,8 +176,6 @@ unsigned char *decompressFile(char *sourceName)
 	result = uncompress(dest, &fileSize, source, compressedSize);
 
 	dest[fileSize] = '\0';
-
-	fclose(fp);
 
 	free(source);
 
