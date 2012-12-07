@@ -355,7 +355,7 @@ void moveInventoryItem(int index)
 	}
 }
 
-void selectInventoryItem(void)
+void selectInventoryItem()
 {
 	if (inventory.item[inventory.cursorIndex].inUse == TRUE)
 	{

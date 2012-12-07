@@ -567,7 +567,7 @@ static void knifeBlock(Entity *other)
 	self->activate = &throwItem;
 }
 
-static void specialKnifeBlockWait(void)
+static void specialKnifeBlockWait()
 {
 	if (self->flags & FLY)
 	{

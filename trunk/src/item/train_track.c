@@ -96,7 +96,7 @@ static void init()
 	self->face = RIGHT;
 }
 
-static void entityWait(void)
+static void entityWait()
 {
 	int nextTrack;
 	char targetTrackName[MAX_VALUE_LENGTH];

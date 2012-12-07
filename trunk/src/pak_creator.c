@@ -159,6 +159,8 @@ static int countFiles(char *dirName)
 			count++;
 		}
 	}
+	
+	closedir(dirp);
 
 	return count;
 }

@@ -175,11 +175,11 @@ void savePNG(SDL_Surface *surface, char *name)
 
 	if (alpha)
 	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_colour_TYPE_RGB_ALPHA, 8);
+		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB_ALPHA, 8);
 	}
 	else
 	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_colour_TYPE_RGB, 8);
+		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB, 8);
 	}
 
 	free(ss_rows);
