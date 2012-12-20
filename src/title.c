@@ -72,7 +72,11 @@ void drawTitle()
 
 static void initTitle()
 {
-	title.copyright = generateTransparentTextSurface(_("Copyright Parallel Realities 2009 - 2012"), game.font, 220, 220, 220, TRUE);
+	char copyright[MAX_VALUE_LENGTH];
+	
+	snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
+	
+	title.copyright = generateTransparentTextSurface(copyright, game.font, 220, 220, 220, TRUE);
 	
 	title.edgarLogo = loadImage("gfx/title_screen/logo.png");
 	

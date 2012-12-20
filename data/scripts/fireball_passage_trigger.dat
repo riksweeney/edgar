@@ -1,0 +1,5 @@
+ADD ENTITY SCRIPT_LINE_DEF common/line_def "fireball_passage_shield" 5696 11488
+SET fireball_passage_shield PROPERTY START_X 5696
+SET fireball_passage_shield PROPERTY START_Y 11488
+SET fireball_passage_shield PROPERTY END_X 5824
+SET fireball_passage_shield PROPERTY END_Y 11488

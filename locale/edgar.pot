@@ -6143,7 +6143,7 @@ msgid "Crypt"
 msgstr ""
 
 #: src/credits.c:586
-msgid "Copyright Parallel Realities 2009 - 2012"
+msgid "Copyright Parallel Realities 2009 - %d"
 msgstr ""
 
 #: src/menu/main_menu.c:170

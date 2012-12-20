@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Traduccion de Edgar 0.75\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-08-05 04:10+0000\n"
+"PO-Revision-Date: 2012-12-18 23:46+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-12 21:24+0000\n"
-"X-Generator: Launchpad (build 15936)\n"
+"X-Launchpad-Export-Date: 2012-12-19 19:16+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -518,8 +518,8 @@ msgid "Maybe I could tunnel my way in..."
 msgstr "Quizá podría cavar mi camino..."
 
 #: data/scripts/borer_boss_die.dat:3
-msgid "Gross..."
-msgstr "Bruto..."
+msgid "Yuck..."
+msgstr ""
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
@@ -6659,8 +6659,8 @@ msgid "Crypt"
 msgstr "Cripta"
 
 #: src/credits.c:586
-msgid "Copyright Parallel Realities 2009 - 2012"
-msgstr "Derechos de Autor Parallel Realities 2009-2012"
+msgid "Copyright Parallel Realities 2009 - %d"
+msgstr "Copyright Parallel Realities 2009 - %d"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
@@ -7072,4 +7072,9 @@ msgstr "Escudo de fuego"
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
+msgstr ""
+
+#: data/scripts/attribute.dat:2
+msgid ""
+"It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
 msgstr ""
