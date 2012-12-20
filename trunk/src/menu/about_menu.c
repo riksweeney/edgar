@@ -66,7 +66,7 @@ static void doMenu()
 static void loadMenuLayout()
 {
 	int y;
-	char versionText[MAX_VALUE_LENGTH];
+	char versionText[MAX_VALUE_LENGTH], copyright[MAX_VALUE_LENGTH];
 
 	menu.widgetCount = 3;
 
@@ -84,8 +84,10 @@ static void loadMenuLayout()
 	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 
 	y += menu.widgets[0]->selectedState->h + BUTTON_PADDING;
+	
+	snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
-	menu.widgets[1] = createWidget(_("Copyright Parallel Realities 2009 - 2012"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+	menu.widgets[1] = createWidget(copyright, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 
 	y += menu.widgets[1]->selectedState->h + BUTTON_PADDING;
 

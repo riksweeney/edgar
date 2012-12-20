@@ -574,6 +574,8 @@ static void doChaos()
 
 static void doEdgarLogo()
 {
+	char copyright[MAX_VALUE_LENGTH];
+	
 	if (credits.edgarLogo == NULL)
 	{
 		credits.creditLine = malloc(sizeof(CreditLine));
@@ -582,8 +584,10 @@ static void doEdgarLogo()
 		{
 			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
 		}
+		
+		snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
-		STRNCPY(credits.creditLine[0].text, _("Copyright Parallel Realities 2009 - 2012"), MAX_LINE_LENGTH);
+		STRNCPY(credits.creditLine[0].text, copyright, sizeof(credits.creditLine[0].text));
 
 		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.font, 220, 220, 220, TRUE);
 

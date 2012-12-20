@@ -173,6 +173,11 @@ static void activate(int val)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
+			if (self->mental == -1)
+			{
+				STRNCPY(self->objectiveName, "-", sizeof(self->objectiveName));
+			}
+
 			if (total > 0 && self->maxThinkTime == 0)
 			{
 				setInfoBoxMessage(30, 255, 255, 255, _("Complete"));
