@@ -1,6 +1,6 @@
 PORTING
 
-Updated: November 2012
+Updated: January 2013
 
 In order to successfully port The Legend of Edgar to another platform you will need,
 
@@ -8,6 +8,8 @@ In order to successfully port The Legend of Edgar to another platform you will n
 * SDL Image
 * SDL Mixer
 * SDL TTF
+* zlib
+* GNU gettext
 
 There are a few considerations when porting to other platforms:
 

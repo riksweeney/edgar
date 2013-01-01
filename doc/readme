@@ -5,7 +5,17 @@ Version 1.06
 LICENSE
 
 	GNU GPL - Please read LICENSE for more information
+	
+REQUIREMENTS
 
+	You need the following to build the game
+	
+	* SDL
+	* SDL_Image
+	* SDL_TTF
+	* SDL_Mixer
+	* zlib
+	* GNU gettext
 
 INSTALLATION
 
