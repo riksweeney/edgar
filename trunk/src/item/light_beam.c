@@ -63,6 +63,10 @@ Entity *addLightBeam(int x, int y, char *name)
 
 static void entityWait()
 {
+	int x1, y1, x2, y2, w1, h1, w2, h2;
+	EntityList *el, *entities;
+	Entity *other;
+	
 	if (self->dirX > 0)
 	{
 		self->endX = getMapRight(self->startX, self->startY);
@@ -91,11 +95,55 @@ static void entityWait()
 		self->box.h = self->startY - self->y;
 	}
 	
-	self->health--;
+	entities = getEntities();
 	
-	if (self->health <= 0)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		self->health = 0;
+		other = el->entity;
+		
+		if (other->inUse == TRUE && (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == WEAK_WALL))
+		{
+			x1 = self->x + self->box.x;
+			y1 = self->y + self->box.y;
+			w1 = self->box.w;
+			h1 = self->box.h;
+			
+			x2 = other->x + other->box.x;
+			y2 = other->y + other->box.y;
+			w2 = other->box.w;
+			h2 = other->box.h;
+			
+			if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
+			{
+				if (self->dirX > 0)
+				{
+					self->endX = other->x;
+
+					self->box.w = self->endX - self->x;
+				}
+
+				else if (self->dirX < 0)
+				{
+					self->x = other->x + other->w;
+
+					self->box.w = self->startX - self->x;
+				}
+
+				if (self->dirY > 0)
+				{
+					self->endY = other->y;
+
+					self->box.h = self->endY - self->y;
+				}
+
+				else if (self->dirY < 0)
+				{
+					self->y = other->y + other->h;
+
+					self->box.h = self->startY - self->y;
+				}
+			}
+		}
 	}
 }
 
@@ -126,38 +174,5 @@ static int draw()
 
 static void touch(Entity *other)
 {
-	if (other->type != KEY_ITEM && other->type != PLAYER && other->type != ENEMY
-	&& other->type != AUTO_LIFT && other->type != MANUAL_LIFT && other->type != WEAPON
-	&& other->type != PROJECTILE)
-	{
-		if (self->dirX > 0)
-		{
-			self->endX = other->x;
-
-			self->box.w = self->endX - self->x;
-		}
-
-		else if (self->dirX < 0)
-		{
-			self->x = other->x + other->w;
-
-			self->box.w = self->startX - self->x;
-		}
-
-		if (self->dirY > 0)
-		{
-			self->endY = other->y;
-
-			self->box.h = self->endY - self->y;
-		}
-
-		else if (self->dirY < 0)
-		{
-			self->y = other->y + other->h;
-
-			self->box.h = self->startY - self->y;
-		}
-		
-		self->health = 5;
-	}
+	
 }
