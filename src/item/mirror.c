@@ -66,7 +66,7 @@ static void touch(Entity *other)
 {
 	int mirrorLeft, mirrorRight, beamMid;
 
-	if (other->health <= 0 && strcmpignorecase(other->name, "item/light_beam") == 0)
+	if (strcmpignorecase(other->name, "item/light_beam") == 0)
 	{
 		if (other != self->target)
 		{
