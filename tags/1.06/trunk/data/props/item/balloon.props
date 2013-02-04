@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/balloon.dat
+ANIM_FILE data/anim/item/balloon.dat
+TYPE KEY_ITEM
+HEALTH 1

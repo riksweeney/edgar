@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/potion_dispenser.dat
+ANIM_FILE data/anim/item/potion_dispenser.dat
+TYPE KEY_ITEM
+FLAGS FLY|PLAYER_TOUCH_ONLY
+OBJECTIVE_NAME item/slime_potion
+REQUIRES Empty Bottle

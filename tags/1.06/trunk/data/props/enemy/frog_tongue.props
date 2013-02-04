@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/frog_tongue.dat
+ANIM_FILE data/anim/enemy/frog_tongue.dat
+TYPE ENEMY
+SPEED 12
+LAYER FOREGROUND_LAYER
+FLAGS FLY|DO_NOT_PERSIST
