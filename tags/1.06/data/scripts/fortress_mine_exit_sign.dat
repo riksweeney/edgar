@@ -1,0 +1,5 @@
+TALK Edgar There's another sign here
+TALK Sign If the exit lift is out of order then proceed to the left
+TALK Sign Warning : Exit route may be hazardous
+SET Edgar FACE LEFT
+TALK Edgar Maybe I should use the lift to get out
