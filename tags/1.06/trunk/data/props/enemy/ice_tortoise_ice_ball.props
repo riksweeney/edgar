@@ -1,8 +1,0 @@
-GFX_FILE data/gfx/enemy/ice_tortoise_ice_ball.dat
-ANIM_FILE data/anim/enemy/ice_tortoise_ice_ball.dat
-TYPE ENEMY
-WEIGHT 0.1
-LAYER BACKGROUND_LAYER
-FLAGS DO_NOT_PERSIST
-THINKTIME 600
-HEALTH 600

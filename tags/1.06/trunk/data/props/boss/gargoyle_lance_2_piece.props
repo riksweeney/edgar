@@ -1,5 +1,0 @@
-GFX_FILE data/gfx/boss/gargoyle_lance_2_piece.dat
-ANIM_FILE data/anim/boss/gargoyle_lance_piece.dat
-TYPE TEMP_ITEM
-SPEED 2.5
-THINKTIME 180

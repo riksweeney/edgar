@@ -1,6 +1,0 @@
-GFX_FILE data/gfx/door/skull_door.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE MANUAL_DOOR
-SPEED 1
-LAYER BACKGROUND_LAYER
-FLAGS FLY

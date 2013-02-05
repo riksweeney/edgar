@@ -1,7 +1,0 @@
-DAMAGE 1
-GFX_FILE data/gfx/boss/snake_boss_special_shot.dat
-ANIM_FILE data/anim/boss/snake_boss_shot.dat
-TYPE PROJECTILE
-LAYER BACKGROUND_LAYER
-FLAGS FLY
-THINKTIME 300

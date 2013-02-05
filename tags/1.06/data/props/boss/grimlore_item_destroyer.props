@@ -1,6 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/grimlore_item_destroyer.dat
-ANIM_FILE data/anim/common/no_anim.dat
-HEALTH 10
-ACTIVE FALSE
-FLAGS FLY

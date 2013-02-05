@@ -1,6 +1,0 @@
-TALK Edgar Wow, what a cool looking shield
-TALK Edgar Hopefully this will protect me from that spell
-TALK Edgar But there's only one way to find out...
-ADD MAP_TRIGGER "map09" RUN_SCRIPT "enable_study"
-ADD OBJECTIVE "Defeat the Sorceror" " "
-ADD TRIGGER "SORCEROR" 1 UPDATE_OBJECTIVE "Defeat the Sorceror"

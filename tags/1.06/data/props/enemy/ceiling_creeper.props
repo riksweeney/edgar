@@ -1,8 +1,0 @@
-HEALTH 60
-DAMAGE 1
-GFX_FILE data/gfx/enemy/ceiling_creeper.dat
-ANIM_FILE data/anim/enemy/ceiling_creeper.dat
-TYPE ENEMY
-FLAGS FLY
-LAYER FOREGROUND_LAYER
-SPEED 2

@@ -1,7 +1,0 @@
-HEALTH 500
-DAMAGE 1
-GFX_FILE data/gfx/enemy/green_scanner.dat
-ANIM_FILE data/anim/enemy/green_scanner.dat
-TYPE ENEMY
-SPEED 2
-FLAGS FLY

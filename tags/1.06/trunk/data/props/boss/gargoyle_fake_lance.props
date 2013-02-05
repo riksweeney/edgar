@@ -1,8 +1,0 @@
-HEALTH 30
-DAMAGE 1
-GFX_FILE data/gfx/boss/gargoyle_lance_1.dat
-ANIM_FILE data/anim/boss/gargoyle_lance.dat
-TYPE ENEMY
-FLAGS DO_NOT_PERSIST|FLY
-SPEED 2.5
-MAX_THINKTIME 1

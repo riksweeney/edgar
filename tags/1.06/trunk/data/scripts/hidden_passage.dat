@@ -1,9 +1,0 @@
-TALK Edgar There's a draft here...
-TALK Edgar And one of these bricks is loose
-WAIT 30
-PLAY_SOUND sound/common/switch.ogg
-SET HIDDEN_PASSAGE_WALL PROPERTY MENTAL 1
-WHILE EXISTS HIDDEN_PASSAGE_WALL
-TALK Edgar Aha! It's a hidden passage!
-TALK Edgar Hopefully this will lead me to the sorceror...
-ACTIVATE_OBJECTIVE Study-Right Tower

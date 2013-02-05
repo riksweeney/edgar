@@ -1,6 +1,0 @@
-TYPE MANUAL_LIFT
-GFX_FILE data/gfx/lift/large_mine_lift.dat
-ANIM_FILE data/anim/common/no_anim.dat
-SPEED 3.5
-HEALTH 0
-FLAGS FLY|PUSHABLE
