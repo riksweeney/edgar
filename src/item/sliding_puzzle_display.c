@@ -123,6 +123,9 @@ static void activate(int val)
 {
 	int dirX, dirY;
 	Entity *e;
+	
+	dirX = 0;
+	dirY = 0;
 
 	switch (val)
 	{
@@ -138,7 +141,7 @@ static void activate(int val)
 			dirX = -self->target->w;
 		break;
 
-		default:
+		case 4:
 			dirX = self->target->w;
 		break;
 	}

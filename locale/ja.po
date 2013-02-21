@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-12-18 19:03+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2013-02-20 00:38+0000\n"
+"Last-Translator: maruhiro <maruhiro@bridge.ocn.ne.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-19 19:16+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-02-21 21:16+0000\n"
+"X-Generator: Launchpad (build 16491)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -338,7 +338,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
-msgstr "OK"
+msgstr "わかった。"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
@@ -414,33 +414,33 @@ msgstr ""
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "The shield will protect you from most enemy attacks"
-msgstr ""
+msgstr "盾を使えばほとんどの敵の攻撃を防げます。"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
-msgstr ""
+msgstr "攻撃を防げない敵もいます。"
 
 #: data/scripts/tutorial_shield.dat:3
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr ""
+msgstr "落石のような自然災害も防ぐことはできません。"
 
 #: data/scripts/tutorial_shield.dat:4
 msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
-msgstr ""
+msgstr "防御キー([INPUT_BLOCK])を押すと、敵の攻撃を防御します。"
 
 #: data/scripts/tutorial_shield.dat:5
 msgid "You must be facing the attack to successfully block it"
-msgstr ""
+msgstr "防御するためには、攻撃の方を向いていなければなりません。"
 
 #: data/scripts/tutorial_shield.dat:6
 msgid ""
 "Note that you cannot move whilst blocking, but you can face the other way. "
 "You also cannot block in the air"
-msgstr ""
+msgstr "防御している間は動けないことに注意してください。しかし、向きを変えることはできます。また、空中では防御できません。"
 
 #: data/scripts/tutorial_shield.dat:7
 msgid "Pick up the shield and continue to the right"
-msgstr ""
+msgstr "盾を取って右に進みましょう。"
 
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
@@ -990,22 +990,22 @@ msgstr ""
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr ""
+msgstr "このゲームには2種類の扉があります。操作して開ける扉と、自動で開く扉です。"
 
 #: data/scripts/tutorial_doors.dat:2
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
-msgstr ""
+msgstr "操作して開ける扉は鍵が必要です。自動で開く扉にはスイッチがあります。"
 
 #: data/scripts/tutorial_doors.dat:3
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
-msgstr ""
+msgstr "合った鍵を持っていれば、鍵の掛かった扉はただ単に歩いて行けば開きます。持ち物から選択する必要はありません。"
 
 #: data/scripts/tutorial_doors.dat:4
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "扉を開けて右へ進みましょう。"
 
 #: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
@@ -1017,11 +1017,11 @@ msgstr ""
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
-msgstr ""
+msgstr "ここで盾を使ってみましょう。"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr ""
+msgstr "植物が飛ばす種を防御し、崖を跳び越えてください。"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
@@ -1783,19 +1783,19 @@ msgstr ""
 
 #: data/scripts/tutorial_walls.dat:1
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr ""
+msgstr "脆い壁があります。これはつるはしで壊すことができます。"
 
 #: data/scripts/tutorial_walls.dat:2
 msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
-msgstr ""
+msgstr "攻撃キー([INPUT_ATTACK])を押すと、つるはしを使えます。"
 
 #: data/scripts/tutorial_walls.dat:3
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
-msgstr ""
+msgstr "全ての脆い壁がつるはしで壊せるわけではないことに注意してください。"
 
 #: data/scripts/tutorial_walls.dat:4
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr ""
+msgstr "つるはしで壁を壊し先に進みましょう。"
 
 #: data/scripts/grimlore_die.dat:3
 msgid "There, back to your own dimension"
@@ -1898,23 +1898,23 @@ msgstr ""
 
 #: data/scripts/tutorial_boxes.dat:1
 msgid "Some items in the game can be pushed and pulled"
-msgstr ""
+msgstr "いくつかの物は押したり引いたりできます。"
 
 #: data/scripts/tutorial_boxes.dat:2
 msgid "To push an item, simply walk into it"
-msgstr ""
+msgstr "ただ単に歩いていけば、物を押せます。"
 
 #: data/scripts/tutorial_boxes.dat:3
 msgid "To pull an item, walk into while holding down Action"
-msgstr ""
+msgstr "行動キー([INPUT_INTERACT])を押しながら歩くと、物を引けます。"
 
 #: data/scripts/tutorial_boxes.dat:4
 msgid "You can then pull the item around until you let go of Action"
-msgstr ""
+msgstr "行動キーを放すまで物を引き続けます。"
 
 #: data/scripts/tutorial_boxes.dat:5
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr ""
+msgstr "箱をもう一方まで引いて、崖を登りましょう。"
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
@@ -1974,13 +1974,13 @@ msgstr ""
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
-msgstr ""
+msgstr "リセットスイッチでマップ上の物の位置を戻すことができます。"
 
 #: data/scripts/tutorial_reset_switch.dat:2
 msgid ""
 "If an object becomes unreachable then you can use the switch to put it back "
 "in its original place"
-msgstr ""
+msgstr "もし物を届かない場所へ移動させてしまったら、このスイッチで元の位置に戻せます。"
 
 #: data/scripts/black_book.dat:1
 msgid "This book is different to the rest"
@@ -2066,7 +2066,7 @@ msgstr ""
 msgid ""
 "Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
 "box"
-msgstr ""
+msgstr "読み終えたら[INPUT_JUMP]キーを押して次のダイアログボックスに進んでください。"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid ""
@@ -2074,35 +2074,38 @@ msgid ""
 "([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
 "([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"攻撃([INPUT_ATTACK])、防御([INPUT_BLOCK])、ジャンプ([INPUT_JUMP])、行動([INPUT_INTERACT])、"
+"または使用キー([INPUT_ACTIVATE])でも次のダイアログボックスに進めます。"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
+"これは The Legend of Edgar (エドガーの伝説) のチュートリアルです。このチュートリアルではこのゲームの遊び方を説明します。"
 
 #: data/scripts/tutorial_intro.dat:7
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
-msgstr ""
+msgstr "このチュートリアルを終えるためには、ESCキーを押し、カーソルキーの上下でオプションを選択します。リターンキーを押すと選択されます。"
 
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
-msgstr ""
+msgstr "[INPUT_LEFT]キーと[INPUT_RIGHT]キーを押すと、エドガーが左右に動きます。"
 
 #: data/scripts/tutorial_intro.dat:9
 msgid ""
 "To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
-msgstr ""
+msgstr "[INPUT_JUMP]キーを押すと、エドガーはジャンプします。ジャンプ中も移動できます。"
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
-msgstr ""
+msgstr "[INPUT_INTERACT]キーを押すと、物を操作します。"
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr ""
+msgstr "アクション・ポイント(!マーク)のところまで移動し、[INPUT_INTERACT]を押してみましょう。"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
@@ -2459,39 +2462,41 @@ msgstr ""
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
-msgstr ""
+msgstr "ここがチュートリアルの最後の部分です。ここでは敵から防御し攻撃する方法を学びます。"
 
 #: data/scripts/tutorial_combat.dat:2
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
-msgstr ""
+msgstr "まず、剣を装備しなければなりません。剣はつるはしよりも攻撃の範囲が広く、威力もあるためです。"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid ""
 "Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
 "press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"[INPUT_INVENTORY] "
+"を押して持ち物を表示し、剣にハイライトを合わせ、攻撃キー([INPUT_ATTACK])または使用キー([INPUT_ACTIVATE])を押します。"
 
 #: data/scripts/tutorial_combat.dat:4
 msgid "Press [INPUT_INVENTORY] again to close your inventory"
-msgstr ""
+msgstr "もう一度 [INPUT_INVENTORY] を押すと、持ち物ウィンドウが閉じます。"
 
 #: data/scripts/tutorial_combat.dat:5
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
-msgstr ""
+msgstr "敵を倒すと体力回復を落とすことがありますが、数秒で消えてしまいます。素早く取りましょう!"
 
 #: data/scripts/tutorial_combat.dat:6
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
-msgstr ""
+msgstr "コウモリに接近されても、防御すればダメージを受けずに跳ね返すことができます。"
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "この辺りにいるコウモリを全て倒しましょう!"
 
 #: data/scripts/raft_2.dat:8
 msgid "Aw, not again!"
@@ -2580,15 +2585,15 @@ msgstr ""
 
 #: data/scripts/tutorial_pickaxe.dat:1
 msgid "The pickaxe is one of many weapons you will encounter in the game"
-msgstr ""
+msgstr "つるはしはこのゲームに登場する多くの武器の中の1つです。"
 
 #: data/scripts/tutorial_pickaxe.dat:2
 msgid "You can use it as both a weapon and a tool"
-msgstr ""
+msgstr "武器としてだけではなく、道具としても使えます。"
 
 #: data/scripts/tutorial_pickaxe.dat:3
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr ""
+msgstr "つるはしを取り、次のアクションポイントまで進んでください。"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
@@ -2795,17 +2800,17 @@ msgstr ""
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
-msgstr ""
+msgstr "おめでとう! これでゲームの基礎がわかったはずです。"
 
 #: data/scripts/tutorial_finish.dat:3
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
-msgstr ""
+msgstr "もしチュートリアルをもう一度プレーしたいなら、ESCキーを押して、メニューから「チュートリアル」を選択してください。"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "To play the main game, press Escape and select New Game from the menu"
-msgstr ""
+msgstr "本編で遊ぶなら、ESCキーを押して、メニューから「新しいゲームの開始」を選んでください。"
 
 #: data/scripts/grappling_hook.dat:5
 msgid "There, the rope's firmly attached"
@@ -3564,36 +3569,36 @@ msgstr ""
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
-msgstr ""
+msgstr "魔法使いは自分の城に父さんを連れて行ったに違いない。そこから父さんを助けなければ。"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr ""
+msgstr "城へ行くには東の秘密の沼を通らなければならない。"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
-msgstr ""
+msgstr "村と沼の間には池があって、渡るにはいかだがいる。"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
 "and Jacob to get these though."
-msgstr ""
+msgstr "身を守るための剣と盾もいる。ボーガンとヤコブに話してみよう。"
 
 #: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
-msgstr ""
+msgstr "ボーガンと話す"
 
 #: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
-msgstr ""
+msgstr "ヤコブと話す"
 
 #: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
-msgstr ""
+msgstr "沼の途中の池を渡る"
 
 #: data/scripts/flying_maggot_start_2.dat:8
 msgid "Wait, what was that?"
@@ -3633,38 +3638,38 @@ msgstr ""
 msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
 "to your inventory."
-msgstr ""
+msgstr "ただ単にアイテムのところに歩いて行くと、取ることができます。取った全てのアイテムは持ち物に加えられます。"
 
 #: data/scripts/tutorial_items.dat:2
 msgid ""
 "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
-msgstr ""
+msgstr "[INPUT_INVENTORY]キーを押すと、持ち物を見ることができます。"
 
 #: data/scripts/tutorial_items.dat:3
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr ""
+msgstr "持ち物の一覧では、カーソルキーで見るアイテムを選択します。"
 
 #: data/scripts/tutorial_items.dat:4
 msgid ""
 "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
 "Item ([INPUT_ACTIVATE])"
-msgstr ""
+msgstr "このとき攻撃キー([INPUT_ATTACK])または使用キー([INPUT_ACTIVATE])を押すと、アイテムをその場で使います。"
 
 #: data/scripts/tutorial_items.dat:5
 msgid ""
 "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
 "([INPUT_INTERACT])"
-msgstr ""
+msgstr "防御キー([INPUT_BLOCK])か、行動キー([INPUT_INTERACT])を押すと、アイテムを装備します。"
 
 #: data/scripts/tutorial_items.dat:6
 msgid ""
 "You can also sort items in your inventory by using the Previous Item "
 "([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
-msgstr ""
+msgstr "持ち物は、前のアイテム([INPUT_PREVIOUS])と次のアイテム([INPUT_NEXT])キーで順番を変えられます。"
 
 #: data/scripts/tutorial_items.dat:7
 msgid "Walk over the key to pick it up"
-msgstr ""
+msgstr "鍵まで歩いて、取ってみましょう。"
 
 #: data/scripts/fortress_intro.dat:3
 msgid "So this is the Fortress."
@@ -3680,32 +3685,32 @@ msgstr ""
 msgid ""
 "You can change all of the controls in the game by pressing Escape and "
 "selecting Options in the menu"
-msgstr ""
+msgstr "[ESC]を押し、メニューのオプションを選択すると、このゲームでの全ての操作キーを変更することができます。"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Select Configure Controls using the arrow keys and press Return"
-msgstr ""
+msgstr "操作設定をカーソルキーで選択し、リターンキーを押します。"
 
 #: data/scripts/tutorial_keys.dat:3
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
-msgstr ""
+msgstr "カーソルキーで変更したい操作を選択し、リターンキーを押してください。"
 
 #: data/scripts/tutorial_keys.dat:4
 msgid "Next, press the key that you want to use instead."
-msgstr ""
+msgstr "次に、代わりに使いたいキーを押します。"
 
 #: data/scripts/tutorial_keys.dat:5
 msgid ""
 "Regardless of what keys you choose, you can always navigate the menus using "
 "the arrow keys and Return"
-msgstr ""
+msgstr "選んだキーに関わらず、メニューでは常にカーソルキーとリターンキーを使います。"
 
 #: data/scripts/tutorial_keys.dat:6
 msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
-msgstr ""
+msgstr "操作設定の変更を終えたら、右へ移動し次のアクション・ポイントに移動しましょう。"
 
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
@@ -4360,42 +4365,42 @@ msgstr ""
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
-msgstr ""
+msgstr "取ったアイテムを使うのは簡単です。"
 
 #: data/scripts/tutorial_bomb.dat:2
 msgid ""
 "Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
 "the bomb"
-msgstr ""
+msgstr "持ち物ウィンドウを開いて([INPUT_INVENTORY])、カーソルキーで爆弾までハイライトを動かします。"
 
 #: data/scripts/tutorial_bomb.dat:3
 msgid ""
 "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
-msgstr ""
+msgstr "そして、攻撃キー([INPUT_ATTACK])または使用キー([INPUT_ACTIVATE])で選択します。"
 
 #: data/scripts/tutorial_bomb.dat:4
 msgid "Now close the inventory ([INPUT_INVENTORY])"
-msgstr ""
+msgstr "持ち物キー([INPUT_INVENTORY])を押すと閉じます。"
 
 #: data/scripts/tutorial_bomb.dat:5
 msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
-msgstr ""
+msgstr "この状態で使用キー([INPUT_ACTIVATE])を押すと、アイテムが使えます。"
 
 #: data/scripts/tutorial_bomb.dat:6
 msgid "Try it with the bomb, but make sure you stand well back!"
-msgstr ""
+msgstr "爆弾で試してみましょう。でも十分に離れてください!"
 
 #: data/scripts/tutorial_bomb.dat:7
 msgid ""
 "While you are in the inventory screen, the action is paused so you can take "
 "your time"
-msgstr ""
+msgstr "持ち物ウィンドウを開いている間は止まっているので、時間をかけて選ぶことができます。"
 
 #: data/scripts/tutorial_bomb.dat:8
 msgid ""
 "Some items, such as health potions and weapons can be used in the inventory "
 "screen, so there is no need to exit the inventory"
-msgstr ""
+msgstr "回復薬や武器などのいくつかのアイテムは、使った後に閉じる必要がありません。"
 
 #: data/scripts/final_generator.dat:1
 msgid "This generator looks OK, it just isn't on"
@@ -6215,11 +6220,11 @@ msgstr "上下キーを使って選択してください。変更するにはEnt
 
 #: src/menu/control_menu.c:189
 msgid "Interact"
-msgstr ""
+msgstr "行動"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Use"
-msgstr ""
+msgstr "使用"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
@@ -6423,41 +6428,41 @@ msgstr ""
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "ひどい夜だ…"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "エドガー、父さんは少し出かけなければならない。"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
-msgstr ""
+msgstr "30分くらいは起きていてもいいが、それを過ぎたらおもちゃを片付けて寝なさい。"
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "次の朝…"
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "父さん! どこにいるの?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "昨日は戻らなかったみたいだ。"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "ベッドも使われてないし、朝ご飯もできてない。"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "考えられるのは1つだけ…"
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "悪い魔法使いにさらわれたんだ!"
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
