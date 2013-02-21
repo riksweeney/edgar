@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 1.07
+* Fixed a problem with the lightning sword sliding puzzle
+* Updated Brazilian Portuguese and Japanese translations
+
 Version 1.06
 * Updated Czech, German, Spanish, French, Russian and Ukrainian translations
 * The Salamander no longer sometimes gets stuck after performing its ground charge
