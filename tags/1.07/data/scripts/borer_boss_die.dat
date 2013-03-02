@@ -1,0 +1,5 @@
+WAIT 60
+SET Edgar FACE RIGHT
+TALK Edgar Yuck...
+ACTIVATE_OBJECTIVE Borer-Catacombs
+ADD_MEDAL kill_borer

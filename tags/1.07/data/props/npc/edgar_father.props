@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/npc/edgar_father.dat
+ANIM_FILE data/anim/npc/edgar_father.dat
+TYPE NPC
+HEALTH 1
