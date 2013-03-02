@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-02-20 00:38+0000\n"
+"PO-Revision-Date: 2013-03-01 23:01+0000\n"
 "Last-Translator: maruhiro <maruhiro@bridge.ocn.ne.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-21 21:16+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-03-02 08:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -73,7 +73,7 @@ msgstr ""
 
 #: data/scripts/third_side.dat:5
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr ""
+msgstr "それだけ?"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
@@ -320,7 +320,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr ""
+msgstr "ありがとう!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
@@ -367,7 +367,7 @@ msgstr ""
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
-msgstr ""
+msgstr "このエレベーターは動かない。動力を戻さないと使えないみたいだ。"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
@@ -380,27 +380,27 @@ msgstr ""
 
 #: data/scripts/drawbridge_pulley.dat:2
 msgid "It looks like the pulley for the drawbridge"
-msgstr ""
+msgstr "跳ね橋の滑車みたいだ。"
 
 #: data/scripts/drawbridge_pulley.dat:3
 msgid "The mechanism seems to be locked tight"
-msgstr ""
+msgstr "しっかりと固定されている。"
 
 #: data/scripts/drawbridge_pulley.dat:4
 msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
-msgstr ""
+msgstr "そんなに丈夫ではなさそうだ。多分叩けば…"
 
 #: data/scripts/drawbridge_pulley.dat:10
 msgid "Oops..."
-msgstr ""
+msgstr "おっと…"
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "誰にも聞かれなかっただろうな…"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
-msgstr ""
+msgstr "うーん、なんにせよ跳ね橋は下りたはずだ…"
 
 #: data/scripts/flame_pillar.dat:1
 msgid ""
@@ -461,15 +461,15 @@ msgstr ""
 
 #: data/scripts/outskirts_intro.dat:10
 msgid "Drat, the drawbridge is up. There must be another entrance..."
-msgstr ""
+msgstr "ああ、跳ね橋が上がっている。別の入り口は…"
 
 #: data/scripts/outskirts_intro.dat:15
 msgid "Wait, what's that?"
-msgstr ""
+msgstr "待て、あれは?"
 
 #: data/scripts/outskirts_intro.dat:23
 msgid "Maybe I could tunnel my way in..."
-msgstr ""
+msgstr "もしかすると、掘って進めるかも…"
 
 #: data/scripts/borer_boss_die.dat:3
 msgid "Yuck..."
@@ -477,7 +477,7 @@ msgstr ""
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "わあ、何だこれは?"
 
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
@@ -595,7 +595,7 @@ msgstr ""
 
 #: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
-msgstr ""
+msgstr "メモがある。"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
@@ -652,31 +652,31 @@ msgstr ""
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "おめでとう、あなたは秘密を見つけました!"
 
 #: data/scripts/tutorial_secret.dat:3
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr ""
+msgstr "本編にはたくさんに秘密があります。常に注意して探しましょう。"
 
 #: data/scripts/tutorial_secret.dat:4
 msgid "Here's a hint to get you started"
-msgstr ""
+msgstr "本編が始まった直後のヒントを教えましょう。"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid ""
 "Although Jacob only requires you to catch 3 of his chickens, why not be nice "
 "to him and catch more? There are 10 wandering the map in all"
-msgstr ""
+msgstr "ヤコブは3羽の鶏を捕まえて欲しいと言っていますが、もっと捕まえたらどうなるでしょうか? 全部で10羽います。"
 
 #: data/scripts/box_pushing.dat:1
 msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
-msgstr ""
+msgstr "行動キーを押しながら物と反対の方向に動くと、物を引くことができます。"
 
 #: data/scripts/box_pushing.dat:2
 msgid "You can then pull it around until you let go of the Action button"
-msgstr ""
+msgstr "行動ボタンを押している間は引き続けます。"
 
 #: data/scripts/drainers.dat:1
 msgid ""
@@ -722,125 +722,125 @@ msgstr ""
 
 #: data/scripts/maggie.dat:4
 msgid "Hi"
-msgstr ""
+msgstr "やあ。"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
-msgstr ""
+msgstr "こんにちはエドガー。"
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "盾を貸してくれないか?"
 
 #: data/scripts/borgan.dat:14
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "戦いの練習でもするのか?"
 
 #: data/scripts/borgan.dat:15
 msgid "Something like that"
-msgstr ""
+msgstr "そんなところだよ。"
 
 #: data/scripts/borgan.dat:16
 msgid "If you run me an errand then you can have the shield"
-msgstr ""
+msgstr "お使いに行ってきたら盾を貸してやろう。"
 
 #: data/scripts/borgan.dat:17
 msgid "What do I have to do?"
-msgstr ""
+msgstr "何をすればいい?"
 
 #: data/scripts/borgan.dat:18
 msgid "Go to the mine and collect me some coal"
-msgstr ""
+msgstr "炭鉱で石炭を取ってきてくれ。"
 
 #: data/scripts/borgan.dat:19
 msgid "But we have plenty of coal!"
-msgstr ""
+msgstr "でも石炭はたくさんある!"
 
 #: data/scripts/borgan.dat:20
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
-msgstr ""
+msgstr "そうだな。だが、古い石炭はあまりない。こいつは特別で、熱くて長持ちする。"
 
 #: data/scripts/borgan.dat:21
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
+msgstr "10個あれば十分だ。それほど時間はかからないだろう。"
 
 #: data/scripts/borgan.dat:22
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
-msgstr ""
+msgstr "鞄に入れるのを忘れるな。石炭をずっと持っているのは体に悪い。"
 
 #: data/scripts/borgan.dat:23
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "鞄はある?"
 
 #: data/scripts/borgan.dat:24
 msgid "No, you can probably find one in the mine though"
-msgstr ""
+msgstr "いや。炭鉱にあるだろう。"
 
 #: data/scripts/borgan.dat:25
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "わかった。石炭を取ってくるよ。"
 
 #: data/scripts/borgan.dat:27
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
-msgstr ""
+msgstr "このつるはしを持っていきなさい。石炭を掘ったり、脆い壁があったときに使えるだろう。"
 
 #: data/scripts/borgan.dat:29
 msgid "You'll also need this key to get into the mine"
-msgstr ""
+msgstr "炭鉱の中ではこの鍵も必要だ。"
 
 #: data/scripts/borgan.dat:31
 msgid "Collect 10 pieces of Coal"
-msgstr ""
+msgstr "10個の石炭を集める"
 
 #: data/scripts/borgan.dat:36
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
-msgstr ""
+msgstr "ありがとう、エドガー、石炭は十分だ! コウモリに苦労しなれればよかったが。"
 
 #: data/scripts/borgan.dat:37
 msgid "The bats were the least of my worries..."
-msgstr ""
+msgstr "コウモリは大丈夫だったけど…"
 
 #: data/scripts/borgan.dat:38
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr ""
+msgstr "ところで、あの炭鉱では数年前に何かあったそうだ。"
 
 #: data/scripts/borgan.dat:39
 msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
-msgstr ""
+msgstr "ああ、そうだ、おまえが言った「事件」があった。だが、炭鉱のその場所は長いこと立ち入り禁止になっている。"
 
 #: data/scripts/borgan.dat:40
 msgid "Right..."
-msgstr ""
+msgstr "そう…。"
 
 #: data/scripts/borgan.dat:42
 msgid "Here, have my shield and have fun!"
-msgstr ""
+msgstr "さあ、これがワシの盾だ。自由に使ってくれ!"
 
 #: data/scripts/borgan.dat:44
 msgid "Just stay away from the Forbidden Swamp"
-msgstr ""
+msgstr "秘密の沼には近づくな。"
 
 #: data/scripts/borgan.dat:45
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "そうするよ。しばらくつるはしを貸してくれない?"
 
 #: data/scripts/borgan.dat:46
 msgid "Sure thing, just bring it back in one piece"
-msgstr ""
+msgstr "もちろんだ。後でちゃんと返しておくれ。"
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
-msgstr ""
+msgstr "ありがとう、ボーガン!"
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
@@ -914,15 +914,15 @@ msgstr ""
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
-msgstr ""
+msgstr "やあマギー。"
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "まあエドガー、ケガしてるじゃない! なおしてあげるわ。"
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
-msgstr ""
+msgstr "ありがとうマギー!"
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
@@ -977,15 +977,15 @@ msgstr ""
 
 #: data/scripts/swamp_intro.dat:2
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "そんなにひどい場所じゃなさそうだ…"
 
 #: data/scripts/occult_book.dat:51
 msgid "What was that?"
-msgstr ""
+msgstr "さっきのは何?"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "うわあぁっ…"
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
@@ -1009,11 +1009,11 @@ msgstr "扉を開けて右へ進みましょう。"
 
 #: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "うーん、いったい何が?"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "ここはどこだ?"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
@@ -1571,7 +1571,7 @@ msgstr ""
 
 #: data/scripts/black_book_search.dat:11
 msgid "Hmmm..."
-msgstr ""
+msgstr "うーん…"
 
 #: data/scripts/occult_book.dat:16
 msgid "Shield of Dragon Fire Resistance"
@@ -1753,33 +1753,33 @@ msgstr ""
 
 #: data/scripts/sewer_trap_note.dat:3
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr ""
+msgstr "ここから出るためにはエレベーターを動かすための3つの鍵が必要だ。"
 
 #: data/scripts/sewer_trap_note.dat:4
 msgid "So far I have only found 1"
-msgstr ""
+msgstr "今までのところ、まだ1つしか見つかっていない。"
 
 #: data/scripts/sewer_trap_note.dat:5
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
 "placed arrow"
-msgstr ""
+msgstr "さらに悪いことに、いくつかのスイッチは矢を注意深く使わなければ近づけない。"
 
 #: data/scripts/sewer_trap_note.dat:6
 msgid "But spares aren't common and I have run out"
-msgstr ""
+msgstr "だが予備の矢は合わず、矢を使い果たしてしまった。"
 
 #: data/scripts/sewer_trap_note.dat:7
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr ""
+msgstr "早く出口を見つけなければ飢え死にしてしまう。"
 
 #: data/scripts/sewer_trap_note.dat:9
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr ""
+msgstr "出られなければ同じ目に…"
 
 #: data/scripts/sewer_trap_note.dat:10
 msgid "Collect 3 Access Keys"
-msgstr ""
+msgstr "3つのエレベーターの鍵を集める"
 
 #: data/scripts/tutorial_walls.dat:1
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
@@ -1839,19 +1839,19 @@ msgstr ""
 
 #: data/scripts/ant_lion.dat:1
 msgid "There's something moving around down there..."
-msgstr ""
+msgstr "下で何かが動いている…"
 
 #: data/scripts/ant_lion.dat:2
 msgid "It might be an ant lion looking for food"
-msgstr ""
+msgstr "アリジゴクが餌を探しているようだ。"
 
 #: data/scripts/ant_lion.dat:3
 msgid "If I go down there, it'll almost certainly eat me"
-msgstr ""
+msgstr "もし下りたら、食べられてしまうに違いない。"
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
+msgstr "中に何かを入れておびき出せれば…"
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
@@ -1878,7 +1878,7 @@ msgstr ""
 msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
-msgstr ""
+msgstr "しっかりとはめ込まれているみたいだ。つるはしを使えば取れるかも…"
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
@@ -1894,7 +1894,7 @@ msgstr ""
 
 #: data/scripts/blender.dat:22
 msgid "OK, here goes!"
-msgstr ""
+msgstr "さあ、行こう!"
 
 #: data/scripts/tutorial_boxes.dat:1
 msgid "Some items in the game can be pushed and pulled"
@@ -1918,13 +1918,13 @@ msgstr "箱をもう一方まで引いて、崖を登りましょう。"
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "わあ、研究所だ!"
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
-msgstr ""
+msgstr "マギーが呪文で薬を作っているのを見るのが楽しかったな。ここで自分で作れるかも!"
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
@@ -2217,19 +2217,19 @@ msgstr ""
 
 #: data/scripts/gargoyle_start.dat:6
 msgid "I don't want to go back to the swamp"
-msgstr ""
+msgstr "沼には戻らない。"
 
 #: data/scripts/gargoyle_start.dat:8
 msgid "I'm pretty sure Dad's in the fortress"
-msgstr ""
+msgstr "この砦で父さんを助けると決めたんだ。"
 
 #: data/scripts/gargoyle_start.dat:12
 msgid "Maybe I should check the swamp again..."
-msgstr ""
+msgstr "もう一度沼に戻ったほうがいいかも…"
 
 #: data/scripts/gargoyle_start.dat:21
 msgid "What was that?!"
-msgstr ""
+msgstr "さっきのは何だ?!"
 
 #: data/scripts/ending_part2.dat:32
 msgid "...and when you didn't come home last night I set off to find you"
@@ -2500,23 +2500,23 @@ msgstr "この辺りにいるコウモリを全て倒しましょう!"
 
 #: data/scripts/raft_2.dat:8
 msgid "Aw, not again!"
-msgstr ""
+msgstr "ああ、まただ!"
 
 #: data/scripts/raft_2.dat:9
 msgid "Collect 6 Chopped Logs"
-msgstr ""
+msgstr "丸太を6本集める"
 
 #: data/scripts/raft_2.dat:14
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr ""
+msgstr "丸太を6本集めていかだを作らなければ。"
 
 #: data/scripts/raft_2.dat:18
 msgid "This had better be the last time I have to do this..."
-msgstr ""
+msgstr "これを作るのはこれが最後になるはずだ…"
 
 #: data/scripts/coal_mining.dat:1
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr ""
+msgstr "これがボーガンが言ってた石炭に違いない。"
 
 #: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
@@ -2613,15 +2613,15 @@ msgstr ""
 
 #: data/scripts/swamp_intro_2.dat:3
 msgid "Phew, I'm glad to be out of there"
-msgstr ""
+msgstr "ふー、出られてよかったよ。"
 
 #: data/scripts/swamp_intro_2.dat:5
 msgid "Now to get through this swamp"
-msgstr ""
+msgstr "さあ沼を越えなきゃ。"
 
 #: data/scripts/swamp_intro_2.dat:6
 msgid "Negotiate the Swamp"
-msgstr ""
+msgstr "沼を通り抜ける"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
@@ -2633,7 +2633,7 @@ msgstr ""
 
 #: data/scripts/flying_maggot_die_2.dat:8
 msgid "Strange creature..."
-msgstr ""
+msgstr "おかしな生き物だ…"
 
 #: data/scripts/soul_merger.dat:2
 msgid "Ha ha ha!!!!"
@@ -2955,19 +2955,19 @@ msgstr ""
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
-msgstr ""
+msgstr "簡単だ! そしていつでも戻れる!"
 
 #: data/scripts/raft_end.dat:9
 msgid "Oh...."
-msgstr ""
+msgstr "ああ…"
 
 #: data/scripts/raft_end.dat:11
 msgid "Guess I have no choice now."
-msgstr ""
+msgstr "もう進むしかない。"
 
 #: data/scripts/raft_end.dat:12
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
+msgstr "待ってて父さん、今行くよ…"
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
@@ -3003,57 +3003,57 @@ msgstr ""
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
-msgstr ""
+msgstr "うまくやれよ!"
 
 #: data/scripts/jacob.dat:10
 msgid ""
 "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
+msgstr "鶏は捕まえてくれたようだな。2本の丸太はまだかい?"
 
 #: data/scripts/jacob.dat:14
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
-msgstr ""
+msgstr "ありがとうエドガー! 鶏は戻ったし、丸太も集まった。"
 
 #: data/scripts/jacob.dat:16
 msgid "Take this sword, may it serve you well!"
-msgstr ""
+msgstr "剣を受け取ってくれ。役に立つはずだ。"
 
 #: data/scripts/jacob.dat:17
 msgid "Thank you!"
-msgstr ""
+msgstr "ありがとう!"
 
 #: data/scripts/jacob.dat:23
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr ""
+msgstr "丸太は集まったようだな。逃げた鶏はまだかい?"
 
 #: data/scripts/jacob.dat:27
 msgid ""
 "I'll give you a sword if you get me 2 chopped logs from the forest and "
 "rescue at least 3 of my chickens"
-msgstr ""
+msgstr "森の木の丸太を2本と、3羽の鶏を捕まえたら、剣をあげよう。"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar, what can I do for you today?"
-msgstr ""
+msgstr "やあエドガー。今日はどうしたんだい?"
 
 #: data/scripts/jacob.dat:33
 msgid "Do you have a sword I can borrow?"
-msgstr ""
+msgstr "剣を貸してくれないか?"
 
 #: data/scripts/jacob.dat:34
 msgid ""
 "I do have a sword and you can have it if you do something for me first"
-msgstr ""
+msgstr "剣は貸してもいいけど、やってもらいたいことがあるんだ。"
 
 #: data/scripts/jacob.dat:35
 msgid "OK... what do I have to do?"
-msgstr ""
+msgstr "わかった…何をすればいい?"
 
 #: data/scripts/jacob.dat:36
 msgid ""
 "Some of my chickens have escaped from their pen and I would be very grateful "
 "if you can get them back for me"
-msgstr ""
+msgstr "鶏が何羽か小屋から逃げてしまったんだ。捕まえてきてくれるとうれしいのだが。"
 
 #: data/scripts/jacob.dat:38
 msgid ""
@@ -3061,55 +3061,56 @@ msgid ""
 "using this chicken feed. I don't need them all, but at least 3 would be very "
 "helpful. I can get the rest myself."
 msgstr ""
+"鶏小屋の近くには罠が仕掛けられている。この鶏の餌で罠の近くにおびき寄せてくれ。全部でなくてもいいが、少なくても3羽は捕まえて欲しい。後は自分でやる。"
 
 #: data/scripts/jacob.dat:40
 msgid ""
 "Not quite. Can you also get me some wood from the forest? 2 logs should be "
 "sufficient"
-msgstr ""
+msgstr "まだある。森から木を取ってきてくれないか? 丸太が2本あれば十分だ。"
 
 #: data/scripts/jacob.dat:41
 msgid "Do you have an axe?"
-msgstr ""
+msgstr "斧はある?"
 
 #: data/scripts/jacob.dat:42
 msgid ""
 "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr ""
+msgstr "うーむ…森のどこかに置いてきてしまった。まだそこにあるはずだ。"
 
 #: data/scripts/jacob.dat:43
 msgid "Isn't that forest dangerous?"
-msgstr ""
+msgstr "森はあぶなくない?"
 
 #: data/scripts/jacob.dat:44
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
-msgstr ""
+msgstr "それほどではない。邪魔なものがあれば、武器で叩けばいい。"
 
 #: data/scripts/jacob.dat:45
 msgid "Such as an axe?"
-msgstr ""
+msgstr "斧みたいな?"
 
 #: data/scripts/jacob.dat:46
 msgid "Yes, that would do the trick"
-msgstr ""
+msgstr "そうだ。それでうまくいくはずだ。"
 
 #: data/scripts/jacob.dat:48
 msgid ""
 "But seriously, there's nothing in there that can really harm you. That "
 "problem was dealt with a long time ago..."
-msgstr ""
+msgstr "しかし実際のところ、本当に危険なものはないはずだ。その問題はずっと昔に解決した…"
 
 #: data/scripts/jacob.dat:49
 msgid "Good luck!"
-msgstr ""
+msgstr "がんばって!"
 
 #: data/scripts/jacob.dat:51
 msgid "Collect 2 Chopped Logs"
-msgstr ""
+msgstr "丸太を2本集める"
 
 #: data/scripts/jacob.dat:53
 msgid "Rescue 3 Chickens"
-msgstr ""
+msgstr "鶏を3羽捕まえる"
 
 #: data/scripts/jacob.dat:62
 msgid ""
@@ -3154,21 +3155,21 @@ msgstr ""
 
 #: data/scripts/power_generators.dat:3
 msgid "These machines aren't working."
-msgstr ""
+msgstr "この機械は動いていない。"
 
 #: data/scripts/power_generators.dat:5
 msgid ""
 "It looks like a gem should fit in this hole, maybe I can find some "
 "replacements."
-msgstr ""
+msgstr "この穴には宝石のような物が入りそうだ。どこかにあるのかも。"
 
 #: data/scripts/power_generators.dat:6
 msgid "Find 4 Gems"
-msgstr ""
+msgstr "4つの宝石を見つける"
 
 #: data/scripts/power_generators.dat:12
 msgid "Repair Generators"
-msgstr ""
+msgstr "動力源を修復する"
 
 #: data/scripts/gold_centurion.dat:7
 msgid "This centurion has no power"
@@ -3212,19 +3213,19 @@ msgstr ""
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
 "to get through..."
-msgstr ""
+msgstr "この壁は固くてつるはしでは壊せそうにない。ここを通るには別のものが必要だ…"
 
 #: data/scripts/cave_intro.dat:11
 msgid "Looks like this wasn't such a good idea after all"
-msgstr ""
+msgstr "大変なことになったみたいだ。"
 
 #: data/scripts/cave_intro.dat:12
 msgid "There must be way out of here..."
-msgstr ""
+msgstr "出口がどこかにあるはずだ。"
 
 #: data/scripts/cave_intro.dat:13
 msgid "Escape the Cave"
-msgstr ""
+msgstr "洞窟を抜け出す"
 
 #: data/scripts/huge_spider.dat:6
 msgid "Wow, that thing is huge!"
@@ -3369,12 +3370,12 @@ msgstr ""
 msgid ""
 "This lift is controlled by that pressure plate, but I can't stand on it and "
 "use the lift at the same time"
-msgstr ""
+msgstr "このエレベーターは重さで動くスイッチで操作するようだ。でもスイッチに乗るのと、エレベーターに乗るのは同時にはできない。"
 
 #: data/scripts/centurion_pressure_plate.dat:2
 msgid ""
 "I'll have to find something else to stand on the pressure plate for me..."
-msgstr ""
+msgstr "スイッチの上に乗せる物を探さなければ…"
 
 #: data/scripts/wasteland_intro_2.dat:2
 msgid ""
@@ -3540,7 +3541,7 @@ msgstr ""
 msgid ""
 "That should do it. Hopefully that other lift by the Sewer should now be "
 "working"
-msgstr ""
+msgstr "これでいいだろう。下水道の近くのエレベーターが動くようになればいいけど。"
 
 #: data/scripts/monster_horn.dat:1
 msgid "This looks like the horn that Olaf needs"
@@ -3602,11 +3603,11 @@ msgstr "沼の途中の池を渡る"
 
 #: data/scripts/flying_maggot_start_2.dat:8
 msgid "Wait, what was that?"
-msgstr ""
+msgstr "待て、あれは何だ?"
 
 #: data/scripts/flying_maggot_start_2.dat:13
 msgid "You again?!"
-msgstr ""
+msgstr "またこいつか?!"
 
 #: data/scripts/left_tower_intro.dat:7
 msgid "What a hassle that was"
@@ -3673,13 +3674,13 @@ msgstr "鍵まで歩いて、取ってみましょう。"
 
 #: data/scripts/fortress_intro.dat:3
 msgid "So this is the Fortress."
-msgstr ""
+msgstr "砦の中だ。"
 
 #: data/scripts/fortress_intro.dat:4
 msgid ""
 "It looks like a lot of doors lead off to other areas, I should have a proper "
 "look around before I go anywhere else..."
-msgstr ""
+msgstr "別の場所につながった扉がたくさんあるみたいだ。入る前によく確かめないと…"
 
 #: data/scripts/tutorial_keys.dat:1
 msgid ""
@@ -3735,7 +3736,7 @@ msgstr ""
 
 #: data/scripts/hoover.dat:7
 msgid "Hey, what's that?"
-msgstr ""
+msgstr "わあ、何だこれは?"
 
 #: data/scripts/hoover.dat:12
 msgid "It's a baby Hoover"
@@ -3795,67 +3796,67 @@ msgstr ""
 #: data/scripts/well.dat:7
 msgid ""
 "I've heard of people falling into the well before, maybe Dad's in there..."
-msgstr ""
+msgstr "この井戸に落ちた人がいると聞いたことがある。父さんもここに…"
 
 #: data/scripts/well.dat:8
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr ""
+msgstr "父さん!!!!! ここにいるの?!!!!!"
 
 #: data/scripts/well.dat:10
 msgid "Nothing. I guess I'll have to keep on looking"
-msgstr ""
+msgstr "何も聞こえない。他を探さなければ。"
 
 #: data/scripts/slime_potion.dat:3
 msgid "There's a note here too"
-msgstr ""
+msgstr "メモが付いている。"
 
 #: data/scripts/slime_potion.dat:4
 msgid ""
 "The potion is perfect! Quaffing it will turn a human into a creature for a "
 "small amount of time"
-msgstr ""
+msgstr "この薬は完璧だ! これを飲めばしばらくの間、人間から怪物になるであろう。"
 
 #: data/scripts/slime_potion.dat:5
 msgid ""
 "So far I can only transmogrify myself into one creature but with a bit more "
 "time anything should be possible"
-msgstr ""
+msgstr "今までのところ自分自身を怪物にしただけだが、もう少しであらゆるものに変身できるようになるだろう。"
 
 #: data/scripts/slime_potion.dat:6
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr ""
+msgstr "少し残っている。飲んでも大丈夫そうだ。"
 
 #: data/scripts/slime_potion.dat:7
 msgid "OK, here goes nothing..."
-msgstr ""
+msgstr "うん、何も起きない…"
 
 #: data/scripts/slime_potion.dat:11
 msgid "Urgh!! This is horrible!"
-msgstr ""
+msgstr "うげぇ! 何てことだ!"
 
 #: data/scripts/slime_potion.dat:12
 msgid ""
 "Borgan told me that Slimes can swim in water though, so maybe this will be "
 "useful..."
-msgstr ""
+msgstr "ボーガンはこのスライムは水の中を泳げると言ってた。もしかすると役に立つかも…"
 
 #: data/scripts/slime_potion.dat:13
 msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
-msgstr ""
+msgstr "スライムに変身しても通常通り移動することができます。さらに水の中を泳ぎ、上下に移動することもできます。"
 
 #: data/scripts/slime_potion.dat:14
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
-msgstr ""
+msgstr "水面近くで上かジャンプボタンを押すと水の外に出られます。"
 
 #: data/scripts/slime_potion.dat:15
 msgid ""
 "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
 "will automatically become human again"
-msgstr ""
+msgstr "画面の下のタイマーに注意してください。0になると自動的に人間に戻ります。"
 
 #: data/scripts/cauldron.dat:2
 msgid "Maybe this thing isn't so bad after all"
@@ -3943,7 +3944,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:142
 msgid "It's a cauldron. Maggie has one just like this"
-msgstr ""
+msgstr "大釜だ。マギーがこんなのを持ってたな。"
 
 #: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
@@ -4142,11 +4143,11 @@ msgstr ""
 
 #: data/scripts/raft.dat:8
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
-msgstr ""
+msgstr "秘密の沼へ行くためにいかだを作らなければ。"
 
 #: data/scripts/raft.dat:9
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr ""
+msgstr "森から木を切り倒してくれば、いかだを作れる。"
 
 #: data/scripts/raft.dat:29
 msgid "I'm not going to the swamp without a sword and shield"
@@ -4154,28 +4155,28 @@ msgstr ""
 
 #: data/scripts/teleporter_discovery.dat:1
 msgid "Hey, what's this?"
-msgstr ""
+msgstr "やや、何だこれは?"
 
 #: data/scripts/teleporter_discovery.dat:3
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr ""
+msgstr "危なくはなさそうだ。乗ってみよう。"
 
 #: data/scripts/teleporter_discovery.dat:7
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr ""
+msgstr "わあ! すごい! これは瞬間移動装置に違いない。"
 
 #: data/scripts/teleporter_discovery.dat:9
 msgid "I wonder if it works both ways..."
-msgstr ""
+msgstr "もしかして、つながっているのかも…"
 
 #: data/scripts/teleporter_discovery.dat:14
 msgid "Horray!"
-msgstr ""
+msgstr "やった!"
 
 #: data/scripts/teleporter_discovery.dat:15
 msgid ""
 "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr ""
+msgstr "歩かなくていいだけでなく、面白いや!"
 
 #: data/scripts/correct_combination.dat:9
 msgid "There's a note in here"
@@ -4428,7 +4429,7 @@ msgstr ""
 
 #: src/graphics/font.c:61
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr "スライムを振り払うために左右にすばやく回ってください"
+msgstr "素早く左右を向いてスライムを振り払ってください!"
 
 #: src/structs.h:212
 msgid "Bow"
@@ -4436,7 +4437,7 @@ msgstr "弓"
 
 #: src/graphics/font.c:60
 msgid "Press Action to interact"
-msgstr ""
+msgstr "行動キーを押してください"
 
 #: src/item/instruction_machine.c:85
 msgid "%s is required"
@@ -4456,19 +4457,19 @@ msgstr ""
 
 #: src/item/tesla_charger.c:146
 msgid "Tesla Pack"
-msgstr ""
+msgstr "テスラーパック"
 
 #: src/item/tesla_charger.c:169
 msgid "Press Action to retrieve Tesla Pack"
-msgstr ""
+msgstr "行動キーを押すとテスラーパックを取り出します"
 
 #: src/item/tesla_charger.c:178
 msgid "Press Action to replace Tesla Pack"
-msgstr ""
+msgstr "行動キーを押すとテスラーパックを取り付けます"
 
 #: src/item/slime_potion_pool.c:94
 msgid "Obtained %s"
-msgstr "%s を手に入れた"
+msgstr "%s を手に入れました"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Complete"
@@ -4476,35 +4477,35 @@ msgstr "完了"
 
 #: src/item/arrow_target.c:177
 msgid "%d more to go..."
-msgstr ""
+msgstr "あと %d で行けます…"
 
 #: src/item/light_pillar.c:109
 msgid "Used %s"
-msgstr "%s を使った"
+msgstr "%s を使いました"
 
 #: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
-msgstr ""
+msgstr "変身中は装備できません"
 
 #: src/player.c:1079
 msgid "Equipped %s"
-msgstr "%s を装備した"
+msgstr "%s を装備しました"
 
 #: src/player.c:1710
 msgid "Maximum health has increased!"
-msgstr ""
+msgstr "体力の最大値が上がりました!"
 
 #: src/player.c:2447
 msgid "Bow will now fire %s"
-msgstr ""
+msgstr "%s を弓で撃てるようになりました"
 
 #: src/player.c:2466
 msgid "A bow is required to use this item"
-msgstr ""
+msgstr "これを使うには弓が必要です"
 
 #: src/player.c:2513
 msgid "Cannot transmogrify here..."
-msgstr ""
+msgstr "ここでは変身できません…"
 
 #: data/scripts/jacob.dat:46
 msgid "Yes"
@@ -4548,39 +4549,39 @@ msgstr "ジョイパット ボタン #%d"
 
 #: src/world/npc.c:78
 msgid "Press Action to talk to %s"
-msgstr ""
+msgstr "行動キーで%sと話します"
 
 #: src/event/objective.c:103
 msgid "New Objective: %s"
-msgstr ""
+msgstr "新しい目的: %s"
 
 #: src/event/objective.c:124
 msgid "Objective Completed: %s"
-msgstr ""
+msgstr "目的を達成した: %s"
 
 #: src/item/lava_door.c:150
 msgid "This weapon is not having any effect..."
-msgstr ""
+msgstr "その武器は効かないようだ…"
 
 #: src/boss/blob_boss.c:1203
 msgid "Press Action to attach the Tesla Pack"
-msgstr ""
+msgstr "行動キーを押すとテスラーパック仕掛けます"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid "The Legend of Edgar"
-msgstr ""
+msgstr "The Legend of Edgar (エドガーの伝説)"
 
 #: src/world/switch.c:105
 msgid "%s is needed to activate this switch"
-msgstr ""
+msgstr "このスイッチを動かすためには %s が必要です"
 
 #: src/world/switch.c:308
 msgid "Press Action to use this switch"
-msgstr ""
+msgstr "行動キーを押すとスイッチを動かします"
 
 #: src/world/save_point.c:97
 msgid "Press Action to save your game"
-msgstr ""
+msgstr "行動キーを押すと保存します"
 
 #: src/world/pressure_plate.c:113
 msgid "%s is required to use this Pressure Plate"
@@ -4600,43 +4601,43 @@ msgstr ""
 
 #: src/world/lift.c:158
 msgid "Push Up or Down to use this lift"
-msgstr ""
+msgstr "上か下を押すとエレベーターが動きます"
 
 #: src/entity.c:1329
 msgid "This lift is not active"
-msgstr ""
+msgstr "このエレベータは動きません"
 
 #: src/inventory.c:114
 msgid "Cannot carry any more %s"
-msgstr ""
+msgstr "これ以上 %s を持てません"
 
 #: src/player.c:3243
 msgid "Picked up %s x %d"
-msgstr ""
+msgstr "%s を %d 手に入れました"
 
 #: src/player.c:3243
 msgid "Picked up %s"
-msgstr ""
+msgstr "%s を手に入れました"
 
 #: src/inventory.c:661
 msgid "%s is required to carry this item"
-msgstr ""
+msgstr "これを手に入れるには %s が必要です"
 
 #: data/maps/map07.dat:4168
 msgid "Storage Key"
-msgstr ""
+msgstr "倉庫の鍵"
 
 #: data/maps/map02.dat:2492
 msgid "Coal Bag Storage Switch Key"
-msgstr ""
+msgstr "石炭の鞄の倉庫の鍵"
 
 #: data/maps/map02.dat:1968
 msgid "Large Room Key"
-msgstr ""
+msgstr "広い部屋の鍵"
 
 #: data/scripts/borgan.dat:7
 msgid "Coal Bag"
-msgstr ""
+msgstr "石炭の鞄"
 
 #: data/maps/map03.dat:5218
 msgid "Forest Cell Key"
@@ -4644,67 +4645,67 @@ msgstr ""
 
 #: data/maps/map03.dat:5442
 msgid "Wood Axe"
-msgstr ""
+msgstr "木こりの斧"
 
 #: src/item/potions.c:47
 msgid "Health Potion"
-msgstr ""
+msgstr "体力の薬"
 
 #: data/maps/map07.dat:2218
 msgid "Outflow Key"
-msgstr ""
+msgstr "排水路の鍵"
 
 #: data/maps/map07.dat:3642
 msgid "Flow Control Key"
-msgstr ""
+msgstr "水量調整の鍵"
 
 #: data/maps/map07.dat:3668
 msgid "Waste Processing Key"
-msgstr ""
+msgstr "廃棄物処理部の鍵"
 
 #: data/scripts/sewer_trap_note.dat:12
 msgid "Access Key 1"
-msgstr ""
+msgstr "エレベーターの鍵 1"
 
 #: data/scripts/sewer_trap_note.dat:13
 msgid "Access Key 2"
-msgstr ""
+msgstr "エレベーターの鍵 2"
 
 #: data/scripts/sewer_trap_note.dat:14
 msgid "Access Key 3"
-msgstr ""
+msgstr "エレベーターの鍵 3"
 
 #: data/maps/map07.dat:2518
 msgid "Trap Door Switch Key"
-msgstr ""
+msgstr "落とし戸のスイッチの鍵"
 
 #: data/scripts/borgan.dat:7
 msgid "Coal"
-msgstr ""
+msgstr "石炭"
 
 #: data/scripts/jacob.dat:3
 msgid "Chopped Log"
-msgstr ""
+msgstr "切り倒された丸太"
 
 #: data/scripts/power_generators.dat:8
 msgid "Green Gem"
-msgstr ""
+msgstr "緑の宝石"
 
 #: data/scripts/power_generators.dat:9
 msgid "Red Gem"
-msgstr ""
+msgstr "赤い宝石"
 
 #: data/scripts/power_generators.dat:10
 msgid "Blue Gem"
-msgstr ""
+msgstr "青い宝石"
 
 #: data/scripts/power_generators.dat:11
 msgid "Purple Gem"
-msgstr ""
+msgstr "紫の宝石"
 
 #: data/maps/map10.dat:6167
 msgid "Teleporter Key"
-msgstr ""
+msgstr "瞬間移動の鍵"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "New Game"
@@ -4724,7 +4725,7 @@ msgstr "オプション"
 
 #: src/menu/main_menu.c:52
 msgid "About"
-msgstr "edgarについて"
+msgstr "このゲームについて"
 
 #: src/tile_creator.c:265
 msgid "Quit"
@@ -4748,27 +4749,27 @@ msgstr "ヒントを表示する"
 
 #: data/props/item/slime_potion.props:6
 msgid "A potion which will transform you..."
-msgstr ""
+msgstr "この薬はあなたを変身させます…"
 
 #: data/props/item/health_potion.props:6
 msgid "A potion which will restore all of your health"
-msgstr ""
+msgstr "体力を全回復させる薬"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
-msgstr ""
+msgstr "強力な爆弾"
 
 #: data/props/item/invisibility_potion.props:6
 msgid "A potion which renders you invisible to certain enemies"
-msgstr ""
+msgstr "透明になって敵から身を隠せる薬"
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr ""
+msgstr "ゲイザーが残した目玉"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
-msgstr ""
+msgstr "テスラーパックです。充電されていません"
 
 #: data/props/item/summoner_staff.props:5
 msgid "A Summoner's Staff. It cannot be used by humans."
@@ -4776,83 +4777,83 @@ msgstr ""
 
 #: data/props/item/tesla_pack_full.props:5
 msgid "A Tesla Pack. It is fully charged."
-msgstr ""
+msgstr "テスラーパックです。満タンに充電されています"
 
 #: data/props/item/empty_potion.props:6
 msgid "An empty potion bottle"
-msgstr ""
+msgstr "空の薬ビン"
 
 #: data/props/item/chicken_feed_bag.props:6
 msgid "A bag of chicken feed"
-msgstr ""
+msgstr "鶏の餌の袋"
 
 #: data/props/item/coal_bag.props:6
 msgid "A bag suitable for carrying coal"
-msgstr ""
+msgstr "石炭を入れるのにちょうどいい鞄"
 
 #: data/scripts/raft.dat:19
 msgid "Basic Sword"
-msgstr ""
+msgstr "簡単な剣"
 
 #: data/props/weapon/basic_sword.props:6
 msgid "A Sword given to you by Jacob"
-msgstr ""
+msgstr "ヤコブから受け取った剣"
 
 #: src/player.c:2466
 msgid "A bow"
-msgstr ""
+msgstr "弓"
 
 #: data/scripts/cauldron.dat:58
 msgid "Small Wooden Shield"
-msgstr ""
+msgstr "小さな木の盾"
 
 #: data/props/weapon/small_wooden_shield.props:6
 msgid "A small shield that provides basic protection"
-msgstr ""
+msgstr "基本的な防御のための小さな盾"
 
 #: src/item/potions.c:213
 msgid "Normal Arrow"
-msgstr ""
+msgstr "普通の矢"
 
 #: data/props/weapon/normal_arrow.props:6
 msgid "Normal Arrows"
-msgstr ""
+msgstr "普通の矢"
 
 #: data/props/weapon/wood_axe.props:6
 msgid "An axe suitable for chopping trees"
-msgstr ""
+msgstr "木を切り倒すのにちょうどいい斧"
 
 #: data/maps/tutorial.dat:2141
 msgid "Pickaxe"
-msgstr ""
+msgstr "つるはし"
 
 #: data/props/weapon/pickaxe.props:6
 msgid "A pickaxe lent to you by Borgan"
-msgstr ""
+msgstr "ボーガンが貸してくれたつるはし"
 
 #: data/maps/map10.dat:4042
 msgid "Fire Burner Key"
-msgstr ""
+msgstr "焼却器の鍵"
 
 #: data/maps/map10.dat:4192
 msgid "Potion Room Key"
-msgstr ""
+msgstr "薬の部屋の鍵"
 
 #: data/maps/map08.dat:2643
 msgid "Surge Passage Key"
-msgstr ""
+msgstr "動力部の鍵"
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
-msgstr ""
+msgstr "火薬庫の鍵"
 
 #: src/event/global_trigger.c:302
 msgid "No Objectives"
-msgstr ""
+msgstr "目的なし"
 
 #: src/world/switch.c:316
 msgid "Press Action to reset puzzle blocks"
-msgstr ""
+msgstr "行動キーを押すとパズルのブロックをリセットします"
 
 #: src/enemy/poltergiest.c:556
 msgid "Try hitting the skull..."
@@ -4876,11 +4877,11 @@ msgstr ""
 
 #: src/system/error.c:47
 msgid "The Legend of Edgar has encountered the following error"
-msgstr ""
+msgstr "Legend of Edgar で以下のエラーが発生しました。"
 
 #: src/system/error.c:51
 msgid "Please report this error to Parallel Realities"
-msgstr ""
+msgstr "このエラーを Parallel Realities に報告してください。"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap"
@@ -4920,7 +4921,7 @@ msgstr "防御"
 
 #: data/scripts/box_pushing.dat:1
 msgid "Action"
-msgstr ""
+msgstr "行動"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Use Item"
@@ -4936,7 +4937,7 @@ msgstr "次のアイテム"
 
 #: src/credits.c:829
 msgid "Inventory"
-msgstr ""
+msgstr "持ち物"
 
 #: src/audio/audio.c:316
 msgid "Pause"
@@ -4960,15 +4961,15 @@ msgstr "音量"
 
 #: data/scripts/purifier.dat:2
 msgid "Ice Spray"
-msgstr ""
+msgstr "凍結スプレー"
 
 #: data/maps/map09.dat:5468
 msgid "Right Wing Lift Key"
-msgstr ""
+msgstr "右エレベーターの鍵"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine Entrance Door Key"
-msgstr ""
+msgstr "炭鉱の入り口の鍵"
 
 #: data/maps/map07.dat:3168
 msgid "Sewage Restricted Zone Key"
@@ -4976,7 +4977,7 @@ msgstr ""
 
 #: data/maps/map08.dat:2567
 msgid "Fortress Main Key"
-msgstr ""
+msgstr "砦の鍵"
 
 #: data/maps/map08.dat:10217
 msgid "Teleporter Access Key 1"
@@ -5044,7 +5045,7 @@ msgstr ""
 
 #: data/props/item/blue_gem.props:5
 msgid "A Blue Gem"
-msgstr ""
+msgstr "青い宝石"
 
 #: data/props/item/centurion_statue.props:4
 msgid "A statue of a Centurion. It has 2 legs."
@@ -5052,15 +5053,15 @@ msgstr ""
 
 #: data/props/item/green_gem.props:5
 msgid "A Green Gem"
-msgstr ""
+msgstr "緑の宝石"
 
 #: data/props/item/purple_gem.props:5
 msgid "A Purple Gem"
-msgstr ""
+msgstr "紫の宝石"
 
 #: data/props/item/red_gem.props:5
 msgid "A Red Gem"
-msgstr ""
+msgstr "赤い宝石"
 
 #: data/props/item/scorpion_statue.props:4
 msgid "A statue of a Scorpion. It has 6 legs."
@@ -5080,11 +5081,11 @@ msgstr ""
 
 #: data/props/misc/chopped_log.props:7
 msgid "A chopped log"
-msgstr ""
+msgstr "切り倒された丸太"
 
 #: data/scripts/tutorial_combat.dat:1
 msgid "Narrator"
-msgstr ""
+msgstr "ナレーター"
 
 #: src/item/instruction_machine.c:92
 msgid "Enter the directions"
@@ -5096,7 +5097,7 @@ msgstr ""
 
 #: data/props/item/ice_spray.props:5
 msgid "Creates ice cubes that expand on contact with water"
-msgstr ""
+msgstr "水に触れると氷の塊を作ります"
 
 #: data/props/item/soul_bottle.props:5
 msgid "A bottle capable of capturing souls"
@@ -5112,7 +5113,7 @@ msgstr ""
 
 #: src/player.c:2181
 msgid "Out of arrows!"
-msgstr ""
+msgstr "矢がない!"
 
 #: data/props/item/full_soul_bottle.props:5
 msgid "A bottle with a soul trapped inside"
@@ -5220,7 +5221,7 @@ msgstr ""
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "Note"
-msgstr ""
+msgstr "メモ"
 
 #: src/item/sliding_puzzle.c:81
 msgid "Solve the sliding puzzle"
@@ -5244,7 +5245,7 @@ msgstr ""
 
 #: data/maps/tutorial.dat:1916
 msgid "Tutorial Key"
-msgstr ""
+msgstr "チュートリアルの鍵"
 
 #: data/maps/map13.dat:6544
 msgid "Light Key"
@@ -5264,7 +5265,7 @@ msgstr ""
 
 #: data/maps/map13.dat:2494
 msgid "Right Wing Key"
-msgstr ""
+msgstr "右エレベーターの鍵"
 
 #: data/maps/map13.dat:3993
 msgid "Catapult Lift Key"
@@ -5276,19 +5277,19 @@ msgstr ""
 
 #: data/scripts/library_intro.dat:6
 msgid "Maggie"
-msgstr ""
+msgstr "マギー"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid "Jacob"
-msgstr ""
+msgstr "ヤコブ"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid "Borgan"
-msgstr ""
+msgstr "ボーガン"
 
 #: data/scripts/statues.dat:1
 msgid "Edgar"
-msgstr ""
+msgstr "エドガー"
 
 #: src/item/mine_cart.c:41
 msgid "Mine Cart"
@@ -5328,35 +5329,35 @@ msgstr "プレイ時間: %s"
 
 #: src/menu/stats_menu.c:100
 msgid "Kills: %d"
-msgstr "死亡回数: %d"
+msgstr "倒した数: %d"
 
 #: src/menu/stats_menu.c:108
 msgid "Bats Drowned: %d"
-msgstr ""
+msgstr "コウモリを溺れさせた回数: %d"
 
 #: src/menu/stats_menu.c:112
 msgid "Times Eaten: %d"
-msgstr ""
+msgstr "食べられた回数: %d"
 
 #: src/menu/stats_menu.c:120
 msgid "Distanced Travelled: %0.1fKM"
-msgstr ""
+msgstr "進んだ距離: %0.1fKM"
 
 #: src/menu/stats_menu.c:124
 msgid "Attacks Blocked: %d"
-msgstr ""
+msgstr "防御した回数: %d"
 
 #: src/menu/stats_menu.c:130
 msgid "Time Spent As A Slime: %s"
-msgstr ""
+msgstr "スライムだった時間: %s"
 
 #: src/menu/stats_menu.c:104
 msgid "Arrows Fired: %d"
-msgstr ""
+msgstr "矢を撃った回数: %d"
 
 #: src/game.c:1057
 msgid "You found a secret!"
-msgstr ""
+msgstr "秘密を見つけました!"
 
 #: src/player.c:3163
 msgid "10 charges remaining..."
@@ -5372,7 +5373,7 @@ msgstr ""
 
 #: src/menu/stats_menu.c:136
 msgid "Secrets Found: %d / %d"
-msgstr ""
+msgstr "見つけた秘密: %d / %d"
 
 #: src/item/light_pillar.c:151
 msgid "Press Action to activate the Light Pillar"
@@ -5484,7 +5485,7 @@ msgstr ""
 
 #: src/system/error.c:53
 msgid "Press Escape to exit"
-msgstr ""
+msgstr "ESCキーを押すと終了します。"
 
 #: data/props/item/protection_ring.props:4
 msgid "A beautiful ring"
@@ -5492,7 +5493,7 @@ msgstr ""
 
 #: src/item/potions.c:213
 msgid "Normal Arrow is required"
-msgstr ""
+msgstr "普通の矢が必要です"
 
 #: src/item/potions.c:247
 msgid "Created %d Flaming Arrows"
@@ -5508,7 +5509,7 @@ msgstr ""
 
 #: data/props/item/spike_ball.props:5
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
-msgstr ""
+msgstr "アルマジロのトゲ玉。投げるとトゲを撒き散らします。"
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
@@ -5548,7 +5549,7 @@ msgstr ""
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
-msgstr ""
+msgstr "<空>"
 
 #: data/props/item/monster_horn.props:5
 msgid "The horn from a fearsome monster"
@@ -5608,47 +5609,47 @@ msgstr ""
 
 #: src/credits.c:863
 msgid "Play Time"
-msgstr ""
+msgstr "プレイ時間"
 
 #: src/credits.c:866
 msgid "Kills"
-msgstr ""
+msgstr "倒した数"
 
 #: src/credits.c:869
 msgid "Arrows Fired"
-msgstr ""
+msgstr "矢を撃った回数"
 
 #: src/credits.c:872
 msgid "Distanced Travelled"
-msgstr ""
+msgstr "進んだ距離"
 
 #: src/credits.c:875
 msgid "Attacks Blocked"
-msgstr ""
+msgstr "防御した回数"
 
 #: src/credits.c:878
 msgid "Time Spent As A Slime"
-msgstr ""
+msgstr "スライムだった時間"
 
 #: src/credits.c:881
 msgid "Secrets Found"
-msgstr ""
+msgstr "見つけた秘密"
 
 #: src/credits.c:884
 msgid "Continues"
-msgstr ""
+msgstr "再開した回数"
 
 #: src/credits.c:940
 msgid "Defeated Bosses"
-msgstr ""
+msgstr "倒したボス"
 
 #: src/credits.c:1095
 msgid "Undefeated"
-msgstr ""
+msgstr "倒していない"
 
 #: src/credits.c:152
 msgid "Defeated"
-msgstr ""
+msgstr "倒した"
 
 #: data/scripts/disintegration_shield.dat:5
 msgid "Sorceror"
@@ -5668,7 +5669,7 @@ msgstr ""
 
 #: src/menu/about_menu.c:75
 msgid "The Legend of Edgar v%0.2f"
-msgstr ""
+msgstr "The Legend of Edgar (エドガーの伝説) v%0.2f"
 
 #: src/credits.c:124
 msgid "King Grub"
@@ -5684,11 +5685,11 @@ msgstr ""
 
 #: src/credits.c:127
 msgid "The Swamp Guardian"
-msgstr ""
+msgstr "沼の守護者"
 
 #: src/credits.c:129
 msgid "The Blob"
-msgstr ""
+msgstr "ブロブ"
 
 #: src/credits.c:130
 msgid "The Watchdog"
@@ -5716,7 +5717,7 @@ msgstr ""
 
 #: src/credits.c:136
 msgid "The Sewer Dweller"
-msgstr ""
+msgstr "下水道の住人"
 
 #: src/credits.c:137
 msgid "The Salamander"
@@ -5748,23 +5749,23 @@ msgstr ""
 
 #: data/medals.dat:5
 msgid "Found all secrets"
-msgstr ""
+msgstr "全ての秘密を見つけた"
 
 #: data/medals.dat:8
 msgid "Walked 50km"
-msgstr ""
+msgstr "50km歩いた"
 
 #: data/medals.dat:10
 msgid "Fired 500 arrows"
-msgstr ""
+msgstr "矢を500回撃った"
 
 #: data/medals.dat:11
 msgid "Defeated 1000 enemies"
-msgstr ""
+msgstr "1000匹の敵を倒した"
 
 #: data/medals.dat:12
 msgid "Defeated 2000 enemies"
-msgstr ""
+msgstr "2000匹の敵を倒した"
 
 #: data/medals.dat:14
 msgid "Defeated the Black Book"
@@ -5816,23 +5817,23 @@ msgstr ""
 
 #: data/medals.dat:24
 msgid "Rescued all of Jacob's chickens"
-msgstr ""
+msgstr "ヤコブの鶏を全て捕まえた"
 
 #: data/medals.dat:25
 msgid "Fired 250 arrows"
-msgstr ""
+msgstr "矢を250回撃った"
 
 #: data/medals.dat:26
 msgid "Blocked 2000 attacks"
-msgstr ""
+msgstr "2000回防御した"
 
 #: data/medals.dat:27
 msgid "Continued 20 times"
-msgstr ""
+msgstr "20回再開した"
 
 #: data/medals.dat:28
 msgid "Drowned 20 Red Bats"
-msgstr ""
+msgstr "コウモリを20回溺れされた"
 
 #: data/medals.dat:29
 msgid "Escaped the Dungeon"
@@ -5840,15 +5841,15 @@ msgstr ""
 
 #: data/medals.dat:30
 msgid "Got eaten 5 times"
-msgstr ""
+msgstr "5回食べられた"
 
 #: data/medals.dat:31
 msgid "Entered the Forbidden Swamp"
-msgstr ""
+msgstr "秘密の沼に入った"
 
 #: data/medals.dat:32
 msgid "Completed the Tutorial"
-msgstr ""
+msgstr "チュートリアルを完了した"
 
 #: data/medals.dat:33
 msgid "Obtained the Fire Shield"
@@ -5856,7 +5857,7 @@ msgstr ""
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "砦にたどり着いた"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
@@ -5864,15 +5865,15 @@ msgstr ""
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
-msgstr ""
+msgstr "100匹の敵を倒した"
 
 #: data/medals.dat:37
 msgid "Defeated 200 enemies"
-msgstr ""
+msgstr "200匹の敵を倒した"
 
 #: data/medals.dat:38
 msgid "Defeated 500 enemies"
-msgstr ""
+msgstr "500匹の敵を倒した"
 
 #: data/medals.dat:39
 msgid "Defeated the Watchdog"
@@ -5884,7 +5885,7 @@ msgstr ""
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
-msgstr ""
+msgstr "ブロブを倒した"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
@@ -5916,11 +5917,11 @@ msgstr ""
 
 #: data/medals.dat:49
 msgid "Defeated the Sewer Dweller"
-msgstr ""
+msgstr "下水道の住人を倒した"
 
 #: data/medals.dat:50
 msgid "Defeated the Forbidden Swamp Guardian"
-msgstr ""
+msgstr "秘密の沼の守護者を倒した"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
@@ -5932,11 +5933,11 @@ msgstr ""
 
 #: data/medals.dat:54
 msgid "Spent 10 minutes as a Slime"
-msgstr ""
+msgstr "10分間スライムになった"
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
-msgstr ""
+msgstr "秘密のメダル"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
@@ -5952,7 +5953,7 @@ msgstr ""
 
 #: src/item/portable_save.c:82
 msgid "You cannot use this here"
-msgstr ""
+msgstr "ここでは使えません"
 
 #: src/item/portable_save.c:87
 msgid "You can only use this item in an empty space"
@@ -5968,55 +5969,55 @@ msgstr ""
 
 #: src/menu/io_menu.c:125
 msgid "Choose slot to save to"
-msgstr ""
+msgstr "保存する場所を選択してください"
 
 #: src/menu/io_menu.c:130
 msgid "Choose slot to load from"
-msgstr ""
+msgstr "読み込む場所を選択してください"
 
 #: src/world/level_exit.c:104
 msgid "Press Action to go to %s"
-msgstr ""
+msgstr "行動キーを押すと%sへ行きます"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
-msgstr ""
+msgstr "村"
 
 #: data/scripts/mine2_exit.dat:1
 msgid "the Mine"
-msgstr ""
+msgstr "炭鉱"
 
 #: data/maps/map01.dat:1843
 msgid "the Forest"
-msgstr ""
+msgstr "森"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "秘密の沼"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
-msgstr ""
+msgstr "洞窟"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr ""
+msgstr "砦の外"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
-msgstr ""
+msgstr "下水道"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
-msgstr ""
+msgstr "砦の地下"
 
 #: data/maps/map17.dat:11143
 msgid "the Fortress Ground Floor"
-msgstr ""
+msgstr "砦の地上階"
 
 #: data/scripts/old_shield.dat:18
 msgid "the Laboratory"
-msgstr ""
+msgstr "研究所"
 
 #: data/medals.dat:19
 msgid "the Library"
@@ -6076,43 +6077,43 @@ msgstr ""
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "Village"
-msgstr ""
+msgstr "村"
 
 #: data/scripts/armour_boss_die.dat:4
 msgid "Mine"
-msgstr ""
+msgstr "炭鉱"
 
 #: data/scripts/ending_part1.dat:35
 msgid "Forest"
-msgstr ""
+msgstr "森"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "Forbidden Swamp"
-msgstr ""
+msgstr "秘密の沼"
 
 #: data/scripts/cave_intro.dat:13
 msgid "Cave"
-msgstr ""
+msgstr "洞窟"
 
 #: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
-msgstr ""
+msgstr "砦の外"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
-msgstr ""
+msgstr "下水道"
 
 #: data/maps/map09.dat:5943
 msgid "Fortress Basement"
-msgstr ""
+msgstr "砦の地下"
 
 #: data/maps/map09.dat:1
 msgid "Fortress Ground Floor"
-msgstr ""
+msgstr "砦の地上階"
 
 #: data/scripts/old_shield.dat:18
 msgid "Laboratory"
-msgstr ""
+msgstr "研究所"
 
 #: src/graphics/save_png.c:25
 msgid "Library"
@@ -6176,7 +6177,7 @@ msgstr "チェックポイントを再開"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
-msgstr ""
+msgstr "チートはゲーム中のみ可能です"
 
 #: src/title.c:79
 msgid "Press any key"
@@ -6184,11 +6185,11 @@ msgstr "何かキーを押してください"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
-msgstr ""
+msgstr "攻撃中は装備を変えられません"
 
 #: src/credits.c:884
 msgid "Continue"
-msgstr ""
+msgstr "ゲームを再開"
 
 #: src/init.c:128
 msgid "Medals"
@@ -6200,19 +6201,19 @@ msgstr "サンプリング周波数"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
-msgstr ""
+msgstr "チート"
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "無限の体力"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "無限の矢"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "溶岩で即死"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
@@ -6228,11 +6229,11 @@ msgstr "使用"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "全ての操作キーを設定してください"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
-msgstr ""
+msgstr "素早く左右を向いて断片を振り払ってください!"
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
@@ -6252,7 +6253,7 @@ msgstr ""
 
 #: src/player.c:2995
 msgid "Press buttons to break the petrification!"
-msgstr ""
+msgstr "ボタンを連打して石化を止めてください!"
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
@@ -6268,7 +6269,7 @@ msgstr ""
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
-msgstr ""
+msgstr "素早く左右を向いて小さなガーゴイルを振り払ってください!"
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
@@ -6538,19 +6539,19 @@ msgstr ""
 
 #: data/maps/map10.dat:3167
 msgid "Potion of Invisibility"
-msgstr ""
+msgstr "透明の薬"
 
 #: data/scripts/slime_potion.dat:8
 msgid "Potion of Transmogrification"
-msgstr ""
+msgstr "変身の薬"
 
 #: data/props/item/spike_ball.props:4
 msgid "Armadillo Spike Ball"
-msgstr ""
+msgstr "アルマジロのトゲ玉"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer Eyeball"
-msgstr ""
+msgstr "ゲイザーの目玉"
 
 #: src/item/apple_tree.h:20
 msgid "Apple"
