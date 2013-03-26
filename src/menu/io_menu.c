@@ -59,8 +59,43 @@ void drawIOMenu()
 static void doMenu()
 {
 	Widget *w;
+	int up, down, attack;
+	
+	up = FALSE;
+	down = FALSE;
+	attack = FALSE;
+	
+	if (menuInput.up == TRUE)
+	{
+		up = TRUE;
+	}
+	
+	else if (menuInput.down == TRUE)
+	{
+		down = TRUE;
+	}
+	
+	else if (menuInput.attack == TRUE)
+	{
+		attack = TRUE;
+	}
+	
+	else if (input.up == TRUE)
+	{
+		up = TRUE;
+	}
+	
+	else if (input.down == TRUE)
+	{
+		down = TRUE;
+	}
+	
+	else if (input.attack == TRUE)
+	{
+		attack = TRUE;
+	}
 
-	if (menuInput.down == TRUE || input.down == TRUE)
+	if (down == TRUE)
 	{
 		menu.index++;
 
@@ -72,7 +107,7 @@ static void doMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (menuInput.up == TRUE || input.up == TRUE)
+	else if (up == TRUE)
 	{
 		menu.index--;
 
@@ -84,7 +119,7 @@ static void doMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (menuInput.attack == TRUE || input.attack == TRUE)
+	else if (attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 

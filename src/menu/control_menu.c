@@ -61,8 +61,65 @@ void drawControlMenu()
 static void doMenu()
 {
 	Widget *w;
+	int left, right, up, down, attack;
+	
+	left = FALSE;
+	right = FALSE;
+	up = FALSE;
+	down = FALSE;
+	attack = FALSE;
+	
+	if (menuInput.left == TRUE)
+	{
+		left = TRUE;
+	}
+	
+	else if (menuInput.right == TRUE)
+	{
+		right = TRUE;
+	}
+	
+	else if (menuInput.up == TRUE)
+	{
+		up = TRUE;
+	}
+	
+	else if (menuInput.down == TRUE)
+	{
+		down = TRUE;
+	}
+	
+	else if (menuInput.attack == TRUE)
+	{
+		attack = TRUE;
+	}
+	
+	else if (input.left == TRUE)
+	{
+		left = TRUE;
+	}
+	
+	else if (input.right == TRUE)
+	{
+		right = TRUE;
+	}
+	
+	else if (input.up == TRUE)
+	{
+		up = TRUE;
+	}
+	
+	else if (input.down == TRUE)
+	{
+		down = TRUE;
+	}
+	
+	else if (input.attack == TRUE)
+	{
+		attack = TRUE;
+	}
 
-	if (menuInput.down == TRUE || input.down == TRUE)
+	if (down == TRUE)
 	{
 		menu.index++;
 
@@ -74,7 +131,7 @@ static void doMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (menuInput.up == TRUE || input.up == TRUE)
+	else if (up == TRUE)
 	{
 		menu.index--;
 
@@ -86,7 +143,7 @@ static void doMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (menuInput.attack == TRUE || input.attack == TRUE)
+	else if (attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
@@ -98,7 +155,7 @@ static void doMenu()
 		}
 	}
 
-	else if (menuInput.left == TRUE || input.left == TRUE)
+	else if (left == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
@@ -110,7 +167,7 @@ static void doMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (menuInput.right == TRUE || input.right == TRUE)
+	else if (right == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
