@@ -5662,6 +5662,10 @@ msgstr ""
 msgid "The Swamp Guardian"
 msgstr ""
 
+#: src/credits.c:128
+msgid "The Gargoyle"
+msgstr ""
+
 #: src/credits.c:129
 msgid "The Blob"
 msgstr ""

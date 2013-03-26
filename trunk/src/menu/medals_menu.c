@@ -65,7 +65,54 @@ void drawMedalsMenu()
 
 static void doMenu()
 {
-	if (menuInput.attack == TRUE || input.attack == TRUE)
+	int up, down, attack, block;
+	
+	up = FALSE;
+	down = FALSE;
+	attack = FALSE;
+	block = FALSE;
+	
+	if (menuInput.up == TRUE)
+	{
+		up = TRUE;
+	}
+	
+	else if (menuInput.down == TRUE)
+	{
+		down = TRUE;
+	}
+	
+	else if (menuInput.attack == TRUE)
+	{
+		attack = TRUE;
+	}
+	
+	else if (menuInput.block == TRUE)
+	{
+		block = TRUE;
+	}
+	
+	else if (input.up == TRUE)
+	{
+		up = TRUE;
+	}
+	
+	else if (input.down == TRUE)
+	{
+		down = TRUE;
+	}
+	
+	else if (input.attack == TRUE)
+	{
+		attack = TRUE;
+	}
+	
+	else if (input.block == TRUE)
+	{
+		attack = TRUE;
+	}
+	
+	if (attack == TRUE)
 	{
 		memset(&menuInput, 0, sizeof(Input));
 		memset(&input, 0, sizeof(Input));
@@ -75,7 +122,7 @@ static void doMenu()
 		showMainMenu();
 	}
 
-	else if (menuInput.block == TRUE || input.block == TRUE)
+	else if (block == TRUE)
 	{
 		memset(&menuInput, 0, sizeof(Input));
 		memset(&input, 0, sizeof(Input));
@@ -85,7 +132,7 @@ static void doMenu()
 		showMainMenu();
 	}
 
-	else if (menuInput.down == TRUE || input.down == TRUE)
+	else if (down == TRUE)
 	{
 		menu.startY += 6;
 
@@ -95,7 +142,7 @@ static void doMenu()
 		}
 	}
 
-	else if (menuInput.up == TRUE || input.up == TRUE)
+	else if (up == TRUE)
 	{
 		menu.startY -= 6;
 

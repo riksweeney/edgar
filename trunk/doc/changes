@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 1.08
+* Updated French and Japanese translations
+* The menus now prioritize arrow keys for navigation
+
 Version 1.07
 * Fixed a problem with the lightning sword sliding puzzle
 * Updated Brazilian Portuguese, French and Japanese translations
