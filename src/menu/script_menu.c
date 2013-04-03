@@ -116,7 +116,7 @@ static void loadMenuLayout(char *text)
 		showErrorAndExit("Ran out of memory when creating Script Menu");
 	}
 
-	menu.widgets[0] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
+	menu.widgets[0] = createWidget(_(text), NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
 
 	menu.widgets[1] = createWidget(_("Yes"), NULL, NULL, NULL, doYes, x, y, TRUE, 255, 255, 255);
 

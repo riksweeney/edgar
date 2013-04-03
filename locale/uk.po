@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-12-23 01:10+0000\n"
+"PO-Revision-Date: 2013-03-26 11:13+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-01 13:28+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-03-28 07:32+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -6053,6 +6053,10 @@ msgstr "Королева Оса"
 msgid "The Swamp Guardian"
 msgstr "Хранитель Болота"
 
+#: src/credits.c:128
+msgid "The Gargoyle"
+msgstr "Горгуля"
+
 #: src/credits.c:129
 msgid "The Blob"
 msgstr "Блоб"
@@ -6151,7 +6155,7 @@ msgstr "Переможено Азраїла"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
-msgstr "Пореможено Горгуллю"
+msgstr "Пореможено Горгулю"
 
 #: data/medals.dat:17
 msgid "Defeated a Rampaging Master Tortoise"
