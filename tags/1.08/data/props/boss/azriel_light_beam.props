@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/boss/azriel_light_beam.dat
+ANIM_FILE data/anim/boss/azriel_light_beam.dat
+TYPE ENEMY
+FLAGS FLY
+ALPHA 128
+LAYER FOREGROUND_LAYER

@@ -1,0 +1,7 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/golem_boss_piece.dat
+ANIM_FILE data/anim/boss/golem_boss_piece.dat
+SPEED 2
+HEALTH 0
+LAYER BACKGROUND_LAYER
+FLAGS DO_NOT_PERSIST

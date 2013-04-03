@@ -1,0 +1,9 @@
+GFX_FILE data/gfx/boss/mataeus_knife.dat
+ANIM_FILE data/anim/boss/mataeus_knife.dat
+TYPE ENEMY
+FLAGS FLY|STACKABLE
+DAMAGE 1
+DESCRIPTION A magical knife conjured by Mataeus
+OBJECTIVE_NAME Magical Knife
+SPEED 12
+THINKTIME 120
