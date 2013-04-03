@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-12-21 10:03+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2013-03-29 18:37+0000\n"
+"Last-Translator: Harald Glock <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-01 13:28+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-04-02 06:08+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3397,7 +3397,7 @@ msgstr ""
 
 #: data/scripts/raft_end.dat:12
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
+msgstr "Halte durch Vater, ich komme..."
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
@@ -3409,7 +3409,7 @@ msgstr ""
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
-msgstr ""
+msgstr "Damit sollte ich fast unschlagbar sein"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
@@ -3545,7 +3545,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:53
 msgid "Rescue 3 Chickens"
-msgstr ""
+msgstr "Rette 3 Hühner"
 
 #: data/scripts/jacob.dat:62
 msgid ""
@@ -3623,6 +3623,7 @@ msgstr ""
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
 msgstr ""
+"Und, ich bin müde von all diesem Laufen, Springen, Kämpfen, Schwimmen..."
 
 #: data/scripts/gold_centurion.dat:12
 msgid "thinking, mining, chopping, pushing, pulling, carrying..."
@@ -3660,7 +3661,7 @@ msgstr "Es muss einen Weg hier raus geben..."
 
 #: data/scripts/cave_intro.dat:13
 msgid "Escape the Cave"
-msgstr ""
+msgstr "Entkomme aus der Höhle"
 
 #: data/scripts/huge_spider.dat:6
 msgid "Wow, that thing is huge!"
@@ -3721,47 +3722,51 @@ msgstr ""
 
 #: data/scripts/evil_edgar_encounter_1.dat:9
 msgid "Me? I'm you!"
-msgstr ""
+msgstr "Ich? Ich bin du!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:10
 msgid "No you're not, where did you come from?"
-msgstr ""
+msgstr "Nein bist du nicht, woher bist du gekommen?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:11
 msgid ""
 "When your stupid experiment failed, part of your conscious separated and "
 "created me"
 msgstr ""
+"Als dein dummes Experiment fehlschlug hat sich ein Teil deines Bewusstseins "
+"abgespalten und mich erschaffen"
 
 #: data/scripts/evil_edgar_encounter_1.dat:12
 msgid "I'm like you in every way, just more evil"
-msgstr ""
+msgstr "Ich bin wie du in jeder Hinsicht, nur viel böser"
 
 #: data/scripts/evil_edgar_encounter_1.dat:13
 msgid "I'm not evil!"
-msgstr ""
+msgstr "Ich bin nicht böse!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:14
 msgid ""
 "Yes you are, you know that little part of you that enjoyed pulling the legs "
 "off insects?"
 msgstr ""
+"Doch bist du, erinnerst du dich an den kleinen Teil in dir der es genossen "
+"hat Insekten die Beine auszureissen?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:15
 msgid "Hey, I don't do that anymore!"
-msgstr ""
+msgstr "Hey, sowas mache ich nicht mehr!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:16
 msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
-msgstr ""
+msgstr "Oh doch, was ist mit den [GAME_KILLS] Kreaturen die du getötet hast?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:17
 msgid "That was self defence!"
-msgstr ""
+msgstr "Das war Notwehr!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:18
 msgid "Did you try talking to them?"
-msgstr ""
+msgstr "Hast du versucht mit ihnen zu sprechen?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:19
 msgid "You're crazy!"
@@ -3861,7 +3866,7 @@ msgstr ""
 
 #: data/scripts/mastermind.dat:13
 msgid "Maybe I should come back later..."
-msgstr ""
+msgstr "Vielleicht sollte ich später zurückkommen..."
 
 #: data/scripts/mastermind.dat:17
 msgid "It's a giant mastermind puzzle!"
@@ -3874,7 +3879,7 @@ msgstr ""
 
 #: data/scripts/mastermind.dat:20
 msgid "It doesn't look like it's working though"
-msgstr ""
+msgstr "Es sieht nicht so aus als ob es funktioniert"
 
 #: data/scripts/gargoyle_stone.dat:1
 msgid "It's petrified again"
@@ -3896,7 +3901,7 @@ msgstr ""
 
 #: data/scripts/fish.dat:4
 msgid "I'll have to find a way to get rid of them..."
-msgstr ""
+msgstr "Ich muss einen Weg finden sie loszuwerden..."
 
 #: data/scripts/rusted.dat:4
 msgid "There, that's the hinges oiled. This should be as good as new now!"
@@ -3919,6 +3924,8 @@ msgid ""
 "I don't think my shield will protect me from those fireballs. I'll have to "
 "find a stronger one..."
 msgstr ""
+"Ich glaube nicht, dass mein Schild mich vor diesen Feuerbällen schützen "
+"wird. Ich muss ein stärkeres finden..."
 
 #: data/scripts/fireball_passage.dat:13
 msgid "Obtain a Fire Shield"
@@ -3926,7 +3933,7 @@ msgstr ""
 
 #: data/scripts/puzzle_pieces.dat:5
 msgid "I need all 9 puzzle pieces"
-msgstr ""
+msgstr "Ich brauche alle 9 Puzzleteile"
 
 #: data/scripts/dungeon_escape.dat:2
 msgid "I'm back in the Fortress, thank goodness for that"
@@ -3949,11 +3956,11 @@ msgstr ""
 
 #: data/scripts/wasteland_intro.dat:5
 msgid "Ouch, my head..."
-msgstr ""
+msgstr "Au, mein Kopf..."
 
 #: data/scripts/wasteland_intro.dat:12
 msgid "Oh no, I've lost all my equipment!"
-msgstr ""
+msgstr "Oh nein, ich habe meine ganze Ausrüstung verloren!"
 
 #: data/scripts/wasteland_intro.dat:20
 msgid "Some of my stuff is over there..."
@@ -6120,6 +6127,10 @@ msgstr ""
 
 #: src/credits.c:127
 msgid "The Swamp Guardian"
+msgstr ""
+
+#: src/credits.c:128
+msgid "The Gargoyle"
 msgstr ""
 
 #: src/credits.c:129

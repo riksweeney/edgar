@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-03-24 19:51+0000\n"
+"PO-Revision-Date: 2013-04-01 16:00+0000\n"
 "Last-Translator: maruhiro <maruhiro@bridge.ocn.ne.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-25 22:24+0000\n"
-"X-Generator: Launchpad (build 16540)\n"
+"X-Launchpad-Export-Date: 2013-04-02 06:08+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -23,7 +23,7 @@ msgstr "ありがとう、 完璧だ!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr "要るものは 全部そろった?"
+msgstr "いるものは 全部そろった?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -676,7 +676,7 @@ msgstr "行動キーを押しながら物と反対の方向に動くと、 物�
 
 #: data/scripts/box_pushing.dat:2
 msgid "You can then pull it around until you let go of the Action button"
-msgstr "行動ボタンを押している間は引き続けます。"
+msgstr "行動キーを押している間は引き続けます。"
 
 #: data/scripts/drainers.dat:1
 msgid ""
@@ -874,7 +874,7 @@ msgstr "対象ハ武装シ危険"
 
 #: data/scripts/centurion_boss_start.dat:16
 msgid "COMMENCING DESTRUCTION OF TARGET"
-msgstr "ダダチニ対象ヲ破壊"
+msgstr "タダチニ対象ヲ破壊"
 
 #: data/scripts/blank_card_required.dat:1
 msgid "I need a blank card to put the instructions on"
@@ -2057,7 +2057,7 @@ msgstr "扉を通りますか?"
 
 #: data/scripts/final_battle.dat:5
 msgid "OK, here we go..."
-msgstr "さあ、 行こう…"
+msgstr "よし、 行くぞ…"
 
 #: data/scripts/final_battle.dat:11
 msgid "Maybe I should prepare a little bit more first"
@@ -2358,7 +2358,7 @@ msgstr "でも もっと問題なのは、 言いつけを 守らなかったこ
 
 #: data/scripts/ending_part2.dat:79
 msgid "I told you to never set foot in the Forbidden Swamp"
-msgstr "秘密の沼へは 行っては行けないと 言ったはずだ。"
+msgstr "秘密の沼へは 行ってはならないと 言ったはずだ。"
 
 #: data/scripts/ending_part2.dat:80
 msgid "And for that, you'll have to be punished"
@@ -2378,7 +2378,7 @@ msgstr "何がいいか 考えなければ…"
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
-msgstr "ヤコブ、 また小屋から 鶏が逃げ出した ようだな。"
+msgstr "ヤコブ、 また小屋から 鶏が逃げ出したようだ。"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
@@ -2579,7 +2579,7 @@ msgstr "この扉を開ける方法が 必ずあるはずだ。"
 
 #: data/scripts/dungeon_intro.dat:16
 msgid "Wait, perhaps that button unlocks it"
-msgstr "まて、 あのボタンで 鍵が開くんだろう。"
+msgstr "待て、 あのボタンで 鍵が開くんだろう。"
 
 #: data/scripts/dungeon_intro.dat:17
 msgid "If only I could reach it..."
@@ -2695,7 +2695,7 @@ msgstr "次にロボットがたどる方向を入力します。 入力は扉�
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
-msgstr "方向を入力し終わったら、 攻撃ボタンを押します。"
+msgstr "方向を入力し終わったら、 攻撃キーを押します。"
 
 #: data/scripts/instruction_machine.dat:5
 msgid "The robot will then follow the instructions on the card"
@@ -3408,7 +3408,7 @@ msgstr "攻撃キーで ピンを 交換します。"
 msgid ""
 "When you have selected all of the colours, move the cursor onto the question "
 "mark and press Attack"
-msgstr "全ての色を選んだら、 ?にカーソルを合わせ、 攻撃ボタンを押してください。"
+msgstr "全ての色を選んだら、 ?にカーソルを合わせ、 攻撃キーを押してください。"
 
 #: data/scripts/mastermind.dat:7
 msgid ""
@@ -3636,7 +3636,7 @@ msgstr "うーん… 砦じゅうを歩いたけど、 外への扉は なかっ
 
 #: data/scripts/hidden_passage_hint.dat:3
 msgid "Maybe I should have another look in here..."
-msgstr "もしかすると ここに 何かなるのかも…"
+msgstr "もしかすると ここに 何かあるのかも…"
 
 #: data/scripts/tutorial_items.dat:1
 msgid ""
@@ -3855,7 +3855,7 @@ msgstr "スライムに変身しても 通常通り移動することができ�
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
-msgstr "水面近くで 上かジャンプボタンを押すと 水の外に出られます。"
+msgstr "水面近くで 上かジャンプキーを押すと 水の外に出られます。"
 
 #: data/scripts/slime_potion.dat:15
 msgid ""
@@ -5692,6 +5692,10 @@ msgstr "女王蜂"
 msgid "The Swamp Guardian"
 msgstr "沼の守護者"
 
+#: src/credits.c:128
+msgid "The Gargoyle"
+msgstr "ガーゴイル"
+
 #: src/credits.c:129
 msgid "The Blob"
 msgstr "ブロブ"
@@ -6258,7 +6262,7 @@ msgstr "%s を選択しました"
 
 #: src/player.c:2995
 msgid "Press buttons to break the petrification!"
-msgstr "ボタンを連打して 石化を止めてください!"
+msgstr "キーを連打して 石化を止めてください!"
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
@@ -6352,7 +6356,7 @@ msgstr "カオスは封印された"
 
 #: src/credits.c:460
 msgid "For now..."
-msgstr "いまのところは…"
+msgstr "だが いつの日か…"
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"

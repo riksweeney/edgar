@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-22 18:36+0000\n"
-"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2013-03-28 07:32+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -6177,6 +6177,10 @@ msgstr "La Reina Avispa"
 #: src/credits.c:127
 msgid "The Swamp Guardian"
 msgstr "El Defensor del Pantano"
+
+#: src/credits.c:128
+msgid "The Gargoyle"
+msgstr ""
 
 #: src/credits.c:129
 msgid "The Blob"
