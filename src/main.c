@@ -77,10 +77,10 @@ int main(int argc, char *argv[])
 			{
 				printf("You must specify a file to record to\n");
 				printf("Type %s -h for help\n", argv[0]);
-				
+
 				exit(1);
 			}
-			
+
 			if (recordingID == -1)
 			{
 				recordingID = i + 1;
@@ -95,10 +95,10 @@ int main(int argc, char *argv[])
 			{
 				printf("You must specify a file to playback from\n");
 				printf("Type %s -h for help\n", argv[0]);
-				
+
 				exit(1);
 			}
-			
+
 			if (replayingID == -1)
 			{
 				replayingID = i + 1;
@@ -113,10 +113,10 @@ int main(int argc, char *argv[])
 			{
 				printf("You must specify a slot to load from\n");
 				printf("Type %s -h for help\n", argv[0]);
-				
+
 				exit(1);
 			}
-			
+
 			loadSlot = atoi(argv[i + 1]);
 
 			i++;
@@ -133,10 +133,10 @@ int main(int argc, char *argv[])
 			{
 				printf("You must specify a joystick slot to use\n");
 				printf("Type %s -h for help\n", argv[0]);
-				
+
 				exit(1);
 			}
-			
+
 			joystick = atoi(argv[i + 1]);
 
 			i++;
@@ -146,19 +146,19 @@ int main(int argc, char *argv[])
 		{
 			showCredits = TRUE;
 		}
-		
-		else if (strstr("-lang", argv[i]) != NULL)
+
+		else if (strstr(argv[i], "-lang") != NULL)
 		{
 			if (i + 1 >= argc)
 			{
 				printf("You must specify a language to use\n");
 				printf("Type %s -h for help\n", argv[0]);
-				
+
 				exit(1);
 			}
-			
+
 			languageID = i + 1;
-			
+
 			i++;
 		}
 
@@ -195,11 +195,11 @@ int main(int argc, char *argv[])
 			}
 		#endif
 	}
-	
+
 	setLanguage("edgar", languageID == -1 ? NULL : argv[languageID]);
 	printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
 	printf("atof(2.75) is %f\n", atof("2.75"));
-	
+
 	/* Call the cleanup function when the program exits */
 
 	atexit(cleanup);
