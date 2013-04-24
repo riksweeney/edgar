@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-03-18 08:16+0000\n"
-"Last-Translator: Eliovir <Unknown>\n"
+"PO-Revision-Date: 2013-04-15 13:28+0000\n"
+"Last-Translator: Hélion du Mas des Bourboux <helion331990@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-28 07:32+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-04-16 06:12+0000\n"
+"X-Generator: Launchpad (build 16564)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr "Merci, c'est parfait!"
+msgstr "Merci, c'est parfait !"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr "Est-ce que tu as tout ce dont tu as besoin maintenant?"
+msgstr "Est-ce que tu as tout ce dont tu as besoin maintenant ?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -31,11 +31,11 @@ msgstr "Certainement"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
-msgstr "Et maintenant?"
+msgstr "Et maintenant ?"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
-msgstr "Nous pouvons sortir d'ici! Où veux-tu aller?"
+msgstr "Nous pouvons sortir d'ici ! Où veux-tu aller ?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
@@ -44,7 +44,7 @@ msgstr "De retour à la forteresse, je dois encore sauver mon père du sorcier"
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
 msgstr ""
-"Ok, tu te souviens de ce que je t'ai dis à propos du sort de désintégration?"
+"Ok, tu te souviens de ce que je t'ai dis à propos du sort de désintégration ?"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
@@ -56,7 +56,7 @@ msgstr "Va au laboratoire et mélange cette bague avec ton bouclier"
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
-msgstr "Comment?"
+msgstr "Comment ?"
 
 #: data/scripts/olaf.dat:16
 msgid ""
@@ -72,7 +72,7 @@ msgstr "OK..."
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
-msgstr "Tout ira bien cette fois!"
+msgstr "Tout ira bien cette fois !"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
@@ -80,29 +80,29 @@ msgstr "…"
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr "(J'ai la statue qu'Olaf a volée)"
+msgstr "(J'ai la statue qu'Olaf a volée.)"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr "(Peut-être que je devrais lui rendre, il m'a sauvé après tout)"
+msgstr "(Peut-être que je devrais lui rendre, il m'a sauvé après tout.)"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
 msgstr ""
-"(Mais bon, il l'a volée, et je suis presque mort à essayer de l'avoir)"
+"(Mais bon, il l'a volée, et je suis presque mort à essayer de l'avoir.)"
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr "Donner la statue à Olaf?"
+msgstr "Donner la statue à Olaf ?"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
 msgstr ""
-"J'ai trouvé ça dans la cave, est-ce que c'est la statue que tu as prise?"
+"J'ai trouvé ça dans la cave, est-ce que c'est la statue que tu as prise ?"
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr "Oui! Merci de l'avoir trouvée!"
+msgstr "Oui ! Merci de l'avoir trouvée !"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
@@ -1176,7 +1176,7 @@ msgstr "Ça ne peut-être..."
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr "Papa!"
+msgstr "Papa !"
 
 #: data/scripts/jacob.dat:14
 msgid "Edgar!"
@@ -2361,8 +2361,8 @@ msgid ""
 "Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
 "box"
 msgstr ""
-"Appuis sur [INPUT_JUMP] lorsque vous avez fini de lire pour vous rendre à la "
-"prochaine boîte de dialogue."
+"Appuyez sur [INPUT_JUMP] lorsque vous avez fini de lire pour vous rendre à "
+"la prochaine boite de dialogue."
 
 #: data/scripts/tutorial_intro.dat:5
 msgid ""
@@ -2379,8 +2379,8 @@ msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
-"Ceci est le tutoriel de La Légende d'Edgar. Ce tutoriel t'expliquera comment "
-"jouer à ce jeu."
+"Ceci est le tutoriel de La Légende d'Edgar. Ce tutoriel vous expliquera "
+"comment jouer à ce jeu."
 
 #: data/scripts/tutorial_intro.dat:7
 msgid ""
@@ -4064,7 +4064,7 @@ msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
 msgstr ""
-"Il y a un lac entre le Village et le Marais donc j'aurai besoin d'un radeau "
+"Il y a un lac entre le Village et le Marais, donc j'aurai besoin d'un radeau "
 "pour traverser."
 
 #: data/scripts/grasslands_intro.dat:10
@@ -4325,7 +4325,7 @@ msgstr ""
 
 #: data/scripts/well.dat:8
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr "PAPA!!!!! EST TU LÀ?!!!!!"
+msgstr "PAPA !!!!! ES-TU LÀ ?!!!!!"
 
 #: data/scripts/well.dat:10
 msgid "Nothing. I guess I'll have to keep on looking"
@@ -5188,7 +5188,7 @@ msgstr "Ce téléporteur n'est pas activé"
 
 #: src/world/lift.c:158
 msgid "Push Up or Down to use this lift"
-msgstr "Appuis sur Haut ou Bas pour utiliser l'ascenseur"
+msgstr "Appuyez sur Haut ou Bas pour utiliser l'ascenseur."
 
 #: src/entity.c:1329
 msgid "This lift is not active"
@@ -5499,7 +5499,7 @@ msgstr "Droit"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid "Jump"
-msgstr "Basculer"
+msgstr "Sauter"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Attack"
@@ -6287,7 +6287,7 @@ msgstr "Le Gardien du Marais"
 
 #: src/credits.c:128
 msgid "The Gargoyle"
-msgstr ""
+msgstr "La Gargouille"
 
 #: src/credits.c:129
 msgid "The Blob"
@@ -7053,8 +7053,8 @@ msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
-"Tu peux encore rester debout une demi-heure, mais après ranges tes jouets et "
-"va au lit"
+"Tu peux encore rester debout une demi-heure, mais après range tes jouets et "
+"va au lit."
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
@@ -7062,7 +7062,7 @@ msgstr "Le matin suivant..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr "Papa! Où es-tu"
+msgstr "Papa ! Où es-tu ?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
