@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-04-19 04:13+0000\n"
+"PO-Revision-Date: 2013-05-19 04:07+0000\n"
 "Last-Translator: supermurray <u5206800@anu.edu.au>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-19 20:08+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-05-19 07:01+0000\n"
+"X-Generator: Launchpad (build 16626)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -23,7 +23,7 @@ msgstr "谢谢 ，棒极了！"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr ""
+msgstr "现在你有需要的任何东西吗？"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -61,15 +61,15 @@ msgstr "怎么？"
 msgid ""
 "Throw the shield and ring into the cauldron along with some mandrake root, "
 "that should do it"
-msgstr ""
+msgstr "把盾牌戒指和曼德拉草根融合到大熔炉里"
 
 #: data/scripts/jacob.dat:35
 msgid "OK..."
-msgstr ""
+msgstr "好的"
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
-msgstr ""
+msgstr "这次没有出错"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
@@ -77,246 +77,246 @@ msgstr "……"
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr ""
+msgstr "我有Olaf偷的雕塑"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr ""
+msgstr "也许我该把它归还给他，毕竟他救了我"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
-msgstr ""
+msgstr "他又偷了它，我差一点死于得到它"
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr ""
+msgstr "把雕塑给Olaf?"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
-msgstr ""
+msgstr "我发现它在山洞里，你拿走的雕塑么？"
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr ""
+msgstr "是的，谢谢你找到它"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "我应该可以以体面的价格在市场上卖掉它"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
-msgstr ""
+msgstr "我认为我可以保留它"
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "准备好出发了么"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "回到堡垒么？"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
-msgstr ""
+msgstr "还没有，有些别的事情我需要做"
 
 #: data/scripts/olaf.dat:47
 msgid "OK, let me know when you're ready"
-msgstr ""
+msgstr "好的，你们准备好的时候告诉我一声"
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "你成功找到号角了么？"
 
 #: data/scripts/olaf.dat:62
 msgid "Have you found everything yet?"
-msgstr ""
+msgstr "你找到任何东西了么？"
 
 #: data/scripts/olaf.dat:63
 msgid "Not yet, I'm still looking"
-msgstr ""
+msgstr "还没，我还在找"
 
 #: data/scripts/olaf.dat:68
 msgid "OK, I've found everything now"
-msgstr ""
+msgstr "好的，我已经找齐所有东西了"
 
 #: data/scripts/olaf.dat:77
 msgid "ARGHHHHH!!"
-msgstr ""
+msgstr "啊哈哈哈！"
 
 #: data/scripts/olaf.dat:79
 msgid "Another human, out here? How did you get out here?"
-msgstr ""
+msgstr "别的人？你是如何逃到这里的"
 
 #: data/scripts/olaf.dat:80
 msgid ""
 "I'm not sure, I think the sorceror sent me here, but he said he was going to "
 "kill me"
-msgstr ""
+msgstr "我不确定，我认为是巫师把我送到这里，但他说他要干掉我"
 
 #: data/scripts/olaf.dat:83
 msgid "Hmmm, what's that on your hand?"
-msgstr ""
+msgstr "额额，你的手上有什么?"
 
 #: data/scripts/olaf.dat:84
 msgid "This? This is just a ring I found in his fortress"
-msgstr ""
+msgstr "这？这只是一枚我在他的城堡里找到的戒指"
 
 #: data/scripts/olaf.dat:85
 msgid ""
 "It looks like a ring of protection, it must have saved you. Why were you in "
 "his fortress?"
-msgstr ""
+msgstr "它看起来像一枚有保护力的戒指，它定能救你。你为什么会在他的城堡了？"
 
 #: data/scripts/olaf.dat:86
 msgid "He's kidnapped my Dad and I was there trying to save him"
-msgstr ""
+msgstr "他绑架了我的老爸，我要去救他"
 
 #: data/scripts/olaf.dat:87
 msgid "Well, it looks like the ring's power is almost completely gone"
-msgstr ""
+msgstr "好吧，看起来戒指的魔力已经全部消失了"
 
 #: data/scripts/olaf.dat:88
 msgid ""
 "If he hits you with that spell again it will almost certainly kill you"
-msgstr ""
+msgstr "如果他用符咒攻击你那它将会把你干掉"
 
 #: data/scripts/olaf.dat:91
 msgid ""
 "Something must have protected you from the spell. Were you wearing a pendant "
 "or a ring?"
-msgstr ""
+msgstr "一些东西可以救你，你戴吊坠或戒指了么？"
 
 #: data/scripts/olaf.dat:92
 msgid ""
 "I did find a ring in the fortress but it didn't seem to have any powers"
-msgstr ""
+msgstr "我确实在城堡里找到了一枚戒指，但它看起来没有任何魔力"
 
 #: data/scripts/olaf.dat:93
 msgid ""
 "It might have been a ring of protection. I imagine that the protection would "
 "have been limited to a single use"
-msgstr ""
+msgstr "它应该是一枚有魔力的戒指，我猜它的魔力被简单的使用给限制了"
 
 #: data/scripts/olaf.dat:96
 msgid ""
 "What you could do though is combine the ring and your shield together to "
 "create a shield that will protect you from the spell"
-msgstr ""
+msgstr "为你逃离符咒的威胁，你如何做到把戒指和盾牌结合起来保护自己？"
 
 #: data/scripts/olaf.dat:97
 msgid "Do you have any experience mixing spells?"
-msgstr ""
+msgstr "你有混合符咒的经历么？"
 
 #: data/scripts/olaf.dat:98
 msgid ""
 "Kind of, but the last time I tried creating a shield the spell backfired "
 "and..."
-msgstr ""
+msgstr "有些，但是上次我试着组装一个盾牌···"
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
-msgstr ""
+msgstr "它产生了一个魔鬼版的你么？"
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
-msgstr ""
+msgstr "是的，你怎么知道的？"
 
 #: data/scripts/olaf.dat:101
 msgid "Where I'm from it used to happen at least once a month"
-msgstr ""
+msgstr "我来自它时常发生至少一个月一次"
 
 #: data/scripts/olaf.dat:103
 msgid "Why are you here?"
-msgstr ""
+msgstr "你为什么会在这"
 
 #: data/scripts/olaf.dat:104
 msgid "The sorceror caught me looting his fortress and he banished me here"
-msgstr ""
+msgstr "巫师我把我带到城堡然后把我流放于此"
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"
-msgstr ""
+msgstr "你偷了什么"
 
 #: data/scripts/olaf.dat:106
 msgid "It was a small golden statue, probably worth a lot of money"
-msgstr ""
+msgstr "它是一个小的金色雕塑，可能会值一些钱"
 
 #: data/scripts/olaf.dat:107
 msgid ""
 "I've been here for months now, but I've almost got all the ingredients I "
 "need to teleport back home"
-msgstr ""
+msgstr "我已经来这里几个月了，但是我几乎得到了所有需要传输回家的东西"
 
 #: data/scripts/olaf.dat:108
 msgid ""
 "I just need one more thing, but it's in a cave to the west and I have no "
 "weapons to protect myself"
-msgstr ""
+msgstr "我还需要一件东西，但是它在西边的山洞里并且我没有武器来保护自己"
 
 #: data/scripts/olaf.dat:109
 msgid "But now you're here you can help me retrieve it"
-msgstr ""
+msgstr "但是现在你在这里可以帮我摆脱困境"
 
 #: data/scripts/olaf.dat:112
 msgid ""
 "I haven't gotten all my stuff back yet. I think everything's here though"
-msgstr ""
+msgstr "我还没得到我要的东西，尽管我认为这里都有了"
 
 #: data/scripts/olaf.dat:113
 msgid "When I've found everything I'll come back"
-msgstr ""
+msgstr "等我找到所有东西就该回去了"
 
 #: data/scripts/olaf.dat:114
 msgid "OK, good luck!"
-msgstr ""
+msgstr "好运"
 
 #: data/scripts/olaf.dat:120
 msgid "What do you need?"
-msgstr ""
+msgstr "你需要什么"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "这是怪物身上特有的犄角"
 
 #: data/scripts/olaf.dat:122
 msgid ""
 "There should be plenty of bones littered around so you shouldn't have to "
 "find one and kill it. Just get the horn and get out"
-msgstr ""
+msgstr "有很多围绕你的“骨头”你不得不解决掉，然后得到犄角逃出去"
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr "就这个事情么？"
+msgstr "就这样么？"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
-msgstr ""
+msgstr "啊哈哈哈"
 
 #: data/scripts/olaf.dat:130
 msgid ""
 "Well, my stock of logs is looking quite low, maybe you could get me some "
 "more while you're out?"
-msgstr ""
+msgstr "好吧，我储存的木头看起来很少了，也许你出去的时候可以帮我搞点"
 
 #: data/scripts/olaf.dat:131
 msgid ""
 "Don't even think about it, I'm fed up of chopping down trees and collecting "
 "logs!"
-msgstr ""
+msgstr "甚至不要考虑它，我是砍树和收集木头长大的"
 
 #: data/scripts/olaf.dat:132
 msgid "OK, it was just a suggestion"
-msgstr ""
+msgstr "好的，那只是个建议"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
-msgstr ""
+msgstr "恩，你也需要这个"
 
 #: data/scripts/olaf.dat:135
 msgid ""
 "Dip your arrows into it to turn them into fire arrows, it will help you burn "
 "down the vines blocking the entrance"
-msgstr ""
+msgstr "把你的箭浸一下然后变成火箭，它会帮你烧掉锁住进口的藤"
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
@@ -324,17 +324,17 @@ msgstr "谢谢！"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
-msgstr ""
+msgstr "恩， 最后一件事"
 
 #: data/scripts/olaf.dat:141
 msgid ""
 "Don't hang around in that cave, the monsters that live in there are like "
 "nothing you'll have ever encountered before"
-msgstr ""
+msgstr "不要在洞穴附近晃荡，那里的怪兽你是不曾见过的"
 
 #: data/scripts/olaf.dat:142
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "说真的，只是取得联系"
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
@@ -346,7 +346,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:147
 msgid "Sorry, did you say something?"
-msgstr ""
+msgstr "不好意思，你是指？"
 
 #: data/scripts/olaf.dat:148
 msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
@@ -354,24 +354,24 @@ msgstr ""
 
 #: data/scripts/olaf.dat:159
 msgid "Yes, let's go"
-msgstr ""
+msgstr "是，让我们走"
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
-msgstr ""
+msgstr "好的，没出差错，祝你好运找到父亲"
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr ""
+msgstr "谢谢，Olaf"
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
-msgstr ""
+msgstr "这个电梯不能用了，除非给它充电否则不能用它"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
-msgstr ""
+msgstr "哇，一个弹射器！"
 
 #: data/scripts/catapult.dat:2
 msgid ""
@@ -384,7 +384,7 @@ msgstr ""
 
 #: data/scripts/drawbridge_pulley.dat:3
 msgid "The mechanism seems to be locked tight"
-msgstr ""
+msgstr "这个装置似乎锁的很紧"
 
 #: data/scripts/drawbridge_pulley.dat:4
 msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
@@ -396,7 +396,7 @@ msgstr ""
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "也许没人听到"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
@@ -410,7 +410,7 @@ msgstr ""
 
 #: data/scripts/flame_pillar.dat:2
 msgid "There must be a way to cool them down..."
-msgstr ""
+msgstr "一定有种方法可以把它们冷却下来"
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "The shield will protect you from most enemy attacks"
@@ -448,7 +448,7 @@ msgstr ""
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
-msgstr ""
+msgstr "搞定"
 
 #: data/scripts/scorpion_statue.dat:2
 msgid ""
@@ -473,7 +473,7 @@ msgstr "也许我可以从这里钻进去……"
 
 #: data/scripts/borer_boss_die.dat:3
 msgid "Yuck..."
-msgstr ""
+msgstr "唉···"
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
@@ -490,35 +490,35 @@ msgstr ""
 #: data/scripts/third_side.dat:4
 msgid ""
 "I'm not exactly sure what any of that means, but it sounds interesting"
-msgstr ""
+msgstr "我不确定那意味着什么，但是听起来很棒"
 
 #: data/scripts/third_side.dat:5
 msgid "I might read that later..."
-msgstr ""
+msgstr "我可能一会再读···"
 
 #: data/scripts/sorceror_intro_2.dat:10
 msgid "So, you escaped"
-msgstr ""
+msgstr "这样你就逃脱了"
 
 #: data/scripts/sorceror_intro_2.dat:11
 msgid "Yes I did, and my father wasn't there"
-msgstr ""
+msgstr "我成功了，但是我父亲没在那里"
 
 #: data/scripts/sorceror_intro_2.dat:12
 msgid "Maybe you just didn't look hard enough"
-msgstr ""
+msgstr "也许你看起来没那么硬朗"
 
 #: data/scripts/sorceror_intro_2.dat:13
 msgid "Have another look"
-msgstr ""
+msgstr "再看一遍"
 
 #: data/scripts/sorceror_intro_2.dat:18
 msgid "Maybe you should work on your spells"
-msgstr ""
+msgstr "也许你可以用你的符咒"
 
 #: data/scripts/sorceror_intro_2.dat:19
 msgid "NOW TELL ME WHERE MY FATHER IS!"
-msgstr ""
+msgstr "现在立刻告诉我父亲在哪！"
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
@@ -530,15 +530,15 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?!"
-msgstr ""
+msgstr "什么？！"
 
 #: data/scripts/sorceror_intro_2.dat:23
 msgid "I'll show you!"
-msgstr ""
+msgstr "我来给你演示"
 
 #: data/scripts/sorceror_intro_2.dat:28
 msgid "That, was a mistake"
-msgstr ""
+msgstr "那是一个错误"
 
 #: data/scripts/sorceror_intro_2.dat:29
 msgid "Die"
@@ -550,7 +550,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:35
 msgid "Where did he go?"
-msgstr ""
+msgstr "他去哪了？"
 
 #: data/scripts/old_shield.dat:12
 msgid ""
@@ -564,11 +564,11 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
-msgstr ""
+msgstr "好极了，一个有用的盾牌"
 
 #: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
-msgstr ""
+msgstr "现在我有我需要的一切了"
 
 #: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
@@ -582,7 +582,7 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
-msgstr ""
+msgstr "这个盾牌还没我现在的这个看起来好"
 
 #: data/scripts/old_shield.dat:27
 msgid ""
@@ -591,7 +591,7 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
-msgstr ""
+msgstr "那不是个好的标志"
 
 #: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
@@ -623,19 +623,19 @@ msgstr ""
 
 #: data/scripts/centurion_note_2.dat:7
 msgid "There's a skull here"
-msgstr ""
+msgstr "这里有个脑壳"
 
 #: data/scripts/centurion_note_2.dat:8
 msgid "Looks like he didn't manage to get out..."
-msgstr ""
+msgstr "看起来他没有成功逃脱···"
 
 #: data/scripts/chaos_warn.dat:2
 msgid "Leave now if you wish to live"
-msgstr ""
+msgstr "如果想活的话立刻离开这里"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "现在回来"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
@@ -648,7 +648,7 @@ msgstr ""
 
 #: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
-msgstr ""
+msgstr "然后我会毁掉你！！"
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
@@ -660,7 +660,7 @@ msgstr "在游戏中有许多隐藏的秘密， 一定要仔细观察找到它�
 
 #: data/scripts/tutorial_secret.dat:4
 msgid "Here's a hint to get you started"
-msgstr ""
+msgstr "按照提示你可以开始了"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid ""
@@ -862,7 +862,7 @@ msgstr ""
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
-msgstr ""
+msgstr "额，那是什么？"
 
 #: data/scripts/centurion_boss_start.dat:14
 msgid "ESCAPEE LOCATED"
@@ -882,11 +882,11 @@ msgstr ""
 
 #: data/scripts/slime_potion_pool.dat:1
 msgid "That smell..."
-msgstr ""
+msgstr "那闻起来···"
 
 #: data/scripts/slime_potion_pool.dat:3
 msgid "It looks like..."
-msgstr ""
+msgstr "它看起来···"
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
@@ -894,7 +894,7 @@ msgstr ""
 
 #: data/scripts/slime_potion_pool.dat:5
 msgid "And it tastes like..."
-msgstr ""
+msgstr "它尝起来···"
 
 #: data/scripts/slime_potion_pool.dat:8
 msgid "It is! It's naturally occurring Slime potion!"
@@ -902,7 +902,7 @@ msgstr ""
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "Gotcha!"
-msgstr ""
+msgstr "搞定！"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "Not so clever now are you?"
@@ -910,7 +910,7 @@ msgstr ""
 
 #: data/scripts/cave_boss_die.dat:79
 msgid "I REALLY have to get out of here!"
-msgstr ""
+msgstr "我必须要离开这里！"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
@@ -931,7 +931,7 @@ msgstr ""
 #: data/scripts/sorceror_intro_3.dat:10
 msgid ""
 "I don't know what you did last time, but trust me, you won't escape again!"
-msgstr ""
+msgstr "我不知道你上次做了什么，但是相信我，你不会再次逃脱的！"
 
 #: data/scripts/sorceror_intro_3.dat:20
 msgid "(Phew)"
@@ -943,7 +943,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "你的符咒不会对我起作用了"
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
@@ -951,11 +951,11 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
-msgstr ""
+msgstr "我会从你手里得到它的"
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
-msgstr ""
+msgstr "你不会得到机会的"
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore, I summon you! Destroy this pest!"
@@ -963,11 +963,11 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "再见，Edgar"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
-msgstr ""
+msgstr "来了···"
 
 #: data/scripts/spirit.dat:1
 msgid ""
@@ -1013,7 +1013,7 @@ msgstr "呃， 发生了什么事？"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "我在哪里？"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
@@ -1025,19 +1025,19 @@ msgstr "挡住植物射出的弹丸， 然后跳到下一个平台上"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
-msgstr ""
+msgstr "我不相信他走了"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "我费尽千辛万苦去找他"
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
-msgstr ""
+msgstr "然而我失败了"
 
 #: data/scripts/ending_part1.dat:15
 msgid "What am I going to do now?"
-msgstr ""
+msgstr "我现在要做什么？"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
@@ -1049,19 +1049,19 @@ msgstr ""
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "!"
-msgstr ""
+msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
-msgstr ""
+msgstr "那个声音···"
 
 #: data/scripts/ending_part1.dat:22
 msgid "It can't be..."
-msgstr ""
+msgstr "它不能够···"
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr ""
+msgstr "老爸！"
 
 #: data/scripts/jacob.dat:14
 msgid "Edgar!"
@@ -1069,15 +1069,15 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Jacob,我找到他了！"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "儿子，你在这里干什么？太危险了，我们必须离开这"
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "我来营救你！"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
@@ -1085,19 +1085,19 @@ msgstr ""
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "我会再试一遍"
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
-msgstr ""
+msgstr "放弃？"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "下次我会解决的"
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "我会继续尝试的"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
