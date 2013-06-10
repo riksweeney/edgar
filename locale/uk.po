@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-03-26 11:13+0000\n"
+"PO-Revision-Date: 2013-06-07 13:01+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-28 07:32+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-06-10 21:48+0000\n"
+"X-Generator: Launchpad (build 16667)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -2891,7 +2891,7 @@ msgstr "Сподіваюсь, це допоможе мені пройти крі
 
 #: data/scripts/soul_merger.dat:57
 msgid "Confront the Sorceror"
-msgstr "Протистояти Чаклуну"
+msgstr "Віднайти Чаклуна"
 
 #: data/scripts/armour_boss_start.dat:13
 msgid "I should be safe up here, but I need to get rid of it"
@@ -4404,7 +4404,7 @@ msgstr "Карта чиста, потрібно запрограмувати ї�
 msgid ""
 "The sorceror will almost certainly destroy me if I confront him without the "
 "shield"
-msgstr "Чаклун, напевно, знищить мене, якщо я буду протистояти йому без щита"
+msgstr "Чаклун, напевно, знищить мене, якщо я з’явлюсь перед ним без щита"
 
 #: data/scripts/sorceror_study.dat:2
 msgid "I'd better go and make it first"
