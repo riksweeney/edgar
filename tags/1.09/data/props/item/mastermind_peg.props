@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/mastermind_peg.dat
+ANIM_FILE data/anim/item/mastermind_peg.dat
+TYPE KEY_ITEM
+FLAGS FLY|DO_NOT_PERSIST

@@ -1,0 +1,7 @@
+HEALTH 2750
+DAMAGE 1
+GFX_FILE data/gfx/boss/chaos.dat
+ANIM_FILE data/anim/boss/chaos.dat
+TYPE ENEMY
+LAYER FOREGROUND_LAYER
+OBJECTIVE_NAME CHAOS

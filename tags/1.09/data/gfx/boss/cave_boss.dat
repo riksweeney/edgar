@@ -1,0 +1,85 @@
+gfx/boss/cave_boss/cave_boss_stand00.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_stand01.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk00.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk01.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk02.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk03.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk04.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk05.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk06.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk07.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_up00.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up01.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up02.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up03.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up04.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up05.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up06.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up07.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_stand_flame00.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_stand_flame01.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame00.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame01.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame02.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame03.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame04.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame05.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame06.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_flame07.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_up_flame00.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame01.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame02.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame03.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame04.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame05.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame06.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_flame07.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_attack.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_attack_flame.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_attack_down_flame.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_up_flame.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_stun.png
+gfx/boss/cave_boss/cave_boss_stand_ice00.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_stand_ice01.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice00.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice01.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice02.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice03.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice04.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice05.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice06.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_ice07.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_walk_up_ice00.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice01.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice02.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice03.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice04.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice05.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice06.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_walk_up_ice07.png 0 22 118 69
+gfx/boss/cave_boss/cave_boss_attack_ice.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_attack_down_ice.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_up_ice.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_stun_wake.png
+gfx/boss/cave_boss/cave_boss_ground_stand00.png
+gfx/boss/cave_boss/cave_boss_ground_stand01.png
+gfx/boss/cave_boss/cave_boss_ground_walk00.png
+gfx/boss/cave_boss/cave_boss_ground_walk01.png
+gfx/boss/cave_boss/cave_boss_ground_walk02.png
+gfx/boss/cave_boss/cave_boss_ground_walk03.png
+gfx/boss/cave_boss/cave_boss_ground_walk04.png
+gfx/boss/cave_boss/cave_boss_ground_walk05.png
+gfx/boss/cave_boss/cave_boss_ground_walk06.png
+gfx/boss/cave_boss/cave_boss_ground_walk07.png
+gfx/boss/cave_boss/cave_boss_ground_walk08.png
+gfx/boss/cave_boss/cave_boss_ground_attack.png
+gfx/boss/cave_boss/cave_boss_face_down.png
+gfx/boss/cave_boss/cave_boss_attack_down_walk00.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk01.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk02.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk03.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk04.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk05.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk06.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down_walk07.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_down.png 0 23 106 67

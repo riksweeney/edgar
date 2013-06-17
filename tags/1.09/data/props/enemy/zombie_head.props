@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/enemy/zombie_head.dat
+ANIM_FILE data/anim/enemy/zombie_head.dat
+TYPE ENEMY

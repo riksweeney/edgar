@@ -1,0 +1,8 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/awesome_boss_4.dat
+ANIM_FILE data/anim/boss/awesome_boss.dat
+SPEED 2
+HEALTH 500
+DAMAGE 1
+OBJECTIVE_NAME AWESOME_4
+REQUIRES AWESOME_3

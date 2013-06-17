@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/drawbridge_pulley.dat
+ANIM_FILE data/anim/item/drawbridge_pulley.dat
+TYPE KEY_ITEM
+OBJECTIVE_NAME DRAWBRIDGE_PULLEY
+HEALTH 8
