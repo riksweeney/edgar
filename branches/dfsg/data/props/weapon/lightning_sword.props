@@ -1,0 +1,8 @@
+DAMAGE 30
+GFX_FILE data/gfx/weapon/lightning_sword.dat
+ANIM_FILE data/anim/weapon/lightning_sword.dat
+TYPE WEAPON
+OBJECTIVE_NAME Lightning Sword
+DESCRIPTION A Sword imbued with the power of lightning
+MENTAL 10
+ELEMENT LIGHTNING

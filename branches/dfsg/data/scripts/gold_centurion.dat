@@ -1,0 +1,16 @@
+IF GOLD_CENTURION_POINT HEALTH 1
+TALK Edgar I'll find something else to work the treadmill for me
+END
+IF GOLD_CENTURION_POINT HEALTH 0
+SET GOLD_CENTURION_POINT HEALTH 1
+SET Edgar FACE RIGHT
+TALK Edgar This centurion has no power
+SET Edgar FACE LEFT
+TALK Edgar It's connected to this treadmill so I could probably charge it up with enough speed
+TALK Edgar I can't run in this armour, though
+TALK Edgar Plus, I'm tired from all this walking, jumping, fighting, swimming...
+TALK Edgar thinking, mining, chopping, pushing, pulling, carrying...
+TALK Edgar and catching chickens
+TALK Edgar I'll get something else to do it instead
+ACTIVATE_REQUIRED GOLD_CENTURION_SPAWNER
+END

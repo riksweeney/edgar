@@ -1,0 +1,29 @@
+IF PUZZLE_POINT HEALTH 0
+SET EDGAR FACE LEFT
+TALK Edgar A jigsaw puzzle?!
+TALK Edgar I'm not really a fan of these
+HAS_ITEM "Lightning Sword" 1 1 PUZZLE_POINT 9 0
+IF PUZZLE_POINT HEALTH 9
+TALK Edgar I prefer the sliding puzzles, like the one I had to solve to get the Lightning Sword
+END
+TALK Edgar Still, it looks like this is the only way out
+END
+HAS_ITEM "Puzzle Piece" 1 1 PUZZLE_POINT 2 3
+IF PUZZLE_POINT HEALTH 2
+HAS_ITEM "Puzzle Piece" 9 9 PUZZLE_POINT 4 2
+END
+IF PUZZLE_POINT HEALTH 2
+TALK Edgar Looks like I need 9 pieces to slot into the frame
+END
+IF PUZZLE_POINT HEALTH 3
+TALK Edgar The frame is empty
+TALK Edgar Hopefully the pieces I need are around somewhere, otherwise I'm going to die down here
+END
+IF PUZZLE_POINT HEALTH 4
+TALK Edgar I've got all the pieces, I just need to place them in the frame and solve the puzzle
+TALK Narrator Push left, right, up or down to move the cursor
+TALK Narrator Press Attack to select the current piece and move it around
+TALK Narrator Press Attack again to stop moving the current piece
+TALK Narrator Press Action to quit the puzzle
+END
+SET PUZZLE_POINT HEALTH 1

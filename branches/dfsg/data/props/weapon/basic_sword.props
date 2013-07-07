@@ -1,0 +1,6 @@
+DAMAGE 10
+GFX_FILE data/gfx/weapon/basic_sword.dat
+ANIM_FILE data/anim/weapon/basic_sword.dat
+TYPE WEAPON
+OBJECTIVE_NAME Basic Sword
+DESCRIPTION A Sword given to you by Jacob

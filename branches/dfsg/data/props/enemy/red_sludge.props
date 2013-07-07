@@ -1,0 +1,6 @@
+HEALTH 140
+DAMAGE 1
+GFX_FILE data/gfx/enemy/red_sludge.dat
+ANIM_FILE data/anim/enemy/red_sludge.dat
+TYPE ENEMY
+SPEED 1.5

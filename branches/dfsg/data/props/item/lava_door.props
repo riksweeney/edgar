@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/item/lava_door.dat
+ANIM_FILE data/anim/item/lava_door.dat
+TYPE KEY_ITEM
