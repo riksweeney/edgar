@@ -227,7 +227,7 @@ static void die()
 
 	e->thinkTime = 90;
 
-	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/gazer/gazer_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }
@@ -341,7 +341,7 @@ static void teleportAway()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &lookForPlayer;
 
@@ -370,7 +370,7 @@ static void castFireInit()
 {
 	self->endX = 5;
 
-	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 
 	self->action = &castFire;
 }
@@ -543,7 +543,7 @@ static void lightningBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->targetX, self->startY, 0);
 
 		for (i=self->startY;i<self->endY;i+=32)
 		{
@@ -663,7 +663,7 @@ static void iceWallMove()
 		{
 			self->y = self->targetY;
 
-			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(MEDIUM, 15);
 
@@ -698,7 +698,7 @@ static void iceWallMove()
 
 		else if (self->thinkTime < 0 && self->dirX == 0)
 		{
-			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 			for (i=0;i<8;i++)
 			{

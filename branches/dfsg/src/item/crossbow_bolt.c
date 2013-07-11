@@ -99,7 +99,7 @@ static void entityWait()
 
 	if (self->dirX == 0 && dirX != 0)
 	{
-		playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 		self->mental = 1;
 

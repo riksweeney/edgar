@@ -430,7 +430,7 @@ static void webTouch(Entity *other)
 
 			if (playerShield.thinkTime <= 0)
 			{
-				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+				playSoundToMap("sound/edgar/block", EDGAR_CHANNEL, player.x, player.y, 0);
 
 				playerShield.thinkTime = 5;
 			}
@@ -543,7 +543,7 @@ static void pounceReactToBlock(Entity *other)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/grub/grub_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }

@@ -123,7 +123,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->type == PROJECTILE && other->reactToBlock != NULL)
 		{
@@ -185,7 +185,7 @@ static void die()
 		fireGlobalTrigger(self->objectiveName);
 	}
 
-	playSoundToMap("sound/common/crumble.ogg", 4, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", 4, self->x, self->y, 0);
 }
 
 static void fallout()

@@ -100,7 +100,7 @@ static void doMenu()
 			menu.index = 2;
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (left == TRUE)
@@ -112,14 +112,14 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 
 		if (w->clickAction != NULL)
 		{

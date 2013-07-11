@@ -249,7 +249,7 @@ static void reform()
 				self->head->currentFrame++;
 			}
 
-			playSoundToMap("sound/boss/blob_boss/plop.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/blob_boss/plop", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		if (self->flags & ON_GROUND)
@@ -442,7 +442,7 @@ static void punch2()
 		{
 			if (self->thinkTime == 0)
 			{
-				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 				shakeScreen(MEDIUM, 15);
 			}
@@ -572,7 +572,7 @@ static void spinAttack()
 
 		self->thinkTime = 0;
 
-		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 		facePlayer();
 	}
@@ -814,7 +814,7 @@ static void bounceAround()
 	{
 		if (onGround == 0)
 		{
-			playSoundToMap("sound/boss/blob_boss/bounce.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/blob_boss/bounce", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		self->maxThinkTime--;
@@ -959,7 +959,7 @@ static void punch()
 		{
 			if (self->thinkTime == 0)
 			{
-				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 				shakeScreen(MEDIUM, 15);
 			}

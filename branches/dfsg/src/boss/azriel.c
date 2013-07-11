@@ -393,7 +393,7 @@ static void lightningCageInit()
 	self->x = t->x;
 	self->y = t->y;
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->flags |= NO_DRAW;
 
@@ -423,7 +423,7 @@ static void lightningCageCreate()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->flags &= ~NO_DRAW;
 
@@ -607,7 +607,7 @@ static void lightningCageFinish()
 		self->x = t->x;
 		self->y = t->y;
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->flags |= NO_DRAW;
 
@@ -631,7 +631,7 @@ static void lightningCageTeleportAway()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->target->layer = MID_GROUND_LAYER;
 
@@ -711,7 +711,7 @@ static void lightningCageWait()
 
 			if (self->face == LEFT)
 			{
-				self->targetX = playSoundToMap("sound/boss/azriel/azriel_lightning_cage.ogg", -1, self->x, self->y, -1);
+				self->targetX = playSoundToMap("sound/boss/azriel/azriel_lightning_cage", -1, self->x, self->y, -1);
 			}
 		}
 	}
@@ -771,7 +771,7 @@ static void soulStealInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->thinkTime = 30;
 
@@ -817,7 +817,7 @@ static void soulStealMoveToPlayer()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->action = &soulSteal;
 
@@ -935,7 +935,7 @@ static void soulSteal()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		t = getTargetByName("AZRIEL_TOP_TARGET");
 
@@ -1002,7 +1002,7 @@ static void soulStealFinish()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->action = &attackFinished;
 	}
@@ -1076,7 +1076,7 @@ static void spikeAttackMoveToTopTarget()
 
 			e->mental = prand() % 3 == 0 ? 1 : 0;
 
-			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_summon.ogg", -1, e->x, e->y, -1);
+			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_summon", -1, e->x, e->y, -1);
 
 			self->action = &spikeAttackWait;
 
@@ -1294,7 +1294,7 @@ static void spikeRise()
 
 		else
 		{
-			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(MEDIUM, 15);
 
@@ -1511,7 +1511,7 @@ static void scytheThrow()
 
 		if (e->endX == -1)
 		{
-			e->endX = playSoundToMap("sound/boss/azriel/azriel_scythe_throw.ogg", -1, self->x, self->y, -1);
+			e->endX = playSoundToMap("sound/boss/azriel/azriel_scythe_throw", -1, self->x, self->y, -1);
 		}
 
 		self->action = &scytheThrowWait;
@@ -1554,7 +1554,7 @@ static void scytheThrowTeleportAway()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		t = getTargetByName("AZRIEL_TOP_TARGET");
 
@@ -1766,7 +1766,7 @@ static void phantasmalBolt()
 
 		setEntityAnimation(e, "FIRE");
 
-		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot", -1, self->x, self->y, 0);
 
 		if (self->face == LEFT)
 		{
@@ -2255,7 +2255,7 @@ static void dieShudder()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		t = getTargetByName("AZRIEL_TOP_TARGET");
 
@@ -2297,7 +2297,7 @@ static void dieMoveToTop()
 
 				addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-				playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 				self->thinkTime = 90;
 
@@ -2336,7 +2336,7 @@ static void dieMoveToTop()
 
 				self->action = &dieWait;
 
-				playSoundToMap("sound/boss/azriel/azriel_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/boss/azriel/azriel_die", BOSS_CHANNEL, self->x, self->y, 0);
 			break;
 		}
 	}

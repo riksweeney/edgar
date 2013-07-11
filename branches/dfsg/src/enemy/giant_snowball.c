@@ -99,7 +99,7 @@ static void fall()
 
 		self->action = &roll;
 
-		self->targetX = playSoundToMap("sound/boss/boulder_boss/roll.ogg", -1, self->x, self->y, -1);
+		self->targetX = playSoundToMap("sound/boss/boulder_boss/roll", -1, self->x, self->y, -1);
 	}
 
 	moveTarget();
@@ -197,7 +197,7 @@ static void die()
 
 	stopSound(self->targetX);
 
-	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble.ogg", -1, self->x, self->y, 0);
+	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble", -1, self->x, self->y, 0);
 
 	for (i=0;i<32;i++)
 	{

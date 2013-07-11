@@ -346,7 +346,7 @@ static void die()
 {
 	Entity *e;
 	
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	e = self;
 
@@ -428,7 +428,7 @@ static void lookForPlayer()
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, (self->endY - self->y), player.x, player.y, player.w, player.h) == 1)
 		{
-			playSoundToMap("sound/enemy/mouth_stalk/hiss.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/mouth_stalk/hiss", -1, self->x, self->y, 0);
 
 			self->action = &biteInit;
 

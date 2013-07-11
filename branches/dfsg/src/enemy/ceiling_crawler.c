@@ -109,7 +109,7 @@ static void moveOnFloor()
 
 static void die()
 {
-	playSoundToMap("sound/enemy/ceiling_crawler/ceiling_crawler_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/ceiling_crawler/ceiling_crawler_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }
@@ -378,7 +378,7 @@ static void riseUp()
 
 		e->reactToBlock = &bounceOffShield;
 
-		playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
 	}

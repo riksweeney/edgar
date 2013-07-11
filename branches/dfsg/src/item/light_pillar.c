@@ -136,7 +136,7 @@ static void addLight(int val)
 	{
 		self->thinkTime = self->maxThinkTime;
 
-		self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+		self->endX = playSoundToMap("sound/common/tick", -1, self->x, self->y, -1);
 
 		self->active = TRUE;
 

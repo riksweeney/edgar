@@ -113,7 +113,7 @@ static void lookForFood()
 	{
 		self->target = &player;
 
-		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 
 		self->action = &hunt;
 	}
@@ -127,7 +127,7 @@ static void lookForFood()
 			{
 				self->target = el->entity;
 
-				playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+				playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 
 				self->action = &hunt;
 
@@ -252,7 +252,7 @@ static void attack()
 	{
 		self->y = self->startY;
 
-		playSoundToMap("sound/boss/ant_lion/eat.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/ant_lion/eat", BOSS_CHANNEL, self->x, self->y, 0);
 
 		temp = self;
 
@@ -342,7 +342,7 @@ static void creditsAction()
 
 		self->endX = getMapStartX() + SCREEN_WIDTH;
 
-		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 
 		self->creditsAction = &hunt;
 	}

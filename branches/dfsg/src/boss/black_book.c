@@ -151,7 +151,7 @@ static void doIntro()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = 120;
 
@@ -181,7 +181,7 @@ static void summonLeave()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &summonLeaveRemove;
 	}

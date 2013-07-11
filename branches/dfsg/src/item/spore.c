@@ -73,7 +73,7 @@ static void throwSpore(int val)
 
 		e->touch = &entityTouch;
 
-		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		self->thinkTime = self->maxThinkTime;
 

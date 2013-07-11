@@ -72,7 +72,7 @@ Entity *addRedGrub(int x, int y, char *name)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/grub/grub_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }
@@ -123,7 +123,7 @@ static void spinAttackStart()
 
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/enemy/red_grub/spin.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/spin", -1, self->x, self->y, 0);
 
 		self->speed = self->originalSpeed * 4;
 
@@ -163,7 +163,7 @@ static void spinAttack()
 
 		self->thinkTime = 0;
 
-		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}

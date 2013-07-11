@@ -240,7 +240,7 @@ static void drawRain()
 
 	if (game.weatherThinkTime <= 0)
 	{
-		i = playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, player.x, player.y, 0);
+		i = playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, player.x, player.y, 0);
 
 		fadeFromColour(255, 255, 255, 30);
 

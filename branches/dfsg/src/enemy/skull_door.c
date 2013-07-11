@@ -110,7 +110,7 @@ static void skullAttack()
 
 		e = addProjectile("enemy/skull_shot", self, self->x, self->y, self->face == LEFT ? -6 : 6, 0);
 
-		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot", -1, self->x, self->y, 0);
 
 		if (self->face == LEFT)
 		{
@@ -246,7 +246,7 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
@@ -276,7 +276,7 @@ static void die()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 

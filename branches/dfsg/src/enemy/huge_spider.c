@@ -194,7 +194,7 @@ static void attack()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		for (i=0;i<20;i++)
 		{
@@ -230,7 +230,7 @@ static void takeDamage(Entity *other, int damage)
 
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 	if (other->reactToBlock != NULL)
 	{

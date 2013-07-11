@@ -90,7 +90,7 @@ static void roll()
 
 		if (self->health != 1)
 		{
-			self->targetX = playSoundToMap("sound/boss/boulder_boss/roll.ogg", -1, self->x, self->y, -1);
+			self->targetX = playSoundToMap("sound/boss/boulder_boss/roll", -1, self->x, self->y, -1);
 
 			self->health = 1;
 		}
@@ -104,7 +104,7 @@ static void roll()
 	{
 		if (onGround == 0)
 		{
-			playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 		}
 
 		self->mental = 1;
@@ -138,7 +138,7 @@ static void die()
 		stopSound(self->targetX);
 	}
 	
-	playSoundToMap("sound/common/rock_shatter.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/rock_shatter", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }

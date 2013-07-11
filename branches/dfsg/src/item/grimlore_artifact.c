@@ -274,7 +274,7 @@ static void throwBindArtifact(int val)
 
 		e->fallout = &entityDieNoDrop;
 
-		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", -1, player.x, player.y, 0);
 
 		self->inUse = FALSE;
 	}

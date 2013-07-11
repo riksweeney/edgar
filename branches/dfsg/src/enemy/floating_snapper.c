@@ -111,7 +111,7 @@ static void entityWait()
 
 			self->action = &snapShut;
 
-			playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/floating_snapper/chomp", -1, self->x, self->y, 0);
 		}
 	}
 
@@ -200,7 +200,7 @@ static void snapShutFinish()
 		
 		if (self->thinkTime == 0)
 		{
-			playSoundToMap("sound/enemy/floating_snapper/burp.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/floating_snapper/burp", -1, self->x, self->y, 0);
 		}
 	}
 }

@@ -125,7 +125,7 @@ static void firstEncounter()
 			showErrorAndExit("Flying Maggot cannot find target");
 		}
 
-		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/buzz", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->targetX = t->x;
 		self->targetY = t->y;

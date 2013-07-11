@@ -72,7 +72,7 @@ static void die()
 	int i;
 	Entity *e;
 
-	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble.ogg", -1, self->x, self->y, 0);
+	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble", -1, self->x, self->y, 0);
 
 	for (i=0;i<32;i++)
 	{

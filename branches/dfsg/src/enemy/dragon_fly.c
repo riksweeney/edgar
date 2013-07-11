@@ -197,7 +197,7 @@ static void walkAround()
 
 		self->mental = 3;
 
-		playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/bug/buzz", -1, self->x, self->y, 0);
 	}
 
 	else
@@ -393,7 +393,7 @@ static void podExplode()
 
 		e->reactToBlock = &bounceOffShield;
 
-		playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
 	}
@@ -520,14 +520,14 @@ static void creditsMove()
 
 			self->mental = 3;
 
-			playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/bug/buzz", -1, self->x, self->y, 0);
 		}
 	}
 }
 
 static void die()
 {
-	playSoundToMap("sound/enemy/wasp/wasp_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/wasp/wasp_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }

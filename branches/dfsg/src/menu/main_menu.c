@@ -143,7 +143,7 @@ static void doMenu()
 
 		while (menu.widgets[menu.index]->disabled == TRUE || menu.widgets[menu.index]->hidden == TRUE);
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (up == TRUE)
@@ -160,7 +160,7 @@ static void doMenu()
 
 		while (menu.widgets[menu.index]->disabled == TRUE || menu.widgets[menu.index]->hidden == TRUE);
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (attack == TRUE)
@@ -169,7 +169,7 @@ static void doMenu()
 
 		if (w->clickAction != NULL)
 		{
-			playSound("sound/common/click.ogg");
+			playSound("sound/common/click");
 
 			w->clickAction();
 		}
@@ -181,7 +181,7 @@ static void doMenu()
 
 		if (w->rightAction != NULL)
 		{
-			playSound("sound/common/click.ogg");
+			playSound("sound/common/click");
 
 			w->rightAction();
 		}
@@ -193,7 +193,7 @@ static void doMenu()
 
 		if (w->leftAction != NULL)
 		{
-			playSound("sound/common/click.ogg");
+			playSound("sound/common/click");
 
 			w->leftAction();
 		}

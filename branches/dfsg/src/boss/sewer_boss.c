@@ -479,7 +479,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 
-	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 	if (other->reactToBlock != NULL)
 	{
@@ -1605,7 +1605,7 @@ static void clawDie()
 
 static void slimeDie()
 {
-	playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/splat3", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }
@@ -2125,7 +2125,7 @@ static void maggotTouch(Entity *other)
 {
 	if (strcmpignorecase(other->objectiveName, "FLYING_MAGGOT_3") == 0)
 	{
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start", BOSS_CHANNEL, self->x, self->y, 0);
 
 		other->action = &struggle;
 

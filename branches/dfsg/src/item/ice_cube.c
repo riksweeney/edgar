@@ -97,7 +97,7 @@ static void fallout()
 	{
 		self->x += self->w / 2;
 
-		playSoundToMap("sound/common/freeze.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/freeze", -1, self->x, self->y, 0);
 
 		loadProperties("item/ice_platform", self);
 

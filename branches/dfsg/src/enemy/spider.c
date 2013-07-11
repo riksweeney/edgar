@@ -241,7 +241,7 @@ static void move()
 
 		if (self->thinkTime == 0)
 		{
-			playSoundToMap("sound/enemy/spider/spider.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/spider/spider", -1, self->x, self->y, 0);
 		}
 	}
 

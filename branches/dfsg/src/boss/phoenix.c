@@ -474,7 +474,7 @@ static void fireballAttack()
 
 		e->flags |= FLY;
 
-		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 
 		self->thinkTime = 45;
 
@@ -526,7 +526,7 @@ static void flameAttackInit()
 
 			addFlame();
 
-			playSoundToMap("sound/enemy/fire_burner/flame.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/fire_burner/flame", BOSS_CHANNEL, self->x, self->y, 0);
 
 			self->thinkTime = 30;
 
@@ -694,7 +694,7 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{
@@ -879,7 +879,7 @@ static void stunned()
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
 
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		else

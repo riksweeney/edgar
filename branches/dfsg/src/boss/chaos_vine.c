@@ -82,7 +82,7 @@ static void entityWait()
 
 		if (player.health > 0 && collision(player.x, player.y, player.w, player.h, self->x, self->y, self->w, SCREEN_HEIGHT) == 1)
 		{
-			playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/armour_boss/tongue_start", -1, self->x, self->y, 0);
 
 			self->targetY = player.y + player.h - self->h;
 
@@ -299,7 +299,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{

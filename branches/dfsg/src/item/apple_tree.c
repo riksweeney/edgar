@@ -149,7 +149,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "weapon/wood_axe") == 0)
 		{
-			playSoundToMap("sound/item/chop.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/chop", -1, self->x, self->y, 0);
 
 			self->health -= damage;
 
@@ -176,7 +176,7 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{

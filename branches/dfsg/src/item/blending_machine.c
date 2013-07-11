@@ -101,7 +101,7 @@ static void entityWait()
 	{
 		self->thinkTime = 600;
 
-		self->mental = playSoundToMap("sound/item/blender.ogg", -1, self->x, self->y, -1);
+		self->mental = playSoundToMap("sound/item/blender", -1, self->x, self->y, -1);
 
 		self->action = &blend;
 
@@ -150,7 +150,7 @@ static void blendFinish()
 
 		stopSound(self->mental);
 
-		playSoundToMap("sound/item/ping.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/ping", -1, self->x, self->y, 0);
 
 		e = addPermanentItem(self->requires, self->x + self->w / 2, self->y + self->h / 2);
 
@@ -240,7 +240,7 @@ static void switchWait()
 
 				setFrameData(self);
 
-				playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 			break;
 
 			case 150:
@@ -249,7 +249,7 @@ static void switchWait()
 
 				setFrameData(self);
 
-				playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 			break;
 		}
 	}

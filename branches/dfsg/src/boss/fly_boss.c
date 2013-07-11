@@ -164,7 +164,7 @@ static void doIntro()
 
 		setEntityAnimation(self, "STAND");
 
-		playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/gib", -1, self->x, self->y, 0);
 
 		for (i=0;i<11;i++)
 		{
@@ -183,7 +183,7 @@ static void doIntro()
 
 		self->draw = &drawLoopingAnimationToMap;
 
-		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/buzz", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->takeDamage = &takeDamage;
 
@@ -276,7 +276,7 @@ static void entityWait()
 
 		self->damage = 1;
 
-		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/buzz", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -437,7 +437,7 @@ static void drop()
 
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(LIGHT, 15);
 
@@ -507,7 +507,7 @@ static void fireBullets()
 	{
 		self->maxThinkTime--;
 
-		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_shot", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
@@ -569,7 +569,7 @@ static void fireSlime()
 	{
 		self->maxThinkTime--;
 
-		playSoundToMap("sound/boss/grub_boss/fire.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/grub_boss/fire", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 

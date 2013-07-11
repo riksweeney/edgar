@@ -29,9 +29,9 @@ static void playGameOverMusic(void);
 
 static Mix_Music *music;
 static char musicName[MAX_VALUE_LENGTH];
-static char *getSongName(char *);
+static char *getSongName(char *, int);
 
-static char *musicTracks[] = {
+static char *oldMusicTracks[] = {
 			"TITLE_MUSIC", "music/march13.it",
 			"MAP01_MUSIC", "music/jk_village.xm",
 			"MAP02_MUSIC", "music/cavesii.xm",
@@ -68,7 +68,44 @@ static char *musicTracks[] = {
 			"SORCEROR_MUSIC", "music/dgt_enemy.it",
 			"REUNION_MUSIC", "music/GSLINGER.MOD"
 };
-static int musicTracksLength = sizeof(musicTracks) / sizeof(char *);
+
+static char *newMusicTracks[] = {
+			"TITLE_MUSIC", "music/Menu_loop.mp3",
+			"MAP01_MUSIC", "music/Lazy Day v0_9.mp3",
+			"MAP02_MUSIC", "music/Ruinous Laments(5.6).mp3",
+			"MAP03_MUSIC", "music/Devilish design.mp3",
+			"MAP04_MUSIC", "music/Avgvst - Mushrooms_1.ogg",
+			"MAP05_MUSIC", "music/MysticalCaverns.ogg",
+			"MAP06_MUSIC", "music/Red Curtain.mp3",
+			"MAP07_MUSIC", "music/ratsrats_0.ogg",
+			"MAP08_MUSIC", "music/beauty_of_chaos.ogg",
+			"MAP09_MUSIC", "music/Battle in the winter.mp3",
+			"MAP10_MUSIC", "music/Devilish design.mp3",
+			"MAP11_MUSIC", "music/Decision.mp3",
+			"MAP12_MUSIC", "music/Ruinous Laments(5.6).mp3",
+			"MAP13_MUSIC", "music/Heroic Minority.mp3",
+			"MAP14_MUSIC", "NO_MUSIC",
+			"MAP15_MUSIC", "music/Mystical Theme.mp3",
+			"MAP16_MUSIC", "music/Battle.mp3",
+			"MAP17_MUSIC", "music/Szymon Matuszewski - Hope.mp3",
+			"MAP18_MUSIC", "music/A wintertale_0.mp3",
+			"MAP19_MUSIC", "music/MysticalCaverns.ogg",
+			"MAP20_MUSIC", "music/Steeps of Destiny.mp3",
+			"MAP21_MUSIC", "music/Medicine.mp3",
+			"MAP22_MUSIC", "music/Decision.mp3",
+			"MAP23_MUSIC", "music/Heroic Minority.mp3",
+			"MAP24_MUSIC", "music/Battle.mp3",
+			"MAP25_MUSIC", "music/Medicine.mp3",
+			"MAP26_MUSIC", "music/Undead Rising.mp3",
+			"TUTORIAL_MUSIC", "music/Lazy Day v0_9.mp3",
+			"CREDITS_MUSIC", "music/Heroes Theme_0.mp3",
+			"GAMEOVER_MUSIC", "music/Without.mp3",
+			"BOSS_MUSIC", "music/So, let see, what you can_0.mp3",
+			"EVIL_EDGAR_MUSIC", "music/So, let see, what you can_0.mp3",
+			"SORCEROR_MUSIC", "music/Zander Noriega - Fight Them Until We Cant.mp3",
+			"REUNION_MUSIC", "music/Lazy Day v0_9.mp3"
+};
+static int musicTracksLength = sizeof(newMusicTracks) / sizeof(char *);
 
 void loadMusic(char *musicToLoad)
 {
@@ -86,7 +123,7 @@ void loadMusic(char *musicToLoad)
 
 	freeMusic();
 	
-	name = getSongName(musicToLoad);
+	name = getSongName(musicToLoad, 0);
 
 	if (name == NULL || strcmpignorecase(name, "NO_MUSIC") == 0)
 	{
@@ -94,11 +131,20 @@ void loadMusic(char *musicToLoad)
 	}
 
 	music = loadMusicFromPak(name);
-
-	if (music == NULL)
+	
+	if (music != NULL)
 	{
-		printf("Could not load music file %s: %s\n", name, Mix_GetError());
+		return;
 	}
+	
+	name = getSongName(musicToLoad, 1);
+
+	if (name == NULL || strcmpignorecase(name, "NO_MUSIC") == 0)
+	{
+		return;
+	}
+
+	music = loadMusicFromPak(name);
 }
 
 void freeMusic()
@@ -247,15 +293,29 @@ static void playGameOverMusic()
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
-static char *getSongName(char *name)
+static char *getSongName(char *name, int oldSong)
 {
 	int i;
 	
-	for (i=0;i<musicTracksLength;i+=2)
+	if (oldSong == 1)
 	{
-		if (strcmpignorecase(name, musicTracks[i]) == 0)
+		for (i=0;i<musicTracksLength;i+=2)
 		{
-			return musicTracks[i + 1];
+			if (strcmpignorecase(name, oldMusicTracks[i]) == 0)
+			{
+				return oldMusicTracks[i + 1];
+			}
+		}
+	}
+	
+	else
+	{
+		for (i=0;i<musicTracksLength;i+=2)
+		{
+			if (strcmpignorecase(name, newMusicTracks[i]) == 0)
+			{
+				return newMusicTracks[i + 1];
+			}
 		}
 	}
 	

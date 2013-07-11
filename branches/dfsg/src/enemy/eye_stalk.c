@@ -306,7 +306,7 @@ static void die()
 {
 	Entity *e;
 	
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	e = self;
 

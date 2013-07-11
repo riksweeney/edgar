@@ -70,7 +70,7 @@ static void activate(int val)
 
 	if (game.status == IN_GAME)
 	{
-		playSoundToMap("sound/item/tuning_fork.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/item/tuning_fork", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		for (el=entities->next;el!=NULL;el=el->next)
 		{

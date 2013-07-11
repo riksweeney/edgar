@@ -234,7 +234,7 @@ static void redDie()
 
 			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 			self->touch = &entityTouch;
 
@@ -312,7 +312,7 @@ static void castFireInit()
 
 		self->action = self->maxThinkTime == 3 ? &throwFire : &castFire;
 
-		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 	}
 
 	hover();
@@ -598,7 +598,7 @@ static void blueDie()
 
 			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 			self->touch = &entityTouch;
 
@@ -709,7 +709,7 @@ static void castIce()
 
 			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			e->action = &iceDrop;
 			e->draw = &drawLoopingAnimationToMap;
@@ -832,7 +832,7 @@ static void iceWallMove()
 		{
 			self->y = self->targetY;
 
-			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(MEDIUM, 15);
 
@@ -865,7 +865,7 @@ static void iceWallMove()
 
 		else if (self->thinkTime < 0 && self->dirX == 0)
 		{
-			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 			for (i=0;i<8;i++)
 			{
@@ -933,7 +933,7 @@ static void iceDrop()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 		for (i=0;i<8;i++)
 		{
@@ -1030,7 +1030,7 @@ static void createIceBlock()
 
 			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			e->action = &iceBlockDrop;
 			e->draw = &drawLoopingAnimationToMap;
@@ -1215,7 +1215,7 @@ static void iceBlockDie()
 		e->touch = NULL;
 	}
 
-	playSoundToMap("sound/common/shatter.ogg", -1, player.x, player.y, 0);
+	playSoundToMap("sound/common/shatter", -1, player.x, player.y, 0);
 
 	self->inUse = FALSE;
 }
@@ -1292,7 +1292,7 @@ static void yellowDie()
 
 			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 			self->touch = &entityTouch;
 
@@ -1385,7 +1385,7 @@ static void createThunderCloud()
 
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	e->head = self;
 
@@ -1424,7 +1424,7 @@ static void createLightningWaveInit()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -1463,7 +1463,7 @@ static void createLightningWave()
 
 		valid = TRUE;
 
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->x, self->y, 0);
 
 		for (i=top;i<bottom;i+=32)
 		{
@@ -1599,7 +1599,7 @@ static void castLightningBolt()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -1652,7 +1652,7 @@ static void lightningBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->targetX, self->startY, 0);
 
 		for (i=self->startY;i<self->endY;i+=32)
 		{
@@ -1832,7 +1832,7 @@ static void teleportToOtherSide()
 
 	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 }
 
 static void greenWait()
@@ -1907,7 +1907,7 @@ static void greenDie()
 
 			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 			self->touch = &entityTouch;
 
@@ -2015,7 +2015,7 @@ static void summon()
 
 			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			e->face = RIGHT;
 
@@ -2102,7 +2102,7 @@ static void dropOnPlayer()
 
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 			if ((player.flags & ON_GROUND) && !(player.flags & INVULNERABLE))
 			{
@@ -2223,7 +2223,7 @@ static void summon2()
 
 			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			e->face = RIGHT;
 
@@ -2466,7 +2466,7 @@ static void creditsSummon()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		e->face = RIGHT;
 

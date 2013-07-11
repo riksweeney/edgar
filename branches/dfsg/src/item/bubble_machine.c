@@ -93,7 +93,7 @@ static void touch(Entity *other)
 	{
 		if (self->thinkTime < 5)
 		{
-			playSoundToMap("sound/item/inflate.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/inflate", -1, self->x, self->y, 0);
 
 			self->health++;
 		}

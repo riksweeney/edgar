@@ -109,7 +109,7 @@ static void explode()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/explosion", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 
