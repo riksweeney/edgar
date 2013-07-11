@@ -116,7 +116,7 @@ static void spit()
 
 	e->reactToBlock = &bounceOffShield;
 
-	playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 	setEntityAnimation(self, "ATTACK_2");
 

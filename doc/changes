@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 1.10
+* Replaced music and sound effects with properly licensed ones
+* Save files should no longer become corrupted if a crash occurs during saving
+
 Version 1.09
 * Updated French, Italian, Japanese, Simplified Chinese, Russian and Ukrainian translations
 

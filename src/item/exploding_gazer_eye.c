@@ -104,7 +104,7 @@ static void explode()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/gazer/flash", -1, self->x, self->y, 0);
 
 		fadeFromColour(255, 255, 255, 60);
 

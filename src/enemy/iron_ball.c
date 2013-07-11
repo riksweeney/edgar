@@ -68,7 +68,7 @@ static void entityWait()
 	{
 		if (landedOnGround(onGround) == TRUE)
 		{
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 			
 			self->dirX = self->endX == LEFT ? -self->speed : self->speed;
 		}

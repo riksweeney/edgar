@@ -113,7 +113,7 @@ static void castLightning()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->x, self->y, 0);
 
 		for (i=self->endY-32;i>=self->startY;i-=32)
 		{

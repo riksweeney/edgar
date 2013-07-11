@@ -86,7 +86,7 @@ static void move()
 
 	if (self->health <= 0)
 	{
-		playSoundToMap("sound/enemy/ghost/ghost.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/ghost/ghost", -1, self->x, self->y, 0);
 
 		self->health = (6 + prand() % 10) * 60;
 	}
@@ -234,7 +234,7 @@ static void creditsMove()
 
 			if (self->maxHealth <= 0)
 			{
-				playSoundToMap("sound/enemy/ghost/ghost.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/ghost/ghost", -1, self->x, self->y, 0);
 
 				self->maxHealth = (6 + prand() % 10) * 60;
 			}

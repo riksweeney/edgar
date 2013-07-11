@@ -104,7 +104,7 @@ static void floatUp()
 
 static void die()
 {
-	playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }

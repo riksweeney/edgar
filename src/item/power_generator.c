@@ -82,7 +82,7 @@ static void entityWait()
 
 			fireGlobalTrigger(self->objectiveName);
 
-			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/generator", -1, self->x, self->y, 0);
 
 			setEntityAnimationByID(self, self->health);
 
@@ -111,7 +111,7 @@ static void activate(int val)
 
 			fireGlobalTrigger(self->objectiveName);
 
-			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/generator", -1, self->x, self->y, 0);
 
 			setEntityAnimationByID(self, self->health);
 		}

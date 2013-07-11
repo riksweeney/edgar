@@ -137,7 +137,7 @@ static void lookForPlayer()
 
 			self->mental = 1;
 
-			playSoundToMap("sound/enemy/mouth_stalk/hiss.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/mouth_stalk/hiss", -1, self->x, self->y, 0);
 		}
 	}
 }
@@ -593,7 +593,7 @@ static void creditsMove()
 
 static void die()
 {
-	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }

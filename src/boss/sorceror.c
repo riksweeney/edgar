@@ -109,7 +109,7 @@ static void stand()
 	{
 		setEntityAnimation(self, "ATTACK_1");
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &dungeonTeleportInit;
 	}
@@ -123,7 +123,7 @@ static void stand2()
 	{
 		setEntityAnimation(self, "ATTACK_1");
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &offscreenTeleportInit;
 	}
@@ -226,7 +226,7 @@ static void teleportPlayerToDungeon(Entity *other)
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/teleport", EDGAR_CHANNEL, self->x, self->y, 0);
 }
 
 static void offscreenTeleportInit()
@@ -372,7 +372,7 @@ static void disintegration()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/boss/sorceror/electrocute.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/sorceror/electrocute", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->x = self->endX;
 		self->y = self->endY;
@@ -447,7 +447,7 @@ static void disintegrationAttack()
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-			playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport", EDGAR_CHANNEL, self->x, self->y, 0);
 		}
 	}
 }
@@ -470,7 +470,7 @@ static void teleportPlayerOffscreen(Entity *other)
 
 	player.flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-	playSoundToMap("sound/common/spell.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", EDGAR_CHANNEL, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }
@@ -481,7 +481,7 @@ static void arrowTakeDamage(Entity *other, int damage)
 
 	if (!(self->flags & INVULNERABLE))
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{

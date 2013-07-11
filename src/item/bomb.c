@@ -107,7 +107,7 @@ static void startFuse()
 {
 	if (self->mental == 1)
 	{
-		self->endX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
+		self->endX = playSoundToMap("sound/item/fuse", -1, self->x, self->y, -1);
 	}
 
 	self->action = &entityWait;

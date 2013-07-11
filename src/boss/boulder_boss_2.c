@@ -93,7 +93,7 @@ static void drop()
 	{
 		self->thinkTime = 30;
 
-		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 		shakeScreen(STRONG, self->thinkTime / 2);
 
@@ -113,7 +113,7 @@ static void entityWait()
 	{
 		playDefaultBossMusic();
 
-		playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/boulder_boss/roll", BOSS_CHANNEL, self->x, self->y, -1);
 
 		setEntityAnimation(self, "WALK");
 
@@ -158,7 +158,7 @@ static void chasePlayer()
 		{
 			if (self->mental > 15)
 			{
-				playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 				shakeScreen(STRONG, 30);
 

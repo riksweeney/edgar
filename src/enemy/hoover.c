@@ -202,7 +202,7 @@ static void eatFood()
 
 	if (fabs(self->target->x - self->target->targetX) <= fabs(self->target->dirX) && fabs(self->target->y - self->target->targetY) <= fabs(self->target->dirY))
 	{
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", -1, self->x, self->y, 0);
 
 		setEntityAnimation(self, "CUSTOM_1");
 

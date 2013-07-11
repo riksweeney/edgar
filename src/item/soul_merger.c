@@ -231,7 +231,7 @@ static void doorClose()
 
 		self->head->target->flags |= NO_DRAW;
 
-		playSoundToMap("sound/common/door.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/door", -1, self->x, self->y, 0);
 	}
 
 	else
@@ -263,7 +263,7 @@ static void doorOpen()
 
 		self->layer = BACKGROUND_LAYER;
 
-		playSoundToMap("sound/common/door.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/door", -1, self->x, self->y, 0);
 	}
 
 	else

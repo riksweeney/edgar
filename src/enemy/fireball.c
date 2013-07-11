@@ -101,7 +101,7 @@ static void jump()
 
 		if (self->thinkTime <= 0)
 		{
-			playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 
 			self->dirY = -self->speed;
 

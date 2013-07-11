@@ -104,7 +104,7 @@ static void doMenu()
 			menu.index = 1;
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (up == TRUE)
@@ -116,7 +116,7 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (attack == TRUE)
@@ -125,7 +125,7 @@ static void doMenu()
 
 		if (w->clickAction != NULL)
 		{
-			playSound("sound/common/click.ogg");
+			playSound("sound/common/click");
 
 			w->clickAction();
 		}

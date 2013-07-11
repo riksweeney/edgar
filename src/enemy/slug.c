@@ -190,7 +190,7 @@ static void moveOnCeiling()
 
 static void die()
 {
-	playSoundToMap("sound/enemy/armadillo/armadillo_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/armadillo/armadillo_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }

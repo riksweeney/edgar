@@ -357,7 +357,7 @@ static void knifeThrowInit()
 
 	self->mental = 0;
 
-	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/mataeus/create_knife", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime = 60;
 
@@ -407,7 +407,7 @@ static void verticalKnifeThrowInit()
 
 	self->mental = 0;
 
-	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/mataeus/create_knife", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime = 60;
 
@@ -422,7 +422,7 @@ static void knifeThrow()
 	{
 		if (self->mental == 0)
 		{
-			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/mataeus/throw_knife", -1, self->x, self->y, 0);
 
 			self->mental = 1;
 		}
@@ -810,7 +810,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{
@@ -879,7 +879,7 @@ static void stunned()
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
 
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		self->action = &stunFinish;
@@ -1075,7 +1075,7 @@ static void anchorTakeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{
@@ -1144,7 +1144,7 @@ static void anchorWait()
 	{
 		self->targetY = self->y + self->h / 2;
 
-		playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(MEDIUM, 15);
 
@@ -1192,7 +1192,7 @@ static void anchorDie()
 
 	e = self;
 
-	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	self = self->target;
 
@@ -1261,7 +1261,7 @@ static void openRift()
 
 	e->health = -1;
 
-	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime = 120;
 
@@ -1362,7 +1362,7 @@ static void riftKnifeThrowInit()
 
 	self->mental = 0;
 
-	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/mataeus/create_knife", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime = 60;
 
@@ -1386,7 +1386,7 @@ static void riftKnifeThrow()
 	{
 		if (self->mental == 0)
 		{
-			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/mataeus/throw_knife", -1, self->x, self->y, 0);
 
 			self->mental = 1;
 		}
@@ -1413,7 +1413,7 @@ static void riftRise()
 {
 	if (self->health == -1)
 	{
-		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 	}
 
 	self->y -= 0.5;
@@ -1424,7 +1424,7 @@ static void riftRise()
 	{
 		stopSound(self->health);
 
-		self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+		self->health = playSoundToMap("sound/item/rift", -1, self->x, self->y, -1);
 
 		self->y = self->startY;
 
@@ -1492,7 +1492,7 @@ static void riftSink()
 {
 	if (self->health == -1)
 	{
-		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 	}
 
 	self->y += 0.5;
@@ -1921,7 +1921,7 @@ static void horizontalKnifeThrowInit()
 
 		self->maxThinkTime--;
 
-		playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/mataeus/create_knife", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = e->thinkTime;
 
@@ -1972,7 +1972,7 @@ static void horizontalKnifeWait()
 
 			self->health = 1;
 
-			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/mataeus/throw_knife", -1, self->x, self->y, 0);
 		}
 	}
 

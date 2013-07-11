@@ -83,7 +83,7 @@ static void entityWait()
 
 	if (self->health == 0 && self->active == TRUE)
 	{
-		self->endX = playSoundToMap("sound/item/magnet.ogg", -1, self->x, self->y, -1);
+		self->endX = playSoundToMap("sound/item/magnet", -1, self->x, self->y, -1);
 
 		self->health = 1;
 	}
@@ -106,7 +106,7 @@ static void entityWait()
 
 					self->mental = 1;
 
-					playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 				}
 			}
 		}

@@ -81,7 +81,7 @@ static void entityWait()
 
 			if (self->active == TRUE)
 			{
-				playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/laser/zap", 7, self->x, self->y, 0);
 			}
 
 			self->thinkTime = self->maxThinkTime;

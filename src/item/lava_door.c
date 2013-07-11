@@ -132,7 +132,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -164,7 +164,7 @@ static void die()
 	int i;
 	Entity *e;
 
-	playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 	for (i=0;i<7;i++)
 	{

@@ -67,7 +67,7 @@ static void doMenu()
 
 		input.right = FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (input.left == TRUE)
@@ -81,7 +81,7 @@ static void doMenu()
 
 		input.left = FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (input.attack == TRUE)
@@ -90,7 +90,7 @@ static void doMenu()
 
 		input.attack = FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 
 		if (w->clickAction != NULL)
 		{

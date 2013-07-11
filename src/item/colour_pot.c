@@ -307,18 +307,18 @@ static void drain()
 
 					self->activate = NULL;
 
-					playSoundToMap("sound/item/ping.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/item/ping", -1, self->x, self->y, 0);
 				}
 
 				else
 				{
-					playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/item/charge_beep", -1, self->x, self->y, 0);
 				}
 			}
 
 			else if (self->target->health < self->target->mental)
 			{
-				playSoundToMap("sound/item/buzzer.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/item/buzzer", -1, self->x, self->y, 0);
 			}
 
 			self->mental = 0;

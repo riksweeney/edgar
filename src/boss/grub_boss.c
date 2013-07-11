@@ -126,7 +126,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->startX = self->x;
 
-			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/grub_boss/death", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		if (other->type == PROJECTILE)
@@ -180,7 +180,7 @@ static void doIntro()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->face = LEFT;
 
@@ -201,7 +201,7 @@ static void doIntro()
 
 		self->action = &introPause;
 
-		playSoundToMap("sound/boss/grub_boss/roar.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/grub_boss/roar", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -307,7 +307,7 @@ static void spit()
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 5.5 : -5.5), -12);
 	}
 
-	playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/grub_boss/fire", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime--;
 
@@ -338,7 +338,7 @@ static void spinAttackStart()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
@@ -360,7 +360,7 @@ static void spinAttack()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
@@ -410,7 +410,7 @@ static void bounceAttackStart()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? 3 : -3);
 
@@ -434,7 +434,7 @@ static void bounceAttack()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->dirY = -14;
 	}
@@ -443,7 +443,7 @@ static void bounceAttack()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 

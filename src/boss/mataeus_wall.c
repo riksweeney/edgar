@@ -123,7 +123,7 @@ static void initFall()
 
 		if (self->flags & ON_GROUND)
 		{
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			for (i=0;i<20;i++)
 			{
@@ -381,7 +381,7 @@ static void wallAttackWait()
 	{
 		setEntityAnimation(self, "ATTACK_1");
 
-		playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/tesla_electrocute", -1, self->x, self->y, 0);
 
 		self->x = self->startX;
 

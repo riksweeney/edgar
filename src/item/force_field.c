@@ -78,7 +78,7 @@ static void entityWait()
 
 			if (self->mental == -1)
 			{
-				playSoundToMap("sound/item/force_field_shutdown.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/item/force_field_shutdown", -1, self->x, self->y, 0);
 			}
 
 			self->action = &fadeOut;

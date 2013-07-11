@@ -214,7 +214,7 @@ static void doIntro()
 
 		e->head = self;
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->thinkTime = 30;
 
@@ -285,7 +285,7 @@ static void teleportOut()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &teleportWait;
 
@@ -342,7 +342,7 @@ static void teleportWait()
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			self->action = &teleportIn;
 
@@ -377,7 +377,7 @@ static void teleportWait()
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			self->action = &healPartner;
 
@@ -487,7 +487,7 @@ static void fireballAttackInit()
 
 	facePlayer();
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->flags &= ~NO_DRAW;
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -574,7 +574,7 @@ static void fireballAttack()
 
 			self->action = &fireballAttackFinished;
 
-			playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/awesome_boss/hadouken", -1, self->x, self->y, 0);
 		}
 	}
 }
@@ -597,7 +597,7 @@ static void superFireballAttackInit()
 {
 	facePlayer();
 
-	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->flags &= ~NO_DRAW;
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -691,7 +691,7 @@ static void superFireballAttack()
 					e->x += self->face == RIGHT ? -2 : 2;
 				}
 
-				playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/boss/awesome_boss/hadouken", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->thinkTime = 120;
 
@@ -730,7 +730,7 @@ static void superSpearAttackInit()
 {
 	facePlayer();
 
-	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->flags &= ~NO_DRAW;
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -1178,7 +1178,7 @@ static void dropAttackInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->action = &dropAttack;
 
@@ -1203,7 +1203,7 @@ static void dropAttack()
 		{
 			addSmokeAlongBody();
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 		}
 
 		self->thinkTime--;
@@ -1246,7 +1246,7 @@ static void superDropAttackInit()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->touch = &entityTouch;
 
@@ -1268,7 +1268,7 @@ static void superDropAttack()
 		{
 			addSmokeAlongBody();
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			self->action = &superDropAttackFinished;
 		}
@@ -1433,7 +1433,7 @@ static void spearWait()
 
 		else
 		{
-			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 
 			self->targetY = self->startY;
 

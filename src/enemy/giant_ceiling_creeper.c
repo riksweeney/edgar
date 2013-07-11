@@ -117,7 +117,7 @@ static void tongueWait()
 
 		self->touch = &tongueTouch;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start", EDGAR_CHANNEL, self->x, self->y, 0);
 	}
 
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
@@ -236,7 +236,7 @@ static void creeperTouch(Entity *other)
 {
 	if (other->head == NULL || (other->head != NULL && other->head != self))
 	{
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		other->action = other->die;
 		

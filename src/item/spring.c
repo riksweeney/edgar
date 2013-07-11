@@ -95,7 +95,7 @@ static void touch(Entity *other)
 
 		self->thinkTime = 30;
 
-		playSoundToMap("sound/item/spring.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/spring", -1, self->x, self->y, 0);
 
 		self->action = &spring;
 

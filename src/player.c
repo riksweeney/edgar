@@ -700,12 +700,12 @@ void doPlayer()
 						{
 							if (prand() % 3 == 0)
 							{
-								playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+								playSoundToMap("sound/enemy/jumping_slime/jump2", EDGAR_CHANNEL, self->x, self->y, 0);
 							}
 
 							else
 							{
-								playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+								playSoundToMap("sound/enemy/jumping_slime/jump1", EDGAR_CHANNEL, self->x, self->y, 0);
 							}
 						}
 
@@ -1256,7 +1256,7 @@ static void takeDamage(Entity *other, int damage)
 				{
 					if (other->element != DRAGON_FIRE)
 					{
-						playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+						playSoundToMap("sound/edgar/block", EDGAR_CHANNEL, player.x, player.y, 0);
 					}
 
 					playerShield.thinkTime = 5;
@@ -1331,7 +1331,7 @@ static void takeDamage(Entity *other, int damage)
 
 			if (playerShield.thinkTime <= 0)
 			{
-				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+				playSoundToMap("sound/edgar/block", EDGAR_CHANNEL, player.x, player.y, 0);
 
 				playerShield.thinkTime = 5;
 
@@ -2104,7 +2104,7 @@ static void swingSword()
 	setEntityAnimation(&playerShield, "ATTACK_1");
 	setEntityAnimation(&playerWeapon, "ATTACK_1");
 
-	playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/edgar/swing", EDGAR_CHANNEL, self->x, self->y, 0);
 
 	playerWeapon.animationCallback = &attackFinish;
 }
@@ -2145,7 +2145,7 @@ static void fireArrow()
 			e->x -= e->w;
 		}
 
-		playSoundToMap("sound/edgar/arrow.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/edgar/arrow", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		e->reactToBlock = &bounceOffShield;
 
@@ -2430,7 +2430,7 @@ static void shieldTouch(Entity *other)
 
 		self->thinkTime = 10;
 
-		playSoundToMap("sound/edgar/shield.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/edgar/shield", BOSS_CHANNEL, player.x, player.y, 0);
 
 		other->health = 0;
 	}
@@ -2521,7 +2521,7 @@ void becomeJumpingSlime(int seconds)
 
 		player.type = PLAYER;
 
-		playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/common/teleport", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		addParticleExplosion(player.x + player.w / 2, player.y + player.h / 2);
 
@@ -2559,7 +2559,7 @@ void becomeEdgar()
 
 	player.environment = AIR;
 
-	playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/teleport", EDGAR_CHANNEL, player.x, player.y, 0);
 
 	player.fallout = &fallout;
 
@@ -2685,7 +2685,7 @@ void setPlayerFrozen(int thinkTime)
 
 	loadProperties("edgar/edgar_frozen", e);
 
-	playSoundToMap("sound/common/freeze.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/freeze", EDGAR_CHANNEL, player.x, player.y, 0);
 
 	e->x = player.x + player.w / 2;
 	e->y = player.y + player.h / 2;
@@ -2748,7 +2748,7 @@ static void applyIce()
 			e->thinkTime = 60 + (prand() % 60);
 		}
 
-		playSoundToMap("sound/common/shatter.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/common/shatter", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		self->inUse = FALSE;
 
@@ -2911,7 +2911,7 @@ static void applyPetrification()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/crack", -1, self->x, self->y, 0);
 
 		self->health--;
 
@@ -2943,7 +2943,7 @@ static void applyPetrification()
 
 			setPlayerLocked(FALSE);
 
-			playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 			player.element = NO_ELEMENT;
 		}
@@ -2961,7 +2961,7 @@ static void applyPetrification()
 		player.x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
 		self->x = player.x;
 
-		playSoundToMap("sound/boss/gargoyle/petrify_shake.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/gargoyle/petrify_shake", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime--;
 
@@ -3041,7 +3041,7 @@ static void applyPetrification()
 
 		self->inUse = FALSE;
 
-		playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 	}
 
 	self->y = player.y;

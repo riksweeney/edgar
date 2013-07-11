@@ -65,7 +65,7 @@ EntityList *throwGibs(char *name, int gibs)
 		addEntityToList(list, e);
 	}
 
-	playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/gib", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 

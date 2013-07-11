@@ -79,7 +79,7 @@ static void fly()
 	{
 		if (self->mental == 0)
 		{
-			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/gazer/flap", -1, self->x, self->y, 0);
 
 			self->mental = 1;
 		}
@@ -117,7 +117,7 @@ static void fly()
 		{
 			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
-				playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/gazer/growl", -1, self->x, self->y, 0);
 
 				self->action = &gazeInit;
 
@@ -131,7 +131,7 @@ static void fly()
 
 static void die()
 {
-	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/gazer/gazer_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }
@@ -148,7 +148,7 @@ static void gazeInit()
 
 static void gaze()
 {
-	playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/gazer/flash", -1, self->x, self->y, 0);
 
 	fadeFromColour(255, 0, 0, 60);
 
@@ -265,7 +265,7 @@ static void creditsMove()
 	{
 		if (self->thinkTime == 180)
 		{
-			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/gazer/growl", -1, self->x, self->y, 0);
 		}
 		
 		self->dirX = 0;
@@ -274,7 +274,7 @@ static void creditsMove()
 		{
 			if (self->thinkTime >= 300)
 			{
-				playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/gazer/flash", -1, self->x, self->y, 0);
 				
 				fadeFromColour(255, 0, 0, 60);
 				

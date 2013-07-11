@@ -108,7 +108,7 @@ static void call(int val)
 			}
 		}
 
-		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 
 		self->active = TRUE;
 
@@ -157,7 +157,7 @@ static void activate(int val)
 		}
 	}
 
-	playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 
 	self->active = self->active == TRUE ? FALSE : TRUE;
 
@@ -210,7 +210,7 @@ static void activate(int val)
 		{
 			self->thinkTime = self->maxThinkTime;
 
-			self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+			self->endX = playSoundToMap("sound/common/tick", -1, self->x, self->y, -1);
 		}
 	}
 }
@@ -232,7 +232,7 @@ static void entityWait()
 				activateEntitiesWithRequiredName(self->objectiveName, self->active);
 			}
 
-			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 
 			setEntityAnimation(self, self->active == TRUE ? "WALK" : "STAND");
 
@@ -252,7 +252,7 @@ static void reset(int val)
 
 	if (self->thinkTime == 0)
 	{
-		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 
 		self->active = TRUE;
 

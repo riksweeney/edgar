@@ -1056,7 +1056,7 @@ void increaseSecretsFound()
 
 	setInfoBoxMessage(90, 0, 255, 0, _("You found a secret!"));
 
-	playSound("sound/common/secret.ogg");
+	playSound("sound/common/secret");
 
 	if (game.secretsFound == TOTAL_SECRETS)
 	{

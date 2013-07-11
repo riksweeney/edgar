@@ -74,7 +74,7 @@ static void entityWait()
 		{
 			self->mental *= -1;
 
-			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/generator", -1, self->x, self->y, 0);
 
 			setEntityAnimationByID(self, self->mental);
 

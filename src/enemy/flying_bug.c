@@ -73,7 +73,7 @@ static void init()
 
 	if (self->mental == 0)
 	{
-		playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/bug/buzz", -1, self->x, self->y, 0);
 
 		self->mental = 1;
 	}
