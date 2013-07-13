@@ -5,7 +5,7 @@ TALK Edgar It doesn't look too sturdy though, perhaps I can simply smash it...
 END
 IF DRAWBRIDGE_PULLEY NOT_ACTIVE
 SHAKE_SCREEN STRONG 30
-PLAY_SOUND sound/common/crash.ogg
+PLAY_SOUND sound/common/crash
 WAIT 60
 TALK Edgar Oops...
 SET EDGAR FACE RIGHT

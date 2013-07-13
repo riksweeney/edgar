@@ -83,12 +83,12 @@ TALK Edgar But Dad...
 TALK Edgar's_Father Be quiet!
 TALK Edgar's_Father I just need to think of something suitable...
 ADD ENTITY ENEMY enemy/chicken "END_CHICKEN" 1891 516
-PLAY_SOUND sound/enemy/chicken/cluck.ogg
+PLAY_SOUND sound/enemy/chicken/cluck
 WALK_TO END_CHICKEN 1636 389 WAIT
 TALK Edgar's_Father Looks like your chickens have escaped from their pen again, Jacob
 WAIT 30
 WALK_TO END_CHICKEN 1322 389 WAIT
-PLAY_SOUND sound/enemy/chicken/cluck.ogg
+PLAY_SOUND sound/enemy/chicken/cluck
 TALK Edgar's_Father Actually, I think I know what your punishment is going to be...
 WAIT 30
 WALK_TO END_CHICKEN 1454 389 WAIT

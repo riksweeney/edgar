@@ -10,7 +10,7 @@ SET EDGAR FACE LEFT
 WAIT 30
 TALK Edgar Hmmm...
 TALK Edgar Maybe I should check the swamp again...
-PLAY_SOUND sound/boss/gargoyle/gargoyle_roar.ogg
+PLAY_SOUND sound/boss/gargoyle/gargoyle_roar
 WAIT 240
 SET EDGAR FACE RIGHT
 WAIT 15
@@ -19,7 +19,7 @@ WAIT 15
 SET EDGAR FACE RIGHT
 WAIT 30
 TALK Edgar What was that?!
-PLAY_SOUND sound/boss/gargoyle/gargoyle_roar.ogg
+PLAY_SOUND sound/boss/gargoyle/gargoyle_roar
 WAIT 240
 ACTIVATE_OBJECTIVE GARGOYLE
 LIMIT_CAMERA 416 3872 1056 4320
