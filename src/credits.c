@@ -205,7 +205,7 @@ static void doEndCredits()
 
 	for (i=0;i<credits.lineCount;i++)
 	{
-		credits.creditLine[i].y -= 0.6;
+		credits.creditLine[i].y -= credits.speed;
 
 		if (credits.creditLine[i].y < -64)
 		{
@@ -825,6 +825,8 @@ static void initCredits()
 
 		token1 = strtok_r(NULL, "\n", &savePtr1);
 	}
+	
+	credits.speed = y / 17500.0f;
 
 	free(buffer);
 

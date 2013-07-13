@@ -9,7 +9,7 @@ WAIT 60
 SET Edgar FACE RIGHT
 WAIT 60
 TALK Edgar Where am I?
-PLAY_SOUND sound/boss/ant_lion/earthquake.ogg
+PLAY_SOUND sound/boss/ant_lion/earthquake
 SHAKE_SCREEN LIGHT 180
 WAIT 180
 TALK Edgar What was that?

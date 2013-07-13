@@ -45,7 +45,7 @@ TALK Edgar That's a lot of ingredients that I have no idea where to find...
 END
 SET OCCULT_BOOK_POINT HEALTH 6
 IF NOT_EXISTS BLACK_BOOK_1
-PLAY_SOUND sound/common/spell.ogg
+PLAY_SOUND sound/common/spell
 WAIT 60
 SET EDGAR FACE LEFT
 TALK Edgar What was that?

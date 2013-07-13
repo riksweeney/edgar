@@ -4,7 +4,7 @@ TALK Edgar I don't have any reason to read these but I'll keep it in mind in cas
 END
 IF MONSTER_BOOK HEALTH 10
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Chaos
 TALK Book Chaos is an ancient, evil dragon
 SET EDGAR FACE RIGHT
@@ -27,7 +27,7 @@ SET MONSTER_BOOK HEALTH 11
 END
 IF MONSTER_BOOK HEALTH 9
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Grimlore
 TALK Book Grimlore is a creature from another dimension. It can be summoned using powerful dark magic
 TALK Book The most common reason to summon this beast is to act as a bodyguard
@@ -38,7 +38,7 @@ SET MONSTER_BOOK HEALTH 10
 END
 IF MONSTER_BOOK HEALTH 8
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Summoner, Dark
 TALK Edgar Just like regular Summoners, Dark Summoners call in other beasts to do their bidding
 TALK Edgar Additionally though they can teleport short distances to escape from their opponents
@@ -47,7 +47,7 @@ SET MONSTER_BOOK HEALTH 9
 END
 IF MONSTER_BOOK HEALTH 7
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Hoover, Pink
 TALK Edgar Pink Hoovers are small quadrupeds with a long snout
 TALK Edgar The primary purpose of the snout is to forage for food but it also serves as a defence mechanism
@@ -56,7 +56,7 @@ SET MONSTER_BOOK HEALTH 8
 END
 IF MONSTER_BOOK HEALTH 6
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Venus Flytrap, mobile
 TALK Edgar Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them
 TALK Edgar Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away
@@ -64,7 +64,7 @@ SET MONSTER_BOOK HEALTH 7
 END
 IF MONSTER_BOOK HEALTH 5
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Tortoise, Master
 TALK Book Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads
 TALK Book They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves
@@ -76,7 +76,7 @@ SET MONSTER_BOOK HEALTH 6
 END
 IF MONSTER_BOOK HEALTH 4
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Grub, Red
 TALK Book Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat
 TALK Book Upon reaching maturity they will form a cocoon and morph into a wasp
@@ -85,7 +85,7 @@ SET MONSTER_BOOK HEALTH 5
 END
 IF MONSTER_BOOK HEALTH 3
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Splitter
 TALK Book Splitters are harmless monsters unless attacked.
 TALK Book Upon sustaining too much damage they will split in two and attack their predator
@@ -96,7 +96,7 @@ SET MONSTER_BOOK HEALTH 4
 END
 IF MONSTER_BOOK HEALTH 2
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Centurion, Grey
 TALK Book Centurions are magically created creatures, usually dispatched as sentries or guards
 TALK Book Though slow moving, their massive size allows them to simply march through any defence
@@ -106,7 +106,7 @@ SET MONSTER_BOOK HEALTH 3
 END
 IF MONSTER_BOOK HEALTH 1
 TALK Edgar I wonder what other monsters there are...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Gazer
 TALK Book Gazers are flying cycloptic creatures found in various places
 TALK Book Their single eye is usually closed and they rely on sonar for movement
@@ -126,9 +126,9 @@ TALK Edgar Still, there might be something else in these books worth reading...
 END
 IF MONSTER_BOOK HEALTH 100
 TALK Edgar Looks like they're in alphabetical order though
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Slime, Green... Slime, Purple... Sludge, Green...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 TALK Edgar Sludge, Red
 TALK Book Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces
 TALK Book Its preferred habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans

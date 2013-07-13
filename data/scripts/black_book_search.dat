@@ -9,11 +9,11 @@ TALK Edgar It might be safe to touch now
 SHOW_CONFIRM Examine the book?
 IF CONFIRM_YES
 TALK Edgar Hmmm...
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 WAIT 30
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 WAIT 30
-PLAY_SOUND sound/boss/black_book/page.ogg
+PLAY_SOUND sound/boss/black_book/page
 WAIT 30
 TALK Edgar This page just has a sequence of numbers scrawled on it
 TALK Edgar I'll take it with me, it might come in handy
