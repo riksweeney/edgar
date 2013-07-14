@@ -252,7 +252,8 @@
 220 220 220 by aust_paul
 220 220 220 CC0
 220 220 220 #
-220 220 220 swosh-whoosh-air-cut (as sound/boss/azriel/azriel_scythe_throw)
+220 220 220 swosh-whoosh-air-cut (as sound/boss/azriel/azriel_scythe_throw,
+220 220 220 sound/enemy/pendulum/swing)
 220 220 220 by qubodup
 220 220 220 CC0
 220 220 220 #
@@ -579,5 +580,17 @@
 220 220 220 #
 220 220 220 Cork (as sound/item/cork)
 220 220 220 by Blender Foundation
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Picked Coin Echo 2 (as sound/common/trophy)
+220 220 220 by NenadSimic
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Fuse igniting and burning (imitated) (as /sound/item/fuse)
+220 220 220 by Hoscalegeek
+220 220 220 CC0
+220 220 220 #
+220 220 220 Monster.wav (as sound/boss/chaos/die)
+220 220 220 by Erdie
 220 220 220 CC BY 3.0
 220 220 220 #

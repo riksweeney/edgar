@@ -193,7 +193,8 @@ electrocute.wav (as sound/boss/azriel/azriel_lightning_cage)
 by aust_paul
 CC0
 
-swosh-whoosh-air-cut (as sound/boss/azriel/azriel_scythe_throw)
+swosh-whoosh-air-cut (as sound/boss/azriel/azriel_scythe_throw,
+sound/enemy/pendulum/swing)
 by qubodup
 CC0
 
@@ -520,4 +521,16 @@ CC0
 
 Cork (as sound/item/cork)
 by Blender Foundation
+CC BY 3.0
+
+Picked Coin Echo 2 (as sound/common/trophy)
+by NenadSimic
+CC BY 3.0
+
+Fuse igniting and burning (imitated) (as /sound/item/fuse)
+by Hoscalegeek
+CC0
+
+Monster.wav (as sound/boss/chaos/die)
+by Erdie
 CC BY 3.0
