@@ -110,7 +110,7 @@ static void throwGazerEye(int val)
 
 		e->dirY = ITEM_JUMP_HEIGHT;
 
-		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", -1, player.x, player.y, 0);
 
 		self->inUse = FALSE;
 	}
@@ -163,7 +163,7 @@ static void explode()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/gazer/flash", -1, self->x, self->y, 0);
 
 		fadeFromColour(255, 255, 255, 60);
 

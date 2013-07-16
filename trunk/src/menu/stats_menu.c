@@ -55,7 +55,7 @@ static void doMenu()
 {
 	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 
 		showMainMenu();
 	}

@@ -25,7 +25,6 @@ APPNAME="edgar"
 APPDIR="$APPNAME-$APPVERSION/"
 
 DISTNAME="$APPNAME-$APPVERSION-$APPRELEASE.tar.gz"
-DFSGNAME="$APPNAME-$APPVERSION-$APPRELEASE-dfsg.tar.gz"
 
 RPMROOT="/home/$SUDO_USER/rpmbuild"
 
@@ -45,13 +44,7 @@ cd dist
 
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-svn export svn://svn.code.sf.net/p/legendofedgar/code/tags/$APPVERSION $APPDIR
-
-echo "Getting latest translations from the trunk"
-
-rm -rf $APPDIR/locale
-
-svn export svn://svn.code.sf.net/p/legendofedgar/code/trunk/locale $APPDIR/locale
+svn export https://svn.code.sf.net/p/legendofedgar/code/tags/$APPVERSION $APPDIR
 
 echo "Removing unwanted data files..."
 
@@ -98,24 +91,6 @@ done
 
 tar zhcf $DISTNAME $APPDIR
 
-echo "Creating DFSG version"
-
-cp ../doc/*dfsg* $APPDIR
-
-cp edgar.spec $APPDIR
-
-cd $APPDIR
-
-rm -rf music/* sound/*
-
-for i in `find . -name *.orig | grep -v doc`;do
-	rm $i
-done
-
-cd ..
-
-tar zhcf $DFSGNAME $APPDIR
-
 echo "Removing Copied Data..."
 
 rm -rf $APPDIR
@@ -140,6 +115,8 @@ rm -rf $RPMROOT
 echo "Running Alien..."
 
 alien -k *.rpm
+
+rm *.rpm
 
 echo "Renaming..."
 

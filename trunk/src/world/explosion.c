@@ -67,7 +67,7 @@ static void explode()
 {
 	if (self->mental == 0)
 	{
-		playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/explosion", -1, self->x, self->y, 0);
 	}
 
 	self->action = &doNothing;

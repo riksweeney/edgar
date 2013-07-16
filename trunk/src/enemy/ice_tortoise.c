@@ -410,7 +410,7 @@ static void iceSpikeMove()
 		{
 			self->takeDamage = NULL;
 
-			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 			for (i=0;i<8;i++)
 			{
@@ -491,7 +491,7 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }

@@ -305,7 +305,7 @@ void throwItem(int val)
 			self->inUse = FALSE;
 		}
 
-		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", EDGAR_CHANNEL, player.x, player.y, 0);
 	}
 }
 

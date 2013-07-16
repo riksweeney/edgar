@@ -268,7 +268,7 @@ static void lookForPlayer()
 	{
 		self->action = &vomitAttackStart;
 
-		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/snail/spit", -1, self->x, self->y, 0);
 
 		self->dirX = 0;
 
@@ -290,7 +290,7 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/sludge/sludge_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/sludge/sludge_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }
@@ -306,7 +306,7 @@ static void redDie()
 		e->x -= e->w / 2;
 	}
 
-	playSoundToMap("sound/enemy/sludge/sludge_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/sludge/sludge_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }
@@ -458,7 +458,7 @@ static void vomitFall()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/enemy/red_sludge/acid.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_sludge/acid", -1, self->x, self->y, 0);
 
 		self->dirX = 0;
 
@@ -509,7 +509,7 @@ static void creditsRedMove()
 	{
 		self->creditsAction = &vomitAttackStart;
 
-		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/snail/spit", -1, self->x, self->y, 0);
 
 		self->dirX = 0;
 

@@ -106,7 +106,7 @@ static void touch(Entity *other)
 				}
 			}
 
-			playSoundToMap("sound/item/number_block.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/number_block", -1, self->x, self->y, 0);
 
 			self->health = 2;
 

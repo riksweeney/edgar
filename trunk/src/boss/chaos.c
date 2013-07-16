@@ -359,7 +359,7 @@ static void riftOpen()
 
 	else
 	{
-		self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+		self->health = playSoundToMap("sound/item/rift", -1, self->x, self->y, -1);
 
 		self->thinkTime = 300;
 
@@ -778,7 +778,7 @@ static void stompAttackDrop()
 	{
 		setEntityAnimation(self, "STAND");
 
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(STRONG, 120);
 
@@ -855,7 +855,7 @@ static void stalagmiteAttack()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -934,7 +934,7 @@ static void stalagmiteRise()
 
 		else
 		{
-			playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 			shakeScreen(MEDIUM, 15);
 
@@ -994,7 +994,7 @@ static void stalagmiteTakeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -1020,7 +1020,7 @@ static void stalagmiteDie()
 {
 	Entity *e;
 
-	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 	e = addSmallRock(self->x, self->y, "common/small_rock");
 
@@ -1229,7 +1229,7 @@ static void breatheFireInit()
 
 	self->thinkTime = 150;
 
-	playSoundToMap("sound/boss/chaos/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/chaos/breathe_in", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->action = &breatheIn;
 
@@ -1365,7 +1365,7 @@ static void breatheFire()
 
 		e->endX = e->face == LEFT ? getMapStartX() - SCREEN_WIDTH : getMapStartX() + SCREEN_WIDTH;
 
-		playSoundToMap("sound/boss/chaos/breathe_fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/chaos/breathe_fire", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = 30;
 
@@ -2001,7 +2001,7 @@ static void castLightningBolt()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -2056,7 +2056,7 @@ static void lightningBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->targetX, self->startY, 0);
 
 		for (i=self->startY;i<self->endY;i+=32)
 		{
@@ -2139,7 +2139,7 @@ static void spearWait()
 
 		else
 		{
-			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 
 			self->targetY = self->startY;
 
@@ -2293,7 +2293,7 @@ static void die()
 
 	self->weight = 1;
 
-	playSoundToMap("sound/boss/chaos/die.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	playSoundToMap("sound/boss/chaos/die", BOSS_CHANNEL, self->x, self->y, -1);
 
 	setEntityAnimation(self, "DIE_1");
 
@@ -2376,7 +2376,7 @@ static void dieWait()
 
 			shakeScreen(MEDIUM, 60);
 
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 			for (i=0;i<300;i++)
 			{

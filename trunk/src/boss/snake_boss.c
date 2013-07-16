@@ -225,7 +225,7 @@ static void headWait()
 
 	if (prand() % 180 == 0)
 	{
-		playSoundToMap("sound/boss/snake_boss/hiss.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/hiss", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -479,7 +479,7 @@ static void shotAttack()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot", BOSS_CHANNEL, self->x, self->y, 0);
 
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
@@ -954,7 +954,7 @@ static void fallToGround()
 
 	if (self->thinkTime == 0)
 	{
-		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_die", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->flags &= ~FLY;
 
@@ -967,7 +967,7 @@ static void fallToGround()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		setEntityAnimation(self, "PAIN");
 
@@ -1192,7 +1192,7 @@ static void addSmokeAlongBody()
 		addSmoke((self->face == LEFT ? self->x : self->endX) + (prand() % bodyLength), self->y + prand() % self->h, "decoration/dust");
 	}
 
-	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 }
 
 static void bodyTakeDamage(Entity *other, int damage)

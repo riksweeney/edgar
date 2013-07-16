@@ -161,7 +161,7 @@ static void drop()
 			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 		}
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->thinkTime = 30;
 

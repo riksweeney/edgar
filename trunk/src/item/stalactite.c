@@ -134,7 +134,7 @@ static void entityWait()
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 		}
 	}
 }
@@ -177,7 +177,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -203,7 +203,7 @@ static void die()
 {
 	Entity *e;
 
-	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 	self->flags |= NO_DRAW;
 

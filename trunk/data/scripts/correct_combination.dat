@@ -1,5 +1,5 @@
 KILL SAFE_INSTRUCTIONS
-PLAY_SOUND sound/item/safe_open.ogg
+PLAY_SOUND sound/item/safe_open
 SET LIBRARY_SAFE ANIMATION OPEN
 REMOVE "Scrap of Paper" 1 -1 LIBRARY_SAFE -99 -99 QUIET
 ADD_MEDAL safe_open

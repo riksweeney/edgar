@@ -125,7 +125,7 @@ static void teleportPlayer()
 
 	player.flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-	playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/teleport", EDGAR_CHANNEL, player.x, player.y, 0);
 
 	activateEntitiesWithObjectiveName("SPIRIT_POINT", TRUE);
 }

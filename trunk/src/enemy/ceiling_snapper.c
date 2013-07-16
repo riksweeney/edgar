@@ -131,7 +131,7 @@ static void bite()
 
 		self->thinkTime = 120;
 
-		playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/floating_snapper/chomp", -1, self->x, self->y, 0);
 	}
 }
 
@@ -178,7 +178,7 @@ static void trapEntity(Entity *other)
 
 		other->fallout();
 
-		playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/floating_snapper/chomp", -1, self->x, self->y, 0);
 
 		setEntityAnimation(self, "STAND");
 

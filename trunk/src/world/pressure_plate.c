@@ -144,7 +144,7 @@ static void activate(int val)
 
 		self->maxHealth = self->health;
 
-		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 	}
 
 	self->thinkTime = 5;

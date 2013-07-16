@@ -102,7 +102,7 @@ static void entityWait()
 				activateEntitiesWithRequiredName(self->objectiveName, self->active);
 			}
 
-			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 
 			stopSound(self->endX);
 		}
@@ -161,7 +161,7 @@ static void touch(Entity *other)
 
 			if (self->maxThinkTime != 0)
 			{
-				self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+				self->endX = playSoundToMap("sound/common/tick", -1, self->x, self->y, -1);
 			}
 
 			else if (total > 0)
@@ -177,7 +177,7 @@ static void touch(Entity *other)
 			setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 		}
 
-		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 	}
 }
 
@@ -187,7 +187,7 @@ static void callTouch(Entity *other)
 	{
 		if (strcmpignorecase(other->name, self->requires) == 0)
 		{
-			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/switch", -1, self->x, self->y, 0);
 
 			self->active = TRUE;
 

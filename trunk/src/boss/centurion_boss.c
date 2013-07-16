@@ -147,7 +147,7 @@ static void doIntro()
 	{
 		if (self->maxThinkTime == 0)
 		{
-			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 
 			self->maxThinkTime = 1;
 		}
@@ -226,7 +226,7 @@ static void lookForPlayer()
 		{
 			if (self->flags & ON_GROUND)
 			{
-				playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 			}
 
 			self->maxThinkTime = 1;
@@ -301,7 +301,7 @@ static void stompAttack()
 {
 	setEntityAnimation(self, "ATTACK_2");
 
-	playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 	shakeScreen(MEDIUM, 60);
 
@@ -388,7 +388,7 @@ static void explosionAttack()
 
 	e->thinkTime = 300;
 
-	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
+	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake", -1, self->x, self->y, -1);
 
 	setEntityAnimation(self, "ATTACK_2");
 
@@ -526,7 +526,7 @@ static void die()
 
 	snprintf(name, sizeof(name), "boss/gold_centurion_boss_piece");
 	
-	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centurion/centurion_die", BOSS_CHANNEL, self->x, self->y, 0);
 
 	for (i=0;i<8;i++)
 	{
@@ -1171,7 +1171,7 @@ static void dropOnPlayer()
 
 		if ((self->flags & ON_GROUND))
 		{
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(LIGHT, 15);
 
@@ -1236,7 +1236,7 @@ static void creditsMove()
 			
 			self->maxThinkTime = 1;
 			
-			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = 0;
@@ -1288,7 +1288,7 @@ static void creditsMoveRegular()
 		{			
 			self->maxThinkTime = 1;
 			
-			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = 0;

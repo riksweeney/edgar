@@ -115,12 +115,12 @@ static void entityWait()
 
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->thinkTime = 30 + prand() % 30;
@@ -141,7 +141,7 @@ static void entityWait()
 
 			if (self->endY == -1)
 			{
-				playSoundToMap("sound/enemy/frog/croak.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/frog/croak", -1, self->x, self->y, 0);
 
 				self->endY = 0;
 			}
@@ -402,7 +402,7 @@ static void tongueTouch(Entity *other)
 
 		self->dirX = 0;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start", -1, self->x, self->y, 0);
 	}
 }
 
@@ -545,7 +545,7 @@ static void frogTouch(Entity *other)
 
 		other->fallout();
 
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", -1, self->x, self->y, 0);
 	}
 }
 
@@ -564,12 +564,12 @@ static void creditsMove()
 
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->thinkTime = 30 + prand() % 30;
@@ -585,7 +585,7 @@ static void creditsMove()
 
 			if (self->endY == -1)
 			{
-				playSoundToMap("sound/enemy/frog/croak.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/frog/croak", -1, self->x, self->y, 0);
 
 				self->endY = 0;
 			}

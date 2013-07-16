@@ -865,7 +865,7 @@ static void gargoyleDropAttack()
 
 		if (landedOnGround(onGround) == TRUE)
 		{
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			for (i=0;i<30;i++)
 			{
@@ -920,7 +920,7 @@ static void gargoyleLanceStabMoveToTarget()
 
 		self->reactToBlock = &gargoyleLanceStabReactToBlock;
 
-		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab", -1, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -1135,7 +1135,7 @@ static void gargoyleInvisibleDrop()
 				}
 			}
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			self->flags &= ~NO_DRAW;
 
@@ -1295,7 +1295,7 @@ static void gargoyleLanceThrow()
 			self->currentFrame = currentFrame;
 			self->frameTimer = frameTimer;
 
-			playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab", -1, self->x, self->y, 0);
 
 			self->target->mental = -1;
 
@@ -1355,7 +1355,7 @@ static void gargoyleCreateLance()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/boss/gargoyle/gargoyle_create_lance.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/gargoyle/gargoyle_create_lance", -1, self->x, self->y, 0);
 
 		e = getFreeEntity();
 
@@ -1499,7 +1499,7 @@ static void gargoyleLanceDrop()
 
 		setEntityAnimation(self, "LANCE_IN_GROUND");
 
-		playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 
 		self->action = &gargoyleLanceAttack3;
 
@@ -1515,7 +1515,7 @@ static void gargoyleLanceDie()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 
@@ -1572,7 +1572,7 @@ static void gargoylePetrifyAttack()
 
 		else
 		{
-			playSoundToMap("sound/boss/gargoyle/gargoyle_petrify.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/gargoyle/gargoyle_petrify", -1, self->x, self->y, 0);
 
 			fadeFromColour(255, 255, 0, 30);
 
@@ -1639,7 +1639,7 @@ static void gargoyleWeaponRemoveBlast()
 	{
 		setEntityAnimation(self, "WEAPON_REMOVE");
 
-		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/gargoyle_weapon_remove_blast", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
@@ -1717,7 +1717,7 @@ static void gargoyleBlastRemoveWeapon(Entity *other)
 			e->flags |= LIMIT_TO_SCREEN;
 		}
 
-		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/punch", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setCustomAction(other, &invulnerable, 60, 0, 0);
 
@@ -1857,7 +1857,7 @@ static void gargoyleFakeLanceDropInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->y = t->y;
 
@@ -1942,7 +1942,7 @@ static void gargoyleFakeLanceDropWait()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->action = &gargoyleFakeLanceDrop;
 
@@ -1969,7 +1969,7 @@ static void gargoyleFakeLanceDrop()
 		{
 			self->thinkTime = 600;
 
-			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 		}
 
 		else
@@ -2034,7 +2034,7 @@ static void gargoyleLanceExplode()
 
 	e->reactToBlock = &bounceOffShield;
 
-	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/explosion", -1, self->x, self->y, 0);
 
 	self->head->endX--;
 
@@ -2072,7 +2072,7 @@ static void gargoyleDie()
 
 	if (landedOnGround(onGround) == TRUE)
 	{
-		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 		shakeScreen(MEDIUM, 30);
 
@@ -2111,7 +2111,7 @@ static void gargoyleDie()
 
 				self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-				playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &transformRemove;
 			}
@@ -2352,7 +2352,7 @@ static void guardianHeadWait()
 
 	if (prand() % 180 == 0)
 	{
-		playSoundToMap("sound/boss/snake_boss/hiss.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/hiss", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -2604,7 +2604,7 @@ static void guardianShotAttack()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot", BOSS_CHANNEL, self->x, self->y, 0);
 
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
@@ -3077,7 +3077,7 @@ static void guardianFallToGround()
 
 	if (self->thinkTime == 0)
 	{
-		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_die", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->flags &= ~FLY;
 
@@ -3090,7 +3090,7 @@ static void guardianFallToGround()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		setEntityAnimation(self, "PAIN");
 
@@ -3150,7 +3150,7 @@ static void guardianDieWait()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -3302,7 +3302,7 @@ static void guardianAddSmokeAlongBody()
 		addSmoke((self->face == LEFT ? self->x : self->endX) + (prand() % bodyLength), self->y + prand() % self->h, "decoration/dust");
 	}
 
-	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 }
 
 static void guardianBodyTakeDamage(Entity *other, int damage)
@@ -3452,7 +3452,7 @@ static void awesomeIntro()
 
 		e->head = self;
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->thinkTime = 15;
 
@@ -3561,7 +3561,7 @@ static void awesomeTeleportOut()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &awesomeTeleportWait;
 
@@ -3618,7 +3618,7 @@ static void awesomeTeleportWait()
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			self->action = &awesomeTeleportIn;
 
@@ -3653,7 +3653,7 @@ static void awesomeTeleportWait()
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			self->action = &awesomeHealPartner;
 
@@ -3763,7 +3763,7 @@ static void awesomeFireballAttackInit()
 
 	facePlayer();
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->flags &= ~NO_DRAW;
 
@@ -3852,7 +3852,7 @@ static void awesomeFireballAttack()
 
 			self->action = &awesomeFireballAttackFinished;
 
-			playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/awesome_boss/hadouken", -1, self->x, self->y, 0);
 		}
 	}
 }
@@ -3897,7 +3897,7 @@ static void awesomeSuperFireballAttackInit()
 {
 	facePlayer();
 
-	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->flags &= ~NO_DRAW;
 
@@ -3993,7 +3993,7 @@ static void awesomeSuperFireballAttack()
 					e->x += self->face == RIGHT ? -2 : 2;
 				}
 
-				playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/boss/awesome_boss/hadouken", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->thinkTime = 120;
 
@@ -4032,7 +4032,7 @@ static void awesomeSuperSpearAttackInit()
 {
 	facePlayer();
 
-	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->flags &= ~NO_DRAW;
 
@@ -4351,7 +4351,7 @@ static void awesomeDropAttackInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->action = &awesomeDropAttack;
 
@@ -4376,7 +4376,7 @@ static void awesomeDropAttack()
 		{
 			addSmokeAlongBody();
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 		}
 
 		self->thinkTime--;
@@ -4419,7 +4419,7 @@ static void awesomeSuperDropAttackInit()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->touch = &entityTouch;
 
@@ -4441,7 +4441,7 @@ static void awesomeSuperDropAttack()
 		{
 			addSmokeAlongBody();
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			self->action = &awesomeSuperDropAttackFinished;
 		}
@@ -4606,7 +4606,7 @@ static void awesomeSpearWait()
 
 		else
 		{
-			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 
 			self->targetY = self->startY;
 
@@ -4674,7 +4674,7 @@ static void awesomeMeterDie()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -4891,7 +4891,7 @@ static void blobPunch()
 			{
 				self->flags &= ~NO_DRAW;
 
-				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 				shakeScreen(MEDIUM, 15);
 			}
@@ -4990,7 +4990,7 @@ static void blobBounceAround()
 	{
 		if (onGround == 0)
 		{
-			playSoundToMap("sound/boss/blob_boss/bounce.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/blob_boss/bounce", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		self->maxThinkTime--;
@@ -5097,7 +5097,7 @@ static void blobSpinAttack()
 
 		self->thinkTime = 0;
 
-		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 		facePlayer();
 	}
@@ -5248,7 +5248,7 @@ static void blobDie()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -5366,7 +5366,7 @@ static void queenWaspWait()
 
 		self->damage = 1;
 
-		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/buzz", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -5518,7 +5518,7 @@ static void queenWaspDrop()
 
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(LIGHT, 15);
 
@@ -5588,7 +5588,7 @@ static void queenWaspFireBullets()
 	{
 		self->maxThinkTime--;
 
-		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_shot", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
@@ -5650,7 +5650,7 @@ static void queenWaspFireSlime()
 	{
 		self->maxThinkTime--;
 
-		playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/grub_boss/fire", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
@@ -5876,7 +5876,7 @@ static void queenWaspDie()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -6096,7 +6096,7 @@ static void kingGrubSpit()
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 2.5 : -2.5), -12);
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 5.5 : -5.5), -12);
 
-	playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/grub_boss/fire", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime--;
 
@@ -6127,7 +6127,7 @@ static void kingGrubSpinAttackStart()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
@@ -6149,7 +6149,7 @@ static void kingGrubSpinAttack()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
@@ -6199,7 +6199,7 @@ static void kingGrubBounceAttackStart()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? 3 : -3);
 
@@ -6223,7 +6223,7 @@ static void kingGrubBounceAttack()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->dirY = -14;
 	}
@@ -6232,7 +6232,7 @@ static void kingGrubBounceAttack()
 	{
 		shakeScreen(MEDIUM, 15);
 
-		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
@@ -6307,7 +6307,7 @@ static void kingGrubTakeDamage(Entity *other, int damage)
 
 			self->startX = self->x;
 
-			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/grub_boss/death", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		if (other->type == PROJECTILE)
@@ -6338,7 +6338,7 @@ static void kingGrubDie()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -6462,7 +6462,7 @@ static void blackBookShudder()
 	{
 		e = addTemporaryItem("boss/black_book_page", self->x, self->y, self->face, 0, 0);
 
-		playSoundToMap("sound/boss/black_book/page.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/black_book/page", -1, self->x, self->y, 0);
 
 		e->targetX = self->x + SCREEN_WIDTH;
 		e->targetY = self->y + (prand() % 96) * (prand() % 2 == 0 ? -1 : 1);

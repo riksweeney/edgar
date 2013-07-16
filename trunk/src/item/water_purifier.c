@@ -77,7 +77,7 @@ static void dropPurifierCapsule(int val)
 
 		e->fallout = &capsuleFallout;
 
-		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		self->thinkTime = self->maxThinkTime;
 	}

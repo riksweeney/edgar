@@ -90,7 +90,7 @@ static void lookForPlayer()
 		{
 			if (self->health == 0)
 			{
-				playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/gazer/flap", -1, self->x, self->y, 0);
 
 				self->health = 1;
 			}
@@ -103,7 +103,7 @@ static void lookForPlayer()
 
 		if (player.health > 0 && player.alpha == 255 && collision(self->x + self->w / 2 - 10, self->y, 20, self->endY, player.x, player.y, player.w, player.h) == 1)
 		{
-			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/gazer/growl", -1, self->x, self->y, 0);
 
 			setInfoBoxMessage(120, 255, 255, 255, _("INTRUDER!"));
 
@@ -147,7 +147,7 @@ static void closedEyeMove()
 	{
 		if (self->health == 0)
 		{
-			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/gazer/flap", -1, self->x, self->y, 0);
 
 			self->health = 1;
 		}
@@ -177,7 +177,7 @@ static void closedEyeMove()
 
 	if (player.health > 0 && self->mental == 0 && collision(self->x + self->w / 2 - 10, self->y, 20, self->endY, player.x, player.y, player.w, player.h) == 1)
 	{
-		playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/gazer/growl", -1, self->x, self->y, 0);
 
 		setInfoBoxMessage(120, 255, 255, 255, _("INTRUDER!"));
 
@@ -230,7 +230,7 @@ static void teleportPlayer()
 
 		self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : -1), self->target->x, self->target->y, 0);
+		playSoundToMap("sound/common/teleport", (self->target->type == PLAYER ? EDGAR_CHANNEL : -1), self->target->x, self->target->y, 0);
 
 		self->target = NULL;
 	}

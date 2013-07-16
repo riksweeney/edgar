@@ -74,7 +74,7 @@ static void useBottle(int val)
 
 	if (game.status == IN_GAME && player.element != WATER)
 	{
-		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", -1, player.x, player.y, 0);
 		
 		e = addEntity(*self, player.x + (player.face == LEFT ? 0 : player.w), player.y);
 
@@ -181,9 +181,9 @@ static void soulTouch(Entity *other)
 
 		self->mental = 11;
 		
-		playSoundToMap("sound/enemy/spirit/spirit_explode.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/spirit/spirit_explode", -1, self->x, self->y, 0);
 		
-		self->endX = playSoundToMap("sound/enemy/spirit/spirit_scream.ogg", -1, self->x, self->y, 0);
+		self->endX = playSoundToMap("sound/enemy/spirit/spirit_scream", -1, self->x, self->y, 0);
 	}
 }
 
@@ -198,7 +198,7 @@ static void bottleFill()
 		
 		stopSound(self->endX);
 		
-		playSoundToMap("sound/item/cork.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/cork", -1, self->x, self->y, 0);
 
 		loadProperties("item/full_soul_bottle", self);
 

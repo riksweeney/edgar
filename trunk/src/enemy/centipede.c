@@ -145,7 +145,7 @@ static void headMove()
 
 static void die()
 {
-	playSoundToMap("sound/enemy/centipede/centipede_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centipede/centipede_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }

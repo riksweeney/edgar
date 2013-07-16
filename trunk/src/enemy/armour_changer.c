@@ -322,7 +322,7 @@ static void die()
 {
 	Entity *e;
 
-	playSoundToMap("sound/enemy/armadillo/armadillo_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/armadillo/armadillo_die", -1, self->x, self->y, 0);
 
 	if (prand() % 3 != 0)
 	{
@@ -416,7 +416,7 @@ static void takeDamage(Entity *other, int damage)
 
 	if (strcmpignorecase(other->name, self->requires) != 0)
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{

@@ -549,6 +549,7 @@ void saveGame(int slot)
 	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
 	char saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapFilename();
+	char tempSaveFile[MAX_PATH_LENGTH];
 	int i;
 	unsigned char *buffer;
 	int skipping = FALSE;
@@ -582,9 +583,11 @@ void saveGame(int slot)
 		/* Backup older save */
 
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+		
+		snprintf(tempSaveFile, sizeof(tempSaveFile), "%stempsave%d", gameSavePath, slot);
 	}
 
-	write = fopen(saveFile, "wb");
+	write = fopen(tempSaveFile, "wb");
 
 	fprintf(write, "VERSION %0.2f\n", VERSION);
 
@@ -741,10 +744,14 @@ void saveGame(int slot)
 	fclose(write);
 
 	#if DEV == 1
-		copyFile(saveFile, "savedata");
+		copyFile(tempSaveFile, "savedata");
 	#endif
 
-	compressFile(saveFile);
+	compressFile(tempSaveFile);
+	
+	copyFile(tempSaveFile, saveFile);
+	
+	remove(tempSaveFile);
 
 	updateSaveFileIndex(slot);
 }

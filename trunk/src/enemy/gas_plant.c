@@ -161,7 +161,7 @@ static void sprayGas()
 			e->y = self->y + e->offsetY;
 		}
 
-		playSoundToMap("sound/item/spray.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/spray", -1, self->x, self->y, 0);
 
 		self->mental = self->mental >= 0 ? 0 : -3;
 

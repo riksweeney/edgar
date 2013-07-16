@@ -76,7 +76,7 @@ Entity *addScorpion(int x, int y, char *name)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }

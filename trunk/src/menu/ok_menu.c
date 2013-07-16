@@ -58,7 +58,7 @@ static void doMenu()
 	{
 		w = menu.widgets[menu.index];
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 
 		if (w->clickAction != NULL)
 		{

@@ -165,7 +165,7 @@ static void activate(int val)
 
 			setEntityAnimation(self, "RING");
 
-			snprintf(tune, MAX_VALUE_LENGTH, "sound/item/bell%d.ogg", self->mental);
+			snprintf(tune, MAX_VALUE_LENGTH, "sound/item/bell%d", self->mental);
 
 			playSoundToMap(tune, -1, self->x, self->y, 0);
 

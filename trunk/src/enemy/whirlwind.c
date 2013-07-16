@@ -130,7 +130,7 @@ static void touch(Entity *other)
 
 		self->action = &suckIn;
 
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", -1, self->x, self->y, 0);
 
 		self->targetX = self->x + self->w / 2 - other->w / 2;
 	}
@@ -157,7 +157,7 @@ static void touch(Entity *other)
 
 		other->parent = self;
 
-		playSoundToMap("sound/enemy/whirlwind/ricochet.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/ricochet", -1, self->x, self->y, 0);
 	}
 }
 
@@ -254,7 +254,7 @@ static void die()
 		}
 	}
 	
-	playSoundToMap("sound/enemy/whirlwind/whirlwind_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/whirlwind/whirlwind_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }

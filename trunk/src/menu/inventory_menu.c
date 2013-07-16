@@ -34,7 +34,7 @@ void doInventoryMenu()
 
 		input.up = FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (input.down == TRUE)
@@ -43,7 +43,7 @@ void doInventoryMenu()
 
 		input.down = FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	if (input.left == TRUE)
@@ -52,7 +52,7 @@ void doInventoryMenu()
 
 		input.left = FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (input.right == TRUE)
@@ -61,7 +61,7 @@ void doInventoryMenu()
 
 		input.right= FALSE;
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	if (input.attack == TRUE || input.activate == TRUE)
@@ -74,7 +74,7 @@ void doInventoryMenu()
 
 		useInventoryItem();
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (input.block == TRUE || input.interact == TRUE)
@@ -85,7 +85,7 @@ void doInventoryMenu()
 
 		selectInventoryItem();
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 	
 	else if (input.next == TRUE)
@@ -94,7 +94,7 @@ void doInventoryMenu()
 		
 		moveInventoryItem(1);
 		
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 	
 	else if (input.previous == TRUE)
@@ -103,7 +103,7 @@ void doInventoryMenu()
 		
 		moveInventoryItem(-1);
 		
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 }
 

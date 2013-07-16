@@ -185,7 +185,7 @@ static void displayInputCode()
 
 		else
 		{
-			playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/charge_beep", -1, self->x, self->y, 0);
 
 			self->mental++;
 
@@ -251,7 +251,7 @@ static void readInputCode()
 
 		if ((int)self->target->requires[self->mental] == val)
 		{
-			playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/charge_beep", -1, self->x, self->y, 0);
 
 			self->mental++;
 
@@ -273,7 +273,7 @@ static void readInputCode()
 
 		else
 		{
-			playSoundToMap("sound/item/buzzer.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/buzzer", -1, self->x, self->y, 0);
 
 			self->mental = 0;
 

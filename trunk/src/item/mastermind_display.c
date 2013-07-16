@@ -143,7 +143,7 @@ static void activate(int val)
 
 		else
 		{
-			playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/click", -1, self->x, self->y, 0);
 		}
 	}
 
@@ -158,13 +158,13 @@ static void activate(int val)
 
 		else
 		{
-			playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/click", -1, self->x, self->y, 0);
 		}
 	}
 
 	else if (val == 3)
 	{
-		playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/click", -1, self->x, self->y, 0);
 
 		activatePeg();
 	}

@@ -189,7 +189,7 @@ static void createElectricity()
 
 	loadProperties("enemy/tortoise_electricity", e);
 
-	playSoundToMap("sound/enemy/tortoise/tortoise_electric.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_electric", -1, self->x, self->y, 0);
 
 	setEntityAnimation(e, "STAND");
 
@@ -378,7 +378,7 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }

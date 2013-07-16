@@ -79,7 +79,7 @@ static void burnStart()
 
 	if (self->startY == -1)
 	{
-		self->startX = playSoundToMap("sound/enemy/fire_burner/flame.ogg", -1, self->x, self->y, 0);
+		self->startX = playSoundToMap("sound/enemy/fire_burner/flame", -1, self->x, self->y, 0);
 	}
 
 	self->thinkTime = self->maxThinkTime;

@@ -250,7 +250,7 @@ static void die()
 {
 	Entity *e;
 
-	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/gazer/gazer_die", -1, self->x, self->y, 0);
 
 	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL)
 	{
@@ -302,7 +302,7 @@ static void teleportAway()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &lookForPlayer;
 
@@ -401,7 +401,7 @@ static void lightningBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->targetX, self->startY, 0);
 
 		for (i=self->startY;i<self->endY;i+=32)
 		{

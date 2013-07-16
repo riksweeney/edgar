@@ -132,7 +132,7 @@ static void die()
 
 	self->thinkTime = self->maxThinkTime;
 
-	playSoundToMap("sound/common/crumble.ogg", 4, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", 4, self->x, self->y, 0);
 }
 
 static void dieWait()

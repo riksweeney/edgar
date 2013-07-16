@@ -6,7 +6,7 @@ IF CONFIRM_YES
 TALK Edgar Where's the switch?
 WAIT 60
 TALK Edgar Ah, here it is!
-PLAY_SOUND sound/common/switch.ogg
+PLAY_SOUND sound/common/switch
 MUSIC FADE_DOWN 3000
 WAIT 60
 ACTIVATE_OBJECTIVE FINAL_GENERATOR

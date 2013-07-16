@@ -94,7 +94,7 @@ static void entityWait()
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
 			
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", BOSS_CHANNEL, self->x, self->y, 0);
 			
 			self->mental = 1;
 		}

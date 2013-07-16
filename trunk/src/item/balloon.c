@@ -102,7 +102,7 @@ static void hover()
 
 static void die()
 {
-	playSoundToMap("sound/item/burst.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/item/burst", -1, self->x, self->y, 0);
 
 	self->target->dirY = 0;
 

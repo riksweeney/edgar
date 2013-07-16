@@ -104,7 +104,7 @@ static void entityWait()
 
 	if (self->mental == 1)
 	{
-		playSoundToMap("sound/item/crossbow.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/item/crossbow", -1, self->x, self->y, 0);
 
 		self->target->dirX = 12;
 

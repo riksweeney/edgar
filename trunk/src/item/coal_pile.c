@@ -131,7 +131,7 @@ static void touch(Entity *other)
 		{
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 		}
 	}
 }

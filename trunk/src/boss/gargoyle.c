@@ -234,7 +234,7 @@ static void doIntro()
 	{
 		shakeScreen(MEDIUM, 30);
 
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		for (i=0;i<30;i++)
 		{
@@ -262,7 +262,7 @@ static void introFinish()
 	{
 		if (self->mental == 0)
 		{
-			playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+			playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh", BOSS_CHANNEL, self->x, self->y, -1);
 
 			self->mental = 1;
 		}
@@ -730,7 +730,7 @@ static void dropAttack()
 
 		if (landedOnGround(onGround) == TRUE)
 		{
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			for (i=0;i<30;i++)
 			{
@@ -899,7 +899,7 @@ static void orbCastLightning1()
 	{
 		if (self->health == -1)
 		{
-			playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->x, self->y, 0);
 		}
 
 		for (i=self->endY-32;i>=self->startY;i-=32)
@@ -1007,7 +1007,7 @@ static void lanceStabMoveToTarget()
 
 		self->reactToBlock = &lanceStabReactToBlock;
 
-		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab", -1, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -1222,7 +1222,7 @@ static void invisibleDrop()
 				}
 			}
 
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 			self->flags &= ~NO_DRAW;
 
@@ -1425,7 +1425,7 @@ static void bridgeDestroy()
 		self->currentFrame = currentFrame;
 		self->frameTimer = frameTimer;
 
-		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab", -1, self->x, self->y, 0);
 
 		self->target->mental = -2;
 
@@ -1537,7 +1537,7 @@ static void lanceThrow()
 			self->currentFrame = currentFrame;
 			self->frameTimer = frameTimer;
 
-			playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab", -1, self->x, self->y, 0);
 
 			self->target->mental = -1;
 
@@ -1597,7 +1597,7 @@ static void createLance()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/boss/gargoyle/gargoyle_create_lance.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/gargoyle/gargoyle_create_lance", -1, self->x, self->y, 0);
 
 		e = getFreeEntity();
 
@@ -1823,7 +1823,7 @@ static void lanceDrop()
 
 		setEntityAnimation(self, "LANCE_IN_GROUND");
 
-		playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 
 		switch (self->maxThinkTime)
 		{
@@ -1852,7 +1852,7 @@ static void lanceDie()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 
@@ -1909,7 +1909,7 @@ static void petrifyAttack()
 
 		else
 		{
-			playSoundToMap("sound/boss/gargoyle/gargoyle_petrify.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/boss/gargoyle/gargoyle_petrify", -1, self->x, self->y, 0);
 
 			fadeFromColour(255, 255, 0, 30);
 
@@ -1976,7 +1976,7 @@ static void weaponRemoveBlast()
 	{
 		setEntityAnimation(self, "WEAPON_REMOVE");
 
-		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/gargoyle_weapon_remove_blast", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
@@ -2054,7 +2054,7 @@ static void blastRemoveWeapon(Entity *other)
 			e->flags |= LIMIT_TO_SCREEN;
 		}
 
-		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/punch", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setCustomAction(other, &invulnerable, 60, 0, 0);
 
@@ -2228,7 +2228,7 @@ static void fakeLanceDropInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->y = t->y;
 
@@ -2313,7 +2313,7 @@ static void fakeLanceDropWait()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->action = &fakeLanceDrop;
 
@@ -2340,7 +2340,7 @@ static void fakeLanceDrop()
 		{
 			self->thinkTime = 600;
 
-			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 		}
 
 		else
@@ -2405,7 +2405,7 @@ static void lanceExplode()
 
 	e->reactToBlock = &bounceOffShield;
 
-	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/explosion", -1, self->x, self->y, 0);
 
 	self->head->endX--;
 
@@ -2562,7 +2562,7 @@ static void orbCastLightning2()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->x, self->y, 0);
 
 		for (i=self->endY-32;i>=self->startY;i-=32)
 		{
@@ -2734,7 +2734,7 @@ static void lanceAttackTeleportFinish()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		self->touch = NULL;
 
@@ -2841,7 +2841,7 @@ static void die()
 
 	if (landedOnGround(onGround) == TRUE)
 	{
-		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 		shakeScreen(MEDIUM, 30);
 
@@ -2921,7 +2921,7 @@ static void dieWait()
 
 				self->maxThinkTime = 5;
 
-				playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+				playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh", BOSS_CHANNEL, self->x, self->y, -1);
 			break;
 
 			case 5:
@@ -3014,7 +3014,7 @@ static void stoneTakeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -3059,7 +3059,7 @@ static void stoneDie()
 		e->thinkTime = 60 + (prand() % 60);
 	}
 
-	playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }
@@ -3202,6 +3202,6 @@ static void falloutWait()
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }

@@ -167,7 +167,7 @@ static void moveToTarget()
 
 		if (self->dirX != 0 || self->dirY != 0)
 		{
-			playSoundToMap("sound/common/door.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/door", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = 0;

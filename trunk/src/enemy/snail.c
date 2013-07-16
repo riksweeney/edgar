@@ -96,7 +96,7 @@ static void takeDamage(Entity *other, int damage)
 		{
 			if (strcmpignorecase(other->name, "weapon/pickaxe") != 0)
 			{
-				playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
@@ -157,7 +157,7 @@ static void die()
 		e->x += (self->w - e->w) / 2;
 	}
 	
-	playSoundToMap("sound/enemy/snail/snail_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/snail/snail_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }
@@ -188,7 +188,7 @@ static void spitAttackInit()
 {
 	setEntityAnimation(self, "ATTACK_1");
 
-	playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/snail/spit", -1, self->x, self->y, 0);
 
 	self->animationCallback = &spitAttack;
 
