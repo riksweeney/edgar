@@ -110,7 +110,7 @@ static void entityWait()
 			{
 				if (self->startX == -1)
 				{
-					playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
 				}
 
 				self->health = 15;

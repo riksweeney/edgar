@@ -132,7 +132,7 @@ static void shockTarget()
 
 	setEntityAnimation(e, "STAND");
 
-	playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/item/tesla_electrocute", -1, self->x, self->y, 0);
 
 	temp = self;
 

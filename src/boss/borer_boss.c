@@ -133,7 +133,7 @@ static void initialise()
 
 		setContinuePoint(FALSE, self->name, NULL);
 
-		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 
 		shakeScreen(LIGHT, -1);
 	}
@@ -272,7 +272,7 @@ static void entityWait()
 	{
 		self->targetX = self->x + self->w + 16;
 
-		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/ant_lion/earthquake", BOSS_CHANNEL, self->x, self->y, -1);
 
 		shakeScreen(LIGHT, -1);
 
@@ -296,7 +296,7 @@ static void entityWait()
 
 				self->mental = 10;
 
-				playSoundToMap("sound/boss/borer_boss/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/boss/borer_boss/breathe_in", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &fireRocksInit;
 			}
@@ -508,7 +508,7 @@ static void rockMove()
 
 	if (self->dirX == 0)
 	{
-		playSoundToMap("sound/common/rock_bounce.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/rock_bounce", -1, self->x, self->y, 0);
 		
 		e = addSmallRock(self->x, self->y, "common/small_rock");
 
@@ -554,7 +554,7 @@ static void boulderMove()
 			e->thinkTime = 60 + (prand() % 60);
 		}
 		
-		playSoundToMap("sound/common/rock_shatter.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/rock_shatter", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
 	}
@@ -615,7 +615,7 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -758,7 +758,7 @@ static void tentacleAttack()
 	{
 		if (dirX != 0)
 		{
-			playSoundToMap("sound/common/crunch.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crunch", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(MEDIUM, 15);
 		}
@@ -1146,7 +1146,7 @@ static void redTentacleAttackInit()
 
 		self->action = &redTentacleAttack;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -1409,7 +1409,7 @@ static void slimePlayer(Entity *other)
 
 static void slimeDie()
 {
-	playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/splat3", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }

@@ -76,7 +76,7 @@ static void init()
 	
 	if (self->targetX != -1)
 	{
-		playSoundToMap("sound/boss/grimlore/grimlore_summon.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/grimlore/grimlore_summon", BOSS_CHANNEL, self->x, self->y, -1);
 		
 		self->targetX = -1;
 	}

@@ -124,7 +124,7 @@ static void entityWait()
 
 			if (i == 0)
 			{
-				e->endY = playSoundToMap("sound/enemy/fire_burner/flame.ogg", -1, self->x, self->y, -1);
+				e->endY = playSoundToMap("sound/enemy/fire_burner/flame", -1, self->x, self->y, -1);
 			}
 
 			else
@@ -168,7 +168,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "weapon/pickaxe") != 0)
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
@@ -270,7 +270,7 @@ static void die()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 

@@ -108,7 +108,7 @@ static void lookForPlayer()
 		{
 			if (self->flags & ON_GROUND)
 			{
-				playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 			}
 
 			self->maxThinkTime = 1;
@@ -189,7 +189,7 @@ static void stompAttack()
 {
 	setEntityAnimation(self, "ATTACK_2");
 
-	playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 	shakeScreen(MEDIUM, 60);
 
@@ -260,7 +260,7 @@ static void explosionAttack()
 
 	e->flags |= NO_DRAW|DO_NOT_PERSIST;
 
-	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
+	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake", -1, self->x, self->y, -1);
 
 	setEntityAnimation(self, "ATTACK_2");
 
@@ -383,7 +383,7 @@ static void die()
 
 	fireGlobalTrigger(self->objectiveName);
 	
-	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	for (i=0;i<9;i++)
 	{
@@ -426,7 +426,7 @@ static void redDie()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 	
-	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 
@@ -683,7 +683,7 @@ static void creditsMove()
 		{
 			self->maxThinkTime = 1;
 			
-			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = 0;
@@ -723,7 +723,7 @@ static void redCreditsMove()
 			
 			self->maxThinkTime = 1;
 			
-			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = 0;

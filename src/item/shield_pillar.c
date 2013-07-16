@@ -67,7 +67,7 @@ static void entityWait()
 {
 	if (self->active == TRUE)
 	{
-		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake", -1, self->x, self->y, -1);
 		
 		self->action = &sink;
 	}

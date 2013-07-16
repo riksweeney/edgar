@@ -640,7 +640,7 @@ static void swordStabPause()
 
 		self->maxThinkTime = 4;
 
-		playSoundToMap("sound/enemy/ground_spear/spear.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/ground_spear/spear", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &shieldAttackWait;
 	}
@@ -778,7 +778,7 @@ static void swordStabRise()
 		{
 			if (self->thinkTime == 0)
 			{
-				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 				shakeScreen(MEDIUM, 15);
 			}
@@ -1010,7 +1010,7 @@ static void swordDie()
 		e->thinkTime = 60 + (prand() % 60);
 	}
 
-	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/shatter", BOSS_CHANNEL, player.x, player.y, 0);
 
 	self->inUse = FALSE;
 }
@@ -1071,7 +1071,7 @@ static void armourDie()
 		e->thinkTime = 60 + (prand() % 60);
 	}
 
-	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/shatter", BOSS_CHANNEL, player.x, player.y, 0);
 
 	self->inUse = FALSE;
 }
@@ -1105,7 +1105,7 @@ static void shieldDie()
 		e->thinkTime = 60 + (prand() % 60);
 	}
 
-	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/shatter", BOSS_CHANNEL, player.x, player.y, 0);
 
 	self->inUse = FALSE;
 }
@@ -1120,7 +1120,7 @@ static void swordDropInit()
 
 	setEntityAnimation(self, "KNEEL");
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -1154,7 +1154,7 @@ static void swordDrop()
 
 		if (self->thinkTime <= 0)
 		{
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -1170,7 +1170,7 @@ static void swordDrop()
 	{
 		setEntityAnimation(self, "KNEEL_STAB");
 
-		playSoundToMap("sound/enemy/red_grub/thud.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/thud", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(LIGHT, 15);
 
@@ -1198,7 +1198,7 @@ static void swordDropTeleportAway()
 
 		if (!(self->flags & NO_DRAW))
 		{
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			setCustomAction(self, &invulnerableNoFlash, self->thinkTime, 0, 0);
 
@@ -1794,7 +1794,7 @@ static void shieldFlameAttack()
 
 		e->endX = e->face == LEFT ? getMapStartX() - SCREEN_WIDTH : getMapStartX() + SCREEN_WIDTH;
 
-		e->endY = playSoundToMap("sound/enemy/fire_burner/flame.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		e->endY = playSoundToMap("sound/enemy/fire_burner/flame", BOSS_CHANNEL, self->x, self->y, -1);
 
 		self->thinkTime = 60;
 
@@ -2042,7 +2042,7 @@ static void magicMissileAttack()
 
 		e = addMagicMissile(self->x, self->y, "enemy/magic_missile");
 
-		playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/awesome_boss/hadouken", BOSS_CHANNEL, self->x, self->y, 0);
 
 		if (self->face == LEFT)
 		{
@@ -2086,7 +2086,7 @@ static void beamAttackInit()
 
 	setEntityAnimation(self, "BEAM_ATTACK");
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -2122,7 +2122,7 @@ static void beamAttack()
 		{
 			self->x = getMapStartX() + SCREEN_WIDTH / 2 - self->w / 2;
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -2165,7 +2165,7 @@ static void beamAttack()
 
 			e->draw = &beamDraw;
 
-			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_beam.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_beam", BOSS_CHANNEL, self->x, self->y, 0);
 
 			e->head = self;
 
@@ -2600,7 +2600,7 @@ static void itemDestroyWait()
 
 				setEntityAnimationByID(self->target, self->target->health);
 
-				playSoundToMap("sound/item/charge_beep.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/item/charge_beep", BOSS_CHANNEL, self->x, self->y, 0);
 			}
 		}
 
@@ -2692,7 +2692,7 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		temp = self->mental == 1 ? self : self->head;
 
@@ -2764,7 +2764,7 @@ static void crushAttackInit()
 
 	self->layer = BACKGROUND_LAYER;
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -2797,7 +2797,7 @@ static void crushToMiddleAttackInit()
 
 	self->layer = BACKGROUND_LAYER;
 
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -3133,7 +3133,7 @@ static void fistCrush()
 
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 			shakeScreen(MEDIUM, 15);
 
@@ -3219,7 +3219,7 @@ static void fistMoveToMiddle()
 
 			if (onGround == 0 && (self->flags & ON_GROUND))
 			{
-				playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 				shakeScreen(MEDIUM, 15);
 

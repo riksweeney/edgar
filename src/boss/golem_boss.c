@@ -309,7 +309,7 @@ static void stompShake()
 {
 	setEntityAnimation(self, "ATTACK_2");
 
-	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 	shakeScreen(STRONG, 120);
 
@@ -426,7 +426,7 @@ static void takeDamage(Entity *other, int damage)
 			self->health = 19;
 		}
 
-		playSoundToMap("sound/common/rock_shatter.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/rock_shatter", -1, self->x, self->y, 0);
 
 		setCustomAction(self, &flashWhite, 6, 0, 0);
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
@@ -446,7 +446,7 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -595,7 +595,7 @@ static void jumpAttack()
 
 			shakeScreen(MEDIUM, 30);
 
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 			for (i=0;i<30;i++)
 			{
@@ -681,7 +681,7 @@ static void explodeOnGround()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 		
 		for (i=0;i<20;i++)
 		{
@@ -932,7 +932,7 @@ static void headWait()
 
 		if (self->thinkTime <= 0)
 		{
-			playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+			playSoundToMap("sound/boss/boulder_boss/roll", BOSS_CHANNEL, self->x, self->y, -1);
 
 			shakeScreen(MEDIUM, -1);
 

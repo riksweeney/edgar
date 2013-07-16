@@ -728,15 +728,15 @@ void enemyPain()
 	switch (i)
 	{
 		case 0:
-			playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/splat1", -1, self->x, self->y, 0);
 		break;
 
 		case 1:
-			playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/splat2", -1, self->x, self->y, 0);
 		break;
 
 		default:
-			playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/splat3", -1, self->x, self->y, 0);
 		break;
 	}
 }
@@ -1793,7 +1793,7 @@ void doTeleport()
 
 		if (!(self->flags & NO_END_TELEPORT_SOUND))
 		{
-			playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport", -1, self->x, self->y, 0);
 		}
 	}
 
@@ -1955,7 +1955,7 @@ void teleportEntityFromScript(Entity *e, char *line)
 
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-	playSoundToMap("sound/common/teleport.ogg", -1, e->x, e->y, 0);
+	playSoundToMap("sound/common/teleport", -1, e->x, e->y, 0);
 }
 
 int landedOnGround(long wasOnGround)

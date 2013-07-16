@@ -145,7 +145,7 @@ static void beamAttackInit()
 
 				if (j == 0)
 				{
-					e->targetX = playSoundToMap("sound/enemy/laser/zap.ogg", -1, self->x, self->y, -1);
+					e->targetX = playSoundToMap("sound/enemy/laser/zap", -1, self->x, self->y, -1);
 				}
 			}
 

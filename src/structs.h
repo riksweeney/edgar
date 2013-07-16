@@ -336,6 +336,7 @@ typedef struct Credits
 {
 	int line, lineCount, entityID, fading, alpha;
 	int startDelay, nextEntityDelay, status;
+	float speed;
 	CreditLine *creditLine;
 	SDL_Surface *edgarLogo, *prLogo, *fadeSurface;
 } Credits;

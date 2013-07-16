@@ -186,7 +186,7 @@ static void wakeUp()
 
 	setEntityAnimation(self, "CUSTOM_3");
 
-	playSoundToMap("sound/boss/armour_boss/growl.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/boss/armour_boss/growl", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime = 60;
 
@@ -276,7 +276,7 @@ static void lookForPlayer()
 
 				self->dirX = 0;
 
-				playSoundToMap("sound/boss/armour_boss/growl.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/boss/armour_boss/growl", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &chargeAttackStart;
 				
@@ -319,7 +319,7 @@ static void lookForPlayer()
 
 			self->action = &growl;
 
-			playSoundToMap("sound/boss/armour_boss/growl.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/armour_boss/growl", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 	}
 
@@ -411,7 +411,7 @@ static void tongueAttack()
 
 		self->maxThinkTime = 1;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -494,7 +494,7 @@ static void tongueTouch(Entity *other)
 
 		self->touch = &entityTouch;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_hit.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_hit", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -739,7 +739,7 @@ static void takeDamage(Entity *other, int damage)
 
 				setEntityAnimation(self, "PAIN");
 
-				playSoundToMap("sound/boss/armour_boss/die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				playSoundToMap("sound/boss/armour_boss/die", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->damage = 0;
 
@@ -1110,7 +1110,7 @@ static void sawWait()
 
 	if (self->head->maxThinkTime == 3)
 	{
-		playSoundToMap("sound/boss/armour_boss/saw_start.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/saw_start", -1, self->x, self->y, 0);
 
 		self->thinkTime = 60 + (self->maxThinkTime * 30);
 
@@ -1236,7 +1236,7 @@ static void sawAttack()
 
 	else if (self->dirX != self->endX || self->dirY != self->endY)
 	{
-		self->health = playSoundToMap("sound/boss/armour_boss/saw_spin.ogg", -1, self->x, self->y, -1);
+		self->health = playSoundToMap("sound/boss/armour_boss/saw_spin", -1, self->x, self->y, -1);
 
 		if (self->dirX != self->endX)
 		{
@@ -1267,7 +1267,7 @@ static void sawAttackFinish()
 
 		stopSound(self->health);
 
-		playSoundToMap("sound/boss/armour_boss/saw_stop.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/saw_stop", -1, self->x, self->y, 0);
 
 		self->thinkTime = 0;
 
@@ -1382,7 +1382,7 @@ static void armourDie()
 
 	if ((self->flags & ON_GROUND) && onGround == 0)
 	{
-		playSoundToMap("sound/boss/armour_boss/clang.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/clang", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -1492,7 +1492,7 @@ static void chargeAttack()
 
 		self->dirY = -8;
 
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(MEDIUM, 60);
 
@@ -1573,7 +1573,7 @@ static void chargeAttackTouch(Entity *other)
 
 		setEntityAnimation(self, "STAND");
 
-		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/punch", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setCustomAction(other, &invulnerable, 30, 0, 0);
 		setCustomAction(other, &helpless, 30, 0, 0);

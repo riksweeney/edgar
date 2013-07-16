@@ -174,17 +174,17 @@ MUSIC FADE_DOWN 2000
 WAIT 60
 TALK Edgar Uh-Oh...
 FLASH_SCREEN 45
-PLAY_SOUND sound/common/explosion.ogg
+PLAY_SOUND sound/common/explosion
 SET CAULDRON PROPERTY MENTAL 2
 WAIT 90
 FLASH_SCREEN 45
-PLAY_SOUND sound/common/explosion.ogg
+PLAY_SOUND sound/common/explosion
 SET EDGAR ANIMATION DIE
 WAIT 90
 FLASH_SCREEN 300
-PLAY_SOUND sound/common/massive_explosion.ogg
+PLAY_SOUND sound/common/massive_explosion
 WAIT 180
-PLAY_SOUND sound/boss/evil_edgar/evil_edgar_appear.ogg
+PLAY_SOUND sound/boss/evil_edgar/evil_edgar_appear
 ACTIVATE_REQUIRED EVIL_EDGAR_TRIGGER
 WHILE EVIL_EDGAR MENTAL 0
 WALK_TO EVIL_EDGAR 21580 13322 WAIT

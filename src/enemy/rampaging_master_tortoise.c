@@ -125,7 +125,7 @@ static void walk()
 		{
 			self->maxThinkTime = 1;
 
-			playSoundToMap("sound/enemy/rampaging_master_tortoise/stomp.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/rampaging_master_tortoise/stomp", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
@@ -269,7 +269,7 @@ static void die()
 {
 	Entity *e;
 	
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	if (getInventoryItemByObjectiveName("Tortoise Shell") == NULL)
 	{
@@ -387,7 +387,7 @@ static void riftMove()
 
 		else
 		{
-			self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+			self->health = playSoundToMap("sound/item/rift", -1, self->x, self->y, -1);
 			
 			self->thinkTime = 300;
 
@@ -643,7 +643,7 @@ static void spinAttack()
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
 		}
 
-		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 	}
 }
 
@@ -689,7 +689,7 @@ static void breatheFireInit()
 
 	e->flags |= FLY;
 
-	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 
 	self->thinkTime = 30;
 
@@ -750,7 +750,7 @@ static void castIce()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 		e->action = &iceDrop;
 		e->draw = &drawLoopingAnimationToMap;
@@ -792,7 +792,7 @@ static void iceDrop()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 		for (i=0;i<8;i++)
 		{
@@ -880,7 +880,7 @@ static void creditsMove()
 		{
 			self->maxThinkTime = 1;
 
-			playSoundToMap("sound/enemy/rampaging_master_tortoise/stomp.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/rampaging_master_tortoise/stomp", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;

@@ -533,7 +533,7 @@ static void retreatToSkull()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport", -1, self->x, self->y, 0);
 
 		self->thinkTime = 300;
 
@@ -612,7 +612,7 @@ static void recharge()
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport", -1, self->x, self->y, 0);
 
 		self->health = self->maxHealth;
 

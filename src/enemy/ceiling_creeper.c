@@ -184,7 +184,7 @@ static void tongueWait()
 
 		self->touch = &tongueTouch;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start", -1, self->x, self->y, 0);
 	}
 
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
@@ -392,7 +392,7 @@ static void creeperTouch(Entity *other)
 
 		self->touch = &entityTouch;
 
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", -1, self->x, self->y, 0);
 
 		game.timesEaten++;
 

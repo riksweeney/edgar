@@ -77,7 +77,7 @@ static void sprayIce(int val)
 
 		e->face = player.face;
 
-		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
+		playSoundToMap("sound/item/spray", -1, player.x, player.y, 0);
 
 		self->thinkTime = 30;
 	}

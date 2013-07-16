@@ -84,7 +84,7 @@ static void walk()
 		{
 			if (self->maxThinkTime == 0)
 			{
-				playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 
 				self->maxThinkTime = 1;
 			}

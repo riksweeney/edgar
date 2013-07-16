@@ -129,7 +129,7 @@ static void takeDamage(Entity *other, int damage)
 
 			else
 			{
-				self->targetX = playSoundToMap("sound/item/chain.ogg", -1, self->x, self->y, -1);
+				self->targetX = playSoundToMap("sound/item/chain", -1, self->x, self->y, -1);
 
 				self->health = 0;
 
@@ -149,7 +149,7 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{

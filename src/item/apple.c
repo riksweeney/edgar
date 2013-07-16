@@ -90,7 +90,7 @@ static void throwApple(int val)
 
 		setCustomAction(e, &invulnerableNoFlash, 60, 0, 0);
 
-		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
+		playSoundToMap("sound/common/throw", -1, player.x, player.y, 0);
 
 		self->health--;
 

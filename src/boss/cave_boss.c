@@ -512,7 +512,7 @@ static void spitFire()
 				showErrorAndExit("No free slots to add a Fireball");
 			}
 
-			playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/fireball/fireball", BOSS_CHANNEL, self->x, self->y, 0);
 
 			e->damage = 1;
 
@@ -783,7 +783,7 @@ static void fireDropMoveAbovePlayer()
 
 		if (player.health > 0)
 		{
-			playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/fireball/fireball", BOSS_CHANNEL, self->x, self->y, 0);
 
 			self->mental = 10;
 
@@ -966,7 +966,7 @@ static void ceilingBurnMoveToTop()
 
 		setEntityAnimation(self, "FIRE_ATTACK_UP");
 
-		playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/fireball/fireball", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
 
@@ -1821,7 +1821,7 @@ static void iceDrop()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 		for (i=0;i<8;i++)
 		{
@@ -2096,7 +2096,7 @@ static void changeToFire()
 {
 	if (self->alpha == 255)
 	{
-		playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/fireball/fireball", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &changeToFire;
 
@@ -2133,7 +2133,7 @@ static void changeToIce()
 {
 	if (self->alpha == 255)
 	{
-		playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/freeze", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &changeToIce;
 
@@ -2188,7 +2188,7 @@ static void takeDamage(Entity *other, int damage)
 
 	if (self->startX != -1)
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -2242,7 +2242,7 @@ static void die()
 			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 		}
 
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = 120;
 
@@ -2548,7 +2548,7 @@ static void stunned()
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
 
-			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 
 		self->action = &stunFinish;

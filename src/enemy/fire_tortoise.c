@@ -172,7 +172,7 @@ static void breatheFireInit()
 
 	e->flags |= FLY;
 
-	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 
 	self->thinkTime = 30;
 
@@ -271,7 +271,7 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }

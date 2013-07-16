@@ -79,7 +79,7 @@ static void entityWait()
 			e->thinkTime = 60 + (prand() % 60);
 		}
 		
-		playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
 	}

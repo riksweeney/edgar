@@ -75,7 +75,7 @@ static void entityWait()
 	{
 		if (self->health == -1)
 		{
-			self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+			self->health = playSoundToMap("sound/item/rift", -1, self->x, self->y, -1);
 		}
 		
 		self->thinkTime--;

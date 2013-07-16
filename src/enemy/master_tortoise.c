@@ -399,7 +399,7 @@ static void lightningBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->targetX, self->startY, 0);
 
 		for (i=self->startY;i<self->endY;i+=32)
 		{
@@ -478,7 +478,7 @@ static void breatheFireInit()
 
 	e->flags |= FLY;
 
-	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 
 	self->thinkTime = 30;
 
@@ -733,7 +733,7 @@ static void iceSpikeMove()
 		{
 			self->takeDamage = NULL;
 
-			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 			for (i=0;i<8;i++)
 			{
@@ -938,7 +938,7 @@ static void becomeRampagingFinish()
 
 static void die()
 {
-	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }

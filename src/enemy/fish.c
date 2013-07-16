@@ -114,7 +114,7 @@ static void swim()
 
 	if (self->mental == 1)
 	{
-		playSoundToMap("sound/common/slime.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/slime", -1, self->x, self->y, 0);
 		
 		self->endY = getWaterTop(self->x, self->y);
 		

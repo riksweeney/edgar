@@ -132,7 +132,7 @@ static void rise()
 
 		else
 		{
-			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
 
 			e = addSmallRock(self->x, self->y, "common/small_rock");
 

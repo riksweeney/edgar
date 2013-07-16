@@ -68,7 +68,7 @@ Entity *addSasquatch(int x, int y, char *name)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/gazer/gazer_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }
@@ -121,7 +121,7 @@ static void createSnowball()
 
 		e = addProjectile("enemy/sasquatch_snowball", self, self->x, self->y, (self->face == RIGHT ? 8 : -8), 0);
 
-		playSoundToMap("sound/common/throw.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/throw", -1, self->x, self->y, 0);
 
 		e->reactToBlock = &bounceOffShield;
 

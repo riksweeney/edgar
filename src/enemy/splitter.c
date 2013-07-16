@@ -146,12 +146,12 @@ static void bounceAround()
 		{
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->thinkTime = 30 + prand() % 60;
@@ -227,12 +227,12 @@ static void mediumBounceAround()
 		{
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->thinkTime = 30 + prand() % 60;
@@ -312,12 +312,12 @@ static void smallBounceAround()
 		{
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/baby_jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/baby_jump1", -1, self->x, self->y, 0);
 			}
 
 			self->dirY = -(6 + prand() % 2);
@@ -430,7 +430,7 @@ static void takeDamage(Entity *other, int damage)
 
 			e->flags |= DO_NOT_PERSIST;
 
-			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 			self->inUse = FALSE;
 		}
@@ -511,7 +511,7 @@ static void mediumTakeDamage(Entity *other, int damage)
 
 			e->flags |= DO_NOT_PERSIST;
 
-			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 			self->inUse = FALSE;
 		}
@@ -526,7 +526,7 @@ static void smallTouch(Entity *other)
 	{
 		self->touch = &entityTouch;
 
-		playSoundToMap("sound/enemy/splitter/splat.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/splitter/splat", -1, self->x, self->y, 0);
 
 		setEntityAnimation(self, "DIE");
 
@@ -627,12 +627,12 @@ static void largeCreditsMove()
 
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->mental++;
@@ -669,7 +669,7 @@ static void largeCreditsMove()
 				e->dirX /= 10;
 				e->dirY /= 10;
 
-				playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 				self->inUse = FALSE;
 			}
@@ -710,12 +710,12 @@ static void mediumCreditsMove()
 
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->mental--;
@@ -748,7 +748,7 @@ static void mediumCreditsMove()
 				e->dirX /= 10;
 				e->dirY /= 10;
 
-				playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/pop", -1, self->x, self->y, 0);
 
 				self->inUse = FALSE;
 			}
@@ -785,12 +785,12 @@ static void smallCreditsMove()
 		{
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/baby_jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/baby_jump1", -1, self->x, self->y, 0);
 			}
 
 			self->dirY = -(6 + prand() % 2);

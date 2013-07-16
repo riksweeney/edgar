@@ -64,7 +64,7 @@ Entity *addGrub(int x, int y, char *name)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/grub/grub_die", -1, self->x, self->y, 0);
 
 	entityDie();
 }

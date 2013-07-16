@@ -74,7 +74,7 @@ static void touch(Entity *other)
 
 	else if (self->thinkTime <= 0)
 	{
-		/*playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);*/
+		/*playSoundToMap("sound/item/charge_beep", -1, self->x, self->y, 0);*/
 
 		self->thinkTime = 300;
 	}

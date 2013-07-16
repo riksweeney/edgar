@@ -171,7 +171,7 @@ static void die()
 
 		dropRandomItem(self->x + self->w / 2, self->y);
 
-		playSoundToMap("sound/enemy/skeleton/skeleton_die.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/skeleton/skeleton_die", -1, self->x, self->y, 0);
 
 		self->thinkTime = 30 * 60;
 	}
@@ -205,7 +205,7 @@ static void dieWait()
 
 		if (self->health != 0)
 		{
-			playSoundToMap("sound/enemy/skeleton/skeleton_resurrect.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/skeleton/skeleton_resurrect", -1, self->x, self->y, 0);
 
 			self->action = &reform;
 
@@ -408,7 +408,7 @@ static void fireArrow()
 		e->x -= e->w;
 	}
 
-	playSoundToMap("sound/edgar/arrow.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/edgar/arrow", -1, self->x, self->y, 0);
 
 	e->reactToBlock = &bounceOffShield;
 
@@ -694,7 +694,7 @@ static void swordWait()
 
 		self->animationCallback = &swordAttackFinish;
 
-		playSoundToMap("sound/edgar/swing.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/edgar/swing", -1, self->x, self->y, 0);
 	}
 
 	else
@@ -791,7 +791,7 @@ static void creditsDie()
 		self->mental++;
 	}
 	
-	playSoundToMap("sound/enemy/skeleton/skeleton_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/skeleton/skeleton_die", -1, self->x, self->y, 0);
 	
 	e = getEntityByName("enemy/ghost");
 	

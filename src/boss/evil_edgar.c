@@ -354,7 +354,7 @@ static void fireArrow()
 		e->x -= e->w;
 	}
 
-	playSoundToMap(self->startX == 1 ? "sound/enemy/fireball/fireball.ogg" : "sound/edgar/arrow.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap(self->startX == 1 ? "sound/enemy/fireball/fireball" : "sound/edgar/arrow", BOSS_CHANNEL, self->x, self->y, 0);
 
 	e->reactToBlock = &bounceOffShield;
 
@@ -643,7 +643,7 @@ static void swordSwingWait()
 
 		self->animationCallback = &swordSwingAttackFinish;
 
-		playSoundToMap("sound/edgar/swing.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/edgar/swing", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 
 	else
@@ -729,7 +729,7 @@ static void throwGazerEye()
 
 	e->thinkTime = 60;
 
-	playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+	playSoundToMap("sound/common/throw", EDGAR_CHANNEL, player.x, player.y, 0);
 
 	self->thinkTime = 60;
 
@@ -1120,13 +1120,13 @@ static void throwMiniBomb()
 
 		e->flags |= BOUNCES;
 
-		playSoundToMap("sound/common/throw.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/throw", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = 30;
 
 		self->mental--;
 
-		e->endX = playSoundToMap("sound/item/fuse.ogg", 3, self->x, self->y, -1);
+		e->endX = playSoundToMap("sound/item/fuse", 3, self->x, self->y, -1);
 
 		if (self->mental <= 0)
 		{
@@ -1143,7 +1143,7 @@ static void healSelfInit()
 
 	e = addPermanentItem("item/health_potion", self->x + self->w / 2, self->y + self->h / 2);
 
-	playSoundToMap("sound/common/throw.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/throw", BOSS_CHANNEL, self->x, self->y, 0);
 
 	e->x -= e->w / 2;
 	e->y -= e->h / 2;

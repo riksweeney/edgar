@@ -92,14 +92,14 @@ static void glassWait()
 
 			setEntityAnimationByID(self, self->mental);
 
-			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/crack", -1, self->x, self->y, 0);
 		}
 
 		self->thinkTime--;
 
 		if (self->mental == 5)
 		{
-			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 			self->action = &die;
 		}
@@ -120,7 +120,7 @@ static void horizontalGlassWait()
 
 			self->active = FALSE;
 
-			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/item/crack", -1, self->x, self->y, 0);
 
 			if (self->mental == 3)
 			{
@@ -140,12 +140,12 @@ static void horizontalGlassWait()
 
 				setEntityAnimationByID(self, self->mental);
 
-				playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/item/crack", -1, self->x, self->y, 0);
 			}
 
 			if (self->mental == 4)
 			{
-				playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
 				self->action = &die;
 			}
@@ -258,7 +258,7 @@ static void takeDamage(Entity *other, int damage)
 
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 	if (other->reactToBlock != NULL)
 	{

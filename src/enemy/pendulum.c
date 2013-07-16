@@ -112,7 +112,7 @@ static void swing()
 
 	if ((origX < self->startX && self->x >= self->startX) || (origX > self->startX && self->x <= self->startX))
 	{
-		playSoundToMap("sound/enemy/pendulum/swing.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/pendulum/swing", -1, self->x, self->y, 0);
 	}
 }
 

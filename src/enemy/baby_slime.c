@@ -99,12 +99,12 @@ static void attack()
 
 		if (prand() % 3 == 0)
 		{
-			playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", channel, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump2", channel, self->x, self->y, 0);
 		}
 
 		else
 		{
-			playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", channel, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump1", channel, self->x, self->y, 0);
 		}
 
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
@@ -369,12 +369,12 @@ static void creditsMove()
 		
 		if (prand() % 3 == 0)
 		{
-			playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", channel, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump2", channel, self->x, self->y, 0);
 		}
 
 		else
 		{
-			playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", channel, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump1", channel, self->x, self->y, 0);
 		}
 		
 		self->dirX = self->speed;

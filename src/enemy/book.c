@@ -272,7 +272,7 @@ static void castFireInit()
 
 		self->action = &castFire;
 
-		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/fireball/fireball", -1, self->x, self->y, 0);
 	}
 
 	hover();
@@ -530,7 +530,7 @@ static void lightningBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		playSoundToMap("sound/enemy/thunder_cloud/lightning", -1, self->targetX, self->startY, 0);
 
 		for (i=self->startY;i<self->endY;i+=32)
 		{

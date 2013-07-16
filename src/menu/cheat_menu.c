@@ -125,7 +125,7 @@ static void doMenu()
 			menu.index = 0;
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (up == TRUE)
@@ -137,7 +137,7 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (attack == TRUE)
@@ -149,7 +149,7 @@ static void doMenu()
 			w->clickAction();
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (left == TRUE)
@@ -161,7 +161,7 @@ static void doMenu()
 			w->leftAction();
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	else if (right == TRUE)
@@ -173,7 +173,7 @@ static void doMenu()
 			w->rightAction();
 		}
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 	}
 
 	memset(&menuInput, 0, sizeof(Input));

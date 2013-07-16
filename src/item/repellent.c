@@ -108,7 +108,7 @@ static void sprayRepellent(int val)
 
 		e->flags |= DO_NOT_PERSIST;
 
-		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
+		playSoundToMap("sound/item/spray", -1, player.x, player.y, 0);
 	}
 }
 

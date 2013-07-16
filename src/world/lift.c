@@ -209,7 +209,7 @@ static void findTarget(int val)
 
 				self->action = &moveToTarget;
 
-				playSoundToMap("sound/common/mine_lift.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/mine_lift", -1, self->x, self->y, 0);
 			}
 		}
 

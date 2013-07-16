@@ -93,7 +93,7 @@ static void entityWait()
 				{
 					activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
-					playSoundToMap("sound/item/striker_top.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/item/striker_top", -1, self->x, self->y, 0);
 				}
 
 				else

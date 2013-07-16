@@ -122,7 +122,7 @@ static void crush()
 
 			if (self->health == -1)
 			{
-				playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/crunch", -1, self->x, self->y, 0);
 			}
 		}
 

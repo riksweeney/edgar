@@ -172,7 +172,7 @@ static void initFall()
 		{
 			if (self->environment == AIR)
 			{
-				playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
 
 				for (i=0;i<20;i++)
 				{

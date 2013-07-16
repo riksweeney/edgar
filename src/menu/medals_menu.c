@@ -117,7 +117,7 @@ static void doMenu()
 		memset(&menuInput, 0, sizeof(Input));
 		memset(&input, 0, sizeof(Input));
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 
 		showMainMenu();
 	}
@@ -127,7 +127,7 @@ static void doMenu()
 		memset(&menuInput, 0, sizeof(Input));
 		memset(&input, 0, sizeof(Input));
 
-		playSound("sound/common/click.ogg");
+		playSound("sound/common/click");
 
 		showMainMenu();
 	}

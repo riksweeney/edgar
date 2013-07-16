@@ -107,7 +107,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 
 static void die()
 {
-	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
 	
 	entityDie();
 }
@@ -143,7 +143,7 @@ static void redDie()
 		self->mental = 0;
 	}
 	
-	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
 
 	self->thinkTime = 60 + prand() % 60;
 
@@ -233,12 +233,12 @@ static void attack()
 		{
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->dirY = -(6 + prand() % 2);
@@ -297,12 +297,12 @@ static void purpleAttack()
 		{
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 
 			self->dirY = -(6 + prand() % 2);
@@ -472,12 +472,12 @@ static void creditsMove()
 			
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 		}
 
@@ -517,12 +517,12 @@ static void creditsPurpleMove()
 			
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 			
 			self->mental++;
@@ -580,19 +580,19 @@ static void creditsRedMove()
 			
 			if (prand() % 3 == 0)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
 			
 			self->mental++;
 			
 			if (self->mental == 10)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
 				
 				self->die();
 			}

@@ -499,7 +499,7 @@ void showMedal(int medalType, char *message)
 
 	SDL_FreeSurface(textSurface);
 
-	playSound("sound/common/trophy.ogg");
+	playSound("sound/common/trophy");
 
 	return;
 }

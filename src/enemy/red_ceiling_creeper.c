@@ -206,7 +206,7 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 	if (other->reactToBlock != NULL)
 	{
@@ -267,7 +267,7 @@ static void creeperTouch(Entity *other)
 
 		self->touch = &entityTouch;
 
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", -1, self->x, self->y, 0);
 
 		game.timesEaten++;
 
@@ -281,7 +281,7 @@ static void creeperTouch(Entity *other)
 
 	else if (other->head == NULL || (other->head != NULL && other->head != self))
 	{
-		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/whirlwind/suck", -1, self->x, self->y, 0);
 
 		fireTrigger(self->objectiveName);
 
