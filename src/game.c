@@ -732,8 +732,8 @@ void showPauseDialog()
 void resetGameSettings()
 {
 	game.audio = TRUE;
-	game.sfxDefaultVolume = 5;
-	game.musicDefaultVolume = 10;
+	game.sfxDefaultVolume = 10;
+	game.musicDefaultVolume = 8;
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
 	game.audioQuality = 22050;
