@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/enemy/skull_door_piece.dat
+ANIM_FILE data/anim/enemy/skull_door_piece.dat
+TYPE TEMP_ITEM
+THINKTIME 60
+FLAGS DO_NOT_PERSIST

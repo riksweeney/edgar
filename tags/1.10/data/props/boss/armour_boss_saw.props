@@ -1,0 +1,6 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/armour_boss_saw.dat
+ANIM_FILE data/anim/boss/armour_boss_saw.dat
+LAYER FOREGROUND_LAYER
+FLAGS FLY|UNBLOCKABLE
+DAMAGE 1

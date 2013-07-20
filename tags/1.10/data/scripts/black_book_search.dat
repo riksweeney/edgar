@@ -1,0 +1,27 @@
+IF BLACK_BOOK_3 MENTAL 2
+TALK Edgar ...
+ACTIVATE_OBJECTIVE OCCULT_BOOK_POINT
+END
+IF BLACK_BOOK_3 MENTAL 1
+TALK Edgar I think it's dead
+TALK Edgar Or at least as dead as a book can be
+TALK Edgar It might be safe to touch now
+SHOW_CONFIRM Examine the book?
+IF CONFIRM_YES
+TALK Edgar Hmmm...
+PLAY_SOUND sound/boss/black_book/page
+WAIT 30
+PLAY_SOUND sound/boss/black_book/page
+WAIT 30
+PLAY_SOUND sound/boss/black_book/page
+WAIT 30
+TALK Edgar This page just has a sequence of numbers scrawled on it
+TALK Edgar I'll take it with me, it might come in handy
+TALK Edgar Besides, this thing nearly killed me twice, I should have some sort of trophy of my victory
+ADD ENTITY KEY_ITEM item/safe_combination " " 9300 16300
+SET BLACK_BOOK_3 PROPERTY MENTAL 2
+END
+IF CONFIRM_NO
+TALK Edgar I'll leave it alone, especially after what happened last time...
+END
+END

@@ -1,0 +1,5 @@
+WAIT 120
+TALK Narrator To turn your normal arrows into flaming arrows, just use the flaming arrow potion in the inventory screen
+TALK Narrator To swap between firing normal arrows and flaming arrows, select the arrows in the inventory
+ADD OBJECTIVE "Retrieve horn" " "
+ADD TRIGGER "Monster Horn" 1 UPDATE_OBJECTIVE "Retrieve horn"

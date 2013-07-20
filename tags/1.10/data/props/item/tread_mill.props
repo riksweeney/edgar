@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/tread_mill.dat
+ANIM_FILE data/anim/item/tread_mill.dat
+TYPE KEY_ITEM
+FLAGS OBSTACLE
