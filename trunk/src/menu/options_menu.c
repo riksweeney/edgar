@@ -64,7 +64,7 @@ void drawOptionsMenu()
 
 static void doMenu()
 {
-	int i, left, right, up, down, attack;
+	int i, left, right, up, down, attack, axisMoved;
 	Widget *w;
 
 	if (game.cheatsEnabled == FALSE && input.lastPressedKey != -1 && isalnum(input.lastPressedKey))
@@ -220,11 +220,15 @@ static void doMenu()
 			w->leftAction();
 		}
 	}
+	
+	axisMoved = input.axisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
 
 	input.lastPressedKey = -1;
+	
+	input.axisMoved = axisMoved;
 }
 
 static void loadMenuLayout()

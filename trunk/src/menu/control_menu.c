@@ -61,7 +61,7 @@ void drawControlMenu()
 static void doMenu()
 {
 	Widget *w;
-	int left, right, up, down, attack;
+	int left, right, up, down, attack, axisMoved;
 	
 	left = FALSE;
 	right = FALSE;
@@ -178,9 +178,13 @@ static void doMenu()
 
 		playSound("sound/common/click");
 	}
+	
+	axisMoved = input.axisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
+	
+	input.axisMoved = axisMoved;
 }
 
 static void loadMenuLayout()

@@ -53,15 +53,21 @@ void drawStatsMenu()
 
 static void doMenu()
 {
+	int axisMoved;
+	
 	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		playSound("sound/common/click");
 
 		showMainMenu();
 	}
+	
+	axisMoved = input.axisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
+	
+	input.axisMoved = axisMoved;
 }
 
 static void loadMenuLayout()

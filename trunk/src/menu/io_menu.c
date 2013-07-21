@@ -59,7 +59,7 @@ void drawIOMenu()
 static void doMenu()
 {
 	Widget *w;
-	int up, down, attack;
+	int up, down, attack, axisMoved;
 	
 	up = FALSE;
 	down = FALSE;
@@ -130,9 +130,13 @@ static void doMenu()
 			w->clickAction();
 		}
 	}
+	
+	axisMoved = input.axisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
+	
+	input.axisMoved = axisMoved;
 }
 
 static void loadMenuLayout(int saving)
