@@ -55,7 +55,7 @@ void drawYesNoMenu()
 static void doMenu()
 {
 	Widget *w;
-	int left, right, attack;
+	int left, right, attack, axisMoved;
 	
 	left = FALSE;
 	right = FALSE;
@@ -126,9 +126,13 @@ static void doMenu()
 			w->clickAction();
 		}
 	}
+	
+	axisMoved = input.axisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
+	
+	input.axisMoved = axisMoved;
 }
 
 static void loadMenuLayout(char *text)
