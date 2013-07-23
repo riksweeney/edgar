@@ -28,6 +28,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 extern Entity *self;
 
+static void move(void);
+static void moveReckless(void);
 static void creditsMove(void);
 static void die(void);
 
@@ -45,7 +47,7 @@ Entity *addGrub(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &moveLeftToRight;
+	e->action = &move;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -67,6 +69,55 @@ static void die()
 	playSoundToMap("sound/enemy/grub/grub_die", -1, self->x, self->y, 0);
 
 	entityDie();
+}
+
+static void move()
+{
+	moveLeftToRight();
+	
+	if (onSingleTile(self) == TRUE)
+	{
+		self->action = &moveReckless;
+	}
+}
+
+static void moveReckless()
+{
+	long onGround = self->flags & ON_GROUND;
+	
+	if (self->dirX == 0)
+	{
+		self->x += self->face == LEFT ? self->box.x : -self->box.x;
+
+		self->face = self->face == RIGHT ? LEFT : RIGHT;
+	}
+
+	if (self->standingOn == NULL || self->standingOn->dirX == 0)
+	{
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
+	}
+
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
+
+		self->face = (self->face == RIGHT ? LEFT : RIGHT);
+	}
+	
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
+	{
+		if (landedOnGround(onGround) == TRUE)
+		{
+			self->action = &move;
+		}
+	}
 }
 
 static void creditsMove()

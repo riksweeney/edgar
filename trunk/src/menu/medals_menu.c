@@ -65,7 +65,7 @@ void drawMedalsMenu()
 
 static void doMenu()
 {
-	int up, down, attack, block, axisMoved;
+	int up, down, attack, block, xAxisMoved, yAxisMoved;
 	
 	up = FALSE;
 	down = FALSE;
@@ -112,7 +112,8 @@ static void doMenu()
 		attack = TRUE;
 	}
 	
-	axisMoved = input.axisMoved;
+	xAxisMoved = input.xAxisMoved;
+	yAxisMoved = input.yAxisMoved;
 	
 	if (attack == TRUE)
 	{
@@ -154,7 +155,8 @@ static void doMenu()
 		}
 	}
 	
-	input.axisMoved = axisMoved;
+	input.xAxisMoved = xAxisMoved;
+	input.yAxisMoved = yAxisMoved;
 }
 
 static void loadMenuLayout()

@@ -75,7 +75,7 @@ typedef struct Input
 	int mouseX, mouseY, toggle;
 	int activate, attack, fly, snap, cut;
 	int interact, grabbing, block, inventory;
-	int lastPressedKey, axisMoved;
+	int lastPressedKey, xAxisMoved, yAxisMoved;
 } Input;
 
 typedef struct CustomAction

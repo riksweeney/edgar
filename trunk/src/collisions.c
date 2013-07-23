@@ -1270,6 +1270,31 @@ int isAtCeilingEdge(Entity *e)
 	return TRUE;
 }
 
+int onSingleTile(Entity *e)
+{
+	int leftTile, rightTile, midTile;
+	int x = e->x + e->w / 2;
+	int y = e->y + e->h - 1;
+
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	y++;
+
+	midTile = mapTileAt(x, y);
+	
+	leftTile = mapTileAt(x - 1, y);
+	
+	rightTile = mapTileAt(x + 1, y);
+	
+	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && leftTile == BLANK_TILE && rightTile == BLANK_TILE)
+	{
+		return TRUE;
+	}
+	
+	return FALSE;
+}
+
 int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;

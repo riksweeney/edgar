@@ -34,3 +34,4 @@ int getMapLeft(int, int);
 int getMapRight(int, int);
 int isNearObstacle(Entity *);
 int getWaterTop(int, int);
+int onSingleTile(Entity *);
