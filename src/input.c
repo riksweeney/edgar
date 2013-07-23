@@ -547,21 +547,21 @@ void getInput(int gameType)
 				{
 					if (event.jaxis.value < -control.deadZone)
 					{
-						if (input.axisMoved == FALSE)
+						if (input.xAxisMoved == FALSE)
 						{
 							input.left = TRUE;
 							input.right = FALSE;
-							input.axisMoved = TRUE;
+							input.xAxisMoved = TRUE;
 						}
 					}
 
 					else if (event.jaxis.value > control.deadZone)
 					{
-						if (input.axisMoved == FALSE)
+						if (input.xAxisMoved == FALSE)
 						{
 							input.left = FALSE;
 							input.right = TRUE;
-							input.axisMoved = TRUE;
+							input.xAxisMoved = TRUE;
 						}
 					}
 
@@ -569,7 +569,7 @@ void getInput(int gameType)
 					{
 						input.left = FALSE;
 						input.right = FALSE;
-						input.axisMoved = FALSE;
+						input.xAxisMoved = FALSE;
 					}
 				}
 
@@ -577,21 +577,21 @@ void getInput(int gameType)
 				{
 					if (event.jaxis.value < -control.deadZone)
 					{
-						if (input.axisMoved == FALSE)
+						if (input.yAxisMoved == FALSE)
 						{
 							input.up = TRUE;
 							input.down = FALSE;
-							input.axisMoved = TRUE;
+							input.yAxisMoved = TRUE;
 						}
 					}
 
 					else if (event.jaxis.value > control.deadZone)
 					{
-						if (input.axisMoved == FALSE)
+						if (input.yAxisMoved == FALSE)
 						{
 							input.up = FALSE;
 							input.down = TRUE;
-							input.axisMoved = TRUE;
+							input.yAxisMoved = TRUE;
 						}
 					}
 
@@ -599,7 +599,7 @@ void getInput(int gameType)
 					{
 						input.up = FALSE;
 						input.down = FALSE;
-						input.axisMoved = FALSE;
+						input.yAxisMoved = FALSE;
 					}
 				}
 			break;

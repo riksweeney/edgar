@@ -59,7 +59,7 @@ void drawIOMenu()
 static void doMenu()
 {
 	Widget *w;
-	int up, down, attack, axisMoved;
+	int up, down, attack, xAxisMoved, yAxisMoved;
 	
 	up = FALSE;
 	down = FALSE;
@@ -131,12 +131,14 @@ static void doMenu()
 		}
 	}
 	
-	axisMoved = input.axisMoved;
+	xAxisMoved = input.xAxisMoved;
+	yAxisMoved = input.yAxisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
 	
-	input.axisMoved = axisMoved;
+	input.xAxisMoved = xAxisMoved;
+	input.yAxisMoved = yAxisMoved;
 }
 
 static void loadMenuLayout(int saving)

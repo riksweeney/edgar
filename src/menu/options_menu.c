@@ -64,7 +64,7 @@ void drawOptionsMenu()
 
 static void doMenu()
 {
-	int i, left, right, up, down, attack, axisMoved;
+	int i, left, right, up, down, attack, xAxisMoved, yAxisMoved;
 	Widget *w;
 
 	if (game.cheatsEnabled == FALSE && input.lastPressedKey != -1 && isalnum(input.lastPressedKey))
@@ -221,14 +221,16 @@ static void doMenu()
 		}
 	}
 	
-	axisMoved = input.axisMoved;
+	xAxisMoved = input.xAxisMoved;
+	yAxisMoved = input.yAxisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
 
 	input.lastPressedKey = -1;
 	
-	input.axisMoved = axisMoved;
+	input.xAxisMoved = xAxisMoved;
+	input.yAxisMoved = yAxisMoved;
 }
 
 static void loadMenuLayout()
