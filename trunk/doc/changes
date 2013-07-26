@@ -2,7 +2,7 @@ CHANGE LOG
 ----------
 
 Version 1.11
-* Menus now work correctly with analogic controls
+* Menus now work correctly with analog controls
 * Fixed some music files failing to load on Windows
 
 Version 1.10

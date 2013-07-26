@@ -189,7 +189,7 @@ sound/item/bell3, sound/item/bell4)
 by dj-chronos
 CC BY 3.0
 
-electrocute.wav (as sound/boss/azriel/azriel_lightning_cage)
+electrocute (as sound/boss/azriel/azriel_lightning_cage)
 by aust_paul
 CC0
 
@@ -451,6 +451,10 @@ Switch 35 as (sound/common/switch)
 by LG
 CC BY 3.0
 
+Pickaxe Striking Rock (as sound/common/dink)
+by Benboncan
+CC BY 3.0
+
 Samples from OpenGameArt
 http://opengameart.org
 
@@ -537,8 +541,4 @@ CC BY 3.0
 
 door close 2 (as sound/item/trap_close)
 by THE_bizniss
-CC BY 3.0
-
-Pickaxe Striking Rock (as sound/common/dink)
-by Benboncan
 CC BY 3.0
