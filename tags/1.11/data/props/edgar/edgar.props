@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/edgar/edgar.dat
+ANIM_FILE data/anim/edgar/edgar.dat
+SPEED 2.5
+SFX_FILE data/sfx/edgar/edgar.dat

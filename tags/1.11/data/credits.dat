@@ -1,0 +1,602 @@
+200 200 0 Main Programming
+220 220 220 Richard Sweeney
+220 220 220 #
+200 200 0 Additional Programming
+220 220 220 Stephen Sweeney
+220 220 220 #
+200 200 0 Graphics
+220 220 220 Richard Sweeney
+220 220 220 #
+200 200 0 Development Software
+220 220 220 GNU GCC
+220 220 220 Kate
+220 220 220 The GIMP
+220 220 220 Blender
+220 220 220 Imagemagick
+220 220 220 Audacity
+220 220 220 Inkscape
+220 220 220 Subversion
+220 220 220 KDE
+220 220 220 Kubuntu
+220 220 220 SoX
+220 220 220 MilkyTracker
+220 220 220 Nullsoft Scriptable Install System
+220 220 220 Schism
+220 220 220 #
+200 200 0 Translators
+220 220 220 abuyop (Malay)
+220 220 220 acme_pjz (Chinese (Simplified))
+220 220 220 Adolfo Jayme Barrientos (Spanish)
+220 220 220 Andrea Musuruane (Italian)
+220 220 220 Daniel Rodrigues (Brazilian Portuguese)
+220 220 220 Eleanor Robinson (Spanish)
+220 220 220 Eliovir (French)
+220 220 220 fb281 (French)
+220 220 220 Guybrush88 (Italian)
+220 220 220 Harald Glock (German)
+220 220 220 Hash-H!A (French)
+220 220 220 igor (Russian, Ukrainian)
+220 220 220 Kulti (Russian)
+220 220 220 Leo (Russian)
+220 220 220 Marvn (Czech)
+220 220 220 maruhiro (Japanese)
+220 220 220 MCMic (French)
+220 220 220 Michał Lisowski (Polish)
+220 220 220 Munehiro Yamamoto (Japanese)
+220 220 220 Pascal Breuer (German)
+220 220 220 phap (French)
+220 220 220 rodrigo (Brazilian Portuguese)
+220 220 220 Sebastien Belzile (French)
+220 220 220 Sérgio Marques (Portuguese)
+220 220 220 Stefan Haubenthal (German)
+220 220 220 supermurray (Chinese (Simplified))
+220 220 220 TartinesKiller (French)
+220 220 220 Traperic (Spanish)
+220 220 220 Willy Aguirre (Spanish)
+220 220 220 Χρήστος Ροδόπουλος (Greek)
+220 220 220 YannUbuntu (French)
+220 220 220 #
+200 200 0 Music from Open Game Art
+200 200 0 http://opengameart.org
+220 220 220 #
+220 220 220 Mystical Caverns
+220 220 220 by MichaelTheCrow
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Battle in the winter
+220 220 220 by Johan Brodd
+220 220 220 GPL 3.0
+220 220 220 #
+220 220 220 Lazy Day
+220 220 220 by FoxSynergy
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Devilish design
+220 220 220 by Johan Brodd
+220 220 220 GPL 3.0
+220 220 220 #
+220 220 220 Steeps of Destiny
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Ruinous Laments
+220 220 220 by Eliot Corley
+220 220 220 CC BY-SA 3.0
+220 220 220 #
+220 220 220 Szymon Matuszewski - Hope
+220 220 220 by Szymon Matuszewski
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Battle Theme
+220 220 220 by Zehydra
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Undead Rising
+220 220 220 by Matthew Pablo
+220 220 220 CC BY-SA 3.0
+220 220 220 #
+220 220 220 Theme Menu
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Mushrooms
+220 220 220 by avgvst
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Rat Sewer
+220 220 220 by HaelDB
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Beauty of Chaos
+220 220 220 by grindhold and grindhold.de
+220 220 220 CC BY-SA 3.0
+220 220 220 #
+220 220 220 So, let see, what you can
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Without
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Red Curtain
+220 220 220 by HorrorPen
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Fight Them Until We Can't
+220 220 220 by Zander Noriega
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Decision
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Heroic Minority
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Mystical Theme
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 A winter tale
+220 220 220 by Johan Brodd
+220 220 220 GPL 3.0
+220 220 220 #
+220 220 220 Medicine
+220 220 220 by Johan Brodd
+220 220 220 GPL 3.0
+220 220 220 #
+220 220 220 Heroes Theme
+220 220 220 by Alexandr Zhelanov
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 0 Samples from Freesound.org
+220 220 0 http://www.freesound.org
+220 220 220 #
+220 220 220 distress_lo (as sound/common/spell)
+220 220 220 by ignotus
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 cruch - eggshells medium (as sound/enemy/jumping_slime/hatch)
+220 220 220 by IEDlabs
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 spraycan1 (as sound/item/spray)
+220 220 220 by HerbertBoland
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Balloon-Burst-07 (as sound/common/burst)
+220 220 220 by Gniffelbaf
+220 220 220 CC0
+220 220 220 #
+220 220 220 dum_dum_dummmmm_ (as sound/boss/evil_edgar/evil_edgar_appear)
+220 220 220 by Wolfsinger
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 bm_Glass_Break (as sound/enemy/icicle/smash)
+220 220 220 by cmusounddesign
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 snow4 (as sound/common/crumble)
+220 220 220 by Snoman
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 electrocute (as sound/boss/sorceror/electrocute)
+220 220 220 by aust_paul
+220 220 220 CC0
+220 220 220 #
+220 220 220 Page_Turn_07 (as sound/boss/black_book/page)
+220 220 220 by koops
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 jawharp (as sound/boss/blob_boss/bounce)
+220 220 220 by memexikon
+220 220 220 CC0
+220 220 220 #
+220 220 220 chop (as sound/common/chop)
+220 220 220 by hazure
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 maxxbasswind (as sound/enemy/whirlwind/whirlwind_die)
+220 220 220 by plagasul
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Monster_2 (as sound/boss/snake_boss/snake_boss_die)
+220 220 220 by Sea_Fury
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Mitraillette_3 as (sound/boss/fly_boss/fly_boss_bullet)
+220 220 220 by davidou
+220 220 220 CC0
+220 220 220 #
+220 220 220 42 (as sound/boss/grimlore/grimlore_beam)
+220 220 220 by CosmicD
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 teleport (as sound/boss/grimlore/grimlore_summon)
+220 220 220 by NoiseCollector
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 psycho_screams_2 (as sound/enemy/jumping_slime/spirit_scream)
+220 220 220 by FreqMan
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 flak_hit (as sound/enemy/spirit/spirit_explode)
+220 220 220 by smcameron
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 System_Background (as sound/enemy/item/rift)
+220 220 220 by gcmax
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 je_breaking (as sound/boss/sorceror/shield_die)
+220 220 220 by cmusounddesign
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 cracking (as sound/enemy/skeleton/skeleton_die)
+220 220 220 by smidoid
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 horror-ghost-01 (as sound/enemy/ghost/ghost)
+220 220 220 by klankbeeld
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 dark-church-bell (as sound/item/bell0, sound/item/bell1, sound/item/bell2,
+220 220 220 sound/item/bell3, sound/item/bell4)
+220 220 220 by dj-chronos
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 electrocute (as sound/boss/azriel/azriel_lightning_cage)
+220 220 220 by aust_paul
+220 220 220 CC0
+220 220 220 #
+220 220 220 swosh-whoosh-air-cut (as sound/boss/azriel/azriel_scythe_throw,
+220 220 220 sound/enemy/pendulum/swing)
+220 220 220 by qubodup
+220 220 220 CC0
+220 220 220 #
+220 220 220 usat-bomb (as sound/boss/azriel/azriel_die)
+220 220 220 by sandyrb
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Monster 4 (as sound/boss/gargoyle/gargoyle_roar)
+220 220 220 by Sea Fury
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 swosh-43 (as sound/boss/gargoyle/gargoyle_lance_stab)
+220 220 220 by qubodup
+220 220 220 CC0
+220 220 220 #
+220 220 220 fx-time-freeze (as sound/boss/gargoyle/gargoyle_create_lance)
+220 220 220 by v0idation
+220 220 220 CC0
+220 220 220 #
+220 220 220 whatever (as sound/boss/gargoyle/gargoyle_petrify)
+220 220 220 by aust_paul
+220 220 220 CC0
+220 220 220 #
+220 220 220 rubble-012 (as sound/boss/gargoyle/petrify_shake)
+220 220 220 by dj-chronos
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 anotherdancingmarble (as sound/boss/gargoyle/gargoyle_stone_to_flesh)
+220 220 220 by herbertboland
+220 220 220 CC BY 3.0
+220 220 220 1_Knife_Slash_A (as sound/boss/mataeus/create_knife)
+220 220 220 by lmbubec
+220 220 220 CC0
+220 220 220 #
+220 220 220 Digging (as sound/boss/ant_lion/earthquake)
+220 220 220 by prozaciswack
+220 220 220 CC0
+220 220 220 #
+220 220 220 GrowlSnarl (as sound/boss/ant_lion/eat)
+220 220 220 by Jamius
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Metal Clang1 (as sound/boss/armour_boss/clang)
+220 220 220 by timgormly
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 DogYelp (as sound/boss/armour_boss/die)
+220 220 220 by Tails1942
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 DogGrowl1 (as sound/boss/armour_boss/growl)
+220 220 220 by Tails1942
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Electric Saw (as sound/boss/armour_boss/saw_start, sound/boss/armour_boss/saw_spin,
+220 220 220 sound/boss/armour_boss/saw_end)
+220 220 220 by spenceomatic
+220 220 220 CC0
+220 220 220 tonguewhip (as sound/boss/armour_boss/tongue)
+220 220 220 by GagaMan
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Gun_Plasma (as sound/boss/awesome_boss/hadouken)
+220 220 220 by jonccox
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 plopp (as sound/boss/blob_boss/plop)
+220 220 220 by cfork
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Click 2 (as sound/common/click)
+220 220 220 by ecfike
+220 220 220 CC0
+220 220 220 #
+220 220 220 Price Rock Crash (as sound/common/crash)
+220 220 220 by shaynecantly
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 rocks scraping (as sound/common/crumble)
+220 220 220 by Halleck
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 missile_explosion (as sound/common/explosion)
+220 220 220 by smcameron
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Big Zombie Hit 1 (as sound/common/gib)
+220 220 220 by Slave2theLight
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 explosion4 (as sound/common/massive_explosion)
+220 220 220 by sarge4267
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Pop Air Burst (as sound/common/pop)
+220 220 220 by gelo_papas
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 tada2 (as sound/common/secret)
+220 220 220 by jobro
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Glass-Hit (as sound/common/shatter)
+220 220 220 by romulofs
+220 220 220 CC0
+220 220 220 #
+220 220 220 bubbles4 (as sound/common/slime)
+220 220 220 by schademans
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 teleport (as sound/common/teleport)
+220 220 220 by Sergenious
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 ticktock_block (as sound/common/tick)
+220 220 220 by plingativator
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 BEE_buzzaway (as sound/enemy/bug/buzz, sound/enemy/wasp/wasp_die)
+220 220 220 by Department64
+220 220 220 CC0
+220 220 220 #
+220 220 220 Smashing-glass (as sound/enemy/centurion/centurion_die)
+220 220 220 by CosmicEmbers
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 MetalClank2 (as sound/enemy/centurion/walk)
+220 220 220 by Oddworld
+220 220 220 CC0
+220 220 220 #
+220 220 220 20110503_clucking.05 (as sound/enemy/chicken/cluck)
+220 220 220 by dobroide
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 carrotnom (as sound/enemy/floating_snapper/chomp)
+220 220 220 by j1987
+220 220 220 CC0
+220 220 220 #
+220 220 220 burp (as sound/enemy/floating_snapper/burp)
+220 220 220 by kyles
+220 220 220 CC0
+220 220 220 #
+220 220 220 buzzer2 (as sound/enemy/item/buzzer)
+220 220 220 by hypocore
+220 220 220 CC0
+220 220 220 #
+220 220 220 suck_pop_03 (as sound/enemy/whirlwind/suck)
+220 220 220 by joedeshon
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 electric (as sound/enemy/tortoise/tortoise_electric)
+220 220 220 by Sergenious
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 SN-Thunder-1 (as sound/enemy/thunder_cloud/lightning)
+220 220 220 by westernsynthetics
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Splat! (as sound/enemy/splitter/splat)
+220 220 220 by Flasher21
+220 220 220 CC0
+220 220 220 #
+220 220 220 Thud1 (as sound/enemy/red_grub/thud)
+220 220 220 by JWMalahy
+220 220 220 CC0
+220 220 220 #
+220 220 220 Stomp (as sound/enemy/rampaging_master_tortoise/stomp)
+220 220 220 by MAJ061785
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Boing (as sound/enemy/jumping_slime/jump1, sound/enemy/jumping_slime/jump2,
+220 220 220 sound/enemy/jumping_slime/baby_jump1, sound/enemy/jumping_slime/baby_jump2,
+220 220 220 sound/item/spring, sound/boss/blob_boss/bounce)
+220 220 220 by juskiddink
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 dagger_drawn2 (as sound/enemy/ground_spear/spear)
+220 220 220 by freefire66
+220 220 220 CC0
+220 220 220 #
+220 220 220 bell (as sound/item/ping)
+220 220 220 by CJ4096
+220 220 220 CC0
+220 220 220 #
+220 220 220 inflator (as sound/item/inflate)
+220 220 220 by jiserte
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 quickwaterpour (as sound/item/fill_potion)
+220 220 220 by edbles
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 MicrowaveDing (as sound/item/blender)
+220 220 220 by Oddworld
+220 220 220 CC0
+220 220 220 #
+220 220 220 chain (as sound/item/chain)
+220 220 220 by Sergenious
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 GrowlSnarl (as sound/enemy/gazer/growl)
+220 220 220 by Jamius
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Camera Shutter (as sound/enemy/gazer/flash)
+220 220 220 by ThompsonMan
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 fast simple chop 5 (as sound/enemy/gazer/flap)
+220 220 220 by dave.des
+220 220 220 CC0
+220 220 220 #
+220 220 220 ELECTRIC_ZAP_001 (as sound/enemy/laser/zap, sound/item/tesla_electrocute)
+220 220 220 by JoelAudio
+220 220 220 CC0
+220 220 220 #
+220 220 220 Insect Trill (as sound/enemy/spider/spider)
+220 220 220 by metamorphmuses
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Tuning Fork Wav (as sound/item/tuning_fork)
+220 220 220 by ScottFerguson1
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Mouth Plops (as sound/item/number_block)
+220 220 220 by CapsLok
+220 220 220 CC0
+220 220 220 #
+220 220 220 Glass Breaking (as sound/item/crack)
+220 220 220 by cmusounddesign
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Rubble 022 (as sound/common/rock_bounce)
+220 220 220 by DJ Chronos
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 DoorSlam1 (as sound/common/door)
+220 220 220 by Planet-Leader
+220 220 220 CC0
+220 220 220 #
+220 220 220 dropping big heavy rocks 2 (as sound/common/crunch)
+220 220 220 by Halleck
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Gun_Zap (as sound/boss/snake_boss/snake_boss_shot, sound/boss/grub_boss/fire)
+220 220 220 by jonccox
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Fire-breathing dragon (as sound/boss/chaos/breathe_fire)
+220 220 220 by CGEffex
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Switch 35 as (sound/common/switch)
+220 220 220 by LG
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Pickaxe Striking Rock (as sound/common/dink)
+220 220 220 by Benboncan
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 0 Samples from OpenGameArt
+200 200 0 http://opengameart.org
+220 220 220 #
+220 220 220 Swishes Sound Pack (as sound/boss/mataeus/throw_knife)
+220 220 220 by artisticdude
+220 220 220 CC0
+220 220 220 #
+220 220 220 Fire Crackling (as sound/enemy/fire_burner/flame)
+220 220 220 by AntumDeluge
+220 220 220 CC0
+220 220 220 #
+220 220 220 Freeze Spell (as sound/common/freeze)
+220 220 220 by artisticdude
+220 220 220 CC0
+220 220 220 #
+220 220 220 Lava splash (as sound/common/lava)
+220 220 220 by Michel Baradari
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Water splashes (as sound/common/splash)
+220 220 220 by Michel Baradari
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 8 wet squish, slurp impacts (as sound/common/splat1, sound/common/splat2,
+220 220 220 sound/common/splat3)
+220 220 220 by Independent.nu
+220 220 220 CC0
+220 220 220 #
+220 220 220 51 UI sound effects (buttons, switches and clicks) (as sound/common/click)
+220 220 220 by Kenney
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 sfx_throw (as sound/common/throw)
+220 220 220 by Blender Foundation | apricot.blender.org
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Battle Sound Effects (as sound/edgar/arrow, sound/edgar/swing)
+220 220 220 by artisticdude
+220 220 220 CC0
+220 220 220 #
+220 220 220 Osare .10 sound pack (as sound/edgar/block)
+220 220 220 by Augmentality (Brandon Morris)
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Monster Sound Effects 2 (as sound/enemy/armadillo/armadillo_die,
+220 220 220 sound/enemy/ceiling_crawler/ceiling_crawler_die,
+220 220 220 sound/enemy/centipede/centipede_die, sound/enemy/gazer/gazer_die,
+220 220 220 sound/enemy/jumping_slime/slime_die, sound/enemy/sludge/sludge_die,
+220 220 220 sound/enemy/snail/snail_die, sound/enemy/tortoise/tortoise_die)
+220 220 220 by Ogrebane
+220 220 220 CC0
+220 220 220 #
+220 220 220 Mouse Imitation (as sound/enemy/bat/squeak)
+220 220 220 by AntumDeluge
+220 220 220 CC0
+220 220 220 #
+220 220 220 Spell 4 (fire) (as sound/enemy/fireball/fireball)
+220 220 220 by BartK.
+220 220 220 CC BY-SA 3.0
+220 220 220 #
+220 220 220 Various Alerts (as sound/item/charge_beep, sound/item/block_beep)
+220 220 220 by dklon
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Steam release sounds (as sound/enemy/sludge/acid)
+220 220 220 by bart
+220 220 220 CC0
+220 220 220 #
+220 220 220 Cork (as sound/item/cork)
+220 220 220 by Blender Foundation
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Picked Coin Echo 2 (as sound/common/trophy)
+220 220 220 by NenadSimic
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 Fuse igniting and burning (imitated) (as /sound/item/fuse)
+220 220 220 by Hoscalegeek
+220 220 220 CC0
+220 220 220 #
+220 220 220 Monster (as sound/boss/chaos/die)
+220 220 220 by Erdie
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 door close 2 (as sound/item/trap_close)
+220 220 220 by THE_bizniss
+220 220 220 CC BY 3.0
