@@ -1272,7 +1272,7 @@ int isAtCeilingEdge(Entity *e)
 
 int onSingleTile(Entity *e)
 {
-	int leftTile, rightTile, midTile;
+	int leftTile, rightTile, midTile, wallLeft, wallRight;
 	int x = e->x + e->w / 2;
 	int y = e->y + e->h - 1;
 
@@ -1287,7 +1287,24 @@ int onSingleTile(Entity *e)
 	
 	rightTile = mapTileAt(x + 1, y);
 	
+	wallLeft = mapTileAt(x - 1, y - 1);
+	
+	wallRight = mapTileAt(x + 1, y - 1);
+	
+	/* On a tile with nothing either side */
 	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && leftTile == BLANK_TILE && rightTile == BLANK_TILE)
+	{
+		return TRUE;
+	}
+	
+	/* On a tile with nothing on the left and a wall on the right */
+	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && leftTile == BLANK_TILE && (wallRight != BLANK_TILE && wallRight < BACKGROUND_TILE_START))
+	{
+		return TRUE;
+	}
+	
+	/* On a tile with nothing on the right and a wall on the left */
+	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && rightTile == BLANK_TILE && (wallLeft != BLANK_TILE && wallLeft < BACKGROUND_TILE_START))
 	{
 		return TRUE;
 	}
