@@ -58,44 +58,43 @@
 220 220 220 #
 200 200 0 Music from Open Game Art
 200 200 0 http://opengameart.org
-220 220 220 #
 220 220 220 Mystical Caverns
 220 220 220 by MichaelTheCrow
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Battle in the winter
+220 220 220 Battle in the winter (re-encoded to Ogg Vorbis)
 220 220 220 by Johan Brodd
 220 220 220 GPL 3.0
 220 220 220 #
-220 220 220 Lazy Day
+220 220 220 Lazy Day (re-encoded to Ogg Vorbis)
 220 220 220 by FoxSynergy
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Devilish design
+220 220 220 Devilish design (re-encoded to Ogg Vorbis)
 220 220 220 by Johan Brodd
 220 220 220 GPL 3.0
 220 220 220 #
-220 220 220 Steeps of Destiny
+220 220 220 Steeps of Destiny (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Ruinous Laments
+220 220 220 Ruinous Laments (re-encoded to Ogg Vorbis)
 220 220 220 by Eliot Corley
 220 220 220 CC BY-SA 3.0
 220 220 220 #
-220 220 220 Szymon Matuszewski - Hope
+220 220 220 Szymon Matuszewski - Hope (re-encoded to Ogg Vorbis)
 220 220 220 by Szymon Matuszewski
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Battle Theme
+220 220 220 Battle Theme (re-encoded to Ogg Vorbis)
 220 220 220 by Zehydra
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Undead Rising
+220 220 220 Undead Rising (re-encoded to Ogg Vorbis)
 220 220 220 by Matthew Pablo
 220 220 220 CC BY-SA 3.0
 220 220 220 #
-220 220 220 Theme Menu
+220 220 220 Theme Menu (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
@@ -111,43 +110,43 @@
 220 220 220 by grindhold and grindhold.de
 220 220 220 CC BY-SA 3.0
 220 220 220 #
-220 220 220 So, let see, what you can
+220 220 220 So, let see, what you can (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Without
+220 220 220 Without (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Red Curtain
+220 220 220 Red Curtain (re-encoded to Ogg Vorbis)
 220 220 220 by HorrorPen
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Fight Them Until We Can't
+220 220 220 Fight Them Until We Can't (re-encoded to Ogg Vorbis)
 220 220 220 by Zander Noriega
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Decision
+220 220 220 Decision (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Heroic Minority
+220 220 220 Heroic Minority (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Mystical Theme
+220 220 220 Mystical Theme (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 A winter tale
+220 220 220 A winter tale (re-encoded to Ogg Vorbis)
 220 220 220 by Johan Brodd
 220 220 220 GPL 3.0
 220 220 220 #
-220 220 220 Medicine
+220 220 220 Medicine (re-encoded to Ogg Vorbis)
 220 220 220 by Johan Brodd
 220 220 220 GPL 3.0
 220 220 220 #
-220 220 220 Heroes Theme
+220 220 220 Heroes Theme (re-encoded to Ogg Vorbis)
 220 220 220 by Alexandr Zhelanov
 220 220 220 CC BY 3.0
 220 220 220 #
@@ -589,7 +588,7 @@
 220 220 220 by NenadSimic
 220 220 220 CC BY 3.0
 220 220 220 #
-220 220 220 Fuse igniting and burning (imitated) (as /sound/item/fuse)
+220 220 220 Fuse igniting and burning (imitated) (as sound/item/fuse)
 220 220 220 by Hoscalegeek
 220 220 220 CC0
 220 220 220 #
@@ -599,4 +598,8 @@
 220 220 220 #
 220 220 220 door close 2 (as sound/item/trap_close)
 220 220 220 by THE_bizniss
+220 220 220 CC BY 3.0
+220 220 220 #
+220 220 220 13 Ambient Machine Sounds (as sound/common/mine_lift)
+220 220 220 by Michael Brigida and students
 220 220 220 CC BY 3.0
