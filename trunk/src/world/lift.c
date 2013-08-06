@@ -209,7 +209,7 @@ static void findTarget(int val)
 
 				self->action = &moveToTarget;
 
-				playSoundToMap("sound/common/mine_lift", -1, self->x, self->y, 0);
+				self->mental = playSoundToMap("sound/common/mine_lift", -1, self->x, self->y, 0);
 			}
 		}
 
@@ -269,6 +269,8 @@ static void moveToTarget()
 
 			else
 			{
+				stopSound(self->mental);
+				
 				self->action = &entityWait;
 			}
 		}
