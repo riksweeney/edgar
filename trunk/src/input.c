@@ -168,12 +168,12 @@ void getInput(int gameType)
 				{
 					input.attack = TRUE;
 				}
-
+				/*
 				else if (key == control.button[CONTROL_FLY])
 				{
 					input.fly = TRUE;
 				}
-
+				*/
 				else if (key == control.button[CONTROL_SNAP])
 				{
 					input.snap = TRUE;
@@ -293,12 +293,12 @@ void getInput(int gameType)
 				{
 					input.attack = FALSE;
 				}
-
+				/*
 				else if (key == control.button[CONTROL_FLY])
 				{
 					input.fly = FALSE;
 				}
-
+				*/
 				else if (key == control.button[CONTROL_SNAP])
 				{
 					input.snap = FALSE;

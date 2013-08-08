@@ -1384,6 +1384,8 @@ static void flameWait()
 	Entity *e;
 
 	self->health--;
+	
+	player.flags &= ~FLY;
 
 	if (self->health % 10 == 0)
 	{
@@ -2188,6 +2190,8 @@ static void spearRise()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
+	
+	player.flags &= ~FLY;
 
 	if (self->flags & INVULNERABLE)
 	{
