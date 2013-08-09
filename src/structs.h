@@ -73,7 +73,7 @@ typedef struct Input
 	int left, right, up, down, add, remove;
 	int previous, next, load, save, jump;
 	int mouseX, mouseY, toggle;
-	int activate, attack, fly, snap, cut;
+	int activate, attack, snap, cut;
 	int interact, grabbing, block, inventory;
 	int lastPressedKey, xAxisMoved, yAxisMoved;
 } Input;

@@ -168,12 +168,7 @@ void getInput(int gameType)
 				{
 					input.attack = TRUE;
 				}
-				/*
-				else if (key == control.button[CONTROL_FLY])
-				{
-					input.fly = TRUE;
-				}
-				*/
+				
 				else if (key == control.button[CONTROL_SNAP])
 				{
 					input.snap = TRUE;
@@ -293,12 +288,7 @@ void getInput(int gameType)
 				{
 					input.attack = FALSE;
 				}
-				/*
-				else if (key == control.button[CONTROL_FLY])
-				{
-					input.fly = FALSE;
-				}
-				*/
+				
 				else if (key == control.button[CONTROL_SNAP])
 				{
 					input.snap = FALSE;
@@ -654,7 +644,6 @@ void resetControls(int editor)
 	control.button[CONTROL_ACTIVATE] = -1;
 	control.button[CONTROL_CUT] = -1;
 	control.button[CONTROL_ATTACK] = -1;
-	control.button[CONTROL_FLY] = -1;
 	control.button[CONTROL_SNAP] = -1;
 	control.button[CONTROL_INTERACT] = -1;
 	control.button[CONTROL_PAUSE] = -1;
@@ -676,7 +665,6 @@ void resetControls(int editor)
 		control.button[CONTROL_ACTIVATE] = 0;
 		control.button[CONTROL_CUT] = -1;
 		control.button[CONTROL_ATTACK] = 2;
-		control.button[CONTROL_FLY] = SDLK_f;
 		control.button[CONTROL_SNAP] = -1;
 		control.button[CONTROL_INTERACT] = 3;
 		control.button[CONTROL_PAUSE] = 9;
@@ -696,9 +684,6 @@ void resetControls(int editor)
 		control.button[CONTROL_ATTACK] = SDLK_LCTRL;
 		control.button[CONTROL_INVENTORY] = SDLK_z;
 		control.button[CONTROL_ACTIVATE] = SDLK_a;
-		#if DEV == 1
-			control.button[CONTROL_FLY] = SDLK_f;
-		#endif
 		control.button[CONTROL_INTERACT] = SDLK_c;
 		control.button[CONTROL_PAUSE] = SDLK_p;
 		control.button[CONTROL_BLOCK] = SDLK_LALT;

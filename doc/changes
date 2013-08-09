@@ -4,6 +4,7 @@ CHANGE LOG
 Version 1.12
 * Added a sound effect for the lifts
 * Converted mp3s to oggs
+* Fixed a problem with the moveable lift in the Library
 
 Version 1.11
 * Menus now work correctly with analogue controls

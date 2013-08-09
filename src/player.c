@@ -720,14 +720,6 @@ void doPlayer()
 						input.jump = 0;
 					}
 				}
-				#if DEV == 1
-					if (input.fly == 1)
-					{
-						self->flags ^= FLY;
-
-						input.fly = 0;
-					}
-				#endif
 			}
 
 			else
