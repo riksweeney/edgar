@@ -61,6 +61,8 @@ void initHud()
 	hud.bossHealth = NULL;
 
 	hud.medalTextSurface = NULL;
+	
+	hud.slimeTimerSurface = NULL;
 }
 
 void doHud()
@@ -267,6 +269,14 @@ void drawHud()
 
 		drawImage(hud.medalTextSurface, x, 5, FALSE, 255);
 	}
+	
+	if (hud.slimeTimerSurface != NULL)
+	{
+		x = player.x + player.w / 2 - hud.slimeTimerSurface->w / 2;
+		y = player.y - hud.slimeTimerSurface->h - 5;
+		
+		drawImageToMap(hud.slimeTimerSurface, x, y, FALSE, 255);
+	}
 }
 
 void freeHud()
@@ -338,8 +348,38 @@ void freeHud()
 
 		hud.disabledMedalSurface = NULL;
 	}
+	
+	if (hud.slimeTimerSurface != NULL)
+	{
+		SDL_FreeSurface(hud.slimeTimerSurface);
+
+		hud.slimeTimerSurface = NULL;
+	}
 
 	freeMessageQueue();
+}
+
+void setSlimeTimerValue(int value)
+{
+	char timeValue[5];
+	
+	if (hud.slimeTimerSurface != NULL || value < 0)
+	{
+		SDL_FreeSurface(hud.slimeTimerSurface);
+
+		hud.slimeTimerSurface = NULL;
+		
+		if (value < 0)
+		{
+			return;
+		}
+	}
+	
+	snprintf(timeValue, 5, "%d", value);
+	
+	hud.slimeTimerSurface = generateTextSurface(timeValue, game.font, 220, 220, 220, 0, 0, 0);
+
+	hud.slimeTimerSurface = addBorder(hud.slimeTimerSurface, 255, 255, 255, 0, 0, 0);
 }
 
 void setInfoBoxMessage(int thinkTime, int r, int g, int b, char *fmt, ...)

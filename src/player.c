@@ -2556,6 +2556,8 @@ void becomeEdgar()
 	player.fallout = &fallout;
 
 	clearCustomAction(&player, &slimeTimeout);
+	
+	setSlimeTimerValue(-1);
 
 	player.y = bottom - player.h;
 

@@ -259,18 +259,25 @@ void regenerate(int *thinkTime, int *counter, float *value)
 
 void slimeTimeout(int *thinkTime, int *counter, float *value)
 {
+	int timeBefore, timeAfter;
+	
 	game.timeSpentAsSlime++;
 
 	if (game.timeSpentAsSlime == 36000)
 	{
 		addMedal("slime");
 	}
+	
+	timeBefore = *thinkTime / 60;
 
 	(*thinkTime)--;
-
-	freeMessageQueue();
-
-	setInfoBoxMessage(5, 255, 255, 255, "%d", *thinkTime / 60);
+	
+	timeAfter = *thinkTime / 60;
+	
+	if (timeBefore != timeAfter)
+	{
+		setSlimeTimerValue(timeAfter);
+	}
 
 	if (*thinkTime == 0)
 	{

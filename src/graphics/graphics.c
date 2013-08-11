@@ -106,6 +106,11 @@ void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 	SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, 255);
 }
 
+void drawImageToMap(SDL_Surface *image, int x, int y, int white, int alpha)
+{
+	drawImage(image, x - getMapStartX(), y - getMapStartY(), white, alpha);
+}
+
 void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int destY, int width, int height)
 {
 	SDL_Rect src, dest;
