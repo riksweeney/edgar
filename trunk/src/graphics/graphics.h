@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 SDL_Surface *loadImage(char *);
 void drawImage(SDL_Surface *, int, int, int, int);
+void drawImageToMap(SDL_Surface *, int, int, int, int);
 void drawBox(SDL_Surface *, int, int, int, int, int, int, int);
 void clearScreen(int, int, int);
 int isTransparent(SDL_Surface *, int, int);

@@ -3,8 +3,9 @@ CHANGE LOG
 
 Version 1.12
 * Added a sound effect for the lifts
-* Converted mp3s to oggs
+* All music is now in ogg format
 * Fixed a problem with the moveable lift in the Library
+* The time remaining when Edgar is a Slime now appears above the player
 
 Version 1.11
 * Menus now work correctly with analogue controls
