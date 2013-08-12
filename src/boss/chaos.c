@@ -49,6 +49,7 @@ extern Entity *self, player;
 extern Game game;
 
 static void initialise(void);
+static void touch(Entity *);
 static void takeDamage(Entity *, int);
 static void breatheFireInit(void);
 static void breatheIn(void);
@@ -137,7 +138,7 @@ Entity *addChaos(int x, int y, char *name)
 	e->action = &addLegendarySword;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = &entityTouch;
+	e->touch = &touch;
 	e->die = &die;
 	e->takeDamage = &takeDamage;
 
@@ -2187,6 +2188,27 @@ static void spearRise()
 	}
 }
 
+static void touch(Entity *other)
+{
+	if (game.cheating == TRUE && other->type == PLAYER && other->health > 0)
+	{
+		setPlayerAsh();
+
+		other->flags |= NO_DRAW;
+
+		removeInventoryItemByObjectiveName("Amulet of Resurrection");
+
+		other->die();
+		
+		other->mental = 1;
+	}
+	
+	else
+	{
+		entityTouch(other);
+	}
+}
+
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
@@ -2200,6 +2222,11 @@ static void takeDamage(Entity *other, int damage)
 
 	if (damage != 0)
 	{
+		if (game.cheating == TRUE)
+		{
+			damage = 0;
+		}
+		
 		if (other->element == FIRE)
 		{
 			self->health += damage;
