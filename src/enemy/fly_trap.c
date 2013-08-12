@@ -406,7 +406,7 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 
 	if (body == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for Fly Trap body...\n", trapHead->mental * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Fly Trap body...", trapHead->mental * (int)sizeof(Entity *));
 	}
 
 	for (i=trapHead->mental-1;i>=0;i--)

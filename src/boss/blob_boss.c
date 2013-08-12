@@ -846,7 +846,7 @@ static void punchAttackInit()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Blob Boss could not find target\n");
+		showErrorAndExit("Blob Boss could not find target");
 	}
 
 	self->startX = t->x;
@@ -855,7 +855,7 @@ static void punchAttackInit()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Blob Boss could not find target\n");
+		showErrorAndExit("Blob Boss could not find target");
 	}
 
 	self->endX = t->x;

@@ -70,7 +70,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 			{
 				if (animation[animationID].frameCount == 0)
 				{
-					showErrorAndExit("Animation %d from file %s was created with 0 frames\n", animationID, filename);
+					showErrorAndExit("Animation %d from file %s was created with 0 frames", animationID, filename);
 				}
 			}
 
@@ -80,7 +80,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			if (animationID == MAX_ANIMATIONS)
 			{
-				showErrorAndExit("Ran out of space for animations\n");
+				showErrorAndExit("Ran out of space for animations");
 			}
 
 			STRNCPY(animationIndex[id].name, frameName, MAX_VALUE_LENGTH);
@@ -91,7 +91,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			if (id == MAX_ANIMATION_TYPES)
 			{
-				showErrorAndExit("Ran out of space for animation types\n");
+				showErrorAndExit("Ran out of space for animation types");
 			}
 		}
 
@@ -107,7 +107,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			if (animation[animationID].frameTimer == NULL)
 			{
-				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
+				showErrorAndExit("Ran out of memory when creating the animation for %s", filename);
 			}
 
 			/* Allocate space for the frame ID */
@@ -116,7 +116,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			if (animation[animationID].frameID == NULL)
 			{
-				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
+				showErrorAndExit("Ran out of memory when creating the animation for %s", filename);
 			}
 
 			/* Allocate space for the offsets */
@@ -125,14 +125,14 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			if (animation[animationID].offsetX == NULL)
 			{
-				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
+				showErrorAndExit("Ran out of memory when creating the animation for %s", filename);
 			}
 
 			animation[animationID].offsetY = malloc(animation[animationID].frameCount * sizeof(int));
 
 			if (animation[animationID].offsetY == NULL)
 			{
-				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
+				showErrorAndExit("Ran out of memory when creating the animation for %s", filename);
 			}
 
 			/* Now load up each frame */
@@ -243,7 +243,7 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 		if (sprite->image == NULL)
 		{
-			showErrorAndExit("Image index %d is NULL!\n", animation[e->currentAnim].frameID[e->currentFrame]);
+			showErrorAndExit("Image index %d is NULL!", animation[e->currentAnim].frameID[e->currentFrame]);
 		}
 
 		e->w = sprite->image->w;
@@ -338,7 +338,7 @@ int drawLoopingAnimationToMap()
 
 		if (sprite->image == NULL)
 		{
-			showErrorAndExit("Image index %d is NULL!\n", animation[self->currentAnim].frameID[self->currentFrame]);
+			showErrorAndExit("Image index %d is NULL!", animation[self->currentAnim].frameID[self->currentFrame]);
 		}
 
 		self->w = sprite->image->w;

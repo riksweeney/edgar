@@ -55,7 +55,7 @@ void loadSpritesFromFile(char *name, int *index)
 
 		if (spriteID == MAX_SPRITES)
 		{
-			showErrorAndExit("Ran out of space for Sprites\n");
+			showErrorAndExit("Ran out of space for Sprites");
 		}
 
 		if (line[strlen(line) - 1] == '\n')
