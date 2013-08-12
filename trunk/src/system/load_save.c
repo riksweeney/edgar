@@ -207,6 +207,11 @@ int loadGame(int slot)
 			sscanf(line, "%*s %s\n", itemName);
 
 			version = atof(itemName);
+			
+			if (version > VERSION)
+			{
+				printf("Save file version is newer than game version. This game might not work correctly.");
+			}
 		}
 
 		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)

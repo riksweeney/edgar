@@ -89,7 +89,7 @@ static void init()
 
 	if (e == NULL)
 	{
-		showErrorAndExit("Energy Drainer could not find Entity %s\n", self->requires);
+		showErrorAndExit("Energy Drainer could not find Entity %s", self->requires);
 	}
 
 	self->targetX = e->x + e->w / 2;

@@ -182,7 +182,7 @@ static void createBody()
 
 	if (body == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for Eye Stalk body...\n", self->mental * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Eye Stalk body...", self->mental * (int)sizeof(Entity *));
 	}
 
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);

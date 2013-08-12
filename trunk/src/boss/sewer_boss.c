@@ -554,7 +554,7 @@ static void createArm(Entity *top)
 
 	if (body == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for Sewer Boss Arm...\n", top->mental * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Sewer Boss Arm...", top->mental * (int)sizeof(Entity *));
 	}
 
 	for (i=top->mental-1;i>=0;i--)

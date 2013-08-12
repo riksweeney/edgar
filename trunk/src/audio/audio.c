@@ -84,7 +84,7 @@ static void preCacheSound(char *name)
 
 	if (soundIndex == MAX_SOUNDS)
 	{
-		showErrorAndExit("Ran out of space for sounds\n");
+		showErrorAndExit("Ran out of space for sounds");
 	}
 
 	chunk = loadSound(name);
@@ -124,7 +124,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 	{
 		if (soundIndex == MAX_SOUNDS)
 		{
-			showErrorAndExit("Ran out of space for sounds\n");
+			showErrorAndExit("Ran out of space for sounds");
 		}
 
 		chunk = loadSound(name);
@@ -206,7 +206,7 @@ void playSound(char *name)
 	{
 		if (soundIndex == MAX_SOUNDS)
 		{
-			showErrorAndExit("Ran out of space for sounds\n");
+			showErrorAndExit("Ran out of space for sounds");
 		}
 
 		chunk = loadSound(name);

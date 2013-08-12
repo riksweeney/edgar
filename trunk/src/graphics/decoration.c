@@ -57,7 +57,7 @@ Entity *addDecoration(char *name, int x, int y)
 		}
 	}
 
-	showErrorAndExit("Could not find decoration %s\n", name);
+	showErrorAndExit("Could not find decoration %s", name);
 
 	return NULL;
 }
@@ -484,7 +484,7 @@ void addDecorationFromScript(char *line)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("Decoration could not find Entity %s\n", entityName);
+		showErrorAndExit("Decoration could not find Entity %s", entityName);
 	}
 
 	addDecoration(decorationName, e->x + e->w / 2, e->y + e->h / 2);

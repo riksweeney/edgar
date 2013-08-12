@@ -92,7 +92,7 @@ void addTriggerFromResource(char *key[], char *value[])
 
 	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1 || total == -1)
 	{
-		showErrorAndExit("Trigger is missing resources\n");
+		showErrorAndExit("Trigger is missing resources");
 	}
 
 	addTrigger(value[triggerName], atoi(value[count]), atoi(value[total]), getTriggerTypeByName(value[targetType]), value[targetName]);
