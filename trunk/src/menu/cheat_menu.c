@@ -280,10 +280,9 @@ Menu *initCheatMenu()
 {
 	menu.action = &doMenu;
 
-	if (menu.widgets == NULL)
-	{
-		loadMenuLayout();
-	}
+	freeCheatMenu();
+	
+	loadMenuLayout();
 
 	menu.returnAction = &showOptionsMenu;
 

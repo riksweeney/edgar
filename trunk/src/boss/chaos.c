@@ -544,7 +544,7 @@ static void eatAttack()
 			{
 				self->thinkTime = 60;
 				
-				self->touch = &entityTouch;
+				self->touch = &touch;
 
 				self->action = &eatAttackFinish;
 			}
@@ -664,7 +664,7 @@ static void eatAttackWait()
 		player.dirX = (10 + prand() % 3) * (self->face == LEFT ? -1 : 1);
 		player.dirY = -3;
 
-		self->touch = &entityTouch;
+		self->touch = &touch;
 
 		self->flags &= ~GRABBING;
 
@@ -2192,15 +2192,9 @@ static void touch(Entity *other)
 {
 	if (game.cheating == TRUE && other->type == PLAYER && other->health > 0)
 	{
-		setPlayerAsh();
-
-		other->flags |= NO_DRAW;
-
 		removeInventoryItemByObjectiveName("Amulet of Resurrection");
 
 		other->die();
-		
-		other->mental = 1;
 	}
 	
 	else
