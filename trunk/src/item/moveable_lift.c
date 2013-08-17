@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../collisions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../hud.h"
@@ -30,6 +31,7 @@ extern Entity *self;
 
 static void touch(Entity *);
 static void activate(int);
+static void init(void);
 
 Entity *addMoveableLift(int x, int y, char *name)
 {
@@ -49,7 +51,7 @@ Entity *addMoveableLift(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &doNothing;
+	e->action = &init;
 	e->touch = &touch;
 	e->activate = &activate;
 	e->fallout = &itemFallout;
@@ -61,6 +63,25 @@ Entity *addMoveableLift(int x, int y, char *name)
 	e->thinkTime = 0;
 
 	return e;
+}
+
+static void init()
+{
+	if (self->health < 0)
+	{
+		self->health = 0;
+	}
+
+	else if (self->health > 2)
+	{
+		self->health = 2;
+	}
+
+	setEntityAnimationByID(self, self->health);	
+	
+	checkToMap(self);
+	
+	self->action = &doNothing;
 }
 
 static void touch(Entity *other)
