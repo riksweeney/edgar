@@ -6,6 +6,7 @@ Version 1.12
 * All music is now in ogg format
 * Fixed a problem with the moveable lift in the Library
 * The time remaining when Edgar is a Slime now appears above the player
+* Fixed a minor problem with the dialogue when Edgar is talking to Evil Edgar
 
 Version 1.11
 * Menus now work correctly with analogue controls
