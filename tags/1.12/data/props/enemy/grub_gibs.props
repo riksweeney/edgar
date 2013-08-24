@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/enemy/grub_gibs.dat
+ANIM_FILE data/anim/enemy/grub_gibs.dat
+THINKTIME 1

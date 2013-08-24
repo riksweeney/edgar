@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/monster_horn.dat
+ANIM_FILE data/anim/common/no_anim.dat
+TYPE ITEM
+OBJECTIVE_NAME Monster Horn
+DESCRIPTION The horn from a fearsome monster

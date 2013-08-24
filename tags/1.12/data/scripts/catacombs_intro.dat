@@ -1,0 +1,11 @@
+WAIT 180
+TALK Edgar Oh great, I can barely see anything
+WALK_TO_RELATIVE EDGAR 128 0 WAIT
+WAIT 60
+SET EDGAR FACE LEFT
+WAIT 60
+SET EDGAR FACE RIGHT
+WAIT 60
+TALK Edgar I'll have to be careful where I tread...
+ADD OBJECTIVE "Escape the Catacombs" " "
+ADD TRIGGER "Catacombs Trigger" 1 UPDATE_OBJECTIVE "Escape the Catacombs"
