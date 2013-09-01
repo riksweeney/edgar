@@ -1,11 +1,14 @@
 CHANGE LOG
 ----------
 
+Version 1.13
+* Updated Brazilian Portuguese translation
+
 Version 1.12
 * Added a sound effect for the lifts
 * All music is now in ogg format
 * Fixed a problem with the moveable lift in the Library
-* The time remaining when Edgar is a Slime now appears above the player
+* The time remaining when Edgar is a Slime now appears above Edgar
 * Fixed a minor problem with the dialogue when Edgar is talking to Evil Edgar
 * Grimlore's fists now take damage from projectiles
 

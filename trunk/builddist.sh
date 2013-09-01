@@ -59,6 +59,9 @@ rm $APPDIR/*.nsi
 rm $APPDIR/*.txt
 rm $APPDIR/*.dat
 rm $APPDIR/makefile.*
+rm $APPDIR/*.cbp
+rm $APPDIR/*.workspace
+rm $APPDIR/*.rc
 
 for i in `find . -name *.wav | grep -v doc`;do
 	rm $i
