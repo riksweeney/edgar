@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-02-22 13:33+0000\n"
-"Last-Translator: Daniel Rodrigues <Unknown>\n"
+"PO-Revision-Date: 2013-08-24 19:13+0000\n"
+"Last-Translator: Georger Araújo <georger_br@yahoo.com.br>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-28 07:32+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-08-25 07:16+0000\n"
+"X-Generator: Launchpad (build 16738)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -6205,7 +6205,7 @@ msgstr "O Guardião do Pântano"
 
 #: src/credits.c:128
 msgid "The Gargoyle"
-msgstr ""
+msgstr "O Gárgula"
 
 #: src/credits.c:129
 msgid "The Blob"
