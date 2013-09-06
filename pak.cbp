@@ -25,9 +25,6 @@
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add library="zlib" />
@@ -36,7 +33,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option='-DVERSION=&quot;1.12&quot;' />
+			<Add option='-DVERSION=&quot;1.13&quot;' />
 			<Add directory="../../../../MinGW/libs/SDL-1.2.15/include" />
 			<Add directory="../../../../MinGW/libs/CEGUI-0.7.9/dependencies/include" />
 		</Compiler>

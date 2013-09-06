@@ -1,7 +1,7 @@
 1 ICON DISCARDABLE "icons/edgar.ico"
 1 VERSIONINFO
-FILEVERSION    1,12,0,0
-PRODUCTVERSION 1,12,0,0
+FILEVERSION    1,13,0,0
+PRODUCTVERSION 1,13,0,0
 FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -18,9 +18,9 @@ BEGIN
         BEGIN
             VALUE "CompanyName"    , "Parallel Realities"
             VALUE "FileDescription", "A 2D platform game with a persistent world"
-            VALUE "FileVersion"    , "1.12.0.0"
+            VALUE "FileVersion"    , "1.13.0.0"
             VALUE "ProductName"    , "The Legend of Edgar"
-            VALUE "ProductVersion" , "1.12.0.0"
+            VALUE "ProductVersion" , "1.13.0.0"
         END
     END
     BLOCK "VarFileInfo"
