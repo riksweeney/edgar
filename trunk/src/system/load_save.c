@@ -210,7 +210,7 @@ int loadGame(int slot)
 			
 			if (version > VERSION)
 			{
-				printf("Save file version is newer than game version. This game might not work correctly.");
+				printf("Save file version is newer than game version. This game might not work correctly.\n");
 			}
 		}
 
