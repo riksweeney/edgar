@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../audio/music.h"
 #include "../entity.h"
 #include "../event/global_trigger.h"
 #include "../event/map_trigger.h"
@@ -125,6 +126,10 @@ void newGame()
 	freeGameResources();
 
 	initGame();
+	
+	stopMusic();
+	
+	game.overrideMusic = TRUE;
 
 	loadMap("map04", TRUE);
 
