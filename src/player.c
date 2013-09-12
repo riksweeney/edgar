@@ -1335,7 +1335,7 @@ static void takeDamage(Entity *other, int damage)
 
 						if (playerShield.health >= 4)
 						{
-							setInfoBoxMessage(360, 255, 255, 255, _("Press Attack whilst Blocking to use your shield..."));
+							setInfoBoxMessage(3600, 255, 255, 255, _("Press Attack whilst Blocking to use your shield..."));
 
 							playerShield.health = 4;
 						}
@@ -2556,7 +2556,7 @@ void becomeEdgar()
 	player.fallout = &fallout;
 
 	clearCustomAction(&player, &slimeTimeout);
-	
+
 	setSlimeTimerValue(-1);
 
 	player.y = bottom - player.h;
