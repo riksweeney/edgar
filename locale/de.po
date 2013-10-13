@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-03-29 18:37+0000\n"
-"Last-Translator: Harald Glock <Unknown>\n"
+"PO-Revision-Date: 2013-10-05 20:02+0000\n"
+"Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-02 06:08+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-10-12 20:32+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3393,7 +3393,7 @@ msgstr "Oh...."
 
 #: data/scripts/raft_end.dat:11
 msgid "Guess I have no choice now."
-msgstr ""
+msgstr "Vermutlich habe ich jetzt keine andere Wahl."
 
 #: data/scripts/raft_end.dat:12
 msgid "Hang on Dad, I'm coming..."
@@ -3576,7 +3576,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:90
 msgid "And this is something very special"
-msgstr ""
+msgstr "Und das ist etwas ganz Besonderes"
 
 #: data/scripts/jacob.dat:92
 msgid "May this help you on your way to becoming a strong warrior"
@@ -3643,7 +3643,7 @@ msgstr ""
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
-msgstr ""
+msgstr "Töte alle Fledermäuse!"
 
 #: data/scripts/cave_bomb.dat:1
 msgid ""
@@ -3770,7 +3770,7 @@ msgstr "Hast du versucht mit ihnen zu sprechen?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:19
 msgid "You're crazy!"
-msgstr ""
+msgstr "Du bist verrückt!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:20
 msgid "No, I'm evil!"
@@ -3786,7 +3786,7 @@ msgstr ""
 
 #: data/scripts/evil_edgar_encounter_1.dat:23
 msgid "Give it back!"
-msgstr ""
+msgstr "Gib es zurück!"
 
 #: data/scripts/evil_edgar_start.dat:35
 msgid "Make me!"
@@ -6527,11 +6527,11 @@ msgstr ""
 
 #: data/scripts/armour_boss_die.dat:4
 msgid "Mine"
-msgstr ""
+msgstr "Bergwerk"
 
 #: data/scripts/ending_part1.dat:35
 msgid "Forest"
-msgstr ""
+msgstr "Wald"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "Forbidden Swamp"
@@ -6539,7 +6539,7 @@ msgstr ""
 
 #: data/scripts/cave_intro.dat:13
 msgid "Cave"
-msgstr ""
+msgstr "Höhle"
 
 #: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
@@ -6579,7 +6579,7 @@ msgstr ""
 
 #: src/boss/sorceror.c:45
 msgid "Dungeon"
-msgstr ""
+msgstr "Verlies"
 
 #: data/maps/map18.dat:1
 msgid "Frozen Wastes"
@@ -6595,15 +6595,15 @@ msgstr ""
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Graveyard"
-msgstr ""
+msgstr "Friedhof"
 
 #: data/maps/map09.dat:10018
 msgid "Left Tower"
-msgstr ""
+msgstr "linker Turm"
 
 #: data/scripts/hidden_passage.dat:9
 msgid "Right Tower"
-msgstr ""
+msgstr "rechter Turm"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
@@ -6611,7 +6611,7 @@ msgstr ""
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
-msgstr ""
+msgstr "Gruft"
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - %d"
@@ -6651,11 +6651,11 @@ msgstr ""
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "unendlich Gesundheit"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "unendlich Pfeile"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
@@ -6744,7 +6744,7 @@ msgstr ""
 
 #: src/boss/chaos.c:814
 msgid "Stalagmite"
-msgstr ""
+msgstr "Tropfstein"
 
 #: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
@@ -6772,7 +6772,7 @@ msgstr ""
 
 #: src/boss/chaos.c:1687
 msgid "Darkness"
-msgstr ""
+msgstr "Dunkelheit"
 
 #: src/boss/sorceror_2.c:1551
 msgid "Hold Person"
@@ -6780,7 +6780,7 @@ msgstr ""
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr ""
+msgstr "Ein legendäres Schwert"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""

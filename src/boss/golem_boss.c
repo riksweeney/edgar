@@ -556,7 +556,7 @@ static void jumpAttackStart()
 
 	/* First jump is on the spot */
 
-	self->dirY =- 13;
+	self->dirY = -13;
 
 	self->dirX = 0;
 
@@ -621,7 +621,7 @@ static void jumpAttack()
 
 			if (self->thinkTime <= 0)
 			{
-				self->dirY =- 13;
+				self->dirY = -13;
 
 				self->dirX = self->face == LEFT ? -6 : 6;
 
