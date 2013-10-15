@@ -12,10 +12,11 @@ msgstr ""
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
+"Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-10 21:48+0000\n"
-"X-Generator: Launchpad (build 16667)\n"
+"X-Launchpad-Export-Date: 2013-10-12 20:32+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
