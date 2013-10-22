@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-10-05 20:02+0000\n"
-"Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
+"PO-Revision-Date: 2013-10-18 19:05+0000\n"
+"Last-Translator: Harald Glock <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-12 20:32+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2013-10-19 06:52+0000\n"
+"X-Generator: Launchpad (build 16807)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3565,7 +3565,7 @@ msgstr "Danke Jacob"
 
 #: data/scripts/jacob.dat:86
 msgid "Wow, you caught them all, thanks alot!"
-msgstr ""
+msgstr "Wow, du hast sie alle gefangen, vielen Dank!"
 
 #: data/scripts/jacob.dat:87
 msgid "Here, I have these for you"
@@ -3775,11 +3775,11 @@ msgstr "Du bist verrückt!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:20
 msgid "No, I'm evil!"
-msgstr ""
+msgstr "Nein, ich bin böse!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:21
 msgid "That's my shield! I need to it rescue my Dad!"
-msgstr ""
+msgstr "Das ist mein Schild! I brauche es um meinen Vater zu retten!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:22
 msgid "Well it's mine now"
@@ -3799,7 +3799,7 @@ msgstr ""
 
 #: data/scripts/evil_edgar_encounter_1.dat:34
 msgid "Loser"
-msgstr ""
+msgstr "Verlierer"
 
 #: data/scripts/evil_edgar_encounter_1.dat:35
 msgid ""
@@ -3812,11 +3812,15 @@ msgid ""
 "This lift is controlled by that pressure plate, but I can't stand on it and "
 "use the lift at the same time"
 msgstr ""
+"Der Aufzug wird von dieser Druckplatte gesteuert, aber ich kann nicht auf "
+"ihr stehen und gleichzeitig den Aufzug benutzen"
 
 #: data/scripts/centurion_pressure_plate.dat:2
 msgid ""
 "I'll have to find something else to stand on the pressure plate for me..."
 msgstr ""
+"Ich muss etwas anderes finden, das für mich auf die Druckplatte stehen "
+"kann..."
 
 #: data/scripts/wasteland_intro_2.dat:2
 msgid ""
@@ -3855,7 +3859,7 @@ msgstr ""
 
 #: data/scripts/mastermind.dat:8
 msgid "You have 10 attempts to guess the sequence"
-msgstr ""
+msgstr "Du hast 10 Versuche die Reihenfolge zu erraten"
 
 #: data/scripts/mastermind.dat:9
 msgid "Press Action to quit"
@@ -3918,7 +3922,7 @@ msgstr ""
 
 #: data/scripts/fireball_passage.dat:8
 msgid "I still need a Fire Shield"
-msgstr ""
+msgstr "Ich brauche noch ein Feuerschild"
 
 #: data/scripts/fireball_passage.dat:12
 msgid ""
@@ -3930,7 +3934,7 @@ msgstr ""
 
 #: data/scripts/fireball_passage.dat:13
 msgid "Obtain a Fire Shield"
-msgstr ""
+msgstr "Erhalte ein Feuerschild"
 
 #: data/scripts/puzzle_pieces.dat:5
 msgid "I need all 9 puzzle pieces"
@@ -3996,7 +4000,7 @@ msgstr ""
 
 #: data/scripts/library_intro.dat:3
 msgid "Wow, I've never seen so many books in one place!"
-msgstr ""
+msgstr "Wow, ich habe niemals so viele Bücher auf einer Stelle gesehen!"
 
 #: data/scripts/library_intro.dat:4
 msgid ""
@@ -4019,6 +4023,8 @@ msgstr ""
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
 msgstr ""
+"Der einzige Weg ins Schloss zu gelangen ist durch den Verbotenen Sumpf im "
+"Osten."
 
 #: data/scripts/grasslands_intro.dat:9
 msgid ""
@@ -4034,23 +4040,23 @@ msgstr ""
 
 #: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
-msgstr ""
+msgstr "Sprich mit Borgan"
 
 #: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
-msgstr ""
+msgstr "Sprich mit Jacob"
 
 #: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
-msgstr ""
+msgstr "Überquere den See zum Sumpf"
 
 #: data/scripts/flying_maggot_start_2.dat:8
 msgid "Wait, what was that?"
-msgstr ""
+msgstr "Warte, was war das?"
 
 #: data/scripts/flying_maggot_start_2.dat:13
 msgid "You again?!"
-msgstr ""
+msgstr "Du schon wieder?!"
 
 #: data/scripts/left_tower_intro.dat:7
 msgid "What a hassle that was"
@@ -4058,11 +4064,11 @@ msgstr ""
 
 #: data/scripts/left_tower_intro.dat:8
 msgid "I don't think I'll find my Dad in here"
-msgstr ""
+msgstr "Ich glaube nicht, dass ich meinen Vater hier drin finde"
 
 #: data/scripts/left_tower_intro.dat:9
 msgid "Maybe I should look somewhere else"
-msgstr ""
+msgstr "Vielleicht sollte ich woanders suchen"
 
 #: data/scripts/left_tower_intro.dat:10
 msgid "Still, there might be something in here worth my time..."
@@ -4113,7 +4119,7 @@ msgstr ""
 
 #: data/scripts/tutorial_items.dat:7
 msgid "Walk over the key to pick it up"
-msgstr ""
+msgstr "Lauf über den Schlüssel um ihn aufzuheben"
 
 #: data/scripts/fortress_intro.dat:3
 msgid "So this is the Fortress."
@@ -4159,6 +4165,7 @@ msgstr ""
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
+"Es ist ein Buch von Stephen J Sweeney mit dem Titel \"The Third Side\""
 
 #: data/scripts/sludge_pool.dat:1
 msgid ""
@@ -4179,7 +4186,7 @@ msgstr ""
 
 #: data/scripts/hoover.dat:7
 msgid "Hey, what's that?"
-msgstr ""
+msgstr "Hey, was ist das?"
 
 #: data/scripts/hoover.dat:12
 msgid "It's a baby Hoover"
@@ -4193,7 +4200,7 @@ msgstr ""
 
 #: data/scripts/hoover.dat:16
 msgid "I miss my Dad, I hope I find him soon..."
-msgstr ""
+msgstr "Ich vermisse meinen Vater, ich hoffe dass ich ihn bald finde..."
 
 #: data/scripts/hoover.dat:18
 msgid "Why is it here? It must be frightened"
