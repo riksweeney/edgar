@@ -1,0 +1,19 @@
+FOLLOW NONE
+HUD OFF
+SET EDGAR PROPERTIES edgar/edgar_clothes
+SET EDGAR ANIMATION SIT
+SET EDGAR_FATHER FACE RIGHT
+SET EDGAR PROPERTY X 630
+SET EDGAR PROPERTY Y 3050
+SET EDGAR FACE LEFT
+CAMERA_START 160 2784
+WAIT 180
+TALK Edgar's_Father What a horrible night
+TALK Edgar's_Father Edgar, I have to go out for a few hours
+TALK Edgar's_Father You can stay up for another 30 minutes, but then you're to pack up your toys and go to bed
+TALK Edgar OK
+WAIT 60
+ADD MAP_TRIGGER "map04" RUN_SCRIPT "intro_part2"
+LOAD_LEVEL map04 Swamp-Cave Entrance
+WAIT 180
+WAIT 5

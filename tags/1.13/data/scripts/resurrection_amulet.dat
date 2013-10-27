@@ -1,0 +1,9 @@
+TALK Edgar Is this what I think it is?
+WAIT 30
+TALK Edgar It is! It's an Amulet of Resurrection!
+TALK Edgar Borgan has one of these, but it's been used up. He must have had a lucky escape from something.
+TALK Edgar This should make my quest a lot easier
+TALK Narrator The Amulet of Resurrection will restore all your health once when it drops to 0
+TALK Narrator However, it will not save you from anything that causes instant death, such as lava or certain boss attacks
+ADD_MEDAL resurrection_amulet
+ADD_SECRET

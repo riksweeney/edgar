@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/enemy/horizontal_flame.dat
+ANIM_FILE data/anim/enemy/horizontal_flame.dat
+TYPE ENEMY
+LAYER FOREGROUND_LAYER

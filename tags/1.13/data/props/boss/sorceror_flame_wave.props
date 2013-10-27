@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/boss/sorceror_flame_wave.dat
+ANIM_FILE data/anim/boss/sorceror_flame_wave.dat
+TYPE ENEMY
+DAMAGE 1
+LAYER BACKGROUND_LAYER
