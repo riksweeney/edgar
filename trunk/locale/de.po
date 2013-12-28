@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-10-18 19:05+0000\n"
-"Last-Translator: Harald Glock <Unknown>\n"
+"PO-Revision-Date: 2013-11-19 07:03+0000\n"
+"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
-"Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-19 06:52+0000\n"
-"X-Generator: Launchpad (build 16807)\n"
+"X-Launchpad-Export-Date: 2013-12-28 08:21+0000\n"
+"X-Generator: Launchpad (build 16877)\n"
 
+"Language: de\n"
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
 msgstr "Danke, das ist genau das was ich brauche"
@@ -591,7 +591,7 @@ msgstr "NUN SAG MIR ENDLICH WO MEIN VATER IST!"
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
-msgstr "Du nverviger kleiner Quälgeist!"
+msgstr "Du nerviger kleiner Quälgeist!"
 
 #: data/scripts/sorceror_intro_2.dat:21
 msgid "I wouldn't be surprised if your father has abandoned you"
@@ -2545,7 +2545,7 @@ msgid "Maybe that wasn't such a good idea after all..."
 msgstr "Vielleicht war das doch nicht eine so gute Idee...."
 
 #: data/scripts/cauldron_exploded.dat:9
-msgid "Looks like I'll have to another way to get past those fireballs"
+msgid "Looks like I'll have to find another way to get past those fireballs"
 msgstr ""
 "Es sieht so aus als ob ich einen anderen Weg finden muß um an den "
 "Feuerbällen vorbei zu kommen"

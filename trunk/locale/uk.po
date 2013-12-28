@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-06-07 13:01+0000\n"
+"PO-Revision-Date: 2013-11-19 04:57+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
-"Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-12 20:32+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2013-12-28 08:21+0000\n"
+"X-Generator: Launchpad (build 16877)\n"
+"Language: uk\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -2402,7 +2402,7 @@ msgid "Maybe that wasn't such a good idea after all..."
 msgstr "Можливо, в решті-решт, не така вже гарна ідея..."
 
 #: data/scripts/cauldron_exploded.dat:9
-msgid "Looks like I'll have to another way to get past those fireballs"
+msgid "Looks like I'll have to find another way to get past those fireballs"
 msgstr ""
 "Схоже, мені прийдеться знайти інший шлях для обходу цих вогняних шарів"
 
