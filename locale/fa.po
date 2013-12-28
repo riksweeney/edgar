@@ -8,137 +8,137 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-04-26 13:45+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2013-12-19 18:36+0000\n"
+"Last-Translator: Denniel Vasgara <majid.foruzan@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
-"Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-12 20:32+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2013-12-28 08:20+0000\n"
+"X-Generator: Launchpad (build 16877)\n"
+"Language: fa\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr ""
+msgstr "دمت گرم، این عالیه!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr ""
+msgstr "هرچی لازم داشتی رو گرفتی؟"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr ""
+msgstr "صد در صد"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
-msgstr ""
+msgstr "خوب الان چی میشه؟"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
-msgstr ""
+msgstr "میتونیم از اینجا بزنیم بیرون! کجا میخوای بریم؟"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
-msgstr ""
+msgstr "برگردیم قلعه، من باید بابامو از دست جادوگر نجات بدم."
 
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
-msgstr ""
+msgstr "خوب، یادته راجع به نابود کردن طلسم بهت چی گفتم؟"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr ""
+msgstr "فکر کنم همینطوره..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
-msgstr ""
+msgstr "برو به آزمایشگاه و حلقه رو با سپرت ترکیب کن"
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
-msgstr ""
+msgstr "چطوری؟"
 
 #: data/scripts/olaf.dat:16
 msgid ""
 "Throw the shield and ring into the cauldron along with some mandrake root, "
 "that should do it"
-msgstr ""
+msgstr "حلقه و سپر رو با یکم ریشه ی گیاه بریز تو دیگ."
 
 #: data/scripts/jacob.dat:35
 msgid "OK..."
-msgstr ""
+msgstr "باشه..."
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
-msgstr ""
+msgstr "ایندفعه هیچی اشتباه نمیشه!"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr ""
+msgstr "(من مجسمه ای رو که Olaf دزدید دارم)"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr ""
+msgstr "(شاید بهتر باشه برگردم پیشش، هرچی باشه اون داره منو نجات میده)"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
-msgstr ""
+msgstr "(بعدش دوباره دزدیدش، پدرم در اومد تا پسش گرفتم)"
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr ""
+msgstr "مجسمه رو بدم به Olaf؟"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
-msgstr ""
+msgstr "من اینو توی غار پیدا کردم، این همون مجسمه ایه که گرفتی؟"
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr ""
+msgstr "آره خودشه! مرسی که پیداش کردی!"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "میتونم اینو با یه قیمت مناسب تو بازار بفروشم"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
-msgstr ""
+msgstr "(فکر کنم اینو واسه خودم نگه دارم)"
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "آماده ای؟"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "برگردم قلعه؟"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
-msgstr ""
+msgstr "نه هنوز، یه کار دیگه ای هست که باید انجام بدم"
 
 #: data/scripts/olaf.dat:47
 msgid "OK, let me know when you're ready"
-msgstr ""
+msgstr "خوب، هروقت آماده شدی بهم بگو"
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "برنامه ای واسه پیدا کردن شیپور داری؟"
 
 #: data/scripts/olaf.dat:62
 msgid "Have you found everything yet?"
-msgstr ""
+msgstr "چیزی تاحالا پیدا کردی؟"
 
 #: data/scripts/olaf.dat:63
 msgid "Not yet, I'm still looking"
-msgstr ""
+msgstr "نه هنوز، دارم میگردم"
 
 #: data/scripts/olaf.dat:68
 msgid "OK, I've found everything now"
-msgstr ""
+msgstr "خوب، من همه چیو پیدا کردم"
 
 #: data/scripts/olaf.dat:77
 msgid "ARGHHHHH!!"
@@ -146,258 +146,268 @@ msgstr ""
 
 #: data/scripts/olaf.dat:79
 msgid "Another human, out here? How did you get out here?"
-msgstr ""
+msgstr "یه آدمه دیگه اون بیرونه؟ چجوری رفتی اون بیرون؟"
 
 #: data/scripts/olaf.dat:80
 msgid ""
 "I'm not sure, I think the sorceror sent me here, but he said he was going to "
 "kill me"
-msgstr ""
+msgstr "نمیدونم، فکر کنم جادوگر منو فرستاد اینجا، ولی گفت میخواد منو بکشه"
 
 #: data/scripts/olaf.dat:83
 msgid "Hmmm, what's that on your hand?"
-msgstr ""
+msgstr "اممم، چی تو دستته؟"
 
 #: data/scripts/olaf.dat:84
 msgid "This? This is just a ring I found in his fortress"
-msgstr ""
+msgstr "اینو میگی؟ یه حلقه ست اینجا پیداش کردم"
 
 #: data/scripts/olaf.dat:85
 msgid ""
 "It looks like a ring of protection, it must have saved you. Why were you in "
 "his fortress?"
 msgstr ""
+"به نظر میاد یه حلقه ی محافظ باشه، حتما این تورو نجات داده. چرا رفتی به قلعه "
+"اش؟"
 
 #: data/scripts/olaf.dat:86
 msgid "He's kidnapped my Dad and I was there trying to save him"
-msgstr ""
+msgstr "آخه بابامو گروگان گرفته، رفتم نجاتش بدم"
 
 #: data/scripts/olaf.dat:87
 msgid "Well, it looks like the ring's power is almost completely gone"
-msgstr ""
+msgstr "خوب، به نظر میرسه قدرت حلقه از بین رفته"
 
 #: data/scripts/olaf.dat:88
 msgid ""
 "If he hits you with that spell again it will almost certainly kill you"
-msgstr ""
+msgstr "اگه یه بار دیگه طلسمت کنه میمیری"
 
 #: data/scripts/olaf.dat:91
 msgid ""
 "Something must have protected you from the spell. Were you wearing a pendant "
 "or a ring?"
 msgstr ""
+"حتما یه چیزی در برابر اون طلسم ازت محافظت میکرده. ببینم شنلی، حلقه ای، چیزی "
+"همرات نبود؟"
 
 #: data/scripts/olaf.dat:92
 msgid ""
 "I did find a ring in the fortress but it didn't seem to have any powers"
-msgstr ""
+msgstr "یه حلقه تو قلعه پیدا کردم ولی به نظر نمیرسید قدرتی داشته باشه"
 
 #: data/scripts/olaf.dat:93
 msgid ""
 "It might have been a ring of protection. I imagine that the protection would "
 "have been limited to a single use"
-msgstr ""
+msgstr "حتما یه حلقه ی محافظ بوده. به نظرم حلقه اش یه بار مصرف بوده"
 
 #: data/scripts/olaf.dat:96
 msgid ""
 "What you could do though is combine the ring and your shield together to "
 "create a shield that will protect you from the spell"
 msgstr ""
+"میتونی یه حرکتی بزنی، حلقه رو با سپرت ترکیب کن تا یه سپر داشته باشی که در "
+"برابر طلسم محافظتت کنه"
 
 #: data/scripts/olaf.dat:97
 msgid "Do you have any experience mixing spells?"
-msgstr ""
+msgstr "تجربه ای راجع به مخلوط کردن طلسم ها داری؟"
 
 #: data/scripts/olaf.dat:98
 msgid ""
 "Kind of, but the last time I tried creating a shield the spell backfired "
 "and..."
-msgstr ""
+msgstr "یه جورایی، ولی آخرین باری که میخواستم یه سپر بسازم طلسم عوضی شدو..."
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
-msgstr ""
+msgstr "یه ورژن بدجنس از خودت ساخت، آره؟"
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
-msgstr ""
+msgstr "آره از کجا فهمیدی؟"
 
 #: data/scripts/olaf.dat:101
 msgid "Where I'm from it used to happen at least once a month"
-msgstr ""
+msgstr "تو محل ما ماهی یه بار ازین اتفاقا میافته"
 
 #: data/scripts/olaf.dat:103
 msgid "Why are you here?"
-msgstr ""
+msgstr "چرا اینجایی؟"
 
 #: data/scripts/olaf.dat:104
 msgid "The sorceror caught me looting his fortress and he banished me here"
-msgstr ""
+msgstr "جادوگر دید دارم قلعه شو بالا میکشم منو اینجا ول کرد"
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"
-msgstr ""
+msgstr "مگه چی دزدیدی؟"
 
 #: data/scripts/olaf.dat:106
 msgid "It was a small golden statue, probably worth a lot of money"
-msgstr ""
+msgstr "یه مجسمه ی کوچیک طلایی، به گمونم کلی قیمت داشت"
 
 #: data/scripts/olaf.dat:107
 msgid ""
 "I've been here for months now, but I've almost got all the ingredients I "
 "need to teleport back home"
 msgstr ""
+"الان چند ماهی میشه که اینجام، ولی تقریبا هرچی واسه برگشت به خونه لازمه رو "
+"دارم"
 
 #: data/scripts/olaf.dat:108
 msgid ""
 "I just need one more thing, but it's in a cave to the west and I have no "
 "weapons to protect myself"
 msgstr ""
+"فقط یه چیز مونده، ولی اون توی یه غار در غربه و من هیچ سلاحی برای دفاع از "
+"خودم ندارم"
 
 #: data/scripts/olaf.dat:109
 msgid "But now you're here you can help me retrieve it"
-msgstr ""
+msgstr "ولی خدارو شکر تو الان اینجایی و میتونی بهم کمک کنی"
 
 #: data/scripts/olaf.dat:112
 msgid ""
 "I haven't gotten all my stuff back yet. I think everything's here though"
-msgstr ""
+msgstr "من هنوز همه ی وسایلمو نگرفتم، هرچند فکر کنم همشون همیجا باشن"
 
 #: data/scripts/olaf.dat:113
 msgid "When I've found everything I'll come back"
-msgstr ""
+msgstr "بارو بندیلمو که بستم میام پیشت"
 
 #: data/scripts/olaf.dat:114
 msgid "OK, good luck!"
-msgstr ""
+msgstr "باشه، در پناه حق"
 
 #: data/scripts/olaf.dat:120
 msgid "What do you need?"
-msgstr ""
+msgstr "چی میخوای؟"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "این یه شیپور واسه یه نوع خاص از هیولا ست"
 
 #: data/scripts/olaf.dat:122
 msgid ""
 "There should be plenty of bones littered around so you shouldn't have to "
 "find one and kill it. Just get the horn and get out"
-msgstr ""
+msgstr "اونجا کلی استخون ریخته، فقط شیپورو پیدا کن و بیا بیرون"
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr ""
+msgstr "اینه؟"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
-msgstr ""
+msgstr "اممم"
 
 #: data/scripts/olaf.dat:130
 msgid ""
 "Well, my stock of logs is looking quite low, maybe you could get me some "
 "more while you're out?"
-msgstr ""
+msgstr "حقیقتش کنده های من داره تموم میشه، میشه از بیرون برام چند تا بیاری؟"
 
 #: data/scripts/olaf.dat:131
 msgid ""
 "Don't even think about it, I'm fed up of chopping down trees and collecting "
 "logs!"
-msgstr ""
+msgstr "شوخی شم زشته! دهنم صاف شد از بس درخت زدم زمین و کنده جمع کردم!"
 
 #: data/scripts/olaf.dat:132
 msgid "OK, it was just a suggestion"
-msgstr ""
+msgstr "باشه بابا، پیشنهاد دادم فقط"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
-msgstr ""
+msgstr "راستی، اینم لازمت میشه"
 
 #: data/scripts/olaf.dat:135
 msgid ""
 "Dip your arrows into it to turn them into fire arrows, it will help you burn "
 "down the vines blocking the entrance"
-msgstr ""
+msgstr "تیرت رو بکن تو این تا آتیشی بشه، اگه درختی سر راهت بود بسوزونش"
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr ""
+msgstr "دمت گرم!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
-msgstr ""
+msgstr "راستی، یه چیز دیگه."
 
 #: data/scripts/olaf.dat:141
 msgid ""
 "Don't hang around in that cave, the monsters that live in there are like "
 "nothing you'll have ever encountered before"
-msgstr ""
+msgstr "دور و بر غار زیاد نپلک، هیولا هایی اونجاست که به عمرت ندیدی"
 
 #: data/scripts/olaf.dat:142
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "فقط شیپور رو پیدا کن و بزن به چاک!"
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
-msgstr "تأیید"
+msgstr "باشه"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
-msgstr ""
+msgstr "نره یه بلایی سرش بیاد"
 
 #: data/scripts/olaf.dat:147
 msgid "Sorry, did you say something?"
-msgstr ""
+msgstr "جان؟"
 
 #: data/scripts/olaf.dat:148
 msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
-msgstr ""
+msgstr "ها؟ چی؟ نه داشتم زیر لب برات دعا میخوندم"
 
 #: data/scripts/olaf.dat:159
 msgid "Yes, let's go"
-msgstr ""
+msgstr "آره، بزن بریم"
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
-msgstr ""
+msgstr "خیله خوب، ایشالا باباتو پیدا میکنی"
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr ""
+msgstr "مرسی Olaf"
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
-msgstr ""
+msgstr "این جابجا کننده کار نمیکنه، باید اول منبع برقشو ردیف کنم"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
-msgstr ""
+msgstr "ایول، منجنیق!"
 
 #: data/scripts/catapult.dat:2
 msgid ""
 "The hinges look rusted though, I doubt it'll work until I get them fixed"
-msgstr ""
+msgstr "البته لولا هاش زنگ زده، باید یه دستی یه سر و گوشش بکشم"
 
 #: data/scripts/drawbridge_pulley.dat:2
 msgid "It looks like the pulley for the drawbridge"
-msgstr ""
+msgstr "مثل یه قرقره واسه پل متحرکه"
 
 #: data/scripts/drawbridge_pulley.dat:3
 msgid "The mechanism seems to be locked tight"
-msgstr ""
+msgstr "به نظر بدجوری گیر کرده"
 
 #: data/scripts/drawbridge_pulley.dat:4
 msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
-msgstr ""
+msgstr "خیلی هم محکم به نظر نمیاد، فکر کنم بتونم بشکونمش"
 
 #: data/scripts/drawbridge_pulley.dat:10
 msgid "Oops..."
-msgstr ""
+msgstr "اوه..."
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "شاید کسی نشنیده باشه"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
@@ -2202,7 +2212,7 @@ msgid "Maybe that wasn't such a good idea after all..."
 msgstr ""
 
 #: data/scripts/cauldron_exploded.dat:9
-msgid "Looks like I'll have to another way to get past those fireballs"
+msgid "Looks like I'll have to find another way to get past those fireballs"
 msgstr ""
 
 #: data/scripts/sleeping.dat:2

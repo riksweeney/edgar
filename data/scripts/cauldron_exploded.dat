@@ -6,7 +6,7 @@ SET Edgar FACE LEFT
 WAIT 180
 TALK Edgar Maybe that wasn't such a good idea after all...
 SET Edgar ANIMATION STAND
-TALK Edgar Looks like I'll have to another way to get past those fireballs
+TALK Edgar Looks like I'll have to find another way to get past those fireballs
 ADD MAP_TRIGGER "map09" RUN_SCRIPT "evil_edgar_sighted"
 ADD MAP_TRIGGER "map11" RUN_SCRIPT "remove_black_book"
 MUSIC START

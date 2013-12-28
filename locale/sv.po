@@ -12,11 +12,11 @@ msgstr ""
 "Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
-"Language: sv\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-12 20:32+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2013-12-28 08:20+0000\n"
+"X-Generator: Launchpad (build 16877)\n"
+"Language: sv\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -2202,7 +2202,7 @@ msgid "Maybe that wasn't such a good idea after all..."
 msgstr ""
 
 #: data/scripts/cauldron_exploded.dat:9
-msgid "Looks like I'll have to another way to get past those fireballs"
+msgid "Looks like I'll have to find another way to get past those fireballs"
 msgstr ""
 
 #: data/scripts/sleeping.dat:2
