@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/chaos_chain_base.dat
+ANIM_FILE data/anim/item/chaos_chain_base.dat
+TYPE KEY_ITEM
+LAYER BACKGROUND_LAYER
+FLAGS FLY
+MENTAL 30

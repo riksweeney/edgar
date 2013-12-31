@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2013 Parallel Realities
+Copyright (C) 2009-2014 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -134,6 +134,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "portable_save.h"
 #include "bell_rope.h"
 #include "music_sheet_display.h"
+#include "chaos_chain_base.h"
 
 extern Entity *self, player;
 
@@ -258,7 +259,8 @@ static Constructor items[] = {
 {"item/train", &addTrain},
 {"item/portable_save", &addPortableSave},
 {"item/bell_rope", &addBellRope},
-{"item/music_sheet_display", &addMusicSheetDisplay}
+{"item/music_sheet_display", &addMusicSheetDisplay},
+{"item/chaos_chain_base", &addChaosChainBase}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

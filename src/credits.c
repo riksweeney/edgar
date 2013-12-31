@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2013 Parallel Realities
+Copyright (C) 2009-2014 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -28,6 +28,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "graphics/font.h"
 #include "graphics/graphics.h"
 #include "inventory.h"
+#include "item/key_items.h"
 #include "map.h"
 #include "player.h"
 #include "system/error.h"
@@ -443,6 +444,15 @@ static void doChaos()
 		e->y = t->y;
 		
 		e->active = FALSE;
+
+		e->alpha = 0;
+		
+		e = addKeyItem("item/chaos_chain_base", 0, 0);
+
+		t = getTargetByName("CHAOS_CHAIN_TARGET");
+
+		e->x = t->x;
+		e->y = t->y;
 
 		e->alpha = 0;
 
