@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/enemy/skeleton_bow.dat
+ANIM_FILE data/anim/enemy/skeleton_bow.dat
+TYPE ENEMY
+FLAGS DO_NOT_PERSIST
+LAYER BACKGROUND_LAYER
