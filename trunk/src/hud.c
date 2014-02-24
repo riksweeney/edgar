@@ -515,7 +515,7 @@ void showMedal(int medalType, char *message)
 		return;
 	}
 
-	textSurface = generateTextSurface(message, game.font, 0, 220, 0, 0, 0, 0);
+	textSurface = generateTextSurface(_(message), game.font, 0, 220, 0, 0, 0, 0);
 
 	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textSurface->h, hud.medalSurface[medalType]->h));
 

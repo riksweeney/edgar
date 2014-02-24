@@ -112,7 +112,7 @@ static void crush()
 	{
 		self->y += self->mental == 1 ? self->speed : -self->speed;
 
-		if (self->y >= self->endY)
+		if (self->y >= self->endY || self->standingOn != NULL)
 		{
 			self->y = self->endY;
 

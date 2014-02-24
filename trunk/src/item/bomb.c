@@ -169,6 +169,8 @@ static void dropBomb(int val)
 		self->action = &startFuse;
 		
 		self->fallout = &fallout;
+		
+		self->flags |= DO_NOT_PERSIST;
 
 		addEntity(*self, player.x, player.y);
 

@@ -537,7 +537,7 @@ void getInput(int gameType)
 				{
 					if (event.jaxis.value < -control.deadZone)
 					{
-						if (input.xAxisMoved == FALSE)
+						if (input.xAxisMoved == FALSE || input.right == TRUE)
 						{
 							input.left = TRUE;
 							input.right = FALSE;
@@ -547,7 +547,7 @@ void getInput(int gameType)
 
 					else if (event.jaxis.value > control.deadZone)
 					{
-						if (input.xAxisMoved == FALSE)
+						if (input.xAxisMoved == FALSE || input.left == TRUE)
 						{
 							input.left = FALSE;
 							input.right = TRUE;
@@ -567,7 +567,7 @@ void getInput(int gameType)
 				{
 					if (event.jaxis.value < -control.deadZone)
 					{
-						if (input.yAxisMoved == FALSE)
+						if (input.yAxisMoved == FALSE || input.down == TRUE)
 						{
 							input.up = TRUE;
 							input.down = FALSE;
@@ -577,7 +577,7 @@ void getInput(int gameType)
 
 					else if (event.jaxis.value > control.deadZone)
 					{
-						if (input.yAxisMoved == FALSE)
+						if (input.yAxisMoved == FALSE || input.up == TRUE)
 						{
 							input.up = FALSE;
 							input.down = TRUE;
