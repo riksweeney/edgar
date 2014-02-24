@@ -177,6 +177,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	player.standingOn = NULL;
 
 	setCheckpoint(player.x, player.y);
+	
+	setSlimeTimerValue(-1);
 
 	return &player;
 }

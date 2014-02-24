@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-12-17 21:45+0000\n"
+"PO-Revision-Date: 2014-01-17 22:10+0000\n"
 "Last-Translator: grapjos <grapjos@hotmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-28 08:21+0000\n"
-"X-Generator: Launchpad (build 16877)\n"
+"X-Launchpad-Export-Date: 2014-02-19 07:52+0000\n"
+"X-Generator: Launchpad (build 16916)\n"
 
 "Language: nl\n"
 #: data/scripts/olaf.dat:6
@@ -24,7 +24,7 @@ msgstr "Bedankt, dat is precies wat ik nodig heb!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr "Is dit alles wat je nodig hebt op dit moment?"
+msgstr "Heb je nu alles wat je nodig hebt?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -83,7 +83,7 @@ msgstr "..."
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr "(Ik heb het standbeeld, dat Olaf heeft gestolen)"
+msgstr "(Ik heb het standbeeld dat Olaf heeft gestolen)"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
@@ -662,8 +662,8 @@ msgstr "Dit schild ziet er niet beter uit dan mijn huidige exemplaar."
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
 msgstr ""
-"Ik moet alleen maar de vloeistof vervaardigen uit het Modder Tentakel en de "
-"Starende Oogappel"
+"Ik hoef alleen maar een vloeistof vervaardigen uit de voelspriet van een "
+"slijmslak en de oogbol van een cycloop"
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
@@ -1374,6 +1374,8 @@ msgid ""
 "But even injuring it is a monumental task. Anyone encountering this creature "
 "is advised to escape as quickly as possible"
 msgstr ""
+"Maar zelfs hem te verwonden is een enorme opgave. Eenieder die zijn pad "
+"kruist wordt geadviseerd zo snel mogelijk te vluchten"
 
 #: data/scripts/monsters.dat:36
 msgid "Or they will die very quickly"
@@ -1404,6 +1406,8 @@ msgid ""
 "Their staff is highly magical and although it cannot be used by humans "
 "directly, its magical properties are used in spell creation"
 msgstr ""
+"Hoewel hun staf extreem magisch is, kan ze niet direct door mensen worden "
+"gebruikt. Zijn magische eigenschappen worden gebruikt om te betoveren"
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
@@ -1426,6 +1430,8 @@ msgid ""
 "and are more than capable of keeping a predator at bay by simply blowing "
 "them away"
 msgstr ""
+"en zijn meer dan geschikt voor het op afstand houden van roofdieren door ze "
+"simpelweg weg te blazen"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap, mobile"
@@ -1436,6 +1442,9 @@ msgid ""
 "Mobile Venus Flytraps have evolved roots and are able to move to their food "
 "rather than waiting for it to come to them"
 msgstr ""
+"De bewegelijke vliegenvangers van Venus hebben sterk ontwikkelde wortels en "
+"zijn in staat om naar hun voedsel toe te bewegen in plaats van te wachten "
+"tot het in hun richting komt"
 
 #: data/scripts/monsters.dat:62
 msgid ""
@@ -1454,6 +1463,8 @@ msgid ""
 "Master Tortoises are frightening beasts. Found in far away lands they "
 "possess the ability to change their heads"
 msgstr ""
+"Meester schildpadden zijn angstaanjagende beesten. Ze werden ontdekt in "
+"verre landen en kunnen hun kop verwisselen"
 
 #: data/scripts/monsters.dat:70
 msgid ""
@@ -1485,12 +1496,17 @@ msgid ""
 "In this state they will smash through any defence and produce Dark Matter "
 "which destroys anything it touches"
 msgstr ""
+"In deze staat breken ze door iedere verdediging heen en produceren donkere "
+"materie, hetgeen alles vernietigt waarmee het in contact komt"
 
 #: data/scripts/monsters.dat:74
 msgid ""
 "However, the shell of a rampaging Master Tortoise is highly magical and is "
 "an essential ingredient when creating powerful magics and items"
 msgstr ""
+"Evenwel, de schelp van een razende meester schildpad is zeer magisch en is "
+"een essentieel ingrediënt bij het maken van krachtige toverspreuken en "
+"magische voorwerpen"
 
 #: data/scripts/monsters.dat:80
 msgid "Grub, Red"
@@ -1565,6 +1581,8 @@ msgid ""
 "Centurions are magically created creatures, usually dispatched as sentries "
 "or guards"
 msgstr ""
+"Centurions zijn met behulp van magie geschapen wezens en worden normaal "
+"gesproken als bewaker of wachtpost ingezet"
 
 #: data/scripts/monsters.dat:102
 msgid ""
@@ -1603,6 +1621,8 @@ msgstr ""
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
+"Hun einige oog is normaal gesproken gesloten en ze gebruiken hun sonar bij "
+"het voortbewegen"
 
 #: data/scripts/monsters.dat:113
 msgid ""
@@ -1616,21 +1636,23 @@ msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
 msgstr ""
-"Gazers vallen aan (en verdedigen zich) door het openen van hun oog en zo hun "
-"vijanden te verblinden."
+"Cyclopen vallen aan (en verdedigen zich) door het openen van hun oog en zo "
+"hun vijanden te verblinden."
 
 #: data/scripts/monsters.dat:115
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
 "Deze manier van aanvallen werkt alleen, indien het slachtoffer oog in oog "
-"staat met een Gazer."
+"staat met een cycloop."
 
 #: data/scripts/monsters.dat:116
 msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
+"De oogbol van een cycloop bezit magische krachten en is een veelgebruikt "
+"ingrediënt bij de voorbereiding van betoveringen"
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
@@ -1807,6 +1829,8 @@ msgid ""
 "Known ingredients include the shell fragment from a Rampaging Master "
 "Tortoise and the staff of a Dark Summoner"
 msgstr ""
+"Bekende ingrediënten zijn een fragment uit het schild van een Wilde Meester "
+"Schildpad en de toverstaf van iemand die duistere machten aanroept"
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
@@ -1883,12 +1907,16 @@ msgstr "Het schild om mee te toveren"
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr ""
+"Meng de oogbollen van de cyclopen met de voelspriet van de slijmslak tot een "
+"gladde vloeistof"
 
 #: data/scripts/enchanting_weapons.dat:50
 msgid ""
 "Add the root, fat and bones into the cauldron and mix together with the "
 "blended Gazer eyes and Sludge tentacle"
 msgstr ""
+"Doe de wortels, het vet en de botten in de ketel en mix alles met het "
+"cyclopenogen-slakkententakel mengsel"
 
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
@@ -1915,6 +1943,7 @@ msgstr ""
 #: data/scripts/enchanting_weapons.dat:59
 msgid "And the Gazers hang around in the basement so that's not a problem"
 msgstr ""
+"En de cyclopen wandelen rond in de kelder dus dat is niet het problem"
 
 #: data/scripts/enchanting_weapons.dat:60
 msgid ""
@@ -1928,6 +1957,8 @@ msgid ""
 "I can't use my current shield in the experiment in case it backfires so I'll "
 "have to find another one"
 msgstr ""
+"Ik kan mijn huidige schild niet voor dit experiment gebruiken, voor het "
+"geval dat er iets mis gaat- Ik zal nog een schild moeten vinden"
 
 #: data/scripts/enchanting_weapons.dat:64
 msgid "Obtain 3 Gazer Eyes"
@@ -2123,6 +2154,8 @@ msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
 msgstr ""
+"Het ziet er naar uit alsof het klem zot. Waarschijnlijk kan ik het met een "
+"pikhouweel los maken..."
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
@@ -2133,7 +2166,7 @@ msgstr ""
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
 "Om de drank te maken heb ik een voelspriet van een rode slak nodig en 3 "
-"Gazer oogbollen"
+"oogbollen van cyclopen"
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
@@ -2753,6 +2786,8 @@ msgid ""
 "I don't think being able to turn into a Slime is going to help me here, "
 "since I might not be able to get back afterwards"
 msgstr ""
+"Ik denk niet dat het veranderen in slijm me hier gaat helpen, omdat ik "
+"misschien niet meer terug kan komen"
 
 #: data/scripts/ice_spray.dat:8
 msgid "Those fish look quite dangerous too"
@@ -2874,6 +2909,8 @@ msgid ""
 "However, since you can't read the instructions on the card, you will have to "
 "try them all out until one works"
 msgstr ""
+"Aangezien je de instructies op de kaart niet kunt lezen, zul je ze allemaal "
+"moeten uitproberen totdat je er één vindt die werkt"
 
 #: data/scripts/robot.dat:6
 msgid ""
@@ -2886,6 +2923,7 @@ msgid ""
 "Ugh, I'm getting really fed up of waking up in strange places with my eyes "
 "spinning around"
 msgstr ""
+"Ugh, ik ben het echt beu op vreemde plaatsen met een houten kop te ontwaken"
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
@@ -3015,6 +3053,8 @@ msgid ""
 "You will then be prompted to input the directions for the robot to follow. "
 "This is done in the same way as the sequence doors"
 msgstr ""
+"Je wordt dan gevraagd om de richtingen voor de robot in te voeren. Dit wordt "
+"op precies dezelfde manier gedaan als bij de liftdeuren"
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
@@ -3363,6 +3403,8 @@ msgid ""
 "Note that if the sword completely loses its power it will revert to a "
 "regular sword with very little power until you can find more charges"
 msgstr ""
+"Merk op dat als het zwaard zijn kracht volledig verliest het zal weer een "
+"doodnormaal zwaard met zeer weinig kracht totdat je er weer lading voor vindt"
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
@@ -4004,12 +4046,16 @@ msgid ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
 msgstr ""
+"Hmmm, de lucht voelt geladen, het herinnert me aan Maggie's huis toen "
+"toverspreuken aan het maken was. Ik zal voorzichtig zijn."
 
 #: data/scripts/grasslands_intro.dat:7
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
+"De tovenaar zal mijn vader hebben meegenomen naar zijn kasteel. Daar vandaan "
+"zal ik hem moeten redden."
 
 #: data/scripts/grasslands_intro.dat:8
 msgid ""
@@ -4137,6 +4183,8 @@ msgid ""
 "It looks like a lot of doors lead off to other areas, I should have a proper "
 "look around before I go anywhere else..."
 msgstr ""
+"Het ziet eruit alsof veel deuren naar andere gebieden leiden, ik moet goed "
+"rondkijken voordat ik ergens anders heen ga..."
 
 #: data/scripts/tutorial_keys.dat:1
 msgid ""
@@ -4185,6 +4233,8 @@ msgstr ""
 msgid ""
 "That stuff looks dangerous, it'd probably eat through my armour in seconds"
 msgstr ""
+"Dat spul ziet er gevaarlijk uit, het vreet waarschijnlijk binnen enkele "
+"seconden door mijn harnas"
 
 #: data/scripts/sludge_pool.dat:2
 msgid "But I'll have to find a way across..."
@@ -4213,6 +4263,8 @@ msgid ""
 "I saw a grown up one in the big city when I went there with my Dad, they're "
 "completely harmless"
 msgstr ""
+"Ik zag een volwassen exemplaar in de grote stad toen ik daar met mijn vader "
+"ben geweest, ze zijn volkomen onschadelijk"
 
 #: data/scripts/hoover.dat:16
 msgid "I miss my Dad, I hope I find him soon..."
@@ -4296,6 +4348,8 @@ msgid ""
 "So far I can only transmogrify myself into one creature but with a bit more "
 "time anything should be possible"
 msgstr ""
+"Tot nu toe kan ik mezelf alleen omtoveren tot één wezen, maar met een beetje "
+"meer tijd zou alles mogelijk moeten zijn"
 
 #: data/scripts/slime_potion.dat:6
 msgid "There's a tiny bit left, it should be safe to drink"
@@ -4315,12 +4369,16 @@ msgid ""
 "Borgan told me that Slimes can swim in water though, so maybe this will be "
 "useful..."
 msgstr ""
+"Borgan vertelde me dat slijm in water kan zwemmen, dus misschien is dit "
+"nuttig"
 
 #: data/scripts/slime_potion.dat:13
 msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
 msgstr ""
+"Getransformeerd tot slijm , kun je je normaal verpaatsen. Je kunt ook in "
+"water zwemmen en je met de pijltoetsen op en neer omhoog en omlaag te bewegen"
 
 #: data/scripts/slime_potion.dat:14
 msgid ""
@@ -4349,7 +4407,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:22
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
-msgstr ""
+msgstr "Ik denk niet dat ik het spookachtige schild nog nodig zal hebben..."
 
 #: data/scripts/cauldron.dat:27
 msgid "Please don't make another evil version of me..."
@@ -4404,6 +4462,8 @@ msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
 msgstr ""
+"Ik moet eerst het schild tegen het uiteenvallen creëren en mijn vader te "
+"redden voordat ik die draak verder achtervolg"
 
 #: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
@@ -4431,7 +4491,7 @@ msgstr "Het is een ketel. Maggie heeft er net zo een"
 
 #: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
-msgstr "OK, de oogbol van de Gazer en de tentakel tijn toegevoegd"
+msgstr "OK, de oogbol van de cycloop en de tentakel zijn toegevoegd"
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
@@ -4456,7 +4516,7 @@ msgstr "Ik heb all basis-ingrediënten nodig"
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr ""
-"3 oogbollen van Gazers, 1 tentekel van een rode slak en een reserve schild"
+"3 oogbollen van cyclopen, 1 tentekel van een rode slak en een reserve schild"
 
 #: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
@@ -4545,7 +4605,7 @@ msgid ""
 "This card is blank, I'll have to put some instructions on it to make it "
 "useable."
 msgstr ""
-"deze instructiekaart is blanco, Om hem te gebruiken moeten er instructies op "
+"deze instructiekaart is blanco, om hem te gebruiken moeten er instructies op "
 "staan"
 
 #: data/scripts/sorceror_study.dat:1
@@ -4585,6 +4645,8 @@ msgid ""
 "Borgan told me that they can temporarily trick certain creatures into "
 "thinking that you're not a threat and leave you alone"
 msgstr ""
+"Borgan vertelde me dat ze tijdelijk bepaalde wezens kunnen laten denken dat "
+"je geen bedreiging voor ze vormt en ze je met rust laten"
 
 #: data/scripts/spores.dat:5
 msgid "Maybe they'll work on the creatures here..."
@@ -4639,6 +4701,8 @@ msgid ""
 "Arrange the blocks so that the numbers 1 to 8 appear in order from left to "
 "right and the empty block is in the bottom right corner"
 msgstr ""
+"Schik de blokken zo dat de cijfers 1 tot 8 verschijnen in de volgorde van "
+"links naar rechts en het lege blok in de rechter benedenhoek is."
 
 #: data/scripts/sliding_puzzle.dat:8
 msgid "Press Attack to quit the puzzle"
@@ -4705,21 +4769,25 @@ msgstr "Ik zag dit schild in een boek over betoverde wapens"
 
 #: data/scripts/correct_combination.dat:20
 msgid "It's a Phantasmal Shield"
-msgstr ""
+msgstr "Het is een spookachtig schild"
 
 #: data/scripts/correct_combination.dat:21
 msgid "The Phantasmal Shield will protect you from phantasmal forces"
-msgstr ""
+msgstr "Het spookachtige schild beschermt je tegen spookachtige krachten"
 
 #: data/scripts/correct_combination.dat:22
 msgid ""
 "In addition to this it can reflect phantasmal projectiles back at the owner"
 msgstr ""
+"Daarnaast kan het spookachtige projectielen terug naar de eigenaar "
+"weerkaatsen"
 
 #: data/scripts/correct_combination.dat:23
 msgid ""
 "Blocking at the last moment increases the power of the reflected projectile"
 msgstr ""
+"Door op het laatste moment pas af te weren, verhoogt de kracht van het "
+"gereflecteerde projectiel"
 
 #: data/scripts/sorceror_die.dat:10
 msgid "Ugh, you have defeated me"
@@ -4872,7 +4940,7 @@ msgstr "Nu dat schild maken en die tovenaar tussen mijn vingers krijgen..."
 
 #: data/scripts/disable_study.dat:14
 msgid "Create a Resist Disintegration Shield"
-msgstr ""
+msgstr "Maak een schild dat bestand is tegen uiteenvallen"
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
@@ -4932,6 +5000,7 @@ msgstr "Deze generator ziet er OK uit, hij is alleen uitgeschakeld"
 #: data/scripts/final_generator.dat:3
 msgid "I guess it powers that door, so I'll have to turn it on"
 msgstr ""
+"Ik vermoed dat het die deur van energie voorziet, dus moet ik het aanzetten"
 
 #: data/scripts/final_generator.dat:4
 msgid "Turn on the generator?"
@@ -4952,6 +5021,7 @@ msgstr "Ik zal het laten voor wat het is op dit moment"
 #: src/graphics/font.c:61
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr ""
+"Beweeg snel van links naar recht om de slijmers van je af te schudden!"
 
 #: src/structs.h:212
 msgid "Bow"
@@ -5287,7 +5357,7 @@ msgstr "Een toverdrank die je onzichtbaar maakt voor bepaalde vijanden"
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr "De oogbol van een Gazer"
+msgstr "De oogbol van een cycloop"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
@@ -5407,7 +5477,7 @@ msgstr "Meldt deze fout aub aan Parallel Realities"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap"
-msgstr ""
+msgstr "Vliegenvanger van Venus"
 
 #: src/item/moveable_lift.c:72
 msgid "Push Up or Down to raise or lower the platform"
@@ -5489,7 +5559,7 @@ msgstr "IJsspray"
 
 #: data/maps/map09.dat:5468
 msgid "Right Wing Lift Key"
-msgstr ""
+msgstr "Sleutel van de rechter vleugel"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine Entrance Door Key"
@@ -5621,7 +5691,7 @@ msgstr "Geen ruimte meer voor instructies"
 
 #: data/props/item/ice_spray.props:5
 msgid "Creates ice cubes that expand on contact with water"
-msgstr ""
+msgstr "Maakt ijsblokjes die uitzetten wanneer ze in contact komen met water"
 
 #: data/props/item/soul_bottle.props:5
 msgid "A bottle capable of capturing souls"
@@ -5693,7 +5763,7 @@ msgstr "Een voelspriet van een rode slak"
 
 #: data/scripts/cauldron.dat:145
 msgid "Eyeball Smoothie"
-msgstr ""
+msgstr "Oogbollensmoothie"
 
 #: data/props/item/eyeball_smoothie.props:5
 msgid "A liquid made from eyeballs and tentacles"
@@ -5911,7 +5981,7 @@ msgstr "%s verwijderd"
 
 #: src/boss/awesome_boss.c:1147
 msgid "Their partner will heal them when they fall..."
-msgstr ""
+msgstr "Hun partner zal hen genezen als ze vallen..."
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
@@ -5931,7 +6001,7 @@ msgstr "Een IN kamer en UIT kamer zijn nodig"
 
 #: src/item/lava_door.c:101
 msgid "One blow from the pickaxe should shatter it"
-msgstr ""
+msgstr "Eén klap met de pikhouweel zou het moeten verbrijzelen"
 
 #: src/item/soul_merger_control_panel.c:85
 msgid "Press Action to reprogram the Soul Merger"
@@ -5979,7 +6049,7 @@ msgstr "Een steeksleutel"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
-msgstr "Een exploderende Gazers oogbol. Een fiasco?"
+msgstr "Een exploderende cyclopen oogbol. Een fiasco?"
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
@@ -6037,6 +6107,8 @@ msgstr "Een toverdrank om vuurpijlen te maken"
 #: data/props/item/spike_ball.props:5
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
 msgstr ""
+"Een opgerold Gordeldier met stekels. Strooit met stekels indien met ze wordt "
+"gegooid"
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
@@ -6109,7 +6181,7 @@ msgstr "Je %s is vernietigd"
 
 #: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
-msgstr ""
+msgstr "Verenigen werkt alleen met verzwakte demonen"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
@@ -6387,11 +6459,11 @@ msgstr "De handleiding voltooid"
 
 #: data/medals.dat:33
 msgid "Obtained the Fire Shield"
-msgstr ""
+msgstr "Het vuurschild verkregen"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "Het fort bereikt"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
@@ -6459,7 +6531,7 @@ msgstr "De wachter van het verboden moeras verslagen"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
-msgstr ""
+msgstr "Het handboek over monster helemaal gelezen"
 
 #: data/medals.dat:53
 msgid "Obtained the Amulet of Resurrection"
@@ -6467,7 +6539,7 @@ msgstr "Amulet der Wederopstanding verkregen"
 
 #: data/medals.dat:54
 msgid "Spent 10 minutes as a Slime"
-msgstr ""
+msgstr "10 minuten als Slijm doorgebracht"
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
@@ -6583,7 +6655,7 @@ msgstr "De gevangenis"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr ""
+msgstr "De bevroren riolering"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
@@ -6719,7 +6791,7 @@ msgstr "Druk een toets"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
-msgstr ""
+msgstr "kan geen items gebruiken gedurende een aanval"
 
 #: src/credits.c:884
 msgid "Continue"
@@ -6803,7 +6875,7 @@ msgstr "De crypte bezocht"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
-msgstr ""
+msgstr "Beweeg snel heen en weer om die mini-waterspuwers af te schudden!"
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
@@ -6832,6 +6904,7 @@ msgid ""
 "You got into the machine by yourself?! You're even stupider than I thought "
 "you were!"
 msgstr ""
+"Je bent zelf in de machine geklommen?! Je bent nog dommer dan ik dacht!"
 
 #: src/boss/chaos.c:814
 msgid "Stalagmite"
@@ -6877,6 +6950,8 @@ msgstr "Een legendarisch zwaard"
 msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
+"Weerspiegelt geheimzinnige krachten. Blokkeren op het laatste moment "
+"verhoogt de afweerkracht."
 
 #: src/credits.c:458
 msgid "Chaos has been subdued"
@@ -6913,20 +6988,23 @@ msgstr "Ik zal je vernietigen!"
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
 msgstr ""
+"Hij moet me weg hebben geteleporteerd  met het laatste restje van zijn magie"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
+"Hoewel ik er niet in geslaagd om hem te doden, is hij nu te zwak om een "
+"bedreiging voor de wereld te vormen"
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "Tijd om terug te gaan en mijn vader te redden..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
-msgstr ""
+msgstr "Het zit potdicht. Ik kom daar niet meer terug binnen"
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
@@ -6950,15 +7028,15 @@ msgstr "Ik zal deze jammerlijke plaats ontvluchten"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Ook al kost het me nog eens 100 jaar"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Deze ketens zullen me niet eeuwig vasthouden"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "Tijd om dit af te maken. Wees bereid!"
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
@@ -6970,7 +7048,7 @@ msgstr "Wat een afschuwlijke nacht"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Edgar,"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
@@ -7086,11 +7164,11 @@ msgstr "Toverdrank voor gedaanteverandering"
 
 #: data/props/item/spike_ball.props:4
 msgid "Armadillo Spike Ball"
-msgstr ""
+msgstr "Opgerold gordeldier met stekels"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer Eyeball"
-msgstr "Gazer oogbol"
+msgstr "Oogbol van een cycloop"
 
 #: src/item/apple_tree.h:20
 msgid "Apple"
@@ -7098,11 +7176,11 @@ msgstr "Appel"
 
 #: src/boss/evil_edgar.c:703
 msgid "Dud Exploding Gazer Eyeball"
-msgstr ""
+msgstr "Niet-geexplodeerde oogbol van een cycloop"
 
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
-msgstr ""
+msgstr "Vuurschild"
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
@@ -7114,3 +7192,23 @@ msgid ""
 msgstr ""
 "Het is een boek geschreven door Stephen J Sweeney getiteld \"The Attribute "
 "of the Strong\""
+
+#: data/maps/map09.dat:1492
+msgid "Library Key"
+msgstr ""
+
+#: data/props/item/yellow_gem.props:4
+msgid "Yellow Gem"
+msgstr ""
+
+#: data/props/item/cauldron.props:159
+msgid "Mandrake Root"
+msgstr ""
+
+#: data/props/item/cauldron.props:160
+msgid "Darsh Fat"
+msgstr ""
+
+#: data/props/item/cauldron.props:161
+msgid "Condor Bones"
+msgstr ""

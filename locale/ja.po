@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-11-19 04:58+0000\n"
+"PO-Revision-Date: 2014-02-20 14:32+0000\n"
 "Last-Translator: maruhiro <maruhiro@bridge.ocn.ne.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-28 08:21+0000\n"
-"X-Generator: Launchpad (build 16877)\n"
+"X-Launchpad-Export-Date: 2014-02-22 18:21+0000\n"
+"X-Generator: Launchpad (build 16926)\n"
 "Language: ja\n"
 
 #: data/scripts/olaf.dat:6
@@ -48,7 +48,7 @@ msgstr "わかった。 奴の破壊の呪文の話を おぼえているか?"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr "ああ…"
+msgstr "うん…"
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
@@ -1161,7 +1161,7 @@ msgstr "ドラゴン?! 父さんは それは全て絶滅したと 言ってた�
 msgid ""
 "For years he wreaked havoc across this land and took thousands of innocent "
 "lives, his fiery breath incinerated everything in its path"
-msgstr "遠い昔からこの地に 大破壊をもたらし、 何千人もの罪のないの人々を 殺害してきた。 その炎の息は 全てを焼き尽くすことが できる。"
+msgstr "遠い昔からこの地に 大破壊をもたらし、 何千何万もの罪のないの人々を 殺害してきた。 その炎の息は 全てを焼き尽くすことが できる。"
 
 #: data/scripts/monsters.dat:16
 msgid ""
@@ -2116,7 +2116,7 @@ msgstr "ここを離れる前に なくしたものを 取り戻さなければ�
 
 #: data/scripts/azriel_start.dat:6
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
-msgstr "偉大な戦士 イヴァンの墓を 荒らすのだ 誰だ?"
+msgstr "偉大な戦士 イヴァンの墓を 荒らすのは 誰だ?"
 
 #: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
@@ -4523,15 +4523,15 @@ msgstr "いいえ"
 
 #: src/menu/main_menu.c:336
 msgid "Start a new game?"
-msgstr "新規にゲームを始めますか？"
+msgstr "ゲームを最初から始めますか?"
 
 #: src/menu/main_menu.c:351
 msgid "Play the tutorial?"
-msgstr "チュートリアルをプレイしますか？"
+msgstr "チュートリアルをプレイしますか?"
 
 #: src/menu/main_menu.c:366
 msgid "Exit the game?"
-msgstr "ゲームを終了しますか？"
+msgstr "ゲームを終了しますか?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back"
@@ -4571,7 +4571,7 @@ msgstr "その武器は効かないようです…"
 
 #: src/boss/blob_boss.c:1203
 msgid "Press Action to attach the Tesla Pack"
-msgstr "行動キーを押すとテスラーパック仕掛けます"
+msgstr "行動キーを押すとテスラーパックを仕掛けます"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid "The Legend of Edgar"
@@ -4599,7 +4599,7 @@ msgstr "この扉を開けるためには %s が必要です"
 
 #: src/world/door.c:129
 msgid "This door is locked"
-msgstr "この扉はロックされています"
+msgstr "この扉には鍵が掛かっています"
 
 #: src/world/teleporter.c:138
 msgid "This teleporter is not active"
@@ -4755,7 +4755,7 @@ msgstr "ヒントを表示する"
 
 #: data/props/item/slime_potion.props:6
 msgid "A potion which will transform you..."
-msgstr "この薬はあなたを変身させます…"
+msgstr "あなたを変身させる薬…"
 
 #: data/props/item/health_potion.props:6
 msgid "A potion which will restore all of your health"
@@ -4775,15 +4775,15 @@ msgstr "ゲイザーが残した目玉"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
-msgstr "テスラーパックです。 充電されていません"
+msgstr "テスラーパック。 充電されていません"
 
 #: data/props/item/summoner_staff.props:5
 msgid "A Summoner's Staff. It cannot be used by humans."
-msgstr "召喚師の杖。 人間には使えない"
+msgstr "召喚師の杖。 人間には使えません"
 
 #: data/props/item/tesla_pack_full.props:5
 msgid "A Tesla Pack. It is fully charged."
-msgstr "テスラーパックです。 満タンに充電されています"
+msgstr "テスラーパック。 満タンに充電されています"
 
 #: data/props/item/empty_potion.props:6
 msgid "An empty potion bottle"
@@ -4863,7 +4863,7 @@ msgstr "行動キーを押すとパズルのブロックをリセットします
 
 #: src/enemy/poltergiest.c:556
 msgid "Try hitting the skull..."
-msgstr "頭蓋骨を攻撃してみよう…"
+msgstr "頭蓋骨を攻撃してみましょう…"
 
 #: src/item/blending_machine.c:184
 msgid "This machine is not active"
@@ -6583,3 +6583,23 @@ msgstr "エドガーの父"
 msgid ""
 "It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
 msgstr "ステファン・J・スウィーニーの \"The Attribute of the Strong\" だ。"
+
+#: data/maps/map09.dat:1492
+msgid "Library Key"
+msgstr "書庫の鍵"
+
+#: data/props/item/yellow_gem.props:4
+msgid "Yellow Gem"
+msgstr "黄色い宝石"
+
+#: data/props/item/cauldron.props:159
+msgid "Mandrake Root"
+msgstr "マンドレイクの根"
+
+#: data/props/item/cauldron.props:160
+msgid "Darsh Fat"
+msgstr "ダーシュの脂肪"
+
+#: data/props/item/cauldron.props:161
+msgid "Condor Bones"
+msgstr "コンドルの骨"

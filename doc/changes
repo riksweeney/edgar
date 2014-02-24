@@ -1,12 +1,20 @@
 CHANGE LOG
 ----------
 
+Version 1.15
+* Updated Dutch, Japanese, Russian and Ukranian translations
+* Fixed a minor issue when changing direction using an analogue controller
+* Fixed the corrupted message that appears when Edgar's inventory is full
+* The slime timer above Edgar is now removed when changing maps or loading a game
+* Crushers no longer get stuck if they hit a pushable object
+* Ice cubes can no longer bounce on springs forever
+
 Version 1.14
+* Added Dutch, Persian and Romanian translations
+* Updated German translation
 * Made some minor graphical improvements to the Sewer and Basement maps
 * Added Chaos's chain
 * Fixed a grammar problem when Edgar talks after the cauldron explodes
-* Added Dutch, Persian and Romanian translations
-* Updated German translation
 
 Version 1.13
 * Updated Brazilian Portuguese and German translations

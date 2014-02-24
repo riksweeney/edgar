@@ -239,7 +239,7 @@ int addToInventory(Entity *e)
 
 	else
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Cannot pick up %s. Inventory full"), _(inventory.item[i].objectiveName));
+		setInfoBoxMessage(0, 255, 255, 255, _("Cannot pick up %s. Inventory full"), _(e->objectiveName));
 
 		return FALSE;
 	}

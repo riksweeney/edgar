@@ -6551,3 +6551,23 @@ msgstr ""
 #: data/scripts/attribute.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
 msgstr ""
+
+#: data/maps/map09.dat:1492
+msgid "Library Key"
+msgstr ""
+
+#: data/props/item/yellow_gem.props:4
+msgid "Yellow Gem"
+msgstr ""
+
+#: data/props/item/cauldron.props:159
+msgid "Mandrake Root"
+msgstr ""
+
+#: data/props/item/cauldron.props:160
+msgid "Darsh Fat"
+msgstr ""
+
+#: data/props/item/cauldron.props:161
+msgid "Condor Bones"
+msgstr ""

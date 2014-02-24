@@ -73,21 +73,21 @@ static void entityWait()
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->dirX = 0;
+	}
+	
+	self->thinkTime--;
 
-		self->thinkTime--;
-
-		if (self->thinkTime < 90)
+	if (self->thinkTime < 90)
+	{
+		if (self->thinkTime % 3 == 0)
 		{
-			if (self->thinkTime % 3 == 0)
-			{
-				self->flags ^= NO_DRAW;
-			}
+			self->flags ^= NO_DRAW;
 		}
+	}
 
-		if (self->thinkTime <= 0)
-		{
-			self->inUse = FALSE;
-		}
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
 	}
 }
 
