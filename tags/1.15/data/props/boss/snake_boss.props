@@ -1,0 +1,10 @@
+HEALTH 2000
+DAMAGE 1
+GFX_FILE data/gfx/boss/snake_boss.dat
+ANIM_FILE data/anim/boss/snake_boss.dat
+SFX_FILE data/sfx/boss/snake_boss.dat
+TYPE ENEMY
+FLAGS FLY
+SPEED 8
+WEIGHT 0.25
+MENTAL 10

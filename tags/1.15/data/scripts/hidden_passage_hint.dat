@@ -1,0 +1,4 @@
+TALK Edgar Hmmm.. I've been all around the fortress and there are no other doors leading off anywhere
+SET EDGAR FACE RIGHT
+TALK Edgar Maybe I should have another look in here...
+ACTIVATE_OBJECTIVE HIDDEN_PASSAGE_WALL

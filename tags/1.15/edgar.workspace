@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="edgar-1.15">
+		<Project filename="edgar.cbp" />
+		<Project filename="mapeditor.cbp" />
+		<Project filename="pak.cbp" />
+		<Project filename="po_creator.cbp" />
+		<Project filename="tile_creator.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

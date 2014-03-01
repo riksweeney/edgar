@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/bubble_machine.dat
+ANIM_FILE data/anim/item/bubble_machine.dat
+TYPE KEY_ITEM
+HEALTH 0
+FLAGS OBSTACLE
