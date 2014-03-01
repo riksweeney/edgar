@@ -2,7 +2,7 @@ CHANGE LOG
 ----------
 
 Version 1.15
-* Updated Dutch, Japanese, Russian and Ukranian translations
+* Updated Dutch, Japanese, Russian and Ukrainian translations
 * Fixed a minor issue when changing direction using an analogue controller
 * Fixed the corrupted message that appears when Edgar's inventory is full
 * The slime timer above Edgar is now removed when changing maps or loading a game

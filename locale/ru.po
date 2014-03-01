@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-02-23 13:05+0000\n"
+"PO-Revision-Date: 2014-02-24 17:07+0000\n"
 "Last-Translator: Kulti <kultihell@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-24 07:01+0000\n"
+"X-Launchpad-Export-Date: 2014-02-25 07:04+0000\n"
 "X-Generator: Launchpad (build 16926)\n"
 "Language: ru\n"
 
@@ -28,7 +28,7 @@ msgstr "Теперь у тебя есть всё, что нужно?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr "Конечно сделаю"
+msgstr "Уверен, что да"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr "Я так думаю..."
+msgstr "Думаю, да..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
@@ -386,7 +386,7 @@ msgstr "Да, пошли"
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
-msgstr "Хорошо, выходит здесь ничего, желаю удачи в поисках отца"
+msgstr "Хорошо, посмотрим, что выйдет. Удачи в поисках отца"
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
