@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-11-19 04:58+0000\n"
+"PO-Revision-Date: 2014-03-03 05:07+0000\n"
 "Last-Translator: Andrea Musuruane <musuruan@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-19 07:52+0000\n"
-"X-Generator: Launchpad (build 16916)\n"
+"X-Launchpad-Export-Date: 2014-03-04 18:28+0000\n"
+"X-Generator: Launchpad (build 16948)\n"
 "Language: it\n"
 
 #: data/scripts/olaf.dat:6
@@ -1814,7 +1814,7 @@ msgid ""
 "This library is huge though, there must be a book in this place that "
 "describes the process"
 msgstr ""
-"Però questa libreria è enorme, ci deve essere un libro in questo luogo che "
+"Però questa biblioteca è enorme, ci deve essere un libro in questo luogo che "
 "descrive il processo"
 
 #: data/scripts/enchanting_weapons.dat:24
@@ -7129,20 +7129,20 @@ msgstr ""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"
-msgstr ""
+msgstr "Chiave della biblioteca"
 
 #: data/props/item/yellow_gem.props:4
 msgid "Yellow Gem"
-msgstr ""
+msgstr "Gemma gialla"
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"
-msgstr ""
+msgstr "Radice di mandragola"
 
 #: data/props/item/cauldron.props:160
 msgid "Darsh Fat"
-msgstr ""
+msgstr "Grasso di Darsh"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
-msgstr ""
+msgstr "Ossa di condor"
