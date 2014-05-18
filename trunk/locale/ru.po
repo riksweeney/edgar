@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-02-24 17:07+0000\n"
+"PO-Revision-Date: 2014-03-09 20:36+0000\n"
 "Last-Translator: Kulti <kultihell@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-25 07:04+0000\n"
-"X-Generator: Launchpad (build 16926)\n"
+"X-Launchpad-Export-Date: 2014-05-18 13:56+0000\n"
+"X-Generator: Launchpad (build 17007)\n"
 "Language: ru\n"
 
 #: data/scripts/olaf.dat:6
@@ -1183,7 +1183,7 @@ msgstr "Я постараюсь"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
-msgstr "Эти ноты, вероятно, свой гимн. Я должен это дать и идти"
+msgstr "Эти ноты, вероятно, его гимн. Я должен сыграть его, чтобы пройти"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
@@ -1207,11 +1207,11 @@ msgstr "Победитель злого дракона Хаоса"
 
 #: data/scripts/tomb_door.dat:42
 msgid "Access to his tomb is granted only to those who play his anthem"
-msgstr "К могиле допускается тот, кто играет свой гимн"
+msgstr "К могиле допускается тот, кто сыграет его гимн"
 
 #: data/scripts/tomb_door.dat:43
 msgid "His anthem? How on earth am I going to figure that out?!"
-msgstr "Свой гимн? Как это понимать?"
+msgstr "Его гимн? Как это понимать?"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
@@ -4471,7 +4471,7 @@ msgstr "О, это работает!"
 
 #: data/scripts/tomb_door_open.dat:11
 msgid "What a terrible anthem though, almost completely random"
-msgstr "Какой ужасный гимн, почти кокафония"
+msgstr "Какой ужасный гимн, почти какафония"
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
@@ -4480,7 +4480,7 @@ msgstr "Это похоже на подарок"
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
 "Thank goodness for that, I really didn't want to have to open that coffin"
-msgstr "Какое счастье, я ведь никак не хочу открывать этот гроб"
+msgstr "Какое счастье, я совсем не хотел открывать этот гроб"
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
