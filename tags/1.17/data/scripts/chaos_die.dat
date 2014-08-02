@@ -1,0 +1,25 @@
+WAIT 30
+FOLLOW EDGAR
+LIMIT_CAMERA 512 0 1152 448
+WALK_TO EDGAR 690 394 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar It's over
+TALK Edgar Hey, what's that? It looks like a sword
+WALK_TO EDGAR 1110 394 WAIT
+WAIT 30
+EQUIP_WEAPON weapon/legendary_sword
+WALK_TO EDGAR 690 394 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar This must be Ivan's sword
+TALK Chaos You... You will never defeat me
+TALK Chaos I will escape this wretched place
+TALK Chaos Even if it takes me another 100 years
+TALK Chaos These chains won't hold me forever
+TALK Edgar Time to finish this. Prepare yourself!
+TALK Chaos No! BANISH!
+TELEPORT EDGAR -1000 -1000
+SET EDGAR ADD_FLAG NO_END_TELEPORT_SOUND
+WAIT 60
+ADD MAP_TRIGGER "map09" RUN_SCRIPT "chaos_finish"
+ADD MAP_TRIGGER "map17" RUN_SCRIPT "seal_chaos_entrance"
+LOAD_LEVEL map09 Fortress-Basement
