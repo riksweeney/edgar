@@ -18,9 +18,9 @@ BEGIN
         BEGIN
             VALUE "CompanyName"    , "Parallel Realities"
             VALUE "FileDescription", "A 2D platform game with a persistent world"
-            VALUE "FileVersion"    , "1.16.0.0"
+            VALUE "FileVersion"    , "1.17.0.0"
             VALUE "ProductName"    , "The Legend of Edgar"
-            VALUE "ProductVersion" , "1.16.0.0"
+            VALUE "ProductVersion" , "1.17.0.0"
         END
     END
     BLOCK "VarFileInfo"

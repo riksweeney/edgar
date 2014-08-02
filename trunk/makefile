@@ -1,4 +1,4 @@
-VERSION = 1.16
+VERSION = 1.17
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -102,14 +102,14 @@ makefile.dep : src/*/*.h src/*.h
 # compiling other source files.
 %.o:
 	$(CC) $(CFLAGS) -c -s $<
-	
+
 %.mo: %.po
 	msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
 	$(CC) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
-	
+
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
 	$(CC) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
@@ -117,7 +117,7 @@ $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
 	$(CC) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
-	
+
 # linking the program.
 $(PO_PROG): $(PO_OBJS)
 	$(CC) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
@@ -129,7 +129,7 @@ $(TILE_PROG): $(TILE_OBJS)
 # cleaning everything that can be automatically recreated with "make".
 clean:
 	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PO_PROG) $(TILE_PROG) $(PAK_FILE) $(LOCALE_MO) $(TILE_PROG) *.o makefile.dep
-	
+
 buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 	./$(PAK_PROG) -test $(PAK_FILE)

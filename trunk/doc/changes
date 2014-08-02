@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 1.17
+* Updated German translation
+
 Version 1.16
 * Updated Brazilian Portuguese, Dutch, Italian and Russian translations
 
@@ -84,7 +87,7 @@ Version 1.02
 * Other minor bug fixes
 
 Version 1.01
-* Updated Spanish, Czech, French, Italian, Russian and Ukrainian translations (thanks translators) 
+* Updated Spanish, Czech, French, Italian, Russian and Ukrainian translations (thanks translators)
 * Fixed a problem where the player could get stuck in the Fortress Mine
 * Bats and Books no longer get stuck after attacking you
 * Prevented certain items from being used when Edgar is a Slime, such as the Ice Spray
