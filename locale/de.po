@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-11-19 07:03+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2014-07-04 10:22+0000\n"
+"Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-19 07:52+0000\n"
-"X-Generator: Launchpad (build 16916)\n"
+"X-Launchpad-Export-Date: 2014-07-05 07:05+0000\n"
+"X-Generator: Launchpad (build 17086)\n"
 
 "Language: de\n"
 #: data/scripts/olaf.dat:6
@@ -3402,11 +3402,11 @@ msgstr "Halte durch Vater, ich komme..."
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
-msgstr ""
+msgstr "Hey, ein Blitzschwert!"
 
 #: data/scripts/lightning_sword.dat:3
 msgid "It looks a lot more powerful than my current sword too"
-msgstr ""
+msgstr "Es sieht auch viel mächtiger als mein jetziges Schwert aus"
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
@@ -3421,6 +3421,8 @@ msgid ""
 "The Lightning Sword has a limited number of charges and will lose its power "
 "when these charges are used up"
 msgstr ""
+"Das Blitzschwert hat eine begrenzte Aufladungsanzahl  und wird seine Macht "
+"verlieren, wenn diese Aufladungen aufgebraucht sind"
 
 #: data/scripts/lightning_sword.dat:7
 msgid "Enemies will randomly drop more charges when they are killed"
@@ -3558,6 +3560,8 @@ msgid ""
 "Here, Maggie made me this health potion but I don't need it so why don't you "
 "have it?"
 msgstr ""
+"Hier, Maggie hat mir diesen Gesundheitstrank gemacht, aber ich brauche ihn "
+"nicht, also nimm du ihn."
 
 #: data/scripts/jacob.dat:65
 msgid "Thanks Jacob"
@@ -3619,7 +3623,7 @@ msgstr ""
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
-msgstr ""
+msgstr "Ich kann in dieser Rüstung allerdings nicht laufen."
 
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
@@ -3632,7 +3636,7 @@ msgstr ""
 
 #: data/scripts/gold_centurion.dat:13
 msgid "and catching chickens"
-msgstr ""
+msgstr "und Hühner einfangen"
 
 #: data/scripts/gold_centurion.dat:14
 msgid "I'll get something else to do it instead"
@@ -3867,7 +3871,7 @@ msgstr ""
 
 #: data/scripts/mastermind.dat:12
 msgid "It's not working at the moment"
-msgstr ""
+msgstr "Es funktioniert im Augenblick nicht"
 
 #: data/scripts/mastermind.dat:13
 msgid "Maybe I should come back later..."
@@ -4012,6 +4016,8 @@ msgid ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
 msgstr ""
+"Hmmm, die Luft fühlt sich aufgeladen an, es erinnert mich an Maggies Haus, "
+"wenn sie zauberte. Ich sollte vorsichtig sein."
 
 #: data/scripts/grasslands_intro.dat:7
 msgid ""
@@ -4082,7 +4088,7 @@ msgstr ""
 
 #: data/scripts/hidden_passage_hint.dat:3
 msgid "Maybe I should have another look in here..."
-msgstr ""
+msgstr "Vielleicht sollte ich mich hier nochmal umschauen..."
 
 #: data/scripts/tutorial_items.dat:1
 msgid ""
@@ -4430,7 +4436,7 @@ msgstr ""
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
-msgstr ""
+msgstr "Ich denke, es ist tot"
 
 #: data/scripts/black_book_search.dat:7
 msgid "Or at least as dead as a book can be"
@@ -4605,7 +4611,7 @@ msgstr ""
 
 #: data/scripts/teleporter_discovery.dat:1
 msgid "Hey, what's this?"
-msgstr ""
+msgstr "Hey, was ist das?"
 
 #: data/scripts/teleporter_discovery.dat:3
 msgid "Looks pretty harmless, I'll try stepping on it"
@@ -4621,7 +4627,7 @@ msgstr ""
 
 #: data/scripts/teleporter_discovery.dat:14
 msgid "Horray!"
-msgstr ""
+msgstr "Hurra!"
 
 #: data/scripts/teleporter_discovery.dat:15
 msgid ""
@@ -6159,7 +6165,7 @@ msgstr ""
 
 #: src/credits.c:133
 msgid "The Phoenix"
-msgstr ""
+msgstr "Der Phönix"
 
 #: src/credits.c:134
 msgid "The Borer"
@@ -6183,7 +6189,7 @@ msgstr ""
 
 #: src/credits.c:141
 msgid "The Sorceror"
-msgstr ""
+msgstr "Der Zauberer"
 
 #: data/medals.dat:1
 msgid "Became a legend"
@@ -6419,7 +6425,7 @@ msgstr ""
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
-msgstr ""
+msgstr "Ein Notenblatt"
 
 #: src/menu/io_menu.c:125
 msgid "Choose slot to save to"
@@ -6439,7 +6445,7 @@ msgstr ""
 
 #: data/scripts/mine2_exit.dat:1
 msgid "the Mine"
-msgstr ""
+msgstr "das Bergwerk"
 
 #: data/maps/map01.dat:1843
 msgid "the Forest"
@@ -6447,11 +6453,11 @@ msgstr ""
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "der verbotene Sumpf"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
-msgstr ""
+msgstr "die Höhle"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
@@ -6499,7 +6505,7 @@ msgstr ""
 
 #: data/medals.dat:29
 msgid "the Dungeon"
-msgstr ""
+msgstr "der Kerker"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
@@ -6515,7 +6521,7 @@ msgstr ""
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
-msgstr ""
+msgstr "der Friedhof"
 
 #: data/maps/map09.dat:10018
 msgid "the Left Tower"
@@ -6527,7 +6533,7 @@ msgstr ""
 
 #: data/medals.dat:21
 msgid "the Crypt"
-msgstr ""
+msgstr "die Gruft"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "Village"
@@ -6543,7 +6549,7 @@ msgstr "Wald"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "Forbidden Swamp"
-msgstr ""
+msgstr "Verbotener Sumpf"
 
 #: data/scripts/cave_intro.dat:13
 msgid "Cave"
@@ -6651,7 +6657,7 @@ msgstr ""
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
-msgstr ""
+msgstr "Audioqualität"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
@@ -6727,7 +6733,7 @@ msgstr ""
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
-msgstr ""
+msgstr "Drachenschild"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
@@ -6760,7 +6766,7 @@ msgstr ""
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
-msgstr ""
+msgstr "Fühle meine Macht!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
@@ -7041,7 +7047,7 @@ msgstr ""
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"
-msgstr ""
+msgstr "Alraunenwurzel"
 
 #: data/props/item/cauldron.props:160
 msgid "Darsh Fat"
@@ -7049,4 +7055,4 @@ msgstr ""
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
-msgstr ""
+msgstr "Kondorknochen"
