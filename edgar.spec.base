@@ -34,6 +34,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 /usr/share/games/edgar/%{name}.pak
 /usr/share/doc/%{name}/*
 /usr/share/applications/edgar.desktop
+/usr/share/appdata/edgar.appdata.xml
 /usr/share/icons/hicolor/16x16/apps/edgar.png
 /usr/share/icons/hicolor/32x32/apps/edgar.png
 /usr/share/icons/hicolor/48x48/apps/edgar.png
