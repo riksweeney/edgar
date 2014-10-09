@@ -63,8 +63,6 @@ rm $APPDIR/*.cbp
 rm $APPDIR/*.workspace
 rm $APPDIR/*.rc
 
-mv $APPDIR/icons/edgar.appdata.xml.in $APPDIR/icons/edgar.appdata.xml
-
 for i in `find . -name *.wav | grep -v doc`;do
 	rm $i
 done
