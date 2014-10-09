@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-09-18 10:55+0000\n"
+"PO-Revision-Date: 2014-10-09 06:17+0000\n"
 "Last-Translator: ifox12 <ifox12@posteo.net>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-19 06:02+0000\n"
+"X-Launchpad-Export-Date: 2014-10-09 06:21+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 "Language: de\n"
@@ -3496,6 +3496,9 @@ msgid ""
 "using this chicken feed. I don't need them all, but at least 3 would be very "
 "helpful. I can get the rest myself."
 msgstr ""
+"Ich habe ein paar Fallen nahe ihrem Stall aufgestellt, du kannst sie mit "
+"diesem Hühnerfutter in die Fallen locken. Ich brauche nicht alle Hühner, "
+"aber mindestens 3 wären gut. Die restlichen kann ich selbst fangen."
 
 #: data/scripts/jacob.dat:40
 msgid ""
@@ -4095,33 +4098,43 @@ msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
 "to your inventory."
 msgstr ""
+"Um einen Gegenstand aufzuheben, laufe einfach darüber. Aufhebbare "
+"Gegenstände werden zu deinem Inventar hinzugefügt."
 
 #: data/scripts/tutorial_items.dat:2
 msgid ""
 "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
 msgstr ""
+"Du kannst dir den Inhalt deines Inventars anschauen indem du "
+"[INPUT_INVENTORY] drückst."
 
 #: data/scripts/tutorial_items.dat:3
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr ""
+msgstr "Benutze die Pfeiltasten um im Inventar Gegenstände anzuschauen."
 
 #: data/scripts/tutorial_items.dat:4
 msgid ""
 "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
 "Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Du kannst einen Gegenstand sofort benutzen, wenn du Angriff ([INPUT_ATTACK]) "
+"oder Verwende Gegenstand ([INPUT_ACTIVATE) drückst."
 
 #: data/scripts/tutorial_items.dat:5
 msgid ""
 "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
 "([INPUT_INTERACT])"
 msgstr ""
+"Du kannst einen Gegenstand zur Benutzung bereithalten, wenn du Block "
+"([INPUT_BLOCK]) oder Aktion ([INPUT_INTERACT]) drückst."
 
 #: data/scripts/tutorial_items.dat:6
 msgid ""
 "You can also sort items in your inventory by using the Previous Item "
 "([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
 msgstr ""
+"Du kannst Gegenstände in deinem Inventar auch sortieren, indem du Voriger "
+"Gegenstand ([INPUT_PREVIOUS]) und Nächster Gegenstand ([INPUT_NEXT]) drückst."
 
 #: data/scripts/tutorial_items.dat:7
 msgid "Walk over the key to pick it up"
@@ -4142,31 +4155,40 @@ msgid ""
 "You can change all of the controls in the game by pressing Escape and "
 "selecting Options in the menu"
 msgstr ""
+"Du kannst die gesamte Steuerung des Spiels verändern wenn du Escape drückst "
+"und im Menü Optionen auswählst."
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Select Configure Controls using the arrow keys and press Return"
 msgstr ""
+"Wähle mit den Pfeiltasten Steuerung konfigurieren aus und drücke Enter."
 
 #: data/scripts/tutorial_keys.dat:3
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
 msgstr ""
+"Benutze die Pfeiltasten um die Taste auszuwählen, die du neu belegen "
+"möchtest und drücke Enter."
 
 #: data/scripts/tutorial_keys.dat:4
 msgid "Next, press the key that you want to use instead."
-msgstr ""
+msgstr "Dann drücke die Taste die du stattdessen benutzen möchtest."
 
 #: data/scripts/tutorial_keys.dat:5
 msgid ""
 "Regardless of what keys you choose, you can always navigate the menus using "
 "the arrow keys and Return"
 msgstr ""
+"Unabhängig davon, was für Tasten du wählst, kannst du in den Menüs immer mit "
+"den Pfeiltasten und Enter navigieren."
 
 #: data/scripts/tutorial_keys.dat:6
 msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
 msgstr ""
+"Wenn du fertig bist, die Steuerung zu konfigurieren, geh gleich zum nächsten "
+"Aktionspunkt."
 
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
@@ -4822,7 +4844,7 @@ msgstr ""
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
-msgstr ""
+msgstr "Einen Gegenstand, den du aufgehoben hast, zu benutzen, ist einfach."
 
 #: data/scripts/tutorial_bomb.dat:2
 msgid ""
@@ -4893,7 +4915,7 @@ msgstr "Bogen"
 
 #: src/graphics/font.c:60
 msgid "Press Action to interact"
-msgstr ""
+msgstr "Drücke Aktion zum benutzen."
 
 #: src/item/instruction_machine.c:85
 msgid "%s is required"
@@ -5073,7 +5095,7 @@ msgstr ""
 
 #: src/player.c:3243
 msgid "Picked up %s"
-msgstr ""
+msgstr "%s aufgehoben"
 
 #: src/inventory.c:661
 msgid "%s is required to carry this item"
@@ -5177,7 +5199,7 @@ msgstr "Spielstand laden"
 
 #: data/scripts/tutorial_keys.dat:1
 msgid "Options"
-msgstr ""
+msgstr "Optionen"
 
 #: src/menu/main_menu.c:52
 msgid "About"
@@ -5185,11 +5207,11 @@ msgstr "Über"
 
 #: src/tile_creator.c:265
 msgid "Quit"
-msgstr ""
+msgstr "Beenden"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Configure Controls"
-msgstr ""
+msgstr "Steuerung konfigurieren"
 
 #: src/menu/options_menu.c:191
 msgid "Configure Sound"
@@ -5541,7 +5563,7 @@ msgstr ""
 
 #: data/scripts/tutorial_combat.dat:1
 msgid "Narrator"
-msgstr ""
+msgstr "Erzähler"
 
 #: src/item/instruction_machine.c:92
 msgid "Enter the directions"
@@ -5701,7 +5723,7 @@ msgstr ""
 
 #: data/maps/tutorial.dat:1916
 msgid "Tutorial Key"
-msgstr ""
+msgstr "Tutorial-Schlüssel"
 
 #: data/maps/map13.dat:6544
 msgid "Light Key"
@@ -5777,7 +5799,7 @@ msgstr ""
 
 #: src/credits.c:861
 msgid "Statistics"
-msgstr ""
+msgstr "Statistik"
 
 #: src/menu/stats_menu.c:94
 msgid "Play Time: %s"
@@ -6653,7 +6675,7 @@ msgstr ""
 
 #: src/init.c:128
 msgid "Medals"
-msgstr ""
+msgstr "Medaillen"
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
