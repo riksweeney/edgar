@@ -1,0 +1,6 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/sewer_boss_mouth_orb.dat
+ANIM_FILE data/anim/boss/sewer_boss_mouth_orb.dat
+HEALTH 2000
+FLAGS FLY
+LAYER BACKGROUND_LAYER
