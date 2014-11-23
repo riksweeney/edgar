@@ -1628,7 +1628,7 @@ msgid "The root of a Mandrake"
 msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:44
-msgid "The fat of a Darsh (left to stand for 3 months)"
+msgid "The fat of a Mantis (left to stand for 3 months)"
 msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:45
@@ -6565,7 +6565,7 @@ msgid "Mandrake Root"
 msgstr ""
 
 #: data/props/item/cauldron.props:160
-msgid "Darsh Fat"
+msgid "Mantis Fat"
 msgstr ""
 
 #: data/props/item/cauldron.props:161
