@@ -7,4 +7,4 @@ Comment=A 2D platform game with a persistent world
 Icon=edgar
 Exec=edgar
 Terminal=false
-Categories=Game
+Categories=Game;ArcadeGame;

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-04 18:28+0000\n"
-"X-Generator: Launchpad (build 16948)\n"
+"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 "Language: it\n"
 
 #: data/scripts/olaf.dat:6
@@ -1858,8 +1858,8 @@ msgid "The root of a Mandrake"
 msgstr "La radice di una mandragola"
 
 #: data/scripts/enchanting_weapons.dat:44
-msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr "Il grasso di un Darsh (lasciato a riposo per 3 mesi)"
+msgid "The fat of a Mantis (left to stand for 3 months)"
+msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -7140,8 +7140,8 @@ msgid "Mandrake Root"
 msgstr "Radice di mandragola"
 
 #: data/props/item/cauldron.props:160
-msgid "Darsh Fat"
-msgstr "Grasso di Darsh"
+msgid "Mantis Fat"
+msgstr ""
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"

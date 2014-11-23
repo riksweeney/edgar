@@ -1,9 +1,10 @@
-VERSION = 1.18
+VERSION = 1.19
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
+MAN = man/
 UNIX = 1
 
 ifeq ($(UNIX),0)
@@ -159,6 +160,7 @@ else
 	cp $(ICONS)48x48.png $(ICON_DIR)48x48/apps/$(PROG).png
 	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
 	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
+	install -m 0644 $(MAN)$(PROG).6x.gz $(PREFIX)/share/man/man6
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
@@ -179,6 +181,7 @@ uninstall:
 	$(RM) $(ICON_DIR)48x48/apps/$(PROG).png
 	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)$(PROG).desktop
+	$(RM) $(PREFIX)/share/man/man6/$(PROG).6x.gz
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \

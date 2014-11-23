@@ -159,7 +159,7 @@ static int countFiles(char *dirName)
 			count++;
 		}
 	}
-	
+
 	closedir(dirp);
 
 	return count;
@@ -229,7 +229,7 @@ static void compressFile(char *filename, DIR *dirp)
 		printf("Couldn't open %s for reading!\n", filename);
 
 		closedir(dirp);
-		gzclose(pak);
+		fclose(pak);
 
 		exit(1);
 	}
@@ -277,7 +277,7 @@ static void compressFile(char *filename, DIR *dirp)
 
 		closedir(dirp);
 
-		gzclose(pak);
+		fclose(pak);
 
 		exit(1);
 	}

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-10-09 06:17+0000\n"
-"Last-Translator: ifox12 <ifox12@posteo.net>\n"
+"PO-Revision-Date: 2014-11-10 00:14+0000\n"
+"Last-Translator: polluks <stefan.haubenthal@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-09 06:21+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 
 "Language: de\n"
 #: data/scripts/olaf.dat:6
@@ -1894,8 +1894,8 @@ msgid "The root of a Mandrake"
 msgstr "Die Wurzeln einer Alraune"
 
 #: data/scripts/enchanting_weapons.dat:44
-msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr "Das Fett von einem Dorsch"
+msgid "The fat of a Mantis (left to stand for 3 months)"
+msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -2398,16 +2398,16 @@ msgid ""
 "([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
 "Du kannst auch den Dialog wechseln indem du Angriff ([INPUT_ATTACK]), "
-"Blockieren([INPUT_BLOCK]), Springen ([INPUT_JUMP]), Aktion "
-"([INPUT_INTERACT]) oder verwende Gegenstand ([INPUT_ACTIVATE])drückst."
+"Blockieren ([INPUT_BLOCK]), Springen ([INPUT_JUMP]), Aktion "
+"([INPUT_INTERACT]) oder Verwende Gegenstand ([INPUT_ACTIVATE]) drückst."
 
 #: data/scripts/tutorial_intro.dat:6
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
-"Dies ist die Anleitung für Edgars Legende. Die Anleitung wird dir erklären "
-"wie das Spiel gespielt wird."
+"Dies ist die Anleitung für »Edgars Legende«. Die Anleitung wird dir "
+"erklären, wie das Spiel gespielt wird."
 
 #: data/scripts/tutorial_intro.dat:7
 msgid ""
@@ -3616,7 +3616,7 @@ msgstr "Repariere die Generatoren"
 
 #: data/scripts/gold_centurion.dat:7
 msgid "This centurion has no power"
-msgstr ""
+msgstr "Dieser Hauptmann hat keine Macht"
 
 #: data/scripts/gold_centurion.dat:9
 msgid ""
@@ -3899,7 +3899,7 @@ msgstr ""
 
 #: data/scripts/fish.dat:1
 msgid "The water is full of those carnivorous fish"
-msgstr ""
+msgstr "Das Wasser ist voller Raubfische"
 
 #: data/scripts/fish.dat:2
 msgid ""
@@ -6695,7 +6695,7 @@ msgstr "unendlich Pfeile"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "Lava ist tödlich"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
@@ -6719,7 +6719,7 @@ msgstr ""
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
-msgstr ""
+msgstr "Asriel"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
@@ -6727,7 +6727,7 @@ msgstr ""
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
-msgstr ""
+msgstr "Ivans Andenken"
 
 #: src/inventory.c:364
 msgid "Selected %s"
@@ -6759,7 +6759,7 @@ msgstr "Drachenschild"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
-msgstr ""
+msgstr "Ein Schild, dem Drachen Atem widerstehen kann"
 
 #: src/game.c:870
 msgid ""
@@ -7052,7 +7052,7 @@ msgstr "Feuerschild"
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
-msgstr ""
+msgstr "Edgars_Vater"
 
 #: data/scripts/attribute.dat:2
 msgid ""
@@ -7061,19 +7061,19 @@ msgstr ""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"
-msgstr ""
+msgstr "Bibliotheksschlüssel"
 
 #: data/props/item/yellow_gem.props:4
 msgid "Yellow Gem"
-msgstr ""
+msgstr "Gelber Edelstein"
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"
 msgstr "Alraunenwurzel"
 
 #: data/props/item/cauldron.props:160
-msgid "Darsh Fat"
-msgstr ""
+msgid "Mantis Fat"
+msgstr "Gottesanbeterinnenfett"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"

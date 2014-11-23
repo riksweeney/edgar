@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-03-09 20:36+0000\n"
-"Last-Translator: Kulti <kultihell@gmail.com>\n"
+"PO-Revision-Date: 2014-11-13 13:28+0000\n"
+"Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-18 13:56+0000\n"
-"X-Generator: Launchpad (build 17007)\n"
+"X-Launchpad-Export-Date: 2014-11-14 07:01+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 "Language: ru\n"
 
 #: data/scripts/olaf.dat:6
@@ -1811,8 +1811,8 @@ msgid "The root of a Mandrake"
 msgstr "Корень Мандрагоры"
 
 #: data/scripts/enchanting_weapons.dat:44
-msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr "Жир Дарша (настоянный в течение 3 месяцев)"
+msgid "The fat of a Mantis (left to stand for 3 months)"
+msgstr "Жир Богомола (3-х месячной выдержки)"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -6986,8 +6986,8 @@ msgid "Mandrake Root"
 msgstr "Корень Мандрагоры"
 
 #: data/props/item/cauldron.props:160
-msgid "Darsh Fat"
-msgstr "Жир Дарша"
+msgid "Mantis Fat"
+msgstr "Жир Богомола"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"

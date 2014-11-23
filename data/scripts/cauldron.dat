@@ -157,7 +157,7 @@ WAIT 90
 WALK_TO Edgar 21280 13322 WAIT
 WAIT 60
 REMOVE "Mandrake Root" 1 1 CAULDRON 2 2
-REMOVE "Darsh Fat" 1 1 CAULDRON 2 2
+REMOVE "Mantis Fat" 1 1 CAULDRON 2 2
 REMOVE "Condor Bones" 1 1 CAULDRON 2 2
 TALK Edgar And the rest of the ingredients too
 WAIT 60
