@@ -1,7 +1,0 @@
-TALK Narrator This is the last part of the tutorial and will teach you to block and attack enemies
-TALK Narrator First, you should equip the sword since it has more range and does more damage than the pickaxe
-TALK Narrator Press [INPUT_INVENTORY] to view your inventory, highlight the sword and press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])
-TALK Narrator Press [INPUT_INVENTORY] again to close your inventory
-TALK Narrator Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!
-TALK Narrator If a bat is getting too close to you, hold block and it will harmlessly bounce off you
-TALK Narrator Now kill all of the bats in the area!

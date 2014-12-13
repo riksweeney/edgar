@@ -1,5 +1,0 @@
-HEALTH 1
-GFX_FILE data/gfx/item/test_crate.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE ITEM
-FLAGS PUSHABLE

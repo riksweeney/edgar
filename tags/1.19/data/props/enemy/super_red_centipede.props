@@ -1,6 +1,0 @@
-HEALTH 500000
-DAMAGE 1
-GFX_FILE data/gfx/enemy/red_centipede.dat
-ANIM_FILE data/anim/enemy/centipede.dat
-TYPE ENEMY
-SPEED 2

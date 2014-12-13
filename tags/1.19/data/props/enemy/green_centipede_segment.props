@@ -1,7 +1,0 @@
-HEALTH 40
-DAMAGE 1
-GFX_FILE data/gfx/enemy/green_centipede_segment.dat
-ANIM_FILE data/anim/enemy/green_centipede.dat
-TYPE ENEMY
-SPEED 2
-FLAGS DO_NOT_PERSIST|UNBLOCKABLE

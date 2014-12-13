@@ -1,9 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/sewer_boss_claw.dat
-ANIM_FILE data/anim/boss/sewer_boss_claw.dat
-SPEED 4
-HEALTH 100
-DAMAGE 1
-FLAGS FLY
-MENTAL 16
-LAYER FOREGROUND_LAYER

@@ -1,5 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/grimlore_shield_bite.dat
-ANIM_FILE data/anim/boss/grimlore_shield_bite.dat
-DAMAGE 1
-FLAGS FLY

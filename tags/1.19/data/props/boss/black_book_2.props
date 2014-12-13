@@ -1,8 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/black_book_front.dat
-ANIM_FILE data/anim/common/no_anim.dat
-HEALTH 3000
-FLAGS FLY|UNBLOCKABLE|NO_DRAW
-DAMAGE 1
-ACTIVE FALSE
-LAYER FOREGROUND_LAYER
