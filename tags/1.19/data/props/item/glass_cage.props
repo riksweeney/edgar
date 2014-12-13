@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/glass_cage.dat
+ANIM_FILE data/anim/item/glass_cage.dat
+TYPE KEY_ITEM
+THINKTIME 30
+ALPHA 180
+REQUIRES TUNING_FORK

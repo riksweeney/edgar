@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/exploding_gazer_eye.dat
+ANIM_FILE data/anim/item/exploding_gazer_eye.dat
+TYPE KEY_ITEM
+THINKTIME 30
+HEALTH 30

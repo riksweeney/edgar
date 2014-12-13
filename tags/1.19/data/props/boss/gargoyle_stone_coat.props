@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/boss/gargoyle_stone_coat.dat
+ANIM_FILE data/anim/boss/gargoyle_stone_coat.dat
+TYPE ENEMY
+FLAGS DO_NOT_PERSIST
+LAYER FOREGROUND_LAYER

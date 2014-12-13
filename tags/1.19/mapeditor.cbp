@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="mapeditor" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/mapeditor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option='-DDEV=&quot;1&quot;' />
+				</Compiler>
+				<Linker>
+					<Add library="zlib_d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/mapeditor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Linker>
+					<Add option="-s" />
+					<Add library="zlib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="../../../../MinGW/libs/SDL-1.2.15/include" />
+			<Add directory="../../../../MinGW/libs/CEGUI-0.7.9/dependencies/include" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDLmain" />
+			<Add library="SDL.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="SDL_mixer" />
+			<Add library="SDL_ttf" />
+			<Add library="SDL_image" />
+			<Add directory="../../../../MinGW/libs/SDL-1.2.15/lib" />
+			<Add directory="../../../../MinGW/libs/CEGUI-0.7.9/dependencies/lib/dynamic" />
+		</Linker>
+		<Unit filename="src/audio/audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/audio/audio.h" />
+		<Unit filename="src/audio/music.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/audio/music.h" />
+		<Unit filename="src/boss/ant_lion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/ant_lion.h" />
+		<Unit filename="src/boss/armour_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/armour_boss.h" />
+		<Unit filename="src/boss/awesome_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/awesome_boss.h" />
+		<Unit filename="src/boss/awesome_boss_meter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/awesome_boss_meter.h" />
+		<Unit filename="src/boss/azriel.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/azriel.h" />
+		<Unit filename="src/boss/azriel_grave.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/azriel_grave.h" />
+		<Unit filename="src/boss/black_book.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/black_book.h" />
+		<Unit filename="src/boss/black_book_2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/black_book_2.h" />
+		<Unit filename="src/boss/black_book_3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/black_book_3.h" />
+		<Unit filename="src/boss/blob_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/blob_boss.h" />
+		<Unit filename="src/boss/borer_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/borer_boss.h" />
+		<Unit filename="src/boss/boulder_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/boulder_boss.h" />
+		<Unit filename="src/boss/boulder_boss_2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/boulder_boss_2.h" />
+		<Unit filename="src/boss/cave_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/cave_boss.h" />
+		<Unit filename="src/boss/centurion_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/centurion_boss.h" />
+		<Unit filename="src/boss/chaos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/chaos.h" />
+		<Unit filename="src/boss/chaos_vine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/chaos_vine.h" />
+		<Unit filename="src/boss/evil_edgar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/evil_edgar.h" />
+		<Unit filename="src/boss/fly_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/fly_boss.h" />
+		<Unit filename="src/boss/flying_maggot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/flying_maggot.h" />
+		<Unit filename="src/boss/gargoyle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/gargoyle.h" />
+		<Unit filename="src/boss/golem_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/golem_boss.h" />
+		<Unit filename="src/boss/golem_rock_dropper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/golem_rock_dropper.h" />
+		<Unit filename="src/boss/grimlore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/grimlore.h" />
+		<Unit filename="src/boss/grimlore_summon_spell.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/grimlore_summon_spell.h" />
+		<Unit filename="src/boss/grub_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/grub_boss.h" />
+		<Unit filename="src/boss/mataeus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/mataeus.h" />
+		<Unit filename="src/boss/mataeus_wall.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/mataeus_wall.h" />
+		<Unit filename="src/boss/mini_gargoyle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/mini_gargoyle.h" />
+		<Unit filename="src/boss/phoenix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/phoenix.h" />
+		<Unit filename="src/boss/sewer_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/sewer_boss.h" />
+		<Unit filename="src/boss/snake_boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/snake_boss.h" />
+		<Unit filename="src/boss/sorceror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/sorceror.h" />
+		<Unit filename="src/boss/sorceror_2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/sorceror_2.h" />
+		<Unit filename="src/boss/sorceror_floor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/boss/sorceror_floor.h" />
+		<Unit filename="src/collisions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/collisions.h" />
+		<Unit filename="src/credits.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/credits.h" />
+		<Unit filename="src/cursor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/cursor.h" />
+		<Unit filename="src/custom_actions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/custom_actions.h" />
+		<Unit filename="src/defs.h" />
+		<Unit filename="src/dialog.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/dialog.h" />
+		<Unit filename="src/draw_editor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/draw_editor.h" />
+		<Unit filename="src/enemy/armadillo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/armadillo.h" />
+		<Unit filename="src/enemy/armour_changer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/armour_changer.h" />
+		<Unit filename="src/enemy/auto_spike_ball.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/auto_spike_ball.h" />
+		<Unit filename="src/enemy/baby_salamander.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/baby_salamander.h" />
+		<Unit filename="src/enemy/baby_slime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/baby_slime.h" />
+		<Unit filename="src/enemy/bat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/bat.h" />
+		<Unit filename="src/enemy/book.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/book.h" />
+		<Unit filename="src/enemy/buzz_saw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/buzz_saw.h" />
+		<Unit filename="src/enemy/ceiling_crawler.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ceiling_crawler.h" />
+		<Unit filename="src/enemy/ceiling_creeper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ceiling_creeper.h" />
+		<Unit filename="src/enemy/ceiling_snapper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ceiling_snapper.h" />
+		<Unit filename="src/enemy/centipede.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/centipede.h" />
+		<Unit filename="src/enemy/centurion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/centurion.h" />
+		<Unit filename="src/enemy/chicken.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/chicken.h" />
+		<Unit filename="src/enemy/crypt_skull.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/crypt_skull.h" />
+		<Unit filename="src/enemy/dark_summoner.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/dark_summoner.h" />
+		<Unit filename="src/enemy/dragon_fly.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/dragon_fly.h" />
+		<Unit filename="src/enemy/egg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/egg.h" />
+		<Unit filename="src/enemy/enemies.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/enemies.h" />
+		<Unit filename="src/enemy/enemy_generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/enemy_generator.h" />
+		<Unit filename="src/enemy/energy_drainer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/energy_drainer.h" />
+		<Unit filename="src/enemy/exploding_spike_sphere.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/exploding_spike_sphere.h" />
+		<Unit filename="src/enemy/eye_stalk.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/eye_stalk.h" />
+		<Unit filename="src/enemy/fire_burner.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/fire_burner.h" />
+		<Unit filename="src/enemy/fire_tortoise.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/fire_tortoise.h" />
+		<Unit filename="src/enemy/fireball.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/fireball.h" />
+		<Unit filename="src/enemy/fish.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/fish.h" />
+		<Unit filename="src/enemy/flame_statue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/flame_statue.h" />
+		<Unit filename="src/enemy/floating_snapper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/floating_snapper.h" />
+		<Unit filename="src/enemy/fly_trap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/fly_trap.h" />
+		<Unit filename="src/enemy/flying_bug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/flying_bug.h" />
+		<Unit filename="src/enemy/frog.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/frog.h" />
+		<Unit filename="src/enemy/gas_plant.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/gas_plant.h" />
+		<Unit filename="src/enemy/gazer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/gazer.h" />
+		<Unit filename="src/enemy/ghost.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ghost.h" />
+		<Unit filename="src/enemy/giant_ceiling_creeper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/giant_ceiling_creeper.h" />
+		<Unit filename="src/enemy/giant_snowball.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/giant_snowball.h" />
+		<Unit filename="src/enemy/gold_centurion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/gold_centurion.h" />
+		<Unit filename="src/enemy/ground_snapper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ground_snapper.h" />
+		<Unit filename="src/enemy/ground_spear.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ground_spear.h" />
+		<Unit filename="src/enemy/grub.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/grub.h" />
+		<Unit filename="src/enemy/hoover.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/hoover.h" />
+		<Unit filename="src/enemy/huge_spider.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/huge_spider.h" />
+		<Unit filename="src/enemy/ice_tortoise.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/ice_tortoise.h" />
+		<Unit filename="src/enemy/icicle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/icicle.h" />
+		<Unit filename="src/enemy/iron_ball.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/iron_ball.h" />
+		<Unit filename="src/enemy/jumping_slime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/jumping_slime.h" />
+		<Unit filename="src/enemy/large_book.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/large_book.h" />
+		<Unit filename="src/enemy/large_spider.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/large_spider.h" />
+		<Unit filename="src/enemy/laser_grid.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/laser_grid.h" />
+		<Unit filename="src/enemy/lightning_tortoise.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/lightning_tortoise.h" />
+		<Unit filename="src/enemy/magic_missile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/magic_missile.h" />
+		<Unit filename="src/enemy/master_tortoise.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/master_tortoise.h" />
+		<Unit filename="src/enemy/mouth_stalk.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/mouth_stalk.h" />
+		<Unit filename="src/enemy/pendulum.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/pendulum.h" />
+		<Unit filename="src/enemy/poltergiest.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/poltergiest.h" />
+		<Unit filename="src/enemy/rampaging_master_tortoise.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/rampaging_master_tortoise.h" />
+		<Unit filename="src/enemy/red_ceiling_creeper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/red_ceiling_creeper.h" />
+		<Unit filename="src/enemy/red_grub.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/red_grub.h" />
+		<Unit filename="src/enemy/rock.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/rock.h" />
+		<Unit filename="src/enemy/sasquatch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/sasquatch.h" />
+		<Unit filename="src/enemy/scanner.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/scanner.h" />
+		<Unit filename="src/enemy/scorpion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/scorpion.h" />
+		<Unit filename="src/enemy/skeleton.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/skeleton.h" />
+		<Unit filename="src/enemy/skull_door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/skull_door.h" />
+		<Unit filename="src/enemy/sludge.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/sludge.h" />
+		<Unit filename="src/enemy/sludge_pool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/sludge_pool.h" />
+		<Unit filename="src/enemy/slug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/slug.h" />
+		<Unit filename="src/enemy/small_boulder.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/small_boulder.h" />
+		<Unit filename="src/enemy/snail.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/snail.h" />
+		<Unit filename="src/enemy/snail_shell.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/snail_shell.h" />
+		<Unit filename="src/enemy/sorceror_dark_summoner.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/sorceror_dark_summoner.h" />
+		<Unit filename="src/enemy/spider.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/spider.h" />
+		<Unit filename="src/enemy/spike_sphere.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/spike_sphere.h" />
+		<Unit filename="src/enemy/spike_wall.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/spike_wall.h" />
+		<Unit filename="src/enemy/spirit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/spirit.h" />
+		<Unit filename="src/enemy/spitting_plant.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/spitting_plant.h" />
+		<Unit filename="src/enemy/splitter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/splitter.h" />
+		<Unit filename="src/enemy/summoner.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/summoner.h" />
+		<Unit filename="src/enemy/thunder_cloud.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/thunder_cloud.h" />
+		<Unit filename="src/enemy/undead_gazer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/undead_gazer.h" />
+		<Unit filename="src/enemy/wasp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/wasp.h" />
+		<Unit filename="src/enemy/whirlwind.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/whirlwind.h" />
+		<Unit filename="src/enemy/zombie.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemy/zombie.h" />
+		<Unit filename="src/entity.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/entity.h" />
+		<Unit filename="src/event/global_trigger.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/event/global_trigger.h" />
+		<Unit filename="src/event/map_trigger.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/event/map_trigger.h" />
+		<Unit filename="src/event/objective.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/event/objective.h" />
+		<Unit filename="src/event/script.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/event/script.h" />
+		<Unit filename="src/event/trigger.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/event/trigger.h" />
+		<Unit filename="src/game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/game.h" />
+		<Unit filename="src/geometry.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/geometry.h" />
+		<Unit filename="src/graphics/animation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/graphics/animation.h" />
+		<Unit filename="src/graphics/decoration.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/graphics/decoration.h" />
+		<Unit filename="src/graphics/font.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/graphics/font.h" />
+		<Unit filename="src/graphics/gib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/graphics/gib.h" />
+		<Unit filename="src/graphics/graphics.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/graphics/graphics.h" />
+		<Unit filename="src/graphics/sprites.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/graphics/sprites.h" />
+		<Unit filename="src/headers.h" />
+		<Unit filename="src/hud.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/hud.h" />
+		<Unit filename="src/i18n.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/i18n.h" />
+		<Unit filename="src/init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/init.h" />
+		<Unit filename="src/input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/input.h" />
+		<Unit filename="src/inventory.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/inventory.h" />
+		<Unit filename="src/item/apple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/apple.h" />
+		<Unit filename="src/item/apple_tree.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/apple_tree.h" />
+		<Unit filename="src/item/arrow_target.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/arrow_target.h" />
+		<Unit filename="src/item/attractor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/attractor.h" />
+		<Unit filename="src/item/balloon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/balloon.h" />
+		<Unit filename="src/item/bell_rope.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/bell_rope.h" />
+		<Unit filename="src/item/blending_machine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/blending_machine.h" />
+		<Unit filename="src/item/bomb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/bomb.h" />
+		<Unit filename="src/item/bomb_pile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/bomb_pile.h" />
+		<Unit filename="src/item/bubble.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/bubble.h" />
+		<Unit filename="src/item/bubble_machine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/bubble_machine.h" />
+		<Unit filename="src/item/catapult.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/catapult.h" />
+		<Unit filename="src/item/cauldron.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/cauldron.h" />
+		<Unit filename="src/item/cell_bars.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/cell_bars.h" />
+		<Unit filename="src/item/chicken_feed.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/chicken_feed.h" />
+		<Unit filename="src/item/chicken_trap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/chicken_trap.h" />
+		<Unit filename="src/item/cloud_geyzer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/cloud_geyzer.h" />
+		<Unit filename="src/item/coal_pile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/coal_pile.h" />
+		<Unit filename="src/item/code_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/code_display.h" />
+		<Unit filename="src/item/code_door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/code_door.h" />
+		<Unit filename="src/item/colour_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/colour_display.h" />
+		<Unit filename="src/item/colour_pot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/colour_pot.h" />
+		<Unit filename="src/item/containment_unit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/containment_unit.h" />
+		<Unit filename="src/item/containment_unit_controls.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/containment_unit_controls.h" />
+		<Unit filename="src/item/crossbow.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/crossbow.h" />
+		<Unit filename="src/item/crossbow_bolt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/crossbow_bolt.h" />
+		<Unit filename="src/item/crusher.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/crusher.h" />
+		<Unit filename="src/item/drawbridge_anchor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/drawbridge_anchor.h" />
+		<Unit filename="src/item/drawbridge_pulley.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/drawbridge_pulley.h" />
+		<Unit filename="src/item/exploding_gazer_eye.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/exploding_gazer_eye.h" />
+		<Unit filename="src/item/exploding_gazer_eye_dud.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/exploding_gazer_eye_dud.h" />
+		<Unit filename="src/item/extend_o_grab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/extend_o_grab.h" />
+		<Unit filename="src/item/extend_o_grab_button.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/extend_o_grab_button.h" />
+		<Unit filename="src/item/final_power_generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/final_power_generator.h" />
+		<Unit filename="src/item/flame_pillar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/flame_pillar.h" />
+		<Unit filename="src/item/force_field.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/force_field.h" />
+		<Unit filename="src/item/gazer_eye_slot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/gazer_eye_slot.h" />
+		<Unit filename="src/item/glass_cage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/glass_cage.h" />
+		<Unit filename="src/item/glass_wall.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/glass_wall.h" />
+		<Unit filename="src/item/grabber.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/grabber.h" />
+		<Unit filename="src/item/grimlore_artifact.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/grimlore_artifact.h" />
+		<Unit filename="src/item/heart_container.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/heart_container.h" />
+		<Unit filename="src/item/hidden_passage_wall.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/hidden_passage_wall.h" />
+		<Unit filename="src/item/high_striker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/high_striker.h" />
+		<Unit filename="src/item/ice_cube.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/ice_cube.h" />
+		<Unit filename="src/item/ice_spray.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/ice_spray.h" />
+		<Unit filename="src/item/instruction_machine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/instruction_machine.h" />
+		<Unit filename="src/item/item.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/item.h" />
+		<Unit filename="src/item/item_remover.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/item_remover.h" />
+		<Unit filename="src/item/jigsaw_puzzle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/jigsaw_puzzle.h" />
+		<Unit filename="src/item/jigsaw_puzzle_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/jigsaw_puzzle_display.h" />
+		<Unit filename="src/item/key_items.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/key_items.h" />
+		<Unit filename="src/item/lab_crusher.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/lab_crusher.h" />
+		<Unit filename="src/item/lava_door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/lava_door.h" />
+		<Unit filename="src/item/lava_geyzer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/lava_geyzer.h" />
+		<Unit filename="src/item/light_beam.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/light_beam.h" />
+		<Unit filename="src/item/light_pillar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/light_pillar.h" />
+		<Unit filename="src/item/light_source.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/light_source.h" />
+		<Unit filename="src/item/light_target.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/light_target.h" />
+		<Unit filename="src/item/magnet.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/magnet.h" />
+		<Unit filename="src/item/mastermind.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/mastermind.h" />
+		<Unit filename="src/item/mastermind_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/mastermind_display.h" />
+		<Unit filename="src/item/memory_match.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/memory_match.h" />
+		<Unit filename="src/item/memory_match_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/memory_match_display.h" />
+		<Unit filename="src/item/mine_cart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/mine_cart.h" />
+		<Unit filename="src/item/mirror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/mirror.h" />
+		<Unit filename="src/item/monster_skull.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/monster_skull.h" />
+		<Unit filename="src/item/moveable_lift.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/moveable_lift.h" />
+		<Unit filename="src/item/music_sheet_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/music_sheet_display.h" />
+		<Unit filename="src/item/number_block.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/number_block.h" />
+		<Unit filename="src/item/one_way_door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/one_way_door.h" />
+		<Unit filename="src/item/pedestal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/pedestal.h" />
+		<Unit filename="src/item/phase_door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/phase_door.h" />
+		<Unit filename="src/item/poison_meat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/poison_meat.h" />
+		<Unit filename="src/item/portable_save.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/portable_save.h" />
+		<Unit filename="src/item/potion_dispenser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/potion_dispenser.h" />
+		<Unit filename="src/item/potions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/potions.h" />
+		<Unit filename="src/item/power_generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/power_generator.h" />
+		<Unit filename="src/item/power_meter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/power_meter.h" />
+		<Unit filename="src/item/puzzle_piece.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/puzzle_piece.h" />
+		<Unit filename="src/item/repellent.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/repellent.h" />
+		<Unit filename="src/item/robot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/robot.h" />
+		<Unit filename="src/item/rock_container.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/rock_container.h" />
+		<Unit filename="src/item/safe.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/safe.h" />
+		<Unit filename="src/item/safe_combination.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/safe_combination.h" />
+		<Unit filename="src/item/scale.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/scale.h" />
+		<Unit filename="src/item/shield_pillar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/shield_pillar.h" />
+		<Unit filename="src/item/shrub.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/shrub.h" />
+		<Unit filename="src/item/skull.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/skull.h" />
+		<Unit filename="src/item/sliding_puzzle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/sliding_puzzle.h" />
+		<Unit filename="src/item/sliding_puzzle_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/sliding_puzzle_display.h" />
+		<Unit filename="src/item/slime_container.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/slime_container.h" />
+		<Unit filename="src/item/slime_potion_pool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/slime_potion_pool.h" />
+		<Unit filename="src/item/snow_pile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/snow_pile.h" />
+		<Unit filename="src/item/soul_bottle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/soul_bottle.h" />
+		<Unit filename="src/item/soul_merger.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/soul_merger.h" />
+		<Unit filename="src/item/soul_merger_control_panel.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/soul_merger_control_panel.h" />
+		<Unit filename="src/item/spike_ball.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/spike_ball.h" />
+		<Unit filename="src/item/spore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/spore.h" />
+		<Unit filename="src/item/spore_crop.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/spore_crop.h" />
+		<Unit filename="src/item/spring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/spring.h" />
+		<Unit filename="src/item/stalactite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/stalactite.h" />
+		<Unit filename="src/item/symbol_block.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/symbol_block.h" />
+		<Unit filename="src/item/tesla_charger.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/tesla_charger.h" />
+		<Unit filename="src/item/tesla_pack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/tesla_pack.h" />
+		<Unit filename="src/item/train.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/train.h" />
+		<Unit filename="src/item/train_track.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/train_track.h" />
+		<Unit filename="src/item/tread_mill.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/tread_mill.h" />
+		<Unit filename="src/item/tuning_fork.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/tuning_fork.h" />
+		<Unit filename="src/item/vines.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/vines.h" />
+		<Unit filename="src/item/water_purifier.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/item/water_purifier.h" />
+		<Unit filename="src/main_editor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/main_editor.h" />
+		<Unit filename="src/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/map.h" />
+		<Unit filename="src/medal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/medal.h" />
+		<Unit filename="src/menu/about_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/about_menu.h" />
+		<Unit filename="src/menu/cheat_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/cheat_menu.h" />
+		<Unit filename="src/menu/control_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/control_menu.h" />
+		<Unit filename="src/menu/inventory_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/inventory_menu.h" />
+		<Unit filename="src/menu/io_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/io_menu.h" />
+		<Unit filename="src/menu/label.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/label.h" />
+		<Unit filename="src/menu/main_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/main_menu.h" />
+		<Unit filename="src/menu/medals_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/medals_menu.h" />
+		<Unit filename="src/menu/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/menu.h" />
+		<Unit filename="src/menu/ok_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/ok_menu.h" />
+		<Unit filename="src/menu/options_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/options_menu.h" />
+		<Unit filename="src/menu/script_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/script_menu.h" />
+		<Unit filename="src/menu/sound_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/sound_menu.h" />
+		<Unit filename="src/menu/stats_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/stats_menu.h" />
+		<Unit filename="src/menu/widget.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/widget.h" />
+		<Unit filename="src/menu/yes_no_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu/yes_no_menu.h" />
+		<Unit filename="src/player.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/player.h" />
+		<Unit filename="src/projectile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/projectile.h" />
+		<Unit filename="src/status_panel.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/status_panel.h" />
+		<Unit filename="src/strtok_r.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/strtok_r.h" />
+		<Unit filename="src/structs.h" />
+		<Unit filename="src/system/compress.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/compress.h" />
+		<Unit filename="src/system/error.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/error.h" />
+		<Unit filename="src/system/load_save.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/load_save.h" />
+		<Unit filename="src/system/pak.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/pak.h" />
+		<Unit filename="src/system/properties.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/properties.h" />
+		<Unit filename="src/system/random.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/random.h" />
+		<Unit filename="src/system/record.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/record.h" />
+		<Unit filename="src/system/resources.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/resources.h" />
+		<Unit filename="src/title.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/title.h" />
+		<Unit filename="src/weather.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/weather.h" />
+		<Unit filename="src/world/action_point.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/action_point.h" />
+		<Unit filename="src/world/anti_gravity_field.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/anti_gravity_field.h" />
+		<Unit filename="src/world/conveyor_belt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/conveyor_belt.h" />
+		<Unit filename="src/world/door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/door.h" />
+		<Unit filename="src/world/explosion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/explosion.h" />
+		<Unit filename="src/world/falling_platform.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/falling_platform.h" />
+		<Unit filename="src/world/level_exit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/level_exit.h" />
+		<Unit filename="src/world/lift.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/lift.h" />
+		<Unit filename="src/world/line_def.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/line_def.h" />
+		<Unit filename="src/world/npc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/npc.h" />
+		<Unit filename="src/world/pressure_plate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/pressure_plate.h" />
+		<Unit filename="src/world/save_point.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/save_point.h" />
+		<Unit filename="src/world/spawner.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/spawner.h" />
+		<Unit filename="src/world/switch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/switch.h" />
+		<Unit filename="src/world/target.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/target.h" />
+		<Unit filename="src/world/teleporter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/teleporter.h" />
+		<Unit filename="src/world/trap_door.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/trap_door.h" />
+		<Unit filename="src/world/vanishing_platform.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/vanishing_platform.h" />
+		<Unit filename="src/world/weak_wall.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/world/weak_wall.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

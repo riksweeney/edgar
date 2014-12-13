@@ -1,0 +1,24 @@
+# 10 chickens, 2 logs
+IF Jacob HEALTH 9
+SET Jacob HEALTH 12
+END
+# 10 chickens, 0 logs
+IF Jacob HEALTH 10
+SET Jacob HEALTH 13
+END
+# 10 chickens, 2 logs
+IF Jacob HEALTH 11
+SET Jacob HEALTH 14
+END
+# 10 chickens, 2 logs
+IF Jacob HEALTH 7
+SET Jacob HEALTH 15
+END
+# 10 chickens, 0 logs
+IF Jacob HEALTH 5
+SET Jacob HEALTH 16
+END
+# 10 chickens, 2 logs
+IF Jacob HEALTH 3
+SET Jacob HEALTH 17
+END
