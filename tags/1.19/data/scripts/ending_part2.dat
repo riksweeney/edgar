@@ -1,0 +1,98 @@
+IF EXISTS grasslands_intro
+KILL grasslands_intro
+END
+ADD ENTITY NPC npc/edgar_father "EDGAR_FATHER" 1410 355
+SET EDGAR_FATHER FACE RIGHT
+SET EDGAR PROPERTY X 1476
+SET EDGAR PROPERTY Y 362
+SET EDGAR FACE LEFT
+SET BORGAN PROPERTY X 1367
+SET BORGAN PROPERTY Y 355
+SET BORGAN FACE RIGHT
+SET MAGGIE PROPERTY X 1530
+SET MAGGIE PROPERTY Y 354
+SET MAGGIE FACE LEFT
+SET JACOB PROPERTY X 1558
+SET JACOB PROPERTY Y 352
+SET JACOB FACE LEFT
+KILL CHICKEN_1
+KILL CHICKEN_2
+KILL CHICKEN_3
+KILL CHICKEN_4
+KILL CHICKEN_5
+KILL CHICKEN_6
+KILL CHICKEN_7
+KILL CHICKEN_8
+KILL CHICKEN_9
+KILL CHICKEN_10
+UNEQUIP_WEAPON
+UNEQUIP_SHIELD
+CAMERA_SNAP EDGAR
+WAIT 120
+TALK Edgar ...and when you didn't come home last night I set off to find you
+TALK Edgar's_Father You went to the Sorceror's Fortress?!
+TALK Edgar I thought he'd kidnapped you! Where were you?
+TALK Edgar's_Father Erm... well you see
+TALK Edgar's_Father When I went out last night I went to Jacob's for a couple of drinks
+TALK Jacob *cough*
+TALK Edgar's_Father several drinks
+TALK Edgar's_Father On the way home I stopped by the well to have a drink of water
+TALK Edgar's_Father and I fell in
+MUSIC FADE_DOWN 1000
+WAIT 120
+MUSIC STOP
+TALK Edgar What?
+TALK Edgar's_Father I fell down the well
+TALK Edgar's_Father I was down there until only a couple of hours ago
+TALK Edgar Are you kidding me?
+IF WELL_POINT HEALTH 1
+TALK Edgar I shouted down that well, didn't you hear me?
+TALK Edgar's_Father I was out cold
+TALK Edgar's_Father Plus, the hangover was absolute murder
+END
+TALK Edgar I crossed the swamp
+TALK Edgar Broke into the Sorceror's Fortress
+TALK Edgar Fought countless numbers of ferocious monsters
+TALK Edgar Got imprisoned in his dungeon
+TALK Edgar And was teleported to another part of the world!
+TALK Edgar I nearly died!
+IF EQUALS [CONTINUE_COUNT] 0
+ADD_MEDAL no_continues
+TALK Maggie Near misses don't count
+END
+IF EQUALS [CONTINUE_COUNT] 1
+TALK Maggie Only the once though
+END
+IF GREATER_THAN [CONTINUE_COUNT] 1
+TALK Maggie [CONTINUE_COUNT] times according to my count
+END
+SET EDGAR FACE MAGGIE
+WAIT 60
+SET EDGAR FACE LEFT
+WAIT 60
+TALK Edgar And after all that, when I defeated the Sorceror, he had no idea who you were
+TALK Borgan You killed the Sorceror?!
+TALK Edgar I thought he'd kidnapped Dad!
+TALK Edgar's_Father Wow, that has to be the worst case of false accusation I think I'll ever hear!
+SET EDGAR_FATHER ANIMATION ANGRY
+TALK Edgar's_Father But more seriously, you disobeyed me, son
+TALK Edgar's_Father I told you to never set foot in the Forbidden Swamp
+TALK Edgar's_Father And for that, you'll have to be punished
+SET EDGAR ANIMATION SAD
+TALK Edgar But Dad...
+TALK Edgar's_Father Be quiet!
+TALK Edgar's_Father I just need to think of something suitable...
+ADD ENTITY ENEMY enemy/chicken "END_CHICKEN" 1891 516
+PLAY_SOUND sound/enemy/chicken/cluck
+WALK_TO END_CHICKEN 1636 389 WAIT
+TALK Edgar's_Father Looks like your chickens have escaped from their pen again, Jacob
+WAIT 30
+WALK_TO END_CHICKEN 1322 389 WAIT
+PLAY_SOUND sound/enemy/chicken/cluck
+TALK Edgar's_Father Actually, I think I know what your punishment is going to be...
+WAIT 30
+WALK_TO END_CHICKEN 1454 389 WAIT
+WAIT 120
+SHOW_CREDITS
+WAIT 360
+WAIT 5
