@@ -1,8 +1,0 @@
-HEALTH 70
-DAMAGE 1
-GFX_FILE data/gfx/enemy/green_book.dat
-ANIM_FILE data/anim/enemy/book.dat
-TYPE ENEMY
-SPEED 1.5
-MENTAL 0
-FLAGS FLY

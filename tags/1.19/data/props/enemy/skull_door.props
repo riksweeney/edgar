@@ -1,6 +1,0 @@
-HEALTH 200
-GFX_FILE data/gfx/enemy/skull_door.dat
-ANIM_FILE data/anim/enemy/skull_door.dat
-TYPE ENEMY
-FLAGS FLY
-LAYER FOREGROUND_LAYER

@@ -1,5 +1,0 @@
-TYPE TEMP_ITEM
-GFX_FILE data/gfx/boss/grimlore_weapon_box.dat
-ANIM_FILE data/anim/boss/grimlore_weapon_box.dat
-FLAGS FLY
-THINKTIME 600

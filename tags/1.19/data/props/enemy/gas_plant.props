@@ -1,5 +1,0 @@
-HEALTH 80
-DAMAGE 3
-GFX_FILE data/gfx/enemy/gas_plant.dat
-ANIM_FILE data/anim/enemy/gas_plant.dat
-TYPE ENEMY

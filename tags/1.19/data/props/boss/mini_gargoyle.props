@@ -1,6 +1,0 @@
-HEALTH 30
-GFX_FILE data/gfx/boss/mini_gargoyle.dat
-ANIM_FILE data/anim/boss/mini_gargoyle.dat
-TYPE ENEMY
-FLAGS FLY
-SPEED 2

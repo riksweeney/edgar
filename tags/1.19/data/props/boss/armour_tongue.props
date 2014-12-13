@@ -1,5 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/armour_boss_tongue.dat
-ANIM_FILE data/anim/boss/armour_boss_tongue.dat
-SPEED 1
-LAYER BACKGROUND_LAYER
