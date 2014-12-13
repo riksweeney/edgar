@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/edgar/edgar_ash.dat
+ANIM_FILE data/anim/edgar/edgar_ash.dat
+TYPE ENEMY
+SPEED 2

@@ -1,0 +1,6605 @@
+# Japanese translation for edgar
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the edgar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: edgar\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-07-16 13:33+0100\n"
+"PO-Revision-Date: 2014-11-08 04:06+0000\n"
+"Last-Translator: maruhiro <maruhiro@bridge.ocn.ne.jp>\n"
+"Language-Team: Japanese <ja@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
+"Language: ja\n"
+
+#: data/scripts/olaf.dat:6
+msgid "Thanks, this is perfect!"
+msgstr "ありがとう、 完璧だ!"
+
+#: data/scripts/olaf.dat:7
+msgid "Do you have everything you need now?"
+msgstr "いるものは 全部そろった?"
+
+#: data/scripts/olaf.dat:8
+msgid "I sure do"
+msgstr "もちろんだ。"
+
+#: data/scripts/olaf.dat:9
+msgid "So what happens now?"
+msgstr "これから どうするの?"
+
+#: data/scripts/olaf.dat:10
+msgid "We can get out of here! Where do you want to go?"
+msgstr "ここを 離れよう! どこへ行きたい?"
+
+#: data/scripts/olaf.dat:11
+msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
+msgstr "砦に戻る。 まだ 魔法使いから父さんを 助けなければならない。"
+
+#: data/scripts/olaf.dat:12
+msgid "OK, remember what I told you about his disintegration spell?"
+msgstr "わかった。 奴の破壊の呪文の話を おぼえているか?"
+
+#: data/scripts/olaf.dat:13
+msgid "I think so..."
+msgstr "うん…"
+
+#: data/scripts/olaf.dat:14
+msgid "Go to the lab and combine that ring and your shield"
+msgstr "研究所へ行って、 指輪と盾を 合成しなさい。"
+
+#: data/scripts/olaf.dat:15
+msgid "How?"
+msgstr "どうやって?"
+
+#: data/scripts/olaf.dat:16
+msgid ""
+"Throw the shield and ring into the cauldron along with some mandrake root, "
+"that should do it"
+msgstr "大釜に 盾と指輪を入れて、 マンドレイクの根を いくらか加えればよい。"
+
+#: data/scripts/jacob.dat:35
+msgid "OK..."
+msgstr "わかった…"
+
+#: data/scripts/olaf.dat:18
+msgid "Nothing will go wrong this time!"
+msgstr "うまく行くさ!"
+
+#: data/scripts/third_side.dat:5
+msgid "..."
+msgstr "…"
+
+#: data/scripts/olaf.dat:23
+msgid "(I have the statue that Olaf stole)"
+msgstr "(オラフが盗んだ 像を持っている。)"
+
+#: data/scripts/olaf.dat:24
+msgid "(Perhaps I should return it to him, he is saving me after all)"
+msgstr "(返したほうが いいのかもしれない。 オラフには 世話になったから。)"
+
+#: data/scripts/olaf.dat:25
+msgid "(Then again, he did steal it, and I nearly died trying to get it)"
+msgstr "(でも、 これは盗んだものだ。 そして これを見つけるために 死ぬような思いをした。)"
+
+#: data/scripts/olaf.dat:26
+msgid "Give the statue to Olaf?"
+msgstr "オラフに像を渡す?"
+
+#: data/scripts/olaf.dat:28
+msgid "I found this in the cave, is it the statue you took?"
+msgstr "これを洞窟で見つけた。 オラフが 盗んだ像?"
+
+#: data/scripts/olaf.dat:29
+msgid "Yes it is! Thanks for finding it!"
+msgstr "そう、 それだ! 見つけてくれて ありがとう!"
+
+#: data/scripts/olaf.dat:31
+msgid "I should be able to sell this for a decent price at the market"
+msgstr "市場で 相当な値段で 売れるはずだ。"
+
+#: data/scripts/olaf.dat:34
+msgid "(I think I'll keep it for myself)"
+msgstr "(これは 自分のものに してしまおう。)"
+
+#: data/scripts/olaf.dat:40
+msgid "Ready to go?"
+msgstr "準備はいいか?"
+
+#: data/scripts/olaf.dat:41
+msgid "Return to the Fortress?"
+msgstr "砦に戻る?"
+
+#: data/scripts/olaf.dat:46
+msgid "Not yet, there's something else I need to do"
+msgstr "いや まだだ。 他にやらなければ ならない ことがある。"
+
+#: data/scripts/olaf.dat:47
+msgid "OK, let me know when you're ready"
+msgstr "そうか。 準備ができたら 言ってくれ。"
+
+#: data/scripts/olaf.dat:51
+msgid "Have you managed to find the horn yet?"
+msgstr "角を見つけるのは 大変か?"
+
+#: data/scripts/olaf.dat:62
+msgid "Have you found everything yet?"
+msgstr "持ち物は全部 見つかったか?"
+
+#: data/scripts/olaf.dat:63
+msgid "Not yet, I'm still looking"
+msgstr "いいや。 まだ 探している。"
+
+#: data/scripts/olaf.dat:68
+msgid "OK, I've found everything now"
+msgstr "全部 見つかった。"
+
+#: data/scripts/olaf.dat:77
+msgid "ARGHHHHH!!"
+msgstr "うわああぁぁ!!"
+
+#: data/scripts/olaf.dat:79
+msgid "Another human, out here? How did you get out here?"
+msgstr "別の人間? どうやってここに来た?"
+
+#: data/scripts/olaf.dat:80
+msgid ""
+"I'm not sure, I think the sorceror sent me here, but he said he was going to "
+"kill me"
+msgstr "自分でも わからない。 魔法使いが ここに送り込んだんだと 思う。 でも、 奴は殺すと 言ってた。"
+
+#: data/scripts/olaf.dat:83
+msgid "Hmmm, what's that on your hand?"
+msgstr "ふーむ、 その手の中に あるものは 何だ?"
+
+#: data/scripts/olaf.dat:84
+msgid "This? This is just a ring I found in his fortress"
+msgstr "これ? これは奴の砦の中で見つけた ただの指輪だよ。"
+
+#: data/scripts/olaf.dat:85
+msgid ""
+"It looks like a ring of protection, it must have saved you. Why were you in "
+"his fortress?"
+msgstr "それは 守護の指輪の ようだ。 それが 君を助けたに 違いない。 なぜ砦にいたのだ?"
+
+#: data/scripts/olaf.dat:86
+msgid "He's kidnapped my Dad and I was there trying to save him"
+msgstr "奴が父さんをさらったから、 助けに行ったんだ。"
+
+#: data/scripts/olaf.dat:87
+msgid "Well, it looks like the ring's power is almost completely gone"
+msgstr "うむ…、 指輪の力は ほとんど 失われてしまった ようだ。"
+
+#: data/scripts/olaf.dat:88
+msgid ""
+"If he hits you with that spell again it will almost certainly kill you"
+msgstr "もう一度 魔法を受ければ、 きっと 殺されてしまう だろう。"
+
+#: data/scripts/olaf.dat:91
+msgid ""
+"Something must have protected you from the spell. Were you wearing a pendant "
+"or a ring?"
+msgstr "何かが 君を呪文から守ったに 違いない。 首飾りや 指輪のようなものを 身につけていなかったか?"
+
+#: data/scripts/olaf.dat:92
+msgid ""
+"I did find a ring in the fortress but it didn't seem to have any powers"
+msgstr "砦で指輪を見つけたけど 何の力もないと 思う。"
+
+#: data/scripts/olaf.dat:93
+msgid ""
+"It might have been a ring of protection. I imagine that the protection would "
+"have been limited to a single use"
+msgstr "それは 守護の指輪に 違いない。 恐らく 一度しか 使えないだろう。"
+
+#: data/scripts/olaf.dat:96
+msgid ""
+"What you could do though is combine the ring and your shield together to "
+"create a shield that will protect you from the spell"
+msgstr "どうにかして 指輪と盾を合体させ 新しい盾を作れば、 呪文を防げるかも しれない。"
+
+#: data/scripts/olaf.dat:97
+msgid "Do you have any experience mixing spells?"
+msgstr "合体の呪文を 知っているかね?"
+
+#: data/scripts/olaf.dat:98
+msgid ""
+"Kind of, but the last time I tried creating a shield the spell backfired "
+"and..."
+msgstr "少しは。 でも 盾を作ろうとしたとき、 爆発して、 そして…"
+
+#: data/scripts/olaf.dat:99
+msgid "It created an evil version of yourself?"
+msgstr "悪の自分自身が できあがった?"
+
+#: data/scripts/olaf.dat:100
+msgid "Yeah, how did you know?"
+msgstr "えっ、 なぜわかったの?"
+
+#: data/scripts/olaf.dat:101
+msgid "Where I'm from it used to happen at least once a month"
+msgstr "以前いた所で、 一ヶ月ほど前に 同じことがあった。"
+
+#: data/scripts/olaf.dat:103
+msgid "Why are you here?"
+msgstr "なぜ ここにいるの?"
+
+#: data/scripts/olaf.dat:104
+msgid "The sorceror caught me looting his fortress and he banished me here"
+msgstr "魔法使いの砦で 盗みをしていたら、 ここに 追いやられた。"
+
+#: data/scripts/olaf.dat:105
+msgid "What did you steal?"
+msgstr "何を盗んだの?"
+
+#: data/scripts/olaf.dat:106
+msgid "It was a small golden statue, probably worth a lot of money"
+msgstr "小さな金の像だ。 相当な価値が あったに違いない。"
+
+#: data/scripts/olaf.dat:107
+msgid ""
+"I've been here for months now, but I've almost got all the ingredients I "
+"need to teleport back home"
+msgstr "ここに来て 一ヶ月になる。 だが、 瞬間移動の呪文の材料は ほとんどそろった。"
+
+#: data/scripts/olaf.dat:108
+msgid ""
+"I just need one more thing, but it's in a cave to the west and I have no "
+"weapons to protect myself"
+msgstr "あと1つだけ 必要なものがある。 それは 西の洞窟にあるのだが、 身を守る 武器がない。"
+
+#: data/scripts/olaf.dat:109
+msgid "But now you're here you can help me retrieve it"
+msgstr "だが 君がここに来た今、 それも 手に入るだろう。"
+
+#: data/scripts/olaf.dat:112
+msgid ""
+"I haven't gotten all my stuff back yet. I think everything's here though"
+msgstr "まだ 全部の持ち物は 見つかっていないけど、 全部 ここにあると 思っている。"
+
+#: data/scripts/olaf.dat:113
+msgid "When I've found everything I'll come back"
+msgstr "見つかったら ここに 戻るよ。"
+
+#: data/scripts/olaf.dat:114
+msgid "OK, good luck!"
+msgstr "わかった。 がんばれ!"
+
+#: data/scripts/olaf.dat:120
+msgid "What do you need?"
+msgstr "何が 必要なの?"
+
+#: data/scripts/olaf.dat:121
+msgid "It's the horn from a particular type of monster"
+msgstr "ある怪物の角だ。"
+
+#: data/scripts/olaf.dat:122
+msgid ""
+"There should be plenty of bones littered around so you shouldn't have to "
+"find one and kill it. Just get the horn and get out"
+msgstr "そこには たくさんの骨が あるはずだ。 だから 見つけて倒す 必要はない。 そこから角を 取ってくるだけだ。"
+
+#: data/scripts/jacob.dat:39
+msgid "That's it?"
+msgstr "それだけ?"
+
+#: data/scripts/library_intro.dat:6
+msgid "Hmmm"
+msgstr "ううむ。"
+
+#: data/scripts/olaf.dat:130
+msgid ""
+"Well, my stock of logs is looking quite low, maybe you could get me some "
+"more while you're out?"
+msgstr "ああ、 薪が少なくなってきた。 できたら一緒に 取ってきてくれるか?"
+
+#: data/scripts/olaf.dat:131
+msgid ""
+"Don't even think about it, I'm fed up of chopping down trees and collecting "
+"logs!"
+msgstr "それは 困るよ。 木を切って 薪を集めるのは もう うんざりだ!"
+
+#: data/scripts/olaf.dat:132
+msgid "OK, it was just a suggestion"
+msgstr "わかった。 聞いてみただけだ。"
+
+#: data/scripts/olaf.dat:133
+msgid "Oh, you'll need this too"
+msgstr "ああ、 これが 役に立つ はずだ。"
+
+#: data/scripts/olaf.dat:135
+msgid ""
+"Dip your arrows into it to turn them into fire arrows, it will help you burn "
+"down the vines blocking the entrance"
+msgstr "これに 矢を浸すと、 炎の矢に変わる。 入り口の じゃまな草を 焼くのに 使えるはずだ。"
+
+#: data/scripts/olaf.dat:136
+msgid "Thanks!"
+msgstr "ありがとう!"
+
+#: data/scripts/olaf.dat:139
+msgid "Oh, one last thing."
+msgstr "おっと、 最後に一つ。"
+
+#: data/scripts/olaf.dat:141
+msgid ""
+"Don't hang around in that cave, the monsters that live in there are like "
+"nothing you'll have ever encountered before"
+msgstr "洞窟の中を あまり ウロウロしないほう がよい。 そこにいる怪物は 君が今まで 見てきたものとは 全く違うものだ。"
+
+#: data/scripts/olaf.dat:142
+msgid "Seriously, just get the horn"
+msgstr "本当だ。 ただ角を 取ってきてくれ。"
+
+#: data/scripts/jacob.dat:35
+msgid "OK"
+msgstr "わかった。"
+
+#: data/scripts/olaf.dat:145
+msgid "Have I just sent a young boy to his death?"
+msgstr "ただ少年を 死なせるような ものだろうか?"
+
+#: data/scripts/olaf.dat:147
+msgid "Sorry, did you say something?"
+msgstr "何か言った?"
+
+#: data/scripts/olaf.dat:148
+msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
+msgstr "あ?! いや、 瞬間移動の 呪文の 練習をしていた だけだ。"
+
+#: data/scripts/olaf.dat:159
+msgid "Yes, let's go"
+msgstr "うん。 行こう。"
+
+#: data/scripts/olaf.dat:160
+msgid "OK, here goes nothing, good luck finding your father"
+msgstr "わかった。 とにかく やってみろ。 父さんが見つかると いいな。"
+
+#: data/scripts/olaf.dat:161
+msgid "Thanks, Olaf"
+msgstr "ありがとう オラフ。"
+
+#: data/scripts/basement_lift_power.dat:1
+msgid ""
+"This lift is not working. I won't be able to use it until I restore the power"
+msgstr "このエレベーターは動かない。 動力を戻さないと使えないみたいだ。"
+
+#: data/scripts/catapult.dat:1
+msgid "Wow, a catapult!"
+msgstr "わあ、 投石機だ!"
+
+#: data/scripts/catapult.dat:2
+msgid ""
+"The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "ちょうつがいが錆びてるみたいだ。 直さないと動かないだろう。"
+
+#: data/scripts/drawbridge_pulley.dat:2
+msgid "It looks like the pulley for the drawbridge"
+msgstr "跳ね橋の滑車みたいだ。"
+
+#: data/scripts/drawbridge_pulley.dat:3
+msgid "The mechanism seems to be locked tight"
+msgstr "しっかりと固定されている。"
+
+#: data/scripts/drawbridge_pulley.dat:4
+msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
+msgstr "そんなに丈夫ではなさそうだ。 多分叩けば…"
+
+#: data/scripts/drawbridge_pulley.dat:10
+msgid "Oops..."
+msgstr "おっと…"
+
+#: data/scripts/drawbridge_pulley.dat:15
+msgid "Maybe nobody heard that?"
+msgstr "誰にも聞かれなかっただろうな…"
+
+#: data/scripts/drawbridge_pulley.dat:16
+msgid "Well, the drawbridge is down at any rate..."
+msgstr "うーん、 なんにせよ跳ね橋は下りたはずだ…"
+
+#: data/scripts/flame_pillar.dat:1
+msgid ""
+"Those flames are incredibly hot. I'll be burnt to cinders if I try and walk "
+"through them"
+msgstr "この炎は本当に熱い。 歩いて通ろうとすれば 消し炭になってしまうだろう。"
+
+#: data/scripts/flame_pillar.dat:2
+msgid "There must be a way to cool them down..."
+msgstr "火を消す方法があるはずだ…"
+
+#: data/scripts/tutorial_shield.dat:1
+msgid "The shield will protect you from most enemy attacks"
+msgstr "盾を使えばほとんどの敵の攻撃を防げます。"
+
+#: data/scripts/tutorial_shield.dat:2
+msgid "Some enemy attacks cannot be blocked"
+msgstr "攻撃を防げない敵もいます。"
+
+#: data/scripts/tutorial_shield.dat:3
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "落石のような自然災害も防ぐことはできません。"
+
+#: data/scripts/tutorial_shield.dat:4
+msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
+msgstr "防御キー ([INPUT_BLOCK]) を押すと、 敵の攻撃を防御します。"
+
+#: data/scripts/tutorial_shield.dat:5
+msgid "You must be facing the attack to successfully block it"
+msgstr "防御するためには、 攻撃の方を向いていなければなりません。"
+
+#: data/scripts/tutorial_shield.dat:6
+msgid ""
+"Note that you cannot move whilst blocking, but you can face the other way. "
+"You also cannot block in the air"
+msgstr "防御している間は動けないことに注意してください。 しかし、 向きを変えることはできます。 また、 空中では防御できません。"
+
+#: data/scripts/tutorial_shield.dat:7
+msgid "Pick up the shield and continue to the right"
+msgstr "盾を取って右に進みましょう。"
+
+#: data/scripts/portrait.dat:1
+msgid "It's a portrait"
+msgstr "肖像画だ。"
+
+#: data/scripts/scorpion_statue.dat:1
+msgid "Got it!"
+msgstr "取った!"
+
+#: data/scripts/scorpion_statue.dat:2
+msgid ""
+"What a ridiculous amount of effort to go through just to get a statue..."
+msgstr "こんなに 大変な 思いをしたのに 見つかったのは この像だけか…"
+
+#: data/scripts/scorpion_statue.dat:3
+msgid "I'd better get out of here and get back to the Fortress..."
+msgstr "ここを早く出て 砦に戻ったほうが よさそうだ…"
+
+#: data/scripts/outskirts_intro.dat:10
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "ああ、 跳ね橋が上がっている。 別の入り口は…"
+
+#: data/scripts/outskirts_intro.dat:15
+msgid "Wait, what's that?"
+msgstr "待て、 あれは?"
+
+#: data/scripts/outskirts_intro.dat:23
+msgid "Maybe I could tunnel my way in..."
+msgstr "もしかすると、 掘って進めるかも…"
+
+#: data/scripts/borer_boss_die.dat:3
+msgid "Yuck..."
+msgstr "オェ…"
+
+#: data/scripts/third_side.dat:1
+msgid "Oh, what's this?"
+msgstr "わあ、 何だこれは?"
+
+#: data/scripts/knights.dat:2
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr "ステファン・J・スウィーニーの \"The Honour of the Knights\" だ。"
+
+#: data/scripts/third_side.dat:3
+msgid "It's available on iBooks and the Amazon Kindle"
+msgstr "iBooks や Amazon Kindle にあったな。"
+
+#: data/scripts/third_side.dat:4
+msgid ""
+"I'm not exactly sure what any of that means, but it sounds interesting"
+msgstr "よくわからないけど面白そうだ。"
+
+#: data/scripts/third_side.dat:5
+msgid "I might read that later..."
+msgstr "今度読んでみよう…"
+
+#: data/scripts/sorceror_intro_2.dat:10
+msgid "So, you escaped"
+msgstr "抜け出したのか。"
+
+#: data/scripts/sorceror_intro_2.dat:11
+msgid "Yes I did, and my father wasn't there"
+msgstr "そうだ。 そして父さんは そこにはいなかった。"
+
+#: data/scripts/sorceror_intro_2.dat:12
+msgid "Maybe you just didn't look hard enough"
+msgstr "たぶん よく見ていなかったのでは ないかね。"
+
+#: data/scripts/sorceror_intro_2.dat:13
+msgid "Have another look"
+msgstr "別のところを 探しなさい。"
+
+#: data/scripts/sorceror_intro_2.dat:18
+msgid "Maybe you should work on your spells"
+msgstr "多分 魔法は効かない。"
+
+#: data/scripts/sorceror_intro_2.dat:19
+msgid "NOW TELL ME WHERE MY FATHER IS!"
+msgstr "答えろ! 父さんはどこだ!"
+
+#: data/scripts/sorceror_intro_2.dat:20
+msgid "You annoying little brat"
+msgstr "うるさい ガキだ。"
+
+#: data/scripts/sorceror_intro_2.dat:21
+msgid "I wouldn't be surprised if your father has abandoned you"
+msgstr "おまえの父親が おまえを見捨てたとしても ワシは驚かない。"
+
+#: data/scripts/sorceror_intro_2.dat:22
+msgid "What?!"
+msgstr "何?!"
+
+#: data/scripts/sorceror_intro_2.dat:23
+msgid "I'll show you!"
+msgstr "見せてやろう!"
+
+#: data/scripts/sorceror_intro_2.dat:28
+msgid "That, was a mistake"
+msgstr "それは、 過ちだったな。"
+
+#: data/scripts/sorceror_intro_2.dat:29
+msgid "Die"
+msgstr "死ね。"
+
+#: data/scripts/sorceror_intro_2.dat:34
+msgid "That was odd, he was supposed to explode"
+msgstr "奇妙だ。 奴は爆発するはずなのだが。"
+
+#: data/scripts/sorceror_intro_2.dat:35
+msgid "Where did he go?"
+msgstr "どこへ行った?"
+
+#: data/scripts/old_shield.dat:12
+msgid ""
+"That's it? Just this old shield? It doesn't look any better than my current "
+"one."
+msgstr "これは? ただの古い盾? いま持っているものの方がずっとましだ。"
+
+#: data/scripts/old_shield.dat:13
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "でも いつかのときのために持っておこう。 役に立つかもしれない。"
+
+#: data/scripts/old_shield.dat:16
+msgid "Great, a spare shield!"
+msgstr "すごい、 予備の盾だ!"
+
+#: data/scripts/old_shield.dat:17
+msgid "I have everything I need now"
+msgstr "必要なものは 全部そろえたのに。"
+
+#: data/scripts/old_shield.dat:18
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "研究所に大釜があった。 すぐにそこへ行こう。"
+
+#: data/scripts/old_shield.dat:21
+msgid ""
+"This doesn't look like a Fire Shield to me. I was really hoping to find one "
+"here too"
+msgstr "これは炎の盾じゃない。 ここなら見つかると 思っていたのに。"
+
+#: data/scripts/old_shield.dat:22
+msgid "This shield doesn't even look any better than my current one."
+msgstr "この盾は今のと比べても良くない。"
+
+#: data/scripts/old_shield.dat:27
+msgid ""
+"I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "スラッジの触手と ゲイザーの目玉から 液体を作らなければ。"
+
+#: data/scripts/old_shield.dat:33
+msgid "That's not a good sign..."
+msgstr "嫌な予感がする…"
+
+#: data/scripts/sewer_trap_note.dat:1
+msgid "There's a note here"
+msgstr "メモがある。"
+
+#: data/scripts/centurion_note_2.dat:2
+msgid "I've found a way to kill the Centurions"
+msgstr "歩兵を倒す方法がわかった。"
+
+#: data/scripts/centurion_note_2.dat:3
+msgid ""
+"They will reform unless one of their parts falls into the slime or lava"
+msgstr "奴らは 体の一部が スライムか溶岩に落ちれば 元に戻れない。"
+
+#: data/scripts/centurion_note_2.dat:4
+msgid ""
+"I managed to retrieve two of the puzzle pieces before I was caught and "
+"locked in here again"
+msgstr "どうにか 2つの断片を手に入れたが、 再びここに 捕らわれてしまった。"
+
+#: data/scripts/centurion_note_2.dat:5
+msgid "If I can break out of here again I'll be sure to escape"
+msgstr "もし出ることができれば 次は迷宮から脱出する。"
+
+#: data/scripts/centurion_note_2.dat:6
+msgid ""
+"Otherwise I hope another unfortunate victim will find this information useful"
+msgstr "もしできなければ 他の不幸な犠牲者が この情報を役立てることを 望む。"
+
+#: data/scripts/centurion_note_2.dat:7
+msgid "There's a skull here"
+msgstr "骨がある。"
+
+#: data/scripts/centurion_note_2.dat:8
+msgid "Looks like he didn't manage to get out..."
+msgstr "出られなかったみたいだ…"
+
+#: data/scripts/chaos_warn.dat:2
+msgid "Leave now if you wish to live"
+msgstr "死にたくなければ 去るがよい。"
+
+#: data/scripts/chaos_warn.dat:4
+msgid "Go back now"
+msgstr "すぐに 戻れ。"
+
+#: data/scripts/chaos_warn.dat:15
+msgid ""
+"If you proceed, I will fight you and destroy you. Flee now, while you can"
+msgstr "そのまま 進めば、 我と戦うことになる。 逃げよ。 可能なうちに。"
+
+#: data/scripts/chaos_warn.dat:28
+msgid "You fool. Do you truly seek destruction?"
+msgstr "愚かな。 破滅を望んでいるのか?"
+
+#: data/scripts/chaos_warn.dat:31
+msgid "Then I shall destroy you!!"
+msgstr "ならば 死ぬがよい!!"
+
+#: data/scripts/tutorial_secret.dat:2
+msgid "Congratulations, you found a secret!"
+msgstr "おめでとう、 あなたは秘密を見つけました!"
+
+#: data/scripts/tutorial_secret.dat:3
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "本編にはたくさんに秘密があります。 常に注意して探しましょう。"
+
+#: data/scripts/tutorial_secret.dat:4
+msgid "Here's a hint to get you started"
+msgstr "本編が始まった直後のヒントを教えましょう。"
+
+#: data/scripts/tutorial_secret.dat:5
+msgid ""
+"Although Jacob only requires you to catch 3 of his chickens, why not be nice "
+"to him and catch more? There are 10 wandering the map in all"
+msgstr "ヤコブは3羽の鶏を捕まえて欲しいと言っていますが、 もっと捕まえたらどうなるでしょうか? 全部で10羽います。"
+
+#: data/scripts/box_pushing.dat:1
+msgid ""
+"You can pull some items around by pushing against them whilst holding down "
+"the Action button."
+msgstr "行動キーを押しながら物と反対の方向に動くと、 物を引くことができます。"
+
+#: data/scripts/box_pushing.dat:2
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "行動キーを押している間は引き続けます。"
+
+#: data/scripts/drainers.dat:1
+msgid ""
+"Whatever that thing was it was draining the power from that generator and "
+"using it against me."
+msgstr "あれが何なのかはわからないけど、 動力源からエネルギーを吸い取って 攻撃していたようだ。"
+
+#: data/scripts/drainers.dat:2
+msgid ""
+"That might explain why that lift wasn't working. Defeating the other "
+"drainers should restore the power here."
+msgstr "これがエレベーターが動かない理由だろう。 ほかの吸収しているものも倒して、 動力を戻そう。"
+
+#: data/scripts/drainers.dat:3
+msgid "Defeat all Energy Drainers"
+msgstr "全てのエネルギー吸収体を倒す"
+
+#: data/scripts/safe_instructions.dat:1
+msgid "Use left and right to move the dial 1 unit at a time"
+msgstr "左と右のキーで ダイヤルを 1回ずつ動かします。"
+
+#: data/scripts/safe_instructions.dat:2
+msgid ""
+"Make sure you keep count of how many times you move the dial since no on-"
+"screen notification is given"
+msgstr "画面上には 何回 ダイヤルを動かしたかは 表示されないことに 注意してください。"
+
+#: data/scripts/safe_instructions.dat:3
+msgid ""
+"When you think you've entered the combination correctly, press Attack to try "
+"and open the door"
+msgstr "正しくダイヤルを 回せたと思ったら、 攻撃キーを押して 開けてください。"
+
+#: data/scripts/no_combination.dat:1
+msgid ""
+"There's no way I'll be able to figure out the combination, I'll have to find "
+"out what it is"
+msgstr "番号がわからない。 それを探さなければ。"
+
+#: data/scripts/borgan.dat:4
+msgid "Keep practising!"
+msgstr "練習を怠るな!"
+
+#: data/scripts/maggie.dat:4
+msgid "Hi"
+msgstr "やあ。"
+
+#: data/scripts/jacob.dat:32
+msgid "Hello Edgar"
+msgstr "こんにちはエドガー。"
+
+#: data/scripts/borgan.dat:13
+msgid "Can I borrow your shield?"
+msgstr "盾を貸してくれないか?"
+
+#: data/scripts/borgan.dat:14
+msgid "Off to practice your fighting skills?"
+msgstr "戦いの練習でもするのか?"
+
+#: data/scripts/borgan.dat:15
+msgid "Something like that"
+msgstr "そんなところだよ。"
+
+#: data/scripts/borgan.dat:16
+msgid "If you run me an errand then you can have the shield"
+msgstr "お使いに行ってきたら盾を貸してやろう。"
+
+#: data/scripts/borgan.dat:17
+msgid "What do I have to do?"
+msgstr "何をすればいい?"
+
+#: data/scripts/borgan.dat:18
+msgid "Go to the mine and collect me some coal"
+msgstr "炭鉱で石炭を取ってきてくれ。"
+
+#: data/scripts/borgan.dat:19
+msgid "But we have plenty of coal!"
+msgstr "でも石炭はたくさんある!"
+
+#: data/scripts/borgan.dat:20
+msgid ""
+"Yes, but this is not any old coal, this coal is special, it burns hotter and "
+"lasts longer"
+msgstr "そうだな。 だが、 古い石炭はあまりない。 こいつは特別で、 熱くて長持ちする。"
+
+#: data/scripts/borgan.dat:21
+msgid ""
+"I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "10個あれば十分だ。 それほど時間はかからないだろう。"
+
+#: data/scripts/borgan.dat:22
+msgid ""
+"Make sure you put it in a bag, touching it for too long will be bad for your "
+"health"
+msgstr "鞄に入れるのを忘れるな。 石炭をずっと持っているのは体に悪い。"
+
+#: data/scripts/borgan.dat:23
+msgid "Do you have a bag?"
+msgstr "鞄はある?"
+
+#: data/scripts/borgan.dat:24
+msgid "No, you can probably find one in the mine though"
+msgstr "いや。 炭鉱にあるだろう。"
+
+#: data/scripts/borgan.dat:25
+msgid "OK, I'll get the coal"
+msgstr "わかった。 石炭を取ってくるよ。"
+
+#: data/scripts/borgan.dat:27
+msgid ""
+"Here, take this pickaxe. You can use it to mine the coal and hack through "
+"any weaker walls you encounter"
+msgstr "このつるはしを持っていきなさい。 石炭を掘ったり、 脆い壁があったときに使えるだろう。"
+
+#: data/scripts/borgan.dat:29
+msgid "You'll also need this key to get into the mine"
+msgstr "炭鉱の中ではこの鍵も必要だ。"
+
+#: data/scripts/borgan.dat:31
+msgid "Collect 10 pieces of Coal"
+msgstr "10個の石炭を集める"
+
+#: data/scripts/borgan.dat:36
+msgid ""
+"Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "ありがとう、 エドガー、 石炭は十分だ! コウモリに苦労しなれればよかったが。"
+
+#: data/scripts/borgan.dat:37
+msgid "The bats were the least of my worries..."
+msgstr "コウモリは大丈夫だったけど…"
+
+#: data/scripts/borgan.dat:38
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "ところで、 あの炭鉱では数年前に何かあったそうだ。"
+
+#: data/scripts/borgan.dat:39
+msgid ""
+"Er, yeah, there was what you'd call an \"incident\", but that part of the "
+"mine was sealed up a long time ago"
+msgstr "ああ、 そうだ、 「事件」と言ったほうがいいだろう。 だが、 炭鉱のその場所は 長いこと立ち入り禁止になっている。"
+
+#: data/scripts/borgan.dat:40
+msgid "Right..."
+msgstr "ふーん…"
+
+#: data/scripts/borgan.dat:42
+msgid "Here, have my shield and have fun!"
+msgstr "さあ、 これがワシの盾だ。 自由に使ってくれ!"
+
+#: data/scripts/borgan.dat:44
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "禁じられた沼には近づくな。"
+
+#: data/scripts/borgan.dat:45
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "そうするよ。 しばらくつるはしを貸してくれない?"
+
+#: data/scripts/borgan.dat:46
+msgid "Sure thing, just bring it back in one piece"
+msgstr "もちろんだ。 後でちゃんと返しておくれ。"
+
+#: data/scripts/borgan.dat:47
+msgid "Thanks, Borgan!"
+msgstr "ありがとう、 ボーガン!"
+
+#: data/scripts/borgan.dat:52
+msgid "Have you managed to find the coal yet?"
+msgstr "石炭は見つかったかね?"
+
+#: data/scripts/safe.dat:5
+msgid "A safe in a library? Bit of a cliché..."
+msgstr "書庫に金庫? 変だな…"
+
+#: data/scripts/safe.dat:11
+msgid ""
+"It looks too thick to break open, I'll have to open it using the combination"
+msgstr "壊すには頑丈すぎる。 番号がわからなければ開けられない。"
+
+#: data/scripts/statue_required.dat:1
+msgid ""
+"You must have the statue you wish to use highlighted in your inventory box"
+msgstr "持ち物一覧で選択した像を置きます。"
+
+#: data/scripts/centurion_boss_start.dat:9
+msgid "Huh, what's that?"
+msgstr "何だ?"
+
+#: data/scripts/centurion_boss_start.dat:14
+msgid "ESCAPEE LOCATED"
+msgstr "逃亡者ヲ発見"
+
+#: data/scripts/centurion_boss_start.dat:15
+msgid "TARGET IS ARMED AND DANGEROUS"
+msgstr "対象ハ武装シ危険"
+
+#: data/scripts/centurion_boss_start.dat:16
+msgid "COMMENCING DESTRUCTION OF TARGET"
+msgstr "タダチニ対象ヲ破壊"
+
+#: data/scripts/blank_card_required.dat:1
+msgid "I need a blank card to put the instructions on"
+msgstr "命令を書き込むための 何も書かれていないカードが 必要だ。"
+
+#: data/scripts/slime_potion_pool.dat:1
+msgid "That smell..."
+msgstr "臭う…"
+
+#: data/scripts/slime_potion_pool.dat:3
+msgid "It looks like..."
+msgstr "これは何かと似ている…"
+
+#: data/scripts/slime_potion_pool.dat:4
+msgid "It's as thick as..."
+msgstr "この舌触りは…"
+
+#: data/scripts/slime_potion_pool.dat:5
+msgid "And it tastes like..."
+msgstr "そして この味は…"
+
+#: data/scripts/slime_potion_pool.dat:8
+msgid "It is! It's naturally occurring Slime potion!"
+msgstr "そうだ! これは 自然の スライムの薬だ!"
+
+#: data/scripts/cave_boss_die.dat:10
+msgid "Gotcha!"
+msgstr "やったぞ!"
+
+#: data/scripts/cave_boss_die.dat:11
+msgid "Not so clever now are you?"
+msgstr "そんなに 賢い奴じゃ なかったな。"
+
+#: data/scripts/cave_boss_die.dat:79
+msgid "I REALLY have to get out of here!"
+msgstr "本当に早くここを出たい!"
+
+#: data/scripts/maggie.dat:4
+msgid "Hi Maggie"
+msgstr "やあマギー。"
+
+#: data/scripts/maggie.dat:7
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "まあエドガー、 ケガしてるじゃない! なおしてあげるわ。"
+
+#: data/scripts/maggie.dat:52
+msgid "Thanks Maggie!"
+msgstr "ありがとうマギー!"
+
+#: data/scripts/sorceror_intro_3.dat:9
+msgid "Persistent aren't you?"
+msgstr "しつこい奴だ。"
+
+#: data/scripts/sorceror_intro_3.dat:10
+msgid ""
+"I don't know what you did last time, but trust me, you won't escape again!"
+msgstr "何を考えているかは わからんが、 これだけは言える。 次は逃げられんぞ!"
+
+#: data/scripts/sorceror_intro_3.dat:20
+msgid "(Phew)"
+msgstr "(ふぅ)"
+
+#: data/scripts/sorceror_intro_3.dat:21
+msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
+msgstr "(おや、 見ろ、 盾の宝珠の1つが 光りだした…)"
+
+#: data/scripts/sorceror_intro_3.dat:22
+msgid "Your spell won't work against me any more"
+msgstr "おまえの呪文は もう 効かないぞ。"
+
+#: data/scripts/sorceror_intro_3.dat:23
+msgid "Now, if you won't tell me the whereabouts of my father"
+msgstr "さあ、 もし 父さんの居場所を 言わなければ"
+
+#: data/scripts/sorceror_intro_3.dat:24
+msgid "I will have to beat it out of you"
+msgstr "おまえを倒す。"
+
+#: data/scripts/sorceror_intro_3.dat:25
+msgid "You will never get that chance"
+msgstr "おまえに その機会はない。"
+
+#: data/scripts/sorceror_intro_3.dat:29
+msgid "Grimlore, I summon you! Destroy this pest!"
+msgstr "グリムロア、 いでよ! この疫病を打ちのめせ!"
+
+#: data/scripts/sorceror_intro_3.dat:33
+msgid "Farewell, Edgar"
+msgstr "さらばだ、 エドガー。"
+
+#: data/scripts/sorceror_intro_3.dat:38
+msgid "Something's coming..."
+msgstr "何が 現れるんだ…"
+
+#: data/scripts/spirit.dat:1
+msgid ""
+"That spirit isn't going to let me past, I'll have to find a way to get rid "
+"of it"
+msgstr "あの幽霊は通してくれそうにない。 何とかして追い払う方法を見つけなければ。"
+
+#: data/scripts/swamp_intro.dat:2
+msgid "This place doesn't look so bad..."
+msgstr "そんなにひどい場所じゃなさそうだ…"
+
+#: data/scripts/occult_book.dat:51
+msgid "What was that?"
+msgstr "今のは何?"
+
+#: data/scripts/swamp_intro.dat:17
+msgid "Uh Oh..."
+msgstr "うわあぁっ…"
+
+#: data/scripts/tutorial_doors.dat:1
+msgid ""
+"There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "このゲームには2種類の扉があります。 操作して開ける扉と、 自動で開く扉です。"
+
+#: data/scripts/tutorial_doors.dat:2
+msgid ""
+"Manual doors require keys to open them, Automatic doors require switches."
+msgstr "操作して開ける扉は鍵が必要です。 自動で開く扉にはスイッチがあります。"
+
+#: data/scripts/tutorial_doors.dat:3
+msgid ""
+"To open a locked door that you have the key for, simply walk into it. There "
+"is no need to have the key selected in your inventory."
+msgstr "合った鍵を持っていれば、 鍵の掛かった扉はただ単に歩いて行けば開きます。 持ち物から選択する必要はありません。"
+
+#: data/scripts/tutorial_doors.dat:4
+msgid "Open the door and continue to the right"
+msgstr "扉を開けて右へ進みましょう。"
+
+#: data/scripts/cave_intro.dat:4
+msgid "Urgh, what happened?"
+msgstr "うーん、 いったい何が?"
+
+#: data/scripts/borer_cave_intro.dat:11
+msgid "Where am I?"
+msgstr "ここはどこだ?"
+
+#: data/scripts/tutorial_blocking.dat:1
+msgid "Now try out your shield"
+msgstr "ここで盾を使ってみましょう。"
+
+#: data/scripts/tutorial_blocking.dat:2
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "植物が飛ばす種を防御し、 崖を跳び越えてください。"
+
+#: data/scripts/ending_part1.dat:12
+msgid "I can't believe he's gone"
+msgstr "父さんが 行ってしまったなんて 信じられない。"
+
+#: data/scripts/ending_part1.dat:13
+msgid "I tried so hard to find him"
+msgstr "一生懸命 探した。"
+
+#: data/scripts/ending_part1.dat:14
+msgid "And I failed"
+msgstr "でも 見つからなかった。"
+
+#: data/scripts/ending_part1.dat:15
+msgid "What am I going to do now?"
+msgstr "いったい 何をすれば よいのだろう。"
+
+#: data/scripts/ending_part1.dat:16
+msgid "*sniff*"
+msgstr "はぁ…"
+
+#: data/scripts/ending_part1.dat:19
+msgid "Edgar! Edgar, where are you?"
+msgstr "エドガー! エドガー、 どこへ行った?"
+
+#: data/scripts/cave_boss_die.dat:10
+msgid "!"
+msgstr "!"
+
+#: data/scripts/ending_part1.dat:21
+msgid "That voice..."
+msgstr "この声は…"
+
+#: data/scripts/ending_part1.dat:22
+msgid "It can't be..."
+msgstr "間違いない…"
+
+#: data/scripts/ending_part1.dat:25
+msgid "Daddy!"
+msgstr "父さん!"
+
+#: data/scripts/jacob.dat:14
+msgid "Edgar!"
+msgstr "エドガー!"
+
+#: data/scripts/ending_part1.dat:28
+msgid "Jacob, I found him!"
+msgstr "ヤコブ、 見つかったぞ!"
+
+#: data/scripts/ending_part1.dat:30
+msgid "What are you doing here, son? It's dangerous, we have to leave"
+msgstr "息子よ、 ここで 何をしているんだ? ここは 危ないぞ。"
+
+#: data/scripts/ending_part1.dat:31
+msgid "I came to rescue you!"
+msgstr "父さんを 助けに来たんだ!"
+
+#: data/scripts/ending_part1.dat:32
+msgid "Eh? What are you... No, tell me later, let's go home"
+msgstr "え? いったい 何を…、 まあいい、 後で聞く。 さあ帰ろう。"
+
+#: data/scripts/tomb_door.dat:2
+msgid "I'll try again"
+msgstr "もう一度 やってみよう。"
+
+#: data/scripts/tomb_door.dat:6
+msgid "Give up?"
+msgstr "あきらめる?"
+
+#: data/scripts/tomb_door.dat:8
+msgid "I'll figure this out another time"
+msgstr "後でやってみよう。"
+
+#: data/scripts/tomb_door.dat:15
+msgid "I'll keep trying"
+msgstr "まだ 続けよう。"
+
+#: data/scripts/tomb_door.dat:22
+msgid "This music sheet might be his anthem, I'll give it a go"
+msgstr "この楽譜は イヴァンの賛美歌のものに 違いない。 試してみよう。"
+
+#: data/scripts/tomb_door.dat:33
+msgid "I need to find out what Ivan's anthem is"
+msgstr "イヴァンの賛歌とは どんなものなのか、 探さなければ。"
+
+#: data/scripts/tomb_door.dat:34
+msgid "Randomly ringing bells isn't going to work..."
+msgstr "デタラメに ベルを鳴らしても 開かない…"
+
+#: data/scripts/tomb_door.dat:39
+msgid "Something is etched on this door"
+msgstr "扉に何か刻まれている。"
+
+#: data/scripts/tomb_door.dat:40
+msgid "Enshrined in this tomb is the great warrior Ivan"
+msgstr "この墓に 祭られているのは 偉大な戦士 イヴァンである"
+
+#: data/scripts/tomb_door.dat:41
+msgid "Defeater of the evil dragon known as Chaos"
+msgstr "邪悪な竜 カオスを 倒した者"
+
+#: data/scripts/tomb_door.dat:42
+msgid "Access to his tomb is granted only to those who play his anthem"
+msgstr "墓に入れるのは 彼の賛歌を 正しく奏でる 者のみである"
+
+#: data/scripts/tomb_door.dat:43
+msgid "His anthem? How on earth am I going to figure that out?!"
+msgstr "賛歌? いったいどうすれば それがわかるんだろう?!"
+
+#: data/scripts/monsters.dat:2
+msgid "This entire section is about monsters"
+msgstr "全部怪物の本だ。"
+
+#: data/scripts/monsters.dat:3
+msgid ""
+"I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "読む必要はないけど、 何かのときのために覚えておこう。"
+
+#: data/scripts/monsters.dat:6
+msgid "I wonder what other monsters there are..."
+msgstr "別の怪物はどうだろう…"
+
+#: data/scripts/monsters.dat:8
+msgid "Chaos"
+msgstr "カオス"
+
+#: data/scripts/monsters.dat:9
+msgid "Chaos is an ancient, evil dragon"
+msgstr "カオスは 古代の邪悪なドラゴンである。"
+
+#: data/scripts/monsters.dat:14
+msgid "A dragon?! Dad told me they were all extinct!"
+msgstr "ドラゴン?! 父さんは それは全て絶滅したと 言ってたのに!"
+
+#: data/scripts/monsters.dat:15
+msgid ""
+"For years he wreaked havoc across this land and took thousands of innocent "
+"lives, his fiery breath incinerated everything in its path"
+msgstr "遠い昔からこの地に 大破壊をもたらし、 何千何万もの罪のないの人々を 殺害してきた。 その炎の息は 全てを焼き尽くすことが できる。"
+
+#: data/scripts/monsters.dat:16
+msgid ""
+"Finally a brave warrior and a group of magicians managed to overwhelm and "
+"bind him"
+msgstr "最後には 勇敢な戦士と 魔術師の集団によって 拘束された。"
+
+#: data/scripts/monsters.dat:17
+msgid "They sealed the dragon away beneath an old fortress"
+msgstr "彼らは 古い砦の地下に それを封印した。"
+
+#: data/scripts/monsters.dat:18
+msgid "It is believed he is still there"
+msgstr "それは まだそこにいると 信じられている。"
+
+#: data/scripts/monsters.dat:19
+msgid ""
+"Slowly regaining his power until he is strong enough to break free and "
+"terrorise the world once again"
+msgstr "それは 封印を破壊し、 再び世界を支配できるまで ゆっくりと力を回復している。"
+
+#: data/scripts/monsters.dat:21
+msgid "Beneath an old fortress? Maybe they mean this one..."
+msgstr "古い砦の地下? もしかして、 それはこの…"
+
+#: data/scripts/monsters.dat:22
+msgid ""
+"If that dragon is regaining its power then it must be stopped before it's "
+"too late"
+msgstr "もしドラゴンが 力を回復したら、 もう止められないだろう。"
+
+#: data/scripts/monsters.dat:23
+msgid ""
+"But if its breath destroys anything then I won't be able to protect myself"
+msgstr "でも、 その息は全てを破壊する。 自分の身を守れない。"
+
+#: data/scripts/monsters.dat:24
+msgid "Unless..."
+msgstr "どうすれば…"
+
+#: data/scripts/sorceror_start.dat:5
+msgid "Grimlore"
+msgstr "グリムロア"
+
+#: data/scripts/monsters.dat:32
+msgid ""
+"Grimlore is a creature from another dimension. It can be summoned using "
+"powerful dark magic"
+msgstr "グリムロアは 別の次元の存在である。 それは強力な闇の魔法で 呼び出される。"
+
+#: data/scripts/monsters.dat:33
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "多くの召喚師はそれを 護衛させるために呼び出す。"
+
+#: data/scripts/monsters.dat:34
+msgid ""
+"There is no known way to kill Grimlore since upon sustaining critical "
+"injuries it will simply return to its own dimension"
+msgstr "どのようにすれば グリムロアを倒すことができるかは、 誰にもわからない。 致命傷を受けても それは自分の次元に 戻るだけである。"
+
+#: data/scripts/monsters.dat:35
+msgid ""
+"But even injuring it is a monumental task. Anyone encountering this creature "
+"is advised to escape as quickly as possible"
+msgstr ""
+"しかし、 十分なダメージを 与えることさえ 困難である。 グリムロアと 遭遇したことがある者は、 見つけしだい すぐに逃げるよう 忠告している。"
+
+#: data/scripts/monsters.dat:36
+msgid "Or they will die very quickly"
+msgstr "さもなければ すぐさま 殺されるであろう。"
+
+#: data/scripts/monsters.dat:42
+msgid "Summoner, Dark"
+msgstr "召喚師、闇。"
+
+#: data/scripts/monsters.dat:43
+msgid ""
+"Just like regular Summoners, Dark Summoners call in other beasts to do their "
+"bidding"
+msgstr "通常の召喚師と同様、 闇の召喚師は 他の者を命令するため 呼び出す。"
+
+#: data/scripts/monsters.dat:44
+msgid ""
+"Additionally though they can teleport short distances to escape from their "
+"opponents"
+msgstr "さらに敵から逃れるため 短い距離を瞬間移動する こともできる。"
+
+#: data/scripts/monsters.dat:45
+msgid ""
+"Their staff is highly magical and although it cannot be used by humans "
+"directly, its magical properties are used in spell creation"
+msgstr "その杖は強い魔力を持つため 人が直接扱うことはできないが、 呪文を作り出す 材料にはなる。"
+
+#: data/scripts/monsters.dat:51
+msgid "Hoover, Pink"
+msgstr "象、ピンク。"
+
+#: data/scripts/monsters.dat:52
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "ピンクの象には 小さな4つの足と 長い鼻がある。"
+
+#: data/scripts/monsters.dat:53
+msgid ""
+"The primary purpose of the snout is to forage for food but it also serves as "
+"a defence mechanism"
+msgstr "その鼻の主な使い方は エサを取ることだが、 防御にも使われる。"
+
+#: data/scripts/monsters.dat:54
+msgid ""
+"and are more than capable of keeping a predator at bay by simply blowing "
+"them away"
+msgstr "そして 吹き飛ばすことで 敵を寄せ付けないように することができる。"
+
+#: data/scripts/monsters.dat:60
+msgid "Venus Flytrap, mobile"
+msgstr "ハエトリソウ、歩く。"
+
+#: data/scripts/monsters.dat:61
+msgid ""
+"Mobile Venus Flytraps have evolved roots and are able to move to their food "
+"rather than waiting for it to come to them"
+msgstr "歩くハエトリソウは 根が進化していて、 エサが来るのを待たずに 動き回って探す。"
+
+#: data/scripts/monsters.dat:62
+msgid ""
+"Their necks are incredibly elastic and are able to snap at their prey from a "
+"considerable distance away"
+msgstr "その首は とてもよく伸び縮みし、 かなり遠くから 獲物を捕らえる ことができる。"
+
+#: data/scripts/monsters.dat:68
+msgid "Tortoise, Master"
+msgstr "亀、王。"
+
+#: data/scripts/monsters.dat:69
+msgid ""
+"Master Tortoises are frightening beasts. Found in far away lands they "
+"possess the ability to change their heads"
+msgstr "亀の王は 恐るべき存在である。 遠い地で見られ、 頭を入れ替える 能力を持つ。"
+
+#: data/scripts/monsters.dat:70
+msgid ""
+"They combine all the abilities of their cousins to breathe fire, create ice "
+"and electrify themselves"
+msgstr "その一族の 火を噴く、 氷を作る、 電気を発生させる 全ての能力を あわせ持つ。"
+
+#: data/scripts/monsters.dat:71
+msgid ""
+"And of course they are also impervious to attacks from matching elements, "
+"absorbing the energy to heal themselves"
+msgstr "さらに 同じ属性で攻撃しても 傷つけることはできず、 エネルギーを吸収し 傷を回復させる。"
+
+#: data/scripts/monsters.dat:72
+msgid ""
+"But additionally, if they receive too much energy from healing, they evolve "
+"and go on the rampage"
+msgstr "付け加えると、 吸収しすぎると エネルギーを放出し 暴走する。"
+
+#: data/scripts/monsters.dat:73
+msgid ""
+"In this state they will smash through any defence and produce Dark Matter "
+"which destroys anything it touches"
+msgstr "この状態では あらゆる防御は打ち破られ、 そして触れたものを 全て破壊する 暗黒物質を 作り出す。"
+
+#: data/scripts/monsters.dat:74
+msgid ""
+"However, the shell of a rampaging Master Tortoise is highly magical and is "
+"an essential ingredient when creating powerful magics and items"
+msgstr "しかし、 暴走した 亀の王の甲羅は 強い魔力を持ち、 それは 強力な魔法や道具の 材料になる。"
+
+#: data/scripts/monsters.dat:80
+msgid "Grub, Red"
+msgstr "幼虫、赤。"
+
+#: data/scripts/monsters.dat:81
+msgid ""
+"Red Grubs are more aggressive than their green counterparts and will attack "
+"anything they view as a threat"
+msgstr "赤い幼虫は 緑のものより 攻撃的で、 見たもの全てに 危機を感じ 攻撃してくる。"
+
+#: data/scripts/monsters.dat:82
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "成長すると 繭を作り、 狩り蜂になる。"
+
+#: data/scripts/monsters.dat:83
+msgid ""
+"Some however will morph into a queen wasp. These queens can produce a mucus-"
+"like substance capable of holding its prey in place"
+msgstr "いくつかのものは 女王蜂になる。 女王は粘液を分泌し 獲物を捕らえる。"
+
+#: data/scripts/monsters.dat:89
+msgid "Splitter"
+msgstr "スプリッター。"
+
+#: data/scripts/monsters.dat:90
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "スプリッターは こちらが攻撃しなければ 無害である。"
+
+#: data/scripts/monsters.dat:91
+msgid ""
+"Upon sustaining too much damage they will split in two and attack their "
+"predator"
+msgstr "ダメージを与えすぎると、 2つに分れ 獲物を攻撃してくる。"
+
+#: data/scripts/monsters.dat:92
+msgid "If one of these sustains too much damage it will split once again"
+msgstr "一方にダメージを与えすぎると、 それは再び分裂する。"
+
+#: data/scripts/monsters.dat:93
+msgid ""
+"These versions are completely harmless and in this state can be simply "
+"stepped on"
+msgstr "それは 完全に無害で、 この状態では 単に踏んでしまえばよい。"
+
+#: data/scripts/monsters.dat:94
+msgid ""
+"If all its parts are still alive, a splitter will reform itself after a "
+"while and heal its wounds"
+msgstr "全ての部分が生きていれば、 スプリッターは 傷が回復すれば 再び結合する。"
+
+#: data/scripts/monsters.dat:100
+msgid "Centurion, Grey"
+msgstr "歩兵、灰色。"
+
+#: data/scripts/monsters.dat:101
+msgid ""
+"Centurions are magically created creatures, usually dispatched as sentries "
+"or guards"
+msgstr "歩兵は 魔法で作られた存在であり、 通常、 見張りや 警備のために 配備される。"
+
+#: data/scripts/monsters.dat:102
+msgid ""
+"Though slow moving, their massive size allows them to simply march through "
+"any defence"
+msgstr "動きは遅いが、 その巨体のため ただ歩いているだけで あらゆる防御を超えられる。"
+
+#: data/scripts/monsters.dat:103
+msgid ""
+"Instead of arms, many have huge pile drivers which they use to shake the "
+"ground and disorientate threats"
+msgstr "腕の代わりに 巨大な杭打ち機を持っており、 それで地面を揺らし 敵を動けないようにする。"
+
+#: data/scripts/monsters.dat:104
+msgid ""
+"While Grey Centurions will be used to guard outer perimeters, Red Centurions "
+"are known to exist and are used to protect areas of great importance"
+msgstr "灰色の歩兵は 外周の警備のために使われる。 赤い歩兵も存在し、 特に重要な場所の 警備に使われる。"
+
+#: data/scripts/cauldron.dat:153
+msgid "Gazer"
+msgstr "ゲイザー。"
+
+#: data/scripts/monsters.dat:111
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "ゲイザーは 色々な場所にいて 一つ目で宙に浮いている。"
+
+#: data/scripts/monsters.dat:112
+msgid ""
+"Their single eye is usually closed and they rely on sonar for movement"
+msgstr "その一つの目は 通常閉じていて、 他の感覚を頼りに 活動している。"
+
+#: data/scripts/monsters.dat:113
+msgid ""
+"They use their strong sense of smell to look out for predator and prey alike"
+msgstr "敏感な嗅覚で 獲物などを 探し出す。"
+
+#: data/scripts/monsters.dat:114
+msgid ""
+"Gazers attack (and defend themselves) by opening their eye which will dazzle "
+"anything looking at it"
+msgstr "ゲイザーの攻撃 (そして 身を守るための防御) は、 目を開け それを見た者の 視力を奪うという ものである。"
+
+#: data/scripts/monsters.dat:115
+msgid ""
+"This attack is only effective however if the victim is facing the Gazer"
+msgstr "その攻撃は ゲイザーの方を 向いている者にのみ 有効である。"
+
+#: data/scripts/monsters.dat:116
+msgid ""
+"A Gazer's eyeball contains magical properties and is a common ingredient in "
+"spell preparation"
+msgstr "ゲイザーの目玉には 魔力の要素と、 呪文のための成分が 含まれている。"
+
+#: data/scripts/monsters.dat:120
+msgid "Ah, here is a compendium of monsters"
+msgstr "あっ、怪物の図鑑がある。"
+
+#: data/scripts/monsters.dat:121
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "全34巻! この世界には どれだけ怪物が いるんだ?!"
+
+#: data/scripts/monsters.dat:124
+msgid "This might have come in handy when I was hunting for the Red Sludges"
+msgstr "赤スラッジを狩るのに 役に立つに違いない。"
+
+#: data/scripts/monsters.dat:125
+msgid "Still, there might be something else in these books worth reading..."
+msgstr "でも、 どれを読んだら いいんだろう…"
+
+#: data/scripts/monsters.dat:128
+msgid "Looks like they're in alphabetical order though"
+msgstr "アルファベット順に 並んでいるみたいだ。"
+
+#: data/scripts/monsters.dat:130
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "スライム、緑…… スライム、紫…… スラッジ、緑……"
+
+#: data/scripts/monsters.dat:132
+msgid "Sludge, Red"
+msgstr "スラッジ、赤。"
+
+#: data/scripts/monsters.dat:133
+msgid ""
+"Unlike its green cousin, the Red Sludge stays deep underground and rarely, "
+"if ever, surfaces"
+msgstr "緑のものとは違い、 赤スラッジは 地下深くでも、 地上でも、 見かけることは 稀である。"
+
+#: data/scripts/monsters.dat:134
+msgid ""
+"Its preferred habitat are dry and mineral rich areas and as a result have "
+"been found lurking in areas of mines abandoned by humans"
+msgstr "乾いていて 石炭が豊富な場所に 生息している。 その結果、 人によって 立ち入り禁止にされた場所に 潜んでいる場合がある。"
+
+#: data/scripts/monsters.dat:135
+msgid ""
+"They are very wary of humans and will attack on sight, usually vomiting up "
+"an acid which takes time to evaporate"
+msgstr "警戒心が強く、 人を見ると すぐに攻撃してくる。 通常、 酸を吐き出すが、 それは時間がたつと 蒸発する。"
+
+#: data/scripts/monsters.dat:136
+msgid "Smacker, Lesser..."
+msgstr "スマッカー、下級……"
+
+#: data/scripts/monsters.dat:137
+msgid ""
+"Great, that's all it says. I don't even know how to tell the difference "
+"between a male and female. I'll just to take a chance..."
+msgstr "すごい、 全部書かれている。 雄と雌の違いは わからなかったけど。 とにかく やってみるしかない…"
+
+#: data/scripts/monsters.dat:138
+msgid "Besides, what's the worst that could happen?"
+msgstr "でも、 どうしよう。"
+
+#: data/scripts/monsters.dat:139
+msgid ""
+"I didn't see any Sludges in the mine when I went to get Borgan's coal and "
+"even if there were any I can't get back there since my raft sank"
+msgstr "ボーガンに頼まれて 炭鉱に行ったときは スラッジはいなかった。 それに もし いたとしても、 いかだが沈んでしまったから 戻れない。"
+
+#: data/scripts/monsters.dat:140
+msgid "I'll have to find another mine around here..."
+msgstr "このあたりで 別の炭鉱を 見つけなければ ならないのか…"
+
+#: data/scripts/mine2_exit.dat:1
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "この炭鉱を守るボスは 以前のバージョンには 存在しませんでした。"
+
+#: data/scripts/mine2_exit.dat:2
+msgid "Because it is in this version you won't be able to leave"
+msgstr "そのため このバージョンでは あなたはここを 出ることができません。"
+
+#: data/scripts/mine2_exit.dat:3
+msgid "You will now be transported outside"
+msgstr "今から 外に 瞬間移動します。"
+
+#: data/scripts/mine2_exit.dat:4
+msgid "We apologize for the inconvenience"
+msgstr "ご不便をおかけしました。"
+
+#: data/scripts/sewer_boss_start.dat:15
+msgid ""
+"So you're back? Well this time, only one of us is getting out of here alive!"
+msgstr "また戻ってきたのか? 今回生きてここを出られるのは どちらか一人だ!"
+
+#: data/scripts/enchanting_weapons.dat:2
+msgid ""
+"This library must have information on everything, so a book detailing the "
+"creation of a Shield of Dragon Fire Resistance must be here..."
+msgstr "この書庫には どんな情報もあるだろう。 ドラゴンの炎を 防ぐ盾の作り方も あるに違いない…"
+
+#: data/scripts/enchanting_weapons.dat:8
+msgid ""
+"That dragon stuff sounded interesting, but I'll read about it after I've "
+"created the Fire Shield"
+msgstr "この ドラゴンの項目は 面白そうだ。 でも 読むのは 炎の盾を 作ってからだ。"
+
+#: data/scripts/enchanting_weapons.dat:9
+msgid ""
+"I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
+"create a Shield of Fire Resistance"
+msgstr "炎を防ぐ盾を作るためには 3つのゲイザーの目玉、 1つの赤スラッジの触手、 そして別の盾が必要だ。"
+
+#: data/scripts/enchanting_weapons.dat:10
+msgid ""
+"Once I've found all these items I'll have to find a place to create the "
+"shield"
+msgstr "全部そろったら、 盾を作るための 場所を見つけなければ ならない。"
+
+#: data/scripts/enchanting_weapons.dat:14
+msgid ""
+"That monster encyclopedia said the dragon's breath incinerated everything, "
+"but that warrior still managed to defeat it"
+msgstr "この 怪物百科事典には ドラゴンの息は 全てを 焼き尽くすが、 戦士は どうにか それを倒した と 書かれている。"
+
+#: data/scripts/enchanting_weapons.dat:15
+msgid ""
+"Maybe this book has information about creating a shield to resist dragon "
+"breath"
+msgstr "もしかすると この本には ドラゴンの息を防ぐ 盾を作る方法が 書かれているかも しれない。"
+
+#: data/scripts/black_book_search.dat:11
+msgid "Hmmm..."
+msgstr "うーん…"
+
+#: data/scripts/occult_book.dat:16
+msgid "Shield of Dragon Fire Resistance"
+msgstr "ドラゴンの 炎を 防ぐ盾"
+
+#: data/scripts/enchanting_weapons.dat:20
+msgid ""
+"Creation of shields of dragon fire resistance require occult magics and very "
+"little is known about their manufacture"
+msgstr "ドラゴンの 炎を 防ぐ盾を 作るためには 秘術と ほとんど手に入らない 材料が 必要である。"
+
+#: data/scripts/enchanting_weapons.dat:21
+msgid ""
+"Known ingredients include the shell fragment from a Rampaging Master "
+"Tortoise and the staff of a Dark Summoner"
+msgstr "知られている材料には 暴走した亀の王の甲羅と 闇の召喚師の杖が ある。"
+
+#: data/scripts/enchanting_weapons.dat:22
+msgid "Drat, that's all it says"
+msgstr "ちぇっ! これだけしか 書かれていない。"
+
+#: data/scripts/enchanting_weapons.dat:23
+msgid ""
+"This library is huge though, there must be a book in this place that "
+"describes the process"
+msgstr "この書庫は広い。 作り方が 書かれた本も あるに違いない。"
+
+#: data/scripts/enchanting_weapons.dat:24
+msgid "But I've looked everywhere, haven't I?"
+msgstr "でも 全部読むの?"
+
+#: data/scripts/enchanting_weapons.dat:33
+msgid "There's a book here about enchanting equipment"
+msgstr "魔法がかけられた装備の 本がある。"
+
+#: data/scripts/enchanting_weapons.dat:34
+msgid "Maybe I can create a shield..."
+msgstr "もしかすると 盾を作れるかも…"
+
+#: data/scripts/enchanting_weapons.dat:36
+msgid "Swords... Armour... Wands..."
+msgstr "剣… 鎧… 杖…"
+
+#: data/scripts/enchanting_weapons.dat:37
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "ひどい本だ。 順番に並んでいないし、 索引もない。"
+
+#: data/scripts/enchanting_weapons.dat:39
+msgid "Here we go: Shields"
+msgstr "よし。 盾。"
+
+#: data/scripts/enchanting_weapons.dat:9
+msgid "Shield of Fire Resistance"
+msgstr "炎を防ぐ盾"
+
+#: data/scripts/occult_book.dat:17
+msgid "Ingredients"
+msgstr "材料"
+
+#: data/scripts/occult_book.dat:18
+msgid "One must gather the following"
+msgstr "次のものを集めよ"
+
+#: data/scripts/enchanting_weapons.dat:43
+msgid "The root of a Mandrake"
+msgstr "マンドレイクの根"
+
+#: data/scripts/enchanting_weapons.dat:44
+msgid "The fat of a Mantis (left to stand for 3 months)"
+msgstr "カマキリの脂肪 (3ヶ月以上経過したもの)"
+
+#: data/scripts/enchanting_weapons.dat:45
+msgid "Powered Condor bones"
+msgstr "コンドルの骨"
+
+#: data/scripts/enchanting_weapons.dat:46
+msgid "3 eyes of the Gazer"
+msgstr "3つのゲイザーの目玉"
+
+#: data/scripts/enchanting_weapons.dat:47
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "雌の赤スラッジの 切ったばかりの触手"
+
+#: data/scripts/occult_book.dat:22
+msgid "The shield to apply the enchantment"
+msgstr "魔法をかける盾"
+
+#: data/scripts/enchanting_weapons.dat:49
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "ゲイザーの目と スラッジの触手を ドロドロの液状にする"
+
+#: data/scripts/enchanting_weapons.dat:50
+msgid ""
+"Add the root, fat and bones into the cauldron and mix together with the "
+"blended Gazer eyes and Sludge tentacle"
+msgstr "根と 脂肪と 骨を 大釜に入れ、 それにゲイザーの目と スラッジの触手を入れて かき混ぜる。"
+
+#: data/scripts/enchanting_weapons.dat:51
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "混ぜたものが青く光ったら、 盾を入れる。"
+
+#: data/scripts/enchanting_weapons.dat:54
+msgid ""
+"There might be potions room or lab where I can find the roots, fat and bones "
+"so I don't need to worry about those"
+msgstr "薬の部屋か研究所に 根と 脂肪と 骨は あるだろう。 それは問題ない。"
+
+#: data/scripts/enchanting_weapons.dat:57
+msgid ""
+"The lab probably has the roots, fat and bones so I don't need to worry about "
+"those"
+msgstr "根と 脂肪と 骨は 研究所にあるだろう。 それは問題ない。"
+
+#: data/scripts/enchanting_weapons.dat:59
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "ゲイザーも 地下をウロウロしているから 問題ない。"
+
+#: data/scripts/enchanting_weapons.dat:60
+msgid ""
+"What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "赤スラッジを 探さなければならない。 でも、 どこにいるのか わからない。"
+
+#: data/scripts/enchanting_weapons.dat:61
+msgid ""
+"I can't use my current shield in the experiment in case it backfires so I'll "
+"have to find another one"
+msgstr "今使っている盾が 燃えてしまうといけないので この盾で実験することは できない。 別の盾を 探さなければ。"
+
+#: data/scripts/enchanting_weapons.dat:64
+msgid "Obtain 3 Gazer Eyes"
+msgstr "ゲイザーの目を 3つ手に入れる"
+
+#: data/scripts/monsters.dat:122
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "赤スラッジの触手を 1つ手に入れる"
+
+#: data/scripts/enchanting_weapons.dat:68
+msgid "Find another shield"
+msgstr "別の盾を探す"
+
+#: data/scripts/enchanting_weapons.dat:70
+msgid "Blend eyeballs and tentacle"
+msgstr "目玉と触手を混ぜる"
+
+#: data/scripts/enchanting_weapons.dat:78
+msgid "It's a book about enchanting equipment"
+msgstr "装備にかける呪文の本だ。"
+
+#: data/scripts/enchanting_weapons.dat:79
+msgid ""
+"I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "読む必要はないけど、 何かのときのために覚えておこう。"
+
+#: data/scripts/items_found.dat:1
+msgid "Hmm, I've looked everywhere and this appears to be everything"
+msgstr "うーん、 色々な場所を見たけど、 これで全部だろう。"
+
+#: data/scripts/items_found.dat:2
+msgid ""
+"I guess the other things must have been destroyed when the sorceror used "
+"that spell"
+msgstr "別のものは 魔法使いが 呪文を使ったとき 壊れたに違いない。"
+
+#: data/scripts/items_found.dat:3
+msgid "Now to find out where I am and how I can get back"
+msgstr "今は ここはどこなのか、 そして どうやって戻るのかを 考えよう。"
+
+#: data/scripts/items_found.dat:4
+msgid "If I can..."
+msgstr "できるのであれば…"
+
+#: data/scripts/graveyard_weather.dat:4
+msgid "Huh, it's started to rain"
+msgstr "ああ、 雨が降り始めた。"
+
+#: data/scripts/sewer_trap_note.dat:2
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "ここに 永遠に 閉じ込められてしまった ようだ。"
+
+#: data/scripts/sewer_trap_note.dat:3
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "ここから出るためには エレベーターを動かすための 3つの鍵が必要だ。"
+
+#: data/scripts/sewer_trap_note.dat:4
+msgid "So far I have only found 1"
+msgstr "今までのところ、 まだ1つしか見つかっていない。"
+
+#: data/scripts/sewer_trap_note.dat:5
+msgid ""
+"To make matters worse, I can only reach some switches with a carefully "
+"placed arrow"
+msgstr "さらに悪いことに、 いくつかのスイッチは 矢を注意深く使わなければ 近づけない。"
+
+#: data/scripts/sewer_trap_note.dat:6
+msgid "But spares aren't common and I have run out"
+msgstr "だが予備の矢は合わず、 矢を使い果たしてしまった。"
+
+#: data/scripts/sewer_trap_note.dat:7
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "早く出口を見つけなければ飢え死にしてしまう。"
+
+#: data/scripts/sewer_trap_note.dat:9
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "出られなければ同じ目に…"
+
+#: data/scripts/sewer_trap_note.dat:10
+msgid "Collect 3 Access Keys"
+msgstr "3つのエレベーターの鍵を集める"
+
+#: data/scripts/tutorial_walls.dat:1
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "脆い壁があります。 これはつるはしで壊すことができます。"
+
+#: data/scripts/tutorial_walls.dat:2
+msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
+msgstr "攻撃キー ([INPUT_ATTACK]) を押すと、 つるはしを使えます。"
+
+#: data/scripts/tutorial_walls.dat:3
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "全ての脆い壁が つるはしで壊せるわけではないことに 注意してください。"
+
+#: data/scripts/tutorial_walls.dat:4
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "つるはしで壁を壊し先に進みましょう。"
+
+#: data/scripts/grimlore_die.dat:3
+msgid "There, back to your own dimension"
+msgstr "元の次元に戻れ。"
+
+#: data/scripts/grimlore_die.dat:10
+msgid "Where did the sorceror go?"
+msgstr "魔法使いは どこへ行った?"
+
+#: data/scripts/sorceror_intro_1.dat:7
+msgid "Finally, we meet at last!"
+msgstr "やっと見つけたぞ!"
+
+#: data/scripts/sorceror_intro_1.dat:9
+msgid "Who are you?"
+msgstr "誰だ?"
+
+#: data/scripts/sorceror_intro_1.dat:10
+msgid ""
+"My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
+msgstr "エドガーだ。 ここに来るまで [HOURS]時間かかったぞ!"
+
+#: data/scripts/sorceror_intro_1.dat:11
+msgid "Fascinating. What do you want?"
+msgstr "面白い。 何が望みだ?"
+
+#: data/scripts/sorceror_intro_1.dat:12
+msgid "I've come to rescue my father, tell me where he is!"
+msgstr "父さんを助けるために ここに来た。 どこにいるんだ!"
+
+#: data/scripts/sorceror_intro_1.dat:13
+msgid ""
+"Your father? My dear child, I do not have the foggiest idea what you are "
+"talking about"
+msgstr "おまえの父親? 坊や、 何を言っているのか 全くわからないな。"
+
+#: data/scripts/sorceror_intro_1.dat:14
+msgid ""
+"But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
+msgstr "だが もし彼がいるなら、 恐らくワシの迷宮にいるだろう。 見てみるかね?"
+
+#: data/scripts/ant_lion.dat:1
+msgid "There's something moving around down there..."
+msgstr "下で何かが動いている…"
+
+#: data/scripts/ant_lion.dat:2
+msgid "It might be an ant lion looking for food"
+msgstr "アリジゴクが餌を探しているようだ。"
+
+#: data/scripts/ant_lion.dat:3
+msgid "If I go down there, it'll almost certainly eat me"
+msgstr "もし下りたら、 食べられてしまうに違いない。"
+
+#: data/scripts/ant_lion.dat:7
+msgid "Maybe I could lure something else into its pit..."
+msgstr "中に何かを入れておびき出せれば…"
+
+#: data/scripts/purifier.dat:1
+msgid "That's a lot of slime"
+msgstr "スライムでいっぱいだ。"
+
+#: data/scripts/purifier.dat:4
+msgid ""
+"I don't think the Ice Spray will get across this since it only works on water"
+msgstr "凍結スプレーは水の上でしか使えない。"
+
+#: data/scripts/purifier.dat:11
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "スライムも水の中でしか泳げないから役に立たない。"
+
+#: data/scripts/purifier.dat:12
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "ボーガンが皮肉にもそうだと言ってた。"
+
+#: data/scripts/purifier.dat:14
+msgid "I'll have to find something to help me get across..."
+msgstr "ここを渡るのに役立つものを見つけなければ…"
+
+#: data/scripts/purple_gem.dat:1
+msgid ""
+"It looks like it's tightly wedged in there. I can probably loosen it with "
+"the pickaxe..."
+msgstr "しっかりとはめ込まれているみたいだ。 つるはしを使えば取れるかも…"
+
+#: data/scripts/blender.dat:2
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "大きなミキサーみたいだ。 何かをドロドロにするのに使えそうだ。"
+
+#: data/scripts/blender.dat:11
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
+msgstr "薬を作るには 1つの赤スラッジの触手と 3つのゲイザーの目玉が 必要だ。"
+
+#: data/scripts/blender.dat:18
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "入れるための空きビンが 必要だ。"
+
+#: data/scripts/blender.dat:22
+msgid "OK, here goes!"
+msgstr "さあ、 行こう!"
+
+#: data/scripts/tutorial_boxes.dat:1
+msgid "Some items in the game can be pushed and pulled"
+msgstr "いくつかの物は押したり引いたりできます。"
+
+#: data/scripts/tutorial_boxes.dat:2
+msgid "To push an item, simply walk into it"
+msgstr "ただ単に歩いていけば、 物を押せます。"
+
+#: data/scripts/tutorial_boxes.dat:3
+msgid "To pull an item, walk into while holding down Action"
+msgstr "行動キー ([INPUT_INTERACT]) を押しながら歩くと、 物を引けます。"
+
+#: data/scripts/tutorial_boxes.dat:4
+msgid "You can then pull the item around until you let go of Action"
+msgstr "行動キーを放すまで物を引き続けます。"
+
+#: data/scripts/tutorial_boxes.dat:5
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "箱をもう一方まで引いて、 崖を登りましょう。"
+
+#: data/scripts/laboratory_intro.dat:3
+msgid "Wow, a laboratory!"
+msgstr "わあ、 研究所だ!"
+
+#: data/scripts/laboratory_intro.dat:4
+msgid ""
+"I love watching Maggie make spells and potions, maybe I can make some of my "
+"own here!"
+msgstr "マギーが呪文で薬を作っているのを見るのが楽しかったな。 ここで自分で作れるかも!"
+
+#: data/scripts/sorceror_start.dat:4
+msgid "Nowhere left to hide"
+msgstr "もう隠れることは できないぞ。"
+
+#: data/scripts/sorceror_start.dat:5
+msgid "You defeated Grimlore? Impossible!"
+msgstr "グリムロアを 倒したのか? 信じられん!"
+
+#: data/scripts/sorceror_start.dat:6
+msgid "He submitted to my sword just like everything else in this foul place"
+msgstr "この不快な場所の 他の者と同じように この剣に屈した。"
+
+#: data/scripts/sorceror_start.dat:7
+msgid "This is your last chance, tell me where my father is!"
+msgstr "これが最後だ。 父さんを どこへやった!"
+
+#: data/scripts/sorceror_start.dat:8
+msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
+msgstr "何のことか 全くわからん!"
+
+#: data/scripts/sorceror_start.dat:9
+msgid "LIAR! I've run out of patience, prepare to die!"
+msgstr "嘘をつくな! もう我慢の限界だ! 覚悟しろ!"
+
+#: data/scripts/sorceror_start.dat:11
+msgid "Very well. If that is your wish"
+msgstr "いいだろう。 それが おまえの 望みならば。"
+
+#: data/scripts/sorceror_start.dat:12
+msgid "Many have suffered at my hand"
+msgstr "多くの者が この手の中で 死んでいった。"
+
+#: data/scripts/sorceror_start.dat:13
+msgid "Your death will be quick, but extremely painful"
+msgstr "おまえは すぐに死ぬだろう。 とてつもない 苦しみの中で。"
+
+#: data/scripts/sorceror_start.dat:14
+msgid ""
+"I will add your head to the long line of foolish adventurers who have tried "
+"to best me"
+msgstr "おまえは ワシに挑んだ 冒険者の中で 最も愚かな者として 記憶されるだろう。"
+
+#: data/scripts/sorceror_start.dat:16
+msgid "Prepare yourself, Edgar"
+msgstr "覚悟するがよい、 エドガー。"
+
+#: data/scripts/tutorial_reset_switch.dat:1
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "リセットスイッチで マップ上の物の位置を戻すことが できます。"
+
+#: data/scripts/tutorial_reset_switch.dat:2
+msgid ""
+"If an object becomes unreachable then you can use the switch to put it back "
+"in its original place"
+msgstr "もし物を届かない場所へ移動させてしまったら、 このスイッチで元の位置に戻せます。"
+
+#: data/scripts/black_book.dat:1
+msgid "This book is different to the rest"
+msgstr "この本は別のとは違う。"
+
+#: data/scripts/black_book.dat:2
+msgid "I can feel a powerful magic emanating from it"
+msgstr "強い魔法を発しているみたいだ。"
+
+#: data/scripts/black_book.dat:3
+msgid "A powerful evil magic"
+msgstr "強力な悪い魔法。"
+
+#: data/scripts/black_book.dat:4
+msgid "Maybe I should leave it alone"
+msgstr "そのままにしておいたほうがよさそうだ。"
+
+#: data/scripts/black_book.dat:5
+msgid "Still, I could be wrong, maybe it's not evil magic..."
+msgstr "でも、 そうではなかったら、 悪い魔法ではないかも…"
+
+#: data/scripts/black_book_search.dat:9
+msgid "Examine the book?"
+msgstr "本を調べてみる?"
+
+#: data/scripts/black_book.dat:20
+msgid "What just happened?"
+msgstr "何が起きたんだ?"
+
+#: data/scripts/black_book.dat:22
+msgid "Maybe I shouldn't go around touching books that give off an evil aura"
+msgstr "悪い気配を感じたなら触らなければよかった。"
+
+#: data/scripts/black_book.dat:23
+msgid "And spend more time looking for my Dad"
+msgstr "こんなことをしてないで父さんを探そう。"
+
+#: data/scripts/black_book.dat:25
+msgid ""
+"This would have allowed you to fight Mataeus, but it looks like you've "
+"already defeated him..."
+msgstr "ここで マタエウスと 戦うことができるが、 もう既に 倒してしまったようだ…"
+
+#: data/scripts/black_book.dat:29
+msgid "I'll leave it alone, I'm not getting a good feeling from it"
+msgstr "そのままにしておこう。 嫌な予感がする。"
+
+#: data/scripts/catacombs_intro.dat:2
+msgid "Oh great, I can barely see anything"
+msgstr "ああ すごい、 ほとんど 何も見えない。"
+
+#: data/scripts/catacombs_intro.dat:9
+msgid "I'll have to be careful where I tread..."
+msgstr "注意して 進まなければ…"
+
+#: data/scripts/catacombs_intro.dat:10
+msgid "Escape the Catacombs"
+msgstr "地下墓地から脱出する"
+
+#: data/scripts/final_battle.dat:1
+msgid "He's through here, I can feel it"
+msgstr "奴は ここを通ったに 違いない。"
+
+#: data/scripts/final_battle.dat:2
+msgid ""
+"There's no going back once I step through that door, I'd better make sure "
+"I'm ready"
+msgstr "ここを一度通ると 戻ることはできない だろう。 十分に 準備しなければ ならない。"
+
+#: data/scripts/final_battle.dat:3
+msgid "Enter the door?"
+msgstr "扉を通りますか?"
+
+#: data/scripts/final_battle.dat:5
+msgid "OK, here we go..."
+msgstr "よし、 行くぞ…"
+
+#: data/scripts/final_battle.dat:11
+msgid "Maybe I should prepare a little bit more first"
+msgstr "もっと準備をしたほうが よいかもしれない。"
+
+#: data/scripts/tutorial_intro.dat:4
+msgid ""
+"Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
+"box"
+msgstr "読み終えたら [INPUT_JUMP] キーを押して 次のダイアログボックスに進んでください。"
+
+#: data/scripts/tutorial_intro.dat:5
+msgid ""
+"You can also move to the next dialog box by pressing Attack "
+"([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
+"([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+"攻撃 ([INPUT_ATTACK]) 、 防御 ([INPUT_BLOCK]) 、 ジャンプ ([INPUT_JUMP]) 、 行動 "
+"([INPUT_INTERACT]) 、 または使用キー ([INPUT_ACTIVATE]) でも次のダイアログボックスに進めます。"
+
+#: data/scripts/tutorial_intro.dat:6
+msgid ""
+"This is the tutorial for The Legend of Edgar. This tutorial will explain how "
+"to play the game."
+msgstr ""
+"これは The Legend of Edgar (エドガーの伝説) のチュートリアルです。 このチュートリアルでは このゲームの遊び方を説明します。"
+
+#: data/scripts/tutorial_intro.dat:7
+msgid ""
+"To exit this tutorial, press Escape and use the Up and Down arrow keys to "
+"choose an option. Press Return to select it."
+msgstr ""
+"このチュートリアルを終えるためには、 ESC キーを押し、 カーソルキーの上下でオプションを選択します。 リターンキーを押すと選択されます。"
+
+#: data/scripts/tutorial_intro.dat:8
+msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
+msgstr "[INPUT_LEFT] キーと [INPUT_RIGHT] キーを押すと、 エドガーが左右に動きます。"
+
+#: data/scripts/tutorial_intro.dat:9
+msgid ""
+"To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
+msgstr "[INPUT_JUMP] キーを押すと、 エドガーはジャンプします。 ジャンプ中も移動できます。"
+
+#: data/scripts/tutorial_intro.dat:10
+msgid "To interact with an item, press [INPUT_INTERACT]"
+msgstr "[INPUT_INTERACT] キーを押すと、 物を操作します。"
+
+#: data/scripts/tutorial_intro.dat:11
+msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
+msgstr "アクション・ポイント (!マーク) のところまで移動し、 [INPUT_INTERACT] を押してみましょう。"
+
+#: data/scripts/items_missing.dat:1
+msgid "I need to recover my missing items before I can leave"
+msgstr "ここを離れる前に なくしたものを 取り戻さなければ。"
+
+#: data/scripts/azriel_start.dat:6
+msgid "Who dares pillage the tomb of the great warrior Ivan?"
+msgstr "偉大な戦士 イヴァンの墓を 荒らすのは 誰だ?"
+
+#: data/scripts/azriel_start.dat:12
+msgid "Who said that?"
+msgstr "どこにいる?"
+
+#: data/scripts/azriel_start.dat:13
+msgid "Insolent cur, you will suffer for your disrespect"
+msgstr "愚かな者よ。 おまえは 自らの冒涜により 苦しむであろう。"
+
+#: data/scripts/azriel_start.dat:18
+msgid "I, am Azriel"
+msgstr "我はアズリエル。"
+
+#: data/scripts/centurion_note_1.dat:2
+msgid "I've managed to escape from my cell and am trying to find a way out"
+msgstr "どうにか牢を脱出し、 出口を探している。"
+
+#: data/scripts/centurion_note_1.dat:3
+msgid ""
+"I found a door blocked by a frame which you need to put 9 jigsaw puzzle "
+"pieces in"
+msgstr "炎で守られた 扉を見つけたが、 9つの ジグソーパズルの 断片が 必要だ。"
+
+#: data/scripts/centurion_note_1.dat:4
+msgid ""
+"The pieces are locked behind doors which seem to be linked to the Red "
+"Centurions"
+msgstr "断片は 赤い歩兵とつながった錠で 閉じられた 扉の向こうにある。"
+
+#: data/scripts/centurion_note_1.dat:5
+msgid "The Centurions appear to be indestructible however"
+msgstr "だが、 歩兵を破壊することは できないようだ。"
+
+#: data/scripts/centurion_note_1.dat:6
+msgid "Unless I can find a way to destroy them I will die down here"
+msgstr "奴らを破壊する方法が 見つからなければ ここで死ぬしか ないだろう。"
+
+#: data/scripts/centurion_note_1.dat:7
+msgid "I'll find a way to destroy them"
+msgstr "奴らを 破壊する方法を 見つけてやる。"
+
+#: data/scripts/centurion_note_1.dat:8
+msgid "I'm so close to rescuing Dad now..."
+msgstr "父さんを助ける時は近い…"
+
+#: data/scripts/centurion_note_1.dat:10
+msgid "Find 9 Puzzle Pieces"
+msgstr "9つのパズルの断片を探す"
+
+#: data/scripts/wrong_order.dat:2
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "何も起こらない。 正しい順番では ないようだ。"
+
+#: data/scripts/fortress_mine_exit_sign.dat:1
+msgid "There's another sign here"
+msgstr "別の看板だ。"
+
+#: data/scripts/fortress_mine_exit_sign.dat:2
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "出口へのエレベーターが使えなければ、 左へ進め"
+
+#: data/scripts/fortress_mine_exit_sign.dat:3
+msgid "Warning : Exit route may be hazardous"
+msgstr "注意 : 出口への道は危険である"
+
+#: data/scripts/fortress_mine_exit_sign.dat:5
+msgid "Maybe I should use the lift to get out"
+msgstr "ならエレベーターで出よう。"
+
+#: data/scripts/crossbow.dat:16
+msgid "Cool, it worked!"
+msgstr "やった、 うまくいった!"
+
+#: data/scripts/smoothie_colour.dat:2
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "色のことは よく知らないけど、 なぜ赤くない?"
+
+#: data/scripts/smoothie_colour.dat:3
+msgid "Maybe it's supposed to be yellow..."
+msgstr "黄色になってしまった…"
+
+#: data/scripts/smoothie_colour.dat:10
+msgid "I just need to find another shield to enchant..."
+msgstr "後は魔法をかける盾を 見つけるだけだ…"
+
+#: data/scripts/cauldron_exploded.dat:7
+msgid "Maybe that wasn't such a good idea after all..."
+msgstr "もしかして 失敗したのか…"
+
+#: data/scripts/cauldron_exploded.dat:9
+msgid "Looks like I'll have to find another way to get past those fireballs"
+msgstr "火の玉を避ける 別の方法を探そう。"
+
+#: data/scripts/sleeping.dat:2
+msgid "It's sleeping"
+msgstr "眠っている。"
+
+#: data/scripts/sleeping.dat:3
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "檻の中にいるなら安全だ…"
+
+#: data/scripts/gargoyle_start.dat:6
+msgid "I don't want to go back to the swamp"
+msgstr "沼には戻らない。"
+
+#: data/scripts/gargoyle_start.dat:8
+msgid "I'm pretty sure Dad's in the fortress"
+msgstr "この砦で父さんを助けると決めたんだ。"
+
+#: data/scripts/gargoyle_start.dat:12
+msgid "Maybe I should check the swamp again..."
+msgstr "もう一度沼に戻ったほうがいいかも…"
+
+#: data/scripts/gargoyle_start.dat:21
+msgid "What was that?!"
+msgstr "今のは何だ?!"
+
+#: data/scripts/ending_part2.dat:32
+msgid "...and when you didn't come home last night I set off to find you"
+msgstr "…それで 帰ってこなかった 夜に 探しに行ったんだ。"
+
+#: data/scripts/ending_part2.dat:33
+msgid "You went to the Sorceror's Fortress?!"
+msgstr "魔法使いの砦に 行った?!"
+
+#: data/scripts/ending_part2.dat:34
+msgid "I thought he'd kidnapped you! Where were you?"
+msgstr "魔法使いに さらわれたと 思ったんだ! どこにいたの?"
+
+#: data/scripts/ending_part2.dat:35
+msgid "Erm... well you see"
+msgstr "えー… それは。"
+
+#: data/scripts/ending_part2.dat:36
+msgid "When I went out last night I went to Jacob's for a couple of drinks"
+msgstr "その夜は ヤコブと 一杯飲みに行ったんだ。"
+
+#: data/scripts/ending_part2.dat:37
+msgid "*cough*"
+msgstr "ゴホン"
+
+#: data/scripts/ending_part2.dat:38
+msgid "several drinks"
+msgstr "何杯か。"
+
+#: data/scripts/ending_part2.dat:39
+msgid "On the way home I stopped by the well to have a drink of water"
+msgstr "帰る途中に 水を飲むために 井戸へ行った。"
+
+#: data/scripts/ending_part2.dat:40
+msgid "and I fell in"
+msgstr "そして 落ちた。"
+
+#: data/scripts/sorceror_intro_2.dat:22
+msgid "What?"
+msgstr "何だって?"
+
+#: data/scripts/ending_part2.dat:45
+msgid "I fell down the well"
+msgstr "井戸の中に 落ちた。"
+
+#: data/scripts/ending_part2.dat:46
+msgid "I was down there until only a couple of hours ago"
+msgstr "そこに 2時間ほどいた。"
+
+#: data/scripts/ending_part2.dat:47
+msgid "Are you kidding me?"
+msgstr "冗談でしょ?"
+
+#: data/scripts/ending_part2.dat:49
+msgid "I shouted down that well, didn't you hear me?"
+msgstr "大声を出したぞ。 聞こえなかったか?"
+
+#: data/scripts/ending_part2.dat:50
+msgid "I was out cold"
+msgstr "外にいて 寒かった。"
+
+#: data/scripts/ending_part2.dat:51
+msgid "Plus, the hangover was absolute murder"
+msgstr "加えて、 二日酔いで 死にそうだった。"
+
+#: data/scripts/ending_part2.dat:53
+msgid "I crossed the swamp"
+msgstr "沼を渡って"
+
+#: data/scripts/ending_part2.dat:54
+msgid "Broke into the Sorceror's Fortress"
+msgstr "魔法使いの砦に 入り込んで"
+
+#: data/scripts/ending_part2.dat:55
+msgid "Fought countless numbers of ferocious monsters"
+msgstr "数え切れないほどの 恐ろしい怪物と 戦って"
+
+#: data/scripts/ending_part2.dat:56
+msgid "Got imprisoned in his dungeon"
+msgstr "迷宮に 閉じ込められて"
+
+#: data/scripts/ending_part2.dat:57
+msgid "And was teleported to another part of the world!"
+msgstr "そして 別の場所に 飛ばされた!"
+
+#: data/scripts/ending_part2.dat:58
+msgid "I nearly died!"
+msgstr "死にそうだったよ!"
+
+#: data/scripts/ending_part2.dat:61
+msgid "Near misses don't count"
+msgstr "あと少しのところは 数えないわ。"
+
+#: data/scripts/ending_part2.dat:64
+msgid "Only the once though"
+msgstr "たった1回ね。"
+
+#: data/scripts/ending_part2.dat:67
+msgid "[CONTINUE_COUNT] times according to my count"
+msgstr "数えたら [CONTINUE_COUNT]回ね。"
+
+#: data/scripts/ending_part2.dat:73
+msgid ""
+"And after all that, when I defeated the Sorceror, he had no idea who you were"
+msgstr "そして 魔法使いを倒したけど、 奴は父さんが どこへ行ったか 知らなかった。"
+
+#: data/scripts/ending_part2.dat:74
+msgid "You killed the Sorceror?!"
+msgstr "魔法使いを 倒した?!"
+
+#: data/scripts/ending_part2.dat:75
+msgid "I thought he'd kidnapped Dad!"
+msgstr "父さんをさらったと 思ったんだ!"
+
+#: data/scripts/ending_part2.dat:76
+msgid ""
+"Wow, that has to be the worst case of false accusation I think I'll ever "
+"hear!"
+msgstr "そんな ひどい濡れ衣は 聞いたことがない!"
+
+#: data/scripts/ending_part2.dat:78
+msgid "But more seriously, you disobeyed me, son"
+msgstr "でも もっと問題なのは、 言いつけを 守らなかったことだ、 息子よ。"
+
+#: data/scripts/ending_part2.dat:79
+msgid "I told you to never set foot in the Forbidden Swamp"
+msgstr "禁じられた沼沼へは 行ってはならないと 言ったはずだ。"
+
+#: data/scripts/ending_part2.dat:80
+msgid "And for that, you'll have to be punished"
+msgstr "おしおきが 必要だな。"
+
+#: data/scripts/ending_part2.dat:82
+msgid "But Dad..."
+msgstr "でも 父さん…"
+
+#: data/scripts/ending_part2.dat:83
+msgid "Be quiet!"
+msgstr "黙りなさい!"
+
+#: data/scripts/ending_part2.dat:84
+msgid "I just need to think of something suitable..."
+msgstr "何がいいか 考えなければ…"
+
+#: data/scripts/ending_part2.dat:88
+msgid "Looks like your chickens have escaped from their pen again, Jacob"
+msgstr "ヤコブ、 また小屋から 鶏が逃げ出したようだ。"
+
+#: data/scripts/ending_part2.dat:92
+msgid "Actually, I think I know what your punishment is going to be..."
+msgstr "よし、 おまえの罰は 決まりだな…"
+
+#: data/scripts/jigsaw_puzzle.dat:3
+msgid "A jigsaw puzzle?!"
+msgstr "ジグソーパズル?!"
+
+#: data/scripts/jigsaw_puzzle.dat:4
+msgid "I'm not really a fan of these"
+msgstr "これはあまり 好きじゃない。"
+
+#: data/scripts/jigsaw_puzzle.dat:7
+msgid ""
+"I prefer the sliding puzzles, like the one I had to solve to get the "
+"Lightning Sword"
+msgstr "スライドパズルの方が 好きだな。 だから解けて 稲妻の剣も 手に入った。"
+
+#: data/scripts/jigsaw_puzzle.dat:9
+msgid "Still, it looks like this is the only way out"
+msgstr "でも、 道はここしか ないようだ。"
+
+#: data/scripts/jigsaw_puzzle.dat:16
+msgid "Looks like I need 9 pieces to slot into the frame"
+msgstr "9つの断片を 枠にはめる みたいだ。"
+
+#: data/scripts/jigsaw_puzzle.dat:19
+msgid "The frame is empty"
+msgstr "枠には何もない。"
+
+#: data/scripts/jigsaw_puzzle.dat:20
+msgid ""
+"Hopefully the pieces I need are around somewhere, otherwise I'm going to die "
+"down here"
+msgstr "断片が このあたりに あればいいけど。 そうでなければ 死んでしまう。"
+
+#: data/scripts/jigsaw_puzzle.dat:23
+msgid ""
+"I've got all the pieces, I just need to place them in the frame and solve "
+"the puzzle"
+msgstr "断片は全部ある。 これを 正しく枠にはめて パズルを 解かなければならない。"
+
+#: data/scripts/jigsaw_puzzle.dat:24
+msgid "Push left, right, up or down to move the cursor"
+msgstr "左、 右、 上、 下キーを押すと カーソルが動きます。"
+
+#: data/scripts/jigsaw_puzzle.dat:25
+msgid "Press Attack to select the current piece and move it around"
+msgstr "攻撃キーで カーソルの断片を選択し 動かします。"
+
+#: data/scripts/jigsaw_puzzle.dat:26
+msgid "Press Attack again to stop moving the current piece"
+msgstr "もう一度 攻撃キーを押すと 動かすのを止めます。"
+
+#: data/scripts/jigsaw_puzzle.dat:27
+msgid "Press Action to quit the puzzle"
+msgstr "行動キーを押すと パズルを終了します。"
+
+#: data/scripts/ice_spray.dat:1
+msgid "More water?!"
+msgstr "また水?!"
+
+#: data/scripts/ice_spray.dat:7
+msgid ""
+"I don't think being able to turn into a Slime is going to help me here, "
+"since I might not be able to get back afterwards"
+msgstr "スライムになって渡っても、 戻る方法がなさそうだ。"
+
+#: data/scripts/ice_spray.dat:8
+msgid "Those fish look quite dangerous too"
+msgstr "それに危なそうな魚もいる。"
+
+#: data/scripts/ice_spray.dat:9
+msgid "I'll have to find another way of getting across"
+msgstr "渡る別の方法を 見つけなければ。"
+
+#: data/scripts/purifier.dat:14
+msgid "I'll have to find something to help me get across"
+msgstr "渡る助けになるものを 見つけなければ。"
+
+#: data/scripts/tutorial_combat.dat:1
+msgid ""
+"This is the last part of the tutorial and will teach you to block and attack "
+"enemies"
+msgstr "ここがチュートリアルの最後の部分です。 ここでは敵から防御し攻撃する方法を学びます。"
+
+#: data/scripts/tutorial_combat.dat:2
+msgid ""
+"First, you should equip the sword since it has more range and does more "
+"damage than the pickaxe"
+msgstr "まず、 剣を装備しなければなりません。 剣はつるはしよりも攻撃の範囲が広く、 威力もあるためです。"
+
+#: data/scripts/tutorial_combat.dat:3
+msgid ""
+"Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
+"press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+"[INPUT_INVENTORY] を押して持ち物を表示し、 剣にハイライトを合わせ、 攻撃キー ([INPUT_ATTACK]) または使用キー "
+"([INPUT_ACTIVATE]) を押します。"
+
+#: data/scripts/tutorial_combat.dat:4
+msgid "Press [INPUT_INVENTORY] again to close your inventory"
+msgstr "もう一度 [INPUT_INVENTORY] を押すと、 持ち物ウィンドウが閉じます。"
+
+#: data/scripts/tutorial_combat.dat:5
+msgid ""
+"Occasionally, slain enemies will drop health which will vanish after a few "
+"seconds, so pick it up quickly!"
+msgstr "敵を倒すと体力回復を落とすことがありますが、 数秒で消えてしまいます。 素早く取りましょう!"
+
+#: data/scripts/tutorial_combat.dat:6
+msgid ""
+"If a bat is getting too close to you, hold block and it will harmlessly "
+"bounce off you"
+msgstr "コウモリに接近されても、 防御すれば ダメージを受けずに 跳ね返すことができます。"
+
+#: data/scripts/tutorial_combat.dat:7
+msgid "Now kill all of the bats in the area!"
+msgstr "この辺りにいるコウモリを全て倒しましょう!"
+
+#: data/scripts/raft_2.dat:8
+msgid "Aw, not again!"
+msgstr "ああ、 まただ!"
+
+#: data/scripts/raft_2.dat:9
+msgid "Collect 6 Chopped Logs"
+msgstr "丸太を6本集める"
+
+#: data/scripts/raft_2.dat:14
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "丸太を6本集めていかだを作らなければ。"
+
+#: data/scripts/raft_2.dat:18
+msgid "This had better be the last time I have to do this..."
+msgstr "これを作るのはこれが最後になるはずだ…"
+
+#: data/scripts/coal_mining.dat:1
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "これがボーガンが言ってた石炭に違いない。"
+
+#: data/scripts/chaos_finish.dat:16
+msgid "What the?!"
+msgstr "なに?!"
+
+#: data/scripts/evil_edgar_sighted.dat:26
+msgid "He looks just like me"
+msgstr "自分とそっくりだ。"
+
+#: data/scripts/evil_edgar_sighted.dat:27
+msgid "AND HE HAS MY FIRE SHIELD!!"
+msgstr "それに 炎の盾を持っていた!!"
+
+#: data/scripts/robot.dat:1
+msgid "Hey wow, what a cute little machine!"
+msgstr "おや、 わあ、 かわいい小さな機械だ!"
+
+#: data/scripts/robot.dat:2
+msgid ""
+"It's got a little slot on the back of it. I guess I put something in there "
+"to make it do stuff"
+msgstr "背中に小さな隙間がある。 何かを入れると動くのかもしれない。"
+
+#: data/scripts/robot.dat:3
+msgid "The robot uses instruction cards to move around"
+msgstr "このロボットは命令カードを使って動かします。"
+
+#: data/scripts/robot.dat:4
+msgid ""
+"Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "あなたがたどり着けない場所も ロボットに命令すれば行けます。"
+
+#: data/scripts/robot.dat:5
+msgid ""
+"However, since you can't read the instructions on the card, you will have to "
+"try them all out until one works"
+msgstr "しかし、 あなたはカードの命令を読むことはできないため、 1枚ずつ試すしかありません。"
+
+#: data/scripts/robot.dat:6
+msgid ""
+"If the robot doesn't reach its target, then it will return to its starting "
+"position allowing you to try again"
+msgstr "ロボットが目的にたどり着けなくても ここに戻ってくるので、 再挑戦することができます。"
+
+#: data/scripts/dungeon_intro.dat:4
+msgid ""
+"Ugh, I'm getting really fed up of waking up in strange places with my eyes "
+"spinning around"
+msgstr "うぅ、 目を回しながら おかしなところを 歩き回るのは もう うんざりだ。"
+
+#: data/scripts/dungeon_intro.dat:11
+msgid "Oh no, I'm trapped!"
+msgstr "ああ、 捕まってしまった!"
+
+#: data/scripts/dungeon_intro.dat:13
+msgid "There must be a way to get this door open"
+msgstr "この扉を開ける方法が 必ずあるはずだ。"
+
+#: data/scripts/dungeon_intro.dat:16
+msgid "Wait, perhaps that button unlocks it"
+msgstr "待て、 あのボタンで 鍵が開くんだろう。"
+
+#: data/scripts/dungeon_intro.dat:17
+msgid "If only I could reach it..."
+msgstr "届きそうなものは…"
+
+#: data/scripts/tutorial_pickaxe.dat:1
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "つるはしはこのゲームに登場する多くの武器の中の1つ です。"
+
+#: data/scripts/tutorial_pickaxe.dat:2
+msgid "You can use it as both a weapon and a tool"
+msgstr "武器としてだけではなく、 道具としても使えます。"
+
+#: data/scripts/tutorial_pickaxe.dat:3
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "つるはしを取り、 次のアクションポイントまで 進んでください。"
+
+#: data/scripts/hidden_passage.dat:1
+msgid "There's a draft here..."
+msgstr "引きずった跡がある…"
+
+#: data/scripts/hidden_passage.dat:2
+msgid "And one of these bricks is loose"
+msgstr "そして レンガが1つない。"
+
+#: data/scripts/hidden_passage.dat:7
+msgid "Aha! It's a hidden passage!"
+msgstr "あっ! 隠し通路だ!"
+
+#: data/scripts/hidden_passage.dat:8
+msgid "Hopefully this will lead me to the sorceror..."
+msgstr "先に 魔法使いが いればいいけど…"
+
+#: data/scripts/swamp_intro_2.dat:3
+msgid "Phew, I'm glad to be out of there"
+msgstr "ふー、 出られてよかったよ。"
+
+#: data/scripts/swamp_intro_2.dat:5
+msgid "Now to get through this swamp"
+msgstr "さあ沼を越えなきゃ。"
+
+#: data/scripts/swamp_intro_2.dat:6
+msgid "Negotiate the Swamp"
+msgstr "沼を通り抜ける"
+
+#: data/scripts/statues.dat:1
+msgid "There's a plaque here"
+msgstr "台座がある。"
+
+#: data/scripts/statues.dat:2
+msgid "Place the 4 statues in the correct order"
+msgstr "4つの像を正しい順序で並べなさい。"
+
+#: data/scripts/flying_maggot_die_2.dat:8
+msgid "Strange creature..."
+msgstr "おかしな生き物だ…"
+
+#: data/scripts/soul_merger.dat:2
+msgid "Ha ha ha!!!!"
+msgstr "ハハハ!!!"
+
+#: data/scripts/soul_merger.dat:3
+msgid "Soon we will be one again..."
+msgstr "もうすぐ1つになるぞ…"
+
+#: data/scripts/soul_merger.dat:29
+msgid "Wait, something's wrong..."
+msgstr "待て、 何かが違う…"
+
+#: data/scripts/soul_merger.dat:30
+msgid "OH NO! THIS IS THE WRONG MACHINE!!"
+msgstr "何てことだ! こっちじゃない!!"
+
+#: data/scripts/soul_merger.dat:40
+msgid "ARGHHHHHH!!!!"
+msgstr "うわあぁぁぁぁ!!!"
+
+#: data/scripts/soul_merger.dat:53
+msgid "Phew, I feel whole again"
+msgstr "ふう、 元に戻った気がする。"
+
+#: data/scripts/soul_merger.dat:54
+msgid "And there's my Fire Shield!"
+msgstr "それに 炎の盾が戻った!"
+
+#: data/scripts/soul_merger.dat:56
+msgid "Hopefully this will get me past all those fireballs..."
+msgstr "これで火の玉の所が 通れればいいけど…"
+
+#: data/scripts/soul_merger.dat:57
+msgid "Confront the Sorceror"
+msgstr "魔法使いと会う"
+
+#: data/scripts/armour_boss_start.dat:13
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "ここなら安全なはずだ。 でもどうにかしないと。"
+
+#: data/scripts/instruction_machine.dat:1
+msgid ""
+"This machine has a slot the same size as the cards. I guess I can use it to "
+"create new instructions."
+msgstr "この機械にはカードと同じ幅の隙間がある。 きっと新しい命令を書き込むためのものだろう。"
+
+#: data/scripts/instruction_machine.dat:2
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "新しい命令を書き込むためには、 まず何も書かれていないカードが必要です。"
+
+#: data/scripts/instruction_machine.dat:3
+msgid ""
+"You will then be prompted to input the directions for the robot to follow. "
+"This is done in the same way as the sequence doors"
+msgstr "次にロボットがたどる方向を入力します。 入力は扉を開けたときと同じ方法です。"
+
+#: data/scripts/instruction_machine.dat:4
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "方向を入力し終わったら、 攻撃キーを押します。"
+
+#: data/scripts/instruction_machine.dat:5
+msgid "The robot will then follow the instructions on the card"
+msgstr "ロボットはカードの命令と同じ方向に動きます。"
+
+#: data/scripts/instruction_machine.dat:6
+msgid "If the directions aren't correct you can try again"
+msgstr "方向が正しくなくてもやり直せます。"
+
+#: data/scripts/glass_wall.dat:1
+msgid ""
+"That glass looks too thick for me to crack, I'll have to find some other way "
+"of shattering it..."
+msgstr "このガラスは丈夫で壊せそうにない。 割る方法を見つけなければ…"
+
+#: data/scripts/mine_secret.dat:1
+msgid ""
+"Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "ボーガンは 炭鉱の一部が 「事件」 のあと 封印されたと 言っていた。"
+
+#: data/scripts/mine_secret.dat:7
+msgid "There must be something around here..."
+msgstr "それがこのあたりに 違いない…"
+
+#: data/scripts/protection_ring.dat:3
+msgid "Wow, what a nice ring"
+msgstr "わあ、 きれいな指輪だ。"
+
+#: data/scripts/protection_ring.dat:5
+msgid ""
+"Hang on a second, Maggie told me to always ask if someone had lost something "
+"before taking it..."
+msgstr "ちょっと待て、 マギーはいつも 持ち去る前に 誰かがなくしていないか 尋ねるように 言っていた。"
+
+#: data/scripts/protection_ring.dat:8
+msgid "ANYONE LOST A RING?!"
+msgstr "誰か指輪を なくした人は いませんか?!"
+
+#: data/scripts/protection_ring.dat:10
+msgid "No one? Guess it's mine then!"
+msgstr "いない? ならば自分のものだ!"
+
+#: data/scripts/instruction_card.dat:1
+msgid ""
+"You must have the instruction card you wish to use highlighted in your "
+"inventory box"
+msgstr "持ち物一覧で選択したカードを入れます。"
+
+#: data/scripts/boulder_boss_2_die.dat:3
+msgid "Good riddance..."
+msgstr "助かった…"
+
+#: data/scripts/crossbow.dat:5
+msgid "OK, let's see if this works..."
+msgstr "よし、 どうだろうか…"
+
+#: data/scripts/crossbow.dat:17
+msgid ""
+"I'll have no problem walking over this rope either, thanks to my tightrope "
+"walking skills"
+msgstr "ここを渡るのは簡単だ。 自分の綱渡りの能力に 感謝しなければ。"
+
+#: data/scripts/crossbow.dat:18
+msgid "And Dad said it'd never come in handy!"
+msgstr "そして父さんは 絶対に役に立たないと 言ってた!"
+
+#: data/scripts/crossbow.dat:21
+msgid "I need a length of rope to attach to the bolt"
+msgstr "矢に取り付ける 長い縄が要る。"
+
+#: data/scripts/crossbow.dat:25
+msgid "It's a giant crossbow"
+msgstr "大きなクロスボウだ。"
+
+#: data/scripts/crossbow.dat:29
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "これを使えば トゲを渡る橋を 架けられるかもしれない。"
+
+#: data/scripts/crossbow.dat:34
+msgid "I'll need some rope first though"
+msgstr "でもまず 縄が必要だ。"
+
+#: data/scripts/fortress_mine_lift.dat:1
+msgid "There's a sign here"
+msgstr "看板がある。"
+
+#: data/scripts/fortress_mine_lift.dat:2
+msgid "If the lift is out of order then it must be reset"
+msgstr "エレベーターが使えなければ、 必ずリセットしなければならない。"
+
+#: data/scripts/fortress_mine_lift.dat:3
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "エレベーターの軸に沿った 4つのリセットスイッチを押すこと。"
+
+#: data/scripts/fortress_mine_lift.dat:4
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "リセットすれば、 地上まで延々と歩かなくてもよい…"
+
+#: data/scripts/draft_wall.dat:1
+msgid "I thought I felt something. There's a draft here..."
+msgstr "ここに何かあるような気がする。すきま風が吹いている…"
+
+#: data/scripts/tutorial_finish.dat:2
+msgid ""
+"Congratulations! Now you know the basics of playing you should try the main "
+"game"
+msgstr "おめでとう! これでゲームの基礎がわかったはずです。"
+
+#: data/scripts/tutorial_finish.dat:3
+msgid ""
+"If you want to replay this tutorial, press Escape and select Tutorial from "
+"the menu"
+msgstr "もしチュートリアルをもう一度プレーしたいなら、 ESC キーを押して、 メニューから 「チュートリアル」を 選択してください。"
+
+#: data/scripts/tutorial_finish.dat:4
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "本編で遊ぶなら、 ESC キーを押して、 メニューから 「新しいゲームの開始」を 選んでください。"
+
+#: data/scripts/grappling_hook.dat:5
+msgid "There, the rope's firmly attached"
+msgstr "縄は固く結ばれている。"
+
+#: data/scripts/grappling_hook.dat:9
+msgid "I need to find some rope before I can fire it"
+msgstr "打つ前に 縄を見つけなければ ならない。"
+
+#: data/scripts/grappling_hook.dat:13
+msgid "It's a Grappling Hook"
+msgstr "引っ掛け鉤だ。"
+
+#: data/scripts/grappling_hook.dat:14
+msgid ""
+"I could probably use it to form a bridge to the other side, but there's no "
+"rope"
+msgstr "向こう岸に 橋を架けるのに使えそうだ。 でも縄がない。"
+
+#: data/scripts/apple_tree.dat:1
+msgid "It's an apple tree"
+msgstr "リンゴの木だ。"
+
+#: data/scripts/apple_tree.dat:2
+msgid "Shame it's not a banana tree, I don't like apples"
+msgstr "バナナの木ならよかったのに。 リンゴは好きじゃない。"
+
+#: data/scripts/apple_tree.dat:4
+msgid "There aren't any apples left"
+msgstr "リンゴはもうないみたいだ。"
+
+#: data/scripts/apple_tree.dat:7
+msgid "It looks like there are some apples in it..."
+msgstr "リンゴはいくつか残ってるみたいだ…"
+
+#: data/scripts/incorrect_combination.dat:1
+msgid "The door won't open, I guess I put in the combination incorrectly"
+msgstr "開かない。 番号が違うみたいだ。"
+
+#: data/scripts/occult_book.dat:2
+msgid "A lot of books"
+msgstr "たくさんの本がある。"
+
+#: data/scripts/occult_book.dat:3
+msgid "Nothing of interest here though"
+msgstr "でも 面白そうなものは ないな。"
+
+#: data/scripts/occult_book.dat:6
+msgid ""
+"I need the shell of a Rampaging Master Tortoise, the staff from a Dark "
+"Summoner"
+msgstr "暴走した亀の王の甲羅、 闇の召喚師の杖"
+
+#: data/scripts/occult_book.dat:7
+msgid "The keepsake of a warrior who has previously defeated the dragon"
+msgstr "かつて ドラゴンを倒した 戦士の遺品"
+
+#: data/scripts/occult_book.dat:8
+msgid "The soul of a wandering spirit"
+msgstr "さまよう霊の魂"
+
+#: data/scripts/occult_book.dat:9
+msgid "And a spare shield"
+msgstr "そして 予備の盾。"
+
+#: data/scripts/occult_book.dat:10
+msgid ""
+"Once I have all of those items I need to place them in the cauldron..."
+msgstr "全部集めたら 大釜に入れなければ ならない…"
+
+#: data/scripts/occult_book.dat:13
+msgid "This is a book about occult magic"
+msgstr "秘術について かかれた本だ。"
+
+#: data/scripts/occult_book.dat:14
+msgid "Hmm..."
+msgstr "うーむ…"
+
+#: data/scripts/occult_book.dat:15
+msgid "This is interesting:"
+msgstr "興味深い。"
+
+#: data/scripts/occult_book.dat:19
+msgid "The shell fragment of a Rampaging Master Tortoise"
+msgstr "暴走した亀の王の甲羅"
+
+#: data/scripts/occult_book.dat:20
+msgid "The staff of a Dark Summoner"
+msgstr "闇の召喚師の杖"
+
+#: data/scripts/occult_book.dat:23
+msgid "If the dragon has been defeated in the past then one must also gather"
+msgstr "もし かつて ドラゴンが倒されたのなら、 これらを 集めたに 違いない"
+
+#: data/scripts/occult_book.dat:24
+msgid "The keepsake from a warrior that previously defeated it"
+msgstr "かつて ドラゴンを倒した 戦士の 遺品"
+
+#: data/scripts/occult_book.dat:25
+msgid ""
+"Once the ingredients have been gathered, they must be placed in the "
+"cauldron..."
+msgstr "これらのものを 集めたなら、 大釜に入れて…"
+
+#: data/scripts/occult_book.dat:26
+msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
+msgstr "ああ、 またか! あの大釜には うんざりだ!"
+
+#: data/scripts/occult_book.dat:35
+msgid "I've got the staff, but where do I find the shell or the keepsake?"
+msgstr "杖はある。 でも甲羅と 戦士の遺品は どこにある?"
+
+#: data/scripts/occult_book.dat:38
+msgid "I've got the shell, but where do I find the staff or the keepsake?"
+msgstr "甲羅はある。 でも杖と 戦士の遺品は どこにある?"
+
+#: data/scripts/occult_book.dat:41
+msgid "I've got the shell and the staff, but where do I find the keepsake?"
+msgstr "甲羅と 杖はある。 でも 戦士の遺品は どこにある?"
+
+#: data/scripts/occult_book.dat:44
+msgid "That's a lot of ingredients that I have no idea where to find..."
+msgstr "材料が たくさんいるけど、 どこにあるのか わからない…"
+
+#: data/scripts/anti_gravity.dat:1
+msgid "Hmm, this is new."
+msgstr "むむ、 見たことないものだ。"
+
+#: data/scripts/anti_gravity.dat:2
+msgid ""
+"It doesn't look like it can hurt me though, but there's only one way to find "
+"out..."
+msgstr "入っても危なくはなさそうだけど、 やってみないとわからない…"
+
+#: data/scripts/creepers.dat:2
+msgid "Those creepers look different to the others"
+msgstr "これば 別のものとは 違う。"
+
+#: data/scripts/creepers.dat:3
+msgid "They also look very dangerous..."
+msgstr "とても 危険そうだ…"
+
+#: data/scripts/raft_end.dat:6
+msgid "That was easy! And I can always get back later!"
+msgstr "簡単だ! そしていつでも戻れる!"
+
+#: data/scripts/raft_end.dat:9
+msgid "Oh...."
+msgstr "ああ…"
+
+#: data/scripts/raft_end.dat:11
+msgid "Guess I have no choice now."
+msgstr "もう進むしかない。"
+
+#: data/scripts/raft_end.dat:12
+msgid "Hang on Dad, I'm coming..."
+msgstr "待ってて父さん、 今行くよ…"
+
+#: data/scripts/lightning_sword.dat:2
+msgid "Hey, a lightning sword!"
+msgstr "わあ、稲妻の剣だ!"
+
+#: data/scripts/lightning_sword.dat:3
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "いま持っている剣より ずっと強そうだ。"
+
+#: data/scripts/lightning_sword.dat:4
+msgid "With this I should be almost unstoppable"
+msgstr "これがあれば 多分 誰にも止められない。"
+
+#: data/scripts/lightning_sword.dat:5
+msgid "Almost"
+msgstr "多分。"
+
+#: data/scripts/lightning_sword.dat:6
+msgid ""
+"The Lightning Sword has a limited number of charges and will lose its power "
+"when these charges are used up"
+msgstr "稲妻の剣はエネルギーに限りがあり、 使い切ると力を失います。"
+
+#: data/scripts/lightning_sword.dat:7
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "敵を倒したとき ランダムに落とす エネルギーを取ると 回復します。"
+
+#: data/scripts/lightning_sword.dat:8
+msgid ""
+"Note that if the sword completely loses its power it will revert to a "
+"regular sword with very little power until you can find more charges"
+msgstr "エネルギーを完全に失うと 再び充電するまで 元の普通の剣に 戻ってしまうことに 注意してください。"
+
+#: data/scripts/jacob.dat:6
+msgid "Have fun!"
+msgstr "うまくやれよ!"
+
+#: data/scripts/jacob.dat:10
+msgid ""
+"Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "鶏は捕まえてくれたようだな。 2本の丸太はまだかい?"
+
+#: data/scripts/jacob.dat:14
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "ありがとうエドガー! 鶏は戻ったし、 丸太も集まった。"
+
+#: data/scripts/jacob.dat:16
+msgid "Take this sword, may it serve you well!"
+msgstr "剣を受け取ってくれ。 役に立つはずだ。"
+
+#: data/scripts/jacob.dat:17
+msgid "Thank you!"
+msgstr "ありがとう!"
+
+#: data/scripts/jacob.dat:23
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "丸太は集まったようだな。 逃げた鶏はまだかい?"
+
+#: data/scripts/jacob.dat:27
+msgid ""
+"I'll give you a sword if you get me 2 chopped logs from the forest and "
+"rescue at least 3 of my chickens"
+msgstr "森の木の丸太を2本と、 3羽の鶏を捕まえたら、 剣をあげよう。"
+
+#: data/scripts/jacob.dat:32
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "やあエドガー。 今日はどうしたんだい?"
+
+#: data/scripts/jacob.dat:33
+msgid "Do you have a sword I can borrow?"
+msgstr "剣を貸してくれないか?"
+
+#: data/scripts/jacob.dat:34
+msgid ""
+"I do have a sword and you can have it if you do something for me first"
+msgstr "剣は貸してもいいけど、 やってもらいたいことがあるんだ。"
+
+#: data/scripts/jacob.dat:35
+msgid "OK... what do I have to do?"
+msgstr "わかった… 何をすればいい?"
+
+#: data/scripts/jacob.dat:36
+msgid ""
+"Some of my chickens have escaped from their pen and I would be very grateful "
+"if you can get them back for me"
+msgstr "鶏が何羽か小屋から逃げてしまったんだ。 捕まえてきてくれるとうれしいのだが。"
+
+#: data/scripts/jacob.dat:38
+msgid ""
+"I have set up some traps near their pen, you can lure them to the traps "
+"using this chicken feed. I don't need them all, but at least 3 would be very "
+"helpful. I can get the rest myself."
+msgstr ""
+"鶏小屋の近くには罠が仕掛けられている。 この鶏の餌で罠の近くにおびき寄せてくれ。 全部でなくてもいいが、 少なくても3羽は捕まえて欲しい。 "
+"後は自分でやる。"
+
+#: data/scripts/jacob.dat:40
+msgid ""
+"Not quite. Can you also get me some wood from the forest? 2 logs should be "
+"sufficient"
+msgstr "まだある。 森から木を取ってきてくれないか? 丸太が2本あれば十分だ。"
+
+#: data/scripts/jacob.dat:41
+msgid "Do you have an axe?"
+msgstr "斧はある?"
+
+#: data/scripts/jacob.dat:42
+msgid ""
+"Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "うーむ… 森のどこかに置いてきてしまった。 まだそこにあるはずだ。"
+
+#: data/scripts/jacob.dat:43
+msgid "Isn't that forest dangerous?"
+msgstr "森はあぶなくない?"
+
+#: data/scripts/jacob.dat:44
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "それほどではない。 邪魔なものがあれば、 武器で叩けばいい。"
+
+#: data/scripts/jacob.dat:45
+msgid "Such as an axe?"
+msgstr "斧みたいな?"
+
+#: data/scripts/jacob.dat:46
+msgid "Yes, that would do the trick"
+msgstr "そうだ。 それでうまくいくはずだ。"
+
+#: data/scripts/jacob.dat:48
+msgid ""
+"But seriously, there's nothing in there that can really harm you. That "
+"problem was dealt with a long time ago..."
+msgstr "しかし実際のところ、 本当に危険なものはないはずだ。 その問題はずっと昔に解決した…"
+
+#: data/scripts/jacob.dat:49
+msgid "Good luck!"
+msgstr "がんばって!"
+
+#: data/scripts/jacob.dat:51
+msgid "Collect 2 Chopped Logs"
+msgstr "丸太を2本集める"
+
+#: data/scripts/jacob.dat:53
+msgid "Rescue 3 Chickens"
+msgstr "鶏を3羽捕まえる"
+
+#: data/scripts/jacob.dat:62
+msgid ""
+"Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "おお、 ありがとうエドガー。 3羽でよかったのに。 でもたくさん捕まえてくれて助かったよ。"
+
+#: data/scripts/jacob.dat:64
+msgid ""
+"Here, Maggie made me this health potion but I don't need it so why don't you "
+"have it?"
+msgstr "ここにマギー作ってくれた体力の薬があるが、 自分には必要がない。 よかったら持って行かないか?"
+
+#: data/scripts/jacob.dat:65
+msgid "Thanks Jacob"
+msgstr "ありがとうヤコブ。"
+
+#: data/scripts/jacob.dat:86
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "わあ、 全部捕まえたのか。 本当にありがとう!"
+
+#: data/scripts/jacob.dat:87
+msgid "Here, I have these for you"
+msgstr "これをあげよう。"
+
+#: data/scripts/jacob.dat:89
+msgid "Maggie made me this health potion but you can have it"
+msgstr "マギーが作ってくれた体力回復の薬だが、 持って行きなさい。"
+
+#: data/scripts/jacob.dat:90
+msgid "And this is something very special"
+msgstr "そしてこれは特別だ。"
+
+#: data/scripts/jacob.dat:92
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "もっと強くなったら、 これがきっと役に立つだろう。"
+
+#: data/scripts/jacob.dat:126
+msgid ""
+"You saved me a lot of time. Maggie made me something else but since you have "
+"been so helpful, you can have it."
+msgstr "おかげで手間が省けたよ。 マギーが色々な物を作ってくれたが、 お前のほうがずっと助けになったよ。 持って行きなさい。"
+
+#: data/scripts/power_generators.dat:3
+msgid "These machines aren't working."
+msgstr "この機械は動いていない。"
+
+#: data/scripts/power_generators.dat:5
+msgid ""
+"It looks like a gem should fit in this hole, maybe I can find some "
+"replacements."
+msgstr "この穴には宝石のような物が入りそうだ。 どこかにあるのかも。"
+
+#: data/scripts/power_generators.dat:6
+msgid "Find 4 Gems"
+msgstr "4つの宝石を見つける"
+
+#: data/scripts/power_generators.dat:12
+msgid "Repair Generators"
+msgstr "動力源を修復する"
+
+#: data/scripts/gold_centurion.dat:7
+msgid "This centurion has no power"
+msgstr "この歩兵は動力がないようだ。"
+
+#: data/scripts/gold_centurion.dat:9
+msgid ""
+"It's connected to this treadmill so I could probably charge it up with "
+"enough speed"
+msgstr "踏み車とつながっている。 この上で速く走れば 力を貯められるかもしれない。"
+
+#: data/scripts/gold_centurion.dat:10
+msgid "I can't run in this armour, though"
+msgstr "でも 鎧を着ているから走れない。"
+
+#: data/scripts/gold_centurion.dat:11
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "それに疲れている。 ずっと歩いて、 跳んで、 戦って、 泳いで…"
+
+#: data/scripts/gold_centurion.dat:12
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "考えて、 掘って、 割って、 押して、 引いて、 運んで…"
+
+#: data/scripts/gold_centurion.dat:13
+msgid "and catching chickens"
+msgstr "それに 鶏を捕まえて。"
+
+#: data/scripts/gold_centurion.dat:14
+msgid "I'll get something else to do it instead"
+msgstr "代わりの方法を考えよう。"
+
+#: data/scripts/gold_centurion.dat:2
+msgid "I'll find something else to work the treadmill for me"
+msgstr "自分で走る代わりの方法を見つけよう。"
+
+#: data/scripts/tutorial_objective.dat:1
+msgid "Kill all Bats!"
+msgstr "コウモリを全て倒せ!"
+
+#: data/scripts/cave_bomb.dat:1
+msgid ""
+"This rock looks too strong for my pickaxe. I'll have to use something else "
+"to get through..."
+msgstr "この壁は固くてつるはしでは壊せそうにない。 ここを通るには別のものが必要だ…"
+
+#: data/scripts/cave_intro.dat:11
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "大変なことになったみたいだ。"
+
+#: data/scripts/cave_intro.dat:12
+msgid "There must be way out of here..."
+msgstr "出口がどこかにあるはずだ。"
+
+#: data/scripts/cave_intro.dat:13
+msgid "Escape the Cave"
+msgstr "洞窟を抜け出す"
+
+#: data/scripts/huge_spider.dat:6
+msgid "Wow, that thing is huge!"
+msgstr "わあ、何て大きいんだ!"
+
+#: data/scripts/huge_spider.dat:7
+msgid ""
+"I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "剣が効くかわからないけど、 通らなければならない…"
+
+#: data/scripts/has_combination.dat:1
+msgid "Hmmm, maybe this scrap of paper is the combination"
+msgstr "うーむ、 この紙切れの数字は 金庫の番号に違いない。"
+
+#: data/scripts/has_combination.dat:2
+msgid "I'll give it a try"
+msgstr "試してみよう。"
+
+#: data/scripts/has_combination.dat:3
+msgid "Push left or right to move the dial 1 unit in that direction"
+msgstr "左と 右のキーで ダイヤルを 1回 その方向に 動かします。"
+
+#: data/scripts/has_combination.dat:4
+msgid ""
+"When you think you've input the correct combination, press Attack to open "
+"the safe"
+msgstr "正しくダイヤルを 回したと思ったら、 攻撃キーを押して 金庫を開けて ください。"
+
+#: data/scripts/resurrection_amulet.dat:1
+msgid "Is this what I think it is?"
+msgstr "これは もしかすると?"
+
+#: data/scripts/resurrection_amulet.dat:3
+msgid "It is! It's an Amulet of Resurrection!"
+msgstr "そうだ! これは蘇生の護符だ!"
+
+#: data/scripts/resurrection_amulet.dat:4
+msgid ""
+"Borgan has one of these, but it's been used up. He must have had a lucky "
+"escape from something."
+msgstr "ボーガンは これを持っていたけど、 使われた後のものだった。 そのおかげで 運良く 生き延びたに 違いない。"
+
+#: data/scripts/resurrection_amulet.dat:5
+msgid "This should make my quest a lot easier"
+msgstr "これで冒険が ずっと楽になるだろう。"
+
+#: data/scripts/resurrection_amulet.dat:6
+msgid ""
+"The Amulet of Resurrection will restore all your health once when it drops "
+"to 0"
+msgstr "蘇生の護符は 1度だけ 体力が0になったとき 全回復します。"
+
+#: data/scripts/resurrection_amulet.dat:7
+msgid ""
+"However, it will not save you from anything that causes instant death, such "
+"as lava or certain boss attacks"
+msgstr "しかし、 溶岩や 特定のボスの攻撃のような 即死の場合は 助かりません。"
+
+#: data/scripts/evil_edgar_encounter_1.dat:9
+msgid "Me? I'm you!"
+msgstr "俺? おまえだよ!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:10
+msgid "No you're not, where did you come from?"
+msgstr "違う。 どこから来たんだ?"
+
+#: data/scripts/evil_edgar_encounter_1.dat:11
+msgid ""
+"When your stupid experiment failed, part of your conscious separated and "
+"created me"
+msgstr "バカな実験が 失敗したとき、 おまえの意識の一部が分離して 俺を作った。"
+
+#: data/scripts/evil_edgar_encounter_1.dat:12
+msgid "I'm like you in every way, just more evil"
+msgstr "俺はおまえとそっくりだ。 ただ さらに邪悪だ。"
+
+#: data/scripts/evil_edgar_encounter_1.dat:13
+msgid "I'm not evil!"
+msgstr "自分は 邪悪じゃない!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:14
+msgid ""
+"Yes you are, you know that little part of you that enjoyed pulling the legs "
+"off insects?"
+msgstr "そうだな。 小さな頃、 虫の足を引き抜いて 遊んでいたのではないか?"
+
+#: data/scripts/evil_edgar_encounter_1.dat:15
+msgid "Hey, I don't do that anymore!"
+msgstr "そんなことは 知らない!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:16
+msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
+msgstr "ああ、 [GAME_KILLS]匹の 生き物を殺したのは?"
+
+#: data/scripts/evil_edgar_encounter_1.dat:17
+msgid "That was self defence!"
+msgstr "身を守るためだ!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:18
+msgid "Did you try talking to them?"
+msgstr "そいつらに 言ってみるか?"
+
+#: data/scripts/evil_edgar_encounter_1.dat:19
+msgid "You're crazy!"
+msgstr "バカバカしい!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:20
+msgid "No, I'm evil!"
+msgstr "僕は悪くない!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:21
+msgid "That's my shield! I need to it rescue my Dad!"
+msgstr "その盾を渡せ! 父さんを助けるために 必要なんだ!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:22
+msgid "Well it's mine now"
+msgstr "ううむ、 今は俺のものだ。"
+
+#: data/scripts/evil_edgar_encounter_1.dat:23
+msgid "Give it back!"
+msgstr "返せ!"
+
+#: data/scripts/evil_edgar_start.dat:35
+msgid "Make me!"
+msgstr "やってみろ!"
+
+#: data/scripts/evil_edgar_start.dat:36
+msgid "Fine, I will!"
+msgstr "わかった。 そうしよう!"
+
+#: data/scripts/evil_edgar_encounter_1.dat:34
+msgid "Loser"
+msgstr "負け犬め。"
+
+#: data/scripts/evil_edgar_encounter_1.dat:35
+msgid ""
+"I'll collect his corpse later. The equipment in the lab should be enough for "
+"me to carry out my plan..."
+msgstr "死体は後で探そう。 研究所の装置があれば 計画は十分に 実行できる…"
+
+#: data/scripts/centurion_pressure_plate.dat:1
+msgid ""
+"This lift is controlled by that pressure plate, but I can't stand on it and "
+"use the lift at the same time"
+msgstr "このエレベーターは 重さで動くスイッチで操作するようだ。 でもスイッチに乗るのと、 エレベーターに乗るのは、 同時にはできない。"
+
+#: data/scripts/centurion_pressure_plate.dat:2
+msgid ""
+"I'll have to find something else to stand on the pressure plate for me..."
+msgstr "スイッチの上に乗せる物を探さなければ…"
+
+#: data/scripts/wasteland_intro_2.dat:2
+msgid ""
+"To turn your normal arrows into flaming arrows, just use the flaming arrow "
+"potion in the inventory screen"
+msgstr "持ち物一覧で 炎の矢の薬を使えば、 普通の矢が 炎の矢に 変わります。"
+
+#: data/scripts/wasteland_intro_2.dat:3
+msgid ""
+"To swap between firing normal arrows and flaming arrows, select the arrows "
+"in the inventory"
+msgstr "撃つときに 普通の矢と 炎の矢を 交換したい場合は、 持ち物一覧で 矢を 選んでください。"
+
+#: data/scripts/wasteland_intro_2.dat:4
+msgid "Retrieve horn"
+msgstr "角を持ち帰る"
+
+#: data/scripts/mastermind.dat:4
+msgid "Push left or right to move the cursor"
+msgstr "左と 右のキーで カーソルを 動かします。"
+
+#: data/scripts/mastermind.dat:5
+msgid "Press Attack to change the colour of the peg"
+msgstr "攻撃キーで ピンを 交換します。"
+
+#: data/scripts/mastermind.dat:6
+msgid ""
+"When you have selected all of the colours, move the cursor onto the question "
+"mark and press Attack"
+msgstr "全ての色を選んだら、 ?にカーソルを合わせ、 攻撃キーを押してください。"
+
+#: data/scripts/mastermind.dat:7
+msgid ""
+"The number shown in the box is the number of pegs that are correctly placed"
+msgstr "ボックスに 正しく置かれた ピンの数が 表示されます。"
+
+#: data/scripts/mastermind.dat:8
+msgid "You have 10 attempts to guess the sequence"
+msgstr "10回挑戦できます。"
+
+#: data/scripts/mastermind.dat:9
+msgid "Press Action to quit"
+msgstr "行動キーを押すと 終了します。"
+
+#: data/scripts/mastermind.dat:12
+msgid "It's not working at the moment"
+msgstr "今は動かないようだ。"
+
+#: data/scripts/mastermind.dat:13
+msgid "Maybe I should come back later..."
+msgstr "また後で来よう…"
+
+#: data/scripts/mastermind.dat:17
+msgid "It's a giant mastermind puzzle!"
+msgstr "大きなマスターマインドだ!"
+
+#: data/scripts/mastermind.dat:18
+msgid ""
+"I used to play these all the time when we were travelling up to the big city"
+msgstr "大きな町から移動している間、 ずっとこれで遊んでいたな。"
+
+#: data/scripts/mastermind.dat:20
+msgid "It doesn't look like it's working though"
+msgstr "でも今は動きそうにない。"
+
+#: data/scripts/gargoyle_stone.dat:1
+msgid "It's petrified again"
+msgstr "また石になった。"
+
+#: data/scripts/fish.dat:1
+msgid "The water is full of those carnivorous fish"
+msgstr "水の中は 人食魚でいっぱいだ。"
+
+#: data/scripts/fish.dat:2
+msgid ""
+"From the looks of things I'll have to swim through the water to get to the "
+"other side"
+msgstr "見たところ 向こう側に渡るには 泳がなければ ならない。"
+
+#: data/scripts/fish.dat:3
+msgid "But the fish will go for me the moment I enter the water"
+msgstr "でも、 水に入れば 魚が向かってくる…"
+
+#: data/scripts/fish.dat:4
+msgid "I'll have to find a way to get rid of them..."
+msgstr "どうにかして 追い払うことは できないか…"
+
+#: data/scripts/rusted.dat:4
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "よし、ちょうつがいに油を差した。 これで新品みたいによくなったはずだ!"
+
+#: data/scripts/rusted.dat:7
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "ちょうつがいが錆びている。 油を差さなければ使えないだろう。"
+
+#: data/scripts/fireball_passage.dat:5
+msgid "Here goes..."
+msgstr "行くぞ…"
+
+#: data/scripts/fireball_passage.dat:8
+msgid "I still need a Fire Shield"
+msgstr "炎の盾が必要だ。"
+
+#: data/scripts/fireball_passage.dat:12
+msgid ""
+"I don't think my shield will protect me from those fireballs. I'll have to "
+"find a stronger one..."
+msgstr "この盾で火の玉を防げるとは思えない。 もっと強い盾がいる…"
+
+#: data/scripts/fireball_passage.dat:13
+msgid "Obtain a Fire Shield"
+msgstr "炎の盾を手に入れる"
+
+#: data/scripts/puzzle_pieces.dat:5
+msgid "I need all 9 puzzle pieces"
+msgstr "9つの パズルの断片が 必要だ。"
+
+#: data/scripts/dungeon_escape.dat:2
+msgid "I'm back in the Fortress, thank goodness for that"
+msgstr "砦に戻った。 ほっとしたよ。"
+
+#: data/scripts/dungeon_escape.dat:3
+msgid ""
+"But Dad wasn't in there, I looked everywhere and there was no sign of him"
+msgstr "でも 父さんは そこにはいなかった。 色々な所を見たけど いた形跡もなかった。"
+
+#: data/scripts/dungeon_escape.dat:4
+msgid ""
+"The sorceror must have done something else with him, I'll have to go back "
+"and find out"
+msgstr "魔法使いは 父さんに 他に何かしたに 違いない。 戻って探そう。"
+
+#: data/scripts/dungeon_escape.dat:7
+msgid "Return to the Study"
+msgstr "研究室に戻る"
+
+#: data/scripts/wasteland_intro.dat:5
+msgid "Ouch, my head..."
+msgstr "痛い、 頭が…"
+
+#: data/scripts/wasteland_intro.dat:12
+msgid "Oh no, I've lost all my equipment!"
+msgstr "何てことだ、 装備が全部 なくなってしまった!"
+
+#: data/scripts/wasteland_intro.dat:20
+msgid "Some of my stuff is over there..."
+msgstr "あそこに いくつかある…"
+
+#: data/scripts/wasteland_intro.dat:25
+msgid ""
+"If those items are in this wasteland then perhaps everything else is too"
+msgstr "あれが この不毛の地にあるのなら、 ほかの物もあるかも しれない。"
+
+#: data/scripts/wasteland_intro.dat:26
+msgid "I'll have to try and retrieve as much as I can..."
+msgstr "できるだけ 探してみよう…"
+
+#: data/scripts/wasteland_intro.dat:27
+msgid "Retrieve items"
+msgstr "持ち物を取り戻す"
+
+#: data/scripts/power_generators_fixed.dat:10
+msgid ""
+"That should do it. Hopefully that other lift by the Sewer should now be "
+"working"
+msgstr "これでいいだろう。 下水道の近くのエレベーターが 動くようになればいいけど。"
+
+#: data/scripts/monster_horn.dat:1
+msgid "This looks like the horn that Olaf needs"
+msgstr "これが オラフが言ってた 骨だろう。"
+
+#: data/scripts/monster_horn.dat:2
+msgid "I'll have to break it off somehow..."
+msgstr "どうにかして 壊さなければ 持って帰れない…"
+
+#: data/scripts/library_intro.dat:3
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "わあ、 こんなにたくさんの本は見たことがない!"
+
+#: data/scripts/library_intro.dat:4
+msgid ""
+"There must be information about every subject here, this could be useful..."
+msgstr "どんな本でもあるに違いない。 役に立つかも…"
+
+#: data/scripts/library_intro.dat:6
+msgid ""
+"Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
+"making spells. I should be careful."
+msgstr "ううむ、 ここは何か雰囲気が違う。 マギーが呪文を唱える部屋みたいだ。 注意しないと。"
+
+#: data/scripts/grasslands_intro.dat:7
+msgid ""
+"The sorceror must have taken Dad to his castle. I'll have to rescue him from "
+"there."
+msgstr "魔法使いは自分の城に 父さんを連れて行ったに違いない。 そこから父さんを助けなければ。"
+
+#: data/scripts/grasslands_intro.dat:8
+msgid ""
+"The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "城へ行くには東の禁じられた沼を通らなければならない。"
+
+#: data/scripts/grasslands_intro.dat:9
+msgid ""
+"There's a lake between the Village and the Swamp so I'll need a raft to get "
+"across."
+msgstr "村と沼の間には池があって、 渡るにはいかだがいる。"
+
+#: data/scripts/grasslands_intro.dat:10
+msgid ""
+"I'll also need a sword and shield to defend myself. I can speak to Borgan "
+"and Jacob to get these though."
+msgstr "身を守るための剣と盾もいる。 ボーガンとヤコブに話してみよう。"
+
+#: data/scripts/grasslands_intro.dat:11
+msgid "Talk to Borgan"
+msgstr "ボーガンと話す"
+
+#: data/scripts/grasslands_intro.dat:13
+msgid "Talk to Jacob"
+msgstr "ヤコブと話す"
+
+#: data/scripts/grasslands_intro.dat:15
+msgid "Cross the lake to the Swamp"
+msgstr "沼の途中の池を渡る"
+
+#: data/scripts/flying_maggot_start_2.dat:8
+msgid "Wait, what was that?"
+msgstr "待て、 あれは何だ?"
+
+#: data/scripts/flying_maggot_start_2.dat:13
+msgid "You again?!"
+msgstr "またこいつか?!"
+
+#: data/scripts/left_tower_intro.dat:7
+msgid "What a hassle that was"
+msgstr "困ったな。"
+
+#: data/scripts/left_tower_intro.dat:8
+msgid "I don't think I'll find my Dad in here"
+msgstr "ここに 父さんが いるとは 思えない。"
+
+#: data/scripts/left_tower_intro.dat:9
+msgid "Maybe I should look somewhere else"
+msgstr "別の場所を 探したほうが いいだろう。"
+
+#: data/scripts/left_tower_intro.dat:10
+msgid "Still, there might be something in here worth my time..."
+msgstr "でも、 何か役に立つものが あるかもしれない…"
+
+#: data/scripts/hidden_passage_hint.dat:1
+msgid ""
+"Hmmm.. I've been all around the fortress and there are no other doors "
+"leading off anywhere"
+msgstr "うーん… 砦じゅうを歩いたけど、 外への扉は なかった。"
+
+#: data/scripts/hidden_passage_hint.dat:3
+msgid "Maybe I should have another look in here..."
+msgstr "もしかすると ここに 何かあるのかも…"
+
+#: data/scripts/tutorial_items.dat:1
+msgid ""
+"To pick up an item, simply walk into it. Any collectable items will be added "
+"to your inventory."
+msgstr "ただ単にアイテムのところに歩いて行くと、 取ることができます。 取った全てのアイテムは 持ち物に加えられます。"
+
+#: data/scripts/tutorial_items.dat:2
+msgid ""
+"You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
+msgstr "[INPUT_INVENTORY] キーを押すと、 持ち物を見ることができます。"
+
+#: data/scripts/tutorial_items.dat:3
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "持ち物の一覧では、 カーソルキーで見るアイテムを選択します。"
+
+#: data/scripts/tutorial_items.dat:4
+msgid ""
+"You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
+"Item ([INPUT_ACTIVATE])"
+msgstr ""
+"このとき攻撃キー ([INPUT_ATTACK]) または使用キー ([INPUT_ACTIVATE]) を押すと、 アイテムをその場で使います。"
+
+#: data/scripts/tutorial_items.dat:5
+msgid ""
+"You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
+"([INPUT_INTERACT])"
+msgstr "防御キー ([INPUT_BLOCK]) か、 行動キー ([INPUT_INTERACT]) を押すと、 アイテムを装備します。"
+
+#: data/scripts/tutorial_items.dat:6
+msgid ""
+"You can also sort items in your inventory by using the Previous Item "
+"([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
+msgstr ""
+"持ち物は、 前のアイテム ([INPUT_PREVIOUS]) と次のアイテム ([INPUT_NEXT]) キーで 順番を変えられます。"
+
+#: data/scripts/tutorial_items.dat:7
+msgid "Walk over the key to pick it up"
+msgstr "鍵まで歩いて、 取ってみましょう。"
+
+#: data/scripts/fortress_intro.dat:3
+msgid "So this is the Fortress."
+msgstr "砦の中だ。"
+
+#: data/scripts/fortress_intro.dat:4
+msgid ""
+"It looks like a lot of doors lead off to other areas, I should have a proper "
+"look around before I go anywhere else..."
+msgstr "別の場所につながった扉がたくさんあるみたいだ。 入る前によく確かめないと…"
+
+#: data/scripts/tutorial_keys.dat:1
+msgid ""
+"You can change all of the controls in the game by pressing Escape and "
+"selecting Options in the menu"
+msgstr "ESC を押し、 メニューのオプションを選択すると、 このゲームでの全ての操作キーを 変更することができます。"
+
+#: data/scripts/tutorial_keys.dat:2
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "操作設定をカーソルキーで選択し、 リターンキーを押します。"
+
+#: data/scripts/tutorial_keys.dat:3
+msgid ""
+"Use the arrow keys to select the control you want to change and press Return."
+msgstr "カーソルキーで変更したい操作を選択し、 リターンキーを押してください。"
+
+#: data/scripts/tutorial_keys.dat:4
+msgid "Next, press the key that you want to use instead."
+msgstr "次に、 代わりに使いたいキーを押します。"
+
+#: data/scripts/tutorial_keys.dat:5
+msgid ""
+"Regardless of what keys you choose, you can always navigate the menus using "
+"the arrow keys and Return"
+msgstr "選んだキーに関わらず、 メニューでは常にカーソルキーと リターンキーを使います。"
+
+#: data/scripts/tutorial_keys.dat:6
+msgid ""
+"When you have finished configuring the keys, go right to the next Action "
+"Point"
+msgstr "操作設定の変更を終えたら、 右へ移動し次の アクション・ポイント に移動しましょう。"
+
+#: data/scripts/third_side.dat:2
+msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr "ステファン・J・スウィーニーの \"The Third Side\" だ。"
+
+#: data/scripts/sludge_pool.dat:1
+msgid ""
+"That stuff looks dangerous, it'd probably eat through my armour in seconds"
+msgstr "これは 危険そうだ。 数秒で 鎧ごと食べられて しまいそうだ。"
+
+#: data/scripts/sludge_pool.dat:2
+msgid "But I'll have to find a way across..."
+msgstr "でも 渡る方法を みつけなければ…"
+
+#: data/scripts/hoover.dat:2
+msgid "There, looks like the little guy is full and is sleeping it off"
+msgstr "満腹で 眠くなったみたいだ。"
+
+#: data/scripts/hoover.dat:3
+msgid "I should be able to get past him without any bother now"
+msgstr "通っても 大丈夫だろう。"
+
+#: data/scripts/hoover.dat:7
+msgid "Hey, what's that?"
+msgstr "わあ、 何だこれは?"
+
+#: data/scripts/hoover.dat:12
+msgid "It's a baby Hoover"
+msgstr "子供の象だ。"
+
+#: data/scripts/hoover.dat:13
+msgid ""
+"I saw a grown up one in the big city when I went there with my Dad, they're "
+"completely harmless"
+msgstr "大人の象は 大きな町に 父さんと一緒に行ったとき 見た。 全然危なくない生き物だ。"
+
+#: data/scripts/hoover.dat:16
+msgid "I miss my Dad, I hope I find him soon..."
+msgstr "父さんは どこかへ行った。 きっと あと少しで見つかる…"
+
+#: data/scripts/hoover.dat:18
+msgid "Why is it here? It must be frightened"
+msgstr "なぜ ここにいるのだろう? 怯えてるみたいだ。"
+
+#: data/scripts/hoover.dat:20
+msgid "Hello little fella, are you lost?"
+msgstr "こんにちは、 小さな友だち。 迷子なの?"
+
+#: data/scripts/hoover.dat:21
+msgid "Don't worry, I won't hurt you"
+msgstr "大丈夫。 怖くないよ。"
+
+#: data/scripts/hoover.dat:30
+msgid "Ow!"
+msgstr "うわぁっ!"
+
+#: data/scripts/hoover.dat:33
+msgid ""
+"I guess it's scared. I might be able to get past it if I give it some food"
+msgstr "怖いみたいだ。 食べ物をあげられれば 通してくれそうだ。"
+
+#: data/scripts/hoover.dat:34
+msgid "They're vegetarians so I'll have to find some fruit or vegetables..."
+msgstr "ベジタリアンだろうから 果物か野菜があれば いいのだけれど…"
+
+#: data/scripts/armoury_intro.dat:2
+msgid "Wow, this place is empty!"
+msgstr "わあ、 ここには何もない!"
+
+#: data/scripts/armoury_intro.dat:3
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "魔法使いには呪文があるから、 武器はいらないんだろう。"
+
+#: data/scripts/armoury_intro.dat:4
+msgid "Still, there must be something of use in here"
+msgstr "でも、 まだ使えるものがあるに違いない。"
+
+#: data/scripts/well.dat:3
+msgid "I've already checked, he's not down there..."
+msgstr "もう調べた。 ここにはいない…"
+
+#: data/scripts/well.dat:7
+msgid ""
+"I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "この井戸に落ちた人がいると聞いたことがある。 父さんもここに…"
+
+#: data/scripts/well.dat:8
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "父さん!!!!! ここにいるの?!!!!!"
+
+#: data/scripts/well.dat:10
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "何も聞こえない。 他を探さなければ。"
+
+#: data/scripts/slime_potion.dat:3
+msgid "There's a note here too"
+msgstr "メモが付いている。"
+
+#: data/scripts/slime_potion.dat:4
+msgid ""
+"The potion is perfect! Quaffing it will turn a human into a creature for a "
+"small amount of time"
+msgstr "この薬は完璧だ! これを飲めばしばらくの間、 人間から怪物になるであろう。"
+
+#: data/scripts/slime_potion.dat:5
+msgid ""
+"So far I can only transmogrify myself into one creature but with a bit more "
+"time anything should be possible"
+msgstr "今までのところ自分自身を怪物にしただけだが、 もう少しで あらゆるものに変身できるようになるだろう。"
+
+#: data/scripts/slime_potion.dat:6
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "少し残っている。 飲んでも大丈夫そうだ。"
+
+#: data/scripts/slime_potion.dat:7
+msgid "OK, here goes nothing..."
+msgstr "うん、 何も起きない…"
+
+#: data/scripts/slime_potion.dat:11
+msgid "Urgh!! This is horrible!"
+msgstr "うげぇ! 何てことだ!"
+
+#: data/scripts/slime_potion.dat:12
+msgid ""
+"Borgan told me that Slimes can swim in water though, so maybe this will be "
+"useful..."
+msgstr "ボーガンは このスライムは水の中を泳げると言ってた。 もしかすると役に立つかも…"
+
+#: data/scripts/slime_potion.dat:13
+msgid ""
+"When transformed into a Slime, you can move around as normal. You can also "
+"swim in the water and use up and down to move around"
+msgstr "スライムに変身しても 通常通り移動することができます。 さらに水の中を泳ぎ、 上下に移動することもできます。"
+
+#: data/scripts/slime_potion.dat:14
+msgid ""
+"Pushing up or jump will make you jump out of the water if you're near the "
+"surface"
+msgstr "水面近くで 上かジャンプキーを押すと 水の外に出られます。"
+
+#: data/scripts/slime_potion.dat:15
+msgid ""
+"Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
+"will automatically become human again"
+msgstr "画面の下のタイマーに注意してください。 0になると自動的に人間に戻ります。"
+
+#: data/scripts/cauldron.dat:2
+msgid "Maybe this thing isn't so bad after all"
+msgstr "もしかすると これは そんなに悪いものでは ないかもしれないな。"
+
+#: data/scripts/cauldron.dat:21
+msgid "That's all the ingredients, I just need to add a shield"
+msgstr "材料は全てそろった。 後は 盾を入れるだけだ。"
+
+#: data/scripts/cauldron.dat:22
+msgid "I don't think I'll need the Phantasmal Shield anymore..."
+msgstr "霊気の盾は もういらないだろう…"
+
+#: data/scripts/cauldron.dat:27
+msgid "Please don't make another evil version of me..."
+msgstr "悪の自分が 現れませんように…"
+
+#: data/scripts/cauldron.dat:37
+msgid "What a fine looking shield"
+msgstr "何て 強そうな盾なんだ。"
+
+#: data/scripts/cauldron.dat:38
+msgid "But will it protect me from that dragon's flames?"
+msgstr "でも これで ドラゴンの炎から 身を守れるのだろうか?"
+
+#: data/scripts/cauldron.dat:39
+msgid "I guess there's only one way to find out..."
+msgstr "知る方法は一つしかない…"
+
+#: data/scripts/cauldron.dat:40
+msgid "The book said it was sealed below a fortress"
+msgstr "本によると ドラゴンは 砦の地下に 封印されている。"
+
+#: data/scripts/cauldron.dat:41
+msgid ""
+"If it is this one then the only two places it could be are the catacombs and "
+"the dungeon"
+msgstr "その砦が ここであるとすれば、 地下墓地と 迷宮の どちらかしか ないだろう。"
+
+#: data/scripts/cauldron.dat:42
+msgid "I should start my search there"
+msgstr "そこから 調べてみよう。"
+
+#: data/scripts/cauldron.dat:45
+msgid "I don't have all the ingredients yet."
+msgstr "材料は まだ全部そろっていない。"
+
+#: data/scripts/cauldron.dat:46
+msgid "The book said I needed to find the following"
+msgstr "本によると 次のものを 見つけなけれ ばならない。"
+
+#: data/scripts/cauldron.dat:50
+msgid "The keepsake of the warrior that previously defeated it"
+msgstr "ドラゴンを倒した 戦士の遺品"
+
+#: data/scripts/cauldron.dat:54
+msgid "Hopefully I'll never have to use this again"
+msgstr "もう二度と 使うことが なければいいな。"
+
+#: data/scripts/cauldron.dat:57
+msgid ""
+"I should create the disintegration shield and rescue my Dad before I go "
+"chasing after that dragon"
+msgstr "ドラゴンを追いかける前に 盾を作って 父さんを助けなければ ならない。"
+
+#: data/scripts/cauldron.dat:66
+msgid "I'm not taking any chances this time..."
+msgstr "いちかばちかの 賭けはできない…"
+
+#: data/scripts/cauldron.dat:75
+msgid "Did it work?"
+msgstr "うまくいかない?"
+
+#: data/scripts/cauldron.dat:91
+msgid "I think it's safe now..."
+msgstr "大丈夫そうだ…"
+
+#: data/scripts/cauldron.dat:98
+msgid "I'll use my wooden shield..."
+msgstr "この木の盾を使おう…"
+
+#: data/scripts/cauldron.dat:139
+msgid "Stupid thing. Maggie makes it all look so easy..."
+msgstr "ひどい目にあった。 マギーは簡単そうに していたのに…"
+
+#: data/scripts/cauldron.dat:142
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "大釜だ。 マギーがこんなのを持ってたな。"
+
+#: data/scripts/cauldron.dat:153
+msgid "OK, that's the Gazer Eyeball and Tentacle added"
+msgstr "よし。 ゲイザーの目玉と 触手を入れよう。"
+
+#: data/scripts/cauldron.dat:164
+msgid "And the rest of the ingredients too"
+msgstr "そして 残りの材料も入れる。"
+
+#: data/scripts/cauldron.dat:167
+msgid "Aha! It's gone blue, just like the book said it would"
+msgstr "ああ! 青くなった。 本に書いてあった通りだ。"
+
+#: data/scripts/cauldron.dat:168
+msgid "Now to add the shield"
+msgstr "そして 盾を入れる。"
+
+#: data/scripts/cauldron.dat:177
+msgid "Uh-Oh..."
+msgstr "おっと…"
+
+#: data/scripts/cauldron.dat:203
+msgid "I need all the main ingredients"
+msgstr "必要な材料はそろった。"
+
+#: data/scripts/cauldron.dat:204
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3つのゲイザーの目玉、 1つの赤スラッジの触手、 そして予備の盾。"
+
+#: data/scripts/cauldron.dat:205
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "これから 目玉と 触手を 液状にしなければ ならない。"
+
+#: data/scripts/black_book_search.dat:6
+msgid "I think it's dead"
+msgstr "死んだみたいだ。"
+
+#: data/scripts/black_book_search.dat:7
+msgid "Or at least as dead as a book can be"
+msgstr "少なくとも 普通の本みたいになった。"
+
+#: data/scripts/black_book_search.dat:8
+msgid "It might be safe to touch now"
+msgstr "今なら さわっても大丈夫だろう。"
+
+#: data/scripts/black_book_search.dat:18
+msgid "This page just has a sequence of numbers scrawled on it"
+msgstr "このページには 数字が 走り書き されている。"
+
+#: data/scripts/black_book_search.dat:19
+msgid "I'll take it with me, it might come in handy"
+msgstr "書き留めておこう。 役に立つかも しれない。"
+
+#: data/scripts/black_book_search.dat:20
+msgid ""
+"Besides, this thing nearly killed me twice, I should have some sort of "
+"trophy of my victory"
+msgstr "そうでなくても、 この本には 2回も 殺されそうになった。 勝利の証として 何か取っておきたい。"
+
+#: data/scripts/black_book_search.dat:25
+msgid "I'll leave it alone, especially after what happened last time..."
+msgstr "そのままに しておこう。 何か 起こるかも しれない…"
+
+#: data/scripts/cave_statue.dat:1
+msgid "Hmm, what's that?"
+msgstr "あっ、 あれは何だ?"
+
+#: data/scripts/cave_statue.dat:2
+msgid "It's a small statue. It must be the one that Olaf said he stole"
+msgstr "小さな像だ。 オラフが 盗んだと 言ってたものに 違いない。"
+
+#: data/scripts/cave_statue.dat:3
+msgid ""
+"Well, since he's helping me get back to the sorceror, the least I can do is "
+"retrieve it for him"
+msgstr "うーん、 オラフは 魔法使いの所に 戻るのを 手助けしてくれるから、 これは 返すべきだろう。"
+
+#: data/scripts/cave_statue.dat:7
+msgid "Typical..."
+msgstr "よくあることだ…"
+
+#: data/scripts/cave_statue.dat:8
+msgid ""
+"Well, it might have just fallen further down into the cave, I'll just have "
+"to keep looking"
+msgstr "ううむ、 洞窟のもっと奥へと 落ちてしまったようだ。 手に取って よく見てみよう。"
+
+#: data/scripts/fortress_mine_intro.dat:1
+msgid "Huh, déjà vu..."
+msgstr "むむ、 デジャ・ヴ…"
+
+#: data/scripts/monster_horn_taken.dat:5
+msgid "It looks like there's a larger network of caves down there"
+msgstr "下には もっと大きな 網目状の通路が あるみたいだ。"
+
+#: data/scripts/monster_horn_taken.dat:6
+msgid "Olaf did tell me to just get the horn and leave"
+msgstr "オラフは 角を取ったら すぐに戻るように 言ってた。"
+
+#: data/scripts/no_instructions.dat:1
+msgid ""
+"This card is blank, I'll have to put some instructions on it to make it "
+"useable."
+msgstr "このカードには何も書かれていない。 使えるようにするには何か命令がいる。"
+
+#: data/scripts/sorceror_study.dat:1
+msgid ""
+"The sorceror will almost certainly destroy me if I confront him without the "
+"shield"
+msgstr "盾なしで 魔法使いと対決すれば、 必ず倒されるに 違いない。"
+
+#: data/scripts/sorceror_study.dat:2
+msgid "I'd better go and make it first"
+msgstr "まず 盾を作ったほうが いいだろう。"
+
+#: data/scripts/fortress_intro_2.dat:3
+msgid "Glad to be out of there"
+msgstr "出られてよかった。"
+
+#: data/scripts/fortress_intro_2.dat:4
+msgid "Now to get that shield back from my double..."
+msgstr "次は分身から 盾を取り返さなければ…"
+
+#: data/scripts/fortress_intro_2.dat:7
+msgid "Find Evil Edgar"
+msgstr "悪のエドガーを探す"
+
+#: data/scripts/spores.dat:1
+msgid "Hey, those look familiar"
+msgstr "おや、 あれは見たことがある。"
+
+#: data/scripts/spores.dat:2
+msgid "They look like hypnotic spores"
+msgstr "睡眠胞子みたいだ。"
+
+#: data/scripts/spores.dat:3
+msgid ""
+"Borgan told me that they can temporarily trick certain creatures into "
+"thinking that you're not a threat and leave you alone"
+msgstr "ある種の怪物に 一時的に幻覚を見せ、 脅威を 感じさせない ようにして やり過ごせると ボーガンが言ってた。"
+
+#: data/scripts/spores.dat:5
+msgid "Maybe they'll work on the creatures here..."
+msgstr "もしかすると、 ここの怪物にも 効くかも…"
+
+#: data/scripts/tomb_door_open.dat:10
+msgid "Great, that worked!"
+msgstr "やった、 うまくいった!"
+
+#: data/scripts/tomb_door_open.dat:11
+msgid "What a terrible anthem though, almost completely random"
+msgstr "でも ほとんどデタラメの ひどい歌だ。"
+
+#: data/scripts/tomb_door_open.dat:13
+msgid "This looks like the keepsake"
+msgstr "これが 遺品みたいだ。"
+
+#: data/scripts/tomb_door_open.dat:17
+msgid ""
+"Thank goodness for that, I really didn't want to have to open that coffin"
+msgstr "この棺を開けずに済んで 本当によかった。"
+
+#: data/scripts/tomb_door_open.dat:18
+msgid "Now to get out of here..."
+msgstr "さあ ここを出よう…"
+
+#: data/scripts/lava_door.dat:1
+msgid "I've seen this type of metal before, it heats up really easily"
+msgstr "こんな金属を 見たことがある。 簡単に熱くなるんだ。"
+
+#: data/scripts/lava_door.dat:2
+msgid "Maybe I can find a way to melt it..."
+msgstr "融かせる方法が あるかも…"
+
+#: data/scripts/sliding_puzzle.dat:2
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "すごい、 巨大なスライドパズルだ! 家にも1つある!"
+
+#: data/scripts/sliding_puzzle.dat:3
+msgid "Well, not a giant one, obviously..."
+msgstr "うーん、 こんなに大きくはないけど…"
+
+#: data/scripts/sliding_puzzle.dat:6
+msgid "Push left, right, up or down to move the blocks"
+msgstr "左、 右、 上、 下キーを押すと ブロックが動きます。"
+
+#: data/scripts/sliding_puzzle.dat:7
+msgid ""
+"Arrange the blocks so that the numbers 1 to 8 appear in order from left to "
+"right and the empty block is in the bottom right corner"
+msgstr "数字を左から右に順番に並べ、 開いている部分が 右下の角に来るように してください。"
+
+#: data/scripts/sliding_puzzle.dat:8
+msgid "Press Attack to quit the puzzle"
+msgstr "攻撃キーを押すと パズルをやめます。"
+
+#: data/scripts/raft.dat:8
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "禁じられた沼へ行くためにいかだを作らなければ。"
+
+#: data/scripts/raft.dat:9
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "森から木を切り倒してくれば、 いかだを作れる。"
+
+#: data/scripts/raft.dat:29
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "剣と盾を持たずに 沼に行くつもりはない。"
+
+#: data/scripts/teleporter_discovery.dat:1
+msgid "Hey, what's this?"
+msgstr "やや、 何だこれは?"
+
+#: data/scripts/teleporter_discovery.dat:3
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "危なくはなさそうだ。 乗ってみよう。"
+
+#: data/scripts/teleporter_discovery.dat:7
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "わあ! すごい! これは瞬間移動装置に違いない。"
+
+#: data/scripts/teleporter_discovery.dat:9
+msgid "I wonder if it works both ways..."
+msgstr "もしかして、 つながっているのかも…"
+
+#: data/scripts/teleporter_discovery.dat:14
+msgid "Horray!"
+msgstr "やった!"
+
+#: data/scripts/teleporter_discovery.dat:15
+msgid ""
+"Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "歩かなくていいだけでなく、 面白いや!"
+
+#: data/scripts/correct_combination.dat:9
+msgid "There's a note in here"
+msgstr "メモがある。"
+
+#: data/scripts/correct_combination.dat:10
+msgid "It says the following:"
+msgstr "こう書かれている。"
+
+#: data/scripts/correct_combination.dat:11
+msgid "Cheaters never prosper"
+msgstr "ペテン師は 決して 成功しない。"
+
+#: data/scripts/swamp_intro.dat:17
+msgid "Oh..."
+msgstr "ああ…"
+
+#: data/scripts/correct_combination.dat:19
+msgid "I saw this shield in the book about enchanting weapons"
+msgstr "この盾は 魔法をかけた 装備の本で見た。"
+
+#: data/scripts/correct_combination.dat:20
+msgid "It's a Phantasmal Shield"
+msgstr "これは 霊気の盾だ。"
+
+#: data/scripts/correct_combination.dat:21
+msgid "The Phantasmal Shield will protect you from phantasmal forces"
+msgstr "霊気の盾は 霊的な攻撃を 防御できます。"
+
+#: data/scripts/correct_combination.dat:22
+msgid ""
+"In addition to this it can reflect phantasmal projectiles back at the owner"
+msgstr "さらに、 霊的な攻撃を 攻撃した者に 跳ね返ることができます。"
+
+#: data/scripts/correct_combination.dat:23
+msgid ""
+"Blocking at the last moment increases the power of the reflected projectile"
+msgstr "命中する直前に 防御すると、 跳ね返した攻撃の 威力が増します。"
+
+#: data/scripts/sorceror_die.dat:10
+msgid "Ugh, you have defeated me"
+msgstr "うぅ、 このワシを倒すとは…"
+
+#: data/scripts/sorceror_die.dat:11
+msgid "How..."
+msgstr "どうやって…"
+
+#: data/scripts/sorceror_die.dat:12
+msgid "TALK! Where is my father?"
+msgstr "言え! 父さんは どこだ?"
+
+#: data/scripts/sorceror_die.dat:13
+msgid "I... I don't understand..."
+msgstr "ワ… ワシは知らぬ…"
+
+#: data/scripts/sorceror_die.dat:14
+msgid "Last night you came to my village and kidnapped my father"
+msgstr "あの夜、 村に来て 父さんをさらった だろう。"
+
+#: data/scripts/sorceror_die.dat:15
+msgid "Where is he?"
+msgstr "いったい どこに?"
+
+#: data/scripts/evil_edgar_start.dat:15
+msgid "I..."
+msgstr "ワシは…"
+
+#: data/scripts/sorceror_die.dat:18
+msgid "I have never been to your village"
+msgstr "おまえの村へは 行ったことはない。"
+
+#: data/scripts/sorceror_die.dat:19
+msgid "I don't know where your father is..."
+msgstr "おまえの 父親も 知らぬ…"
+
+#: data/scripts/sorceror_die.dat:25
+msgid "But if you didn't take my Dad"
+msgstr "もし、 おまえが 父さんを さらったのでなければ…"
+
+#: data/scripts/evil_edgar_start.dat:9
+msgid "Found you!"
+msgstr "見つけたぞ!"
+
+#: data/scripts/evil_edgar_start.dat:11
+msgid "You survived?!"
+msgstr "生きてたのか?!"
+
+#: data/scripts/evil_edgar_start.dat:12
+msgid ""
+"You sound surprised, I thought you'd have known considering we're the same."
+msgstr "驚いているようだな。 同じように 考えていると 思っていたが。"
+
+#: data/scripts/evil_edgar_start.dat:13
+msgid "Except you're evil"
+msgstr "邪悪であること以外は。"
+
+#: data/scripts/evil_edgar_start.dat:14
+msgid "More evil"
+msgstr "より邪悪だ。"
+
+#: data/scripts/evil_edgar_start.dat:15
+msgid "Whatever, now I..."
+msgstr "何が何でも、 今…"
+
+#: data/scripts/evil_edgar_start.dat:21
+msgid "What is all this stuff?"
+msgstr "これは何だ?"
+
+#: data/scripts/evil_edgar_start.dat:22
+msgid "Your experiment separated part of your conscious"
+msgstr "おまえの実験は 意識を2つに分けた。"
+
+#: data/scripts/evil_edgar_start.dat:23
+msgid "Yes I know that, you already told me"
+msgstr "わかっている。 それは聞いた。"
+
+#: data/scripts/evil_edgar_start.dat:24
+msgid "I'm still talking!"
+msgstr "まだ 話の途中だ!"
+
+#: data/scripts/evil_edgar_start.dat:26
+msgid "There should only be one of us in this world: one body, one conscious"
+msgstr "この世界には 俺たちは一人しか要らない。 一つの体、 一つの意識。"
+
+#: data/scripts/evil_edgar_start.dat:27
+msgid "These machines will join us together"
+msgstr "この機械は 俺たちを一人にする。"
+
+#: data/scripts/evil_edgar_start.dat:28
+msgid "The one on the left is for the original body, you"
+msgstr "左側は元の体、 おまえだ。"
+
+#: data/scripts/evil_edgar_start.dat:29
+msgid "And the one on the right is for the new body, me"
+msgstr "そして右側は 新しい体、 俺だ。"
+
+#: data/scripts/evil_edgar_start.dat:30
+msgid ""
+"You will go in the one on the left and I'll go in the one on the right"
+msgstr "おまえは左側に入り、 俺は右側に入る。"
+
+#: data/scripts/evil_edgar_start.dat:31
+msgid "It will then merge your body into mine, leaving just me"
+msgstr "すると おまえが俺と混ざり、 俺だけが残る。"
+
+#: data/scripts/evil_edgar_start.dat:32
+msgid "Merge us together? Over my dead body!"
+msgstr "混ざる? 死体にしてから言ってみろ!"
+
+#: data/scripts/evil_edgar_start.dat:33
+msgid ""
+"That was the plan. Since you're alive though, you've saved me the bother of "
+"having to drag your carcass all the way back here"
+msgstr "そのつもりだ。 おまえが生きていたから、 ここまで死体を運んでくる 手間が省けた。"
+
+#: data/scripts/evil_edgar_start.dat:34
+msgid "Now get in the machine!"
+msgstr "さあ 機械の中に入れ!"
+
+#: data/scripts/disintegration_shield.dat:1
+msgid "Wow, what a cool looking shield"
+msgstr "わあ、 凄そうな盾だ。"
+
+#: data/scripts/disintegration_shield.dat:2
+msgid "Hopefully this will protect me from that spell"
+msgstr "これで呪文が防げればいいけど。"
+
+#: data/scripts/disintegration_shield.dat:3
+msgid "But there's only one way to find out..."
+msgstr "でも、 この方法しか 考えられない…"
+
+#: data/scripts/disintegration_shield.dat:5
+msgid "Defeat the Sorceror"
+msgstr "魔法使いを倒す"
+
+#: data/scripts/disable_study.dat:12
+msgid "It worked, I'm back!"
+msgstr "うまくいった、 戻ってきたぞ!"
+
+#: data/scripts/disable_study.dat:13
+msgid "Now to create that shield and get that sorceror..."
+msgstr "さあ 盾を作って 魔法使いを…"
+
+#: data/scripts/disable_study.dat:14
+msgid "Create a Resist Disintegration Shield"
+msgstr "破壊を防ぐ盾を作る"
+
+#: data/scripts/tutorial_bomb.dat:1
+msgid "Using an item you have picked up is simple"
+msgstr "取ったアイテムを使うのは簡単です。"
+
+#: data/scripts/tutorial_bomb.dat:2
+msgid ""
+"Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
+"the bomb"
+msgstr "持ち物ウィンドウを開いて ([INPUT_INVENTORY]) 、 カーソルキーで爆弾までハイライトを動かします。"
+
+#: data/scripts/tutorial_bomb.dat:3
+msgid ""
+"Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
+msgstr "そして、 攻撃キー ([INPUT_ATTACK]) または使用キー ([INPUT_ACTIVATE]) で選択します。"
+
+#: data/scripts/tutorial_bomb.dat:4
+msgid "Now close the inventory ([INPUT_INVENTORY])"
+msgstr "持ち物キー ([INPUT_INVENTORY]) を押すと閉じます。"
+
+#: data/scripts/tutorial_bomb.dat:5
+msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
+msgstr "この状態で使用キー ([INPUT_ACTIVATE]) を押すと、 アイテムが使えます。"
+
+#: data/scripts/tutorial_bomb.dat:6
+msgid "Try it with the bomb, but make sure you stand well back!"
+msgstr "爆弾で試してみましょう。 でも十分に離れてください!"
+
+#: data/scripts/tutorial_bomb.dat:7
+msgid ""
+"While you are in the inventory screen, the action is paused so you can take "
+"your time"
+msgstr "持ち物ウィンドウを開いている間は 止まっているので、 時間をかけて選ぶことができます。"
+
+#: data/scripts/tutorial_bomb.dat:8
+msgid ""
+"Some items, such as health potions and weapons can be used in the inventory "
+"screen, so there is no need to exit the inventory"
+msgstr "回復薬や武器などのいくつかのアイテムは、 使った後に閉じる必要がありません。"
+
+#: data/scripts/final_generator.dat:1
+msgid "This generator looks OK, it just isn't on"
+msgstr "この動力源は大丈夫そうだ。 ただオンになっていないだけだ。"
+
+#: data/scripts/final_generator.dat:3
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "この扉の動力のようだ。 オンにしなければ開かないだろう。"
+
+#: data/scripts/final_generator.dat:4
+msgid "Turn on the generator?"
+msgstr "動力源をオンにする?"
+
+#: data/scripts/final_generator.dat:6
+msgid "Where's the switch?"
+msgstr "スイッチはどこだ?"
+
+#: data/scripts/final_generator.dat:8
+msgid "Ah, here it is!"
+msgstr "ああ、 ここだ!"
+
+#: data/scripts/final_generator.dat:36
+msgid "I'll leave it alone for the moment"
+msgstr "しばらくはそのままにしておこう。"
+
+#: src/graphics/font.c:61
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "素早く左右を向いて スライムを振り払ってください!"
+
+#: src/structs.h:212
+msgid "Bow"
+msgstr "弓"
+
+#: src/graphics/font.c:60
+msgid "Press Action to interact"
+msgstr "行動キーを押してください"
+
+#: src/item/instruction_machine.c:85
+msgid "%s is required"
+msgstr "%s が必要です"
+
+#: src/item/bomb_pile.h:20
+msgid "Bomb"
+msgstr "爆弾"
+
+#: src/enemy/rock.c:74
+msgid "Small Rock"
+msgstr "小さな岩"
+
+#: src/item/containment_unit_controls.c:123
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "行動キーを押すと紫の宝石を取り出します"
+
+#: src/item/tesla_charger.c:146
+msgid "Tesla Pack"
+msgstr "テスラーパック"
+
+#: src/item/tesla_charger.c:169
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "行動キーを押すとテスラーパックを取り出します"
+
+#: src/item/tesla_charger.c:178
+msgid "Press Action to replace Tesla Pack"
+msgstr "行動キーを押すとテスラーパックを取り付けます"
+
+#: src/item/slime_potion_pool.c:94
+msgid "Obtained %s"
+msgstr "%s を手に入れました"
+
+#: data/scripts/tutorial_objective.dat:1
+msgid "Complete"
+msgstr "完了"
+
+#: src/item/arrow_target.c:177
+msgid "%d more to go..."
+msgstr "あと %dつで 進めます…"
+
+#: src/item/light_pillar.c:109
+msgid "Used %s"
+msgstr "%s を使いました"
+
+#: src/player.c:1040
+msgid "Cannot equip items whilst transmogrified"
+msgstr "変身中は装備できません"
+
+#: src/player.c:1079
+msgid "Equipped %s"
+msgstr "%s を装備しました"
+
+#: src/player.c:1710
+msgid "Maximum health has increased!"
+msgstr "体力の最大値が上がりました!"
+
+#: src/player.c:2447
+msgid "Bow will now fire %s"
+msgstr "%s を弓で撃てるようになりました"
+
+#: src/player.c:2466
+msgid "A bow is required to use this item"
+msgstr "これを使うには弓が必要です"
+
+#: src/player.c:2513
+msgid "Cannot transmogrify here..."
+msgstr "ここでは変身できません…"
+
+#: data/scripts/jacob.dat:46
+msgid "Yes"
+msgstr "はい"
+
+#: data/scripts/cave_boss_die.dat:11
+msgid "No"
+msgstr "いいえ"
+
+#: src/menu/main_menu.c:336
+msgid "Start a new game?"
+msgstr "ゲームを最初から始めますか?"
+
+#: src/menu/main_menu.c:351
+msgid "Play the tutorial?"
+msgstr "チュートリアルをプレイしますか?"
+
+#: src/menu/main_menu.c:366
+msgid "Exit the game?"
+msgstr "ゲームを終了しますか?"
+
+#: data/scripts/olaf.dat:11
+msgid "Back"
+msgstr "戻る"
+
+#: src/menu/io_menu.c:260
+msgid "Game Loaded"
+msgstr "ゲームを読み込みました"
+
+#: src/menu/io_menu.c:279
+msgid "Game Saved"
+msgstr "ゲームを保存しました"
+
+#: src/menu/yes_no_menu.c:117
+msgid "Any unsaved progress will be lost"
+msgstr "保存していない場合は、 進行中の状態が消えてしまいます。"
+
+#: src/input.c:904
+msgid "Joy Button #%d"
+msgstr "ジョイパット ボタン #%d"
+
+#: src/world/npc.c:78
+msgid "Press Action to talk to %s"
+msgstr "行動キーで%sと話します"
+
+#: src/event/objective.c:103
+msgid "New Objective: %s"
+msgstr "新しい目的: %s"
+
+#: src/event/objective.c:124
+msgid "Objective Completed: %s"
+msgstr "目的を達成した: %s"
+
+#: src/item/lava_door.c:150
+msgid "This weapon is not having any effect..."
+msgstr "その武器は効かないようです…"
+
+#: src/boss/blob_boss.c:1203
+msgid "Press Action to attach the Tesla Pack"
+msgstr "行動キーを押すとテスラーパックを仕掛けます"
+
+#: data/scripts/tutorial_intro.dat:6
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar (エドガーの伝説)"
+
+#: src/world/switch.c:105
+msgid "%s is needed to activate this switch"
+msgstr "このスイッチを動かすためには %s が必要です"
+
+#: src/world/switch.c:308
+msgid "Press Action to use this switch"
+msgstr "行動キーを押すとスイッチを動かします"
+
+#: src/world/save_point.c:97
+msgid "Press Action to save your game"
+msgstr "行動キーを押すと保存します"
+
+#: src/world/pressure_plate.c:113
+msgid "%s is required to use this Pressure Plate"
+msgstr "この重さで動くスイッチを押すためには %s が必要です"
+
+#: src/world/door.c:122
+msgid "%s is needed to open this door"
+msgstr "この扉を開けるためには %s が必要です"
+
+#: src/world/door.c:129
+msgid "This door is locked"
+msgstr "この扉には鍵が掛かっています"
+
+#: src/world/teleporter.c:138
+msgid "This teleporter is not active"
+msgstr "この瞬間移動装置は動いていません"
+
+#: src/world/lift.c:158
+msgid "Push Up or Down to use this lift"
+msgstr "上か下を押すとエレベーターが動きます"
+
+#: src/entity.c:1329
+msgid "This lift is not active"
+msgstr "このエレベータは動きません"
+
+#: src/inventory.c:114
+msgid "Cannot carry any more %s"
+msgstr "これ以上 %s を持てません"
+
+#: src/player.c:3243
+msgid "Picked up %s x %d"
+msgstr "%s を %d 手に入れました"
+
+#: src/player.c:3243
+msgid "Picked up %s"
+msgstr "%s を手に入れました"
+
+#: src/inventory.c:661
+msgid "%s is required to carry this item"
+msgstr "これを手に入れるには %s が必要です"
+
+#: data/maps/map07.dat:4168
+msgid "Storage Key"
+msgstr "倉庫の鍵"
+
+#: data/maps/map02.dat:2492
+msgid "Coal Bag Storage Switch Key"
+msgstr "石炭の鞄の倉庫の鍵"
+
+#: data/maps/map02.dat:1968
+msgid "Large Room Key"
+msgstr "広い部屋の鍵"
+
+#: data/scripts/borgan.dat:7
+msgid "Coal Bag"
+msgstr "石炭の鞄"
+
+#: data/maps/map03.dat:5218
+msgid "Forest Cell Key"
+msgstr "森の部屋の鍵"
+
+#: data/maps/map03.dat:5442
+msgid "Wood Axe"
+msgstr "木こりの斧"
+
+#: src/item/potions.c:47
+msgid "Health Potion"
+msgstr "体力の薬"
+
+#: data/maps/map07.dat:2218
+msgid "Outflow Key"
+msgstr "排水路の鍵"
+
+#: data/maps/map07.dat:3642
+msgid "Flow Control Key"
+msgstr "水量調整の鍵"
+
+#: data/maps/map07.dat:3668
+msgid "Waste Processing Key"
+msgstr "廃棄物処理部の鍵"
+
+#: data/scripts/sewer_trap_note.dat:12
+msgid "Access Key 1"
+msgstr "エレベーターの鍵 1"
+
+#: data/scripts/sewer_trap_note.dat:13
+msgid "Access Key 2"
+msgstr "エレベーターの鍵 2"
+
+#: data/scripts/sewer_trap_note.dat:14
+msgid "Access Key 3"
+msgstr "エレベーターの鍵 3"
+
+#: data/maps/map07.dat:2518
+msgid "Trap Door Switch Key"
+msgstr "落とし戸のスイッチの鍵"
+
+#: data/scripts/borgan.dat:7
+msgid "Coal"
+msgstr "石炭"
+
+#: data/scripts/jacob.dat:3
+msgid "Chopped Log"
+msgstr "切り倒された丸太"
+
+#: data/scripts/power_generators.dat:8
+msgid "Green Gem"
+msgstr "緑の宝石"
+
+#: data/scripts/power_generators.dat:9
+msgid "Red Gem"
+msgstr "赤い宝石"
+
+#: data/scripts/power_generators.dat:10
+msgid "Blue Gem"
+msgstr "青い宝石"
+
+#: data/scripts/power_generators.dat:11
+msgid "Purple Gem"
+msgstr "紫の宝石"
+
+#: data/maps/map10.dat:6167
+msgid "Teleporter Key"
+msgstr "瞬間移動の鍵"
+
+#: data/scripts/tutorial_finish.dat:4
+msgid "New Game"
+msgstr "新しいゲームを開始"
+
+#: data/scripts/tutorial_objective.dat:1
+msgid "Tutorial"
+msgstr "チュートリアル"
+
+#: src/menu/main_menu.c:176
+msgid "Load Game"
+msgstr "保存したゲームを再開"
+
+#: data/scripts/tutorial_keys.dat:1
+msgid "Options"
+msgstr "オプション"
+
+#: src/menu/main_menu.c:52
+msgid "About"
+msgstr "このゲームについて"
+
+#: src/tile_creator.c:265
+msgid "Quit"
+msgstr "ゲームを終了"
+
+#: data/scripts/tutorial_keys.dat:2
+msgid "Configure Controls"
+msgstr "操作設定..."
+
+#: src/menu/options_menu.c:191
+msgid "Configure Sound"
+msgstr "サウンド設定..."
+
+#: src/menu/options_menu.c:49
+msgid "Fullscreen"
+msgstr "全画面表示する"
+
+#: src/menu/options_menu.c:197
+msgid "Show Hints"
+msgstr "ヒントを表示する"
+
+#: data/props/item/slime_potion.props:6
+msgid "A potion which will transform you..."
+msgstr "あなたを変身させる薬…"
+
+#: data/props/item/health_potion.props:6
+msgid "A potion which will restore all of your health"
+msgstr "体力を全回復させる薬"
+
+#: data/props/item/bomb.props:6
+msgid "A powerful bomb"
+msgstr "強力な爆弾"
+
+#: data/props/item/invisibility_potion.props:6
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "透明になって敵から身を隠せる薬"
+
+#: data/props/item/gazer_eye.props:5
+msgid "The eyeball from a Gazer"
+msgstr "ゲイザーが残した目玉"
+
+#: data/props/item/tesla_pack_empty.props:5
+msgid "A Tesla Pack. It has no charge."
+msgstr "テスラーパック。 充電されていません"
+
+#: data/props/item/summoner_staff.props:5
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "召喚師の杖。 人間には使えません"
+
+#: data/props/item/tesla_pack_full.props:5
+msgid "A Tesla Pack. It is fully charged."
+msgstr "テスラーパック。 満タンに充電されています"
+
+#: data/props/item/empty_potion.props:6
+msgid "An empty potion bottle"
+msgstr "空の薬ビン"
+
+#: data/props/item/chicken_feed_bag.props:6
+msgid "A bag of chicken feed"
+msgstr "鶏の餌の袋"
+
+#: data/props/item/coal_bag.props:6
+msgid "A bag suitable for carrying coal"
+msgstr "石炭を入れるのにちょうどいい鞄"
+
+#: data/scripts/raft.dat:19
+msgid "Basic Sword"
+msgstr "基礎的な剣"
+
+#: data/props/weapon/basic_sword.props:6
+msgid "A Sword given to you by Jacob"
+msgstr "ヤコブから受け取った剣"
+
+#: src/player.c:2466
+msgid "A bow"
+msgstr "弓"
+
+#: data/scripts/cauldron.dat:58
+msgid "Small Wooden Shield"
+msgstr "小さな木の盾"
+
+#: data/props/weapon/small_wooden_shield.props:6
+msgid "A small shield that provides basic protection"
+msgstr "基本的な防御のための小さな盾"
+
+#: src/item/potions.c:213
+msgid "Normal Arrow"
+msgstr "普通の矢"
+
+#: data/props/weapon/normal_arrow.props:6
+msgid "Normal Arrows"
+msgstr "普通の矢"
+
+#: data/props/weapon/wood_axe.props:6
+msgid "An axe suitable for chopping trees"
+msgstr "木を切り倒すのにちょうどいい斧"
+
+#: data/maps/tutorial.dat:2141
+msgid "Pickaxe"
+msgstr "つるはし"
+
+#: data/props/weapon/pickaxe.props:6
+msgid "A pickaxe lent to you by Borgan"
+msgstr "ボーガンが貸してくれたつるはし"
+
+#: data/maps/map10.dat:4042
+msgid "Fire Burner Key"
+msgstr "焼却器の鍵"
+
+#: data/maps/map10.dat:4192
+msgid "Potion Room Key"
+msgstr "薬の部屋の鍵"
+
+#: data/maps/map08.dat:2643
+msgid "Surge Passage Key"
+msgstr "動力部の鍵"
+
+#: data/maps/map08.dat:5793
+msgid "Demolition Storage Key"
+msgstr "火薬庫の鍵"
+
+#: src/event/global_trigger.c:302
+msgid "No Objectives"
+msgstr "目的なし"
+
+#: src/world/switch.c:316
+msgid "Press Action to reset puzzle blocks"
+msgstr "行動キーを押すとパズルのブロックをリセットします"
+
+#: src/enemy/poltergiest.c:556
+msgid "Try hitting the skull..."
+msgstr "頭蓋骨を攻撃してみましょう…"
+
+#: src/item/blending_machine.c:184
+msgid "This machine is not active"
+msgstr "この機械は動いていません"
+
+#: src/item/code_door.c:120
+msgid "Repeat the sequence"
+msgstr "同じ順番でキーを押してください"
+
+#: src/item/code_door.c:264
+msgid "Correct Sequence"
+msgstr "正しい順番です"
+
+#: src/item/code_door.c:288
+msgid "Incorrect Sequence"
+msgstr "順番が違います"
+
+#: src/system/error.c:47
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Legend of Edgar で以下のエラーが発生しました。"
+
+#: src/system/error.c:51
+msgid "Please report this error to Parallel Realities"
+msgstr "このエラーを Parallel Realities に報告してください。"
+
+#: data/scripts/monsters.dat:60
+msgid "Venus Flytrap"
+msgstr "ハエトリソウ"
+
+#: src/item/moveable_lift.c:72
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "上と下を押すと、 踏み台を上げ下げできます"
+
+#: data/scripts/monsters.dat:82
+msgid "Up"
+msgstr "上"
+
+#: data/scripts/tutorial_intro.dat:7
+msgid "Down"
+msgstr "下"
+
+#: src/entity.c:424
+msgid "Left"
+msgstr "左"
+
+#: data/scripts/hidden_passage.dat:9
+msgid "Right"
+msgstr "右"
+
+#: data/scripts/tutorial_intro.dat:5
+msgid "Jump"
+msgstr "ジャンプ"
+
+#: data/scripts/tutorial_combat.dat:3
+msgid "Attack"
+msgstr "攻撃"
+
+#: data/scripts/tutorial_items.dat:5
+msgid "Block"
+msgstr "防御"
+
+#: data/scripts/box_pushing.dat:1
+msgid "Action"
+msgstr "行動"
+
+#: data/scripts/tutorial_combat.dat:3
+msgid "Use Item"
+msgstr "アイテムを使う"
+
+#: data/scripts/tutorial_items.dat:6
+msgid "Previous Item"
+msgstr "前のアイテム"
+
+#: data/scripts/tutorial_items.dat:6
+msgid "Next Item"
+msgstr "次のアイテム"
+
+#: src/credits.c:829
+msgid "Inventory"
+msgstr "持ち物"
+
+#: src/audio/audio.c:316
+msgid "Pause"
+msgstr "一時停止"
+
+#: src/menu/control_menu.c:225
+msgid "Dead Zone"
+msgstr "閾値"
+
+#: src/structs.h:156
+msgid "Sound"
+msgstr "サウンド"
+
+#: src/menu/sound_menu.c:151
+msgid "SFX Volume"
+msgstr "SFXボリューム"
+
+#: src/menu/sound_menu.c:159
+msgid "Music Volume"
+msgstr "音量"
+
+#: data/scripts/purifier.dat:2
+msgid "Ice Spray"
+msgstr "凍結スプレー"
+
+#: data/maps/map09.dat:5468
+msgid "Right Wing Lift Key"
+msgstr "右エレベーターの鍵"
+
+#: data/scripts/borgan.dat:28
+msgid "Mine Entrance Door Key"
+msgstr "炭鉱の入り口の鍵"
+
+#: data/maps/map07.dat:3168
+msgid "Sewage Restricted Zone Key"
+msgstr "下水道立入禁止区域の鍵"
+
+#: data/maps/map08.dat:2567
+msgid "Fortress Main Key"
+msgstr "砦の鍵"
+
+#: data/maps/map08.dat:10217
+msgid "Teleporter Access Key 1"
+msgstr "瞬間移動装置の部屋の鍵 1"
+
+#: data/maps/map08.dat:10317
+msgid "Teleporter Access Key 2"
+msgstr "瞬間移動装置の部屋の鍵 2"
+
+#: data/maps/map08.dat:10943
+msgid "Teleporter Access Key 3"
+msgstr "瞬間移動装置の部屋の鍵 3"
+
+#: data/scripts/blender.dat:15
+msgid "Empty Bottle"
+msgstr "空のビン"
+
+#: data/maps/map11.dat:2093
+msgid "First Floor Key"
+msgstr "1階の鍵"
+
+#: src/item/pedestal.c:138
+msgid "Press Action to retrieve %s"
+msgstr "行動キーを押すと %s を取り出します"
+
+#: src/item/tuning_fork.c:41
+msgid "Tuning Fork"
+msgstr "音叉"
+
+#: data/maps/map11.dat:4817
+msgid "Second Floor Keycard"
+msgstr "2階のカードキー"
+
+#: data/maps/map11.dat:2642
+msgid "Instruction Card #1"
+msgstr "命令カード #1"
+
+#: data/maps/map11.dat:2567
+msgid "Instruction Card #2"
+msgstr "命令カード #2"
+
+#: data/maps/map11.dat:8092
+msgid "Instruction Card #3"
+msgstr "命令カード #3"
+
+#: data/maps/map11.dat:13192
+msgid "Instruction Card #4"
+msgstr "命令カード #4"
+
+#: data/maps/map11.dat:3392
+msgid "Centurion Statue"
+msgstr "歩兵の像"
+
+#: data/maps/map22.dat:10167
+msgid "Spider Statue"
+msgstr "クモの像"
+
+#: data/maps/map07.dat:8567
+msgid "Tortoise Statue"
+msgstr "亀の像"
+
+#: data/scripts/olaf.dat:20
+msgid "Scorpion Statue"
+msgstr "サソリの像"
+
+#: data/props/item/blue_gem.props:5
+msgid "A Blue Gem"
+msgstr "青い宝石"
+
+#: data/props/item/centurion_statue.props:4
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "歩兵の像。 足は2本"
+
+#: data/props/item/green_gem.props:5
+msgid "A Green Gem"
+msgstr "緑の宝石"
+
+#: data/props/item/purple_gem.props:5
+msgid "A Purple Gem"
+msgstr "紫の宝石"
+
+#: data/props/item/red_gem.props:5
+msgid "A Red Gem"
+msgstr "赤い宝石"
+
+#: data/props/item/scorpion_statue.props:4
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "サソリの像。足は6本"
+
+#: data/props/item/spider_statue.props:4
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "クモの像。足は8本"
+
+#: data/props/item/tortoise_statue.props:4
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "亀の像。 足は4本"
+
+#: data/props/item/tuning_fork.props:4
+msgid "A Tuning Fork"
+msgstr "音叉"
+
+#: data/props/misc/chopped_log.props:7
+msgid "A chopped log"
+msgstr "切り倒された丸太"
+
+#: data/scripts/tutorial_combat.dat:1
+msgid "Narrator"
+msgstr "ナレーター"
+
+#: src/item/instruction_machine.c:92
+msgid "Enter the directions"
+msgstr "方向を入力してください"
+
+#: src/item/instruction_machine.c:164
+msgid "Out of space for instructions"
+msgstr "これ以上命令を書き込めません"
+
+#: data/props/item/ice_spray.props:5
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "水に触れると氷の塊を作ります"
+
+#: data/props/item/soul_bottle.props:5
+msgid "A bottle capable of capturing souls"
+msgstr "魂を入れられるビン"
+
+#: src/inventory.c:242
+msgid "Cannot pick up %s. Inventory full"
+msgstr "%s を取れません。 持ち物がいっぱいです"
+
+#: src/item/mine_cart.c:85
+msgid "Filling mine cart..."
+msgstr "トロッコに入っています…"
+
+#: src/player.c:2181
+msgid "Out of arrows!"
+msgstr "矢がありません!"
+
+#: data/props/item/full_soul_bottle.props:5
+msgid "A bottle with a soul trapped inside"
+msgstr "魂を中に閉じ込めたビン"
+
+#: src/item/mine_cart.c:90
+msgid "Full Mine Cart"
+msgstr "満杯のトロッコ"
+
+#: data/maps/map12.dat:2442
+msgid "Processing Lift Key"
+msgstr "加工所のエレベーターの鍵"
+
+#: data/maps/map12.dat:5318
+msgid "Right Grabber Key"
+msgstr "右のクレーンの鍵"
+
+#: data/maps/map12.dat:5343
+msgid "Left Grabber Key"
+msgstr "左のクレーンの鍵"
+
+#: data/maps/map12.dat:5443
+msgid "Master Key"
+msgstr "マスターキー"
+
+#: data/props/item/oil_can.props:5
+msgid "An Oil Can"
+msgstr "油の缶"
+
+#: data/scripts/rusted.dat:1
+msgid "Oil Can"
+msgstr "油の缶"
+
+#: data/props/item/repellent.props:5
+msgid "A powerful repellent"
+msgstr "強力な防虫剤"
+
+#: src/item/repellent.c:33
+msgid "Repellent"
+msgstr "防虫剤"
+
+#: data/maps/map12.dat:1
+msgid "Fortress Mine"
+msgstr "砦の炭鉱"
+
+#: data/scripts/cauldron.dat:204
+msgid "Sludge Tentacle"
+msgstr "スラッジの触手"
+
+#: data/props/item/sludge_tentacle.props:5
+msgid "A Red Sludge Tentacle"
+msgstr "赤スラッジの触手"
+
+#: data/scripts/cauldron.dat:145
+msgid "Eyeball Smoothie"
+msgstr "目玉のシェイク"
+
+#: data/props/item/eyeball_smoothie.props:5
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "目玉と触手でできた液体"
+
+#: src/system/load_save.c:1673
+msgid "Patching your save game. Please wait..."
+msgstr "保存データにパッチを当てています。 しばらくお待ちください…"
+
+#: src/enemy/huge_spider.c:272
+msgid "Now! Run while it's stunned!"
+msgstr "今だ! 動けないうちに走れ!"
+
+#: data/scripts/smoothie_colour.dat:10
+msgid "I just need to find another shield to enchant"
+msgstr "魔法をかけるための 別の盾が 必要だ。"
+
+#: src/boss/armour_boss.c:677
+msgid "Its wounds are already healing..."
+msgstr "傷は既に回復している…"
+
+#: src/system/pak.c:47
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "ソースから コンパイルできたなら、 make install を実行する必要が あります。"
+
+#: data/props/item/yellow_gem.props:5
+msgid "A Yellow Gem"
+msgstr "黄色い宝石"
+
+#: src/system/pak.c:45
+msgid "Failed to open PAK file %s"
+msgstr "PAKファイルの %s を開けませんでした。"
+
+#: src/boss/armour_boss.c:1437
+msgid "Find a way to remove the Gem..."
+msgstr "宝石を取る方法を考えなければ…"
+
+#: src/boss/armour_boss.c:1448
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "行動キーで黄色い宝石を取り出します"
+
+#: data/scripts/third_side.dat:3
+msgid "Book"
+msgstr "本"
+
+#: data/scripts/fortress_mine_lift.dat:2
+msgid "Sign"
+msgstr "看板"
+
+#: data/scripts/sewer_trap_note.dat:2
+msgid "Note"
+msgstr "メモ"
+
+#: src/item/sliding_puzzle.c:81
+msgid "Solve the sliding puzzle"
+msgstr "スライドパズルを 解いてください"
+
+#: src/enemy/baby_slime.c:252
+msgid "The armour is too tough for them to penetrate..."
+msgstr "鎧が固すぎて貫通できません…"
+
+#: data/props/item/rope.props:5
+msgid "A length of rope"
+msgstr "長い縄"
+
+#: data/props/item/extend_o_grab.props:5
+msgid "A device for grabbing far away objects"
+msgstr "離れた場所の物を取る道具"
+
+#: data/props/item/water_purifier.props:6
+msgid "A bottle of pills that convert slime into water"
+msgstr "スライムを水に変える薬"
+
+#: data/maps/tutorial.dat:1916
+msgid "Tutorial Key"
+msgstr "チュートリアルの鍵"
+
+#: data/maps/map13.dat:6544
+msgid "Light Key"
+msgstr "明かりの鍵"
+
+#: data/scripts/crossbow.dat:2
+msgid "Rope"
+msgstr "縄"
+
+#: src/item/extend_o_grab.c:47
+msgid "Extend-O-Grab"
+msgstr "伸びる取っ手"
+
+#: data/maps/map13.dat:2968
+msgid "Water Purifiers"
+msgstr "水質浄化剤"
+
+#: data/maps/map13.dat:2494
+msgid "Right Wing Key"
+msgstr "右側の鍵"
+
+#: data/maps/map13.dat:3993
+msgid "Catapult Lift Key"
+msgstr "投石機のエレベーターの鍵"
+
+#: data/maps/map09.dat:2917
+msgid "Armoury"
+msgstr "武器庫"
+
+#: data/scripts/library_intro.dat:6
+msgid "Maggie"
+msgstr "マギー"
+
+#: data/scripts/grasslands_intro.dat:10
+msgid "Jacob"
+msgstr "ヤコブ"
+
+#: data/scripts/grasslands_intro.dat:10
+msgid "Borgan"
+msgstr "ボーガン"
+
+#: data/scripts/statues.dat:1
+msgid "Edgar"
+msgstr "エドガー"
+
+#: src/item/mine_cart.c:41
+msgid "Mine Cart"
+msgstr "トロッコ"
+
+#: src/player.c:3238
+msgid "%s has regained power"
+msgstr "%s は力を取り戻しました"
+
+#: data/props/item/old_shield.props:5
+msgid "An old shield found in the Armoury"
+msgstr "武器庫で見つけた古びた盾"
+
+#: data/props/weapon/lightning_sword_empty.props:6
+msgid "A Sword that can be charged with lightning"
+msgstr "稲妻の力を蓄えられる剣"
+
+#: data/props/weapon/lightning_sword.props:6
+msgid "A Sword imbued with the power of lightning"
+msgstr "稲妻の力を蓄えた剣"
+
+#: data/scripts/lightning_sword.dat:6
+msgid "Lightning Sword"
+msgstr "稲妻の剣"
+
+#: src/enemy/scanner.c:108
+msgid "INTRUDER!"
+msgstr "侵入者め!"
+
+#: src/credits.c:861
+msgid "Statistics"
+msgstr "統計"
+
+#: src/menu/stats_menu.c:94
+msgid "Play Time: %s"
+msgstr "プレイ時間: %s"
+
+#: src/menu/stats_menu.c:100
+msgid "Kills: %d"
+msgstr "倒した数: %d"
+
+#: src/menu/stats_menu.c:108
+msgid "Bats Drowned: %d"
+msgstr "コウモリを溺れさせた回数: %d"
+
+#: src/menu/stats_menu.c:112
+msgid "Times Eaten: %d"
+msgstr "食べられた回数: %d"
+
+#: src/menu/stats_menu.c:120
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "進んだ距離: %0.1fKM"
+
+#: src/menu/stats_menu.c:124
+msgid "Attacks Blocked: %d"
+msgstr "防御した回数: %d"
+
+#: src/menu/stats_menu.c:130
+msgid "Time Spent As A Slime: %s"
+msgstr "スライムだった時間: %s"
+
+#: src/menu/stats_menu.c:104
+msgid "Arrows Fired: %d"
+msgstr "矢を撃った回数: %d"
+
+#: src/game.c:1057
+msgid "You found a secret!"
+msgstr "秘密を見つけました!"
+
+#: src/player.c:3163
+msgid "10 charges remaining..."
+msgstr "残り 10 です…"
+
+#: src/player.c:3170
+msgid "%s is out of power"
+msgstr "%s は力を失いました"
+
+#: src/enemy/book.c:632
+msgid "The damage from this weapon is being absorbed..."
+msgstr "その武器のダメージは 吸収されたようです…"
+
+#: src/menu/stats_menu.c:136
+msgid "Secrets Found: %d / %d"
+msgstr "見つけた秘密: %d / %d"
+
+#: src/item/light_pillar.c:151
+msgid "Press Action to activate the Light Pillar"
+msgstr "行動キーを押すと 明かりの柱が動作します"
+
+#: src/inventory.c:754
+msgid "Removed %s"
+msgstr "%s を失いました"
+
+#: src/boss/awesome_boss.c:1147
+msgid "Their partner will heal them when they fall..."
+msgstr "彼らは倒れた仲間を 回復できるようです…"
+
+#: src/boss/awesome_boss_meter.c:164
+msgid "Super is ready..."
+msgstr "必殺技の準備が整いました…"
+
+#: src/player.c:1692
+msgid "Used Amulet of Resurrection"
+msgstr "使われた 蘇生の護符"
+
+#: src/item/soul_merger.c:116
+msgid "Press Action to enter the Soul Merger"
+msgstr "行動キーを押すと 魂融合機に入ります"
+
+#: src/item/soul_merger.c:139
+msgid "An IN Chamber and an OUT Chamber are required"
+msgstr "入る側と 出る側が 必要です"
+
+#: src/item/lava_door.c:101
+msgid "One blow from the pickaxe should shatter it"
+msgstr "つるはしなら一撃で壊せそうです"
+
+#: src/item/soul_merger_control_panel.c:85
+msgid "Press Action to reprogram the Soul Merger"
+msgstr "行動キーを押すと 魂融合機を 再構成します"
+
+#: src/item/soul_merger_control_panel.c:93
+msgid "Spanner is required"
+msgstr "スパナが必要です"
+
+#: src/item/soul_merger_control_panel.c:150
+msgid "Press Action to Cancel"
+msgstr "行動キーを押すと 中断します"
+
+#: src/item/light_pillar.c:116
+msgid "%s is needed to activate this Light Pillar"
+msgstr "この明かりの柱を 動作させるためには %s が必要です"
+
+#: data/scripts/evil_edgar_start.dat:11
+msgid "Evil_Edgar"
+msgstr "悪のエドガー"
+
+#: src/boss/evil_edgar.c:273
+msgid "I'm better than you in every single way..."
+msgstr "俺はおまえより あらゆる点で 優れている…"
+
+#: src/boss/evil_edgar.c:286
+msgid "Get down from there!"
+msgstr "降りろ!"
+
+#: src/boss/evil_edgar.c:786
+msgid "Stupid duds..."
+msgstr "クソッ、 不発だ…"
+
+#: src/boss/evil_edgar.c:887
+msgid "Die!"
+msgstr "死ね!"
+
+#: src/boss/evil_edgar.c:983
+msgid "Arghh! My eyes!"
+msgstr "あああ! 目が!"
+
+#: data/props/item/spanner.props:6
+msgid "A spanner"
+msgstr "スパナ"
+
+#: data/props/item/exploding_gazer_eye_dud.props:5
+msgid "An exploding Gazer Eyeball. A dud?"
+msgstr "爆発する ゲイザーの目玉。不発?"
+
+#: data/props/item/resurrection_amulet.props:5
+msgid "Automatically brings you back to life once if you die"
+msgstr "一度だけ 死んでしまったとき 自動的に 蘇ることができます"
+
+#: src/item/potions.c:247
+msgid "Flaming Arrows"
+msgstr "炎の矢"
+
+#: data/props/weapon/fire_shield.props:6
+msgid "A shield that can resist fire"
+msgstr "炎を防げる盾"
+
+#: src/item/jigsaw_puzzle.c:98
+msgid "Solve the jigsaw puzzle"
+msgstr "ジグソーパズルを解いてください"
+
+#: src/boss/ant_lion.c:306
+msgid "Try luring something else into the Ant Lion's pit..."
+msgstr "アリジゴクを 巣から 何か他のもので 誘い出してみましょう…"
+
+#: data/props/item/puzzle_piece.props:5
+msgid "A piece of a puzzle"
+msgstr "パズルの断片"
+
+#: src/boss/centurion_boss.c:321
+msgid "The glass looks very weak now..."
+msgstr "ガラスは今にも割れそうだ…"
+
+#: src/system/error.c:53
+msgid "Press Escape to exit"
+msgstr "ESC キーを押すと終了します。"
+
+#: data/props/item/protection_ring.props:4
+msgid "A beautiful ring"
+msgstr "きれいな指輪"
+
+#: src/item/potions.c:213
+msgid "Normal Arrow is required"
+msgstr "普通の矢が必要です"
+
+#: src/item/potions.c:247
+msgid "Created %d Flaming Arrows"
+msgstr "%d 本の炎の矢を作った"
+
+#: src/enemy/giant_snowball.c:119
+msgid "Press buttons to escape the snowball!"
+msgstr "雪玉から抜け出すために キーを連打してください!"
+
+#: data/props/item/flaming_arrow_potion.props:6
+msgid "A potion to create flaming arrows"
+msgstr "炎の矢を作る薬"
+
+#: data/props/item/spike_ball.props:5
+msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
+msgstr "アルマジロのトゲ玉。 投げるとトゲを撒き散らす"
+
+#: src/boss/borer_boss.c:498
+msgid "Try getting the Borer to grab a bomb..."
+msgstr "ウワバミに爆弾を飲み込ませてみよう…"
+
+#: data/props/item/spores.props:5
+msgid "Spores that will make certain monsters temporarily harmless"
+msgstr "この胞子は ある種の怪物を 一時的に無害にします"
+
+#: src/item/apple_tree.c:172
+msgid "It's out of apples..."
+msgstr "リンゴはもうありません…"
+
+#: src/credits.c:453
+msgid "Failed"
+msgstr "失敗"
+
+#: src/item/mastermind_display.c:411
+msgid "Select a colour for every peg in the row"
+msgstr "ピンを全て置いてください"
+
+#: src/item/monster_skull.c:98
+msgid "Press Action to retrieve the Horn"
+msgstr "行動キーを押すと 角を取ります"
+
+#: src/item/memory_match_display.c:113
+msgid "Attempts remaining: %d"
+msgstr "残り回数: %d"
+
+#: src/item/colour_pot.c:183
+msgid "The pot is empty"
+msgstr "壷は空です。"
+
+#: src/enemy/frog.c:370
+msgid "Your %s has been stolen!"
+msgstr "%s を盗まれました!"
+
+#: src/menu/io_menu.c:141
+msgid "<Empty>"
+msgstr "<空>"
+
+#: data/props/item/monster_horn.props:5
+msgid "The horn from a fearsome monster"
+msgstr "恐ろしい怪物の角"
+
+#: data/props/item/apple.props:5
+msgid "A delicious apple"
+msgstr "おいしそうなリンゴ"
+
+#: data/props/item/tortoise_shell.props:5
+msgid "A magical shell fragment from a Rampaging Master Tortoise"
+msgstr "暴走した亀の王の 魔法の甲羅のかけら"
+
+#: data/props/weapon/disintegration_shield.props:5
+msgid "A shield that can resist disintegration"
+msgstr "破壊の呪文を防げる盾"
+
+#: src/enemy/magic_missile.c:292
+msgid "Try using one of the artifacts to protect yourself..."
+msgstr "防御の魔法の1つで 防御してみましょう…"
+
+#: src/menu/io_menu.c:267
+msgid "Failed to load game"
+msgstr "読み込みに失敗しました"
+
+#: src/boss/grimlore.c:2752
+msgid "Your %s has been destroyed"
+msgstr "%s は破壊されました"
+
+#: src/boss/grimlore.c:3484
+msgid "Binding only works against weakened demons"
+msgstr "弱った悪魔にのみ効きます"
+
+#: data/props/item/bind_artifact.props:5
+msgid "Sends a weakened demon back to its own dimension"
+msgstr "弱った悪魔を 元の次元に戻します"
+
+#: data/props/item/poison_meat.props:5
+msgid "A lump of highly poisonous meat"
+msgstr "猛毒を含んだ肉"
+
+#: data/scripts/correct_combination.dat:4
+msgid "Scrap of Paper"
+msgstr "紙きれ"
+
+#: data/props/item/reflection_artifact.props:5
+msgid "Creates a temporary shield that reflects magic spells"
+msgstr "魔法を跳ね返す盾を 一時的に作ります"
+
+#: data/props/item/protection_artifact.props:5
+msgid "Protects against certain attacks. Stops working if you move"
+msgstr "ある攻撃を防ぎます。効果は動くと消えます"
+
+#: src/player.c:1346
+msgid "Press Attack whilst Blocking to use your shield..."
+msgstr "この盾で防御しながら 攻撃キーを押して みましょう…"
+
+#: src/credits.c:863
+msgid "Play Time"
+msgstr "プレイ時間"
+
+#: src/credits.c:866
+msgid "Kills"
+msgstr "倒した数"
+
+#: src/credits.c:869
+msgid "Arrows Fired"
+msgstr "矢を撃った回数"
+
+#: src/credits.c:872
+msgid "Distanced Travelled"
+msgstr "進んだ距離"
+
+#: src/credits.c:875
+msgid "Attacks Blocked"
+msgstr "防御した回数"
+
+#: src/credits.c:878
+msgid "Time Spent As A Slime"
+msgstr "スライムだった時間"
+
+#: src/credits.c:881
+msgid "Secrets Found"
+msgstr "見つけた秘密"
+
+#: src/credits.c:884
+msgid "Continues"
+msgstr "再開した回数"
+
+#: src/credits.c:940
+msgid "Defeated Bosses"
+msgstr "倒したボス"
+
+#: src/credits.c:1095
+msgid "Undefeated"
+msgstr "倒していない"
+
+#: src/credits.c:152
+msgid "Defeated"
+msgstr "倒した"
+
+#: data/scripts/disintegration_shield.dat:5
+msgid "Sorceror"
+msgstr "魔法使い"
+
+#: src/boss/sorceror_2.c:361
+msgid "Enough! Prepare to die..."
+msgstr "ここまでだ! 覚悟しろ…"
+
+#: src/boss/sorceror_2.c:1654
+msgid "Quickly turn left and right to remove the hold person spell!"
+msgstr "素早く左右を向いて 拘束の呪文から 抜け出してください!"
+
+#: src/player.c:1353
+msgid "Your shield is increasing in power..."
+msgstr "盾の力が増しました…"
+
+#: src/menu/about_menu.c:75
+msgid "The Legend of Edgar v%0.2f"
+msgstr "The Legend of Edgar (エドガーの伝説) v%0.2f"
+
+#: src/credits.c:124
+msgid "King Grub"
+msgstr "王の幼虫"
+
+#: src/credits.c:125
+msgid "The Golem"
+msgstr "ゴーレム"
+
+#: src/credits.c:126
+msgid "Queen Wasp"
+msgstr "女王蜂"
+
+#: src/credits.c:127
+msgid "The Swamp Guardian"
+msgstr "沼の守護者"
+
+#: src/credits.c:128
+msgid "The Gargoyle"
+msgstr "ガーゴイル"
+
+#: src/credits.c:129
+msgid "The Blob"
+msgstr "ブロブ"
+
+#: src/credits.c:130
+msgid "The Watchdog"
+msgstr "番犬"
+
+#: src/credits.c:131
+msgid "The Awesome Foursome"
+msgstr "四忍者"
+
+#: data/scripts/black_book.dat:25
+msgid "Mataeus"
+msgstr "マタエウス"
+
+#: src/credits.c:133
+msgid "The Phoenix"
+msgstr "フェニックス"
+
+#: src/credits.c:134
+msgid "The Borer"
+msgstr "ウワバミ"
+
+#: data/scripts/evil_edgar_start.dat:1
+msgid "Evil Edgar"
+msgstr "悪のエドガー"
+
+#: src/credits.c:136
+msgid "The Sewer Dweller"
+msgstr "下水道の住人"
+
+#: src/credits.c:137
+msgid "The Salamander"
+msgstr "サラマンダー"
+
+#: src/credits.c:138
+msgid "The Black Book"
+msgstr "黒い本"
+
+#: src/credits.c:141
+msgid "The Sorceror"
+msgstr "魔法使い"
+
+#: data/medals.dat:1
+msgid "Became a legend"
+msgstr "伝説になった"
+
+#: data/medals.dat:2
+msgid "Defeated Chaos"
+msgstr "カオスを倒した"
+
+#: data/medals.dat:3
+msgid "Defeated the Sorceror"
+msgstr "魔法使いを倒した"
+
+#: data/medals.dat:6
+msgid "Obtained the Dragon Shield"
+msgstr "ドラゴンの盾を手に入れた"
+
+#: data/medals.dat:5
+msgid "Found all secrets"
+msgstr "全ての秘密を見つけた"
+
+#: data/medals.dat:8
+msgid "Walked 50km"
+msgstr "50km歩いた"
+
+#: data/medals.dat:10
+msgid "Fired 500 arrows"
+msgstr "矢を500回撃った"
+
+#: data/medals.dat:11
+msgid "Defeated 1000 enemies"
+msgstr "1000匹の敵を倒した"
+
+#: data/medals.dat:12
+msgid "Defeated 2000 enemies"
+msgstr "2000匹の敵を倒した"
+
+#: data/medals.dat:14
+msgid "Defeated the Black Book"
+msgstr "黒い本を倒した"
+
+#: data/medals.dat:15
+msgid "Defeated Grimlore"
+msgstr "グリムロアを倒した"
+
+#: data/medals.dat:16
+msgid "Defeated the Phoenix"
+msgstr "フェニックスを倒した"
+
+#: data/medals.dat:9
+msgid "Defeated Azriel"
+msgstr "アズリエルを倒した"
+
+#: data/medals.dat:51
+msgid "Defeated the Gargoyle"
+msgstr "ガーゴイルを倒した"
+
+#: data/medals.dat:17
+msgid "Defeated a Rampaging Master Tortoise"
+msgstr "暴走した亀の王を倒した"
+
+#: data/medals.dat:18
+msgid "Obtained the Lightning Sword"
+msgstr "稲妻の剣を手に入れた"
+
+#: data/medals.dat:19
+msgid "Opened the safe in the Library"
+msgstr "書庫の金庫を開けた"
+
+#: data/medals.dat:20
+msgid "Located the Occult Section"
+msgstr "秘術の部屋の場所をつきとめた"
+
+#: data/medals.dat:22
+msgid "Met the Sorceror"
+msgstr "魔法使いと会った"
+
+#: data/medals.dat:23
+msgid "Obtained 10 Hit Points"
+msgstr "体力が10点になった"
+
+#: data/medals.dat:7
+msgid "Obtained 20 Hit Points"
+msgstr "体力が20点になった"
+
+#: data/medals.dat:24
+msgid "Rescued all of Jacob's chickens"
+msgstr "ヤコブの鶏を全て捕まえた"
+
+#: data/medals.dat:25
+msgid "Fired 250 arrows"
+msgstr "矢を250回撃った"
+
+#: data/medals.dat:26
+msgid "Blocked 2000 attacks"
+msgstr "2000回防御した"
+
+#: data/medals.dat:27
+msgid "Continued 20 times"
+msgstr "20回再開した"
+
+#: data/medals.dat:28
+msgid "Drowned 20 Red Bats"
+msgstr "コウモリを20回溺れされた"
+
+#: data/medals.dat:29
+msgid "Escaped the Dungeon"
+msgstr "迷宮から脱出した"
+
+#: data/medals.dat:30
+msgid "Got eaten 5 times"
+msgstr "5回食べられた"
+
+#: data/medals.dat:31
+msgid "Entered the Forbidden Swamp"
+msgstr "禁じられた沼に入った"
+
+#: data/medals.dat:32
+msgid "Completed the Tutorial"
+msgstr "チュートリアルを完了した"
+
+#: data/medals.dat:33
+msgid "Obtained the Fire Shield"
+msgstr "炎の盾を手に入れた"
+
+#: data/medals.dat:34
+msgid "Got to the Fortress"
+msgstr "砦にたどり着いた"
+
+#: data/medals.dat:35
+msgid "Defeated the Golem using only the grabbers"
+msgstr "ゴーレムをクレーンだけで倒した"
+
+#: data/medals.dat:36
+msgid "Defeated 100 enemies"
+msgstr "100匹の敵を倒した"
+
+#: data/medals.dat:37
+msgid "Defeated 200 enemies"
+msgstr "200匹の敵を倒した"
+
+#: data/medals.dat:38
+msgid "Defeated 500 enemies"
+msgstr "500匹の敵を倒した"
+
+#: data/medals.dat:39
+msgid "Defeated the Watchdog"
+msgstr "番犬を倒した"
+
+#: data/medals.dat:40
+msgid "Defeated the Awesome Foursome"
+msgstr "四忍者を倒した"
+
+#: data/medals.dat:41
+msgid "Defeated the Blob"
+msgstr "ブロブを倒した"
+
+#: data/medals.dat:42
+msgid "Defeated the Borer"
+msgstr "ウワバミを倒した"
+
+#: data/medals.dat:43
+msgid "Defeated Evil Edgar"
+msgstr "悪のエドガーを倒した"
+
+#: data/medals.dat:44
+msgid "Defeated the Queen Fly"
+msgstr "女王蜂を倒した"
+
+#: data/medals.dat:35
+msgid "Defeated the Golem"
+msgstr "ゴーレムを倒した"
+
+#: data/medals.dat:46
+msgid "Defeated the King Grub"
+msgstr "王の幼虫を倒した"
+
+#: data/medals.dat:47
+msgid "Defeated Mataeus"
+msgstr "マタエウスを倒した"
+
+#: data/medals.dat:48
+msgid "Defeated the Salamander"
+msgstr "サラマンダーを倒した"
+
+#: data/medals.dat:49
+msgid "Defeated the Sewer Dweller"
+msgstr "下水道の住人を倒した"
+
+#: data/medals.dat:50
+msgid "Defeated the Forbidden Swamp Guardian"
+msgstr "禁じられた沼の守護者を倒した"
+
+#: data/medals.dat:52
+msgid "Read all of the Monster Compendium"
+msgstr "怪物の図鑑を全て読んだ"
+
+#: data/medals.dat:53
+msgid "Obtained the Amulet of Resurrection"
+msgstr "蘇生の護符を手に入れた"
+
+#: data/medals.dat:54
+msgid "Spent 10 minutes as a Slime"
+msgstr "10分間スライムになった"
+
+#: src/menu/medals_menu.c:135
+msgid "Hidden Medal"
+msgstr "秘密のメダル"
+
+#: data/props/item/bell.props:5
+msgid "A bell"
+msgstr "ベル"
+
+#: data/props/item/portable_save.props:4
+msgid "Creates a save point at your current position"
+msgstr "保存地点を 今いる場所に作ります"
+
+#: src/player.c:2098
+msgid "Your controls have been reversed!"
+msgstr "操作が さかさまに なりました!"
+
+#: src/item/portable_save.c:82
+msgid "You cannot use this here"
+msgstr "ここでは使えません"
+
+#: src/item/portable_save.c:87
+msgid "You can only use this item in an empty space"
+msgstr "空いた場所でしか 使うことはできません"
+
+#: src/item/bell_rope.c:42
+msgid "Bell"
+msgstr "ベル"
+
+#: data/props/item/music_sheet.props:4
+msgid "A sheet of music"
+msgstr "楽譜"
+
+#: src/menu/io_menu.c:125
+msgid "Choose slot to save to"
+msgstr "保存する場所を選択してください"
+
+#: src/menu/io_menu.c:130
+msgid "Choose slot to load from"
+msgstr "読み込む場所を選択してください"
+
+#: src/world/level_exit.c:104
+msgid "Press Action to go to %s"
+msgstr "行動キーを押すと %s へ行きます"
+
+#: data/scripts/grasslands_intro.dat:9
+msgid "the Village"
+msgstr "村"
+
+#: data/scripts/mine2_exit.dat:1
+msgid "the Mine"
+msgstr "炭鉱"
+
+#: data/maps/map01.dat:1843
+msgid "the Forest"
+msgstr "森"
+
+#: data/scripts/grasslands_intro.dat:8
+msgid "the Forbidden Swamp"
+msgstr "禁じられた沼"
+
+#: data/scripts/cave_intro.dat:13
+msgid "the Cave"
+msgstr "洞窟"
+
+#: data/maps/map09.dat:10143
+msgid "the Fortress Outskirts"
+msgstr "砦の外"
+
+#: data/scripts/power_generators_fixed.dat:10
+msgid "the Sewer"
+msgstr "下水道"
+
+#: data/maps/map09.dat:5943
+msgid "the Fortress Basement"
+msgstr "砦の地下"
+
+#: data/maps/map17.dat:11143
+msgid "the Fortress Ground Floor"
+msgstr "砦の地上階"
+
+#: data/scripts/old_shield.dat:18
+msgid "the Laboratory"
+msgstr "研究所"
+
+#: data/medals.dat:19
+msgid "the Library"
+msgstr "書庫"
+
+#: data/maps/map08.dat:12568
+msgid "the Fortress Mine"
+msgstr "砦の炭鉱"
+
+#: data/maps/map09.dat:2918
+msgid "the Armoury"
+msgstr "武器庫"
+
+#: data/maps/map15.dat:1868
+msgid "the Borer Cave"
+msgstr "ウワバミの洞窟"
+
+#: data/scripts/catacombs_intro.dat:10
+msgid "the Catacombs"
+msgstr "地下墓地"
+
+#: data/scripts/dungeon_escape.dat:7
+msgid "the Study"
+msgstr "研究所"
+
+#: data/medals.dat:29
+msgid "the Dungeon"
+msgstr "迷宮"
+
+#: data/maps/map19.dat:3293
+msgid "the Frozen Wastes"
+msgstr "不毛の凍土"
+
+#: data/maps/map18.dat:4918
+msgid "the Outer Cave Network"
+msgstr "網目状の洞窟の外側"
+
+#: data/maps/map19.dat:5643
+msgid "the Inner Cave Network"
+msgstr "網目状の洞窟の内側"
+
+#: data/maps/map09.dat:6218
+msgid "the Graveyard"
+msgstr "墓地"
+
+#: data/maps/map09.dat:10018
+msgid "the Left Tower"
+msgstr "左の塔"
+
+#: data/maps/map16.dat:1968
+msgid "the Right Tower"
+msgstr "右の塔"
+
+#: data/medals.dat:21
+msgid "the Crypt"
+msgstr "霊廟"
+
+#: data/scripts/grasslands_intro.dat:9
+msgid "Village"
+msgstr "村"
+
+#: data/scripts/armour_boss_die.dat:4
+msgid "Mine"
+msgstr "炭鉱"
+
+#: data/scripts/ending_part1.dat:35
+msgid "Forest"
+msgstr "森"
+
+#: data/scripts/grasslands_intro.dat:8
+msgid "Forbidden Swamp"
+msgstr "禁じられた沼"
+
+#: data/scripts/cave_intro.dat:13
+msgid "Cave"
+msgstr "洞窟"
+
+#: data/maps/map09.dat:10143
+msgid "Fortress Outskirts"
+msgstr "砦の外"
+
+#: data/scripts/power_generators_fixed.dat:10
+msgid "Sewer"
+msgstr "下水道"
+
+#: data/maps/map09.dat:5943
+msgid "Fortress Basement"
+msgstr "砦の地下"
+
+#: data/maps/map09.dat:1
+msgid "Fortress Ground Floor"
+msgstr "砦の地上階"
+
+#: data/scripts/old_shield.dat:18
+msgid "Laboratory"
+msgstr "研究所"
+
+#: src/graphics/save_png.c:25
+msgid "Library"
+msgstr "書庫"
+
+#: data/maps/map15.dat:1868
+msgid "Borer Cave"
+msgstr "ウワバミの洞窟"
+
+#: data/scripts/borer_boss_die.dat:4
+msgid "Catacombs"
+msgstr "地下墓地"
+
+#: data/scripts/enable_study.dat:1
+msgid "Study"
+msgstr "研究室"
+
+#: src/boss/sorceror.c:45
+msgid "Dungeon"
+msgstr "迷宮"
+
+#: data/maps/map18.dat:1
+msgid "Frozen Wastes"
+msgstr "不毛の凍土"
+
+#: data/maps/map18.dat:4918
+msgid "Outer Cave Network"
+msgstr "網目状の洞窟の外側"
+
+#: data/maps/map19.dat:5643
+msgid "Inner Cave Network"
+msgstr "網目状の洞窟の内側"
+
+#: data/scripts/graveyard_weather.dat:1
+msgid "Graveyard"
+msgstr "墓地"
+
+#: data/maps/map09.dat:10018
+msgid "Left Tower"
+msgstr "左の塔"
+
+#: data/scripts/hidden_passage.dat:9
+msgid "Right Tower"
+msgstr "右の塔"
+
+#: data/maps/map24.dat:1
+msgid "The Observatory"
+msgstr "観測所"
+
+#: data/scripts/graveyard_weather.dat:1
+msgid "Crypt"
+msgstr "霊廟"
+
+#: src/credits.c:586
+msgid "Copyright Parallel Realities 2009 - %d"
+msgstr "Copyright Parallel Realities 2009 - %d"
+
+#: src/menu/main_menu.c:170
+msgid "Restart Checkpoint"
+msgstr "チェックポイントを再開"
+
+#: src/menu/options_menu.c:349
+msgid "Cheats can only be enabled in-game"
+msgstr "チートはゲーム中のみ可能です"
+
+#: src/title.c:79
+msgid "Press any key"
+msgstr "何かキーを押してください"
+
+#: src/player.c:1051
+msgid "Cannot equip items whilst attacking"
+msgstr "攻撃中は装備を変えられません"
+
+#: src/credits.c:884
+msgid "Continue"
+msgstr "ゲームを再開"
+
+#: src/init.c:128
+msgid "Medals"
+msgstr "獲得したメダル"
+
+#: src/menu/sound_menu.c:167
+msgid "Audio Quality"
+msgstr "サンプリング周波数"
+
+#: src/menu/options_menu.c:201
+msgid "Cheats"
+msgstr "チート"
+
+#: src/menu/cheat_menu.c:143
+msgid "Infinite Health"
+msgstr "無限の体力"
+
+#: src/menu/cheat_menu.c:149
+msgid "Infinite Arrows"
+msgstr "無限の矢"
+
+#: src/menu/cheat_menu.c:155
+msgid "Lava is fatal"
+msgstr "溶岩で即死"
+
+#: src/menu/control_menu.c:145
+msgid "Use Up and Down to select. Enter to change."
+msgstr "上下キーを使って選択してください。 変更するには Enter キーを押します。"
+
+#: src/menu/control_menu.c:189
+msgid "Interact"
+msgstr "行動"
+
+#: data/scripts/tutorial_combat.dat:3
+msgid "Use"
+msgstr "使用"
+
+#: src/menu/control_menu.c:527
+msgid "Please configure all controls"
+msgstr "全ての操作キーを設定してください"
+
+#: src/boss/blob_boss.c:1429
+msgid "Quickly turn left and right to shake off the pieces!"
+msgstr "素早く左右を向いて 断片を振り払ってください!"
+
+#: data/scripts/azriel_start.dat:18
+msgid "Azriel"
+msgstr "アズリエル"
+
+#: src/boss/azriel.c:2313
+msgid "Until we meet again..."
+msgstr "また会おう…"
+
+#: data/props/item/keepsake.props:4
+msgid "Ivan's keepsake"
+msgstr "イヴァンの遺品"
+
+#: src/inventory.c:364
+msgid "Selected %s"
+msgstr "%s を選択しました"
+
+#: src/player.c:2995
+msgid "Press buttons to break the petrification!"
+msgstr "キーを連打して 石化を止めてください!"
+
+#: data/medals.dat:4
+msgid "Completed the game with only 5 hit points"
+msgstr "体力5点でゲームを制覇した"
+
+#: data/medals.dat:13
+msgid "Completed the game without continuing"
+msgstr "再開せずにゲームを制覇した"
+
+#: data/medals.dat:21
+msgid "Accessed the Crypt"
+msgstr "霊廟に入った"
+
+#: src/boss/mini_gargoyle.c:203
+msgid "Quickly turn left and right to shake off the miniature gargoyles!"
+msgstr "素早く左右を向いて 小さなガーゴイルを振り払ってください!"
+
+#: data/medals.dat:6
+msgid "Dragon Shield"
+msgstr "ドラゴンの盾"
+
+#: data/props/weapon/dragon_shield.props:6
+msgid "A shield that can resist dragon breath"
+msgstr "ドラゴンの 炎の息を 防げる盾"
+
+#: src/game.c:870
+msgid ""
+"SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
+"font"
+msgstr "SMALL_FONT_SIZE と LARGE_FONT_SIZE はカスタムフォントを 使う場合は 必ず指定する 必要があります。"
+
+#: src/menu/options_menu.c:354
+msgid ""
+"Enabling cheats will not allow you to achieve 100% completion in the game"
+msgstr "チートは このゲームを 100%完了するまで 使えません。"
+
+#: src/boss/evil_edgar.c:204
+msgid ""
+"You got into the machine by yourself?! You're even stupider than I thought "
+"you were!"
+msgstr "機械に自分で入った?! おまえは俺が 考えていたよりも バカだな!"
+
+#: src/boss/chaos.c:814
+msgid "Stalagmite"
+msgstr "石筍"
+
+#: src/boss/chaos.c:1304
+msgid "Burn to ashes!"
+msgstr "灰となれ!"
+
+#: src/boss/chaos.c:1308
+msgid "Feel my power!"
+msgstr "わが力を見よ!"
+
+#: src/boss/chaos.c:1316
+msgid "Suffer!"
+msgstr "苦しむがよい!"
+
+#: src/boss/chaos.c:1472
+msgid "Pathetic"
+msgstr "哀れな"
+
+#: src/boss/chaos.c:1490
+msgid "Impale"
+msgstr "串刺し"
+
+#: src/player.h:61
+msgid "Confuse"
+msgstr "混乱"
+
+#: src/boss/chaos.c:1687
+msgid "Darkness"
+msgstr "闇"
+
+#: src/boss/sorceror_2.c:1551
+msgid "Hold Person"
+msgstr "拘束"
+
+#: data/props/weapon/legendary_sword.props:6
+msgid "A Sword of Legend"
+msgstr "伝説の剣"
+
+#: data/props/weapon/phantasmal_shield.props:6
+msgid ""
+"Reflects phantasmal forces. Blocking at the last moment increases the power."
+msgstr "霊的な攻撃を 跳ね返します。 命中する直前に 防御すると 跳ね返した攻撃の 威力が増します"
+
+#: src/credits.c:458
+msgid "Chaos has been subdued"
+msgstr "カオスは封印された"
+
+#: src/credits.c:460
+msgid "For now..."
+msgstr "だが いつの日か…"
+
+#: src/credits.c:465
+msgid "Chaos will soon be free"
+msgstr "カオスが蘇るであろう"
+
+#: src/credits.c:467
+msgid "To terrorise the world once again"
+msgstr "世界を再び 恐怖に陥れるために"
+
+#: src/item/attractor.c:36
+msgid "Rift"
+msgstr "亀裂"
+
+#: src/boss/chaos.c:460
+msgid "Tendrils"
+msgstr "蔓"
+
+#: src/boss/chaos.c:1046
+msgid "Orbs"
+msgstr "宝珠"
+
+#: src/boss/chaos.c:1312
+msgid "I will destroy you!"
+msgstr "滅びよ!"
+
+#: data/scripts/chaos_finish.dat:17
+msgid "He must have teleported me away with the last of his magic"
+msgstr "最後の力で ここに 瞬間移動させたに 違いない。"
+
+#: data/scripts/chaos_finish.dat:18
+msgid ""
+"Even though I didn't manage to slay him, he's now too weak to pose a threat "
+"to the world"
+msgstr "倒すことはできなかったけど、 世界を恐怖に 陥れるほどの力は 残っていないだろう。"
+
+#: data/scripts/chaos_finish.dat:19
+msgid "Time to get back to rescuing my father..."
+msgstr "父さんを助ける戦いに 戻るときだ…"
+
+#: data/scripts/sealed_entrance.dat:1
+msgid "It's sealed tight. I'm not getting back in there"
+msgstr "厳重に封印されている。 戻ることは できそうにない。"
+
+#: data/scripts/chaos_die.dat:6
+msgid "It's over"
+msgstr "終わった。"
+
+#: data/scripts/chaos_die.dat:7
+msgid "Hey, what's that? It looks like a sword"
+msgstr "何だあれは? 剣みたいだ。"
+
+#: data/scripts/chaos_die.dat:13
+msgid "This must be Ivan's sword"
+msgstr "イヴァンの剣に違いない。"
+
+#: data/scripts/chaos_die.dat:14
+msgid "You... You will never defeat me"
+msgstr "おまえは… おまえは我を 倒すことはできぬ。"
+
+#: data/scripts/chaos_die.dat:15
+msgid "I will escape this wretched place"
+msgstr "我は この忌まわしい場所から 必ず出るであろう。"
+
+#: data/scripts/chaos_die.dat:16
+msgid "Even if it takes me another 100 years"
+msgstr "たとえ100年かかったとしても。"
+
+#: data/scripts/chaos_die.dat:17
+msgid "These chains won't hold me forever"
+msgstr "この鎖は 我を 永遠に 封印することは できぬ。"
+
+#: data/scripts/chaos_die.dat:18
+msgid "Time to finish this. Prepare yourself!"
+msgstr "今が終わりのときだ。 覚悟しろ!"
+
+#: data/scripts/chaos_die.dat:19
+msgid "No! BANISH!"
+msgstr "やめろ! 去れ!"
+
+#: data/scripts/intro_part1.dat:12
+msgid "What a horrible night"
+msgstr "ひどい夜だ…"
+
+#: data/scripts/intro_part1.dat:13
+msgid "Edgar, I have to go out for a few hours"
+msgstr "エドガー、 父さんは少し出かけなければならない。"
+
+#: data/scripts/intro_part1.dat:14
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
+msgstr "30分くらいは起きていてもいいが、 それを過ぎたら おもちゃを片付けて寝なさい。"
+
+#: data/scripts/intro_part2.dat:11
+msgid "The following morning..."
+msgstr "次の朝…"
+
+#: data/scripts/intro_part2.dat:12
+msgid "Dad! Where are you?"
+msgstr "父さん! どこにいるの?"
+
+#: data/scripts/intro_part2.dat:18
+msgid "It doesn't look like Dad came home last night"
+msgstr "昨日は戻らなかったみたいだ。"
+
+#: data/scripts/intro_part2.dat:20
+msgid "His bed hasn't been slept in and my breakfast isn't ready"
+msgstr "ベッドも使われてないし、 朝ご飯もできてない。"
+
+#: data/scripts/intro_part2.dat:21
+msgid "That can only mean one thing..."
+msgstr "考えられるのは1つだけ…"
+
+#: data/scripts/intro_part2.dat:23
+msgid "He must have been kidnapped by that evil sorceror!"
+msgstr "悪い魔法使いにさらわれたんだ!"
+
+#: data/scripts/black_book_vanished.dat:1
+msgid "Something very powerful was here"
+msgstr "何か 強力なものが ここにあったみたいだ。"
+
+#: data/scripts/black_book_vanished.dat:2
+msgid "I can still feel the magical charge that it gave off"
+msgstr "まだ 魔法の力のようなものを 発しているのを感じる。"
+
+#: data/scripts/black_book_vanished.dat:3
+msgid "Whatever it was, it's long gone..."
+msgstr "それが何であれ、 ここには もうない…"
+
+#: data/props/boss/mataeus_knife.props:6
+msgid "A magical knife conjured by Mataeus"
+msgstr "マタエウスの魔法がかけられた短剣"
+
+#: data/scripts/mataeus_boss_die.dat:1
+msgid "Magical Knife"
+msgstr "魔法の短剣"
+
+#: data/maps/map11.dat:5217
+msgid "Third Floor Passage Key"
+msgstr "3階の通路の鍵"
+
+#: data/maps/map11.dat:7267
+msgid "Third Floor Keycard"
+msgstr "3階のカードキー"
+
+#: data/maps/map11.dat:9292
+msgid "Fourth Floor Keycard"
+msgstr "4階のカードキー"
+
+#: data/maps/map11.dat:6368
+msgid "Anti-Gravity Switch Key 1"
+msgstr "反重力スイッチの鍵 1"
+
+#: data/maps/map11.dat:6267
+msgid "Anti-Gravity Switch Key 2"
+msgstr "反重力スイッチの鍵 2"
+
+#: data/scripts/cauldron.dat:147
+msgid "Old Shield"
+msgstr "古びた盾"
+
+#: data/maps/map15.dat:2567
+msgid "Old Key"
+msgstr "古びた鍵"
+
+#: data/maps/map09.dat:7793
+msgid "Lava Lift Key"
+msgstr "溶岩のリフトの鍵"
+
+#: data/maps/map09.dat:5468
+msgid "Lift Key"
+msgstr "エレベーターの鍵"
+
+#: data/maps/map09.dat:8967
+msgid "Study Lift Key"
+msgstr "研究所のエレベーターの鍵"
+
+#: data/maps/map17.dat:2942
+msgid "Conveyor Belt Key"
+msgstr "ベルトコンベアの鍵"
+
+#: data/maps/map11.dat:6817
+msgid "Instruction Room Key"
+msgstr "命令室の鍵"
+
+#: data/scripts/cauldron.dat:7
+msgid "Full Soul Bottle"
+msgstr "魂でいっぱいのビン"
+
+#: data/maps/map10.dat:3167
+msgid "Potion of Invisibility"
+msgstr "透明の薬"
+
+#: data/scripts/slime_potion.dat:8
+msgid "Potion of Transmogrification"
+msgstr "変身の薬"
+
+#: data/props/item/spike_ball.props:4
+msgid "Armadillo Spike Ball"
+msgstr "アルマジロのトゲ玉"
+
+#: data/scripts/cauldron.dat:153
+msgid "Gazer Eyeball"
+msgstr "ゲイザーの目玉"
+
+#: src/item/apple_tree.h:20
+msgid "Apple"
+msgstr "リンゴ"
+
+#: src/boss/evil_edgar.c:703
+msgid "Dud Exploding Gazer Eyeball"
+msgstr "不発だった 爆発するゲイザーの目玉"
+
+#: data/scripts/fireball_passage.dat:2
+msgid "Fire Shield"
+msgstr "炎の盾"
+
+#: data/scripts/intro_part1.dat:12
+msgid "Edgar's_Father"
+msgstr "エドガーの父"
+
+#: data/scripts/attribute.dat:2
+msgid ""
+"It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
+msgstr "ステファン・J・スウィーニーの \"The Attribute of the Strong\" だ。"
+
+#: data/maps/map09.dat:1492
+msgid "Library Key"
+msgstr "書庫の鍵"
+
+#: data/props/item/yellow_gem.props:4
+msgid "Yellow Gem"
+msgstr "黄色い宝石"
+
+#: data/props/item/cauldron.props:159
+msgid "Mandrake Root"
+msgstr "マンドレイクの根"
+
+#: data/props/item/cauldron.props:160
+msgid "Mantis Fat"
+msgstr "カマキリの脂肪"
+
+#: data/props/item/cauldron.props:161
+msgid "Condor Bones"
+msgstr "コンドルの骨"
