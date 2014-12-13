@@ -151,6 +151,7 @@ else
 	mkdir -p $(ICON_DIR)48x48/apps
 	mkdir -p $(ICON_DIR)64x64/apps
 	mkdir -p $(DESKTOP_DIR)
+	mkdir -p $(PREFIX)/share/man/man6
 
 	cp $(PROG) $(BIN_DIR)$(PROG)
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)

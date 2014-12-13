@@ -97,7 +97,7 @@ tar zhcf $DISTNAME $APPDIR
 echo "Removing Copied Data..."
 
 rm -rf $APPDIR
-
+   
 echo "Preparing to Build..."
 
 mkdir -p $RPMROOT
