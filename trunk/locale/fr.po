@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-10-27 18:53+0000\n"
+"PO-Revision-Date: 2014-12-01 21:05+0000\n"
 "Last-Translator: Jean Marc <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2014-12-02 22:41+0000\n"
+"X-Generator: Launchpad (build 17274)\n"
 "Language: fr\n"
 
 #: data/scripts/olaf.dat:6
@@ -77,7 +77,7 @@ msgstr "Tout ira bien cette fois !"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
-msgstr "…"
+msgstr "..."
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
