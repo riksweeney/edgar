@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -61,7 +61,7 @@ Entity *addBabySlime(int x, int y, char *name)
 	e->pain = NULL;
 	e->reactToBlock = NULL;
 	e->touch = &grab;
-	
+
 	e->creditsAction = &creditsMove;
 
 	if (strcmpignorecase(name, "enemy/purple_baby_slime") == 0)
@@ -254,7 +254,7 @@ static void stickToTargetAndDrain()
 
 		self->mental = 0;
 	}
-	
+
 	else if (self->target->maxThinkTime == 99)
 	{
 		self->mental = 0;
@@ -366,7 +366,7 @@ static void creditsMove()
 	if (self->flags & ON_GROUND)
 	{
 		channel = 3 + (prand() % 3);
-		
+
 		if (prand() % 3 == 0)
 		{
 			playSoundToMap("sound/enemy/jumping_slime/baby_jump2", channel, self->x, self->y, 0);
@@ -376,16 +376,16 @@ static void creditsMove()
 		{
 			playSoundToMap("sound/enemy/jumping_slime/baby_jump1", channel, self->x, self->y, 0);
 		}
-		
+
 		self->dirX = self->speed;
 
 		self->dirY = -(8 + prand() % 4);
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;

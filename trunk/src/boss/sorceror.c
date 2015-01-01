@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -532,7 +532,7 @@ void drawDisintegrationLine(int x1, int y1, int x2, int y2, int colour1, int col
 			y += dirY - yy;
 		}
 	}
-	
+
 	else
 	{
 		while (!(fabs(y2 - y) <= fabs(dirY)))

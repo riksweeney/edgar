@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ static char **key, **value;
 void loadRequiredResources()
 {
 	int code;
-	
+
 	/* Load the hud */
 
 	initHud();
@@ -161,7 +161,7 @@ void freeLevelResources()
 	/* Free the message queue */
 
 	freeMessageQueue();
-	
+
 	/* Free the scripts */
 
 	freeScript();
@@ -838,9 +838,9 @@ int patchEntities(double versionFile, char *mapName)
 						e->endY -= y;
 					}
 				}
-				
+
 				t = getTargets();
-				
+
 				for (x=0;x<MAX_TARGETS;x++)
 				{
 					if (t[x].active == TRUE)
@@ -849,7 +849,7 @@ int patchEntities(double versionFile, char *mapName)
 						{
 							t[x].x -= x;
 						}
-						
+
 						if (t[x].y - y > 0)
 						{
 							t[x].y -= y;

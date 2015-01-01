@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -63,7 +63,7 @@ Entity *addUndeadGazer(int x, int y, char *name)
 	e->reactToBlock = &changeDirection;
 
 	e->action = &fly;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -132,7 +132,7 @@ static void fly()
 static void die()
 {
 	playSoundToMap("sound/enemy/gazer/gazer_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -258,30 +258,30 @@ static void gazeFinish()
 static void creditsMove()
 {
 	self->dirX = self->speed;
-	
+
 	self->thinkTime++;
-	
+
 	if (self->thinkTime >= 180)
 	{
 		if (self->thinkTime == 180)
 		{
 			playSoundToMap("sound/enemy/gazer/growl", -1, self->x, self->y, 0);
 		}
-		
+
 		self->dirX = 0;
-		
+
 		if (self->thinkTime >= 240)
 		{
 			if (self->thinkTime >= 300)
 			{
 				playSoundToMap("sound/enemy/gazer/flash", -1, self->x, self->y, 0);
-				
+
 				fadeFromColour(255, 0, 0, 60);
-				
+
 				self->inUse = FALSE;
 			}
 		}
 	}
-	
+
 	checkToMap(self);
 }

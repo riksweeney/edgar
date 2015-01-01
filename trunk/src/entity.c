@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -878,7 +878,7 @@ void pushEntity(Entity *other)
 
 				collided = TRUE;
 			}
-			
+
 			else
 			{
 				self->y = other->y - other->h;
@@ -902,13 +902,13 @@ void pushEntity(Entity *other)
 			collided = TRUE;
 		}
 	}
-	
+
 	else if (self->type == AUTO_DOOR && other->dirY == 0 && self->dirY > 0)
 	{
 		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + floor(other->dirY), other->box.w, other->box.h) == TRUE)
 		{
 			self->y = other->y - self->h;
-			
+
 			collided = TRUE;
 		}
 	}

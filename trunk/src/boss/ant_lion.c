@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -81,7 +81,7 @@ Entity *addAntLion(int x, int y, char *name)
 static void patrol()
 {
 	self->mental--;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -96,7 +96,7 @@ static void patrol()
 	if (self->mental <= 0)
 	{
 		lookForFood();
-		
+
 		self->mental = 30;
 	}
 

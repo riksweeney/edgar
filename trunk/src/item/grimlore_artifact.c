@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -283,7 +283,7 @@ static void throwBindArtifact(int val)
 static void bindWait()
 {
 	long onGround;
-	
+
 	onGround = self->flags & ON_GROUND;
 
 	checkToMap(self);
@@ -292,9 +292,9 @@ static void bindWait()
 	{
 		self->dirX = 0;
 	}
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 0;
@@ -309,17 +309,17 @@ static void bindTouch(Entity *other)
 		{
 			other->endY = -100;
 		}
-		
+
 		else
 		{
 			other->endY = -99;
-			
+
 			other->health = other->maxHealth;
 		}
-		
+
 		self->inUse = FALSE;
 	}
-	
+
 	else if (other->type == PLAYER && self->thinkTime <= 0)
 	{
 		keyItemTouch(other);

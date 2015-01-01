@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -70,7 +70,7 @@ Entity *addFrog(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 	e->fallout = &die;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -165,7 +165,7 @@ static void entityWait()
 		if (self->dirX == 0)
 		{
 			self->face = self->face == LEFT ? RIGHT : LEFT;
-			
+
 			self->dirX = self->face == LEFT ? -4 : 4;
 		}
 	}
@@ -591,7 +591,7 @@ static void creditsMove()
 			}
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
@@ -605,7 +605,7 @@ static void creditsMove()
 			self->endY = -1;
 		}
 	}
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;

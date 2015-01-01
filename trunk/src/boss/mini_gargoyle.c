@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -129,11 +129,11 @@ static void touch(Entity *other)
 		self->targetY = getMapStartY() - SCREEN_HEIGHT / 2;
 
 		self->action = &raiseOffScreen;
-		
+
 		other->y -= other->dirY;
 
 		other->dirY = 0;
-		
+
 		self->thinkTime = 0;
 
 		self->layer = FOREGROUND_LAYER;
@@ -202,7 +202,7 @@ static void raiseOffScreen()
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
 	}
-	
+
 	player.flags |= GRABBED;
 
 	player.y -= player.dirY;

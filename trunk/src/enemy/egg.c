@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ Entity *addEgg(int x, int y, char *name)
 	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
-	
+
 	e->creditsAction = &entityWait;
 
 	e->type = ENEMY;
@@ -85,7 +85,7 @@ static void entityWait()
 		self->x = self->startX;
 
 		self->action = &hatch;
-		
+
 		self->creditsAction = &hatch;
 	}
 
@@ -115,7 +115,7 @@ static void hatch()
 	setEntityAnimation(e, "JUMP");
 
 	e = addEnemy(self->objectiveName, 0, 0);
-	
+
 	if (self->flags & LIMIT_TO_SCREEN)
 	{
 		e->flags |= LIMIT_TO_SCREEN;

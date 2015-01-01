@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-11-10 00:14+0000\n"
-"Last-Translator: polluks <stefan.haubenthal@gmail.com>\n"
+"PO-Revision-Date: 2014-12-23 16:43+0000\n"
+"Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2014-12-28 09:56+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 "Language: de\n"
 #: data/scripts/olaf.dat:6
@@ -2432,7 +2432,7 @@ msgstr ""
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
-msgstr "Um einen Gegenstand zu beinflussen drücke [INPUT_INTERACT]."
+msgstr "Um einen Gegenstand zu benutzen drücke [INPUT_INTERACT]."
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
@@ -3557,6 +3557,7 @@ msgstr "Rette 3 Hühner"
 msgid ""
 "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
 msgstr ""
+"Oh, danke Edgar, ich brauchte nur drei, aber danke für die zusätzliche Hilfe!"
 
 #: data/scripts/jacob.dat:64
 msgid ""
@@ -3576,7 +3577,7 @@ msgstr "Wow, du hast sie alle gefangen, vielen Dank!"
 
 #: data/scripts/jacob.dat:87
 msgid "Here, I have these for you"
-msgstr ""
+msgstr "Habe diese hier für dich"
 
 #: data/scripts/jacob.dat:89
 msgid "Maggie made me this health potion but you can have it"
@@ -3704,7 +3705,7 @@ msgstr "Ist das was ich denke dass es ist?"
 
 #: data/scripts/resurrection_amulet.dat:3
 msgid "It is! It's an Amulet of Resurrection!"
-msgstr ""
+msgstr "So ist es! Es ist ein Amulett der Auferstehung!"
 
 #: data/scripts/resurrection_amulet.dat:4
 msgid ""
@@ -3714,13 +3715,15 @@ msgstr ""
 
 #: data/scripts/resurrection_amulet.dat:5
 msgid "This should make my quest a lot easier"
-msgstr ""
+msgstr "Dies sollte meiner Suche viel einfacher gestalten"
 
 #: data/scripts/resurrection_amulet.dat:6
 msgid ""
 "The Amulet of Resurrection will restore all your health once when it drops "
 "to 0"
 msgstr ""
+"Das Amulett der Auferstehung wird all deine Gesundheit wieder herstellen, "
+"sollte sie einmal auf null fallen"
 
 #: data/scripts/resurrection_amulet.dat:7
 msgid ""
@@ -3790,7 +3793,7 @@ msgstr "Das ist mein Schild! I brauche es um meinen Vater zu retten!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:22
 msgid "Well it's mine now"
-msgstr ""
+msgstr "Nun ist es mein"
 
 #: data/scripts/evil_edgar_encounter_1.dat:23
 msgid "Give it back!"
@@ -3798,11 +3801,11 @@ msgstr "Gib es zurück!"
 
 #: data/scripts/evil_edgar_start.dat:35
 msgid "Make me!"
-msgstr ""
+msgstr "Mach mich!"
 
 #: data/scripts/evil_edgar_start.dat:36
 msgid "Fine, I will!"
-msgstr ""
+msgstr "Gut, das werde ich!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:34
 msgid "Loser"
@@ -3895,7 +3898,7 @@ msgstr "Es sieht nicht so aus als ob es funktioniert"
 
 #: data/scripts/gargoyle_stone.dat:1
 msgid "It's petrified again"
-msgstr ""
+msgstr "Es ist wieder versteinert"
 
 #: data/scripts/fish.dat:1
 msgid "The water is full of those carnivorous fish"
@@ -3925,7 +3928,7 @@ msgstr ""
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
-msgstr ""
+msgstr "Hier geht ..."
 
 #: data/scripts/fireball_passage.dat:8
 msgid "I still need a Fire Shield"
@@ -3999,7 +4002,7 @@ msgstr ""
 
 #: data/scripts/monster_horn.dat:1
 msgid "This looks like the horn that Olaf needs"
-msgstr ""
+msgstr "Das sieht wie das Horn aus, das Olaf braucht"
 
 #: data/scripts/monster_horn.dat:2
 msgid "I'll have to break it off somehow..."
@@ -4142,7 +4145,7 @@ msgstr "Lauf über den Schlüssel um ihn aufzuheben"
 
 #: data/scripts/fortress_intro.dat:3
 msgid "So this is the Fortress."
-msgstr ""
+msgstr "Das ist also der Festung."
 
 #: data/scripts/fortress_intro.dat:4
 msgid ""
@@ -4240,7 +4243,7 @@ msgstr ""
 
 #: data/scripts/hoover.dat:21
 msgid "Don't worry, I won't hurt you"
-msgstr ""
+msgstr "Keine Sorge, ich werde dich nicht verletzen"
 
 #: data/scripts/hoover.dat:30
 msgid "Ow!"
@@ -4257,7 +4260,7 @@ msgstr ""
 
 #: data/scripts/armoury_intro.dat:2
 msgid "Wow, this place is empty!"
-msgstr ""
+msgstr "Wau, dieser Ort ist leer!"
 
 #: data/scripts/armoury_intro.dat:3
 msgid "I guess the sorceror has no need for weapons since he has magic"
@@ -6857,7 +6860,7 @@ msgstr "Ich werde dich zerstören!"
 
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
-msgstr ""
+msgstr "Er hat mich mit dem letzten seiner Magie wegteleportiert"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
@@ -7058,6 +7061,7 @@ msgstr "Edgars_Vater"
 msgid ""
 "It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
 msgstr ""
+"Es ist ein Buch von Stephen J. Sweeney genannt \"das Attribut der Stärke\""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"

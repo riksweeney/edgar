@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -659,14 +659,14 @@ static void moveToHeadButtRange()
 static void headButt()
 {
 	self->touch = &ramTouch;
-	
+
 	checkToMap(self);
 
 	if (self->dirX == 0)
 	{
 		self->dirX = (self->face == LEFT ? 4 : -4);
 		self->dirY = -6;
-		
+
 		self->action = &headButtFinish;
 	}
 }
@@ -674,7 +674,7 @@ static void headButt()
 static void headButtFinish()
 {
 	self->touch = &entityTouch;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
@@ -693,7 +693,7 @@ static void headButtFinish()
 			self->action = &moveToHeadButtRange;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

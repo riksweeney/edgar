@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ Entity *addScorpion(int x, int y, char *name)
 	e->pain = NULL;
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -77,7 +77,7 @@ Entity *addScorpion(int x, int y, char *name)
 static void die()
 {
 	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -96,7 +96,7 @@ static void addClaw()
 	e->draw = &drawLoopingAnimationToMap;
 	e->pain = NULL;
 	e->touch = NULL;
-	
+
 	e->creditsAction = &clawWait;
 
 	e->head = self;
@@ -253,7 +253,7 @@ static void clawWait()
 	{
 		entityDieNoDrop();
 	}
-	
+
 	else if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -308,16 +308,16 @@ static void creditsMove()
 	if (self->mental == 0)
 	{
 		addClaw();
-		
+
 		self->mental = 1;
 	}
-	
+
 	setEntityAnimation(self, "WALK");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

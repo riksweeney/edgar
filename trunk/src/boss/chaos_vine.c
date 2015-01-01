@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -167,9 +167,9 @@ static void touch(Entity *other)
 	if (self->target == NULL && other->type == PLAYER && other->health > 0)
 	{
 		setPlayerLocked(TRUE);
-		
+
 		setPlayerLocked(FALSE);
-		
+
 		self->target = other;
 
 		self->thinkTime = 180;
@@ -181,7 +181,7 @@ static void touch(Entity *other)
 		self->targetX = self->x + self->w / 2 - player.w / 2;
 
 		self->targetY = self->target->y - self->target->h;
-		
+
 		other->weight = 0;
 	}
 
@@ -211,19 +211,19 @@ static void raiseOffGround()
 
 		self->target->y = self->y;
 	}
-	
+
 	else
 	{
 		self->target->dirY = 0;
-		
+
 		self->target->weight = 1;
-		
+
 		self->target->flags &= ~FLY;
-		
+
 		self->active = FALSE;
 
 		self->target = NULL;
-		
+
 		self->touch = NULL;
 
 		self->action = &vineMoveUp;
@@ -280,9 +280,9 @@ static void takeDamage(Entity *other, int damage)
 				if (self->target != NULL)
 				{
 					self->target->dirY = 0;
-					
+
 					self->target->weight = 1;
-					
+
 					self->target->flags &= ~FLY;
 				}
 

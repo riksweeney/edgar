@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -63,7 +63,7 @@ Entity *addSlug(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &init;
 
 	e->type = ENEMY;
@@ -76,41 +76,41 @@ Entity *addSlug(int x, int y, char *name)
 static void init()
 {
 	self->startX = 0;
-	
+
 	self->action = strcmpignorecase(self->name, "enemy/upside_down_slug") == 0 ? &riseToCeiling : &move;
-	
+
 	self->creditsAction = strcmpignorecase(self->name, "enemy/upside_down_slug") == 0 ? &riseToCeiling : &creditsMove;
 }
 
 static void move()
 {
 	Entity *e;
-	
+
 	moveLeftToRight();
-	
+
 	self->startX -= self->speed;
-	
+
 	if (self->startX <= 0)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add Slug Slime");
 		}
-		
+
 		loadProperties("enemy/slug_slime", e);
-		
+
 		setEntityAnimation(e, "SLIME");
-		
+
 		e->x = self->face == LEFT ? self->x + self->w - e->w : self->x;
 		e->y = self->y + self->h - e->h;
-		
+
 		e->action = &slimeWait;
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &slimeTouch;
 		e->fallout = &entityDieNoDrop;
-		
+
 		self->startX = e->w;
 	}
 }
@@ -118,15 +118,15 @@ static void move()
 static void riseToCeiling()
 {
 	self->flags |= FLY;
-	
+
 	self->dirY -= GRAVITY_SPEED * self->weight;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirY == 0)
 	{
 		self->action = &moveOnCeiling;
-		
+
 		self->creditsAction = &creditsMove;
 	}
 }
@@ -134,7 +134,7 @@ static void riseToCeiling()
 static void moveOnCeiling()
 {
 	Entity *e;
-	
+
 	if (self->dirX == 0)
 	{
 		self->face = self->face == RIGHT ? LEFT : RIGHT;
@@ -155,35 +155,35 @@ static void moveOnCeiling()
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-	
+
 	self->startX -= self->speed;
-	
+
 	if (self->startX <= 0)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add Slug Slime");
 		}
-		
+
 		loadProperties("enemy/slug_slime", e);
-		
+
 		setEntityAnimation(e, "ICE_START");
-		
+
 		e->x = self->face == LEFT ? self->x + self->w - e->w : self->x;
 		e->y = self->y;
-		
+
 		e->action = &iceDripForm;
 		e->draw = &drawLoopingAnimationToMap;
 		e->fallout = &entityDieNoDrop;
-		
+
 		e->thinkTime = 180;
-		
+
 		e->mental = 1;
-		
+
 		e->flags |= FLY;
-		
+
 		self->startX = e->w;
 	}
 }
@@ -191,14 +191,14 @@ static void moveOnCeiling()
 static void die()
 {
 	playSoundToMap("sound/enemy/armadillo/armadillo_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
 static void slimeWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime < 60)
 	{
 		if (self->thinkTime % 3 == 0)
@@ -206,48 +206,48 @@ static void slimeWait()
 			self->flags ^= NO_DRAW;
 		}
 	}
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void iceDripForm()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "ICE_DRIP_FORM");
-		
+
 		self->animationCallback = &iceDrip;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void iceDrip()
 {
 	setEntityAnimation(self, "ICE_DRIP");
-	
+
 	self->flags &= ~FLY;
-	
+
 	self->action = &iceDripWait;
-	
+
 	checkToMap(self);
 }
 
 static void iceDripWait()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		setEntityAnimation(self, "ICE_DRIP_FINISH");
-		
+
 		self->animationCallback = &iceForm;
 	}
 }
@@ -255,11 +255,11 @@ static void iceDripWait()
 static void iceForm()
 {
 	setEntityAnimation(self, "ICE");
-	
+
 	self->touch = &iceSlimeTouch;
-	
+
 	self->thinkTime = self->maxThinkTime;
-	
+
 	self->action = &slimeWait;
 }
 
@@ -277,7 +277,7 @@ static void iceSlimeTouch(Entity *other)
 	{
 		setCustomAction(other, &removeFriction, 3, 0, 0);
 	}
-	
+
 	else if (other->mental == 0 && strcmpignorecase(other->name, "enemy/slug_slime") == 0)
 	{
 		other->inUse = FALSE;
@@ -287,13 +287,13 @@ static void iceSlimeTouch(Entity *other)
 static void creditsMove()
 {
 	self->face = RIGHT;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

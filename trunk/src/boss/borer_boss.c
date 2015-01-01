@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -509,7 +509,7 @@ static void rockMove()
 	if (self->dirX == 0)
 	{
 		playSoundToMap("sound/common/rock_bounce", -1, self->x, self->y, 0);
-		
+
 		e = addSmallRock(self->x, self->y, "common/small_rock");
 
 		e->x += (self->w - e->w) / 2;
@@ -553,7 +553,7 @@ static void boulderMove()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		playSoundToMap("sound/common/rock_shatter", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;

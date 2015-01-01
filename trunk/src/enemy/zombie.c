@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -81,7 +81,7 @@ Entity *addZombie(int x, int y, char *name)
 static void init()
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add a Zombie Head");
@@ -102,16 +102,16 @@ static void init()
 	}
 
 	e->y = self->y + e->offsetY;
-	
+
 	e->head = self;
-	
+
 	e->action = &headWait;
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = &creditsHeadMove;
-	
+
 	self->action = &rise;
-	
+
 	self->creditsAction = &creditsMove;
 }
 
@@ -157,7 +157,7 @@ static void rise()
 			self->thinkTime = 15;
 
 			self->action = &attackPlayer;
-			
+
 			setEntityAnimation(self, "WALK");
 
 			self->layer = MID_GROUND_LAYER;
@@ -207,9 +207,9 @@ static void touch(Entity *other)
 	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
 		setEntityAnimation(self, "ATTACK_1");
-		
+
 		self->takeDamage = entityTakeDamageNoFlinch;
-		
+
 		self->dirX = 0;
 
 		self->targetX = player.x;
@@ -241,7 +241,7 @@ static void stealItem()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "WALK");
-		
+
 		self->target = getRandomItem();
 
 		if (self->target != NULL)
@@ -282,7 +282,7 @@ static void leave()
 		self->dirX = 0;
 
 		self->action = &sink;
-		
+
 		setEntityAnimation(self, "STAND");
 
 		self->layer = BACKGROUND_LAYER;
@@ -323,10 +323,10 @@ static void die()
 	if (self->dirX != 0)
 	{
 		setCustomAction(self, &invulnerableNoFlash, 600, 0, 0);
-		
+
 		self->action = &walkOffScreen;
 	}
-	
+
 	else
 	{
 		entityDieNoDrop();
@@ -336,9 +336,9 @@ static void die()
 static void walkOffScreen()
 {
 	int startX = getMapStartX();
-	
+
 	checkToMap(self);
-	
+
 	if (self->x + self->w < startX || self->x > startX + SCREEN_WIDTH)
 	{
 		self->inUse = FALSE;
@@ -419,9 +419,9 @@ static void creditsMove()
 static void headWait()
 {
 	self->layer = self->head->layer;
-	
+
 	self->face = self->head->face;
-	
+
 	setEntityAnimation(self, self->head->animationName);
 
 	if (self->face == LEFT)
@@ -435,40 +435,40 @@ static void headWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->health <= 0)
 	{
 		self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
 		self->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
-		
+
 		self->action = &fallOff;
-		
+
 		self->thinkTime = 180;
 	}
-	
+
 	else
 	{
 		if (self->head->flags & NO_DRAW)
 		{
 			self->flags |= NO_DRAW;
 		}
-		
+
 		else
 		{
 			self->flags &= ~NO_DRAW;
 		}
-		
+
 		if (self->head->flags & FLASH)
 		{
 			self->flags |= FLASH;
 		}
-		
+
 		else
 		{
 			self->flags &= ~FLASH;
 		}
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -478,20 +478,20 @@ static void headWait()
 static void fallOff()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime < 90)
 		{
 			if (self->thinkTime % 3 == 0)
 			{
 				self->flags ^= NO_DRAW;
 			}
-			
+
 			if (self->thinkTime <= 0)
 			{
 				self->inUse = FALSE;
@@ -503,7 +503,7 @@ static void fallOff()
 static void creditsHeadMove()
 {
 	self->face = self->head->face;
-	
+
 	setEntityAnimation(self, self->head->animationName);
 
 	if (self->face == LEFT)
@@ -517,16 +517,16 @@ static void creditsHeadMove()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	self->mental++;
-	
+
 	if (self->mental != 0 && (self->mental % 300) == 0)
 	{
 		self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
 		self->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
-		
+
 		self->creditsAction = &fallOff;
-		
+
 		self->thinkTime = 360;
 	}
 }

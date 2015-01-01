@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ Entity *addWasp(int x, int y, char *name)
 	e->die = &die;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = &changeTarget;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -112,15 +112,15 @@ static void changeTarget(Entity *other)
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	self->thinkTime += 5;
 
 	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
@@ -130,6 +130,6 @@ static void creditsMove()
 static void die()
 {
 	playSoundToMap("sound/enemy/wasp/wasp_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }

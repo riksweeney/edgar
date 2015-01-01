@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -196,7 +196,7 @@ static void addTrail()
 	e->mental = self->target->mental;
 
 	e->action = &trailMove;
-	
+
 	e->thinkTime = 30;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -237,7 +237,7 @@ static void trailMove()
 				return;
 			}
 		}
-		
+
 		self->thinkTime = 30;
 
 		self->endX = e->x;
@@ -249,9 +249,9 @@ static void trailMove()
 
 	self->x += self->dirX;
 	self->y += self->dirY;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;

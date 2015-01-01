@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -56,7 +56,7 @@ int getCharacterCodeForTestString()
 
 	char *text[5];
 	int i, length, ch, highest, j;
-	
+
 	text[0] = _("Press Action to interact");
 	text[1] = _("Quickly turn left and right to shake off the slimes!");
 	text[2] = _("Thanks, this is perfect!");

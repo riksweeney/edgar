@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -69,7 +69,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->fallout = &fallout;
 
 		e->die = &die;
-		
+
 		e->creditsAction = &creditsPurpleMove;
 	}
 
@@ -80,7 +80,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->fallout = &fallout;
 
 		e->die = &redDie;
-		
+
 		e->creditsAction = &creditsRedMove;
 	}
 
@@ -89,7 +89,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->action = &entityWait;
 
 		e->die = &die;
-		
+
 		e->creditsAction = &creditsMove;
 	}
 
@@ -108,7 +108,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 static void die()
 {
 	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -142,13 +142,13 @@ static void redDie()
 
 		self->mental = 0;
 	}
-	
+
 	playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
 
 	self->thinkTime = 60 + prand() % 60;
 
 	self->action = &dropPurpleSlimes;
-	
+
 	self->creditsAction = &dropPurpleSlimes;
 
 	self->flags |= DO_NOT_PERSIST;
@@ -186,7 +186,7 @@ static void dropPurpleSlimes()
 		}
 
 		self->action = &entityDie;
-		
+
 		self->creditsAction = &creditsDie;
 	}
 }
@@ -273,7 +273,7 @@ static void attack()
 			self->thinkTime--;
 		}
 	}
-	
+
 	else
 	{
 		if (self->dirX == 0)
@@ -342,7 +342,7 @@ static void purpleAttack()
 			self->thinkTime--;
 		}
 	}
-	
+
 	else
 	{
 		if (self->dirX == 0)
@@ -439,7 +439,7 @@ static void layEgg()
 	for (i=0;i<count;i++)
 	{
 		e = addEnemy("enemy/jumping_slime_egg", 0, 0);
-		
+
 		e->pain = &enemyPain;
 
 		e->thinkTime = 120 + (prand() % 180);
@@ -457,7 +457,7 @@ static void layEgg()
 static void creditsMove()
 {
 	float dirX;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -469,7 +469,7 @@ static void creditsMove()
 			self->dirX = 3;
 
 			self->thinkTime = 30 + prand() % 30;
-			
+
 			if (prand() % 3 == 0)
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
@@ -486,11 +486,11 @@ static void creditsMove()
 			self->thinkTime--;
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
@@ -502,7 +502,7 @@ static void creditsPurpleMove()
 	int i;
 	float dirX;
 	Entity *e;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -514,7 +514,7 @@ static void creditsPurpleMove()
 			self->dirX = 3;
 
 			self->thinkTime = 30 + prand() % 30;
-			
+
 			if (prand() % 3 == 0)
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
@@ -524,9 +524,9 @@ static void creditsPurpleMove()
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
-			
+
 			self->mental++;
-			
+
 			if (self->mental == 7)
 			{
 				for (i=0;i<10;i++)
@@ -537,7 +537,7 @@ static void creditsPurpleMove()
 
 					e->x = self->x + (self->w - e->w) / 2;
 					e->y = self->y;
-					
+
 					e->x += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
 
 					e->startX = e->x;
@@ -551,11 +551,11 @@ static void creditsPurpleMove()
 			self->thinkTime--;
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
@@ -565,7 +565,7 @@ static void creditsPurpleMove()
 static void creditsRedMove()
 {
 	float dirX;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -577,7 +577,7 @@ static void creditsRedMove()
 			self->dirX = 3;
 
 			self->thinkTime = 30 + prand() % 30;
-			
+
 			if (prand() % 3 == 0)
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump2", -1, self->x, self->y, 0);
@@ -587,13 +587,13 @@ static void creditsRedMove()
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump1", -1, self->x, self->y, 0);
 			}
-			
+
 			self->mental++;
-			
+
 			if (self->mental == 10)
 			{
 				playSoundToMap("sound/enemy/jumping_slime/slime_die", -1, self->x, self->y, 0);
-				
+
 				self->die();
 			}
 		}
@@ -603,11 +603,11 @@ static void creditsRedMove()
 			self->thinkTime--;
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
@@ -617,7 +617,7 @@ static void creditsRedMove()
 static void creditsDie()
 {
 	self->thinkTime++;
-	
+
 	if (self->thinkTime > 180)
 	{
 		self->inUse = FALSE;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -1282,33 +1282,33 @@ int onSingleTile(Entity *e)
 	y++;
 
 	midTile = mapTileAt(x, y);
-	
+
 	leftTile = mapTileAt(x - 1, y);
-	
+
 	rightTile = mapTileAt(x + 1, y);
-	
+
 	wallLeft = mapTileAt(x - 1, y - 1);
-	
+
 	wallRight = mapTileAt(x + 1, y - 1);
-	
+
 	/* On a tile with nothing either side */
 	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && leftTile == BLANK_TILE && rightTile == BLANK_TILE)
 	{
 		return TRUE;
 	}
-	
+
 	/* On a tile with nothing on the left and a wall on the right */
 	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && leftTile == BLANK_TILE && (wallRight != BLANK_TILE && wallRight < BACKGROUND_TILE_START))
 	{
 		return TRUE;
 	}
-	
+
 	/* On a tile with nothing on the right and a wall on the left */
 	if ((midTile != BLANK_TILE && midTile < BACKGROUND_TILE_START) && rightTile == BLANK_TILE && (wallLeft != BLANK_TILE && wallLeft < BACKGROUND_TILE_START))
 	{
 		return TRUE;
 	}
-	
+
 	return FALSE;
 }
 

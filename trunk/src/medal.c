@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -42,9 +42,9 @@ void initMedals()
 	messageHead.next = NULL;
 
 	medalQueue.medalMessage.text[0] = '\0';
-	
+
 	loadMedals();
-	
+
 	loadObtainedMedals();
 }
 
@@ -61,22 +61,22 @@ void processMedals()
 	if (strlen(medalQueue.medalMessage.text) == 0)
 	{
 		awardedMedalIndex = -1;
-		
+
 		getNextMedalFromQueue();
-		
+
 		medalQueue.thinkTime = 60;
 	}
-	
+
 	else
 	{
 		medalQueue.thinkTime--;
-		
+
 		if (medalQueue.thinkTime <= 0)
 		{
 			medalQueue.thinkTime = 0;
-			
+
 			showMedal(medal[awardedMedalIndex].medalType, medal[awardedMedalIndex].description);
-			
+
 			medalQueue.thinkTime = 60;
 		}
 	}
@@ -116,7 +116,7 @@ static void getNextMedalFromQueue()
 {
 	int i, medalsAwarded;
 	Message *head = messageHead.next;
-	
+
 	medalsAwarded = 0;
 
 	if (head != NULL)
@@ -126,12 +126,12 @@ static void getNextMedalFromQueue()
 			if (medal[i].obtained == FALSE && strcmpignorecase(medal[i].code, head->text) == 0)
 			{
 				STRNCPY(medalQueue.medalMessage.text, head->text, sizeof(medalQueue.medalMessage.text));
-				
+
 				medal[i].obtained = TRUE;
-				
+
 				awardedMedalIndex = i;
 			}
-			
+
 			if (medal[i].obtained == TRUE)
 			{
 				medalsAwarded++;
@@ -142,7 +142,7 @@ static void getNextMedalFromQueue()
 
 		free(head);
 	}
-	
+
 	if (medalsAwarded == medalCount - 1)
 	{
 		addMedal("all_medals");
@@ -163,13 +163,13 @@ void freeMedalQueue()
 	messageHead.next = NULL;
 
 	medalQueue.medalMessage.text[0] = '\0';
-	
+
 	if (medal != NULL)
 	{
 		saveObtainedMedals();
-		
+
 		free(medal);
-		
+
 		medal = NULL;
 	}
 }
@@ -184,74 +184,74 @@ static void loadMedals()
 	int i;
 	char *line, *medalType, *hidden, *code, *description, *savePtr1, *savePtr2;
 	unsigned char *buffer;
-	
+
 	savePtr1 = NULL;
-	
+
 	savePtr2 = NULL;
 
 	buffer = loadFileFromPak("data/medals.dat");
-	
+
 	medalCount = countTokens((char *)buffer, "\n");
-	
+
 	medal = malloc(medalCount * sizeof(Medal));
-	
+
 	if (medal == NULL)
 	{
 		showErrorAndExit("Failed to allocate %d bytes for Medals", medalCount * (int)sizeof(Medal));
 	}
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
-	
+
 	i = 0;
-	
+
 	while (line != NULL)
 	{
 		code = strtok_r(line, " ", &savePtr2);
-		
+
 		medalType = strtok_r(NULL, " ", &savePtr2);
-		
+
 		hidden = strtok_r(NULL, " ", &savePtr2);
-		
+
 		description = strtok_r(NULL, "\0", &savePtr2);
-		
+
 		STRNCPY(medal[i].code, code, sizeof(medal[i].code));
-		
+
 		if (strcmpignorecase(medalType, "B") == 0)
 		{
 			medal[i].medalType = 0;
 		}
-		
+
 		else if (strcmpignorecase(medalType, "S") == 0)
 		{
 			medal[i].medalType = 1;
 		}
-		
+
 		else if (strcmpignorecase(medalType, "G") == 0)
 		{
 			medal[i].medalType = 2;
 		}
-		
+
 		else if (strcmpignorecase(medalType, "R") == 0)
 		{
 			medal[i].medalType = 3;
 		}
-		
+
 		else
 		{
 			showErrorAndExit("Unknown Medal type %s", medalType);
 		}
-		
+
 		medal[i].hidden = strcmpignorecase(hidden, "Y") == 0 ? TRUE : FALSE;
-		
+
 		STRNCPY(medal[i].description, description, sizeof(medal[i].description));
-		
+
 		medal[i].obtained = FALSE;
-		
+
 		i++;
-		
+
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
-	
+
 	free(buffer);
 }
 
@@ -268,13 +268,13 @@ int getMedalCount()
 void setObtainedMedal(char *medalCode)
 {
 	int i;
-	
+
 	for (i=0;i<medalCount;i++)
 	{
 		if (strcmpignorecase(medal[i].code, medalCode) == 0)
 		{
 			medal[i].obtained = TRUE;
-			
+
 			break;
 		}
 	}

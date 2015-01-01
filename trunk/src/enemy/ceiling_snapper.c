@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -74,7 +74,7 @@ Entity *addCeilingSnapper(int x, int y, char *name)
 static void init()
 {
 	createVine();
-	
+
 	self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
 
 	self->endY -= self->startY;
@@ -232,7 +232,7 @@ static void vineWait()
 static int drawVine()
 {
 	int y = self->head->startY - self->h;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y > y)

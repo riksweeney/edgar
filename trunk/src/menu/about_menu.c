@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -84,7 +84,7 @@ static void loadMenuLayout()
 	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 
 	y += menu.widgets[0]->selectedState->h + BUTTON_PADDING;
-	
+
 	snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
 	menu.widgets[1] = createWidget(copyright, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
@@ -143,7 +143,7 @@ void freeAboutMenu()
 		}
 
 		free(menu.widgets);
-		
+
 		menu.widgets = NULL;
 	}
 

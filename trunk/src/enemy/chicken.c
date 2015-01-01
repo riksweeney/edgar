@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -56,7 +56,7 @@ Entity *addChicken(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->resumeNormalFunction = &resumeNormalFunction;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -70,13 +70,13 @@ static void lookForFood()
 {
 	int distance, newDistance;
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	newDistance = distance = -1;
-	
+
 	self->target = NULL;
-	
+
 	self->mental = 0;
 
 	for (el=entities->next;el!=NULL;el=el->next)
@@ -178,7 +178,7 @@ static void moveToFood()
 	if (self->target->health <= 3 || self->target->inUse == FALSE)
 	{
 		self->target = NULL;
-		
+
 		self->action = &wander;
 	}
 
@@ -207,7 +207,7 @@ static void moveToFood()
 		{
 			self->target->thinkTime = 600;
 		}
-		
+
 		self->mental = 1;
 
 		self->action = &doNothing;
@@ -235,7 +235,7 @@ static void finishEating()
 		self->action = &lookForFood;
 
 		self->thinkTime = 0;
-		
+
 		self->mental = 0;
 	}
 
@@ -244,7 +244,7 @@ static void finishEating()
 		if (strcmpignorecase(self->target->name, "item/chicken_feed") == 0)
 		{
 			self->target->thinkTime = 600;
-			
+
 			self->target->flags &= ~NO_DRAW;
 		}
 
@@ -259,11 +259,11 @@ static void finishEating()
 static void creditsMove()
 {
 	setEntityAnimation(self, "WALK");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

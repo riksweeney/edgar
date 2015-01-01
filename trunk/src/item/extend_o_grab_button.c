@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ Entity *addExtendOGrabButton(int x, int y, char *name)
 static void init()
 {
 	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
-	
+
 	self->dirY = 0;
 
 	self->action = &entityWait;
@@ -96,7 +96,7 @@ static void entityWait()
 			stopSound(self->endX);
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

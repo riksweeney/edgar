@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -60,7 +60,7 @@ Entity *addSummoner(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -180,7 +180,7 @@ static void summon()
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	self->action = &summonWait;
-	
+
 	self->creditsAction = &summonWait;
 
 	setEntityAnimation(self, "ATTACK_2");
@@ -205,7 +205,7 @@ static void summonEnd()
 	setEntityAnimation(self, "STAND");
 
 	self->action = &lookForPlayer;
-	
+
 	self->creditsAction = &creditsMove;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
@@ -216,7 +216,7 @@ static void summonEnd()
 static void die()
 {
 	playSoundToMap("sound/enemy/gazer/gazer_die", -1, self->x, self->y, 0);
-	
+
 	self->dirY = 0;
 
 	entityDie();
@@ -225,22 +225,22 @@ static void die()
 static void creditsMove()
 {
 	hover();
-	
+
 	self->thinkTime++;
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->thinkTime == 180)
 	{
 		STRNCPY(self->requires, "armadillo", MAX_VALUE_LENGTH);
-		
+
 		self->creditsAction = &summonWait;
 
 		setEntityAnimation(self, "ATTACK_1");

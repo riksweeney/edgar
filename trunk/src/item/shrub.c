@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ Entity *addShrub(int x, int y, char *name)
 static void touch(Entity *other)
 {
 	Entity *temp;
-	
+
 	pushEntity(other);
 
 	if ((other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
@@ -82,17 +82,17 @@ static void touch(Entity *other)
 			{
 				self->action = &die;
 			}
-			
+
 			else
 			{
 				playSoundToMap("sound/item/chop", -1, self->x, self->y, 0);
 			}
 		}
-		
+
 		else
 		{
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-			
+
 			playSoundToMap("sound/common/dink", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
@@ -105,7 +105,7 @@ static void touch(Entity *other)
 
 				self = temp;
 			}
-			
+
 			if (other->type != PROJECTILE && prand() % 10 == 0)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));

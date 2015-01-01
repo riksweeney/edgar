@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -54,20 +54,20 @@ void drawStatsMenu()
 static void doMenu()
 {
 	int xAxisMoved, yAxisMoved;
-	
+
 	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		playSound("sound/common/click");
 
 		showMainMenu();
 	}
-	
+
 	xAxisMoved = input.xAxisMoved;
 	yAxisMoved = input.yAxisMoved;
 
 	memset(&menuInput, 0, sizeof(Input));
 	memset(&input, 0, sizeof(Input));
-	
+
 	input.xAxisMoved = xAxisMoved;
 	input.yAxisMoved = yAxisMoved;
 }
@@ -215,7 +215,7 @@ void freeStatsMenu()
 		}
 
 		free(menu.widgets);
-		
+
 		menu.widgets = NULL;
 	}
 

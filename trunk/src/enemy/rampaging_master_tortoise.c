@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ Entity *addRampagingMasterTortoise(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	e->resumeNormalFunction = &resumeNormal;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -268,7 +268,7 @@ static void riftAttackFinish()
 static void die()
 {
 	Entity *e;
-	
+
 	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	if (getInventoryItemByObjectiveName("Tortoise Shell") == NULL)
@@ -323,7 +323,7 @@ static void changeWalkDirection()
 	self->thinkTime--;
 
 	self->action = &changeWalkDirection;
-	
+
 	self->creditsAction = &changeWalkDirection;
 
 	setEntityAnimation(self, "CUSTOM_2");
@@ -339,7 +339,7 @@ static void changeWalkDirection()
 		self->animationCallback = &changeWalkDirectionFinish;
 
 		self->action = &entityWait;
-		
+
 		self->creditsAction = &entityWait;
 	}
 
@@ -353,7 +353,7 @@ static void changeWalkDirectionFinish()
 	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
-	
+
 	self->creditsAction = &creditsMove;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
@@ -388,7 +388,7 @@ static void riftMove()
 		else
 		{
 			self->health = playSoundToMap("sound/item/rift", -1, self->x, self->y, -1);
-			
+
 			self->thinkTime = 300;
 
 			self->touch = &riftTouch;
@@ -407,7 +407,7 @@ static void riftWait()
 	if (self->thinkTime <= 0)
 	{
 		stopSound(self->health);
-		
+
 		self->action = &riftClose;
 
 		self->thinkTime = 20;
@@ -533,7 +533,7 @@ static void riftDestroyWait()
 	if (self->mental <= 0)
 	{
 		stopSound(self->health);
-		
+
 		self->thinkTime = 20;
 
 		self->action = &riftClose;
@@ -849,7 +849,7 @@ static int draw()
 		{
 			shakeScreen(LIGHT, 5);
 		}
-		
+
 		addSparkles();
 	}
 
@@ -861,14 +861,14 @@ static void resumeNormal()
 	self->face = player.x < self->x ? RIGHT : LEFT;
 
 	self->action = &changeWalkDirection;
-	
+
 	self->creditsAction = &changeWalkDirection;
 }
 
 static void creditsMove()
 {
 	float dirX;
-	
+
 	if (self->maxThinkTime == 1)
 	{
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
@@ -890,11 +890,11 @@ static void creditsMove()
 	{
 		self->maxThinkTime = 0;
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;

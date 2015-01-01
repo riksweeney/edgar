@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -74,7 +74,7 @@ static void die()
 static void move()
 {
 	moveLeftToRight();
-	
+
 	if (onSingleTile(self) == TRUE)
 	{
 		self->action = &moveReckless;
@@ -84,7 +84,7 @@ static void move()
 static void moveReckless()
 {
 	long onGround = self->flags & ON_GROUND;
-	
+
 	if (self->dirX == 0)
 	{
 		self->x += self->face == LEFT ? self->box.x : -self->box.x;
@@ -110,7 +110,7 @@ static void moveReckless()
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-	
+
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		if (landedOnGround(onGround) == TRUE)

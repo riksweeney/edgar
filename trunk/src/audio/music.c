@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -110,7 +110,7 @@ static int musicTracksLength = sizeof(newMusicTracks) / sizeof(char *);
 void loadMusic(char *musicToLoad)
 {
 	char *name;
-	
+
 	if (strcmpignorecase(musicName, musicToLoad) != 0)
 	{
 		STRNCPY(musicName, musicToLoad, MAX_VALUE_LENGTH);
@@ -122,7 +122,7 @@ void loadMusic(char *musicToLoad)
 	}
 
 	freeMusic();
-	
+
 	name = getSongName(musicToLoad, 0);
 
 	if (name == NULL || strcmpignorecase(name, "NO_MUSIC") == 0)
@@ -131,12 +131,12 @@ void loadMusic(char *musicToLoad)
 	}
 
 	music = loadMusicFromPak(name);
-	
+
 	if (music != NULL)
 	{
 		return;
 	}
-	
+
 	name = getSongName(musicToLoad, 1);
 
 	if (name == NULL || strcmpignorecase(name, "NO_MUSIC") == 0)
@@ -169,7 +169,7 @@ void playLoadedMusic()
 	loadMusic(musicName);
 
 	Mix_PlayMusic(music, -1);
-	
+
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
@@ -178,7 +178,7 @@ void playMapMusic()
 	loadMusic(getMapMusic());
 
 	Mix_PlayMusic(music, -1);
-	
+
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
@@ -218,7 +218,7 @@ void pauseMusic(int pause)
 void updateMusicVolume()
 {
 	Mix_ResumeMusic();
-	
+
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
@@ -234,7 +234,7 @@ void playDefaultBossMusic()
 	#endif
 
 	Mix_PlayMusic(music, -1);
-	
+
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
@@ -250,7 +250,7 @@ void playBossMusic(char *name)
 	#endif
 
 	Mix_PlayMusic(music, -1);
-	
+
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
@@ -289,14 +289,14 @@ static void playGameOverMusic()
 	loadMusic("GAMEOVER_MUSIC");
 
 	Mix_PlayMusic(music, -1);
-	
+
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 static char *getSongName(char *name, int oldSong)
 {
 	int i;
-	
+
 	if (oldSong == 1)
 	{
 		for (i=0;i<musicTracksLength;i+=2)
@@ -307,7 +307,7 @@ static char *getSongName(char *name, int oldSong)
 			}
 		}
 	}
-	
+
 	else
 	{
 		for (i=0;i<musicTracksLength;i+=2)
@@ -318,8 +318,8 @@ static char *getSongName(char *name, int oldSong)
 			}
 		}
 	}
-	
+
 	printf("Could not match song: %s\n", name);
-	
+
 	return NULL;
 }

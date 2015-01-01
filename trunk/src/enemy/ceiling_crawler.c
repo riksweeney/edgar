@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -65,7 +65,7 @@ Entity *addCeilingCrawler(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -110,7 +110,7 @@ static void moveOnFloor()
 static void die()
 {
 	playSoundToMap("sound/enemy/ceiling_crawler/ceiling_crawler_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -179,7 +179,7 @@ static void changeWait()
 		}
 
 		self->action = &changeFloor;
-		
+
 		self->creditsAction = &changeFloor;
 	}
 
@@ -195,7 +195,7 @@ static void changeFloor()
 		self->thinkTime = self->maxThinkTime;
 
 		self->action = !(self->flags & FLY) ? &moveOnFloor : &moveOnCeiling;
-		
+
 		self->creditsAction = &creditsMove;
 
 		setEntityAnimation(self, !(self->flags & FLY) ? "STAND" : "WALK");
@@ -387,16 +387,16 @@ static void riseUp()
 static void creditsMove()
 {
 	self->thinkTime++;
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->thinkTime != 0 && (self->thinkTime % 300) == 0)
 	{
 		if ((!(self->flags & FLY) && safeToRise() == TRUE) || ((self->flags & FLY) && safeToDrop() == TRUE))
@@ -404,7 +404,7 @@ static void creditsMove()
 			self->dirX = 0;
 
 			self->thinkTime = 60;
-			
+
 			self->creditsAction = &changeWait;
 		}
 	}

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -53,7 +53,7 @@ Entity *addLightBeam(int x, int y, char *name)
 	e->draw = &draw;
 
 	e->face = RIGHT;
-	
+
 	e->health = 5;
 
 	setEntityAnimation(e, "STAND");
@@ -66,7 +66,7 @@ static void entityWait()
 	int x1, y1, x2, y2, w1, h1, w2, h2;
 	EntityList *el, *entities;
 	Entity *other;
-	
+
 	if (self->dirX > 0)
 	{
 		self->endX = getMapRight(self->startX, self->startY);
@@ -94,25 +94,25 @@ static void entityWait()
 
 		self->box.h = self->startY - self->y;
 	}
-	
+
 	entities = getEntities();
-	
+
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
 		other = el->entity;
-		
+
 		if (other->inUse == TRUE && (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == WEAK_WALL))
 		{
 			x1 = self->x + self->box.x;
 			y1 = self->y + self->box.y;
 			w1 = self->box.w;
 			h1 = self->box.h;
-			
+
 			x2 = other->x + other->box.x;
 			y2 = other->y + other->box.y;
 			w2 = other->box.w;
 			h2 = other->box.h;
-			
+
 			if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 			{
 				if (self->dirX > 0)
@@ -174,5 +174,5 @@ static int draw()
 
 static void touch(Entity *other)
 {
-	
+
 }

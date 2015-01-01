@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -71,23 +71,23 @@ Entity *addGrimloreSummonSpell(int x, int y, char *name)
 static void init()
 {
 	self->startY = getMapCeiling(self->x, self->y);
-	
+
 	self->endY = getMapFloor(self->x, self->y) - self->h;
-	
+
 	if (self->targetX != -1)
 	{
 		playSoundToMap("sound/boss/grimlore/grimlore_summon", BOSS_CHANNEL, self->x, self->y, -1);
-		
+
 		self->targetX = -1;
 	}
-	
+
 	if (self->mental == 1)
 	{
 		self->layer = FOREGROUND_LAYER;
 	}
-	
+
 	setEntityAnimation(self, "APPEAR");
-	
+
 	self->animationCallback = &appearDone;
 }
 
@@ -98,23 +98,23 @@ static void entityWait()
 		if (self->health == 0)
 		{
 			setContinuePoint(FALSE, self->name, NULL);
-			
+
 			self->health = 1;
 		}
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->layer = FOREGROUND_LAYER;
-			
+
 			if (self->mental == 0)
 			{
 				self->target->flags &= ~NO_DRAW;
 			}
-			
+
 			setEntityAnimation(self, "DISAPPEAR");
-			
+
 			self->animationCallback = &disappearDone;
 		}
 	}
@@ -123,41 +123,41 @@ static void entityWait()
 static int draw()
 {
 	self->y = self->startY;
-	
+
 	drawLoopingAnimationToMap();
-	
+
 	while (self->y < self->endY)
 	{
 		self->y += self->h;
-		
+
 		drawSpriteToMap();
 	}
-	
+
 	return TRUE;
 }
 
 static void particleMove()
 {
 	self->y -= self->dirY;
-	
+
 	if (self->y < self->startY)
 	{
 		setEntityAnimationByID(self, prand() % 3);
-		
+
 		self->x = self->head->x + self->head->box.x;
 		self->y = self->head->startY;
-		
+
 		self->startY = self->head->startY - self->h;
-		
+
 		self->x += prand() % (self->head->box.w - self->w);
-		
+
 		self->y += self->head->endY - self->head->startY + self->h;
-		
+
 		self->dirY = 50 + prand() % 100;
-		
+
 		self->dirY /= 10;
 	}
-	
+
 	if (self->head->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
@@ -168,9 +168,9 @@ static void appearDone()
 {
 	int i;
 	Entity *e;
-	
+
 	self->action = &entityWait;
-	
+
 	for (i=0;i<5;i++)
 	{
 		e = getFreeEntity();
@@ -181,70 +181,70 @@ static void appearDone()
 		}
 
 		loadProperties("boss/grimlore_summon_spell_particle", e);
-		
+
 		setEntityAnimationByID(e, prand() % 3);
-		
+
 		e->x = self->x + self->box.x;
 		e->y = self->startY;
-		
+
 		e->startY = self->startY - e->h;
-		
+
 		e->x += prand() % (self->box.w - e->w);
-		
+
 		e->y += self->endY - self->startY + (prand() % SCREEN_HEIGHT);
-		
+
 		e->dirY = 50 + prand() % 100;
-		
+
 		e->dirY /= 10;
-		
+
 		e->head = self;
-		
+
 		e->action = &particleMove;
 
 		e->draw = &drawLoopingAnimationToMap;
 	}
-	
+
 	if (self->mental == 0)
 	{
 		e = addGrimlore(self->x, self->y, "boss/grimlore");
-		
+
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
-		
+
 		e->flags |= NO_DRAW;
-		
+
 		self->target = e;
-		
+
 		e->head = self;
 	}
-	
+
 	else
 	{
 		self->target = getEntityByObjectiveName("GRIMLORE");
-		
+
 		self->target->flags |= NO_DRAW;
-		
+
 		self->layer = BACKGROUND_LAYER;
 	}
-	
+
 	setEntityAnimation(self, "STAND");
 }
 
 static void disappearDone()
 {
 	Entity *temp, *e;
-	
+
 	if (self->mental == 0)
 	{
 		self->target->head = NULL;
 	}
-	
+
 	else
 	{
 		temp = self;
-		
+
 		self = self->target;
-		
+
 		clearContinuePoint();
 
 		increaseKillCount();
@@ -258,11 +258,11 @@ static void disappearDone()
 		fadeBossMusic();
 
 		entityDieVanish();
-		
+
 		self = temp;
 	}
-	
+
 	stopSound(BOSS_CHANNEL);
-	
+
 	self->inUse = FALSE;
 }

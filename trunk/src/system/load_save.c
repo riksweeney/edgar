@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -126,9 +126,9 @@ void newGame()
 	freeGameResources();
 
 	initGame();
-	
+
 	stopMusic();
-	
+
 	game.overrideMusic = TRUE;
 
 	loadMap("map04", TRUE);
@@ -212,7 +212,7 @@ int loadGame(int slot)
 			sscanf(line, "%*s %s\n", itemName);
 
 			version = atof(itemName);
-			
+
 			if (version > VERSION)
 			{
 				printf("Save file version is newer than game version. This game might not work correctly.\n");
@@ -593,7 +593,7 @@ void saveGame(int slot)
 		/* Backup older save */
 
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
-		
+
 		snprintf(tempSaveFile, sizeof(tempSaveFile), "%stempsave%d", gameSavePath, slot);
 	}
 
@@ -758,9 +758,9 @@ void saveGame(int slot)
 	#endif
 
 	compressFile(tempSaveFile);
-	
+
 	copyFile(tempSaveFile, saveFile);
-	
+
 	remove(tempSaveFile);
 
 	updateSaveFileIndex(slot);

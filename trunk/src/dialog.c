@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -67,11 +67,11 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	{
 		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(msg) + 1);
 	}
-	
+
 	STRNCPY(text, msg, strlen(msg) + 1);
-	
+
 	titleText = NULL;
-	
+
 	if (title != NULL)
 	{
 		titleText = malloc(strlen(title) + 1);
@@ -100,17 +100,17 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	if (titleText != NULL)
 	{
 		token = titleText;
-		
+
 		while (*token != '\0')
 		{
 			if (*token == '_')
 			{
 				*token = ' ';
 			}
-			
+
 			token++;
 		}
-		
+
 		lines++;
 	}
 
@@ -152,35 +152,35 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		lineBreak = FALSE;
 
 		snprintf(word, sizeof(word), "%d", game.kills);
-		
+
 		token = replaceString(token, "[GAME_KILLS]", word);
-		
+
 		token = replaceString(token, "[HOURS]", getPlayTimeHours());
-		
+
 		snprintf(word, sizeof(word), "%d", game.continues);
-		
+
 		token = replaceString(token, "[CONTINUE_COUNT]", word);
-		
+
 		token = replaceString(token, "[INPUT_LEFT]", getKeyValue(control.button[CONTROL_LEFT]));
-		
+
 		token = replaceString(token, "[INPUT_RIGHT]", getKeyValue(control.button[CONTROL_RIGHT]));
-		
+
 		token = replaceString(token, "[INPUT_JUMP]", getKeyValue(control.button[CONTROL_JUMP]));
-		
+
 		token = replaceString(token, "[INPUT_BLOCK]", getKeyValue(control.button[CONTROL_BLOCK]));
-		
+
 		token = replaceString(token, "[INPUT_ATTACK]", getKeyValue(control.button[CONTROL_ATTACK]));
-		
+
 		token = replaceString(token, "[INPUT_INTERACT]", getKeyValue(control.button[CONTROL_INTERACT]));
-		
+
 		token = replaceString(token, "[INPUT_ACTIVATE]", getKeyValue(control.button[CONTROL_ACTIVATE]));
-		
+
 		token = replaceString(token, "[INPUT_INVENTORY]", getKeyValue(control.button[CONTROL_INVENTORY]));
-		
+
 		token = replaceString(token, "[INPUT_PREVIOUS]", getKeyValue(control.button[CONTROL_PREVIOUS]));
-		
+
 		token = replaceString(token, "[INPUT_NEXT]", getKeyValue(control.button[CONTROL_NEXT]));
-		
+
 		snprintf(word, sizeof(word), "%s ", token);
 
 		if (word[strlen(word) - 2] == '\n')
@@ -189,9 +189,9 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 			word[strlen(word) - 2] = '\0';
 		}
-		
+
 		token = strtok_r(NULL, " ", &savePtr);
-		
+
 		if (token == NULL)
 		{
 			word[strlen(word) - 1] = '\0';
@@ -269,7 +269,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	free(surface);
 
 	free(text);
-	
+
 	if (titleText != NULL)
 	{
 		free(titleText);
@@ -285,7 +285,7 @@ void doDialogBox()
 	if (dialogBox.thinkTime > 0)
 	{
 		dialogBox.thinkTime--;
-		
+
 		if (dialogBox.thinkTime == 0)
 		{
 			freeDialogBox();
@@ -308,7 +308,7 @@ void freeDialogBox()
 		SDL_FreeSurface(dialogBox.dialogSurface);
 
 		dialogBox.dialogSurface = NULL;
-		
+
 		dialogBox.thinkTime = 0;
 	}
 }
@@ -319,17 +319,17 @@ static char *replaceString(char *string, char *find, char *replace)
 	char *p;
 
 	p = strstr(string, find);
-	
+
 	if (p == NULL)
 	{
 		return string;
 	}
-	
+
 	strncpy(buffer, string, p - string);
-	
+
 	buffer[p - string] = '\0';
-	
+
 	snprintf(buffer + (p - string), MAX_VALUE_LENGTH, "%s%s", replace, p + strlen(find));
-	
+
 	return buffer;
 }

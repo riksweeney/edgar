@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ static void entityWait()
 		if (self->active == TRUE)
 		{
 			setCustomAction(self->target, &helpless, 5, 0, 0);
-			
+
 			self->target->health = self->target->maxHealth * 100;
 
 			if (self->target->y > self->y + self->h)
@@ -114,7 +114,7 @@ static void entityWait()
 		else
 		{
 			self->target->health = self->target->maxHealth;
-			
+
 			self->target->flags &= ~FLY;
 
 			self->target = NULL;

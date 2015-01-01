@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -80,29 +80,29 @@ void doInventoryMenu()
 	else if (input.block == TRUE || input.interact == TRUE)
 	{
 		input.block = FALSE;
-		
+
 		input.interact = FALSE;
 
 		selectInventoryItem();
 
 		playSound("sound/common/click");
 	}
-	
+
 	else if (input.next == TRUE)
 	{
 		input.next = FALSE;
-		
+
 		moveInventoryItem(1);
-		
+
 		playSound("sound/common/click");
 	}
-	
+
 	else if (input.previous == TRUE)
 	{
 		input.previous = FALSE;
-		
+
 		moveInventoryItem(-1);
-		
+
 		playSound("sound/common/click");
 	}
 }

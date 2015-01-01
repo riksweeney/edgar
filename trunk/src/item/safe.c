@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -75,19 +75,19 @@ static void init()
 
 		self->activate = &activate;
 	}
-	
+
 	else
 	{
 		if (self->health == -99)
 		{
 			setEntityAnimation(self, "OPEN");
 		}
-		
+
 		self->touch = NULL;
 
 		self->activate = NULL;
 	}
-	
+
 	self->action = &entityWait;
 }
 
@@ -121,9 +121,9 @@ static void activate(int val)
 		}
 
 		STRNCPY(self->requires, e->requires, sizeof(self->requires));
-		
+
 		runScript("has_combination");
-		
+
 		return;
 	}
 
@@ -218,10 +218,10 @@ static void readInputCode()
 				self->action = &entityWait;
 
 				setPlayerLocked(FALSE);
-				
+
 				runScript("correct_combination");
 			}
-			
+
 			else
 			{
 				self->target->inUse = FALSE;
@@ -229,11 +229,11 @@ static void readInputCode()
 				self->action = &entityWait;
 
 				setPlayerLocked(FALSE);
-				
+
 				self->activate = &activate;
 
 				self->touch = &touch;
-				
+
 				runScript("incorrect_combination");
 			}
 		}

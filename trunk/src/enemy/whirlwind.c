@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -60,7 +60,7 @@ Entity *addWhirlwind(int x, int y, char *name)
 	e->touch = &touch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -253,7 +253,7 @@ static void die()
 			self->target->inUse = FALSE;
 		}
 	}
-	
+
 	playSoundToMap("sound/enemy/whirlwind/whirlwind_die", -1, self->x, self->y, 0);
 
 	entityDie();
@@ -271,11 +271,11 @@ static void addExitTrigger(Entity *e)
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

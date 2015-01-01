@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -137,7 +137,7 @@ static void bodyWait()
 static void initialise()
 {
 	Target *t;
-	
+
 	self->flags |= NO_DRAW;
 
 	if (self->active == TRUE)
@@ -395,7 +395,7 @@ static void biteAttackWindUp()
 		self->action = &biteAttack;
 
 		self->reactToBlock = &biteReactToBlock;
-		
+
 		self->dirX = (self->targetX < self->x ? -self->speed * 2 : self->speed * 2);
 	}
 
@@ -484,7 +484,7 @@ static void shotAttack()
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
-			
+
 			e->action = &specialShotMove;
 
 			e->reactToBlock = &specialShotBlock;
@@ -1058,14 +1058,14 @@ static void specialShotMove()
 
 		self->die = &entityDieNoDrop;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void specialShotBlock(Entity *other)
 {
 	self->dirX = 0;
-	
+
 	self->flags &= ~FLY;
 }
 
@@ -1117,7 +1117,7 @@ static void biteReactToBlock(Entity *other)
 	self->dirX = 0;
 
 	self->targetX = self->x;
-	
+
 	self->x = (int)self->x;
 }
 

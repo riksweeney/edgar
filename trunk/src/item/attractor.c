@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ Entity *addAttractor(int x, int y, char *name)
 static void entityWait()
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
@@ -77,7 +77,7 @@ static void entityWait()
 		{
 			self->health = playSoundToMap("sound/item/rift", -1, self->x, self->y, -1);
 		}
-		
+
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
@@ -97,7 +97,7 @@ static void entityWait()
 			{
 				setCustomAction(&player, &attract, self->maxThinkTime, 0, (player.x < (self->x + self->w / 2) ? self->speed : -self->speed));
 			}
-			
+
 			stopSound(self->health);
 		}
 

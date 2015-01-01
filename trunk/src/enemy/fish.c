@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -78,7 +78,7 @@ static void init()
 	if (self->mental == 1)
 	{
 		self->endY = getWaterTop(self->x, self->y + self->h / 2);
-		
+
 		self->endY -= TILE_SIZE;
 
 		self->touch = NULL;
@@ -91,7 +91,7 @@ static void init()
 	else
 	{
 		self->endY = getWaterTop(self->x, self->y);
-		
+
 		self->action = &swim;
 	}
 }
@@ -115,9 +115,9 @@ static void swim()
 	if (self->mental == 1)
 	{
 		playSoundToMap("sound/common/slime", -1, self->x, self->y, 0);
-		
+
 		self->endY = getWaterTop(self->x, self->y);
-		
+
 		self->endY = self->endY - TILE_SIZE;
 
 		self->damage = 0;
@@ -132,7 +132,7 @@ static void swim()
 
 		fireGlobalTrigger(self->objectiveName);
 	}
-	
+
 	else if (self->environment == AIR)
 	{
 		self->x = self->startX;
@@ -193,7 +193,7 @@ static void fallout()
 static void lookForPlayer()
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	if (player.health > 0 && player.environment == WATER && getDistanceFromPlayer(self) < SCREEN_WIDTH)
@@ -273,7 +273,7 @@ static void moveToFood()
 		self->face = self->dirX < 0 ? LEFT : RIGHT;
 
 		checkToMap(self);
-		
+
 		self->endY = getWaterTop(self->x, self->y + self->h / 2);
 
 		if (self->y < self->endY)
@@ -290,7 +290,7 @@ static void touch(Entity *other)
 		if (self->thinkTime <= 0)
 		{
 			self->target->health--;
-			
+
 			self->target->mental++;
 
 			self->thinkTime = 30;
@@ -301,7 +301,7 @@ static void touch(Entity *other)
 			{
 				self->target->inUse = FALSE;
 			}
-			
+
 			else
 			{
 				setEntityAnimationByID(self->target, self->target->mental);
@@ -351,7 +351,7 @@ static void attackPlayer()
 		self->dirY *= 3;
 
 		self->face = self->dirX < 0 ? LEFT : RIGHT;
-		
+
 		self->endY = getWaterTop(self->x, self->y + self->h / 2);
 
 		checkToMap(self);

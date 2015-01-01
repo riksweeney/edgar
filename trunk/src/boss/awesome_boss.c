@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -103,7 +103,7 @@ Entity *addAwesomeBoss(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 
 	e->die = &die;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -1489,54 +1489,54 @@ static void fireballMove()
 static void creditsMove()
 {
 	Entity *e;
-	
+
 	e = addEnemy("boss/awesome_boss_4", self->x + 24, self->y);
-	
+
 	e->endX = 24;
-	
+
 	e->head = self;
-	
+
 	e->face = LEFT;
-	
+
 	e->creditsAction = &creditsMoveToMiddle;
-	
+
 	e = addEnemy("boss/awesome_boss_3", self->x + 16, self->y);
-	
+
 	e->endX = 16;
-	
+
 	e->head = self;
-	
+
 	e->face = LEFT;
-	
+
 	e->creditsAction = &creditsMoveToMiddle;
-	
+
 	e = addEnemy("boss/awesome_boss_2", self->x + 8, self->y);
-	
+
 	e->endX = 8;
-	
+
 	e->head = self;
-	
+
 	e->face = LEFT;
-	
+
 	e->creditsAction = &creditsMoveToMiddle;
-	
+
 	e = addEnemy("boss/awesome_boss_1", self->x + 0, self->y);
-	
+
 	e->endX = 0;
-	
+
 	e->head = self;
-	
+
 	e->face = LEFT;
-	
+
 	e->creditsAction = &creditsMoveToMiddle;
-	
+
 	self->creditsAction = &bossMoveToMiddle;
 }
 
 static void creditsMoveToMiddle()
 {
 	self->x = self->head->x + self->endX;
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;

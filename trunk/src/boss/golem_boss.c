@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -130,7 +130,7 @@ static void shatter()
 	self->targetY = self->startY;
 
 	self->animationCallback = NULL;
-	
+
 	self->frameSpeed = 1;
 
 	y = self->startY;
@@ -682,7 +682,7 @@ static void explodeOnGround()
 	if (self->flags & ON_GROUND)
 	{
 		playSoundToMap("sound/common/crumble", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		for (i=0;i<20;i++)
 		{
 			e = addSmallRock(self->x, self->y, "common/small_rock");

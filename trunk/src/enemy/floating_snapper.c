@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -78,7 +78,7 @@ static void floatUpAndDown()
 	}
 
 	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 5;
-	
+
 	self->dirY = 3;
 }
 
@@ -193,11 +193,11 @@ static void snapShutFinish()
 
 		self->touch = &touch;
 	}
-	
+
 	else
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime == 0)
 		{
 			playSoundToMap("sound/enemy/floating_snapper/burp", -1, self->x, self->y, 0);

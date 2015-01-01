@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2114,7 +2114,7 @@ static void changeToFire()
 		self->action = &attackFinished;
 
 		self->draw = &drawCaveBoss;
-		
+
 		self->takeDamage = &takeDamage;
 
 		self->mental = 0;
@@ -2151,7 +2151,7 @@ static void changeToIce()
 		self->action = &attackFinished;
 
 		self->draw = &drawCaveBoss;
-		
+
 		self->takeDamage = &takeDamage;
 
 		self->mental = 0;
@@ -2571,14 +2571,14 @@ static void stunFinish()
 		else if (self->health <= 1000)
 		{
 			self->takeDamage = NULL;
-			
+
 			self->endX = 1;
 		}
 
 		else
 		{
 			self->takeDamage = NULL;
-			
+
 			self->endX = 0;
 		}
 

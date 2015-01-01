@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -137,12 +137,12 @@ void freeWidget(Widget *w)
 		if (w->label != NULL)
 		{
 			freeLabel(w->label);
-			
+
 			w->label = NULL;
 		}
 
 		free(w);
-		
+
 		w = NULL;
 	}
 }
@@ -162,7 +162,7 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 	{
 		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(msg) + 1);
 	}
-	
+
 	STRNCPY(text, msg, strlen(msg) + 1);
 
 	token = strtok_r(text, " ", &savePtr);
@@ -203,7 +203,7 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 	while (token != NULL)
 	{
 		lineBreak = FALSE;
-		
+
 		snprintf(word, sizeof(word), "%s ", token);
 
 		if (word[strlen(word) - 2] == '\n')
@@ -212,9 +212,9 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 
 			word[strlen(word) - 2] = '\0';
 		}
-		
+
 		token = strtok_r(NULL, " ", &savePtr);
-		
+
 		if (token == NULL)
 		{
 			word[strlen(word) - 1] = '\0';

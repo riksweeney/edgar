@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -68,7 +68,7 @@ static void entityWait()
 	if (self->active == TRUE)
 	{
 		self->health = playSoundToMap("sound/boss/ant_lion/earthquake", -1, self->x, self->y, -1);
-		
+
 		self->action = &sink;
 	}
 
@@ -82,7 +82,7 @@ static void sink()
 	if (self->y >= self->endY)
 	{
 		stopSound(self->health);
-		
+
 		self->inUse = FALSE;
 	}
 

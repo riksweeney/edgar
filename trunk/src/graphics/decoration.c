@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -379,7 +379,7 @@ Entity *addSmoke(int x, int y, char *name)
 	e->frameSpeed *= 10;
 
 	e->frameSpeed /= 1 + prand() % 10;
-	
+
 	e->thinkTime = 300;
 
 	e->action = &move;

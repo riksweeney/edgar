@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -921,7 +921,7 @@ static void sideAttackReactToBlock(Entity *other)
 	self->dirX = 0;
 
 	self->targetX = self->x;
-	
+
 	self->x = (int)self->x;
 }
 
@@ -979,7 +979,7 @@ static void punchReactToBlock(Entity *other)
 	self->dirX = 0;
 
 	self->targetX = self->x;
-	
+
 	self->x = (int)self->x;
 }
 
@@ -1677,7 +1677,7 @@ static void orbWait()
 		{
 			e->x = self->face == LEFT ? self->x - (128 + prand() % 64) : self->x + self->w + (128 + prand() % 64);
 			e->y = self->y - 64;
-			
+
 			e->y += prand() % (self->h + 128);
 
 			calculatePath(e->x, e->y, self->x + self->w / 2, self->y + self->h / 2, &e->dirX, &e->dirY);

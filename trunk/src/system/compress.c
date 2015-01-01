@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -136,7 +136,7 @@ unsigned char *decompressFile(char *sourceName)
 	if (read != 1)
 	{
 		fclose(fp);
-		
+
 		return decompressFile64(sourceName);
 	}
 
@@ -145,7 +145,7 @@ unsigned char *decompressFile(char *sourceName)
 	if (source == NULL)
 	{
 		fclose(fp);
-		
+
 		return decompressFile64(sourceName);
 	}
 
@@ -154,14 +154,14 @@ unsigned char *decompressFile(char *sourceName)
 	if (dest == NULL)
 	{
 		free(source);
-		
+
 		fclose(fp);
 
 		return decompressFile64(sourceName);
 	}
 
 	read = fread(source, compressedSize, 1, fp);
-	
+
 	fclose(fp);
 
 	if (read != 1)

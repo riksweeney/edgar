@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -96,7 +96,7 @@ static void entityWait()
 			self->active = self->active == TRUE ? FALSE : TRUE;
 
 			setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
-			
+
 			if (self->mental != 1)
 			{
 				activateEntitiesWithRequiredName(self->objectiveName, self->active);
@@ -114,7 +114,7 @@ static void init()
 	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 	self->action = &entityWait;
-	
+
 	self->touch = self->mental == 1 ? &callTouch : &touch;
 }
 

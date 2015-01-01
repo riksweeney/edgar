@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -76,7 +76,7 @@ void addObjectiveFromResource(char *key[], char *value[])
 void addObjective(char *objectiveName, char *completionTrigger)
 {
 	int i;
-	
+
 	if (strcmpignorecase(objectiveName, "Create a Disintegration Shield") == 0)
 	{
 		return;
@@ -180,7 +180,7 @@ void getObjectiveFromScript(char *line)
 	{
 		showErrorAndExit("Could not find Entity %s to check Objective %s against", entityName, objectiveName);
 	}
-	
+
 	found = FALSE;
 
 	for (i=0;i<MAX_OBJECTIVES;i++)
@@ -188,11 +188,11 @@ void getObjectiveFromScript(char *line)
 		if (objective[i].inUse == TRUE && strcmpignorecase(objective[i].name, objectiveName) == 0)
 		{
 			found = TRUE;
-			
+
 			break;
 		}
 	}
-	
+
 	e->health = found == TRUE ? success : failure;
 }
 

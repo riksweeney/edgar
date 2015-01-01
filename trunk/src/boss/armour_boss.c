@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -120,7 +120,7 @@ Entity *addArmourBoss(int x, int y, char *name)
 	e->reactToBlock = &changeDirection;
 
 	e->resumeNormalFunction = &introComplete;
-	
+
 	e->creditsAction = &creditsMove;
 
 	setEntityAnimation(e, "CUSTOM_1");
@@ -279,7 +279,7 @@ static void lookForPlayer()
 				playSoundToMap("sound/boss/armour_boss/growl", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &chargeAttackStart;
-				
+
 				self->startX = 3600;
 			}
 		}
@@ -868,7 +868,7 @@ static void dieFinish()
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		increaseKillCount();
 
 		freeBossHealthBar();
@@ -915,7 +915,7 @@ static void regenerateArmour()
 			e->type = ENEMY;
 
 			e->die = &armourDie;
-			
+
 			e->creditsAction = &armourWait;
 
 			e->thinkTime = 60 + prand() % 120;
@@ -1010,7 +1010,7 @@ static void regenerateArmour()
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->takeDamage = NULL;
-		
+
 		e->creditsAction = &sawWait;
 
 		e->type = ENEMY;
@@ -1065,7 +1065,7 @@ static void armourWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -1125,7 +1125,7 @@ static void sawWait()
 
 		self->action = &entityDieNoDrop;
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -1702,9 +1702,9 @@ static void creditsMove()
 	if (self->health != -1)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		regenerateArmour();
 	}
-	
+
 	self->creditsAction = &bossMoveToMiddle;
 }

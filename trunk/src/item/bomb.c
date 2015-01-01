@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -137,7 +137,7 @@ static void startMiniFuse()
 static void entityWait()
 {
 	long onGround;
-	
+
 	onGround = self->flags & ON_GROUND;
 
 	checkToMap(self);
@@ -167,9 +167,9 @@ static void dropBomb(int val)
 		self->mental = 1;
 
 		self->action = &startFuse;
-		
+
 		self->fallout = &fallout;
-		
+
 		self->flags |= DO_NOT_PERSIST;
 
 		addEntity(*self, player.x, player.y);
@@ -275,6 +275,6 @@ static void resumeNormalFunction()
 static void fallout()
 {
 	stopSound(self->endX);
-	
+
 	entityDieNoDrop();
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -65,7 +65,7 @@ static void activate(int val)
 {
 	EntityList *el, *entities;
 	Entity *temp;
-	
+
 	entities = getEntities();
 
 	if (game.status == IN_GAME)
