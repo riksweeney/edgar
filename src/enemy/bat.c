@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -211,7 +211,7 @@ static void dartDown()
 	if (self->dirY == 0 || self->dirX == 0)
 	{
 		self->thinkTime = 30;
-		
+
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == RIGHT ? -3 : 3;
@@ -229,11 +229,11 @@ static void dartDownFinish()
 	if (self->thinkTime == 0)
 	{
 		self->dirX = 0;
-		
+
 		self->dirY = -self->speed;
 
 		self->flags |= FLY;
-		
+
 		self->thinkTime = -1;
 	}
 
@@ -254,7 +254,7 @@ static void dartDownFinish()
 		if ((self->flags & ON_GROUND) || (self->standingOn != NULL))
 		{
 			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-			
+
 			self->thinkTime--;
 		}
 	}

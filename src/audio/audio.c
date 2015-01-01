@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -110,7 +110,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		if (strcmpignorecase(sound[i].name, name) == 0)
 		{
 			chunk = sound[i].effect;
-			
+
 			if (chunk == NULL)
 			{
 				return -1;
@@ -133,7 +133,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;
-		
+
 		if (chunk == NULL)
 		{
 			return -1;
@@ -192,7 +192,7 @@ void playSound(char *name)
 		if (strcmpignorecase(sound[i].name, name) == 0)
 		{
 			chunk = sound[i].effect;
-			
+
 			if (chunk == NULL)
 			{
 				return;
@@ -216,7 +216,7 @@ void playSound(char *name)
 		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;
-		
+
 		if (chunk == NULL)
 		{
 			return;

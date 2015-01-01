@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -345,7 +345,7 @@ static void bodyTakeDamage(Entity *other, int damage)
 static void die()
 {
 	Entity *e;
-	
+
 	playSoundToMap("sound/enemy/tortoise/tortoise_die", -1, self->x, self->y, 0);
 
 	e = self;

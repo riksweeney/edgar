@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ Entity *addArmadillo(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -78,7 +78,7 @@ static void die()
 
 		e->flags |= DO_NOT_PERSIST;
 	}
-	
+
 	playSoundToMap("sound/enemy/armadillo/armadillo_die", -1, self->x, self->y, 0);
 
 	entityDie();
@@ -87,13 +87,13 @@ static void die()
 static void creditsMove()
 {
 	self->face = RIGHT;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -60,14 +60,14 @@ Entity *addSnail(int x, int y, char *name)
 	if (strcmpignorecase(name, "enemy/purple_snail") == 0)
 	{
 		e->action = &lookForPlayer;
-		
+
 		e->creditsAction = &creditsPurpleMove;
 	}
 
 	else
 	{
 		e->action = &moveLeftToRight;
-		
+
 		e->creditsAction = &creditsMove;
 	}
 
@@ -156,9 +156,9 @@ static void die()
 
 		e->x += (self->w - e->w) / 2;
 	}
-	
+
 	playSoundToMap("sound/enemy/snail/snail_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -193,7 +193,7 @@ static void spitAttackInit()
 	self->animationCallback = &spitAttack;
 
 	self->action = &attacking;
-	
+
 	self->creditsAction = &attacking;
 
 	checkToMap(self);
@@ -225,7 +225,7 @@ static void spitAttackFinish()
 	setEntityAnimation(self, "STAND");
 
 	self->action = &lookForPlayer;
-	
+
 	self->creditsAction = &creditsPurpleMove;
 
 	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
@@ -239,23 +239,23 @@ static void attacking()
 static void creditsMove()
 {
 	Entity *e;
-	
+
 	self->thinkTime++;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->thinkTime >= 900)
 	{
 		e = addSnailShell(self->x, self->y, "enemy/snail_shell");
-		
+
 		e->face = self->face;
-		
+
 		e->touch = NULL;
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -263,22 +263,22 @@ static void creditsMove()
 static void creditsPurpleMove()
 {
 	self->mental++;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->mental != 0 && (self->mental % 300) == 0)
 	{
 		self->creditsAction = &spitAttackInit;
-	
+
 		self->dirX = 0;
 	}
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -66,55 +66,55 @@ void drawMedalsMenu()
 static void doMenu()
 {
 	int up, down, attack, block, xAxisMoved, yAxisMoved;
-	
+
 	up = FALSE;
 	down = FALSE;
 	attack = FALSE;
 	block = FALSE;
-	
+
 	if (menuInput.up == TRUE)
 	{
 		up = TRUE;
 	}
-	
+
 	else if (menuInput.down == TRUE)
 	{
 		down = TRUE;
 	}
-	
+
 	else if (menuInput.attack == TRUE)
 	{
 		attack = TRUE;
 	}
-	
+
 	else if (menuInput.block == TRUE)
 	{
 		block = TRUE;
 	}
-	
+
 	else if (input.up == TRUE)
 	{
 		up = TRUE;
 	}
-	
+
 	else if (input.down == TRUE)
 	{
 		down = TRUE;
 	}
-	
+
 	else if (input.attack == TRUE)
 	{
 		attack = TRUE;
 	}
-	
+
 	else if (input.block == TRUE)
 	{
 		attack = TRUE;
 	}
-	
+
 	xAxisMoved = input.xAxisMoved;
 	yAxisMoved = input.yAxisMoved;
-	
+
 	if (attack == TRUE)
 	{
 		memset(&menuInput, 0, sizeof(Input));
@@ -154,7 +154,7 @@ static void doMenu()
 			menu.startY = 0;
 		}
 	}
-	
+
 	input.xAxisMoved = xAxisMoved;
 	input.yAxisMoved = yAxisMoved;
 }

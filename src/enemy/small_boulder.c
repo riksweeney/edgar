@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -137,7 +137,7 @@ static void die()
 
 		stopSound(self->targetX);
 	}
-	
+
 	playSoundToMap("sound/common/rock_shatter", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
@@ -168,7 +168,7 @@ static void dieInLava()
 	if (self->flags & ON_GROUND)
 	{
 		stopSound(self->targetX);
-		
+
 		self->inUse = FALSE;
 	}
 }

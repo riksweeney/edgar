@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -88,29 +88,29 @@ static void init()
 static void entityWait()
 {
 	Entity *e;
-	
+
 	if (self->mental > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->thinkTime = 5;
-			
+
 			e = addExplosion(0, 0);
-			
+
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y + self->h / 2 - e->h / 2;
-			
+
 			e->x += prand() % e->w * (prand() % 2 == 0 ? 1 : -1);
 			e->y += prand() % e->h * (prand() % 2 == 0 ? 1 : -1);
-			
+
 			e->damage = 0;
-			
+
 			self->mental--;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -188,7 +188,7 @@ static void takeDamage(Entity *other, int damage)
 				setEntityAnimation(self, "WALK");
 
 				fireTrigger(self->objectiveName);
-				
+
 				self->mental = 15;
 			}
 		}

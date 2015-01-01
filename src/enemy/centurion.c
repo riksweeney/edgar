@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -82,7 +82,7 @@ Entity *addCenturion(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redTakeDamage : &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redCreditsMove : &creditsMove;;
 
 	e->type = ENEMY;
@@ -382,7 +382,7 @@ static void die()
 	fireTrigger(self->objectiveName);
 
 	fireGlobalTrigger(self->objectiveName);
-	
+
 	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	for (i=0;i<9;i++)
@@ -425,7 +425,7 @@ static void redDie()
 	int i;
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
-	
+
 	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
@@ -435,7 +435,7 @@ static void redDie()
 		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
 
 		e->action = &pieceWait;
-		
+
 		e->creditsAction = &pieceWait;
 
 		e->fallout = &pieceFallout;
@@ -468,7 +468,7 @@ static void redDie()
 	self->takeDamage = NULL;
 
 	self->action = &dieWait;
-	
+
 	self->creditsAction = &dieWait;
 
 	self->thinkTime = 120;
@@ -485,7 +485,7 @@ static void dieWait()
 		self->thinkTime = 9;
 
 		self->action = &reform;
-		
+
 		self->creditsAction = &reform;
 	}
 }
@@ -506,7 +506,7 @@ static void reform()
 		self->thinkTime = 30;
 
 		self->action = &reformFinish;
-		
+
 		self->creditsAction = &creditsReformFinish;
 	}
 }
@@ -532,7 +532,7 @@ static void reformFinish()
 		self->takeDamage = &redTakeDamage;
 
 		setEntityAnimation(self, "STAND");
-		
+
 		self->creditsAction = &creditsMove;
 	}
 }
@@ -547,7 +547,7 @@ static void pieceWait()
 	else if (self->head->mental == 0)
 	{
 		self->action = &pieceReform;
-		
+
 		self->creditsAction = &pieceReform;
 
 		if (self->face == LEFT)
@@ -669,9 +669,9 @@ static void redTakeDamage(Entity *other, int damage)
 static void creditsMove()
 {
 	float dirX;
-	
+
 	self->face = RIGHT;
-	
+
 	if (self->maxThinkTime == 1)
 	{
 		self->dirX = self->speed;
@@ -682,7 +682,7 @@ static void creditsMove()
 		if (self->maxThinkTime == 0)
 		{
 			self->maxThinkTime = 1;
-			
+
 			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 		}
 
@@ -693,11 +693,11 @@ static void creditsMove()
 	{
 		self->maxThinkTime = 0;
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
@@ -707,9 +707,9 @@ static void creditsMove()
 static void redCreditsMove()
 {
 	float dirX;
-	
+
 	self->face = RIGHT;
-	
+
 	if (self->maxThinkTime == 1)
 	{
 		self->dirX = self->speed;
@@ -720,9 +720,9 @@ static void redCreditsMove()
 		if (self->maxThinkTime == 0)
 		{
 			self->thinkTime++;
-			
+
 			self->maxThinkTime = 1;
-			
+
 			playSoundToMap("sound/enemy/centurion/walk", -1, self->x, self->y, 0);
 		}
 
@@ -733,16 +733,16 @@ static void redCreditsMove()
 	{
 		self->maxThinkTime = 0;
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->thinkTime >= 10)
 	{
 		self->creditsAction = &redDie;
@@ -756,7 +756,7 @@ static void creditsReformFinish()
 	if (self->thinkTime <= 0)
 	{
 		self->health = self->maxHealth;
-		
+
 		self->flags &= ~NO_DRAW;
 
 		self->face = RIGHT;
@@ -764,7 +764,7 @@ static void creditsReformFinish()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		setEntityAnimation(self, "STAND");
-		
+
 		self->creditsAction = &creditsMove;
 	}
 }

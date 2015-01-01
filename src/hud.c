@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -61,7 +61,7 @@ void initHud()
 	hud.bossHealth = NULL;
 
 	hud.medalTextSurface = NULL;
-	
+
 	hud.slimeTimerSurface = NULL;
 }
 
@@ -269,12 +269,12 @@ void drawHud()
 
 		drawImage(hud.medalTextSurface, x, 5, FALSE, 255);
 	}
-	
+
 	if (hud.slimeTimerSurface != NULL)
 	{
 		x = player.x + player.w / 2 - hud.slimeTimerSurface->w / 2;
 		y = player.y - hud.slimeTimerSurface->h - 5;
-		
+
 		drawImageToMap(hud.slimeTimerSurface, x, y, FALSE, 255);
 	}
 }
@@ -341,14 +341,14 @@ void freeHud()
 			hud.medalSurface[i] = NULL;
 		}
 	}
-	
+
 	if (hud.disabledMedalSurface != NULL)
 	{
 		SDL_FreeSurface(hud.disabledMedalSurface);
 
 		hud.disabledMedalSurface = NULL;
 	}
-	
+
 	if (hud.slimeTimerSurface != NULL)
 	{
 		SDL_FreeSurface(hud.slimeTimerSurface);
@@ -362,21 +362,21 @@ void freeHud()
 void setSlimeTimerValue(int value)
 {
 	char timeValue[5];
-	
+
 	if (hud.slimeTimerSurface != NULL || value < 0)
 	{
 		SDL_FreeSurface(hud.slimeTimerSurface);
 
 		hud.slimeTimerSurface = NULL;
-		
+
 		if (value < 0)
 		{
 			return;
 		}
 	}
-	
+
 	snprintf(timeValue, 5, "%d", value);
-	
+
 	hud.slimeTimerSurface = generateTextSurface(timeValue, game.font, 220, 220, 220, 0, 0, 0);
 
 	hud.slimeTimerSurface = addBorder(hud.slimeTimerSurface, 255, 255, 255, 0, 0, 0);

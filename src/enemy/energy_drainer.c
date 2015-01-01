@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -69,7 +69,7 @@ Entity *addEnergyDrainer(int x, int y, char *name)
 	e->reactToBlock = NULL;
 	e->touch = &entityTouch;
 	e->fallout = &die;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -383,7 +383,7 @@ static void createBeam()
 	setEntityAnimation(e, "STAND");
 
 	e->action = &beamWait;
-	
+
 	e->creditsAction = &beamWait;
 }
 
@@ -497,16 +497,16 @@ static void creditsMove()
 	if (self->mental == 0)
 	{
 		createBeam();
-		
+
 		self->mental = 1;
 	}
-	
+
 	self->thinkTime += 5;
 
 	self->dirY += cos(DEG_TO_RAD(self->thinkTime));
 
 	self->dirY /= 3;
-	
+
 	self->dirX = self->speed;
 
 	checkToMap(self);
@@ -517,7 +517,7 @@ static void creditsMove()
 
 		self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
 	}
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -158,7 +158,7 @@ static void init()
 static Entity *getFirstBlock(char *name)
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	for (el=entities->next;el!=NULL;el=el->next)
@@ -204,7 +204,7 @@ static void killAllBlocks()
 static Entity *getNextBlock(char *name, int value)
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	for (el=entities->next;el!=NULL;el=el->next)

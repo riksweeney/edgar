@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -65,7 +65,7 @@ static void touch(Entity *other)
 	{
 		pushEntity(other);
 	}
-	
+
 	if (other->standingOn == self && other->type == PLAYER && self->active == TRUE)
 	{
 		self->mental = 1;
@@ -77,7 +77,7 @@ static void entityWait()
 	if (self->mental == 1)
 	{
 		self->flags |= PLAYER_TOUCH_ONLY;
-		
+
 		self->action = &floorShake;
 	}
 }
@@ -99,7 +99,7 @@ static void floorShake()
 	else
 	{
 		self->flags &= ~PLAYER_TOUCH_ONLY;
-		
+
 		self->die();
 	}
 }
@@ -142,7 +142,7 @@ static void dieWait()
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 30;
-		
+
 		self->x = self->startX;
 		self->y = self->startY;
 
@@ -168,7 +168,7 @@ static void respawn()
 		self->thinkTime = self->maxThinkTime;
 
 		self->action = &entityWait;
-		
+
 		self->mental = 0;
 	}
 }

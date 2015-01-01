@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -92,7 +92,7 @@ static void activate(int val)
 		playSoundToMap("sound/item/fill_potion", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setInfoBoxMessage(60, 255, 255, 255, _("Obtained %s"), _(e->objectiveName));
-		
+
 		e->inUse = FALSE;
 	}
 

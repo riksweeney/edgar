@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -118,7 +118,7 @@ static void init()
 			self->action = &swordLookForPlayer;
 		}
 	}
-	
+
 	self->mental = 150 + prand() % 210;
 
 	self->creditsAction = &creditsMove;
@@ -259,9 +259,9 @@ static void reformFinish()
 		self->takeDamage = &entityTakeDamageNoFlinch;
 
 		setEntityAnimation(self, "STAND");
-		
+
 		self->animationCallback = NULL;
-		
+
 		self->flags &= ~ATTACKING;
 
 		self->creditsAction = &creditsMove2;
@@ -790,11 +790,11 @@ static void creditsDie()
 
 		self->mental++;
 	}
-	
+
 	playSoundToMap("sound/enemy/skeleton/skeleton_die", -1, self->x, self->y, 0);
-	
+
 	e = getEntityByName("enemy/ghost");
-	
+
 	e->health++;
 
 	self->endX = self->damage;
@@ -825,7 +825,7 @@ static void creditsMove()
 	self->dirX = self->speed;
 
 	checkToMap(self);
-	
+
 	self->mental--;
 
 	if (self->mental <= 0)

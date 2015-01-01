@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -69,25 +69,25 @@ static void entityWait()
 		if (landedOnGround(onGround) == TRUE)
 		{
 			playSoundToMap("sound/enemy/red_grub/thud", -1, self->x, self->y, 0);
-			
+
 			self->dirX = self->endX == LEFT ? -self->speed : self->speed;
 		}
-		
+
 		if (self->standingOn != NULL)
 		{
 			if (self->standingOn->dirX != 0)
 			{
 				self->endX = self->standingOn->dirX < 0 ? LEFT : RIGHT;
 			}
-			
+
 			self->speed = self->standingOn->dirX == 0 ? self->speed : fabs(self->standingOn->dirX);
 		}
-		
+
 		if (self->dirX == 0)
 		{
 			self->endX = self->endX == LEFT ? RIGHT : LEFT;
 		}
-		
+
 		self->dirX = self->endX == LEFT ? -self->speed : self->speed;
 	}
 
@@ -100,20 +100,20 @@ static void entityWait()
 static void fallout()
 {
 	self->thinkTime = 300;
-	
+
 	self->flags |= DO_NOT_PERSIST;
-	
+
 	self->action = &falloutDie;
 }
 
 static void falloutDie()
 {
 	self->thinkTime--;
-	
+
 	if ((self->flags & ON_GROUND) || (self->thinkTime <= 0))
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	checkToMap(self);
 }

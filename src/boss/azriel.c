@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -185,33 +185,33 @@ static void initialise()
 static void appear()
 {
 	Entity *e = getEntityByObjectiveName("AZRIEL_GRAVE");
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("Azirel cannot find AZRIEL_GRAVE");
 	}
-	
+
 	self->layer = BACKGROUND_LAYER;
-	
+
 	self->y = e->y + e->h;
 
 	self->active = FALSE;
 
 	self->action = &createLightBeam;
-	
+
 	self->flags &= ~NO_DRAW;
-	
+
 	e->mental = 1;
-	
+
 	self->thinkTime = 120;
 }
 
 static void createLightBeam()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		e = getFreeEntity();
@@ -223,7 +223,7 @@ static void createLightBeam()
 		e->animationCallback = &beamAppearFinish;
 
 		self->target = e;
-		
+
 		e->head = self;
 
 		e->x = self->x + self->w / 2 - e->w / 2;
@@ -245,11 +245,11 @@ static void createLightBeam()
 		e->mental = 0;
 
 		self->action = &introRaise;
-		
+
 		self->thinkTime = 120;
-		
+
 		self->mental = 1;
-		
+
 		playDefaultBossMusic();
 	}
 }
@@ -257,21 +257,21 @@ static void createLightBeam()
 static void introRaise()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->y--;
-		
+
 		if (self->y <= self->startY)
 		{
 			self->target->action = &beamFinish;
-			
+
 			self->y = self->startY;
-			
+
 			self->action = &initialise;
-			
+
 			self->active = FALSE;
-			
+
 			self->mental = 0;
 		}
 	}
@@ -561,7 +561,7 @@ static void lightningCage()
 static void lightningCageMoveBackToPlayer()
 {
 	self->targetX = player.x - self->w / 2 + player.w / 2;
-	
+
 	checkToMap(self);
 
 	/* Position above the player */

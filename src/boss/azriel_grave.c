@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -61,7 +61,7 @@ static void entityWait()
 {
 	int i;
 	Entity *e;
-	
+
 	if (self->mental == 1)
 	{
 		for (i=0;i<4;i++)
@@ -78,11 +78,11 @@ static void entityWait()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
 	}
-	
+
 	checkToMap(self);
 }

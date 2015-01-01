@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -57,7 +57,7 @@ void draw()
 			case IN_TITLE:
 				drawTitle();
 			break;
-			
+
 			case IN_INVENTORY:
 				SDL_SetClipRect(game.screen, NULL);
 
@@ -67,10 +67,10 @@ void draw()
 
 				drawInventory();
 			break;
-			
+
 			case IN_CREDITS:
 				drawEntities(BACKGROUND_LAYER);
-				
+
 				drawMap(1);
 
 				drawEntities(MID_GROUND_LAYER);
@@ -80,9 +80,9 @@ void draw()
 				drawDecorations();
 
 				drawEntities(FOREGROUND_LAYER);
-				
+
 				drawCredits();
-				
+
 				drawGame();
 			break;
 
@@ -161,9 +161,9 @@ void draw()
 
 						SDL_SetClipRect(game.screen, NULL);
 					}
-					
+
 					/* Draw the hud */
-					
+
 					drawHud();
 
 					/* Draw the dialog box */

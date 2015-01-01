@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -348,7 +348,7 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= BLOCKING;
 		}
-		
+
 		else if (strcmpignorecase(token, "NO_END_TELEPORT_SOUND") == 0)
 		{
 			e->flags |= NO_END_TELEPORT_SOUND;
@@ -451,7 +451,7 @@ void unsetFlags(Entity *e, char *flags)
 		{
 			e->flags &= ~BLOCKING;
 		}
-		
+
 		else if (strcmpignorecase(token, "NO_END_TELEPORT_SOUND") == 0)
 		{
 			e->flags &= ~NO_END_TELEPORT_SOUND;

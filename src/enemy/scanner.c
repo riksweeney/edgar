@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ Entity *addScanner(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = strcmpignorecase("enemy/blue_scanner", e->name) == 0 ? &blueCreditsMove : &creditsMove;
 
 	e->type = ENEMY;
@@ -366,11 +366,11 @@ static void summonEnemies()
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
@@ -380,11 +380,11 @@ static void creditsMove()
 static void blueCreditsMove()
 {
 	setEntityAnimation(self, "ATTACK_1");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

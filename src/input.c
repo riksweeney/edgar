@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -168,7 +168,7 @@ void getInput(int gameType)
 				{
 					input.attack = TRUE;
 				}
-				
+
 				else if (key == control.button[CONTROL_SNAP])
 				{
 					input.snap = TRUE;
@@ -288,7 +288,7 @@ void getInput(int gameType)
 				{
 					input.attack = FALSE;
 				}
-				
+
 				else if (key == control.button[CONTROL_SNAP])
 				{
 					input.snap = FALSE;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -99,7 +99,7 @@ void runScript(char *name)
 		}
 
 		free(script.text);
-		
+
 		script.text = NULL;
 
 		script.text = malloc(sizeof(char *) * (script.lineCount + newCount));
@@ -122,18 +122,18 @@ void runScript(char *name)
 
 			free(existingLines[i]);
 		}
-		
+
 		script.lineCount += newCount;
 
 		free(existingLines);
-		
+
 		existingLines = NULL;
 	}
 
 	else
 	{
 		script.lineCount = countTokens((char *)buffer, "\n");
-		
+
 		script.text = malloc(sizeof(char *) * script.lineCount);
 
 		if (script.text == NULL)
@@ -177,7 +177,7 @@ void runScript(char *name)
 	free(buffer);
 
 	if (newCount == 0)
-	{		
+	{
 		script.skipping = FALSE;
 
 		script.currentDepth = 0;

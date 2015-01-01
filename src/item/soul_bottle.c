@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ static void useBottle(int val)
 	if (game.status == IN_GAME && player.element != WATER)
 	{
 		playSoundToMap("sound/common/throw", -1, player.x, player.y, 0);
-		
+
 		e = addEntity(*self, player.x + (player.face == LEFT ? 0 : player.w), player.y);
 
 		e->dirX = player.face == LEFT ? -5 : 5;
@@ -180,9 +180,9 @@ static void soulTouch(Entity *other)
 		other->action = other->die;
 
 		self->mental = 11;
-		
+
 		playSoundToMap("sound/enemy/spirit/spirit_explode", -1, self->x, self->y, 0);
-		
+
 		self->endX = playSoundToMap("sound/enemy/spirit/spirit_scream", -1, self->x, self->y, 0);
 	}
 }
@@ -195,15 +195,15 @@ static void bottleFill()
 		{
 			self->target->inUse = FALSE;
 		}
-		
+
 		stopSound(self->endX);
-		
+
 		playSoundToMap("sound/item/cork", -1, self->x, self->y, 0);
 
 		loadProperties("item/full_soul_bottle", self);
 
 		self->touch = &keyItemTouch;
-		
+
 		self->action = &doNothing;
 	}
 }

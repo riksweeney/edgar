@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ Entity *addCentipede(int x, int y, char *name)
 	e->touch = &touch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
-	
+
 	e->creditsAction = &init;
 
 	e->type = ENEMY;
@@ -86,7 +86,7 @@ static void init()
 	{
 		self->touch = &greenTouch;
 	}
-	
+
 	self->creditsAction = &creditsMove;
 }
 
@@ -146,7 +146,7 @@ static void headMove()
 static void die()
 {
 	playSoundToMap("sound/enemy/centipede/centipede_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -191,7 +191,7 @@ static void addSegments()
 		e->touch = &entityTouch;
 		e->takeDamage = &segmentTakeDamage;
 		e->die = &entityDieNoDrop;
-		
+
 		e->creditsAction = &segmentInit;
 
 		e->type = ENEMY;
@@ -240,14 +240,14 @@ static void segmentInit()
 	if (self->face == LEFT && fabs(self->target->x - self->x) >= self->target->w)
 	{
 		self->action = &segmentMove;
-		
+
 		self->creditsAction = &creditsMove;
 	}
 
 	else if (self->face == RIGHT && fabs(self->target->x - self->x) >= self->w)
 	{
 		self->action = &segmentMove;
-		
+
 		self->creditsAction = &creditsMove;
 	}
 
@@ -524,11 +524,11 @@ static void greenTouch(Entity *other)
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

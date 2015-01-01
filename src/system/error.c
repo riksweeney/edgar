@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -39,9 +39,9 @@ void showErrorAndExit(char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
-	
+
 	error1 = error2 = error3 = title = NULL;
-	
+
 	if (game.font != NULL)
 	{
 		title = generateTextSurface(_("The Legend of Edgar has encountered the following error"), game.font, 0, 220, 0, 0, 0, 0);

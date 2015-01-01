@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->fallout = &itemFallout;
-	
+
 	e->creditsAction = &doNothing;
 
 	if (e->type == HEALTH)
@@ -148,7 +148,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	e->fallout = &entityDieNoDrop;
 
 	e->touch = &noTouch;
-	
+
 	e->creditsAction = &generalItemAction;
 
 	switch (e->type)

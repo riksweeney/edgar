@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -67,7 +67,7 @@ static void init()
 
 		height = (self->endY - self->startY) * 2 / self->speed;
 		circ = 360 * (self->speed * 0.5);
-		
+
 		if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
 		{
 			printf("Length is %f\n", circ + height);
@@ -148,7 +148,7 @@ static void move()
 			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
-			
+
 			self->damage = 1;
 		}
 
@@ -167,7 +167,7 @@ static void move()
 			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
-			
+
 			self->damage = 1;
 		}
 	}
@@ -197,7 +197,7 @@ static void rotateAroundTarget()
 		self->originalWeight = self->weight;
 
 		self->action = &move;
-		
+
 		self->damage = 0;
 	}
 

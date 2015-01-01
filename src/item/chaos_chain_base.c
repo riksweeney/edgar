@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -49,7 +49,7 @@ Entity *addChaosChainBase(int x, int y, char *name)
 	e->y = y;
 
 	e->action = &addChains;
-	
+
 	e->creditsAction = &addChains;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -65,9 +65,9 @@ static void addChains()
 {
 	int i;
 	Entity **chains, *chaos;
-	
+
 	chaos = getEntityByObjectiveName("CHAOS");
-	
+
 	if (chaos == NULL)
 	{
 		showErrorAndExit("Chaos Chain Base cannot find Chaos");
@@ -90,11 +90,11 @@ static void addChains()
 		}
 
 		loadProperties("item/chaos_chain", chains[i]);
-		
+
 		chains[i]->face = self->face;
 
 		chains[i]->action = &chainWait;
-		
+
 		chains[i]->creditsAction = &creditsChainWait;
 
 		chains[i]->draw = &drawLoopingAnimationToMap;
@@ -120,20 +120,20 @@ static void addChains()
 	}
 
 	free(chains);
-	
+
 	self->head = chaos;
 
 	self->action = &chainBaseWait;
-	
+
 	self->creditsAction = &creditsChainBaseWait;
 }
 
 static void chainBaseWait()
 {
 	setEntityAnimation(self, self->head->animationName);
-	
+
 	checkToMap(self);
-	
+
 	alignChainToChaos();
 }
 
@@ -145,18 +145,18 @@ static void chainWait()
 static void creditsChainBaseWait()
 {
 	self->alpha = self->head->alpha;
-	
+
 	setEntityAnimation(self, self->head->animationName);
-	
+
 	checkToMap(self);
-	
+
 	alignChainToChaos();
 }
 
 static void creditsChainWait()
 {
 	self->alpha = self->head->alpha;
-	
+
 	checkToMap(self);
 }
 
@@ -164,7 +164,7 @@ static void alignChainToChaos()
 {
 	float x, y, partDistanceX, partDistanceY;
 	Entity *e;
-	
+
 	x = self->head->x + self->head->w - self->w - self->offsetX;
 
 	y = self->head->y + self->offsetY;
@@ -176,7 +176,7 @@ static void alignChainToChaos()
 	partDistanceY /= self->mental;
 
 	e = self->target;
-	
+
 	x += self->w / 2 - e->w / 2;
 	y += self->h / 2 - e->h / 2;
 
@@ -187,7 +187,7 @@ static void alignChainToChaos()
 
 		e->x = x;
 		e->y = y;
-		
+
 		if (e->target == NULL)
 		{
 			e->x = self->x + self->w / 2 - e->w / 2;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -843,7 +843,7 @@ void readGameSettingsFromFile(char *buffer)
 		else if (strcmpignorecase(token, "SMALL_FONT_SIZE") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			if (token != NULL)
 			{
 				game.fontSizeSmall = atoi(token);
@@ -853,7 +853,7 @@ void readGameSettingsFromFile(char *buffer)
 		else if (strcmpignorecase(token, "LARGE_FONT_SIZE") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			if (token != NULL)
 			{
 				game.fontSizeLarge = atoi(token);

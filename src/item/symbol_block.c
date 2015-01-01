@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -114,7 +114,7 @@ static void autoTouch(Entity *other)
 	if (other->dirY == 0 && dirY < 0)
 	{
 		playSoundToMap("sound/item/block_beep", -1, self->x, self->y, 0);
-		
+
 		self->damage = self->damage == 0 ? 1 : 0;
 
 		self->flags &= ~FLY;
@@ -141,7 +141,7 @@ static void touch(Entity *other)
 	if (other->dirY == 0 && dirY < 0 && other->type == PLAYER)
 	{
 		playSoundToMap("sound/item/block_beep", -1, self->x, self->y, 0);
-		
+
 		self->flags &= ~FLY;
 
 		self->dirY = -5;
@@ -245,7 +245,7 @@ static void doSymbolMatch()
 	int i, count, remaining, required;
 	Entity **list;
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	count = 0;
@@ -365,9 +365,9 @@ static void appear()
 static int getRequired()
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
-	
+
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
 		if (el->entity->inUse == TRUE && strcmpignorecase(self->objectiveName, el->entity->objectiveName) == 0)

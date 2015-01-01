@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ Entity *addDragonFly(int x, int y, char *name)
 	e->die = &die;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -162,7 +162,7 @@ static void dropWait()
 		self->flags &= ~FLY;
 
 		self->action = &walkAround;
-		
+
 		self->creditsAction = &creditsMove;
 
 		self->thinkTime = 600;
@@ -225,7 +225,7 @@ static void flyStart()
 		self->flags &= ~FLY;
 
 		self->action = &flyAround;
-		
+
 		self->creditsAction = &creditsMove;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
@@ -454,41 +454,41 @@ static void podTakeDamage(Entity *other, int damage)
 static void creditsMove()
 {
 	self->thinkTime++;
-	
+
 	if (self->mental == 1)
 	{
 		self->flags &= ~FLY;
-		
+
 		setEntityAnimation(self, "WALK");
 	}
-	
+
 	else
 	{
 		self->dirY = 0;
-		
+
 		self->flags |= FLY;
-		
+
 		setEntityAnimation(self, "STAND");
 	}
-	
+
 	setEntityAnimation(self, self->mental == 1 ? "WALK" : "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	if (self->flags & FLY)
 	{
 		self->startX += 5;
 
-		self->dirY = cos(DEG_TO_RAD(self->startX));	
+		self->dirY = cos(DEG_TO_RAD(self->startX));
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->thinkTime != 0 && (self->thinkTime % 240) == 0)
 	{
 		if (self->flags & FLY)
@@ -503,7 +503,7 @@ static void creditsMove()
 
 			self->endX = 0;
 		}
-		
+
 		else
 		{
 			self->dirX = 0;
@@ -528,6 +528,6 @@ static void creditsMove()
 static void die()
 {
 	playSoundToMap("sound/enemy/wasp/wasp_die", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }

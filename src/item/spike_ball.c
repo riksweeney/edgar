@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -110,7 +110,7 @@ static void throwBall(int val)
 static void entityWait()
 {
 	long onGround;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -123,7 +123,7 @@ static void entityWait()
 
 		self->thinkTime = 15;
 	}
-	
+
 	onGround = self->flags & ON_GROUND;
 
 	checkToMap(self);

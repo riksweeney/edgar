@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -260,20 +260,20 @@ void regenerate(int *thinkTime, int *counter, float *value)
 void slimeTimeout(int *thinkTime, int *counter, float *value)
 {
 	int timeBefore, timeAfter;
-	
+
 	game.timeSpentAsSlime++;
 
 	if (game.timeSpentAsSlime == 36000)
 	{
 		addMedal("slime");
 	}
-	
+
 	timeBefore = *thinkTime / 60;
 
 	(*thinkTime)--;
-	
+
 	timeAfter = *thinkTime / 60;
-	
+
 	if (timeBefore != timeAfter)
 	{
 		setSlimeTimerValue(timeAfter);

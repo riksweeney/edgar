@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -34,13 +34,13 @@ extern Cursor cursor;
 void draw()
 {
 	char text[MAX_VALUE_LENGTH];
-	
+
 	/* Clear screen */
-	
+
 	clearScreen(0, 0, 0);
-	
+
 	/* Draw the background */
-	
+
 	drawMapBackground();
 
 	/* Draw the map whole map */
@@ -85,9 +85,9 @@ void draw()
 void drawExport()
 {
 	/* Clear screen */
-	
+
 	clearScreen(0, 0, 0);
-	
+
 	/* Draw the map whole map */
 
 	drawMap(-1);

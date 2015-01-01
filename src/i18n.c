@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ void setLanguage(char *applicationName, char *languageCode)
 			}
 		#endif
 	}
-	
+
 	else
 	{
 		STRNCPY(language, languageCode, MAX_LINE_LENGTH);
@@ -123,9 +123,9 @@ void setLanguage(char *applicationName, char *languageCode)
 	}
 
 	fread(&header, sizeof(header), 1, fp);
-	
+
 	swap = header.magicNumber == 0x950412de ? FALSE : TRUE;
-	
+
 	if (swap == TRUE)
 	{
 		header.stringCount = SDL_Swap32(header.stringCount);
@@ -165,7 +165,7 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		fread(&original[i].length, sizeof(int32_t), 1, fp);
 		fread(&original[i].offset, sizeof(int32_t), 1, fp);
-		
+
 		if (swap == TRUE)
 		{
 			original[i].length = SDL_Swap32(original[i].length);
@@ -188,7 +188,7 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		fread(&translation[i].length, sizeof(int32_t), 1, fp);
 		fread(&translation[i].offset, sizeof(int32_t), 1, fp);
-		
+
 		if (swap == TRUE)
 		{
 			translation[i].length = SDL_Swap32(translation[i].length);

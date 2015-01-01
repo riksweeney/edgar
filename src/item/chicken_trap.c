@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -123,7 +123,7 @@ static void removeChicken()
 		self->target->y = target->y;
 
 		clearCustomAction(self->target, &helpless);
-		
+
 		self->target->action = self->target->resumeNormalFunction;
 
 		self->target = NULL;
@@ -160,7 +160,7 @@ static void resetComplete()
 static void activateTrap()
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	self->thinkTime--;

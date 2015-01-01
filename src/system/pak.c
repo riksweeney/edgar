@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -122,7 +122,7 @@ Mix_Chunk *loadSoundFromPak(char *name)
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	Mix_Chunk *chunk;
-	
+
 	if (existsInPak(name) == FALSE)
 	{
 		return NULL;
@@ -184,7 +184,7 @@ Mix_Music *loadMusicFromPak(char *name)
 	#else
 		unsigned char *file;
 		char temp[MAX_PATH_LENGTH];
-		
+
 		if (existsInPak(name) == FALSE)
 		{
 			return NULL;
@@ -287,7 +287,7 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 		}
 
 		fread(source, fileData[i].compressedSize, 1, fp);
-		
+
 		(*size) = fileData[index].fileSize;
 
 		uncompress(dest, size, source, fileData[index].compressedSize);
@@ -396,7 +396,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		}
 
 		fread(source, fileData[index].compressedSize, 1, fp);
-		
+
 		size = fileData[index].fileSize;
 
 		uncompress(dest, &size, source, fileData[index].compressedSize);
@@ -477,7 +477,7 @@ int existsInPak(char *name)
 		}
 	#else
 		exists = FALSE;
-		
+
 		for (i=0;i<fileCount;i++)
 		{
 			if (strcmpignorecase(fileData[i].filename, name) == 0)

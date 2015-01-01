@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -69,18 +69,18 @@ Entity *addBlackBook3(int x, int y, char *name)
 static void entityWait()
 {
 	int i;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		if (self->active == TRUE)
 		{
 			self->touch = &touch;
-			
+
 			self->activate = &activate;
 		}
-		
+
 		if (self->mental == 0)
 		{
 			fireTrigger(self->objectiveName);
@@ -93,9 +93,9 @@ static void entityWait()
 			{
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
-			
+
 			playSoundToMap("sound/enemy/red_grub/thud", BOSS_CHANNEL, self->x, self->y, 0);
-			
+
 			self->mental = 1;
 		}
 	}

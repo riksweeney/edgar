@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -687,13 +687,13 @@ static void castIce()
 		loadProperties("enemy/ice_spike", e);
 
 		setEntityAnimation(e, "STAND");
-		
+
 		x = player.x + player.w / 2;
 		y = self->y - 100 - (prand() % 60);
-		
+
 		e->x = x;
 		e->y = y;
-		
+
 		if (isValidOnMap(e) == TRUE)
 		{
 			e->x = self->x + self->w / 2;
@@ -701,10 +701,10 @@ static void castIce()
 
 			e->x -= e->w / 2;
 			e->y -= e->h / 2;
-			
+
 			e->targetX = x;
 			e->targetY = y;
-			
+
 			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
@@ -739,7 +739,7 @@ static void castIce()
 				self->thinkTime = 30;
 			}
 		}
-		
+
 		else
 		{
 			e->inUse = FALSE;
@@ -1004,13 +1004,13 @@ static void createIceBlock()
 		loadProperties("edgar/edgar_frozen", e);
 
 		setEntityAnimation(e, "STAND");
-		
+
 		x = player.x + player.w / 2;
 		y = self->y - 100 - (prand() % 60);
-		
+
 		e->x = x;
 		e->y = y;
-		
+
 		if (isValidOnMap(e) == TRUE)
 		{
 			e->x = self->x + self->w / 2;
@@ -1062,7 +1062,7 @@ static void createIceBlock()
 				self->thinkTime = 60;
 			}
 		}
-		
+
 		else
 		{
 			e->inUse = FALSE;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -94,58 +94,58 @@ static void doMenu()
 			playSound("sound/common/faster");
 		}
 	}
-	
+
 	left = FALSE;
 	right = FALSE;
 	up = FALSE;
 	down = FALSE;
 	attack = FALSE;
-	
+
 	if (menuInput.left == TRUE)
 	{
 		left = TRUE;
 	}
-	
+
 	else if (menuInput.right == TRUE)
 	{
 		right = TRUE;
 	}
-	
+
 	else if (menuInput.up == TRUE)
 	{
 		up = TRUE;
 	}
-	
+
 	else if (menuInput.down == TRUE)
 	{
 		down = TRUE;
 	}
-	
+
 	else if (menuInput.attack == TRUE)
 	{
 		attack = TRUE;
 	}
-	
+
 	else if (input.left == TRUE)
 	{
 		left = TRUE;
 	}
-	
+
 	else if (input.right == TRUE)
 	{
 		right = TRUE;
 	}
-	
+
 	else if (input.up == TRUE)
 	{
 		up = TRUE;
 	}
-	
+
 	else if (input.down == TRUE)
 	{
 		down = TRUE;
 	}
-	
+
 	else if (input.attack == TRUE)
 	{
 		attack = TRUE;
@@ -220,7 +220,7 @@ static void doMenu()
 			w->leftAction();
 		}
 	}
-	
+
 	xAxisMoved = input.xAxisMoved;
 	yAxisMoved = input.yAxisMoved;
 
@@ -228,7 +228,7 @@ static void doMenu()
 	memset(&input, 0, sizeof(Input));
 
 	input.lastPressedKey = -1;
-	
+
 	input.xAxisMoved = xAxisMoved;
 	input.yAxisMoved = yAxisMoved;
 }
@@ -353,7 +353,7 @@ void freeOptionsMenu()
 		}
 
 		free(menu.widgets);
-		
+
 		menu.widgets = NULL;
 	}
 

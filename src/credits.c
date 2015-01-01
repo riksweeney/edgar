@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -201,7 +201,7 @@ static void doEndCredits()
 	{
 		initCredits();
 	}
-	
+
 	remainingEntities = 0;
 
 	for (i=0;i<credits.lineCount;i++)
@@ -261,7 +261,7 @@ static void doEndCredits()
 
 			addToGrid(self);
 		}
-		
+
 		remainingEntities += doCreditsEntities();
 
 		credits.nextEntityDelay--;
@@ -442,11 +442,11 @@ static void doChaos()
 
 		e->x = t->x;
 		e->y = t->y;
-		
+
 		e->active = FALSE;
 
 		e->alpha = 0;
-		
+
 		e = addKeyItem("item/chaos_chain_base", 0, 0);
 
 		t = getTargetByName("CHAOS_CHAIN_TARGET");
@@ -501,7 +501,7 @@ static void doChaos()
 
 		drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
 	}
-	
+
 	doCreditsEntities();
 
 	if (credits.line == -1)
@@ -523,7 +523,7 @@ static void doChaos()
 		if (credits.creditLine[1].r <= 0)
 		{
 			activateEntitiesWithObjectiveName("CHAOS", TRUE);
-			
+
 			credits.startDelay--;
 
 			if (credits.startDelay <= 0)
@@ -531,9 +531,9 @@ static void doChaos()
 				credits.startDelay = 180;
 
 				credits.line = 1;
-				
+
 				SDL_FreeSurface(credits.fadeSurface);
-				
+
 				credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
 
 				drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
@@ -585,7 +585,7 @@ static void doChaos()
 static void doEdgarLogo()
 {
 	char copyright[MAX_VALUE_LENGTH];
-	
+
 	if (credits.edgarLogo == NULL)
 	{
 		credits.creditLine = malloc(sizeof(CreditLine));
@@ -594,7 +594,7 @@ static void doEdgarLogo()
 		{
 			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
 		}
-		
+
 		snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
 		STRNCPY(credits.creditLine[0].text, copyright, sizeof(credits.creditLine[0].text));
@@ -835,7 +835,7 @@ static void initCredits()
 
 		token1 = strtok_r(NULL, "\n", &savePtr1);
 	}
-	
+
 	credits.speed = y / 17500.0f;
 
 	free(buffer);
@@ -1271,11 +1271,11 @@ static int doCreditsEntities()
 {
 	int remainingEntities;
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
-	
+
 	remainingEntities = 0;
-	
+
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
 		self = el->entity;
@@ -1346,6 +1346,6 @@ static int doCreditsEntities()
 			}
 		}
 	}
-	
+
 	return remainingEntities;
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -239,7 +239,7 @@ static void creeperTouch(Entity *other)
 		playSoundToMap("sound/enemy/whirlwind/suck", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		other->action = other->die;
-		
+
 		self->touch = NULL;
 	}
 }

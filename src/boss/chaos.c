@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -373,7 +373,7 @@ static void riftOpen()
 static void riftWait()
 {
 	int x, y;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0 || self->head->health <= 0)
@@ -389,7 +389,7 @@ static void riftWait()
 	{
 		x = self->x + self->w / 2;
 		y = self->y + self->h / 2;
-		
+
 		if (collision(x - self->speed, y - self->speed, self->speed * 2, self->speed * 2, player.x, player.y, player.w, player.h) == 1)
 		{
 			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? player.speed - 0.25 : -(player.speed - 0.25)));
@@ -543,7 +543,7 @@ static void eatAttack()
 			else
 			{
 				self->thinkTime = 60;
-				
+
 				self->touch = &touch;
 
 				self->action = &eatAttackFinish;
@@ -1171,7 +1171,7 @@ static void spinnerMove()
 		self->flags |= NO_DRAW;
 
 		self->targetX = getMapStartX() - 128;
-		
+
 		self->dirX = -1;
 	}
 
@@ -1336,7 +1336,7 @@ static void breatheFire()
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->thinkTime = 300;
-		
+
 		if (game.status != IN_CREDITS)
 		{
 			shakeScreen(LIGHT, 300);
@@ -1385,7 +1385,7 @@ static void flameWait()
 	Entity *e;
 
 	self->health--;
-	
+
 	player.flags &= ~FLY;
 
 	if (self->health % 10 == 0)
@@ -1450,7 +1450,7 @@ static void flameTouch(Entity *other)
 			removeInventoryItemByObjectiveName("Amulet of Resurrection");
 
 			other->die();
-			
+
 			other->mental = 1;
 		}
 	}
@@ -1471,7 +1471,7 @@ static void breatheFireFinish()
 			if (player.health <= 0)
 			{
 				player.mental = 0;
-				
+
 				createAutoDialogBox(_("Chaos"), _("Pathetic"), 300);
 			}
 
@@ -2196,7 +2196,7 @@ static void touch(Entity *other)
 
 		other->die();
 	}
-	
+
 	else
 	{
 		entityTouch(other);
@@ -2206,7 +2206,7 @@ static void touch(Entity *other)
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	player.flags &= ~FLY;
 
 	if (self->flags & INVULNERABLE)
@@ -2220,7 +2220,7 @@ static void takeDamage(Entity *other, int damage)
 		{
 			damage = 0;
 		}
-		
+
 		if (other->element == FIRE)
 		{
 			self->health += damage;
@@ -2376,7 +2376,7 @@ static void dieWait()
 	Entity *e;
 
 	self->thinkTime--;
-	
+
 	if (self->mental == 0)
 	{
 		self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 4;
@@ -2394,7 +2394,7 @@ static void dieWait()
 		if (self->mental == 0)
 		{
 			self->x = self->startX;
-			
+
 			self->layer = MID_GROUND_LAYER;
 
 			setEntityAnimation(self, "DIE_2");
@@ -2442,7 +2442,7 @@ static void creditsAction()
 		if (self->alpha >= 255)
 		{
 			self->alpha = 255;
-			
+
 			self->creditsAction = &breatheFireInit;
 		}
 	}
@@ -2469,7 +2469,7 @@ static void addLegendarySword()
 	e->flags |= DO_NOT_PERSIST;
 
 	e->action = &swordWait;
-	
+
 	e->touch = NULL;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -2486,7 +2486,7 @@ static void swordWait()
 	if (self->head->health <= 0)
 	{
 		setEntityAnimation(self, "STICK_IN_CHAOS_DIE");
-		
+
 		self->touch = &swordTouch;
 	}
 
@@ -2517,9 +2517,9 @@ static void swordTouch(Entity *other)
 	if (other->type == PLAYER)
 	{
 		self->head = NULL;
-		
+
 		self->action = &doNothing;
-		
+
 		self->touch = &keyItemTouch;
 	}
 }

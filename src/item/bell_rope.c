@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -132,7 +132,7 @@ static void activate(int val)
 			for (i=0;i<8;i++)
 			{
 				snprintf(tune, MAX_VALUE_LENGTH, "%ld", prand() % 5);
-				
+
 				self->requires[i] = tune[0];
 			}
 
@@ -172,7 +172,7 @@ static void activate(int val)
 			if (self->head->active == TRUE)
 			{
 				snprintf(tune, MAX_VALUE_LENGTH, "%d", self->mental);
-				
+
 				self->head->description[self->head->health] = tune[0];
 
 				self->head->health++;

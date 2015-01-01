@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -94,9 +94,9 @@ static void beamAttackInit()
 {
 	int i, j, beams;
 	Entity *e, *prev;
-	
+
 	prev = NULL;
-	
+
 	beams = self->mental == -1 ? 2 : self->mental;
 
 	for (j=0;j<beams;j++)
@@ -163,11 +163,11 @@ static void beamAttackInit()
 			}
 
 			e->flags |= FLY|DO_NOT_PERSIST|UNBLOCKABLE|PLAYER_TOUCH_ONLY;
-			
+
 			e->mental = self->mental;
-			
+
 			e->thinkTime = 300;
-			
+
 			e->health = 0;
 		}
 	}
@@ -177,15 +177,15 @@ static void beamAttack()
 {
 	float x, y, partDistanceX, partDistanceY, speedX, speedY;
 	Entity *e;
-	
+
 	speedX = self->dirX;
 	speedY = self->dirY;
-	
+
 	if (self->mental == -1)
 	{
 		speedX *= cos(DEG_TO_RAD(self->endX));
 		speedY *= cos(DEG_TO_RAD(self->endX));
-		
+
 		self->endX += 0.3;
 	}
 

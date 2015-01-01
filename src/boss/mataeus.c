@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -1470,9 +1470,9 @@ static void riftAttract()
 		self->touch = NULL;
 
 		setEntityAnimation(self, "STAND");
-		
+
 		stopSound(self->health);
-		
+
 		self->health = -1;
 
 		self->action = &riftSink;
@@ -1635,9 +1635,9 @@ static void riftKillBoss()
 		self->touch = NULL;
 
 		setEntityAnimation(self, "STAND");
-		
+
 		stopSound(self->health);
-		
+
 		self->health = -1;
 
 		self->action = &riftSink;
@@ -1770,9 +1770,9 @@ static void riftDestroyWait()
 	if (self->mental <= 0)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		stopSound(self->health);
-		
+
 		self->health = -1;
 
 		self->action = &riftSink;

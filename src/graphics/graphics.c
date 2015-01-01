@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2014 Parallel Realities
+Copyright (C) 2009-2015 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -497,67 +497,67 @@ void drawCircle(int x, int y, int radius, int r, int g, int b)
 {
 	int f, ddF_x, ddF_y, xx, yy, colour;
 	SDL_Rect rect;
-	
+
 	f = 1 - radius;
 	ddF_x = 1;
 	ddF_y = -2 * radius;
 	xx = 0;
 	yy = radius;
 	colour = SDL_MapRGB(game.screen->format, r, g, b);
-	
+
 	rect.x = x;
 	rect.y = y - radius;
 	rect.w = 1;
 	rect.h = radius * 2;
-	
+
 	SDL_FillRect(game.screen, &rect, colour);
-	
+
 	rect.x = x - radius;
 	rect.y = y;
 	rect.w = radius * 2;
 	rect.h = 1;
-	
+
 	SDL_FillRect(game.screen, &rect, colour);
 
 	while (xx < yy)
 	{
-		if (f >= 0) 
+		if (f >= 0)
 		{
 			yy--;
 			ddF_y += 2;
 			f += ddF_y;
 		}
-		
+
 		xx++;
 		ddF_x += 2;
 		f += ddF_x;
-		
+
 		rect.x = x - xx;
 		rect.y = y + yy;
 		rect.w = xx * 2;
 		rect.h = 1;
-		
+
 		SDL_FillRect(game.screen, &rect, colour);
-		
+
 		rect.x = x - xx;
 		rect.y = y - yy;
 		rect.w = xx * 2;
 		rect.h = 1;
-		
+
 		SDL_FillRect(game.screen, &rect, colour);
-		
+
 		rect.x = x - yy;
 		rect.y = y + xx;
 		rect.w = yy * 2;
 		rect.h = 1;
-		
+
 		SDL_FillRect(game.screen, &rect, colour);
-		
+
 		rect.x = x - yy;
 		rect.y = y - xx;
 		rect.w = yy * 2;
 		rect.h = 1;
-		
+
 		SDL_FillRect(game.screen, &rect, colour);
 	}
 }
@@ -566,7 +566,7 @@ void drawCircleFromSurface(int x, int y, int radius)
 {
 	int f, ddF_x, ddF_y, xx, yy;
 	SDL_Rect src, dest;
-	
+
 	f = 1 - radius;
 	ddF_x = 1;
 	ddF_y = -2 * radius;
@@ -578,90 +578,90 @@ void drawCircleFromSurface(int x, int y, int radius)
 	SDL_BlitSurface(game.screen, NULL, game.tempSurface, NULL);
 
 	SDL_FillRect(game.screen, NULL, 0);
-	
+
 	src.x = x;
 	src.y = y - radius;
 	src.w = 1;
 	src.h = radius * 2;
-	
+
 	dest.x = x;
 	dest.y = y - radius;
 	dest.w = 1;
 	dest.h = radius * 2;
-	
+
 	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-	
+
 	src.x = x - radius;
 	src.y = y;
 	src.w = radius * 2;
 	src.h = 1;
-	
+
 	dest.x = x - radius;
 	dest.y = y;
 	dest.w = radius * 2;
 	dest.h = 1;
-	
+
 	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
 
 	while (xx < yy)
 	{
-		if (f >= 0) 
+		if (f >= 0)
 		{
 			yy--;
 			ddF_y += 2;
 			f += ddF_y;
 		}
-		
+
 		xx++;
 		ddF_x += 2;
 		f += ddF_x;
-		
+
 		src.x = x - xx;
 		src.y = y + yy;
 		src.w = xx * 2;
 		src.h = 1;
-		
+
 		dest.x = x - xx;
 		dest.y = y + yy;
 		dest.w = xx * 2;
 		dest.h = 1;
-		
+
 		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-		
+
 		src.x = x - xx;
 		src.y = y - yy;
 		src.w = xx * 2;
 		src.h = 1;
-		
+
 		dest.x = x - xx;
 		dest.y = y - yy;
 		dest.w = xx * 2;
 		dest.h = 1;
-		
+
 		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-		
+
 		src.x = x - yy;
 		src.y = y + xx;
 		src.w = yy * 2;
 		src.h = 1;
-		
+
 		dest.x = x - yy;
 		dest.y = y + xx;
 		dest.w = yy * 2;
 		dest.h = 1;
-		
+
 		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-		
+
 		src.x = x - yy;
 		src.y = y - xx;
 		src.w = yy * 2;
 		src.h = 1;
-		
+
 		dest.x = x - yy;
 		dest.y = y - xx;
 		dest.w = yy * 2;
 		dest.h = 1;
-		
+
 		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
 	}
 
