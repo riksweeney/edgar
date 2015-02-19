@@ -5,6 +5,7 @@ PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
 UNIX = 0
+MACOS = 0
 
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe

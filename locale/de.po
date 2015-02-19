@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-12-23 16:43+0000\n"
+"PO-Revision-Date: 2015-02-18 18:20+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-28 09:56+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-02-19 08:36+0000\n"
+"X-Generator: Launchpad (build 17341)\n"
 
 "Language: de\n"
 #: data/scripts/olaf.dat:6
@@ -3489,6 +3489,8 @@ msgid ""
 "Some of my chickens have escaped from their pen and I would be very grateful "
 "if you can get them back for me"
 msgstr ""
+"Einige meiner Hühner sind aus ihrem Stall entkommen, ich wäre sehr dankbar, "
+"wenn ich sie zurückbekommen würde"
 
 #: data/scripts/jacob.dat:38
 msgid ""
@@ -3589,7 +3591,7 @@ msgstr "Und das ist etwas ganz Besonderes"
 
 #: data/scripts/jacob.dat:92
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr ""
+msgstr "Möge dies auf dem Weg zu einem starken Krieger helfen"
 
 #: data/scripts/jacob.dat:126
 msgid ""
@@ -4030,6 +4032,8 @@ msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
+"Der Zauberer muss Papa zu seinem Schloss genommen haben. Ich muss ihn von "
+"dort retten."
 
 #: data/scripts/grasslands_intro.dat:8
 msgid ""
@@ -4202,6 +4206,8 @@ msgstr ""
 msgid ""
 "That stuff looks dangerous, it'd probably eat through my armour in seconds"
 msgstr ""
+"Das Zeug sieht gefährlich aus, es würde sich wahrscheinlich in Sekunden "
+"durch meine Rüstung fressen"
 
 #: data/scripts/sludge_pool.dat:2
 msgid "But I'll have to find a way across..."
@@ -4247,7 +4253,7 @@ msgstr "Keine Sorge, ich werde dich nicht verletzen"
 
 #: data/scripts/hoover.dat:30
 msgid "Ow!"
-msgstr ""
+msgstr "Au!"
 
 #: data/scripts/hoover.dat:33
 msgid ""
@@ -4281,7 +4287,7 @@ msgstr ""
 
 #: data/scripts/well.dat:8
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr ""
+msgstr "PAPA!!!!! BIST DU DORT UNTEN?!!!!!"
 
 #: data/scripts/well.dat:10
 msgid "Nothing. I guess I'll have to keep on looking"
@@ -4289,7 +4295,7 @@ msgstr ""
 
 #: data/scripts/slime_potion.dat:3
 msgid "There's a note here too"
-msgstr ""
+msgstr "Es gibt noch einen Hinweis"
 
 #: data/scripts/slime_potion.dat:4
 msgid ""
@@ -6534,15 +6540,15 @@ msgstr "der Kerker"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr ""
+msgstr "die eisigen Weiten"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
-msgstr ""
+msgstr "das Außenhöhlensystem"
 
 #: data/maps/map19.dat:5643
 msgid "the Inner Cave Network"
-msgstr ""
+msgstr "das Innenhöhlensystem"
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
@@ -6550,11 +6556,11 @@ msgstr "der Friedhof"
 
 #: data/maps/map09.dat:10018
 msgid "the Left Tower"
-msgstr ""
+msgstr "der linke Turm"
 
 #: data/maps/map16.dat:1968
 msgid "the Right Tower"
-msgstr ""
+msgstr "der rechte Turm"
 
 #: data/medals.dat:21
 msgid "the Crypt"
@@ -6562,7 +6568,7 @@ msgstr "die Gruft"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "Village"
-msgstr ""
+msgstr "Dorf"
 
 #: data/scripts/armour_boss_die.dat:4
 msgid "Mine"
@@ -6586,31 +6592,31 @@ msgstr ""
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
-msgstr ""
+msgstr "Abwasserkanal"
 
 #: data/maps/map09.dat:5943
 msgid "Fortress Basement"
-msgstr ""
+msgstr "Festungskeller"
 
 #: data/maps/map09.dat:1
 msgid "Fortress Ground Floor"
-msgstr ""
+msgstr "Festungserdgeschoss"
 
 #: data/scripts/old_shield.dat:18
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratorium"
 
 #: src/graphics/save_png.c:25
 msgid "Library"
-msgstr ""
+msgstr "Bibliothek"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr ""
+msgstr "Bohrerhöhle"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"
-msgstr ""
+msgstr "Katakomben"
 
 #: data/scripts/enable_study.dat:1
 msgid "Study"
@@ -6630,7 +6636,7 @@ msgstr ""
 
 #: data/maps/map19.dat:5643
 msgid "Inner Cave Network"
-msgstr ""
+msgstr "Innenhöhlensystem"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Graveyard"
@@ -6646,7 +6652,7 @@ msgstr "rechter Turm"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
-msgstr ""
+msgstr "Die Beobachtungsstelle"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
@@ -6654,7 +6660,7 @@ msgstr "Gruft"
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - %d"
-msgstr ""
+msgstr "Copyright Parallel Realities 2009 - %d"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
@@ -6666,7 +6672,7 @@ msgstr ""
 
 #: src/title.c:79
 msgid "Press any key"
-msgstr ""
+msgstr "Eine Taste drücken"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
@@ -6674,7 +6680,7 @@ msgstr ""
 
 #: src/credits.c:884
 msgid "Continue"
-msgstr ""
+msgstr "Fortfahren"
 
 #: src/init.c:128
 msgid "Medals"
@@ -6726,7 +6732,7 @@ msgstr "Asriel"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
-msgstr ""
+msgstr "Bis wir uns wiedersehen ..."
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
@@ -6750,7 +6756,7 @@ msgstr ""
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
-msgstr ""
+msgstr "Zugriff auf die Krypta"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
@@ -6769,6 +6775,8 @@ msgid ""
 "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
 "font"
 msgstr ""
+"SMALL_FONT_SIZE und LARGE_FONT_SIZE müssen bei Verwendung einer "
+"benutzerdefinierten Schriftart angegeben werden"
 
 #: src/menu/options_menu.c:354
 msgid ""
@@ -6795,7 +6803,7 @@ msgstr "Fühle meine Macht!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
-msgstr ""
+msgstr "Leide!"
 
 #: src/boss/chaos.c:1472
 msgid "Pathetic"
@@ -6828,7 +6836,7 @@ msgstr ""
 
 #: src/credits.c:458
 msgid "Chaos has been subdued"
-msgstr ""
+msgstr "Chaos wurde gebändigt"
 
 #: src/credits.c:460
 msgid "For now..."
@@ -6840,7 +6848,7 @@ msgstr ""
 
 #: src/credits.c:467
 msgid "To terrorise the world once again"
-msgstr ""
+msgstr "Um die Welt wieder einmal zu terrorisieren"
 
 #: src/item/attractor.c:36
 msgid "Rift"
@@ -6848,7 +6856,7 @@ msgstr ""
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Ranken"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
@@ -6918,7 +6926,7 @@ msgstr "Was für eine schreckliche Nacht"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Edgar, ich muss für ein paar Stunden rausgehen"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""

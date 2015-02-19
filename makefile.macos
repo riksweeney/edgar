@@ -4,22 +4,49 @@ DEV = 0
 PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
-UNIX = 0
-MACOS = 0
+MAN = man/
+UNIX = 1
+MACOS = 1
 
+ifeq ($(UNIX),0)
+PROG      = edgar.exe
+ED_PROG   = mapeditor.exe
+PAK_PROG  = pak.exe
+PO_PROG   = po_creator.exe
+TILE_PROG = tile_creator.exe
+else
 PROG      = edgar
 ED_PROG   = mapeditor
 PAK_PROG  = pak
+PO_PROG   = po_creator
+TILE_PROG = tile_creator
+endif
 
-CC        = i386-aros-gcc
-STRIP     = i386-aros-strip --strip-unneeded --remove-section .comment
+CC       = gcc
 
-LOCALE_DIR = locale/
+PREFIX = $(DESTDIR)/usr
+BIN_DIR = $(PREFIX)/games/
+DOC_DIR = $(PREFIX)/share/doc/$(PROG)/
+ICON_DIR = $(PREFIX)/share/icons/hicolor/
+DESKTOP_DIR = $(PREFIX)/share/applications/
+LOCALE_DIR = $(PREFIX)/share/locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
-CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+ifeq ($(UNIX),0)
+DATA_DIR =
+else
+DATA_DIR = $(PREFIX)/share/games/edgar/
+endif
 
-LFLAGS = -nix -lSDL_gfx -lSDL_net -lSDL_image -lpng -ljpeg -lz -lSDL_mixer -lvorbisfile -lvorbis -logg -lSDL_ttf -lfreetype2 -lz -lSDL -lm
+SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
+
+ifeq ($(DEV),1)
+CFLAGS = -Wall -Werror -g -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+else
+CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX) -m64 -isysroot ${SDK} -arch x86_64 -mmacosx-version-min=10.10 `sdl-config --cflags` `libpng16-config --cflags` -I/opt/homebrew/include
+endif
+
+LFLAGS = `sdl-config --static-libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm -m64 -isysroot ${SDK} -Wl,-syslibroot,${SDK} -mmacosx-version-min=10.10 `libpng16-config --ldflags` -lpng16
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
@@ -65,41 +92,105 @@ CORE_OBJS += poison_meat.o train.o train_track.o flame_statue.o armour_changer.o
 CORE_OBJS += sorceror_floor.o medals_menu.o skull_door.o ghost.o slug.o portable_save.o crypt_skull.o skeleton.o bell_rope.o
 CORE_OBJS += music_sheet_display.o title.o azriel.o zombie.o mini_gargoyle.o gargoyle.o chaos.o chaos_vine.o i18n.o azriel_grave.o chaos_chain_base.o
 
+ifeq ($(UNIX),0)
 CORE_OBJS += strtok_r.o
+endif
 
 # top-level rule to create the program.
 .PHONY: all
-all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO)
+all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO) $(PO_PROG)
 
 makefile.dep : src/*/*.h src/*.h
-	for i in src/*.c src/*/*.c; do $(CC) $(CFLAGS) -MM "$${i}"; done > $@
+	for i in src/*.c src/*/*.c; do $(CC) -MM "$${i}"; done > $@
 
 # compiling other source files.
 %.o:
 	$(CC) $(CFLAGS) -c -s $<
 
 %.mo: %.po
-	msgfmt -c -o $@ $<
+	/opt/homebrew/Cellar/gettext/0.19.4/bin/msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CC) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
-	$(STRIP) $(PROG)
+	$(CC) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
 
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CC) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
+	$(CC) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CC) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
+	$(CC) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
+
+# linking the program.
+$(PO_PROG): $(PO_OBJS)
+	$(CC) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
+
+# linking the program.
+$(TILE_PROG): $(TILE_OBJS)
+	$(CC) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS) -lpng16
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
+	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PO_PROG) $(TILE_PROG) $(PAK_FILE) $(LOCALE_MO) $(TILE_PROG) *.o makefile.dep
 
 buildpak: $(PAK_PROG)
-	$(PAK_PROG) data gfx music sound font $(PAK_FILE)
-	$(PAK_PROG) -test $(PAK_FILE)
+	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) -test $(PAK_FILE)
+
+# install
+install: all
+ifeq ($(DEV),1)
+	echo Cannot install if DEV is set to 1!
+else
+	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) -test $(PAK_FILE)
+
+	mkdir -p $(BIN_DIR)
+	mkdir -p $(DATA_DIR)
+	mkdir -p $(DOC_DIR)
+	mkdir -p $(ICON_DIR)16x16/apps
+	mkdir -p $(ICON_DIR)32x32/apps
+	mkdir -p $(ICON_DIR)48x48/apps
+	mkdir -p $(ICON_DIR)64x64/apps
+	mkdir -p $(DESKTOP_DIR)
+	mkdir -p $(PREFIX)/share/man/man6
+
+	cp $(PROG) $(BIN_DIR)$(PROG)
+	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
+	cp $(DOCS) $(DOC_DIR)
+	cp $(ICONS)16x16.png $(ICON_DIR)16x16/apps/$(PROG).png
+	cp $(ICONS)32x32.png $(ICON_DIR)32x32/apps/$(PROG).png
+	cp $(ICONS)48x48.png $(ICON_DIR)48x48/apps/$(PROG).png
+	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
+	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
+	install -m 0644 $(MAN)$(PROG).6x.gz $(PREFIX)/share/man/man6
+
+	@for f in $(LOCALE_MO); do \
+		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
+		mkdir -p $(LOCALE_DIR)$$lang/LC_MESSAGES; \
+		echo "cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
+		cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
+	done
+endif
+
+uninstall:
+	$(RM) $(BIN_DIR)$(PROG)
+	$(RM) $(DATA_DIR)$(PAK_FILE)
+	$(RM) $(DOC_DIR)*
+	$(RM) -r $(DOC_DIR)
+	$(RM) $(ICON_DIR)$(ICONS)$(PROG).png
+	$(RM) $(ICON_DIR)16x16/apps/$(PROG).png
+	$(RM) $(ICON_DIR)32x32/apps/$(PROG).png
+	$(RM) $(ICON_DIR)48x48/apps/$(PROG).png
+	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
+	$(RM) $(DESKTOP_DIR)$(PROG).desktop
+	$(RM) $(PREFIX)/share/man/man6/$(PROG).6x.gz
+
+	@for f in $(LOCALE_MO); do \
+		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
+		echo "$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
+		$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
+	done
 
 include makefile.dep
