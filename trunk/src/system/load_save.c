@@ -70,7 +70,11 @@ extern Game game;
 
 		userHome = pass->pw_dir;
 
+		#if MACOS == 1
+		snprintf(dir, sizeof(dir), "%s/Library/Application Support", userHome);
+		#else
 		snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
+		#endif
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -79,7 +83,11 @@ extern Game game;
 			exit(1);
 		}
 
+		#if MACOS == 1
+		snprintf(dir, sizeof(dir), "%s/Library/Application Support/Edgar", userHome);
+		#else
 		snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
+		#endif
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -88,7 +96,11 @@ extern Game game;
 			exit(1);
 		}
 
+		#if MACOS == 1
+		snprintf(gameSavePath, sizeof(gameSavePath), "%s/Library/Application Support/Edgar/", userHome);
+		#else
 		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
+		#endif
 
 		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 

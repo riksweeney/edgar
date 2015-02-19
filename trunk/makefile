@@ -6,6 +6,7 @@ DOCS = doc/*
 ICONS = icons/
 MAN = man/
 UNIX = 1
+MACOS = 0
 
 ifeq ($(UNIX),0)
 PROG      = edgar.exe
