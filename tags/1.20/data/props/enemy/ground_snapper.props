@@ -1,0 +1,10 @@
+DAMAGE 1
+GFX_FILE data/gfx/enemy/ground_snapper.dat
+ANIM_FILE data/anim/enemy/ground_snapper.dat
+TYPE ENEMY
+SPEED 1.5
+FLAGS INVULNERABLE|FLY
+THINKTIME 60
+START_X 0
+HEALTH 0
+LAYER BACKGROUND_LAYER

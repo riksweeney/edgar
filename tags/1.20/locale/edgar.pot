@@ -1,0 +1,6573 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar 1.00\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-16 13:33+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-04-19 16:52+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
+
+#: data/scripts/olaf.dat:6
+msgid "Thanks, this is perfect!"
+msgstr ""
+
+#: data/scripts/olaf.dat:7
+msgid "Do you have everything you need now?"
+msgstr ""
+
+#: data/scripts/olaf.dat:8
+msgid "I sure do"
+msgstr ""
+
+#: data/scripts/olaf.dat:9
+msgid "So what happens now?"
+msgstr ""
+
+#: data/scripts/olaf.dat:10
+msgid "We can get out of here! Where do you want to go?"
+msgstr ""
+
+#: data/scripts/olaf.dat:11
+msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
+msgstr ""
+
+#: data/scripts/olaf.dat:12
+msgid "OK, remember what I told you about his disintegration spell?"
+msgstr ""
+
+#: data/scripts/olaf.dat:13
+msgid "I think so..."
+msgstr ""
+
+#: data/scripts/olaf.dat:14
+msgid "Go to the lab and combine that ring and your shield"
+msgstr ""
+
+#: data/scripts/olaf.dat:15
+msgid "How?"
+msgstr ""
+
+#: data/scripts/olaf.dat:16
+msgid ""
+"Throw the shield and ring into the cauldron along with some mandrake root, "
+"that should do it"
+msgstr ""
+
+#: data/scripts/jacob.dat:35
+msgid "OK..."
+msgstr ""
+
+#: data/scripts/olaf.dat:18
+msgid "Nothing will go wrong this time!"
+msgstr ""
+
+#: data/scripts/third_side.dat:5
+msgid "..."
+msgstr ""
+
+#: data/scripts/olaf.dat:23
+msgid "(I have the statue that Olaf stole)"
+msgstr ""
+
+#: data/scripts/olaf.dat:24
+msgid "(Perhaps I should return it to him, he is saving me after all)"
+msgstr ""
+
+#: data/scripts/olaf.dat:25
+msgid "(Then again, he did steal it, and I nearly died trying to get it)"
+msgstr ""
+
+#: data/scripts/olaf.dat:26
+msgid "Give the statue to Olaf?"
+msgstr ""
+
+#: data/scripts/olaf.dat:28
+msgid "I found this in the cave, is it the statue you took?"
+msgstr ""
+
+#: data/scripts/olaf.dat:29
+msgid "Yes it is! Thanks for finding it!"
+msgstr ""
+
+#: data/scripts/olaf.dat:31
+msgid "I should be able to sell this for a decent price at the market"
+msgstr ""
+
+#: data/scripts/olaf.dat:34
+msgid "(I think I'll keep it for myself)"
+msgstr ""
+
+#: data/scripts/olaf.dat:40
+msgid "Ready to go?"
+msgstr ""
+
+#: data/scripts/olaf.dat:41
+msgid "Return to the Fortress?"
+msgstr ""
+
+#: data/scripts/olaf.dat:46
+msgid "Not yet, there's something else I need to do"
+msgstr ""
+
+#: data/scripts/olaf.dat:47
+msgid "OK, let me know when you're ready"
+msgstr ""
+
+#: data/scripts/olaf.dat:51
+msgid "Have you managed to find the horn yet?"
+msgstr ""
+
+#: data/scripts/olaf.dat:62
+msgid "Have you found everything yet?"
+msgstr ""
+
+#: data/scripts/olaf.dat:63
+msgid "Not yet, I'm still looking"
+msgstr ""
+
+#: data/scripts/olaf.dat:68
+msgid "OK, I've found everything now"
+msgstr ""
+
+#: data/scripts/olaf.dat:77
+msgid "ARGHHHHH!!"
+msgstr ""
+
+#: data/scripts/olaf.dat:79
+msgid "Another human, out here? How did you get out here?"
+msgstr ""
+
+#: data/scripts/olaf.dat:80
+msgid ""
+"I'm not sure, I think the sorceror sent me here, but he said he was going to "
+"kill me"
+msgstr ""
+
+#: data/scripts/olaf.dat:83
+msgid "Hmmm, what's that on your hand?"
+msgstr ""
+
+#: data/scripts/olaf.dat:84
+msgid "This? This is just a ring I found in his fortress"
+msgstr ""
+
+#: data/scripts/olaf.dat:85
+msgid ""
+"It looks like a ring of protection, it must have saved you. Why were you in "
+"his fortress?"
+msgstr ""
+
+#: data/scripts/olaf.dat:86
+msgid "He's kidnapped my Dad and I was there trying to save him"
+msgstr ""
+
+#: data/scripts/olaf.dat:87
+msgid "Well, it looks like the ring's power is almost completely gone"
+msgstr ""
+
+#: data/scripts/olaf.dat:88
+msgid "If he hits you with that spell again it will almost certainly kill you"
+msgstr ""
+
+#: data/scripts/olaf.dat:91
+msgid ""
+"Something must have protected you from the spell. Were you wearing a pendant "
+"or a ring?"
+msgstr ""
+
+#: data/scripts/olaf.dat:92
+msgid "I did find a ring in the fortress but it didn't seem to have any powers"
+msgstr ""
+
+#: data/scripts/olaf.dat:93
+msgid ""
+"It might have been a ring of protection. I imagine that the protection would "
+"have been limited to a single use"
+msgstr ""
+
+#: data/scripts/olaf.dat:96
+msgid ""
+"What you could do though is combine the ring and your shield together to "
+"create a shield that will protect you from the spell"
+msgstr ""
+
+#: data/scripts/olaf.dat:97
+msgid "Do you have any experience mixing spells?"
+msgstr ""
+
+#: data/scripts/olaf.dat:98
+msgid ""
+"Kind of, but the last time I tried creating a shield the spell backfired "
+"and..."
+msgstr ""
+
+#: data/scripts/olaf.dat:99
+msgid "It created an evil version of yourself?"
+msgstr ""
+
+#: data/scripts/olaf.dat:100
+msgid "Yeah, how did you know?"
+msgstr ""
+
+#: data/scripts/olaf.dat:101
+msgid "Where I'm from it used to happen at least once a month"
+msgstr ""
+
+#: data/scripts/olaf.dat:103
+msgid "Why are you here?"
+msgstr ""
+
+#: data/scripts/olaf.dat:104
+msgid "The sorceror caught me looting his fortress and he banished me here"
+msgstr ""
+
+#: data/scripts/olaf.dat:105
+msgid "What did you steal?"
+msgstr ""
+
+#: data/scripts/olaf.dat:106
+msgid "It was a small golden statue, probably worth a lot of money"
+msgstr ""
+
+#: data/scripts/olaf.dat:107
+msgid ""
+"I've been here for months now, but I've almost got all the ingredients I "
+"need to teleport back home"
+msgstr ""
+
+#: data/scripts/olaf.dat:108
+msgid ""
+"I just need one more thing, but it's in a cave to the west and I have no "
+"weapons to protect myself"
+msgstr ""
+
+#: data/scripts/olaf.dat:109
+msgid "But now you're here you can help me retrieve it"
+msgstr ""
+
+#: data/scripts/olaf.dat:112
+msgid ""
+"I haven't gotten all my stuff back yet. I think everything's here though"
+msgstr ""
+
+#: data/scripts/olaf.dat:113
+msgid "When I've found everything I'll come back"
+msgstr ""
+
+#: data/scripts/olaf.dat:114
+msgid "OK, good luck!"
+msgstr ""
+
+#: data/scripts/olaf.dat:120
+msgid "What do you need?"
+msgstr ""
+
+#: data/scripts/olaf.dat:121
+msgid "It's the horn from a particular type of monster"
+msgstr ""
+
+#: data/scripts/olaf.dat:122
+msgid ""
+"There should be plenty of bones littered around so you shouldn't have to "
+"find one and kill it. Just get the horn and get out"
+msgstr ""
+
+#: data/scripts/jacob.dat:39
+msgid "That's it?"
+msgstr ""
+
+#: data/scripts/library_intro.dat:6
+msgid "Hmmm"
+msgstr ""
+
+#: data/scripts/olaf.dat:130
+msgid ""
+"Well, my stock of logs is looking quite low, maybe you could get me some "
+"more while you're out?"
+msgstr ""
+
+#: data/scripts/olaf.dat:131
+msgid ""
+"Don't even think about it, I'm fed up of chopping down trees and collecting "
+"logs!"
+msgstr ""
+
+#: data/scripts/olaf.dat:132
+msgid "OK, it was just a suggestion"
+msgstr ""
+
+#: data/scripts/olaf.dat:133
+msgid "Oh, you'll need this too"
+msgstr ""
+
+#: data/scripts/olaf.dat:135
+msgid ""
+"Dip your arrows into it to turn them into fire arrows, it will help you burn "
+"down the vines blocking the entrance"
+msgstr ""
+
+#: data/scripts/olaf.dat:136
+msgid "Thanks!"
+msgstr ""
+
+#: data/scripts/olaf.dat:139
+msgid "Oh, one last thing."
+msgstr ""
+
+#: data/scripts/olaf.dat:141
+msgid ""
+"Don't hang around in that cave, the monsters that live in there are like "
+"nothing you'll have ever encountered before"
+msgstr ""
+
+#: data/scripts/olaf.dat:142
+msgid "Seriously, just get the horn"
+msgstr ""
+
+#: data/scripts/jacob.dat:35
+msgid "OK"
+msgstr ""
+
+#: data/scripts/olaf.dat:145
+msgid "Have I just sent a young boy to his death?"
+msgstr ""
+
+#: data/scripts/olaf.dat:147
+msgid "Sorry, did you say something?"
+msgstr ""
+
+#: data/scripts/olaf.dat:148
+msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
+msgstr ""
+
+#: data/scripts/olaf.dat:159
+msgid "Yes, let's go"
+msgstr ""
+
+#: data/scripts/olaf.dat:160
+msgid "OK, here goes nothing, good luck finding your father"
+msgstr ""
+
+#: data/scripts/olaf.dat:161
+msgid "Thanks, Olaf"
+msgstr ""
+
+#: data/scripts/basement_lift_power.dat:1
+msgid ""
+"This lift is not working. I won't be able to use it until I restore the power"
+msgstr ""
+
+#: data/scripts/catapult.dat:1
+msgid "Wow, a catapult!"
+msgstr ""
+
+#: data/scripts/catapult.dat:2
+msgid ""
+"The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr ""
+
+#: data/scripts/drawbridge_pulley.dat:2
+msgid "It looks like the pulley for the drawbridge"
+msgstr ""
+
+#: data/scripts/drawbridge_pulley.dat:3
+msgid "The mechanism seems to be locked tight"
+msgstr ""
+
+#: data/scripts/drawbridge_pulley.dat:4
+msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
+msgstr ""
+
+#: data/scripts/drawbridge_pulley.dat:10
+msgid "Oops..."
+msgstr ""
+
+#: data/scripts/drawbridge_pulley.dat:15
+msgid "Maybe nobody heard that?"
+msgstr ""
+
+#: data/scripts/drawbridge_pulley.dat:16
+msgid "Well, the drawbridge is down at any rate..."
+msgstr ""
+
+#: data/scripts/flame_pillar.dat:1
+msgid ""
+"Those flames are incredibly hot. I'll be burnt to cinders if I try and walk "
+"through them"
+msgstr ""
+
+#: data/scripts/flame_pillar.dat:2
+msgid "There must be a way to cool them down..."
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:1
+msgid "The shield will protect you from most enemy attacks"
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:2
+msgid "Some enemy attacks cannot be blocked"
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:3
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:4
+msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:5
+msgid "You must be facing the attack to successfully block it"
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:6
+msgid ""
+"Note that you cannot move whilst blocking, but you can face the other way. "
+"You also cannot block in the air"
+msgstr ""
+
+#: data/scripts/tutorial_shield.dat:7
+msgid "Pick up the shield and continue to the right"
+msgstr ""
+
+#: data/scripts/portrait.dat:1
+msgid "It's a portrait"
+msgstr ""
+
+#: data/scripts/scorpion_statue.dat:1
+msgid "Got it!"
+msgstr ""
+
+#: data/scripts/scorpion_statue.dat:2
+msgid ""
+"What a ridiculous amount of effort to go through just to get a statue..."
+msgstr ""
+
+#: data/scripts/scorpion_statue.dat:3
+msgid "I'd better get out of here and get back to the Fortress..."
+msgstr ""
+
+#: data/scripts/outskirts_intro.dat:10
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr ""
+
+#: data/scripts/outskirts_intro.dat:15
+msgid "Wait, what's that?"
+msgstr ""
+
+#: data/scripts/outskirts_intro.dat:23
+msgid "Maybe I could tunnel my way in..."
+msgstr ""
+
+#: data/scripts/borer_boss_die.dat:3
+msgid "Yuck..."
+msgstr ""
+
+#: data/scripts/third_side.dat:1
+msgid "Oh, what's this?"
+msgstr ""
+
+#: data/scripts/knights.dat:2
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+#: data/scripts/third_side.dat:3
+msgid "It's available on iBooks and the Amazon Kindle"
+msgstr ""
+
+#: data/scripts/third_side.dat:4
+msgid "I'm not exactly sure what any of that means, but it sounds interesting"
+msgstr ""
+
+#: data/scripts/third_side.dat:5
+msgid "I might read that later..."
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:10
+msgid "So, you escaped"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:11
+msgid "Yes I did, and my father wasn't there"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:12
+msgid "Maybe you just didn't look hard enough"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:13
+msgid "Have another look"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:18
+msgid "Maybe you should work on your spells"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:19
+msgid "NOW TELL ME WHERE MY FATHER IS!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:20
+msgid "You annoying little brat"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:21
+msgid "I wouldn't be surprised if your father has abandoned you"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:22
+msgid "What?!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:23
+msgid "I'll show you!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:28
+msgid "That, was a mistake"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:29
+msgid "Die"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:34
+msgid "That was odd, he was supposed to explode"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:35
+msgid "Where did he go?"
+msgstr ""
+
+#: data/scripts/old_shield.dat:12
+msgid ""
+"That's it? Just this old shield? It doesn't look any better than my current "
+"one."
+msgstr ""
+
+#: data/scripts/old_shield.dat:13
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr ""
+
+#: data/scripts/old_shield.dat:16
+msgid "Great, a spare shield!"
+msgstr ""
+
+#: data/scripts/old_shield.dat:17
+msgid "I have everything I need now"
+msgstr ""
+
+#: data/scripts/old_shield.dat:18
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr ""
+
+#: data/scripts/old_shield.dat:21
+msgid ""
+"This doesn't look like a Fire Shield to me. I was really hoping to find one "
+"here too"
+msgstr ""
+
+#: data/scripts/old_shield.dat:22
+msgid "This shield doesn't even look any better than my current one."
+msgstr ""
+
+#: data/scripts/old_shield.dat:27
+msgid ""
+"I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr ""
+
+#: data/scripts/old_shield.dat:33
+msgid "That's not a good sign..."
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:1
+msgid "There's a note here"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:2
+msgid "I've found a way to kill the Centurions"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:3
+msgid "They will reform unless one of their parts falls into the slime or lava"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:4
+msgid ""
+"I managed to retrieve two of the puzzle pieces before I was caught and "
+"locked in here again"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:5
+msgid "If I can break out of here again I'll be sure to escape"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:6
+msgid ""
+"Otherwise I hope another unfortunate victim will find this information useful"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:7
+msgid "There's a skull here"
+msgstr ""
+
+#: data/scripts/centurion_note_2.dat:8
+msgid "Looks like he didn't manage to get out..."
+msgstr ""
+
+#: data/scripts/chaos_warn.dat:2
+msgid "Leave now if you wish to live"
+msgstr ""
+
+#: data/scripts/chaos_warn.dat:4
+msgid "Go back now"
+msgstr ""
+
+#: data/scripts/chaos_warn.dat:15
+msgid ""
+"If you proceed, I will fight you and destroy you. Flee now, while you can"
+msgstr ""
+
+#: data/scripts/chaos_warn.dat:28
+msgid "You fool. Do you truly seek destruction?"
+msgstr ""
+
+#: data/scripts/chaos_warn.dat:31
+msgid "Then I shall destroy you!!"
+msgstr ""
+
+#: data/scripts/tutorial_secret.dat:2
+msgid "Congratulations, you found a secret!"
+msgstr ""
+
+#: data/scripts/tutorial_secret.dat:3
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr ""
+
+#: data/scripts/tutorial_secret.dat:4
+msgid "Here's a hint to get you started"
+msgstr ""
+
+#: data/scripts/tutorial_secret.dat:5
+msgid ""
+"Although Jacob only requires you to catch 3 of his chickens, why not be nice "
+"to him and catch more? There are 10 wandering the map in all"
+msgstr ""
+
+#: data/scripts/box_pushing.dat:1
+msgid ""
+"You can pull some items around by pushing against them whilst holding down "
+"the Action button."
+msgstr ""
+
+#: data/scripts/box_pushing.dat:2
+msgid "You can then pull it around until you let go of the Action button"
+msgstr ""
+
+#: data/scripts/drainers.dat:1
+msgid ""
+"Whatever that thing was it was draining the power from that generator and "
+"using it against me."
+msgstr ""
+
+#: data/scripts/drainers.dat:2
+msgid ""
+"That might explain why that lift wasn't working. Defeating the other "
+"drainers should restore the power here."
+msgstr ""
+
+#: data/scripts/drainers.dat:3
+msgid "Defeat all Energy Drainers"
+msgstr ""
+
+#: data/scripts/safe_instructions.dat:1
+msgid "Use left and right to move the dial 1 unit at a time"
+msgstr ""
+
+#: data/scripts/safe_instructions.dat:2
+msgid ""
+"Make sure you keep count of how many times you move the dial since no on-"
+"screen notification is given"
+msgstr ""
+
+#: data/scripts/safe_instructions.dat:3
+msgid ""
+"When you think you've entered the combination correctly, press Attack to try "
+"and open the door"
+msgstr ""
+
+#: data/scripts/no_combination.dat:1
+msgid ""
+"There's no way I'll be able to figure out the combination, I'll have to find "
+"out what it is"
+msgstr ""
+
+#: data/scripts/borgan.dat:4
+msgid "Keep practising!"
+msgstr ""
+
+#: data/scripts/maggie.dat:4
+msgid "Hi"
+msgstr ""
+
+#: data/scripts/jacob.dat:32
+msgid "Hello Edgar"
+msgstr ""
+
+#: data/scripts/borgan.dat:13
+msgid "Can I borrow your shield?"
+msgstr ""
+
+#: data/scripts/borgan.dat:14
+msgid "Off to practice your fighting skills?"
+msgstr ""
+
+#: data/scripts/borgan.dat:15
+msgid "Something like that"
+msgstr ""
+
+#: data/scripts/borgan.dat:16
+msgid "If you run me an errand then you can have the shield"
+msgstr ""
+
+#: data/scripts/borgan.dat:17
+msgid "What do I have to do?"
+msgstr ""
+
+#: data/scripts/borgan.dat:18
+msgid "Go to the mine and collect me some coal"
+msgstr ""
+
+#: data/scripts/borgan.dat:19
+msgid "But we have plenty of coal!"
+msgstr ""
+
+#: data/scripts/borgan.dat:20
+msgid ""
+"Yes, but this is not any old coal, this coal is special, it burns hotter and "
+"lasts longer"
+msgstr ""
+
+#: data/scripts/borgan.dat:21
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr ""
+
+#: data/scripts/borgan.dat:22
+msgid ""
+"Make sure you put it in a bag, touching it for too long will be bad for your "
+"health"
+msgstr ""
+
+#: data/scripts/borgan.dat:23
+msgid "Do you have a bag?"
+msgstr ""
+
+#: data/scripts/borgan.dat:24
+msgid "No, you can probably find one in the mine though"
+msgstr ""
+
+#: data/scripts/borgan.dat:25
+msgid "OK, I'll get the coal"
+msgstr ""
+
+#: data/scripts/borgan.dat:27
+msgid ""
+"Here, take this pickaxe. You can use it to mine the coal and hack through "
+"any weaker walls you encounter"
+msgstr ""
+
+#: data/scripts/borgan.dat:29
+msgid "You'll also need this key to get into the mine"
+msgstr ""
+
+#: data/scripts/borgan.dat:31
+msgid "Collect 10 pieces of Coal"
+msgstr ""
+
+#: data/scripts/borgan.dat:36
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr ""
+
+#: data/scripts/borgan.dat:37
+msgid "The bats were the least of my worries..."
+msgstr ""
+
+#: data/scripts/borgan.dat:38
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr ""
+
+#: data/scripts/borgan.dat:39
+msgid ""
+"Er, yeah, there was what you'd call an \"incident\", but that part of the "
+"mine was sealed up a long time ago"
+msgstr ""
+
+#: data/scripts/borgan.dat:40
+msgid "Right..."
+msgstr ""
+
+#: data/scripts/borgan.dat:42
+msgid "Here, have my shield and have fun!"
+msgstr ""
+
+#: data/scripts/borgan.dat:44
+msgid "Just stay away from the Forbidden Swamp"
+msgstr ""
+
+#: data/scripts/borgan.dat:45
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr ""
+
+#: data/scripts/borgan.dat:46
+msgid "Sure thing, just bring it back in one piece"
+msgstr ""
+
+#: data/scripts/borgan.dat:47
+msgid "Thanks, Borgan!"
+msgstr ""
+
+#: data/scripts/borgan.dat:52
+msgid "Have you managed to find the coal yet?"
+msgstr ""
+
+#: data/scripts/safe.dat:5
+msgid "A safe in a library? Bit of a cliché..."
+msgstr ""
+
+#: data/scripts/safe.dat:11
+msgid ""
+"It looks too thick to break open, I'll have to open it using the combination"
+msgstr ""
+
+#: data/scripts/statue_required.dat:1
+msgid ""
+"You must have the statue you wish to use highlighted in your inventory box"
+msgstr ""
+
+#: data/scripts/centurion_boss_start.dat:9
+msgid "Huh, what's that?"
+msgstr ""
+
+#: data/scripts/centurion_boss_start.dat:14
+msgid "ESCAPEE LOCATED"
+msgstr ""
+
+#: data/scripts/centurion_boss_start.dat:15
+msgid "TARGET IS ARMED AND DANGEROUS"
+msgstr ""
+
+#: data/scripts/centurion_boss_start.dat:16
+msgid "COMMENCING DESTRUCTION OF TARGET"
+msgstr ""
+
+#: data/scripts/blank_card_required.dat:1
+msgid "I need a blank card to put the instructions on"
+msgstr ""
+
+#: data/scripts/slime_potion_pool.dat:1
+msgid "That smell..."
+msgstr ""
+
+#: data/scripts/slime_potion_pool.dat:3
+msgid "It looks like..."
+msgstr ""
+
+#: data/scripts/slime_potion_pool.dat:4
+msgid "It's as thick as..."
+msgstr ""
+
+#: data/scripts/slime_potion_pool.dat:5
+msgid "And it tastes like..."
+msgstr ""
+
+#: data/scripts/slime_potion_pool.dat:8
+msgid "It is! It's naturally occurring Slime potion!"
+msgstr ""
+
+#: data/scripts/cave_boss_die.dat:10
+msgid "Gotcha!"
+msgstr ""
+
+#: data/scripts/cave_boss_die.dat:11
+msgid "Not so clever now are you?"
+msgstr ""
+
+#: data/scripts/cave_boss_die.dat:79
+msgid "I REALLY have to get out of here!"
+msgstr ""
+
+#: data/scripts/maggie.dat:4
+msgid "Hi Maggie"
+msgstr ""
+
+#: data/scripts/maggie.dat:7
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr ""
+
+#: data/scripts/maggie.dat:52
+msgid "Thanks Maggie!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:9
+msgid "Persistent aren't you?"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:10
+msgid ""
+"I don't know what you did last time, but trust me, you won't escape again!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:20
+msgid "(Phew)"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:21
+msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:22
+msgid "Your spell won't work against me any more"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:23
+msgid "Now, if you won't tell me the whereabouts of my father"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:24
+msgid "I will have to beat it out of you"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:25
+msgid "You will never get that chance"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:29
+msgid "Grimlore, I summon you! Destroy this pest!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:33
+msgid "Farewell, Edgar"
+msgstr ""
+
+#: data/scripts/sorceror_intro_3.dat:38
+msgid "Something's coming..."
+msgstr ""
+
+#: data/scripts/spirit.dat:1
+msgid ""
+"That spirit isn't going to let me past, I'll have to find a way to get rid "
+"of it"
+msgstr ""
+
+#: data/scripts/swamp_intro.dat:2
+msgid "This place doesn't look so bad..."
+msgstr ""
+
+#: data/scripts/occult_book.dat:51
+msgid "What was that?"
+msgstr ""
+
+#: data/scripts/swamp_intro.dat:17
+msgid "Uh Oh..."
+msgstr ""
+
+#: data/scripts/tutorial_doors.dat:1
+msgid ""
+"There are two types of door in the game. Manual doors and Automatic doors."
+msgstr ""
+
+#: data/scripts/tutorial_doors.dat:2
+msgid ""
+"Manual doors require keys to open them, Automatic doors require switches."
+msgstr ""
+
+#: data/scripts/tutorial_doors.dat:3
+msgid ""
+"To open a locked door that you have the key for, simply walk into it. There "
+"is no need to have the key selected in your inventory."
+msgstr ""
+
+#: data/scripts/tutorial_doors.dat:4
+msgid "Open the door and continue to the right"
+msgstr ""
+
+#: data/scripts/cave_intro.dat:4
+msgid "Urgh, what happened?"
+msgstr ""
+
+#: data/scripts/borer_cave_intro.dat:11
+msgid "Where am I?"
+msgstr ""
+
+#: data/scripts/tutorial_blocking.dat:1
+msgid "Now try out your shield"
+msgstr ""
+
+#: data/scripts/tutorial_blocking.dat:2
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:12
+msgid "I can't believe he's gone"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:13
+msgid "I tried so hard to find him"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:14
+msgid "And I failed"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:15
+msgid "What am I going to do now?"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:16
+msgid "*sniff*"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:19
+msgid "Edgar! Edgar, where are you?"
+msgstr ""
+
+#: data/scripts/cave_boss_die.dat:10
+msgid "!"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:21
+msgid "That voice..."
+msgstr ""
+
+#: data/scripts/ending_part1.dat:22
+msgid "It can't be..."
+msgstr ""
+
+#: data/scripts/ending_part1.dat:25
+msgid "Daddy!"
+msgstr ""
+
+#: data/scripts/jacob.dat:14
+msgid "Edgar!"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:28
+msgid "Jacob, I found him!"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:30
+msgid "What are you doing here, son? It's dangerous, we have to leave"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:31
+msgid "I came to rescue you!"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:32
+msgid "Eh? What are you... No, tell me later, let's go home"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:2
+msgid "I'll try again"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:6
+msgid "Give up?"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:8
+msgid "I'll figure this out another time"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:15
+msgid "I'll keep trying"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:22
+msgid "This music sheet might be his anthem, I'll give it a go"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:33
+msgid "I need to find out what Ivan's anthem is"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:34
+msgid "Randomly ringing bells isn't going to work..."
+msgstr ""
+
+#: data/scripts/tomb_door.dat:39
+msgid "Something is etched on this door"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:40
+msgid "Enshrined in this tomb is the great warrior Ivan"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:41
+msgid "Defeater of the evil dragon known as Chaos"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:42
+msgid "Access to his tomb is granted only to those who play his anthem"
+msgstr ""
+
+#: data/scripts/tomb_door.dat:43
+msgid "His anthem? How on earth am I going to figure that out?!"
+msgstr ""
+
+#: data/scripts/monsters.dat:2
+msgid "This entire section is about monsters"
+msgstr ""
+
+#: data/scripts/monsters.dat:3
+msgid ""
+"I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr ""
+
+#: data/scripts/monsters.dat:6
+msgid "I wonder what other monsters there are..."
+msgstr ""
+
+#: data/scripts/monsters.dat:8
+msgid "Chaos"
+msgstr ""
+
+#: data/scripts/monsters.dat:9
+msgid "Chaos is an ancient, evil dragon"
+msgstr ""
+
+#: data/scripts/monsters.dat:14
+msgid "A dragon?! Dad told me they were all extinct!"
+msgstr ""
+
+#: data/scripts/monsters.dat:15
+msgid ""
+"For years he wreaked havoc across this land and took thousands of innocent "
+"lives, his fiery breath incinerated everything in its path"
+msgstr ""
+
+#: data/scripts/monsters.dat:16
+msgid ""
+"Finally a brave warrior and a group of magicians managed to overwhelm and "
+"bind him"
+msgstr ""
+
+#: data/scripts/monsters.dat:17
+msgid "They sealed the dragon away beneath an old fortress"
+msgstr ""
+
+#: data/scripts/monsters.dat:18
+msgid "It is believed he is still there"
+msgstr ""
+
+#: data/scripts/monsters.dat:19
+msgid ""
+"Slowly regaining his power until he is strong enough to break free and "
+"terrorise the world once again"
+msgstr ""
+
+#: data/scripts/monsters.dat:21
+msgid "Beneath an old fortress? Maybe they mean this one..."
+msgstr ""
+
+#: data/scripts/monsters.dat:22
+msgid ""
+"If that dragon is regaining its power then it must be stopped before it's "
+"too late"
+msgstr ""
+
+#: data/scripts/monsters.dat:23
+msgid ""
+"But if its breath destroys anything then I won't be able to protect myself"
+msgstr ""
+
+#: data/scripts/monsters.dat:24
+msgid "Unless..."
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:5
+msgid "Grimlore"
+msgstr ""
+
+#: data/scripts/monsters.dat:32
+msgid ""
+"Grimlore is a creature from another dimension. It can be summoned using "
+"powerful dark magic"
+msgstr ""
+
+#: data/scripts/monsters.dat:33
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr ""
+
+#: data/scripts/monsters.dat:34
+msgid ""
+"There is no known way to kill Grimlore since upon sustaining critical "
+"injuries it will simply return to its own dimension"
+msgstr ""
+
+#: data/scripts/monsters.dat:35
+msgid ""
+"But even injuring it is a monumental task. Anyone encountering this creature "
+"is advised to escape as quickly as possible"
+msgstr ""
+
+#: data/scripts/monsters.dat:36
+msgid "Or they will die very quickly"
+msgstr ""
+
+#: data/scripts/monsters.dat:42
+msgid "Summoner, Dark"
+msgstr ""
+
+#: data/scripts/monsters.dat:43
+msgid ""
+"Just like regular Summoners, Dark Summoners call in other beasts to do their "
+"bidding"
+msgstr ""
+
+#: data/scripts/monsters.dat:44
+msgid ""
+"Additionally though they can teleport short distances to escape from their "
+"opponents"
+msgstr ""
+
+#: data/scripts/monsters.dat:45
+msgid ""
+"Their staff is highly magical and although it cannot be used by humans "
+"directly, its magical properties are used in spell creation"
+msgstr ""
+
+#: data/scripts/monsters.dat:51
+msgid "Hoover, Pink"
+msgstr ""
+
+#: data/scripts/monsters.dat:52
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr ""
+
+#: data/scripts/monsters.dat:53
+msgid ""
+"The primary purpose of the snout is to forage for food but it also serves as "
+"a defence mechanism"
+msgstr ""
+
+#: data/scripts/monsters.dat:54
+msgid ""
+"and are more than capable of keeping a predator at bay by simply blowing "
+"them away"
+msgstr ""
+
+#: data/scripts/monsters.dat:60
+msgid "Venus Flytrap, mobile"
+msgstr ""
+
+#: data/scripts/monsters.dat:61
+msgid ""
+"Mobile Venus Flytraps have evolved roots and are able to move to their food "
+"rather than waiting for it to come to them"
+msgstr ""
+
+#: data/scripts/monsters.dat:62
+msgid ""
+"Their necks are incredibly elastic and are able to snap at their prey from a "
+"considerable distance away"
+msgstr ""
+
+#: data/scripts/monsters.dat:68
+msgid "Tortoise, Master"
+msgstr ""
+
+#: data/scripts/monsters.dat:69
+msgid ""
+"Master Tortoises are frightening beasts. Found in far away lands they "
+"possess the ability to change their heads"
+msgstr ""
+
+#: data/scripts/monsters.dat:70
+msgid ""
+"They combine all the abilities of their cousins to breathe fire, create ice "
+"and electrify themselves"
+msgstr ""
+
+#: data/scripts/monsters.dat:71
+msgid ""
+"And of course they are also impervious to attacks from matching elements, "
+"absorbing the energy to heal themselves"
+msgstr ""
+
+#: data/scripts/monsters.dat:72
+msgid ""
+"But additionally, if they receive too much energy from healing, they evolve "
+"and go on the rampage"
+msgstr ""
+
+#: data/scripts/monsters.dat:73
+msgid ""
+"In this state they will smash through any defence and produce Dark Matter "
+"which destroys anything it touches"
+msgstr ""
+
+#: data/scripts/monsters.dat:74
+msgid ""
+"However, the shell of a rampaging Master Tortoise is highly magical and is "
+"an essential ingredient when creating powerful magics and items"
+msgstr ""
+
+#: data/scripts/monsters.dat:80
+msgid "Grub, Red"
+msgstr ""
+
+#: data/scripts/monsters.dat:81
+msgid ""
+"Red Grubs are more aggressive than their green counterparts and will attack "
+"anything they view as a threat"
+msgstr ""
+
+#: data/scripts/monsters.dat:82
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr ""
+
+#: data/scripts/monsters.dat:83
+msgid ""
+"Some however will morph into a queen wasp. These queens can produce a mucus-"
+"like substance capable of holding its prey in place"
+msgstr ""
+
+#: data/scripts/monsters.dat:89
+msgid "Splitter"
+msgstr ""
+
+#: data/scripts/monsters.dat:90
+msgid "Splitters are harmless monsters unless attacked."
+msgstr ""
+
+#: data/scripts/monsters.dat:91
+msgid ""
+"Upon sustaining too much damage they will split in two and attack their "
+"predator"
+msgstr ""
+
+#: data/scripts/monsters.dat:92
+msgid "If one of these sustains too much damage it will split once again"
+msgstr ""
+
+#: data/scripts/monsters.dat:93
+msgid ""
+"These versions are completely harmless and in this state can be simply "
+"stepped on"
+msgstr ""
+
+#: data/scripts/monsters.dat:94
+msgid ""
+"If all its parts are still alive, a splitter will reform itself after a "
+"while and heal its wounds"
+msgstr ""
+
+#: data/scripts/monsters.dat:100
+msgid "Centurion, Grey"
+msgstr ""
+
+#: data/scripts/monsters.dat:101
+msgid ""
+"Centurions are magically created creatures, usually dispatched as sentries "
+"or guards"
+msgstr ""
+
+#: data/scripts/monsters.dat:102
+msgid ""
+"Though slow moving, their massive size allows them to simply march through "
+"any defence"
+msgstr ""
+
+#: data/scripts/monsters.dat:103
+msgid ""
+"Instead of arms, many have huge pile drivers which they use to shake the "
+"ground and disorientate threats"
+msgstr ""
+
+#: data/scripts/monsters.dat:104
+msgid ""
+"While Grey Centurions will be used to guard outer perimeters, Red Centurions "
+"are known to exist and are used to protect areas of great importance"
+msgstr ""
+
+#: data/scripts/cauldron.dat:153
+msgid "Gazer"
+msgstr ""
+
+#: data/scripts/monsters.dat:111
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr ""
+
+#: data/scripts/monsters.dat:112
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr ""
+
+#: data/scripts/monsters.dat:113
+msgid ""
+"They use their strong sense of smell to look out for predator and prey alike"
+msgstr ""
+
+#: data/scripts/monsters.dat:114
+msgid ""
+"Gazers attack (and defend themselves) by opening their eye which will dazzle "
+"anything looking at it"
+msgstr ""
+
+#: data/scripts/monsters.dat:115
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr ""
+
+#: data/scripts/monsters.dat:116
+msgid ""
+"A Gazer's eyeball contains magical properties and is a common ingredient in "
+"spell preparation"
+msgstr ""
+
+#: data/scripts/monsters.dat:120
+msgid "Ah, here is a compendium of monsters"
+msgstr ""
+
+#: data/scripts/monsters.dat:121
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr ""
+
+#: data/scripts/monsters.dat:124
+msgid "This might have come in handy when I was hunting for the Red Sludges"
+msgstr ""
+
+#: data/scripts/monsters.dat:125
+msgid "Still, there might be something else in these books worth reading..."
+msgstr ""
+
+#: data/scripts/monsters.dat:128
+msgid "Looks like they're in alphabetical order though"
+msgstr ""
+
+#: data/scripts/monsters.dat:130
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr ""
+
+#: data/scripts/monsters.dat:132
+msgid "Sludge, Red"
+msgstr ""
+
+#: data/scripts/monsters.dat:133
+msgid ""
+"Unlike its green cousin, the Red Sludge stays deep underground and rarely, "
+"if ever, surfaces"
+msgstr ""
+
+#: data/scripts/monsters.dat:134
+msgid ""
+"Its preferred habitat are dry and mineral rich areas and as a result have "
+"been found lurking in areas of mines abandoned by humans"
+msgstr ""
+
+#: data/scripts/monsters.dat:135
+msgid ""
+"They are very wary of humans and will attack on sight, usually vomiting up "
+"an acid which takes time to evaporate"
+msgstr ""
+
+#: data/scripts/monsters.dat:136
+msgid "Smacker, Lesser..."
+msgstr ""
+
+#: data/scripts/monsters.dat:137
+msgid ""
+"Great, that's all it says. I don't even know how to tell the difference "
+"between a male and female. I'll just to take a chance..."
+msgstr ""
+
+#: data/scripts/monsters.dat:138
+msgid "Besides, what's the worst that could happen?"
+msgstr ""
+
+#: data/scripts/monsters.dat:139
+msgid ""
+"I didn't see any Sludges in the mine when I went to get Borgan's coal and "
+"even if there were any I can't get back there since my raft sank"
+msgstr ""
+
+#: data/scripts/monsters.dat:140
+msgid "I'll have to find another mine around here..."
+msgstr ""
+
+#: data/scripts/mine2_exit.dat:1
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr ""
+
+#: data/scripts/mine2_exit.dat:2
+msgid "Because it is in this version you won't be able to leave"
+msgstr ""
+
+#: data/scripts/mine2_exit.dat:3
+msgid "You will now be transported outside"
+msgstr ""
+
+#: data/scripts/mine2_exit.dat:4
+msgid "We apologize for the inconvenience"
+msgstr ""
+
+#: data/scripts/sewer_boss_start.dat:15
+msgid ""
+"So you're back? Well this time, only one of us is getting out of here alive!"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:2
+msgid ""
+"This library must have information on everything, so a book detailing the "
+"creation of a Shield of Dragon Fire Resistance must be here..."
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:8
+msgid ""
+"That dragon stuff sounded interesting, but I'll read about it after I've "
+"created the Fire Shield"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:9
+msgid ""
+"I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
+"create a Shield of Fire Resistance"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:10
+msgid ""
+"Once I've found all these items I'll have to find a place to create the "
+"shield"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:14
+msgid ""
+"That monster encyclopedia said the dragon's breath incinerated everything, "
+"but that warrior still managed to defeat it"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:15
+msgid ""
+"Maybe this book has information about creating a shield to resist dragon "
+"breath"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:11
+msgid "Hmmm..."
+msgstr ""
+
+#: data/scripts/occult_book.dat:16
+msgid "Shield of Dragon Fire Resistance"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:20
+msgid ""
+"Creation of shields of dragon fire resistance require occult magics and very "
+"little is known about their manufacture"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:21
+msgid ""
+"Known ingredients include the shell fragment from a Rampaging Master "
+"Tortoise and the staff of a Dark Summoner"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:22
+msgid "Drat, that's all it says"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:23
+msgid ""
+"This library is huge though, there must be a book in this place that "
+"describes the process"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:24
+msgid "But I've looked everywhere, haven't I?"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:33
+msgid "There's a book here about enchanting equipment"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:34
+msgid "Maybe I can create a shield..."
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:36
+msgid "Swords... Armour... Wands..."
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:37
+msgid "Stupid book. It's not in order and there's no index"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:39
+msgid "Here we go: Shields"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:9
+msgid "Shield of Fire Resistance"
+msgstr ""
+
+#: data/scripts/occult_book.dat:17
+msgid "Ingredients"
+msgstr ""
+
+#: data/scripts/occult_book.dat:18
+msgid "One must gather the following"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:43
+msgid "The root of a Mandrake"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:44
+msgid "The fat of a Mantis (left to stand for 3 months)"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:45
+msgid "Powered Condor bones"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:46
+msgid "3 eyes of the Gazer"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:47
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr ""
+
+#: data/scripts/occult_book.dat:22
+msgid "The shield to apply the enchantment"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:49
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:50
+msgid ""
+"Add the root, fat and bones into the cauldron and mix together with the "
+"blended Gazer eyes and Sludge tentacle"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:51
+msgid "When the mixture turns bright blue, add the shield"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:54
+msgid ""
+"There might be potions room or lab where I can find the roots, fat and bones "
+"so I don't need to worry about those"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:57
+msgid ""
+"The lab probably has the roots, fat and bones so I don't need to worry about "
+"those"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:59
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:60
+msgid ""
+"What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:61
+msgid ""
+"I can't use my current shield in the experiment in case it backfires so I'll "
+"have to find another one"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:64
+msgid "Obtain 3 Gazer Eyes"
+msgstr ""
+
+#: data/scripts/monsters.dat:122
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:68
+msgid "Find another shield"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:70
+msgid "Blend eyeballs and tentacle"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:78
+msgid "It's a book about enchanting equipment"
+msgstr ""
+
+#: data/scripts/enchanting_weapons.dat:79
+msgid ""
+"I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr ""
+
+#: data/scripts/items_found.dat:1
+msgid "Hmm, I've looked everywhere and this appears to be everything"
+msgstr ""
+
+#: data/scripts/items_found.dat:2
+msgid ""
+"I guess the other things must have been destroyed when the sorceror used "
+"that spell"
+msgstr ""
+
+#: data/scripts/items_found.dat:3
+msgid "Now to find out where I am and how I can get back"
+msgstr ""
+
+#: data/scripts/items_found.dat:4
+msgid "If I can..."
+msgstr ""
+
+#: data/scripts/graveyard_weather.dat:4
+msgid "Huh, it's started to rain"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:2
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:3
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:4
+msgid "So far I have only found 1"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:5
+msgid ""
+"To make matters worse, I can only reach some switches with a carefully "
+"placed arrow"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:6
+msgid "But spares aren't common and I have run out"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:7
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:9
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:10
+msgid "Collect 3 Access Keys"
+msgstr ""
+
+#: data/scripts/tutorial_walls.dat:1
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr ""
+
+#: data/scripts/tutorial_walls.dat:2
+msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
+msgstr ""
+
+#: data/scripts/tutorial_walls.dat:3
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr ""
+
+#: data/scripts/tutorial_walls.dat:4
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr ""
+
+#: data/scripts/grimlore_die.dat:3
+msgid "There, back to your own dimension"
+msgstr ""
+
+#: data/scripts/grimlore_die.dat:10
+msgid "Where did the sorceror go?"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:7
+msgid "Finally, we meet at last!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:9
+msgid "Who are you?"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:10
+msgid ""
+"My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:11
+msgid "Fascinating. What do you want?"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:12
+msgid "I've come to rescue my father, tell me where he is!"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:13
+msgid ""
+"Your father? My dear child, I do not have the foggiest idea what you are "
+"talking about"
+msgstr ""
+
+#: data/scripts/sorceror_intro_1.dat:14
+msgid "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
+msgstr ""
+
+#: data/scripts/ant_lion.dat:1
+msgid "There's something moving around down there..."
+msgstr ""
+
+#: data/scripts/ant_lion.dat:2
+msgid "It might be an ant lion looking for food"
+msgstr ""
+
+#: data/scripts/ant_lion.dat:3
+msgid "If I go down there, it'll almost certainly eat me"
+msgstr ""
+
+#: data/scripts/ant_lion.dat:7
+msgid "Maybe I could lure something else into its pit..."
+msgstr ""
+
+#: data/scripts/purifier.dat:1
+msgid "That's a lot of slime"
+msgstr ""
+
+#: data/scripts/purifier.dat:4
+msgid ""
+"I don't think the Ice Spray will get across this since it only works on water"
+msgstr ""
+
+#: data/scripts/purifier.dat:11
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr ""
+
+#: data/scripts/purifier.dat:12
+msgid "I remember Borgan telling me how ironic that is"
+msgstr ""
+
+#: data/scripts/purifier.dat:14
+msgid "I'll have to find something to help me get across..."
+msgstr ""
+
+#: data/scripts/purple_gem.dat:1
+msgid ""
+"It looks like it's tightly wedged in there. I can probably loosen it with "
+"the pickaxe..."
+msgstr ""
+
+#: data/scripts/blender.dat:2
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr ""
+
+#: data/scripts/blender.dat:11
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
+msgstr ""
+
+#: data/scripts/blender.dat:18
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr ""
+
+#: data/scripts/blender.dat:22
+msgid "OK, here goes!"
+msgstr ""
+
+#: data/scripts/tutorial_boxes.dat:1
+msgid "Some items in the game can be pushed and pulled"
+msgstr ""
+
+#: data/scripts/tutorial_boxes.dat:2
+msgid "To push an item, simply walk into it"
+msgstr ""
+
+#: data/scripts/tutorial_boxes.dat:3
+msgid "To pull an item, walk into while holding down Action"
+msgstr ""
+
+#: data/scripts/tutorial_boxes.dat:4
+msgid "You can then pull the item around until you let go of Action"
+msgstr ""
+
+#: data/scripts/tutorial_boxes.dat:5
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr ""
+
+#: data/scripts/laboratory_intro.dat:3
+msgid "Wow, a laboratory!"
+msgstr ""
+
+#: data/scripts/laboratory_intro.dat:4
+msgid ""
+"I love watching Maggie make spells and potions, maybe I can make some of my "
+"own here!"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:4
+msgid "Nowhere left to hide"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:5
+msgid "You defeated Grimlore? Impossible!"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:6
+msgid "He submitted to my sword just like everything else in this foul place"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:7
+msgid "This is your last chance, tell me where my father is!"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:8
+msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:9
+msgid "LIAR! I've run out of patience, prepare to die!"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:11
+msgid "Very well. If that is your wish"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:12
+msgid "Many have suffered at my hand"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:13
+msgid "Your death will be quick, but extremely painful"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:14
+msgid ""
+"I will add your head to the long line of foolish adventurers who have tried "
+"to best me"
+msgstr ""
+
+#: data/scripts/sorceror_start.dat:16
+msgid "Prepare yourself, Edgar"
+msgstr ""
+
+#: data/scripts/tutorial_reset_switch.dat:1
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr ""
+
+#: data/scripts/tutorial_reset_switch.dat:2
+msgid ""
+"If an object becomes unreachable then you can use the switch to put it back "
+"in its original place"
+msgstr ""
+
+#: data/scripts/black_book.dat:1
+msgid "This book is different to the rest"
+msgstr ""
+
+#: data/scripts/black_book.dat:2
+msgid "I can feel a powerful magic emanating from it"
+msgstr ""
+
+#: data/scripts/black_book.dat:3
+msgid "A powerful evil magic"
+msgstr ""
+
+#: data/scripts/black_book.dat:4
+msgid "Maybe I should leave it alone"
+msgstr ""
+
+#: data/scripts/black_book.dat:5
+msgid "Still, I could be wrong, maybe it's not evil magic..."
+msgstr ""
+
+#: data/scripts/black_book_search.dat:9
+msgid "Examine the book?"
+msgstr ""
+
+#: data/scripts/black_book.dat:20
+msgid "What just happened?"
+msgstr ""
+
+#: data/scripts/black_book.dat:22
+msgid "Maybe I shouldn't go around touching books that give off an evil aura"
+msgstr ""
+
+#: data/scripts/black_book.dat:23
+msgid "And spend more time looking for my Dad"
+msgstr ""
+
+#: data/scripts/black_book.dat:25
+msgid ""
+"This would have allowed you to fight Mataeus, but it looks like you've "
+"already defeated him..."
+msgstr ""
+
+#: data/scripts/black_book.dat:29
+msgid "I'll leave it alone, I'm not getting a good feeling from it"
+msgstr ""
+
+#: data/scripts/catacombs_intro.dat:2
+msgid "Oh great, I can barely see anything"
+msgstr ""
+
+#: data/scripts/catacombs_intro.dat:9
+msgid "I'll have to be careful where I tread..."
+msgstr ""
+
+#: data/scripts/catacombs_intro.dat:10
+msgid "Escape the Catacombs"
+msgstr ""
+
+#: data/scripts/final_battle.dat:1
+msgid "He's through here, I can feel it"
+msgstr ""
+
+#: data/scripts/final_battle.dat:2
+msgid ""
+"There's no going back once I step through that door, I'd better make sure "
+"I'm ready"
+msgstr ""
+
+#: data/scripts/final_battle.dat:3
+msgid "Enter the door?"
+msgstr ""
+
+#: data/scripts/final_battle.dat:5
+msgid "OK, here we go..."
+msgstr ""
+
+#: data/scripts/final_battle.dat:11
+msgid "Maybe I should prepare a little bit more first"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:4
+msgid ""
+"Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
+"box"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:5
+msgid ""
+"You can also move to the next dialog box by pressing Attack "
+"([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
+"([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:6
+msgid ""
+"This is the tutorial for The Legend of Edgar. This tutorial will explain how "
+"to play the game."
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:7
+msgid ""
+"To exit this tutorial, press Escape and use the Up and Down arrow keys to "
+"choose an option. Press Return to select it."
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:8
+msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:9
+msgid ""
+"To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:10
+msgid "To interact with an item, press [INPUT_INTERACT]"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:11
+msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
+msgstr ""
+
+#: data/scripts/items_missing.dat:1
+msgid "I need to recover my missing items before I can leave"
+msgstr ""
+
+#: data/scripts/azriel_start.dat:6
+msgid "Who dares pillage the tomb of the great warrior Ivan?"
+msgstr ""
+
+#: data/scripts/azriel_start.dat:12
+msgid "Who said that?"
+msgstr ""
+
+#: data/scripts/azriel_start.dat:13
+msgid "Insolent cur, you will suffer for your disrespect"
+msgstr ""
+
+#: data/scripts/azriel_start.dat:18
+msgid "I, am Azriel"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:2
+msgid "I've managed to escape from my cell and am trying to find a way out"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:3
+msgid ""
+"I found a door blocked by a frame which you need to put 9 jigsaw puzzle "
+"pieces in"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:4
+msgid ""
+"The pieces are locked behind doors which seem to be linked to the Red "
+"Centurions"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:5
+msgid "The Centurions appear to be indestructible however"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:6
+msgid "Unless I can find a way to destroy them I will die down here"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:7
+msgid "I'll find a way to destroy them"
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:8
+msgid "I'm so close to rescuing Dad now..."
+msgstr ""
+
+#: data/scripts/centurion_note_1.dat:10
+msgid "Find 9 Puzzle Pieces"
+msgstr ""
+
+#: data/scripts/wrong_order.dat:2
+msgid "Nothing happened. I don't think that's the right order"
+msgstr ""
+
+#: data/scripts/fortress_mine_exit_sign.dat:1
+msgid "There's another sign here"
+msgstr ""
+
+#: data/scripts/fortress_mine_exit_sign.dat:2
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr ""
+
+#: data/scripts/fortress_mine_exit_sign.dat:3
+msgid "Warning : Exit route may be hazardous"
+msgstr ""
+
+#: data/scripts/fortress_mine_exit_sign.dat:5
+msgid "Maybe I should use the lift to get out"
+msgstr ""
+
+#: data/scripts/crossbow.dat:16
+msgid "Cool, it worked!"
+msgstr ""
+
+#: data/scripts/smoothie_colour.dat:2
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr ""
+
+#: data/scripts/smoothie_colour.dat:3
+msgid "Maybe it's supposed to be yellow..."
+msgstr ""
+
+#: data/scripts/smoothie_colour.dat:10
+msgid "I just need to find another shield to enchant..."
+msgstr ""
+
+#: data/scripts/cauldron_exploded.dat:7
+msgid "Maybe that wasn't such a good idea after all..."
+msgstr ""
+
+#: data/scripts/cauldron_exploded.dat:9
+msgid "Looks like I'll have to find another way to get past those fireballs"
+msgstr ""
+
+#: data/scripts/sleeping.dat:2
+msgid "It's sleeping"
+msgstr ""
+
+#: data/scripts/sleeping.dat:3
+msgid "I'm safe anyway since it's in that cage..."
+msgstr ""
+
+#: data/scripts/gargoyle_start.dat:6
+msgid "I don't want to go back to the swamp"
+msgstr ""
+
+#: data/scripts/gargoyle_start.dat:8
+msgid "I'm pretty sure Dad's in the fortress"
+msgstr ""
+
+#: data/scripts/gargoyle_start.dat:12
+msgid "Maybe I should check the swamp again..."
+msgstr ""
+
+#: data/scripts/gargoyle_start.dat:21
+msgid "What was that?!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:32
+msgid "...and when you didn't come home last night I set off to find you"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:33
+msgid "You went to the Sorceror's Fortress?!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:34
+msgid "I thought he'd kidnapped you! Where were you?"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:35
+msgid "Erm... well you see"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:36
+msgid "When I went out last night I went to Jacob's for a couple of drinks"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:37
+msgid "*cough*"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:38
+msgid "several drinks"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:39
+msgid "On the way home I stopped by the well to have a drink of water"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:40
+msgid "and I fell in"
+msgstr ""
+
+#: data/scripts/sorceror_intro_2.dat:22
+msgid "What?"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:45
+msgid "I fell down the well"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:46
+msgid "I was down there until only a couple of hours ago"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:47
+msgid "Are you kidding me?"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:49
+msgid "I shouted down that well, didn't you hear me?"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:50
+msgid "I was out cold"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:51
+msgid "Plus, the hangover was absolute murder"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:53
+msgid "I crossed the swamp"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:54
+msgid "Broke into the Sorceror's Fortress"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:55
+msgid "Fought countless numbers of ferocious monsters"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:56
+msgid "Got imprisoned in his dungeon"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:57
+msgid "And was teleported to another part of the world!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:58
+msgid "I nearly died!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:61
+msgid "Near misses don't count"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:64
+msgid "Only the once though"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:67
+msgid "[CONTINUE_COUNT] times according to my count"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:73
+msgid ""
+"And after all that, when I defeated the Sorceror, he had no idea who you were"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:74
+msgid "You killed the Sorceror?!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:75
+msgid "I thought he'd kidnapped Dad!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:76
+msgid ""
+"Wow, that has to be the worst case of false accusation I think I'll ever "
+"hear!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:78
+msgid "But more seriously, you disobeyed me, son"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:79
+msgid "I told you to never set foot in the Forbidden Swamp"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:80
+msgid "And for that, you'll have to be punished"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:82
+msgid "But Dad..."
+msgstr ""
+
+#: data/scripts/ending_part2.dat:83
+msgid "Be quiet!"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:84
+msgid "I just need to think of something suitable..."
+msgstr ""
+
+#: data/scripts/ending_part2.dat:88
+msgid "Looks like your chickens have escaped from their pen again, Jacob"
+msgstr ""
+
+#: data/scripts/ending_part2.dat:92
+msgid "Actually, I think I know what your punishment is going to be..."
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:3
+msgid "A jigsaw puzzle?!"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:4
+msgid "I'm not really a fan of these"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:7
+msgid ""
+"I prefer the sliding puzzles, like the one I had to solve to get the "
+"Lightning Sword"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:9
+msgid "Still, it looks like this is the only way out"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:16
+msgid "Looks like I need 9 pieces to slot into the frame"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:19
+msgid "The frame is empty"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:20
+msgid ""
+"Hopefully the pieces I need are around somewhere, otherwise I'm going to die "
+"down here"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:23
+msgid ""
+"I've got all the pieces, I just need to place them in the frame and solve "
+"the puzzle"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:24
+msgid "Push left, right, up or down to move the cursor"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:25
+msgid "Press Attack to select the current piece and move it around"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:26
+msgid "Press Attack again to stop moving the current piece"
+msgstr ""
+
+#: data/scripts/jigsaw_puzzle.dat:27
+msgid "Press Action to quit the puzzle"
+msgstr ""
+
+#: data/scripts/ice_spray.dat:1
+msgid "More water?!"
+msgstr ""
+
+#: data/scripts/ice_spray.dat:7
+msgid ""
+"I don't think being able to turn into a Slime is going to help me here, "
+"since I might not be able to get back afterwards"
+msgstr ""
+
+#: data/scripts/ice_spray.dat:8
+msgid "Those fish look quite dangerous too"
+msgstr ""
+
+#: data/scripts/ice_spray.dat:9
+msgid "I'll have to find another way of getting across"
+msgstr ""
+
+#: data/scripts/purifier.dat:14
+msgid "I'll have to find something to help me get across"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:1
+msgid ""
+"This is the last part of the tutorial and will teach you to block and attack "
+"enemies"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:2
+msgid ""
+"First, you should equip the sword since it has more range and does more "
+"damage than the pickaxe"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:3
+msgid ""
+"Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
+"press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:4
+msgid "Press [INPUT_INVENTORY] again to close your inventory"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:5
+msgid ""
+"Occasionally, slain enemies will drop health which will vanish after a few "
+"seconds, so pick it up quickly!"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:6
+msgid ""
+"If a bat is getting too close to you, hold block and it will harmlessly "
+"bounce off you"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:7
+msgid "Now kill all of the bats in the area!"
+msgstr ""
+
+#: data/scripts/raft_2.dat:8
+msgid "Aw, not again!"
+msgstr ""
+
+#: data/scripts/raft_2.dat:9
+msgid "Collect 6 Chopped Logs"
+msgstr ""
+
+#: data/scripts/raft_2.dat:14
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr ""
+
+#: data/scripts/raft_2.dat:18
+msgid "This had better be the last time I have to do this..."
+msgstr ""
+
+#: data/scripts/coal_mining.dat:1
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:16
+msgid "What the?!"
+msgstr ""
+
+#: data/scripts/evil_edgar_sighted.dat:26
+msgid "He looks just like me"
+msgstr ""
+
+#: data/scripts/evil_edgar_sighted.dat:27
+msgid "AND HE HAS MY FIRE SHIELD!!"
+msgstr ""
+
+#: data/scripts/robot.dat:1
+msgid "Hey wow, what a cute little machine!"
+msgstr ""
+
+#: data/scripts/robot.dat:2
+msgid ""
+"It's got a little slot on the back of it. I guess I put something in there "
+"to make it do stuff"
+msgstr ""
+
+#: data/scripts/robot.dat:3
+msgid "The robot uses instruction cards to move around"
+msgstr ""
+
+#: data/scripts/robot.dat:4
+msgid ""
+"Use the instructions to guide the robot to open areas that you cannot access"
+msgstr ""
+
+#: data/scripts/robot.dat:5
+msgid ""
+"However, since you can't read the instructions on the card, you will have to "
+"try them all out until one works"
+msgstr ""
+
+#: data/scripts/robot.dat:6
+msgid ""
+"If the robot doesn't reach its target, then it will return to its starting "
+"position allowing you to try again"
+msgstr ""
+
+#: data/scripts/dungeon_intro.dat:4
+msgid ""
+"Ugh, I'm getting really fed up of waking up in strange places with my eyes "
+"spinning around"
+msgstr ""
+
+#: data/scripts/dungeon_intro.dat:11
+msgid "Oh no, I'm trapped!"
+msgstr ""
+
+#: data/scripts/dungeon_intro.dat:13
+msgid "There must be a way to get this door open"
+msgstr ""
+
+#: data/scripts/dungeon_intro.dat:16
+msgid "Wait, perhaps that button unlocks it"
+msgstr ""
+
+#: data/scripts/dungeon_intro.dat:17
+msgid "If only I could reach it..."
+msgstr ""
+
+#: data/scripts/tutorial_pickaxe.dat:1
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr ""
+
+#: data/scripts/tutorial_pickaxe.dat:2
+msgid "You can use it as both a weapon and a tool"
+msgstr ""
+
+#: data/scripts/tutorial_pickaxe.dat:3
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr ""
+
+#: data/scripts/hidden_passage.dat:1
+msgid "There's a draft here..."
+msgstr ""
+
+#: data/scripts/hidden_passage.dat:2
+msgid "And one of these bricks is loose"
+msgstr ""
+
+#: data/scripts/hidden_passage.dat:7
+msgid "Aha! It's a hidden passage!"
+msgstr ""
+
+#: data/scripts/hidden_passage.dat:8
+msgid "Hopefully this will lead me to the sorceror..."
+msgstr ""
+
+#: data/scripts/swamp_intro_2.dat:3
+msgid "Phew, I'm glad to be out of there"
+msgstr ""
+
+#: data/scripts/swamp_intro_2.dat:5
+msgid "Now to get through this swamp"
+msgstr ""
+
+#: data/scripts/swamp_intro_2.dat:6
+msgid "Negotiate the Swamp"
+msgstr ""
+
+#: data/scripts/statues.dat:1
+msgid "There's a plaque here"
+msgstr ""
+
+#: data/scripts/statues.dat:2
+msgid "Place the 4 statues in the correct order"
+msgstr ""
+
+#: data/scripts/flying_maggot_die_2.dat:8
+msgid "Strange creature..."
+msgstr ""
+
+#: data/scripts/soul_merger.dat:2
+msgid "Ha ha ha!!!!"
+msgstr ""
+
+#: data/scripts/soul_merger.dat:3
+msgid "Soon we will be one again..."
+msgstr ""
+
+#: data/scripts/soul_merger.dat:29
+msgid "Wait, something's wrong..."
+msgstr ""
+
+#: data/scripts/soul_merger.dat:30
+msgid "OH NO! THIS IS THE WRONG MACHINE!!"
+msgstr ""
+
+#: data/scripts/soul_merger.dat:40
+msgid "ARGHHHHHH!!!!"
+msgstr ""
+
+#: data/scripts/soul_merger.dat:53
+msgid "Phew, I feel whole again"
+msgstr ""
+
+#: data/scripts/soul_merger.dat:54
+msgid "And there's my Fire Shield!"
+msgstr ""
+
+#: data/scripts/soul_merger.dat:56
+msgid "Hopefully this will get me past all those fireballs..."
+msgstr ""
+
+#: data/scripts/soul_merger.dat:57
+msgid "Confront the Sorceror"
+msgstr ""
+
+#: data/scripts/armour_boss_start.dat:13
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr ""
+
+#: data/scripts/instruction_machine.dat:1
+msgid ""
+"This machine has a slot the same size as the cards. I guess I can use it to "
+"create new instructions."
+msgstr ""
+
+#: data/scripts/instruction_machine.dat:2
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr ""
+
+#: data/scripts/instruction_machine.dat:3
+msgid ""
+"You will then be prompted to input the directions for the robot to follow. "
+"This is done in the same way as the sequence doors"
+msgstr ""
+
+#: data/scripts/instruction_machine.dat:4
+msgid "When you have finished inputting the directions, press Attack"
+msgstr ""
+
+#: data/scripts/instruction_machine.dat:5
+msgid "The robot will then follow the instructions on the card"
+msgstr ""
+
+#: data/scripts/instruction_machine.dat:6
+msgid "If the directions aren't correct you can try again"
+msgstr ""
+
+#: data/scripts/glass_wall.dat:1
+msgid ""
+"That glass looks too thick for me to crack, I'll have to find some other way "
+"of shattering it..."
+msgstr ""
+
+#: data/scripts/mine_secret.dat:1
+msgid ""
+"Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+
+#: data/scripts/mine_secret.dat:7
+msgid "There must be something around here..."
+msgstr ""
+
+#: data/scripts/protection_ring.dat:3
+msgid "Wow, what a nice ring"
+msgstr ""
+
+#: data/scripts/protection_ring.dat:5
+msgid ""
+"Hang on a second, Maggie told me to always ask if someone had lost something "
+"before taking it..."
+msgstr ""
+
+#: data/scripts/protection_ring.dat:8
+msgid "ANYONE LOST A RING?!"
+msgstr ""
+
+#: data/scripts/protection_ring.dat:10
+msgid "No one? Guess it's mine then!"
+msgstr ""
+
+#: data/scripts/instruction_card.dat:1
+msgid ""
+"You must have the instruction card you wish to use highlighted in your "
+"inventory box"
+msgstr ""
+
+#: data/scripts/boulder_boss_2_die.dat:3
+msgid "Good riddance..."
+msgstr ""
+
+#: data/scripts/crossbow.dat:5
+msgid "OK, let's see if this works..."
+msgstr ""
+
+#: data/scripts/crossbow.dat:17
+msgid ""
+"I'll have no problem walking over this rope either, thanks to my tightrope "
+"walking skills"
+msgstr ""
+
+#: data/scripts/crossbow.dat:18
+msgid "And Dad said it'd never come in handy!"
+msgstr ""
+
+#: data/scripts/crossbow.dat:21
+msgid "I need a length of rope to attach to the bolt"
+msgstr ""
+
+#: data/scripts/crossbow.dat:25
+msgid "It's a giant crossbow"
+msgstr ""
+
+#: data/scripts/crossbow.dat:29
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr ""
+
+#: data/scripts/crossbow.dat:34
+msgid "I'll need some rope first though"
+msgstr ""
+
+#: data/scripts/fortress_mine_lift.dat:1
+msgid "There's a sign here"
+msgstr ""
+
+#: data/scripts/fortress_mine_lift.dat:2
+msgid "If the lift is out of order then it must be reset"
+msgstr ""
+
+#: data/scripts/fortress_mine_lift.dat:3
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr ""
+
+#: data/scripts/fortress_mine_lift.dat:4
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr ""
+
+#: data/scripts/draft_wall.dat:1
+msgid "I thought I felt something. There's a draft here..."
+msgstr ""
+
+#: data/scripts/tutorial_finish.dat:2
+msgid ""
+"Congratulations! Now you know the basics of playing you should try the main "
+"game"
+msgstr ""
+
+#: data/scripts/tutorial_finish.dat:3
+msgid ""
+"If you want to replay this tutorial, press Escape and select Tutorial from "
+"the menu"
+msgstr ""
+
+#: data/scripts/tutorial_finish.dat:4
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr ""
+
+#: data/scripts/grappling_hook.dat:5
+msgid "There, the rope's firmly attached"
+msgstr ""
+
+#: data/scripts/grappling_hook.dat:9
+msgid "I need to find some rope before I can fire it"
+msgstr ""
+
+#: data/scripts/grappling_hook.dat:13
+msgid "It's a Grappling Hook"
+msgstr ""
+
+#: data/scripts/grappling_hook.dat:14
+msgid ""
+"I could probably use it to form a bridge to the other side, but there's no "
+"rope"
+msgstr ""
+
+#: data/scripts/apple_tree.dat:1
+msgid "It's an apple tree"
+msgstr ""
+
+#: data/scripts/apple_tree.dat:2
+msgid "Shame it's not a banana tree, I don't like apples"
+msgstr ""
+
+#: data/scripts/apple_tree.dat:4
+msgid "There aren't any apples left"
+msgstr ""
+
+#: data/scripts/apple_tree.dat:7
+msgid "It looks like there are some apples in it..."
+msgstr ""
+
+#: data/scripts/incorrect_combination.dat:1
+msgid "The door won't open, I guess I put in the combination incorrectly"
+msgstr ""
+
+#: data/scripts/occult_book.dat:2
+msgid "A lot of books"
+msgstr ""
+
+#: data/scripts/occult_book.dat:3
+msgid "Nothing of interest here though"
+msgstr ""
+
+#: data/scripts/occult_book.dat:6
+msgid ""
+"I need the shell of a Rampaging Master Tortoise, the staff from a Dark "
+"Summoner"
+msgstr ""
+
+#: data/scripts/occult_book.dat:7
+msgid "The keepsake of a warrior who has previously defeated the dragon"
+msgstr ""
+
+#: data/scripts/occult_book.dat:8
+msgid "The soul of a wandering spirit"
+msgstr ""
+
+#: data/scripts/occult_book.dat:9
+msgid "And a spare shield"
+msgstr ""
+
+#: data/scripts/occult_book.dat:10
+msgid "Once I have all of those items I need to place them in the cauldron..."
+msgstr ""
+
+#: data/scripts/occult_book.dat:13
+msgid "This is a book about occult magic"
+msgstr ""
+
+#: data/scripts/occult_book.dat:14
+msgid "Hmm..."
+msgstr ""
+
+#: data/scripts/occult_book.dat:15
+msgid "This is interesting:"
+msgstr ""
+
+#: data/scripts/occult_book.dat:19
+msgid "The shell fragment of a Rampaging Master Tortoise"
+msgstr ""
+
+#: data/scripts/occult_book.dat:20
+msgid "The staff of a Dark Summoner"
+msgstr ""
+
+#: data/scripts/occult_book.dat:23
+msgid "If the dragon has been defeated in the past then one must also gather"
+msgstr ""
+
+#: data/scripts/occult_book.dat:24
+msgid "The keepsake from a warrior that previously defeated it"
+msgstr ""
+
+#: data/scripts/occult_book.dat:25
+msgid ""
+"Once the ingredients have been gathered, they must be placed in the "
+"cauldron..."
+msgstr ""
+
+#: data/scripts/occult_book.dat:26
+msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
+msgstr ""
+
+#: data/scripts/occult_book.dat:35
+msgid "I've got the staff, but where do I find the shell or the keepsake?"
+msgstr ""
+
+#: data/scripts/occult_book.dat:38
+msgid "I've got the shell, but where do I find the staff or the keepsake?"
+msgstr ""
+
+#: data/scripts/occult_book.dat:41
+msgid "I've got the shell and the staff, but where do I find the keepsake?"
+msgstr ""
+
+#: data/scripts/occult_book.dat:44
+msgid "That's a lot of ingredients that I have no idea where to find..."
+msgstr ""
+
+#: data/scripts/anti_gravity.dat:1
+msgid "Hmm, this is new."
+msgstr ""
+
+#: data/scripts/anti_gravity.dat:2
+msgid ""
+"It doesn't look like it can hurt me though, but there's only one way to find "
+"out..."
+msgstr ""
+
+#: data/scripts/creepers.dat:2
+msgid "Those creepers look different to the others"
+msgstr ""
+
+#: data/scripts/creepers.dat:3
+msgid "They also look very dangerous..."
+msgstr ""
+
+#: data/scripts/raft_end.dat:6
+msgid "That was easy! And I can always get back later!"
+msgstr ""
+
+#: data/scripts/raft_end.dat:9
+msgid "Oh...."
+msgstr ""
+
+#: data/scripts/raft_end.dat:11
+msgid "Guess I have no choice now."
+msgstr ""
+
+#: data/scripts/raft_end.dat:12
+msgid "Hang on Dad, I'm coming..."
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:2
+msgid "Hey, a lightning sword!"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:3
+msgid "It looks a lot more powerful than my current sword too"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:4
+msgid "With this I should be almost unstoppable"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:5
+msgid "Almost"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:6
+msgid ""
+"The Lightning Sword has a limited number of charges and will lose its power "
+"when these charges are used up"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:7
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:8
+msgid ""
+"Note that if the sword completely loses its power it will revert to a "
+"regular sword with very little power until you can find more charges"
+msgstr ""
+
+#: data/scripts/jacob.dat:6
+msgid "Have fun!"
+msgstr ""
+
+#: data/scripts/jacob.dat:10
+msgid ""
+"Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
+msgstr ""
+
+#: data/scripts/jacob.dat:14
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr ""
+
+#: data/scripts/jacob.dat:16
+msgid "Take this sword, may it serve you well!"
+msgstr ""
+
+#: data/scripts/jacob.dat:17
+msgid "Thank you!"
+msgstr ""
+
+#: data/scripts/jacob.dat:23
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr ""
+
+#: data/scripts/jacob.dat:27
+msgid ""
+"I'll give you a sword if you get me 2 chopped logs from the forest and "
+"rescue at least 3 of my chickens"
+msgstr ""
+
+#: data/scripts/jacob.dat:32
+msgid "Hello Edgar, what can I do for you today?"
+msgstr ""
+
+#: data/scripts/jacob.dat:33
+msgid "Do you have a sword I can borrow?"
+msgstr ""
+
+#: data/scripts/jacob.dat:34
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr ""
+
+#: data/scripts/jacob.dat:35
+msgid "OK... what do I have to do?"
+msgstr ""
+
+#: data/scripts/jacob.dat:36
+msgid ""
+"Some of my chickens have escaped from their pen and I would be very grateful "
+"if you can get them back for me"
+msgstr ""
+
+#: data/scripts/jacob.dat:38
+msgid ""
+"I have set up some traps near their pen, you can lure them to the traps "
+"using this chicken feed. I don't need them all, but at least 3 would be very "
+"helpful. I can get the rest myself."
+msgstr ""
+
+#: data/scripts/jacob.dat:40
+msgid ""
+"Not quite. Can you also get me some wood from the forest? 2 logs should be "
+"sufficient"
+msgstr ""
+
+#: data/scripts/jacob.dat:41
+msgid "Do you have an axe?"
+msgstr ""
+
+#: data/scripts/jacob.dat:42
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr ""
+
+#: data/scripts/jacob.dat:43
+msgid "Isn't that forest dangerous?"
+msgstr ""
+
+#: data/scripts/jacob.dat:44
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr ""
+
+#: data/scripts/jacob.dat:45
+msgid "Such as an axe?"
+msgstr ""
+
+#: data/scripts/jacob.dat:46
+msgid "Yes, that would do the trick"
+msgstr ""
+
+#: data/scripts/jacob.dat:48
+msgid ""
+"But seriously, there's nothing in there that can really harm you. That "
+"problem was dealt with a long time ago..."
+msgstr ""
+
+#: data/scripts/jacob.dat:49
+msgid "Good luck!"
+msgstr ""
+
+#: data/scripts/jacob.dat:51
+msgid "Collect 2 Chopped Logs"
+msgstr ""
+
+#: data/scripts/jacob.dat:53
+msgid "Rescue 3 Chickens"
+msgstr ""
+
+#: data/scripts/jacob.dat:62
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr ""
+
+#: data/scripts/jacob.dat:64
+msgid ""
+"Here, Maggie made me this health potion but I don't need it so why don't you "
+"have it?"
+msgstr ""
+
+#: data/scripts/jacob.dat:65
+msgid "Thanks Jacob"
+msgstr ""
+
+#: data/scripts/jacob.dat:86
+msgid "Wow, you caught them all, thanks alot!"
+msgstr ""
+
+#: data/scripts/jacob.dat:87
+msgid "Here, I have these for you"
+msgstr ""
+
+#: data/scripts/jacob.dat:89
+msgid "Maggie made me this health potion but you can have it"
+msgstr ""
+
+#: data/scripts/jacob.dat:90
+msgid "And this is something very special"
+msgstr ""
+
+#: data/scripts/jacob.dat:92
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr ""
+
+#: data/scripts/jacob.dat:126
+msgid ""
+"You saved me a lot of time. Maggie made me something else but since you have "
+"been so helpful, you can have it."
+msgstr ""
+
+#: data/scripts/power_generators.dat:3
+msgid "These machines aren't working."
+msgstr ""
+
+#: data/scripts/power_generators.dat:5
+msgid ""
+"It looks like a gem should fit in this hole, maybe I can find some "
+"replacements."
+msgstr ""
+
+#: data/scripts/power_generators.dat:6
+msgid "Find 4 Gems"
+msgstr ""
+
+#: data/scripts/power_generators.dat:12
+msgid "Repair Generators"
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:7
+msgid "This centurion has no power"
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:9
+msgid ""
+"It's connected to this treadmill so I could probably charge it up with "
+"enough speed"
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:10
+msgid "I can't run in this armour, though"
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:11
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:12
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:13
+msgid "and catching chickens"
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:14
+msgid "I'll get something else to do it instead"
+msgstr ""
+
+#: data/scripts/gold_centurion.dat:2
+msgid "I'll find something else to work the treadmill for me"
+msgstr ""
+
+#: data/scripts/tutorial_objective.dat:1
+msgid "Kill all Bats!"
+msgstr ""
+
+#: data/scripts/cave_bomb.dat:1
+msgid ""
+"This rock looks too strong for my pickaxe. I'll have to use something else "
+"to get through..."
+msgstr ""
+
+#: data/scripts/cave_intro.dat:11
+msgid "Looks like this wasn't such a good idea after all"
+msgstr ""
+
+#: data/scripts/cave_intro.dat:12
+msgid "There must be way out of here..."
+msgstr ""
+
+#: data/scripts/cave_intro.dat:13
+msgid "Escape the Cave"
+msgstr ""
+
+#: data/scripts/huge_spider.dat:6
+msgid "Wow, that thing is huge!"
+msgstr ""
+
+#: data/scripts/huge_spider.dat:7
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr ""
+
+#: data/scripts/has_combination.dat:1
+msgid "Hmmm, maybe this scrap of paper is the combination"
+msgstr ""
+
+#: data/scripts/has_combination.dat:2
+msgid "I'll give it a try"
+msgstr ""
+
+#: data/scripts/has_combination.dat:3
+msgid "Push left or right to move the dial 1 unit in that direction"
+msgstr ""
+
+#: data/scripts/has_combination.dat:4
+msgid ""
+"When you think you've input the correct combination, press Attack to open "
+"the safe"
+msgstr ""
+
+#: data/scripts/resurrection_amulet.dat:1
+msgid "Is this what I think it is?"
+msgstr ""
+
+#: data/scripts/resurrection_amulet.dat:3
+msgid "It is! It's an Amulet of Resurrection!"
+msgstr ""
+
+#: data/scripts/resurrection_amulet.dat:4
+msgid ""
+"Borgan has one of these, but it's been used up. He must have had a lucky "
+"escape from something."
+msgstr ""
+
+#: data/scripts/resurrection_amulet.dat:5
+msgid "This should make my quest a lot easier"
+msgstr ""
+
+#: data/scripts/resurrection_amulet.dat:6
+msgid ""
+"The Amulet of Resurrection will restore all your health once when it drops "
+"to 0"
+msgstr ""
+
+#: data/scripts/resurrection_amulet.dat:7
+msgid ""
+"However, it will not save you from anything that causes instant death, such "
+"as lava or certain boss attacks"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:9
+msgid "Me? I'm you!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:10
+msgid "No you're not, where did you come from?"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:11
+msgid ""
+"When your stupid experiment failed, part of your conscious separated and "
+"created me"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:12
+msgid "I'm like you in every way, just more evil"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:13
+msgid "I'm not evil!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:14
+msgid ""
+"Yes you are, you know that little part of you that enjoyed pulling the legs "
+"off insects?"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:15
+msgid "Hey, I don't do that anymore!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:16
+msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:17
+msgid "That was self defence!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:18
+msgid "Did you try talking to them?"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:19
+msgid "You're crazy!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:20
+msgid "No, I'm evil!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:21
+msgid "That's my shield! I need to it rescue my Dad!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:22
+msgid "Well it's mine now"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:23
+msgid "Give it back!"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:35
+msgid "Make me!"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:36
+msgid "Fine, I will!"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:34
+msgid "Loser"
+msgstr ""
+
+#: data/scripts/evil_edgar_encounter_1.dat:35
+msgid ""
+"I'll collect his corpse later. The equipment in the lab should be enough for "
+"me to carry out my plan..."
+msgstr ""
+
+#: data/scripts/centurion_pressure_plate.dat:1
+msgid ""
+"This lift is controlled by that pressure plate, but I can't stand on it and "
+"use the lift at the same time"
+msgstr ""
+
+#: data/scripts/centurion_pressure_plate.dat:2
+msgid ""
+"I'll have to find something else to stand on the pressure plate for me..."
+msgstr ""
+
+#: data/scripts/wasteland_intro_2.dat:2
+msgid ""
+"To turn your normal arrows into flaming arrows, just use the flaming arrow "
+"potion in the inventory screen"
+msgstr ""
+
+#: data/scripts/wasteland_intro_2.dat:3
+msgid ""
+"To swap between firing normal arrows and flaming arrows, select the arrows "
+"in the inventory"
+msgstr ""
+
+#: data/scripts/wasteland_intro_2.dat:4
+msgid "Retrieve horn"
+msgstr ""
+
+#: data/scripts/mastermind.dat:4
+msgid "Push left or right to move the cursor"
+msgstr ""
+
+#: data/scripts/mastermind.dat:5
+msgid "Press Attack to change the colour of the peg"
+msgstr ""
+
+#: data/scripts/mastermind.dat:6
+msgid ""
+"When you have selected all of the colours, move the cursor onto the question "
+"mark and press Attack"
+msgstr ""
+
+#: data/scripts/mastermind.dat:7
+msgid ""
+"The number shown in the box is the number of pegs that are correctly placed"
+msgstr ""
+
+#: data/scripts/mastermind.dat:8
+msgid "You have 10 attempts to guess the sequence"
+msgstr ""
+
+#: data/scripts/mastermind.dat:9
+msgid "Press Action to quit"
+msgstr ""
+
+#: data/scripts/mastermind.dat:12
+msgid "It's not working at the moment"
+msgstr ""
+
+#: data/scripts/mastermind.dat:13
+msgid "Maybe I should come back later..."
+msgstr ""
+
+#: data/scripts/mastermind.dat:17
+msgid "It's a giant mastermind puzzle!"
+msgstr ""
+
+#: data/scripts/mastermind.dat:18
+msgid ""
+"I used to play these all the time when we were travelling up to the big city"
+msgstr ""
+
+#: data/scripts/mastermind.dat:20
+msgid "It doesn't look like it's working though"
+msgstr ""
+
+#: data/scripts/gargoyle_stone.dat:1
+msgid "It's petrified again"
+msgstr ""
+
+#: data/scripts/fish.dat:1
+msgid "The water is full of those carnivorous fish"
+msgstr ""
+
+#: data/scripts/fish.dat:2
+msgid ""
+"From the looks of things I'll have to swim through the water to get to the "
+"other side"
+msgstr ""
+
+#: data/scripts/fish.dat:3
+msgid "But the fish will go for me the moment I enter the water"
+msgstr ""
+
+#: data/scripts/fish.dat:4
+msgid "I'll have to find a way to get rid of them..."
+msgstr ""
+
+#: data/scripts/rusted.dat:4
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr ""
+
+#: data/scripts/rusted.dat:7
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:5
+msgid "Here goes..."
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:8
+msgid "I still need a Fire Shield"
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:12
+msgid ""
+"I don't think my shield will protect me from those fireballs. I'll have to "
+"find a stronger one..."
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:13
+msgid "Obtain a Fire Shield"
+msgstr ""
+
+#: data/scripts/puzzle_pieces.dat:5
+msgid "I need all 9 puzzle pieces"
+msgstr ""
+
+#: data/scripts/dungeon_escape.dat:2
+msgid "I'm back in the Fortress, thank goodness for that"
+msgstr ""
+
+#: data/scripts/dungeon_escape.dat:3
+msgid ""
+"But Dad wasn't in there, I looked everywhere and there was no sign of him"
+msgstr ""
+
+#: data/scripts/dungeon_escape.dat:4
+msgid ""
+"The sorceror must have done something else with him, I'll have to go back "
+"and find out"
+msgstr ""
+
+#: data/scripts/dungeon_escape.dat:7
+msgid "Return to the Study"
+msgstr ""
+
+#: data/scripts/wasteland_intro.dat:5
+msgid "Ouch, my head..."
+msgstr ""
+
+#: data/scripts/wasteland_intro.dat:12
+msgid "Oh no, I've lost all my equipment!"
+msgstr ""
+
+#: data/scripts/wasteland_intro.dat:20
+msgid "Some of my stuff is over there..."
+msgstr ""
+
+#: data/scripts/wasteland_intro.dat:25
+msgid ""
+"If those items are in this wasteland then perhaps everything else is too"
+msgstr ""
+
+#: data/scripts/wasteland_intro.dat:26
+msgid "I'll have to try and retrieve as much as I can..."
+msgstr ""
+
+#: data/scripts/wasteland_intro.dat:27
+msgid "Retrieve items"
+msgstr ""
+
+#: data/scripts/power_generators_fixed.dat:10
+msgid ""
+"That should do it. Hopefully that other lift by the Sewer should now be "
+"working"
+msgstr ""
+
+#: data/scripts/monster_horn.dat:1
+msgid "This looks like the horn that Olaf needs"
+msgstr ""
+
+#: data/scripts/monster_horn.dat:2
+msgid "I'll have to break it off somehow..."
+msgstr ""
+
+#: data/scripts/library_intro.dat:3
+msgid "Wow, I've never seen so many books in one place!"
+msgstr ""
+
+#: data/scripts/library_intro.dat:4
+msgid ""
+"There must be information about every subject here, this could be useful..."
+msgstr ""
+
+#: data/scripts/library_intro.dat:6
+msgid ""
+"Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
+"making spells. I should be careful."
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:7
+msgid ""
+"The sorceror must have taken Dad to his castle. I'll have to rescue him from "
+"there."
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:8
+msgid ""
+"The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:9
+msgid ""
+"There's a lake between the Village and the Swamp so I'll need a raft to get "
+"across."
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:10
+msgid ""
+"I'll also need a sword and shield to defend myself. I can speak to Borgan "
+"and Jacob to get these though."
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:11
+msgid "Talk to Borgan"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:13
+msgid "Talk to Jacob"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:15
+msgid "Cross the lake to the Swamp"
+msgstr ""
+
+#: data/scripts/flying_maggot_start_2.dat:8
+msgid "Wait, what was that?"
+msgstr ""
+
+#: data/scripts/flying_maggot_start_2.dat:13
+msgid "You again?!"
+msgstr ""
+
+#: data/scripts/left_tower_intro.dat:7
+msgid "What a hassle that was"
+msgstr ""
+
+#: data/scripts/left_tower_intro.dat:8
+msgid "I don't think I'll find my Dad in here"
+msgstr ""
+
+#: data/scripts/left_tower_intro.dat:9
+msgid "Maybe I should look somewhere else"
+msgstr ""
+
+#: data/scripts/left_tower_intro.dat:10
+msgid "Still, there might be something in here worth my time..."
+msgstr ""
+
+#: data/scripts/hidden_passage_hint.dat:1
+msgid ""
+"Hmmm.. I've been all around the fortress and there are no other doors "
+"leading off anywhere"
+msgstr ""
+
+#: data/scripts/hidden_passage_hint.dat:3
+msgid "Maybe I should have another look in here..."
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:1
+msgid ""
+"To pick up an item, simply walk into it. Any collectable items will be added "
+"to your inventory."
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:2
+msgid ""
+"You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:3
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:4
+msgid ""
+"You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
+"Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:5
+msgid ""
+"You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
+"([INPUT_INTERACT])"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:6
+msgid ""
+"You can also sort items in your inventory by using the Previous Item "
+"([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:7
+msgid "Walk over the key to pick it up"
+msgstr ""
+
+#: data/scripts/fortress_intro.dat:3
+msgid "So this is the Fortress."
+msgstr ""
+
+#: data/scripts/fortress_intro.dat:4
+msgid ""
+"It looks like a lot of doors lead off to other areas, I should have a proper "
+"look around before I go anywhere else..."
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:1
+msgid ""
+"You can change all of the controls in the game by pressing Escape and "
+"selecting Options in the menu"
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:2
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:3
+msgid ""
+"Use the arrow keys to select the control you want to change and press Return."
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:4
+msgid "Next, press the key that you want to use instead."
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:5
+msgid ""
+"Regardless of what keys you choose, you can always navigate the menus using "
+"the arrow keys and Return"
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:6
+msgid ""
+"When you have finished configuring the keys, go right to the next Action "
+"Point"
+msgstr ""
+
+#: data/scripts/third_side.dat:2
+msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+#: data/scripts/sludge_pool.dat:1
+msgid ""
+"That stuff looks dangerous, it'd probably eat through my armour in seconds"
+msgstr ""
+
+#: data/scripts/sludge_pool.dat:2
+msgid "But I'll have to find a way across..."
+msgstr ""
+
+#: data/scripts/hoover.dat:2
+msgid "There, looks like the little guy is full and is sleeping it off"
+msgstr ""
+
+#: data/scripts/hoover.dat:3
+msgid "I should be able to get past him without any bother now"
+msgstr ""
+
+#: data/scripts/hoover.dat:7
+msgid "Hey, what's that?"
+msgstr ""
+
+#: data/scripts/hoover.dat:12
+msgid "It's a baby Hoover"
+msgstr ""
+
+#: data/scripts/hoover.dat:13
+msgid ""
+"I saw a grown up one in the big city when I went there with my Dad, they're "
+"completely harmless"
+msgstr ""
+
+#: data/scripts/hoover.dat:16
+msgid "I miss my Dad, I hope I find him soon..."
+msgstr ""
+
+#: data/scripts/hoover.dat:18
+msgid "Why is it here? It must be frightened"
+msgstr ""
+
+#: data/scripts/hoover.dat:20
+msgid "Hello little fella, are you lost?"
+msgstr ""
+
+#: data/scripts/hoover.dat:21
+msgid "Don't worry, I won't hurt you"
+msgstr ""
+
+#: data/scripts/hoover.dat:30
+msgid "Ow!"
+msgstr ""
+
+#: data/scripts/hoover.dat:33
+msgid ""
+"I guess it's scared. I might be able to get past it if I give it some food"
+msgstr ""
+
+#: data/scripts/hoover.dat:34
+msgid "They're vegetarians so I'll have to find some fruit or vegetables..."
+msgstr ""
+
+#: data/scripts/armoury_intro.dat:2
+msgid "Wow, this place is empty!"
+msgstr ""
+
+#: data/scripts/armoury_intro.dat:3
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr ""
+
+#: data/scripts/armoury_intro.dat:4
+msgid "Still, there must be something of use in here"
+msgstr ""
+
+#: data/scripts/well.dat:3
+msgid "I've already checked, he's not down there..."
+msgstr ""
+
+#: data/scripts/well.dat:7
+msgid ""
+"I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr ""
+
+#: data/scripts/well.dat:8
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr ""
+
+#: data/scripts/well.dat:10
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:3
+msgid "There's a note here too"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:4
+msgid ""
+"The potion is perfect! Quaffing it will turn a human into a creature for a "
+"small amount of time"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:5
+msgid ""
+"So far I can only transmogrify myself into one creature but with a bit more "
+"time anything should be possible"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:6
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:7
+msgid "OK, here goes nothing..."
+msgstr ""
+
+#: data/scripts/slime_potion.dat:11
+msgid "Urgh!! This is horrible!"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:12
+msgid ""
+"Borgan told me that Slimes can swim in water though, so maybe this will be "
+"useful..."
+msgstr ""
+
+#: data/scripts/slime_potion.dat:13
+msgid ""
+"When transformed into a Slime, you can move around as normal. You can also "
+"swim in the water and use up and down to move around"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:14
+msgid ""
+"Pushing up or jump will make you jump out of the water if you're near the "
+"surface"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:15
+msgid ""
+"Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
+"will automatically become human again"
+msgstr ""
+
+#: data/scripts/cauldron.dat:2
+msgid "Maybe this thing isn't so bad after all"
+msgstr ""
+
+#: data/scripts/cauldron.dat:21
+msgid "That's all the ingredients, I just need to add a shield"
+msgstr ""
+
+#: data/scripts/cauldron.dat:22
+msgid "I don't think I'll need the Phantasmal Shield anymore..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:27
+msgid "Please don't make another evil version of me..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:37
+msgid "What a fine looking shield"
+msgstr ""
+
+#: data/scripts/cauldron.dat:38
+msgid "But will it protect me from that dragon's flames?"
+msgstr ""
+
+#: data/scripts/cauldron.dat:39
+msgid "I guess there's only one way to find out..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:40
+msgid "The book said it was sealed below a fortress"
+msgstr ""
+
+#: data/scripts/cauldron.dat:41
+msgid ""
+"If it is this one then the only two places it could be are the catacombs and "
+"the dungeon"
+msgstr ""
+
+#: data/scripts/cauldron.dat:42
+msgid "I should start my search there"
+msgstr ""
+
+#: data/scripts/cauldron.dat:45
+msgid "I don't have all the ingredients yet."
+msgstr ""
+
+#: data/scripts/cauldron.dat:46
+msgid "The book said I needed to find the following"
+msgstr ""
+
+#: data/scripts/cauldron.dat:50
+msgid "The keepsake of the warrior that previously defeated it"
+msgstr ""
+
+#: data/scripts/cauldron.dat:54
+msgid "Hopefully I'll never have to use this again"
+msgstr ""
+
+#: data/scripts/cauldron.dat:57
+msgid ""
+"I should create the disintegration shield and rescue my Dad before I go "
+"chasing after that dragon"
+msgstr ""
+
+#: data/scripts/cauldron.dat:66
+msgid "I'm not taking any chances this time..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:75
+msgid "Did it work?"
+msgstr ""
+
+#: data/scripts/cauldron.dat:91
+msgid "I think it's safe now..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:98
+msgid "I'll use my wooden shield..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:139
+msgid "Stupid thing. Maggie makes it all look so easy..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:142
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr ""
+
+#: data/scripts/cauldron.dat:153
+msgid "OK, that's the Gazer Eyeball and Tentacle added"
+msgstr ""
+
+#: data/scripts/cauldron.dat:164
+msgid "And the rest of the ingredients too"
+msgstr ""
+
+#: data/scripts/cauldron.dat:167
+msgid "Aha! It's gone blue, just like the book said it would"
+msgstr ""
+
+#: data/scripts/cauldron.dat:168
+msgid "Now to add the shield"
+msgstr ""
+
+#: data/scripts/cauldron.dat:177
+msgid "Uh-Oh..."
+msgstr ""
+
+#: data/scripts/cauldron.dat:203
+msgid "I need all the main ingredients"
+msgstr ""
+
+#: data/scripts/cauldron.dat:204
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr ""
+
+#: data/scripts/cauldron.dat:205
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:6
+msgid "I think it's dead"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:7
+msgid "Or at least as dead as a book can be"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:8
+msgid "It might be safe to touch now"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:18
+msgid "This page just has a sequence of numbers scrawled on it"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:19
+msgid "I'll take it with me, it might come in handy"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:20
+msgid ""
+"Besides, this thing nearly killed me twice, I should have some sort of "
+"trophy of my victory"
+msgstr ""
+
+#: data/scripts/black_book_search.dat:25
+msgid "I'll leave it alone, especially after what happened last time..."
+msgstr ""
+
+#: data/scripts/cave_statue.dat:1
+msgid "Hmm, what's that?"
+msgstr ""
+
+#: data/scripts/cave_statue.dat:2
+msgid "It's a small statue. It must be the one that Olaf said he stole"
+msgstr ""
+
+#: data/scripts/cave_statue.dat:3
+msgid ""
+"Well, since he's helping me get back to the sorceror, the least I can do is "
+"retrieve it for him"
+msgstr ""
+
+#: data/scripts/cave_statue.dat:7
+msgid "Typical..."
+msgstr ""
+
+#: data/scripts/cave_statue.dat:8
+msgid ""
+"Well, it might have just fallen further down into the cave, I'll just have "
+"to keep looking"
+msgstr ""
+
+#: data/scripts/fortress_mine_intro.dat:1
+msgid "Huh, déjà vu..."
+msgstr ""
+
+#: data/scripts/monster_horn_taken.dat:5
+msgid "It looks like there's a larger network of caves down there"
+msgstr ""
+
+#: data/scripts/monster_horn_taken.dat:6
+msgid "Olaf did tell me to just get the horn and leave"
+msgstr ""
+
+#: data/scripts/no_instructions.dat:1
+msgid ""
+"This card is blank, I'll have to put some instructions on it to make it "
+"useable."
+msgstr ""
+
+#: data/scripts/sorceror_study.dat:1
+msgid ""
+"The sorceror will almost certainly destroy me if I confront him without the "
+"shield"
+msgstr ""
+
+#: data/scripts/sorceror_study.dat:2
+msgid "I'd better go and make it first"
+msgstr ""
+
+#: data/scripts/fortress_intro_2.dat:3
+msgid "Glad to be out of there"
+msgstr ""
+
+#: data/scripts/fortress_intro_2.dat:4
+msgid "Now to get that shield back from my double..."
+msgstr ""
+
+#: data/scripts/fortress_intro_2.dat:7
+msgid "Find Evil Edgar"
+msgstr ""
+
+#: data/scripts/spores.dat:1
+msgid "Hey, those look familiar"
+msgstr ""
+
+#: data/scripts/spores.dat:2
+msgid "They look like hypnotic spores"
+msgstr ""
+
+#: data/scripts/spores.dat:3
+msgid ""
+"Borgan told me that they can temporarily trick certain creatures into "
+"thinking that you're not a threat and leave you alone"
+msgstr ""
+
+#: data/scripts/spores.dat:5
+msgid "Maybe they'll work on the creatures here..."
+msgstr ""
+
+#: data/scripts/tomb_door_open.dat:10
+msgid "Great, that worked!"
+msgstr ""
+
+#: data/scripts/tomb_door_open.dat:11
+msgid "What a terrible anthem though, almost completely random"
+msgstr ""
+
+#: data/scripts/tomb_door_open.dat:13
+msgid "This looks like the keepsake"
+msgstr ""
+
+#: data/scripts/tomb_door_open.dat:17
+msgid ""
+"Thank goodness for that, I really didn't want to have to open that coffin"
+msgstr ""
+
+#: data/scripts/tomb_door_open.dat:18
+msgid "Now to get out of here..."
+msgstr ""
+
+#: data/scripts/lava_door.dat:1
+msgid "I've seen this type of metal before, it heats up really easily"
+msgstr ""
+
+#: data/scripts/lava_door.dat:2
+msgid "Maybe I can find a way to melt it..."
+msgstr ""
+
+#: data/scripts/sliding_puzzle.dat:2
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr ""
+
+#: data/scripts/sliding_puzzle.dat:3
+msgid "Well, not a giant one, obviously..."
+msgstr ""
+
+#: data/scripts/sliding_puzzle.dat:6
+msgid "Push left, right, up or down to move the blocks"
+msgstr ""
+
+#: data/scripts/sliding_puzzle.dat:7
+msgid ""
+"Arrange the blocks so that the numbers 1 to 8 appear in order from left to "
+"right and the empty block is in the bottom right corner"
+msgstr ""
+
+#: data/scripts/sliding_puzzle.dat:8
+msgid "Press Attack to quit the puzzle"
+msgstr ""
+
+#: data/scripts/raft.dat:8
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr ""
+
+#: data/scripts/raft.dat:9
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr ""
+
+#: data/scripts/raft.dat:29
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr ""
+
+#: data/scripts/teleporter_discovery.dat:1
+msgid "Hey, what's this?"
+msgstr ""
+
+#: data/scripts/teleporter_discovery.dat:3
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr ""
+
+#: data/scripts/teleporter_discovery.dat:7
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr ""
+
+#: data/scripts/teleporter_discovery.dat:9
+msgid "I wonder if it works both ways..."
+msgstr ""
+
+#: data/scripts/teleporter_discovery.dat:14
+msgid "Horray!"
+msgstr ""
+
+#: data/scripts/teleporter_discovery.dat:15
+msgid ""
+"Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:9
+msgid "There's a note in here"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:10
+msgid "It says the following:"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:11
+msgid "Cheaters never prosper"
+msgstr ""
+
+#: data/scripts/swamp_intro.dat:17
+msgid "Oh..."
+msgstr ""
+
+#: data/scripts/correct_combination.dat:19
+msgid "I saw this shield in the book about enchanting weapons"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:20
+msgid "It's a Phantasmal Shield"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:21
+msgid "The Phantasmal Shield will protect you from phantasmal forces"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:22
+msgid ""
+"In addition to this it can reflect phantasmal projectiles back at the owner"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:23
+msgid ""
+"Blocking at the last moment increases the power of the reflected projectile"
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:10
+msgid "Ugh, you have defeated me"
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:11
+msgid "How..."
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:12
+msgid "TALK! Where is my father?"
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:13
+msgid "I... I don't understand..."
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:14
+msgid "Last night you came to my village and kidnapped my father"
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:15
+msgid "Where is he?"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:15
+msgid "I..."
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:18
+msgid "I have never been to your village"
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:19
+msgid "I don't know where your father is..."
+msgstr ""
+
+#: data/scripts/sorceror_die.dat:25
+msgid "But if you didn't take my Dad"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:9
+msgid "Found you!"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:11
+msgid "You survived?!"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:12
+msgid ""
+"You sound surprised, I thought you'd have known considering we're the same."
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:13
+msgid "Except you're evil"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:14
+msgid "More evil"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:15
+msgid "Whatever, now I..."
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:21
+msgid "What is all this stuff?"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:22
+msgid "Your experiment separated part of your conscious"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:23
+msgid "Yes I know that, you already told me"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:24
+msgid "I'm still talking!"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:26
+msgid "There should only be one of us in this world: one body, one conscious"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:27
+msgid "These machines will join us together"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:28
+msgid "The one on the left is for the original body, you"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:29
+msgid "And the one on the right is for the new body, me"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:30
+msgid "You will go in the one on the left and I'll go in the one on the right"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:31
+msgid "It will then merge your body into mine, leaving just me"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:32
+msgid "Merge us together? Over my dead body!"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:33
+msgid ""
+"That was the plan. Since you're alive though, you've saved me the bother of "
+"having to drag your carcass all the way back here"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:34
+msgid "Now get in the machine!"
+msgstr ""
+
+#: data/scripts/disintegration_shield.dat:1
+msgid "Wow, what a cool looking shield"
+msgstr ""
+
+#: data/scripts/disintegration_shield.dat:2
+msgid "Hopefully this will protect me from that spell"
+msgstr ""
+
+#: data/scripts/disintegration_shield.dat:3
+msgid "But there's only one way to find out..."
+msgstr ""
+
+#: data/scripts/disintegration_shield.dat:5
+msgid "Defeat the Sorceror"
+msgstr ""
+
+#: data/scripts/disable_study.dat:12
+msgid "It worked, I'm back!"
+msgstr ""
+
+#: data/scripts/disable_study.dat:13
+msgid "Now to create that shield and get that sorceror..."
+msgstr ""
+
+#: data/scripts/disable_study.dat:14
+msgid "Create a Resist Disintegration Shield"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:1
+msgid "Using an item you have picked up is simple"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:2
+msgid ""
+"Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
+"the bomb"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:3
+msgid ""
+"Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:4
+msgid "Now close the inventory ([INPUT_INVENTORY])"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:5
+msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:6
+msgid "Try it with the bomb, but make sure you stand well back!"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:7
+msgid ""
+"While you are in the inventory screen, the action is paused so you can take "
+"your time"
+msgstr ""
+
+#: data/scripts/tutorial_bomb.dat:8
+msgid ""
+"Some items, such as health potions and weapons can be used in the inventory "
+"screen, so there is no need to exit the inventory"
+msgstr ""
+
+#: data/scripts/final_generator.dat:1
+msgid "This generator looks OK, it just isn't on"
+msgstr ""
+
+#: data/scripts/final_generator.dat:3
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr ""
+
+#: data/scripts/final_generator.dat:4
+msgid "Turn on the generator?"
+msgstr ""
+
+#: data/scripts/final_generator.dat:6
+msgid "Where's the switch?"
+msgstr ""
+
+#: data/scripts/final_generator.dat:8
+msgid "Ah, here it is!"
+msgstr ""
+
+#: data/scripts/final_generator.dat:36
+msgid "I'll leave it alone for the moment"
+msgstr ""
+
+#: src/graphics/font.c:61
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr ""
+
+#: src/structs.h:212
+msgid "Bow"
+msgstr ""
+
+#: src/graphics/font.c:60
+msgid "Press Action to interact"
+msgstr ""
+
+#: src/item/instruction_machine.c:85
+msgid "%s is required"
+msgstr ""
+
+#: src/item/bomb_pile.h:20
+msgid "Bomb"
+msgstr ""
+
+#: src/enemy/rock.c:74
+msgid "Small Rock"
+msgstr ""
+
+#: src/item/containment_unit_controls.c:123
+msgid "Press Action to retrieve the Purple Gem"
+msgstr ""
+
+#: src/item/tesla_charger.c:146
+msgid "Tesla Pack"
+msgstr ""
+
+#: src/item/tesla_charger.c:169
+msgid "Press Action to retrieve Tesla Pack"
+msgstr ""
+
+#: src/item/tesla_charger.c:178
+msgid "Press Action to replace Tesla Pack"
+msgstr ""
+
+#: src/item/slime_potion_pool.c:94
+msgid "Obtained %s"
+msgstr ""
+
+#: data/scripts/tutorial_objective.dat:1
+msgid "Complete"
+msgstr ""
+
+#: src/item/arrow_target.c:177
+msgid "%d more to go..."
+msgstr ""
+
+#: src/item/light_pillar.c:109
+msgid "Used %s"
+msgstr ""
+
+#: src/player.c:1040
+msgid "Cannot equip items whilst transmogrified"
+msgstr ""
+
+#: src/player.c:1079
+msgid "Equipped %s"
+msgstr ""
+
+#: src/player.c:1710
+msgid "Maximum health has increased!"
+msgstr ""
+
+#: src/player.c:2447
+msgid "Bow will now fire %s"
+msgstr ""
+
+#: src/player.c:2466
+msgid "A bow is required to use this item"
+msgstr ""
+
+#: src/player.c:2513
+msgid "Cannot transmogrify here..."
+msgstr ""
+
+#: data/scripts/jacob.dat:46
+msgid "Yes"
+msgstr ""
+
+#: data/scripts/cave_boss_die.dat:11
+msgid "No"
+msgstr ""
+
+#: src/menu/main_menu.c:336
+msgid "Start a new game?"
+msgstr ""
+
+#: src/menu/main_menu.c:351
+msgid "Play the tutorial?"
+msgstr ""
+
+#: src/menu/main_menu.c:366
+msgid "Exit the game?"
+msgstr ""
+
+#: data/scripts/olaf.dat:11
+msgid "Back"
+msgstr ""
+
+#: src/menu/io_menu.c:260
+msgid "Game Loaded"
+msgstr ""
+
+#: src/menu/io_menu.c:279
+msgid "Game Saved"
+msgstr ""
+
+#: src/menu/yes_no_menu.c:117
+msgid "Any unsaved progress will be lost"
+msgstr ""
+
+#: src/input.c:904
+msgid "Joy Button #%d"
+msgstr ""
+
+#: src/world/npc.c:78
+msgid "Press Action to talk to %s"
+msgstr ""
+
+#: src/event/objective.c:103
+msgid "New Objective: %s"
+msgstr ""
+
+#: src/event/objective.c:124
+msgid "Objective Completed: %s"
+msgstr ""
+
+#: src/item/lava_door.c:150
+msgid "This weapon is not having any effect..."
+msgstr ""
+
+#: src/boss/blob_boss.c:1203
+msgid "Press Action to attach the Tesla Pack"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:6
+msgid "The Legend of Edgar"
+msgstr ""
+
+#: src/world/switch.c:105
+msgid "%s is needed to activate this switch"
+msgstr ""
+
+#: src/world/switch.c:308
+msgid "Press Action to use this switch"
+msgstr ""
+
+#: src/world/save_point.c:97
+msgid "Press Action to save your game"
+msgstr ""
+
+#: src/world/pressure_plate.c:113
+msgid "%s is required to use this Pressure Plate"
+msgstr ""
+
+#: src/world/door.c:122
+msgid "%s is needed to open this door"
+msgstr ""
+
+#: src/world/door.c:129
+msgid "This door is locked"
+msgstr ""
+
+#: src/world/teleporter.c:138
+msgid "This teleporter is not active"
+msgstr ""
+
+#: src/world/lift.c:158
+msgid "Push Up or Down to use this lift"
+msgstr ""
+
+#: src/entity.c:1329
+msgid "This lift is not active"
+msgstr ""
+
+#: src/inventory.c:114
+msgid "Cannot carry any more %s"
+msgstr ""
+
+#: src/player.c:3243
+msgid "Picked up %s x %d"
+msgstr ""
+
+#: src/player.c:3243
+msgid "Picked up %s"
+msgstr ""
+
+#: src/inventory.c:661
+msgid "%s is required to carry this item"
+msgstr ""
+
+#: data/maps/map07.dat:4168
+msgid "Storage Key"
+msgstr ""
+
+#: data/maps/map02.dat:2492
+msgid "Coal Bag Storage Switch Key"
+msgstr ""
+
+#: data/maps/map02.dat:1968
+msgid "Large Room Key"
+msgstr ""
+
+#: data/scripts/borgan.dat:7
+msgid "Coal Bag"
+msgstr ""
+
+#: data/maps/map03.dat:5218
+msgid "Forest Cell Key"
+msgstr ""
+
+#: data/maps/map03.dat:5442
+msgid "Wood Axe"
+msgstr ""
+
+#: src/item/potions.c:47
+msgid "Health Potion"
+msgstr ""
+
+#: data/maps/map07.dat:2218
+msgid "Outflow Key"
+msgstr ""
+
+#: data/maps/map07.dat:3642
+msgid "Flow Control Key"
+msgstr ""
+
+#: data/maps/map07.dat:3668
+msgid "Waste Processing Key"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:12
+msgid "Access Key 1"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:13
+msgid "Access Key 2"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:14
+msgid "Access Key 3"
+msgstr ""
+
+#: data/maps/map07.dat:2518
+msgid "Trap Door Switch Key"
+msgstr ""
+
+#: data/scripts/borgan.dat:7
+msgid "Coal"
+msgstr ""
+
+#: data/scripts/jacob.dat:3
+msgid "Chopped Log"
+msgstr ""
+
+#: data/scripts/power_generators.dat:8
+msgid "Green Gem"
+msgstr ""
+
+#: data/scripts/power_generators.dat:9
+msgid "Red Gem"
+msgstr ""
+
+#: data/scripts/power_generators.dat:10
+msgid "Blue Gem"
+msgstr ""
+
+#: data/scripts/power_generators.dat:11
+msgid "Purple Gem"
+msgstr ""
+
+#: data/maps/map10.dat:6167
+msgid "Teleporter Key"
+msgstr ""
+
+#: data/scripts/tutorial_finish.dat:4
+msgid "New Game"
+msgstr ""
+
+#: data/scripts/tutorial_objective.dat:1
+msgid "Tutorial"
+msgstr ""
+
+#: src/menu/main_menu.c:176
+msgid "Load Game"
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:1
+msgid "Options"
+msgstr ""
+
+#: src/menu/main_menu.c:52
+msgid "About"
+msgstr ""
+
+#: src/tile_creator.c:265
+msgid "Quit"
+msgstr ""
+
+#: data/scripts/tutorial_keys.dat:2
+msgid "Configure Controls"
+msgstr ""
+
+#: src/menu/options_menu.c:191
+msgid "Configure Sound"
+msgstr ""
+
+#: src/menu/options_menu.c:49
+msgid "Fullscreen"
+msgstr ""
+
+#: src/menu/options_menu.c:197
+msgid "Show Hints"
+msgstr ""
+
+#: data/props/item/slime_potion.props:6
+msgid "A potion which will transform you..."
+msgstr ""
+
+#: data/props/item/health_potion.props:6
+msgid "A potion which will restore all of your health"
+msgstr ""
+
+#: data/props/item/bomb.props:6
+msgid "A powerful bomb"
+msgstr ""
+
+#: data/props/item/invisibility_potion.props:6
+msgid "A potion which renders you invisible to certain enemies"
+msgstr ""
+
+#: data/props/item/gazer_eye.props:5
+msgid "The eyeball from a Gazer"
+msgstr ""
+
+#: data/props/item/tesla_pack_empty.props:5
+msgid "A Tesla Pack. It has no charge."
+msgstr ""
+
+#: data/props/item/summoner_staff.props:5
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr ""
+
+#: data/props/item/tesla_pack_full.props:5
+msgid "A Tesla Pack. It is fully charged."
+msgstr ""
+
+#: data/props/item/empty_potion.props:6
+msgid "An empty potion bottle"
+msgstr ""
+
+#: data/props/item/chicken_feed_bag.props:6
+msgid "A bag of chicken feed"
+msgstr ""
+
+#: data/props/item/coal_bag.props:6
+msgid "A bag suitable for carrying coal"
+msgstr ""
+
+#: data/scripts/raft.dat:19
+msgid "Basic Sword"
+msgstr ""
+
+#: data/props/weapon/basic_sword.props:6
+msgid "A Sword given to you by Jacob"
+msgstr ""
+
+#: src/player.c:2466
+msgid "A bow"
+msgstr ""
+
+#: data/scripts/cauldron.dat:58
+msgid "Small Wooden Shield"
+msgstr ""
+
+#: data/props/weapon/small_wooden_shield.props:6
+msgid "A small shield that provides basic protection"
+msgstr ""
+
+#: src/item/potions.c:213
+msgid "Normal Arrow"
+msgstr ""
+
+#: data/props/weapon/normal_arrow.props:6
+msgid "Normal Arrows"
+msgstr ""
+
+#: data/props/weapon/wood_axe.props:6
+msgid "An axe suitable for chopping trees"
+msgstr ""
+
+#: data/maps/tutorial.dat:2141
+msgid "Pickaxe"
+msgstr ""
+
+#: data/props/weapon/pickaxe.props:6
+msgid "A pickaxe lent to you by Borgan"
+msgstr ""
+
+#: data/maps/map10.dat:4042
+msgid "Fire Burner Key"
+msgstr ""
+
+#: data/maps/map10.dat:4192
+msgid "Potion Room Key"
+msgstr ""
+
+#: data/maps/map08.dat:2643
+msgid "Surge Passage Key"
+msgstr ""
+
+#: data/maps/map08.dat:5793
+msgid "Demolition Storage Key"
+msgstr ""
+
+#: src/event/global_trigger.c:302
+msgid "No Objectives"
+msgstr ""
+
+#: src/world/switch.c:316
+msgid "Press Action to reset puzzle blocks"
+msgstr ""
+
+#: src/enemy/poltergiest.c:556
+msgid "Try hitting the skull..."
+msgstr ""
+
+#: src/item/blending_machine.c:184
+msgid "This machine is not active"
+msgstr ""
+
+#: src/item/code_door.c:120
+msgid "Repeat the sequence"
+msgstr ""
+
+#: src/item/code_door.c:264
+msgid "Correct Sequence"
+msgstr ""
+
+#: src/item/code_door.c:288
+msgid "Incorrect Sequence"
+msgstr ""
+
+#: src/system/error.c:47
+msgid "The Legend of Edgar has encountered the following error"
+msgstr ""
+
+#: src/system/error.c:51
+msgid "Please report this error to Parallel Realities"
+msgstr ""
+
+#: data/scripts/monsters.dat:60
+msgid "Venus Flytrap"
+msgstr ""
+
+#: src/item/moveable_lift.c:72
+msgid "Push Up or Down to raise or lower the platform"
+msgstr ""
+
+#: data/scripts/monsters.dat:82
+msgid "Up"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:7
+msgid "Down"
+msgstr ""
+
+#: src/entity.c:424
+msgid "Left"
+msgstr ""
+
+#: data/scripts/hidden_passage.dat:9
+msgid "Right"
+msgstr ""
+
+#: data/scripts/tutorial_intro.dat:5
+msgid "Jump"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:3
+msgid "Attack"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:5
+msgid "Block"
+msgstr ""
+
+#: data/scripts/box_pushing.dat:1
+msgid "Action"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:3
+msgid "Use Item"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:6
+msgid "Previous Item"
+msgstr ""
+
+#: data/scripts/tutorial_items.dat:6
+msgid "Next Item"
+msgstr ""
+
+#: src/credits.c:829
+msgid "Inventory"
+msgstr ""
+
+#: src/audio/audio.c:316
+msgid "Pause"
+msgstr ""
+
+#: src/menu/control_menu.c:225
+msgid "Dead Zone"
+msgstr ""
+
+#: src/structs.h:156
+msgid "Sound"
+msgstr ""
+
+#: src/menu/sound_menu.c:151
+msgid "SFX Volume"
+msgstr ""
+
+#: src/menu/sound_menu.c:159
+msgid "Music Volume"
+msgstr ""
+
+#: data/scripts/purifier.dat:2
+msgid "Ice Spray"
+msgstr ""
+
+#: data/maps/map09.dat:5468
+msgid "Right Wing Lift Key"
+msgstr ""
+
+#: data/scripts/borgan.dat:28
+msgid "Mine Entrance Door Key"
+msgstr ""
+
+#: data/maps/map07.dat:3168
+msgid "Sewage Restricted Zone Key"
+msgstr ""
+
+#: data/maps/map08.dat:2567
+msgid "Fortress Main Key"
+msgstr ""
+
+#: data/maps/map08.dat:10217
+msgid "Teleporter Access Key 1"
+msgstr ""
+
+#: data/maps/map08.dat:10317
+msgid "Teleporter Access Key 2"
+msgstr ""
+
+#: data/maps/map08.dat:10943
+msgid "Teleporter Access Key 3"
+msgstr ""
+
+#: data/scripts/blender.dat:15
+msgid "Empty Bottle"
+msgstr ""
+
+#: data/maps/map11.dat:2093
+msgid "First Floor Key"
+msgstr ""
+
+#: src/item/pedestal.c:138
+msgid "Press Action to retrieve %s"
+msgstr ""
+
+#: src/item/tuning_fork.c:41
+msgid "Tuning Fork"
+msgstr ""
+
+#: data/maps/map11.dat:4817
+msgid "Second Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:2642
+msgid "Instruction Card #1"
+msgstr ""
+
+#: data/maps/map11.dat:2567
+msgid "Instruction Card #2"
+msgstr ""
+
+#: data/maps/map11.dat:8092
+msgid "Instruction Card #3"
+msgstr ""
+
+#: data/maps/map11.dat:13192
+msgid "Instruction Card #4"
+msgstr ""
+
+#: data/maps/map11.dat:3392
+msgid "Centurion Statue"
+msgstr ""
+
+#: data/maps/map22.dat:10167
+msgid "Spider Statue"
+msgstr ""
+
+#: data/maps/map07.dat:8567
+msgid "Tortoise Statue"
+msgstr ""
+
+#: data/scripts/olaf.dat:20
+msgid "Scorpion Statue"
+msgstr ""
+
+#: data/props/item/blue_gem.props:5
+msgid "A Blue Gem"
+msgstr ""
+
+#: data/props/item/centurion_statue.props:4
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr ""
+
+#: data/props/item/green_gem.props:5
+msgid "A Green Gem"
+msgstr ""
+
+#: data/props/item/purple_gem.props:5
+msgid "A Purple Gem"
+msgstr ""
+
+#: data/props/item/red_gem.props:5
+msgid "A Red Gem"
+msgstr ""
+
+#: data/props/item/scorpion_statue.props:4
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr ""
+
+#: data/props/item/spider_statue.props:4
+msgid "A statue of a Spider. It has 8 legs."
+msgstr ""
+
+#: data/props/item/tortoise_statue.props:4
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr ""
+
+#: data/props/item/tuning_fork.props:4
+msgid "A Tuning Fork"
+msgstr ""
+
+#: data/props/misc/chopped_log.props:7
+msgid "A chopped log"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:1
+msgid "Narrator"
+msgstr ""
+
+#: src/item/instruction_machine.c:92
+msgid "Enter the directions"
+msgstr ""
+
+#: src/item/instruction_machine.c:164
+msgid "Out of space for instructions"
+msgstr ""
+
+#: data/props/item/ice_spray.props:5
+msgid "Creates ice cubes that expand on contact with water"
+msgstr ""
+
+#: data/props/item/soul_bottle.props:5
+msgid "A bottle capable of capturing souls"
+msgstr ""
+
+#: src/inventory.c:242
+msgid "Cannot pick up %s. Inventory full"
+msgstr ""
+
+#: src/item/mine_cart.c:85
+msgid "Filling mine cart..."
+msgstr ""
+
+#: src/player.c:2181
+msgid "Out of arrows!"
+msgstr ""
+
+#: data/props/item/full_soul_bottle.props:5
+msgid "A bottle with a soul trapped inside"
+msgstr ""
+
+#: src/item/mine_cart.c:90
+msgid "Full Mine Cart"
+msgstr ""
+
+#: data/maps/map12.dat:2442
+msgid "Processing Lift Key"
+msgstr ""
+
+#: data/maps/map12.dat:5318
+msgid "Right Grabber Key"
+msgstr ""
+
+#: data/maps/map12.dat:5343
+msgid "Left Grabber Key"
+msgstr ""
+
+#: data/maps/map12.dat:5443
+msgid "Master Key"
+msgstr ""
+
+#: data/props/item/oil_can.props:5
+msgid "An Oil Can"
+msgstr ""
+
+#: data/scripts/rusted.dat:1
+msgid "Oil Can"
+msgstr ""
+
+#: data/props/item/repellent.props:5
+msgid "A powerful repellent"
+msgstr ""
+
+#: src/item/repellent.c:33
+msgid "Repellent"
+msgstr ""
+
+#: data/maps/map12.dat:1
+msgid "Fortress Mine"
+msgstr ""
+
+#: data/scripts/cauldron.dat:204
+msgid "Sludge Tentacle"
+msgstr ""
+
+#: data/props/item/sludge_tentacle.props:5
+msgid "A Red Sludge Tentacle"
+msgstr ""
+
+#: data/scripts/cauldron.dat:145
+msgid "Eyeball Smoothie"
+msgstr ""
+
+#: data/props/item/eyeball_smoothie.props:5
+msgid "A liquid made from eyeballs and tentacles"
+msgstr ""
+
+#: src/system/load_save.c:1673
+msgid "Patching your save game. Please wait..."
+msgstr ""
+
+#: src/enemy/huge_spider.c:272
+msgid "Now! Run while it's stunned!"
+msgstr ""
+
+#: data/scripts/smoothie_colour.dat:10
+msgid "I just need to find another shield to enchant"
+msgstr ""
+
+#: src/boss/armour_boss.c:677
+msgid "Its wounds are already healing..."
+msgstr ""
+
+#: src/system/pak.c:47
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr ""
+
+#: data/props/item/yellow_gem.props:5
+msgid "A Yellow Gem"
+msgstr ""
+
+#: src/system/pak.c:45
+msgid "Failed to open PAK file %s"
+msgstr ""
+
+#: src/boss/armour_boss.c:1437
+msgid "Find a way to remove the Gem..."
+msgstr ""
+
+#: src/boss/armour_boss.c:1448
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr ""
+
+#: data/scripts/third_side.dat:3
+msgid "Book"
+msgstr ""
+
+#: data/scripts/fortress_mine_lift.dat:2
+msgid "Sign"
+msgstr ""
+
+#: data/scripts/sewer_trap_note.dat:2
+msgid "Note"
+msgstr ""
+
+#: src/item/sliding_puzzle.c:81
+msgid "Solve the sliding puzzle"
+msgstr ""
+
+#: src/enemy/baby_slime.c:252
+msgid "The armour is too tough for them to penetrate..."
+msgstr ""
+
+#: data/props/item/rope.props:5
+msgid "A length of rope"
+msgstr ""
+
+#: data/props/item/extend_o_grab.props:5
+msgid "A device for grabbing far away objects"
+msgstr ""
+
+#: data/props/item/water_purifier.props:6
+msgid "A bottle of pills that convert slime into water"
+msgstr ""
+
+#: data/maps/tutorial.dat:1916
+msgid "Tutorial Key"
+msgstr ""
+
+#: data/maps/map13.dat:6544
+msgid "Light Key"
+msgstr ""
+
+#: data/scripts/crossbow.dat:2
+msgid "Rope"
+msgstr ""
+
+#: src/item/extend_o_grab.c:47
+msgid "Extend-O-Grab"
+msgstr ""
+
+#: data/maps/map13.dat:2968
+msgid "Water Purifiers"
+msgstr ""
+
+#: data/maps/map13.dat:2494
+msgid "Right Wing Key"
+msgstr ""
+
+#: data/maps/map13.dat:3993
+msgid "Catapult Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:2917
+msgid "Armoury"
+msgstr ""
+
+#: data/scripts/library_intro.dat:6
+msgid "Maggie"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:10
+msgid "Jacob"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:10
+msgid "Borgan"
+msgstr ""
+
+#: data/scripts/statues.dat:1
+msgid "Edgar"
+msgstr ""
+
+#: src/item/mine_cart.c:41
+msgid "Mine Cart"
+msgstr ""
+
+#: src/player.c:3238
+msgid "%s has regained power"
+msgstr ""
+
+#: data/props/item/old_shield.props:5
+msgid "An old shield found in the Armoury"
+msgstr ""
+
+#: data/props/weapon/lightning_sword_empty.props:6
+msgid "A Sword that can be charged with lightning"
+msgstr ""
+
+#: data/props/weapon/lightning_sword.props:6
+msgid "A Sword imbued with the power of lightning"
+msgstr ""
+
+#: data/scripts/lightning_sword.dat:6
+msgid "Lightning Sword"
+msgstr ""
+
+#: src/enemy/scanner.c:108
+msgid "INTRUDER!"
+msgstr ""
+
+#: src/credits.c:861
+msgid "Statistics"
+msgstr ""
+
+#: src/menu/stats_menu.c:94
+msgid "Play Time: %s"
+msgstr ""
+
+#: src/menu/stats_menu.c:100
+msgid "Kills: %d"
+msgstr ""
+
+#: src/menu/stats_menu.c:108
+msgid "Bats Drowned: %d"
+msgstr ""
+
+#: src/menu/stats_menu.c:112
+msgid "Times Eaten: %d"
+msgstr ""
+
+#: src/menu/stats_menu.c:120
+msgid "Distanced Travelled: %0.1fKM"
+msgstr ""
+
+#: src/menu/stats_menu.c:124
+msgid "Attacks Blocked: %d"
+msgstr ""
+
+#: src/menu/stats_menu.c:130
+msgid "Time Spent As A Slime: %s"
+msgstr ""
+
+#: src/menu/stats_menu.c:104
+msgid "Arrows Fired: %d"
+msgstr ""
+
+#: src/game.c:1057
+msgid "You found a secret!"
+msgstr ""
+
+#: src/player.c:3163
+msgid "10 charges remaining..."
+msgstr ""
+
+#: src/player.c:3170
+msgid "%s is out of power"
+msgstr ""
+
+#: src/enemy/book.c:632
+msgid "The damage from this weapon is being absorbed..."
+msgstr ""
+
+#: src/menu/stats_menu.c:136
+msgid "Secrets Found: %d / %d"
+msgstr ""
+
+#: src/item/light_pillar.c:151
+msgid "Press Action to activate the Light Pillar"
+msgstr ""
+
+#: src/inventory.c:754
+msgid "Removed %s"
+msgstr ""
+
+#: src/boss/awesome_boss.c:1147
+msgid "Their partner will heal them when they fall..."
+msgstr ""
+
+#: src/boss/awesome_boss_meter.c:164
+msgid "Super is ready..."
+msgstr ""
+
+#: src/player.c:1692
+msgid "Used Amulet of Resurrection"
+msgstr ""
+
+#: src/item/soul_merger.c:116
+msgid "Press Action to enter the Soul Merger"
+msgstr ""
+
+#: src/item/soul_merger.c:139
+msgid "An IN Chamber and an OUT Chamber are required"
+msgstr ""
+
+#: src/item/lava_door.c:101
+msgid "One blow from the pickaxe should shatter it"
+msgstr ""
+
+#: src/item/soul_merger_control_panel.c:85
+msgid "Press Action to reprogram the Soul Merger"
+msgstr ""
+
+#: src/item/soul_merger_control_panel.c:93
+msgid "Spanner is required"
+msgstr ""
+
+#: src/item/soul_merger_control_panel.c:150
+msgid "Press Action to Cancel"
+msgstr ""
+
+#: src/item/light_pillar.c:116
+msgid "%s is needed to activate this Light Pillar"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:11
+msgid "Evil_Edgar"
+msgstr ""
+
+#: src/boss/evil_edgar.c:273
+msgid "I'm better than you in every single way..."
+msgstr ""
+
+#: src/boss/evil_edgar.c:286
+msgid "Get down from there!"
+msgstr ""
+
+#: src/boss/evil_edgar.c:786
+msgid "Stupid duds..."
+msgstr ""
+
+#: src/boss/evil_edgar.c:887
+msgid "Die!"
+msgstr ""
+
+#: src/boss/evil_edgar.c:983
+msgid "Arghh! My eyes!"
+msgstr ""
+
+#: data/props/item/spanner.props:6
+msgid "A spanner"
+msgstr ""
+
+#: data/props/item/exploding_gazer_eye_dud.props:5
+msgid "An exploding Gazer Eyeball. A dud?"
+msgstr ""
+
+#: data/props/item/resurrection_amulet.props:5
+msgid "Automatically brings you back to life once if you die"
+msgstr ""
+
+#: src/item/potions.c:247
+msgid "Flaming Arrows"
+msgstr ""
+
+#: data/props/weapon/fire_shield.props:6
+msgid "A shield that can resist fire"
+msgstr ""
+
+#: src/item/jigsaw_puzzle.c:98
+msgid "Solve the jigsaw puzzle"
+msgstr ""
+
+#: src/boss/ant_lion.c:306
+msgid "Try luring something else into the Ant Lion's pit..."
+msgstr ""
+
+#: data/props/item/puzzle_piece.props:5
+msgid "A piece of a puzzle"
+msgstr ""
+
+#: src/boss/centurion_boss.c:321
+msgid "The glass looks very weak now..."
+msgstr ""
+
+#: src/system/error.c:53
+msgid "Press Escape to exit"
+msgstr ""
+
+#: data/props/item/protection_ring.props:4
+msgid "A beautiful ring"
+msgstr ""
+
+#: src/item/potions.c:213
+msgid "Normal Arrow is required"
+msgstr ""
+
+#: src/item/potions.c:247
+msgid "Created %d Flaming Arrows"
+msgstr ""
+
+#: src/enemy/giant_snowball.c:119
+msgid "Press buttons to escape the snowball!"
+msgstr ""
+
+#: data/props/item/flaming_arrow_potion.props:6
+msgid "A potion to create flaming arrows"
+msgstr ""
+
+#: data/props/item/spike_ball.props:5
+msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
+msgstr ""
+
+#: src/boss/borer_boss.c:498
+msgid "Try getting the Borer to grab a bomb..."
+msgstr ""
+
+#: data/props/item/spores.props:5
+msgid "Spores that will make certain monsters temporarily harmless"
+msgstr ""
+
+#: src/item/apple_tree.c:172
+msgid "It's out of apples..."
+msgstr ""
+
+#: src/credits.c:453
+msgid "Failed"
+msgstr ""
+
+#: src/item/mastermind_display.c:411
+msgid "Select a colour for every peg in the row"
+msgstr ""
+
+#: src/item/monster_skull.c:98
+msgid "Press Action to retrieve the Horn"
+msgstr ""
+
+#: src/item/memory_match_display.c:113
+msgid "Attempts remaining: %d"
+msgstr ""
+
+#: src/item/colour_pot.c:183
+msgid "The pot is empty"
+msgstr ""
+
+#: src/enemy/frog.c:370
+msgid "Your %s has been stolen!"
+msgstr ""
+
+#: src/menu/io_menu.c:141
+msgid "<Empty>"
+msgstr ""
+
+#: data/props/item/monster_horn.props:5
+msgid "The horn from a fearsome monster"
+msgstr ""
+
+#: data/props/item/apple.props:5
+msgid "A delicious apple"
+msgstr ""
+
+#: data/props/item/tortoise_shell.props:5
+msgid "A magical shell fragment from a Rampaging Master Tortoise"
+msgstr ""
+
+#: data/props/weapon/disintegration_shield.props:5
+msgid "A shield that can resist disintegration"
+msgstr ""
+
+#: src/enemy/magic_missile.c:292
+msgid "Try using one of the artifacts to protect yourself..."
+msgstr ""
+
+#: src/menu/io_menu.c:267
+msgid "Failed to load game"
+msgstr ""
+
+#: src/boss/grimlore.c:2752
+msgid "Your %s has been destroyed"
+msgstr ""
+
+#: src/boss/grimlore.c:3484
+msgid "Binding only works against weakened demons"
+msgstr ""
+
+#: data/props/item/bind_artifact.props:5
+msgid "Sends a weakened demon back to its own dimension"
+msgstr ""
+
+#: data/props/item/poison_meat.props:5
+msgid "A lump of highly poisonous meat"
+msgstr ""
+
+#: data/scripts/correct_combination.dat:4
+msgid "Scrap of Paper"
+msgstr ""
+
+#: data/props/item/reflection_artifact.props:5
+msgid "Creates a temporary shield that reflects magic spells"
+msgstr ""
+
+#: data/props/item/protection_artifact.props:5
+msgid "Protects against certain attacks. Stops working if you move"
+msgstr ""
+
+#: src/player.c:1346
+msgid "Press Attack whilst Blocking to use your shield..."
+msgstr ""
+
+#: src/credits.c:863
+msgid "Play Time"
+msgstr ""
+
+#: src/credits.c:866
+msgid "Kills"
+msgstr ""
+
+#: src/credits.c:869
+msgid "Arrows Fired"
+msgstr ""
+
+#: src/credits.c:872
+msgid "Distanced Travelled"
+msgstr ""
+
+#: src/credits.c:875
+msgid "Attacks Blocked"
+msgstr ""
+
+#: src/credits.c:878
+msgid "Time Spent As A Slime"
+msgstr ""
+
+#: src/credits.c:881
+msgid "Secrets Found"
+msgstr ""
+
+#: src/credits.c:884
+msgid "Continues"
+msgstr ""
+
+#: src/credits.c:940
+msgid "Defeated Bosses"
+msgstr ""
+
+#: src/credits.c:1095
+msgid "Undefeated"
+msgstr ""
+
+#: src/credits.c:152
+msgid "Defeated"
+msgstr ""
+
+#: data/scripts/disintegration_shield.dat:5
+msgid "Sorceror"
+msgstr ""
+
+#: src/boss/sorceror_2.c:361
+msgid "Enough! Prepare to die..."
+msgstr ""
+
+#: src/boss/sorceror_2.c:1654
+msgid "Quickly turn left and right to remove the hold person spell!"
+msgstr ""
+
+#: src/player.c:1353
+msgid "Your shield is increasing in power..."
+msgstr ""
+
+#: src/menu/about_menu.c:75
+msgid "The Legend of Edgar v%0.2f"
+msgstr ""
+
+#: src/credits.c:124
+msgid "King Grub"
+msgstr ""
+
+#: src/credits.c:125
+msgid "The Golem"
+msgstr ""
+
+#: src/credits.c:126
+msgid "Queen Wasp"
+msgstr ""
+
+#: src/credits.c:127
+msgid "The Swamp Guardian"
+msgstr ""
+
+#: src/credits.c:128
+msgid "The Gargoyle"
+msgstr ""
+
+#: src/credits.c:129
+msgid "The Blob"
+msgstr ""
+
+#: src/credits.c:130
+msgid "The Watchdog"
+msgstr ""
+
+#: src/credits.c:131
+msgid "The Awesome Foursome"
+msgstr ""
+
+#: data/scripts/black_book.dat:25
+msgid "Mataeus"
+msgstr ""
+
+#: src/credits.c:133
+msgid "The Phoenix"
+msgstr ""
+
+#: src/credits.c:134
+msgid "The Borer"
+msgstr ""
+
+#: data/scripts/evil_edgar_start.dat:1
+msgid "Evil Edgar"
+msgstr ""
+
+#: src/credits.c:136
+msgid "The Sewer Dweller"
+msgstr ""
+
+#: src/credits.c:137
+msgid "The Salamander"
+msgstr ""
+
+#: src/credits.c:138
+msgid "The Black Book"
+msgstr ""
+
+#: src/credits.c:141
+msgid "The Sorceror"
+msgstr ""
+
+#: data/medals.dat:1
+msgid "Became a legend"
+msgstr ""
+
+#: data/medals.dat:2
+msgid "Defeated Chaos"
+msgstr ""
+
+#: data/medals.dat:3
+msgid "Defeated the Sorceror"
+msgstr ""
+
+#: data/medals.dat:6
+msgid "Obtained the Dragon Shield"
+msgstr ""
+
+#: data/medals.dat:5
+msgid "Found all secrets"
+msgstr ""
+
+#: data/medals.dat:8
+msgid "Walked 50km"
+msgstr ""
+
+#: data/medals.dat:10
+msgid "Fired 500 arrows"
+msgstr ""
+
+#: data/medals.dat:11
+msgid "Defeated 1000 enemies"
+msgstr ""
+
+#: data/medals.dat:12
+msgid "Defeated 2000 enemies"
+msgstr ""
+
+#: data/medals.dat:14
+msgid "Defeated the Black Book"
+msgstr ""
+
+#: data/medals.dat:15
+msgid "Defeated Grimlore"
+msgstr ""
+
+#: data/medals.dat:16
+msgid "Defeated the Phoenix"
+msgstr ""
+
+#: data/medals.dat:9
+msgid "Defeated Azriel"
+msgstr ""
+
+#: data/medals.dat:51
+msgid "Defeated the Gargoyle"
+msgstr ""
+
+#: data/medals.dat:17
+msgid "Defeated a Rampaging Master Tortoise"
+msgstr ""
+
+#: data/medals.dat:18
+msgid "Obtained the Lightning Sword"
+msgstr ""
+
+#: data/medals.dat:19
+msgid "Opened the safe in the Library"
+msgstr ""
+
+#: data/medals.dat:20
+msgid "Located the Occult Section"
+msgstr ""
+
+#: data/medals.dat:22
+msgid "Met the Sorceror"
+msgstr ""
+
+#: data/medals.dat:23
+msgid "Obtained 10 Hit Points"
+msgstr ""
+
+#: data/medals.dat:7
+msgid "Obtained 20 Hit Points"
+msgstr ""
+
+#: data/medals.dat:24
+msgid "Rescued all of Jacob's chickens"
+msgstr ""
+
+#: data/medals.dat:25
+msgid "Fired 250 arrows"
+msgstr ""
+
+#: data/medals.dat:26
+msgid "Blocked 2000 attacks"
+msgstr ""
+
+#: data/medals.dat:27
+msgid "Continued 20 times"
+msgstr ""
+
+#: data/medals.dat:28
+msgid "Drowned 20 Red Bats"
+msgstr ""
+
+#: data/medals.dat:29
+msgid "Escaped the Dungeon"
+msgstr ""
+
+#: data/medals.dat:30
+msgid "Got eaten 5 times"
+msgstr ""
+
+#: data/medals.dat:31
+msgid "Entered the Forbidden Swamp"
+msgstr ""
+
+#: data/medals.dat:32
+msgid "Completed the Tutorial"
+msgstr ""
+
+#: data/medals.dat:33
+msgid "Obtained the Fire Shield"
+msgstr ""
+
+#: data/medals.dat:34
+msgid "Got to the Fortress"
+msgstr ""
+
+#: data/medals.dat:35
+msgid "Defeated the Golem using only the grabbers"
+msgstr ""
+
+#: data/medals.dat:36
+msgid "Defeated 100 enemies"
+msgstr ""
+
+#: data/medals.dat:37
+msgid "Defeated 200 enemies"
+msgstr ""
+
+#: data/medals.dat:38
+msgid "Defeated 500 enemies"
+msgstr ""
+
+#: data/medals.dat:39
+msgid "Defeated the Watchdog"
+msgstr ""
+
+#: data/medals.dat:40
+msgid "Defeated the Awesome Foursome"
+msgstr ""
+
+#: data/medals.dat:41
+msgid "Defeated the Blob"
+msgstr ""
+
+#: data/medals.dat:42
+msgid "Defeated the Borer"
+msgstr ""
+
+#: data/medals.dat:43
+msgid "Defeated Evil Edgar"
+msgstr ""
+
+#: data/medals.dat:44
+msgid "Defeated the Queen Fly"
+msgstr ""
+
+#: data/medals.dat:35
+msgid "Defeated the Golem"
+msgstr ""
+
+#: data/medals.dat:46
+msgid "Defeated the King Grub"
+msgstr ""
+
+#: data/medals.dat:47
+msgid "Defeated Mataeus"
+msgstr ""
+
+#: data/medals.dat:48
+msgid "Defeated the Salamander"
+msgstr ""
+
+#: data/medals.dat:49
+msgid "Defeated the Sewer Dweller"
+msgstr ""
+
+#: data/medals.dat:50
+msgid "Defeated the Forbidden Swamp Guardian"
+msgstr ""
+
+#: data/medals.dat:52
+msgid "Read all of the Monster Compendium"
+msgstr ""
+
+#: data/medals.dat:53
+msgid "Obtained the Amulet of Resurrection"
+msgstr ""
+
+#: data/medals.dat:54
+msgid "Spent 10 minutes as a Slime"
+msgstr ""
+
+#: src/menu/medals_menu.c:135
+msgid "Hidden Medal"
+msgstr ""
+
+#: data/props/item/bell.props:5
+msgid "A bell"
+msgstr ""
+
+#: data/props/item/portable_save.props:4
+msgid "Creates a save point at your current position"
+msgstr ""
+
+#: src/player.c:2098
+msgid "Your controls have been reversed!"
+msgstr ""
+
+#: src/item/portable_save.c:82
+msgid "You cannot use this here"
+msgstr ""
+
+#: src/item/portable_save.c:87
+msgid "You can only use this item in an empty space"
+msgstr ""
+
+#: src/item/bell_rope.c:42
+msgid "Bell"
+msgstr ""
+
+#: data/props/item/music_sheet.props:4
+msgid "A sheet of music"
+msgstr ""
+
+#: src/menu/io_menu.c:125
+msgid "Choose slot to save to"
+msgstr ""
+
+#: src/menu/io_menu.c:130
+msgid "Choose slot to load from"
+msgstr ""
+
+#: src/world/level_exit.c:104
+msgid "Press Action to go to %s"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:9
+msgid "the Village"
+msgstr ""
+
+#: data/scripts/mine2_exit.dat:1
+msgid "the Mine"
+msgstr ""
+
+#: data/maps/map01.dat:1843
+msgid "the Forest"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:8
+msgid "the Forbidden Swamp"
+msgstr ""
+
+#: data/scripts/cave_intro.dat:13
+msgid "the Cave"
+msgstr ""
+
+#: data/maps/map09.dat:10143
+msgid "the Fortress Outskirts"
+msgstr ""
+
+#: data/scripts/power_generators_fixed.dat:10
+msgid "the Sewer"
+msgstr ""
+
+#: data/maps/map09.dat:5943
+msgid "the Fortress Basement"
+msgstr ""
+
+#: data/maps/map17.dat:11143
+msgid "the Fortress Ground Floor"
+msgstr ""
+
+#: data/scripts/old_shield.dat:18
+msgid "the Laboratory"
+msgstr ""
+
+#: data/medals.dat:19
+msgid "the Library"
+msgstr ""
+
+#: data/maps/map08.dat:12568
+msgid "the Fortress Mine"
+msgstr ""
+
+#: data/maps/map09.dat:2918
+msgid "the Armoury"
+msgstr ""
+
+#: data/maps/map15.dat:1868
+msgid "the Borer Cave"
+msgstr ""
+
+#: data/scripts/catacombs_intro.dat:10
+msgid "the Catacombs"
+msgstr ""
+
+#: data/scripts/dungeon_escape.dat:7
+msgid "the Study"
+msgstr ""
+
+#: data/medals.dat:29
+msgid "the Dungeon"
+msgstr ""
+
+#: data/maps/map19.dat:3293
+msgid "the Frozen Wastes"
+msgstr ""
+
+#: data/maps/map18.dat:4918
+msgid "the Outer Cave Network"
+msgstr ""
+
+#: data/maps/map19.dat:5643
+msgid "the Inner Cave Network"
+msgstr ""
+
+#: data/maps/map09.dat:6218
+msgid "the Graveyard"
+msgstr ""
+
+#: data/maps/map09.dat:10018
+msgid "the Left Tower"
+msgstr ""
+
+#: data/maps/map16.dat:1968
+msgid "the Right Tower"
+msgstr ""
+
+#: data/medals.dat:21
+msgid "the Crypt"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:9
+msgid "Village"
+msgstr ""
+
+#: data/scripts/armour_boss_die.dat:4
+msgid "Mine"
+msgstr ""
+
+#: data/scripts/ending_part1.dat:35
+msgid "Forest"
+msgstr ""
+
+#: data/scripts/grasslands_intro.dat:8
+msgid "Forbidden Swamp"
+msgstr ""
+
+#: data/scripts/cave_intro.dat:13
+msgid "Cave"
+msgstr ""
+
+#: data/maps/map09.dat:10143
+msgid "Fortress Outskirts"
+msgstr ""
+
+#: data/scripts/power_generators_fixed.dat:10
+msgid "Sewer"
+msgstr ""
+
+#: data/maps/map09.dat:5943
+msgid "Fortress Basement"
+msgstr ""
+
+#: data/maps/map09.dat:1
+msgid "Fortress Ground Floor"
+msgstr ""
+
+#: data/scripts/old_shield.dat:18
+msgid "Laboratory"
+msgstr ""
+
+#: src/graphics/save_png.c:25
+msgid "Library"
+msgstr ""
+
+#: data/maps/map15.dat:1868
+msgid "Borer Cave"
+msgstr ""
+
+#: data/scripts/borer_boss_die.dat:4
+msgid "Catacombs"
+msgstr ""
+
+#: data/scripts/enable_study.dat:1
+msgid "Study"
+msgstr ""
+
+#: src/boss/sorceror.c:45
+msgid "Dungeon"
+msgstr ""
+
+#: data/maps/map18.dat:1
+msgid "Frozen Wastes"
+msgstr ""
+
+#: data/maps/map18.dat:4918
+msgid "Outer Cave Network"
+msgstr ""
+
+#: data/maps/map19.dat:5643
+msgid "Inner Cave Network"
+msgstr ""
+
+#: data/scripts/graveyard_weather.dat:1
+msgid "Graveyard"
+msgstr ""
+
+#: data/maps/map09.dat:10018
+msgid "Left Tower"
+msgstr ""
+
+#: data/scripts/hidden_passage.dat:9
+msgid "Right Tower"
+msgstr ""
+
+#: data/maps/map24.dat:1
+msgid "The Observatory"
+msgstr ""
+
+#: data/scripts/graveyard_weather.dat:1
+msgid "Crypt"
+msgstr ""
+
+#: src/credits.c:586
+msgid "Copyright Parallel Realities 2009 - %d"
+msgstr ""
+
+#: src/menu/main_menu.c:170
+msgid "Restart Checkpoint"
+msgstr ""
+
+#: src/menu/options_menu.c:349
+msgid "Cheats can only be enabled in-game"
+msgstr ""
+
+#: src/title.c:79
+msgid "Press any key"
+msgstr ""
+
+#: src/player.c:1051
+msgid "Cannot equip items whilst attacking"
+msgstr ""
+
+#: src/credits.c:884
+msgid "Continue"
+msgstr ""
+
+#: src/init.c:128
+msgid "Medals"
+msgstr ""
+
+#: src/menu/sound_menu.c:167
+msgid "Audio Quality"
+msgstr ""
+
+#: src/menu/options_menu.c:201
+msgid "Cheats"
+msgstr ""
+
+#: src/menu/cheat_menu.c:143
+msgid "Infinite Health"
+msgstr ""
+
+#: src/menu/cheat_menu.c:149
+msgid "Infinite Arrows"
+msgstr ""
+
+#: src/menu/cheat_menu.c:155
+msgid "Lava is fatal"
+msgstr ""
+
+#: src/menu/control_menu.c:145
+msgid "Use Up and Down to select. Enter to change."
+msgstr ""
+
+#: src/menu/control_menu.c:189
+msgid "Interact"
+msgstr ""
+
+#: data/scripts/tutorial_combat.dat:3
+msgid "Use"
+msgstr ""
+
+#: src/menu/control_menu.c:527
+msgid "Please configure all controls"
+msgstr ""
+
+#: src/boss/blob_boss.c:1429
+msgid "Quickly turn left and right to shake off the pieces!"
+msgstr ""
+
+#: data/scripts/azriel_start.dat:18
+msgid "Azriel"
+msgstr ""
+
+#: src/boss/azriel.c:2313
+msgid "Until we meet again..."
+msgstr ""
+
+#: data/props/item/keepsake.props:4
+msgid "Ivan's keepsake"
+msgstr ""
+
+#: src/inventory.c:364
+msgid "Selected %s"
+msgstr ""
+
+#: src/player.c:2995
+msgid "Press buttons to break the petrification!"
+msgstr ""
+
+#: data/medals.dat:4
+msgid "Completed the game with only 5 hit points"
+msgstr ""
+
+#: data/medals.dat:13
+msgid "Completed the game without continuing"
+msgstr ""
+
+#: data/medals.dat:21
+msgid "Accessed the Crypt"
+msgstr ""
+
+#: src/boss/mini_gargoyle.c:203
+msgid "Quickly turn left and right to shake off the miniature gargoyles!"
+msgstr ""
+
+#: data/medals.dat:6
+msgid "Dragon Shield"
+msgstr ""
+
+#: data/props/weapon/dragon_shield.props:6
+msgid "A shield that can resist dragon breath"
+msgstr ""
+
+#: src/game.c:870
+msgid ""
+"SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
+"font"
+msgstr ""
+
+#: src/menu/options_menu.c:354
+msgid ""
+"Enabling cheats will not allow you to achieve 100% completion in the game"
+msgstr ""
+
+#: src/boss/evil_edgar.c:204
+msgid ""
+"You got into the machine by yourself?! You're even stupider than I thought "
+"you were!"
+msgstr ""
+
+#: src/boss/chaos.c:814
+msgid "Stalagmite"
+msgstr ""
+
+#: src/boss/chaos.c:1304
+msgid "Burn to ashes!"
+msgstr ""
+
+#: src/boss/chaos.c:1308
+msgid "Feel my power!"
+msgstr ""
+
+#: src/boss/chaos.c:1316
+msgid "Suffer!"
+msgstr ""
+
+#: src/boss/chaos.c:1472
+msgid "Pathetic"
+msgstr ""
+
+#: src/boss/chaos.c:1490
+msgid "Impale"
+msgstr ""
+
+#: src/player.h:61
+msgid "Confuse"
+msgstr ""
+
+#: src/boss/chaos.c:1687
+msgid "Darkness"
+msgstr ""
+
+#: src/boss/sorceror_2.c:1551
+msgid "Hold Person"
+msgstr ""
+
+#: data/props/weapon/legendary_sword.props:6
+msgid "A Sword of Legend"
+msgstr ""
+
+#: data/props/weapon/phantasmal_shield.props:6
+msgid ""
+"Reflects phantasmal forces. Blocking at the last moment increases the power."
+msgstr ""
+
+#: src/credits.c:458
+msgid "Chaos has been subdued"
+msgstr ""
+
+#: src/credits.c:460
+msgid "For now..."
+msgstr ""
+
+#: src/credits.c:465
+msgid "Chaos will soon be free"
+msgstr ""
+
+#: src/credits.c:467
+msgid "To terrorise the world once again"
+msgstr ""
+
+#: src/item/attractor.c:36
+msgid "Rift"
+msgstr ""
+
+#: src/boss/chaos.c:460
+msgid "Tendrils"
+msgstr ""
+
+#: src/boss/chaos.c:1046
+msgid "Orbs"
+msgstr ""
+
+#: src/boss/chaos.c:1312
+msgid "I will destroy you!"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:17
+msgid "He must have teleported me away with the last of his magic"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:18
+msgid ""
+"Even though I didn't manage to slay him, he's now too weak to pose a threat "
+"to the world"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:19
+msgid "Time to get back to rescuing my father..."
+msgstr ""
+
+#: data/scripts/sealed_entrance.dat:1
+msgid "It's sealed tight. I'm not getting back in there"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:6
+msgid "It's over"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:7
+msgid "Hey, what's that? It looks like a sword"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:13
+msgid "This must be Ivan's sword"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:14
+msgid "You... You will never defeat me"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:15
+msgid "I will escape this wretched place"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:16
+msgid "Even if it takes me another 100 years"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:17
+msgid "These chains won't hold me forever"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:18
+msgid "Time to finish this. Prepare yourself!"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:19
+msgid "No! BANISH!"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:12
+msgid "What a horrible night"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:13
+msgid "Edgar, I have to go out for a few hours"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:14
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:11
+msgid "The following morning..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:12
+msgid "Dad! Where are you?"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:18
+msgid "It doesn't look like Dad came home last night"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:20
+msgid "His bed hasn't been slept in and my breakfast isn't ready"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:21
+msgid "That can only mean one thing..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:23
+msgid "He must have been kidnapped by that evil sorceror!"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:1
+msgid "Something very powerful was here"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:2
+msgid "I can still feel the magical charge that it gave off"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:3
+msgid "Whatever it was, it's long gone..."
+msgstr ""
+
+#: data/props/boss/mataeus_knife.props:6
+msgid "A magical knife conjured by Mataeus"
+msgstr ""
+
+#: data/scripts/mataeus_boss_die.dat:1
+msgid "Magical Knife"
+msgstr ""
+
+#: data/maps/map11.dat:5217
+msgid "Third Floor Passage Key"
+msgstr ""
+
+#: data/maps/map11.dat:7267
+msgid "Third Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:9292
+msgid "Fourth Floor Keycard"
+msgstr ""
+
+#: data/maps/map11.dat:6368
+msgid "Anti-Gravity Switch Key 1"
+msgstr ""
+
+#: data/maps/map11.dat:6267
+msgid "Anti-Gravity Switch Key 2"
+msgstr ""
+
+#: data/scripts/cauldron.dat:147
+msgid "Old Shield"
+msgstr ""
+
+#: data/maps/map15.dat:2567
+msgid "Old Key"
+msgstr ""
+
+#: data/maps/map09.dat:7793
+msgid "Lava Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:5468
+msgid "Lift Key"
+msgstr ""
+
+#: data/maps/map09.dat:8967
+msgid "Study Lift Key"
+msgstr ""
+
+#: data/maps/map17.dat:2942
+msgid "Conveyor Belt Key"
+msgstr ""
+
+#: data/maps/map11.dat:6817
+msgid "Instruction Room Key"
+msgstr ""
+
+#: data/scripts/cauldron.dat:7
+msgid "Full Soul Bottle"
+msgstr ""
+
+#: data/maps/map10.dat:3167
+msgid "Potion of Invisibility"
+msgstr ""
+
+#: data/scripts/slime_potion.dat:8
+msgid "Potion of Transmogrification"
+msgstr ""
+
+#: data/props/item/spike_ball.props:4
+msgid "Armadillo Spike Ball"
+msgstr ""
+
+#: data/scripts/cauldron.dat:153
+msgid "Gazer Eyeball"
+msgstr ""
+
+#: src/item/apple_tree.h:20
+msgid "Apple"
+msgstr ""
+
+#: src/boss/evil_edgar.c:703
+msgid "Dud Exploding Gazer Eyeball"
+msgstr ""
+
+#: data/scripts/fireball_passage.dat:2
+msgid "Fire Shield"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:12
+msgid "Edgar's_Father"
+msgstr ""
+
+#: data/scripts/attribute.dat:2
+msgid "It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
+msgstr ""
+
+#: data/maps/map09.dat:1492
+msgid "Library Key"
+msgstr ""
+
+#: data/props/item/yellow_gem.props:4
+msgid "Yellow Gem"
+msgstr ""
+
+#: data/props/item/cauldron.props:159
+msgid "Mandrake Root"
+msgstr ""
+
+#: data/props/item/cauldron.props:160
+msgid "Mantis Fat"
+msgstr ""
+
+#: data/props/item/cauldron.props:161
+msgid "Condor Bones"
+msgstr ""

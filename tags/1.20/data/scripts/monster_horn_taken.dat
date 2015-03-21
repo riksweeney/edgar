@@ -1,0 +1,12 @@
+TALK Edgar Got it!
+ACTIVATE_OBJECTIVE Outer-Inner Cave
+SET EDGAR FACE LEFT
+TALK Edgar Hmmm...
+TALK Edgar It looks like there's a larger network of caves down there
+TALK Edgar Olaf did tell me to just get the horn and leave
+WAIT 30
+SET EDGAR FACE RIGHT
+WAIT 30
+SET EDGAR FACE LEFT
+WAIT 30
+TALK Edgar ...

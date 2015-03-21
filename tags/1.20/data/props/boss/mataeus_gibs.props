@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/boss/mataeus_gibs.dat
+ANIM_FILE data/anim/boss/mataeus_gibs.dat
+THINKTIME 90

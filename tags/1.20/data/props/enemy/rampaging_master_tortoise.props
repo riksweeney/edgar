@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/enemy/rampaging_master_tortoise.dat
+ANIM_FILE data/anim/enemy/rampaging_master_tortoise.dat
+TYPE ENEMY
+DAMAGE 2
+HEALTH 750
+SPEED 1.25
+FLAGS UNBLOCKABLE

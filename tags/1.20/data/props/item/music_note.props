@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/item/music_note.dat
+ANIM_FILE data/anim/item/music_note.dat
+TYPE TEMP_ITEM

@@ -1,0 +1,10 @@
+Translating
+-----------
+
+If you want to help with translating the game into another language, you can do so by logging into Launchpad
+
+https://translations.launchpad.net/edgar
+
+Richard Sweeney
+riksweeney@users.sourceforge.net
+http://www.parallelrealities.co.uk/p/legend-of-edgar.html
