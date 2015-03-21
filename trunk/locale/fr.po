@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-12-01 21:05+0000\n"
+"PO-Revision-Date: 2015-03-01 21:29+0000\n"
 "Last-Translator: Jean Marc <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-02 22:41+0000\n"
-"X-Generator: Launchpad (build 17274)\n"
+"X-Launchpad-Export-Date: 2015-03-21 06:56+0000\n"
+"X-Generator: Launchpad (build 17405)\n"
 "Language: fr\n"
 
 #: data/scripts/olaf.dat:6
@@ -1880,7 +1880,7 @@ msgstr "La racine d'un Mandragor"
 
 #: data/scripts/enchanting_weapons.dat:44
 msgid "The fat of a Mantis (left to stand for 3 months)"
-msgstr ""
+msgstr "Le gras d'une mante (laisser reposer 3 mois)"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -7205,7 +7205,7 @@ msgstr "Racine de mandragore"
 
 #: data/props/item/cauldron.props:160
 msgid "Mantis Fat"
-msgstr ""
+msgstr "Gras de mante"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
