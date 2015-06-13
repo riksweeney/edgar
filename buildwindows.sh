@@ -29,13 +29,13 @@ rm -rf $APPDIR
 
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-svn export https://svn.code.sf.net/p/legendofedgar/code/tags/$APPVERSION $APPDIR
+svn export https://github.com/riksweeney/edgar/tags/$APPVERSION $APPDIR
 
 echo "Getting latest translations from the trunk"
 
 rm -rf $APPDIR/locale
 
-svn export https://svn.code.sf.net/p/legendofedgar/code/trunk/locale $APPDIR/locale
+svn export https://github.com/riksweeney/edgar/trunk/locale $APPDIR/locale
 
 echo "Removing unwanted data files..."
 

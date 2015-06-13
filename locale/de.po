@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2015-03-19 10:53+0000\n"
+"PO-Revision-Date: 2015-05-26 20:29+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-21 06:56+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-06-13 11:40+0000\n"
+"X-Generator: Launchpad (build 17557)\n"
 
 "Language: de\n"
 #: data/scripts/olaf.dat:6
@@ -1895,7 +1895,7 @@ msgstr "Die Wurzeln einer Alraune"
 
 #: data/scripts/enchanting_weapons.dat:44
 msgid "The fat of a Mantis (left to stand for 3 months)"
-msgstr ""
+msgstr "Das Fett einer Gottesanbeterin (abgestanden seit drei Monaten)"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -3664,7 +3664,7 @@ msgstr ""
 
 #: data/scripts/cave_intro.dat:11
 msgid "Looks like this wasn't such a good idea after all"
-msgstr ""
+msgstr "Sieht aus als wäre dies keine gute Idee gewesen nach allem"
 
 #: data/scripts/cave_intro.dat:12
 msgid "There must be way out of here..."
@@ -6356,15 +6356,15 @@ msgstr ""
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
-msgstr ""
+msgstr "100 Gegner besiegt"
 
 #: data/medals.dat:37
 msgid "Defeated 200 enemies"
-msgstr ""
+msgstr "200 Gegner besiegt"
 
 #: data/medals.dat:38
 msgid "Defeated 500 enemies"
-msgstr ""
+msgstr "500 Gegner besiegt"
 
 #: data/medals.dat:39
 msgid "Defeated the Watchdog"
@@ -6428,11 +6428,11 @@ msgstr ""
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
-msgstr ""
+msgstr "Versteckte Medaille"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
-msgstr ""
+msgstr "Eine Glocke"
 
 #: data/props/item/portable_save.props:4
 msgid "Creates a save point at your current position"
@@ -6452,7 +6452,7 @@ msgstr ""
 
 #: src/item/bell_rope.c:42
 msgid "Bell"
-msgstr ""
+msgstr "Glocke"
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
@@ -6472,7 +6472,7 @@ msgstr ""
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
-msgstr ""
+msgstr "das Dorf"
 
 #: data/scripts/mine2_exit.dat:1
 msgid "the Mine"
@@ -6480,7 +6480,7 @@ msgstr "das Bergwerk"
 
 #: data/maps/map01.dat:1843
 msgid "the Forest"
-msgstr ""
+msgstr "der Wald"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "the Forbidden Swamp"
@@ -6492,11 +6492,11 @@ msgstr "die Höhle"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr ""
+msgstr "der Waldrand"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
-msgstr ""
+msgstr "die Kanalisation"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
@@ -6508,11 +6508,11 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:18
 msgid "the Laboratory"
-msgstr ""
+msgstr "das Labor"
 
 #: data/medals.dat:19
 msgid "the Library"
-msgstr ""
+msgstr "die Bücherei"
 
 #: data/maps/map08.dat:12568
 msgid "the Fortress Mine"
@@ -6520,7 +6520,7 @@ msgstr ""
 
 #: data/maps/map09.dat:2918
 msgid "the Armoury"
-msgstr ""
+msgstr "das Zeughaus"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
@@ -6528,7 +6528,7 @@ msgstr ""
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
-msgstr ""
+msgstr "die Katakomben"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "the Study"
@@ -6588,7 +6588,7 @@ msgstr "Höhle"
 
 #: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
-msgstr ""
+msgstr "Festungsrand"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
@@ -6720,7 +6720,7 @@ msgstr ""
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "Bitte alle Steuerelemente konfigurieren"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
@@ -6795,7 +6795,7 @@ msgstr "Tropfstein"
 
 #: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
-msgstr ""
+msgstr "Zu Asche verbrennen!"
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
@@ -6811,7 +6811,7 @@ msgstr ""
 
 #: src/boss/chaos.c:1490
 msgid "Impale"
-msgstr ""
+msgstr "Aufspießen"
 
 #: src/player.h:61
 msgid "Confuse"
@@ -6844,7 +6844,7 @@ msgstr ""
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"
-msgstr ""
+msgstr "Chaos wird bald frei sein"
 
 #: src/credits.c:467
 msgid "To terrorise the world once again"

@@ -44,7 +44,7 @@ cd dist
 
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-svn export https://svn.code.sf.net/p/legendofedgar/code/tags/$APPVERSION $APPDIR
+svn export https://github.com/riksweeney/edgar/tags/$APPVERSION $APPDIR
 
 echo "Removing unwanted data files..."
 
@@ -97,7 +97,7 @@ tar zhcf $DISTNAME $APPDIR
 echo "Removing Copied Data..."
 
 rm -rf $APPDIR
-   
+
 echo "Preparing to Build..."
 
 mkdir -p $RPMROOT

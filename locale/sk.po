@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2015-02-22 11:08+0000\n"
+"PO-Revision-Date: 2015-05-08 10:53+0000\n"
 "Last-Translator: Peter <assmodeus@azet.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-23 06:56+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"X-Launchpad-Export-Date: 2015-05-12 05:52+0000\n"
+"X-Generator: Launchpad (build 17487)\n"
 "Language: sk\n"
 
 #: data/scripts/olaf.dat:6
@@ -28,7 +28,7 @@ msgstr "Máš všetko čo potrebuješ?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr ""
+msgstr "Určite urobím"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
@@ -40,7 +40,7 @@ msgstr "Už môžeme odísť! Kam chceš teraz ísť?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
-msgstr "Späť do lesa, musim zachrániť svojho otca spred kúzelníka"
+msgstr "Späť do lesa, musim zachrániť svojho otca spred čarodejníka"
 
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
@@ -52,7 +52,7 @@ msgstr "Myslím si že...."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
-msgstr "Choď do laboratória s spoj ten prsten s tvojim štítom"
+msgstr "Choď do laboratória a spoj ten prsten s tvojim štítom"
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
@@ -83,7 +83,7 @@ msgstr "(Mám tu sochu, ktorú ukradol Olaf)"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr ""
+msgstr "(Mal by som mu to vrátiť, konieckoncov ma šetrí)"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
@@ -103,240 +103,259 @@ msgstr "Áno, je to ona! Vďaka za jej nájdenie!"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "Mal by som to vedieť predať za danú cenu na trhu"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
-msgstr ""
+msgstr "(Myslím, že si to nechám pre seba)"
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "Pripravený vyraziť?"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "Vrátiť sa do pevnosti?"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
-msgstr ""
+msgstr "Nie teraz, musí tu byť ešte niečo, čo musím urobiť"
 
 #: data/scripts/olaf.dat:47
 msgid "OK, let me know when you're ready"
-msgstr ""
+msgstr "Dobre, daj mi vedieť keď budeš hotový"
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "Už si našiel ten roh?"
 
 #: data/scripts/olaf.dat:62
 msgid "Have you found everything yet?"
-msgstr ""
+msgstr "Už si všetko našiel?"
 
 #: data/scripts/olaf.dat:63
 msgid "Not yet, I'm still looking"
-msgstr ""
+msgstr "Nie, ešte stále hľadám"
 
 #: data/scripts/olaf.dat:68
 msgid "OK, I've found everything now"
-msgstr ""
+msgstr "Dobre, už som všetko našiel"
 
 #: data/scripts/olaf.dat:77
 msgid "ARGHHHHH!!"
-msgstr ""
+msgstr "Áleeeee!"
 
 #: data/scripts/olaf.dat:79
 msgid "Another human, out here? How did you get out here?"
-msgstr ""
+msgstr "Je to ďaľší človek? Ako si sa sem dostal?"
 
 #: data/scripts/olaf.dat:80
 msgid ""
 "I'm not sure, I think the sorceror sent me here, but he said he was going to "
 "kill me"
 msgstr ""
+"Nie som si istý, čarodejník ma sem poslal, ale povedal, že ma zabije."
 
 #: data/scripts/olaf.dat:83
 msgid "Hmmm, what's that on your hand?"
-msgstr ""
+msgstr "Hmmm, to si mal na rukách?"
 
 #: data/scripts/olaf.dat:84
 msgid "This? This is just a ring I found in his fortress"
-msgstr ""
+msgstr "Toto? To to je len prsteň, ktorý som našiel v jeho pevnosti"
 
 #: data/scripts/olaf.dat:85
 msgid ""
 "It looks like a ring of protection, it must have saved you. Why were you in "
 "his fortress?"
 msgstr ""
+"Vyzerá to ako prsteň ochrany. Muselo ťa to ochrániť. Prečo si bol v jeho "
+"pevnosti?"
 
 #: data/scripts/olaf.dat:86
 msgid "He's kidnapped my Dad and I was there trying to save him"
-msgstr ""
+msgstr "Uniseol môjho otca, a ja som sa ho snažil odtiaľ zachrániť."
 
 #: data/scripts/olaf.dat:87
 msgid "Well, it looks like the ring's power is almost completely gone"
-msgstr ""
+msgstr "Nuž, vyzerá to tak, že sila prsteňa je pomaly preč"
 
 #: data/scripts/olaf.dat:88
 msgid ""
 "If he hits you with that spell again it will almost certainly kill you"
-msgstr ""
+msgstr "Ak ťa zasiahne kúzlom, tak určite ťa zabije"
 
 #: data/scripts/olaf.dat:91
 msgid ""
 "Something must have protected you from the spell. Were you wearing a pendant "
 "or a ring?"
-msgstr ""
+msgstr "Niečo ťa musí chrániť pred kúzlami. Mal si prívesok alebo prsteň?"
 
 #: data/scripts/olaf.dat:92
 msgid ""
 "I did find a ring in the fortress but it didn't seem to have any powers"
 msgstr ""
+"Našiel som prsteň v pevnosti ale nevšimol som si že by mal nejakú moc"
 
 #: data/scripts/olaf.dat:93
 msgid ""
 "It might have been a ring of protection. I imagine that the protection would "
 "have been limited to a single use"
 msgstr ""
+"Môže to byť prsteňom ochrany. Viem si predstaviť, že ochrana je obmedzená na "
+"jedno použitie."
 
 #: data/scripts/olaf.dat:96
 msgid ""
 "What you could do though is combine the ring and your shield together to "
 "create a shield that will protect you from the spell"
 msgstr ""
+"Čo sa ti môže stať, ak by si spojil tvoj štít a prsteň aby ťa chránil pre "
+"kúzlom"
 
 #: data/scripts/olaf.dat:97
 msgid "Do you have any experience mixing spells?"
-msgstr ""
+msgstr "Máš skúsenosti s miešaním kuziel?"
 
 #: data/scripts/olaf.dat:98
 msgid ""
 "Kind of, but the last time I tried creating a shield the spell backfired "
 "and..."
 msgstr ""
+"Nejaké, ale naposledy keď som skúšal vytvoriť štít, tak to zlyhalo a..."
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
-msgstr ""
+msgstr "Stvorilo diabolskú verziu teba?"
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
-msgstr ""
+msgstr "Áno, ako to vieš?"
 
 #: data/scripts/olaf.dat:101
 msgid "Where I'm from it used to happen at least once a month"
-msgstr ""
+msgstr "Odkiaľ som ja, tam sa to stavalo aspoň raz za mesiac"
 
 #: data/scripts/olaf.dat:103
 msgid "Why are you here?"
-msgstr ""
+msgstr "Prečo si tu?"
 
 #: data/scripts/olaf.dat:104
 msgid "The sorceror caught me looting his fortress and he banished me here"
-msgstr ""
+msgstr "Čarodejník ma chytil pri rabovaní v jeho pevnosti a vyhnal ma"
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"
-msgstr ""
+msgstr "Čo si ukradol?"
 
 #: data/scripts/olaf.dat:106
 msgid "It was a small golden statue, probably worth a lot of money"
-msgstr ""
+msgstr "Bola to malá zlatá soška, ktorá asi bola veľmi drahá"
 
 #: data/scripts/olaf.dat:107
 msgid ""
 "I've been here for months now, but I've almost got all the ingredients I "
 "need to teleport back home"
 msgstr ""
+"Som tu už mesiace, ale už mám skoro všetko potrebné pre teleport domov"
 
 #: data/scripts/olaf.dat:108
 msgid ""
 "I just need one more thing, but it's in a cave to the west and I have no "
 "weapons to protect myself"
 msgstr ""
+"Už mi chýba len jedna vec, ale tá je v jaskyni na západ, no ja už nemám nič "
+"pre svoju ochranu"
 
 #: data/scripts/olaf.dat:109
 msgid "But now you're here you can help me retrieve it"
-msgstr ""
+msgstr "Ale teraz si tu ty, a ty mi vieš pomôcť získať ju"
 
 #: data/scripts/olaf.dat:112
 msgid ""
 "I haven't gotten all my stuff back yet. I think everything's here though"
-msgstr ""
+msgstr "Ešte som všetko nezískal späť. Myslím si, že všetko je tu, hoc"
 
 #: data/scripts/olaf.dat:113
 msgid "When I've found everything I'll come back"
-msgstr ""
+msgstr "Keď všetko ponachádzam, vrátim sa sem"
 
 #: data/scripts/olaf.dat:114
 msgid "OK, good luck!"
-msgstr ""
+msgstr "Dobre, veľa štastia!"
 
 #: data/scripts/olaf.dat:120
 msgid "What do you need?"
-msgstr ""
+msgstr "Čo potrebuješ?"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "Je to roh zo konkrétneho monštra"
 
 #: data/scripts/olaf.dat:122
 msgid ""
 "There should be plenty of bones littered around so you shouldn't have to "
 "find one and kill it. Just get the horn and get out"
 msgstr ""
+"V okoli by malo by byť pohodených veľa kostí, takže nemusíš najsť živého a "
+"zabiťho aby si získal jeden roh. Čiže najdi jeden roh a uteč odtiaľ"
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr ""
+msgstr "To je ono?"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
-msgstr ""
+msgstr "Hmmmm"
 
 #: data/scripts/olaf.dat:130
 msgid ""
 "Well, my stock of logs is looking quite low, maybe you could get me some "
 "more while you're out?"
 msgstr ""
+"Mám dosť málo zásob dreva. Mohol by si mi zohnať nejaké drevo zatial čo "
+"budeš vonku?"
 
 #: data/scripts/olaf.dat:131
 msgid ""
 "Don't even think about it, I'm fed up of chopping down trees and collecting "
 "logs!"
-msgstr ""
+msgstr "Ani na to nemysli, už mám pokrk kálania dreva a zbierania gulatiny."
 
 #: data/scripts/olaf.dat:132
 msgid "OK, it was just a suggestion"
-msgstr ""
+msgstr "Dobre, bol to iba návrh"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
-msgstr ""
+msgstr "Oh, budeš ešte potrebovať toto"
 
 #: data/scripts/olaf.dat:135
 msgid ""
 "Dip your arrows into it to turn them into fire arrows, it will help you burn "
 "down the vines blocking the entrance"
 msgstr ""
+"Ponor tvoje šípy do tohto, a premeň ích na ohnivé šípy, ktoré ti pomôžu "
+"zničiť vinič, ktorý zatarasil vchod"
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr ""
+msgstr "Ďakujeme!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
-msgstr ""
+msgstr "Oh, ešte posledná vec"
 
 #: data/scripts/olaf.dat:141
 msgid ""
 "Don't hang around in that cave, the monsters that live in there are like "
 "nothing you'll have ever encountered before"
 msgstr ""
+"Nepotuluj sa po jaskyni, žijú tam monštrá, ktoré si v ešte v živote nevidel"
 
 #: data/scripts/olaf.dat:142
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "Naozaj, získaj len ten roh"
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
@@ -344,819 +363,852 @@ msgstr "OK"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
-msgstr ""
+msgstr "Neposlal som toho chlapca práve na smrť?"
 
 #: data/scripts/olaf.dat:147
 msgid "Sorry, did you say something?"
-msgstr ""
+msgstr "Prepáč, hovoril si niečo?"
 
 #: data/scripts/olaf.dat:148
 msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
-msgstr ""
+msgstr "Oh, práve som si vyskúšal teleportačné kúzlo"
 
 #: data/scripts/olaf.dat:159
 msgid "Yes, let's go"
-msgstr ""
+msgstr "Ano, poďme"
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
-msgstr ""
+msgstr "Dobre, tu nič nie je, veľa šťastia pri hladaní otca."
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr ""
+msgstr "Ďakujem Olaf"
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
 msgstr ""
+"Tento výťah nefunguje. Nebudem ho môcť použiť, kým neobnovím napájanie"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
-msgstr ""
+msgstr "Wau, katapult!"
 
 #: data/scripts/catapult.dat:2
 msgid ""
 "The hinges look rusted though, I doubt it'll work until I get them fixed"
 msgstr ""
+"Pánty vyzerajú byť zhrdzavené, myslím, že nebudú fungovať kým to neopravím"
 
 #: data/scripts/drawbridge_pulley.dat:2
 msgid "It looks like the pulley for the drawbridge"
-msgstr ""
+msgstr "Vyzerá to ako kladka pre padací most"
 
 #: data/scripts/drawbridge_pulley.dat:3
 msgid "The mechanism seems to be locked tight"
-msgstr ""
+msgstr "Mechanizmus sa zdá byť zaseknutý"
 
 #: data/scripts/drawbridge_pulley.dat:4
 msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
-msgstr ""
+msgstr "Nevyzerá to príliš pevne, asi to len jednoducho rozbijem...."
 
 #: data/scripts/drawbridge_pulley.dat:10
 msgid "Oops..."
-msgstr ""
+msgstr "Ups...."
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "Možno to nikto nepočul"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
-msgstr ""
+msgstr "Nuž, padací most je dole za každú cenu"
 
 #: data/scripts/flame_pillar.dat:1
 msgid ""
 "Those flames are incredibly hot. I'll be burnt to cinders if I try and walk "
 "through them"
 msgstr ""
+"Tieto plamene súneuveriteľne horúce. Môže ma to spáliť na popol, ak sa "
+"pokúsim cez ne prejsť"
 
 #: data/scripts/flame_pillar.dat:2
 msgid "There must be a way to cool them down..."
-msgstr ""
+msgstr "Músí byť spôsob ako ích schladiť...."
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "The shield will protect you from most enemy attacks"
-msgstr ""
+msgstr "Štít ťa ochráni pred väčšinou nepriateľskýchútokov"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
-msgstr ""
+msgstr "Niektoré nepriateľské útoky nemôžu byť blokované"
 
 #: data/scripts/tutorial_shield.dat:3
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr ""
+msgstr "Prírodne nebezpečenstvá ako padajáce kamene nemôžu byť blokované"
 
 #: data/scripts/tutorial_shield.dat:4
 msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
-msgstr ""
+msgstr "Pre blokovanie útoku, stlač a podrž ([INPUT_BLOCK])."
 
 #: data/scripts/tutorial_shield.dat:5
 msgid "You must be facing the attack to successfully block it"
-msgstr ""
+msgstr "Musíš čeliť útoku priamo tvarou v tvar, aby si ho mohol blokovať"
 
 #: data/scripts/tutorial_shield.dat:6
 msgid ""
 "Note that you cannot move whilst blocking, but you can face the other way. "
 "You also cannot block in the air"
 msgstr ""
+"Zapamätaj si, že sa nemôžeš hýbať, keď čelíš útoku a blokuješ ho, ale môžeš "
+"sa otáčať. Taktiež, nemôžeš blokovať útok vo vzduchu."
 
 #: data/scripts/tutorial_shield.dat:7
 msgid "Pick up the shield and continue to the right"
-msgstr ""
+msgstr "Zodvihni stít a pokračuj do prave"
 
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
-msgstr ""
+msgstr "Je to portrét"
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
-msgstr ""
+msgstr "Rozumiem."
 
 #: data/scripts/scorpion_statue.dat:2
 msgid ""
 "What a ridiculous amount of effort to go through just to get a statue..."
-msgstr ""
+msgstr "Tak smiešne veľa úsilia trebalo na získanie sochy..."
 
 #: data/scripts/scorpion_statue.dat:3
 msgid "I'd better get out of here and get back to the Fortress..."
-msgstr ""
+msgstr "Lepšie bude, keď odtiaľto vypadnem, a vrátim sa späť do pevnosti..."
 
 #: data/scripts/outskirts_intro.dat:10
 msgid "Drat, the drawbridge is up. There must be another entrance..."
-msgstr ""
+msgstr "Do kelu, padací most je hore. Musí tu byť iný vchod."
 
 #: data/scripts/outskirts_intro.dat:15
 msgid "Wait, what's that?"
-msgstr ""
+msgstr "Počkať, čo je to?"
 
 #: data/scripts/outskirts_intro.dat:23
 msgid "Maybe I could tunnel my way in..."
-msgstr ""
+msgstr "Možno si môžem vykopať tunel dnu..."
 
 #: data/scripts/borer_boss_die.dat:3
 msgid "Yuck..."
-msgstr ""
+msgstr "Fuj..."
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "Oh, čo je toto?"
 
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
+msgstr "To je knižka od Stephen J Sweeney-ho, s názvom \"Česť rytierov\""
 
 #: data/scripts/third_side.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
-msgstr ""
+msgstr "Je dostupná na iBook a Amazon Kindle"
 
 #: data/scripts/third_side.dat:4
 msgid ""
 "I'm not exactly sure what any of that means, but it sounds interesting"
-msgstr ""
+msgstr "Neviem čo to všetko znamená ale znie to zaujímavo."
 
 #: data/scripts/third_side.dat:5
 msgid "I might read that later..."
-msgstr ""
+msgstr "Možno si ju prečítam neskôr..."
 
 #: data/scripts/sorceror_intro_2.dat:10
 msgid "So, you escaped"
-msgstr ""
+msgstr "Takže sa ti podarilo uniknúť"
 
 #: data/scripts/sorceror_intro_2.dat:11
 msgid "Yes I did, and my father wasn't there"
-msgstr ""
+msgstr "Áno, ale môj otec tam nebol"
 
 #: data/scripts/sorceror_intro_2.dat:12
 msgid "Maybe you just didn't look hard enough"
-msgstr ""
+msgstr "Možno si nehľadal dosť dôkladne"
 
 #: data/scripts/sorceror_intro_2.dat:13
 msgid "Have another look"
-msgstr ""
+msgstr "Skús ešte raz"
 
 #: data/scripts/sorceror_intro_2.dat:18
 msgid "Maybe you should work on your spells"
-msgstr ""
+msgstr "Mal by si zapracovať na svojich kúzlach"
 
 #: data/scripts/sorceror_intro_2.dat:19
 msgid "NOW TELL ME WHERE MY FATHER IS!"
-msgstr ""
+msgstr "TERAZ MI POVEDZ, KDE JE MÔJ OTEC!"
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
-msgstr ""
+msgstr "Ty malý otravný spratek"
 
 #: data/scripts/sorceror_intro_2.dat:21
 msgid "I wouldn't be surprised if your father has abandoned you"
-msgstr ""
+msgstr "Nebol by som prekvapený, keby ťa tvoj otec opustil"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?!"
-msgstr ""
+msgstr "Čo?!"
 
 #: data/scripts/sorceror_intro_2.dat:23
 msgid "I'll show you!"
-msgstr ""
+msgstr "Ja ti to ukážem!"
 
 #: data/scripts/sorceror_intro_2.dat:28
 msgid "That, was a mistake"
-msgstr ""
+msgstr "To bola chyba"
 
 #: data/scripts/sorceror_intro_2.dat:29
 msgid "Die"
-msgstr ""
+msgstr "Umri"
 
 #: data/scripts/sorceror_intro_2.dat:34
 msgid "That was odd, he was supposed to explode"
-msgstr ""
+msgstr "To je divné, on mal vybuchnúť"
 
 #: data/scripts/sorceror_intro_2.dat:35
 msgid "Where did he go?"
-msgstr ""
+msgstr "Kam šiel?"
 
 #: data/scripts/old_shield.dat:12
 msgid ""
 "That's it? Just this old shield? It doesn't look any better than my current "
 "one."
 msgstr ""
+"To je ono? Len tento starý štít? Nevyzerá o nič lepšie ako môj starý."
 
 #: data/scripts/old_shield.dat:13
 msgid "Still, I'll hold onto it for the time being, it might come in handy"
-msgstr ""
+msgstr "Napriek tomu si ho ponechám, neskôr sa môže hodiť"
 
 #: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
-msgstr ""
+msgstr "Super, náhradný štít!"
 
 #: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
-msgstr ""
+msgstr "Teraz už mám všetko čo potrebujem"
 
 #: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
-msgstr ""
+msgstr "V laboratóriu je kotol, mal by som tam ísť"
 
 #: data/scripts/old_shield.dat:21
 msgid ""
 "This doesn't look like a Fire Shield to me. I was really hoping to find one "
 "here too"
 msgstr ""
+"Toto nevyzerá ako Ohnivý Štít pre mňa. Som dúfal že ho tu najdem tiež"
 
 #: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
-msgstr ""
+msgstr "Tento štít nevyzera o nič lepšie ako ten môj"
 
 #: data/scripts/old_shield.dat:27
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
-msgstr ""
+msgstr "Teraz musím urobit lektvar z chápadla Sludge a z oka Gazer-a"
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
-msgstr ""
+msgstr "To nie je dobré znamenie"
 
 #: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
-msgstr ""
+msgstr "Tam je nejaký nápis"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
-msgstr ""
+msgstr "Našiel som spôsob ako zabiť Centurian-ov"
 
 #: data/scripts/centurion_note_2.dat:3
 msgid ""
 "They will reform unless one of their parts falls into the slime or lava"
-msgstr ""
+msgstr "Zmenia sa, ak jedná časť ích tela padne do slizu alebo lávy"
 
 #: data/scripts/centurion_note_2.dat:4
 msgid ""
 "I managed to retrieve two of the puzzle pieces before I was caught and "
 "locked in here again"
-msgstr ""
+msgstr "Našiel som dve časti hádanky, skôr než som bol chytený a zajatý"
 
 #: data/scripts/centurion_note_2.dat:5
 msgid "If I can break out of here again I'll be sure to escape"
-msgstr ""
+msgstr "Keď sa mi opäť podarí odtiaľto újsť, tak si budem istý únikom"
 
 #: data/scripts/centurion_note_2.dat:6
 msgid ""
 "Otherwise I hope another unfortunate victim will find this information useful"
-msgstr ""
+msgstr "Inak, dúfam, že to bude nápomocné pre nejakú ďaľšiu obeť"
 
 #: data/scripts/centurion_note_2.dat:7
 msgid "There's a skull here"
-msgstr ""
+msgstr "Tam je nejaká lebka"
 
 #: data/scripts/centurion_note_2.dat:8
 msgid "Looks like he didn't manage to get out..."
-msgstr ""
+msgstr "Vyzerá to tak, ako keby sa mu nepodarilo odtiaľto újsť"
 
 #: data/scripts/chaos_warn.dat:2
 msgid "Leave now if you wish to live"
-msgstr ""
+msgstr "Odíd, ak chceš žiť"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Teraz sa vráť"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
 "If you proceed, I will fight you and destroy you. Flee now, while you can"
 msgstr ""
+"Ak budeš pokračovať, budem s tebou bojovať a zničím ťa. Uteč, kým sa dá"
 
 #: data/scripts/chaos_warn.dat:28
 msgid "You fool. Do you truly seek destruction?"
-msgstr ""
+msgstr "Ty blázon, naozaj sa usilujuš o zničenie?"
 
 #: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
-msgstr ""
+msgstr "Takže by som ťa mal zničiť!!"
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "Gratulujem, našiel si poklad"
 
 #: data/scripts/tutorial_secret.dat:3
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr ""
+msgstr "Je tam niekoľko pokladov v hlavnej hre takže sa snaž ích najsť."
 
 #: data/scripts/tutorial_secret.dat:4
 msgid "Here's a hint to get you started"
-msgstr ""
+msgstr "Tu je jedna rada, ktorá ti pomôže začať"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid ""
 "Although Jacob only requires you to catch 3 of his chickens, why not be nice "
 "to him and catch more? There are 10 wandering the map in all"
 msgstr ""
+"Jacob potreboval chytiť len š sliepky, ale prečo mu nepomôcť mu chytiť "
+"viacej. Túla sa ich tam celkovo 10 v celej mape"
 
 #: data/scripts/box_pushing.dat:1
 msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
 msgstr ""
+"Môžeš ťahať veci hore dole, ak držíš pri tom stlačené tlačidlo pre Akciu"
 
 #: data/scripts/box_pushing.dat:2
 msgid "You can then pull it around until you let go of the Action button"
-msgstr ""
+msgstr "Môžes poťahovať veci do vtedy pokiaľ nepustíš tlačídlo Akcie"
 
 #: data/scripts/drainers.dat:1
 msgid ""
 "Whatever that thing was it was draining the power from that generator and "
 "using it against me."
 msgstr ""
+"Čokoľvek to bolo, ale vysávalo to silu z generátora a používalo jú proti mne."
 
 #: data/scripts/drainers.dat:2
 msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
 "drainers should restore the power here."
 msgstr ""
+"To vysvetľuje, prečo ten výťah nefungoval. Zničenim ďaľších vysávačov "
+"energie by sa mala energia obnoviť."
 
 #: data/scripts/drainers.dat:3
 msgid "Defeat all Energy Drainers"
-msgstr ""
+msgstr "Poraz všetky vysávače energie"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use left and right to move the dial 1 unit at a time"
-msgstr ""
+msgstr "Použi tlačídl vľavo a vpravo na pohyb číselníka. Naraz len jeden"
 
 #: data/scripts/safe_instructions.dat:2
 msgid ""
 "Make sure you keep count of how many times you move the dial since no on-"
 "screen notification is given"
 msgstr ""
+"Uisti sa, či si zapamätal pohyby číselníka, pretože niesu žiadne odozvy "
+"počas pohybu"
 
 #: data/scripts/safe_instructions.dat:3
 msgid ""
 "When you think you've entered the combination correctly, press Attack to try "
 "and open the door"
 msgstr ""
+"Keď si myslíš, že si nastavil správnu kombináciu, stlač tlačidlo Útoku na "
+"otvorenie dveri."
 
 #: data/scripts/no_combination.dat:1
 msgid ""
 "There's no way I'll be able to figure out the combination, I'll have to find "
 "out what it is"
-msgstr ""
+msgstr "Nie je spôsob ako by som našiel kombináciu. Musím najsť spôsob"
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
-msgstr ""
+msgstr "Cvič"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi"
-msgstr ""
+msgstr "Ahoj"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
-msgstr ""
+msgstr "Ahoj Edgar"
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "Môžem si požičať tvoj štít"
 
 #: data/scripts/borgan.dat:14
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "Mimo v trénovaní bojových zručností?"
 
 #: data/scripts/borgan.dat:15
 msgid "Something like that"
-msgstr ""
+msgstr "Niečo ako to"
 
 #: data/scripts/borgan.dat:16
 msgid "If you run me an errand then you can have the shield"
-msgstr ""
+msgstr "Ak pre mňa doručíš správu, tak ti dám štít"
 
 #: data/scripts/borgan.dat:17
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Čo musím urobiť?"
 
 #: data/scripts/borgan.dat:18
 msgid "Go to the mine and collect me some coal"
-msgstr ""
+msgstr "Choď do bane a prines mi nejaké uhlie"
 
 #: data/scripts/borgan.dat:19
 msgid "But we have plenty of coal!"
-msgstr ""
+msgstr "Ale my máme dostatok uhlia!"
 
 #: data/scripts/borgan.dat:20
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
-msgstr ""
+msgstr "Ano, ale toto nie je obyčajné uhlie. Hreje oveľa viac a dlhšie"
 
 #: data/scripts/borgan.dat:21
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
+msgstr "Potrebujem len 10 kúskov, takže by ti to nemalo trvať príliš dlho"
 
 #: data/scripts/borgan.dat:22
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
 msgstr ""
+"Uisti sa, že si ho dal do vreca, lebo príliš dlhy kontakt s rukou by ti "
+"mohlo ublížiť"
 
 #: data/scripts/borgan.dat:23
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "Máš vrece?"
 
 #: data/scripts/borgan.dat:24
 msgid "No, you can probably find one in the mine though"
-msgstr ""
+msgstr "Nie, môžeš najsť nejaké v bani"
 
 #: data/scripts/borgan.dat:25
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "Dobre, idem získať to uhlie"
 
 #: data/scripts/borgan.dat:27
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
 msgstr ""
+"Na, tu máš krompáč. Môžeš ho použiť na ťažbu uhlia alebo rozbiť nejakú "
+"slabšiu stenu ktorú objavíš"
 
 #: data/scripts/borgan.dat:29
 msgid "You'll also need this key to get into the mine"
-msgstr ""
+msgstr "Taktiež budeš potrebovať tento kľúč aby si sa dostal do bane"
 
 #: data/scripts/borgan.dat:31
 msgid "Collect 10 pieces of Coal"
-msgstr ""
+msgstr "Pozbieraj 10 kúskov uhlia"
 
 #: data/scripts/borgan.dat:36
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
+"Ďakujem, Edgar, toto uhlie je dokonalé! Dúfam, že ťa netopiere moc "
+"nevystrašili."
 
 #: data/scripts/borgan.dat:37
 msgid "The bats were the least of my worries..."
-msgstr ""
+msgstr "Netopiere boli tá najmenšia starosť"
 
 #: data/scripts/borgan.dat:38
 msgid "Say, I heard that something happened in that mine a few years ago"
 msgstr ""
+"Počuj, počul som, že sa vraj niečo stalo pred pár rokmi v bani. Vieš mi "
+"niečo o tom povedať?"
 
 #: data/scripts/borgan.dat:39
 msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
 msgstr ""
+"Nuž, stalo s atam niečo, čo by si nazval \"nehodou\", ale tá časť bane bola "
+"už zapečatená pred rokmi"
 
 #: data/scripts/borgan.dat:40
 msgid "Right..."
-msgstr ""
+msgstr "Správne"
 
 #: data/scripts/borgan.dat:42
 msgid "Here, have my shield and have fun!"
-msgstr ""
+msgstr "Tu máš môj štít, a uži si to!"
 
 #: data/scripts/borgan.dat:44
 msgid "Just stay away from the Forbidden Swamp"
-msgstr ""
+msgstr "Len sa drž ďalej od Zakázaného Močiaru"
 
 #: data/scripts/borgan.dat:45
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "Budem, môžem si požičať tvoj krompáč na chvíľu"
 
 #: data/scripts/borgan.dat:46
 msgid "Sure thing, just bring it back in one piece"
-msgstr ""
+msgstr "Samozrejme, len mi ho vráť celý"
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
-msgstr ""
+msgstr "Ďakujem Borgan!"
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
-msgstr ""
+msgstr "Už si našiel nejaké uhlie?"
 
 #: data/scripts/safe.dat:5
 msgid "A safe in a library? Bit of a cliché..."
-msgstr ""
+msgstr "Sejf v knižnici? To je ale klišé..."
 
 #: data/scripts/safe.dat:11
 msgid ""
 "It looks too thick to break open, I'll have to open it using the combination"
 msgstr ""
+"Vyzera to príliš silné na otvorenie hrubou silou. Musím použiť správnu "
+"kombináciu na otvorenie"
 
 #: data/scripts/statue_required.dat:1
 msgid ""
 "You must have the statue you wish to use highlighted in your inventory box"
-msgstr ""
+msgstr "Ak chceš použiť sochu v tvojom inventáre, musí byť zvýraznená"
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
-msgstr ""
+msgstr "Och, čo to je?"
 
 #: data/scripts/centurion_boss_start.dat:14
 msgid "ESCAPEE LOCATED"
-msgstr ""
+msgstr "VÝCHOD NAJDENÝ"
 
 #: data/scripts/centurion_boss_start.dat:15
 msgid "TARGET IS ARMED AND DANGEROUS"
-msgstr ""
+msgstr "CIEĽ JE OZBROJENÝ A NEBEZPEČNÝ"
 
 #: data/scripts/centurion_boss_start.dat:16
 msgid "COMMENCING DESTRUCTION OF TARGET"
-msgstr ""
+msgstr "ZAHÁJENIE DEŠTRUKCIE CIEĽA"
 
 #: data/scripts/blank_card_required.dat:1
 msgid "I need a blank card to put the instructions on"
-msgstr ""
+msgstr "Potrebujem prázdnu kartu na nahratie príkazov"
 
 #: data/scripts/slime_potion_pool.dat:1
 msgid "That smell..."
-msgstr ""
+msgstr "To ale smrdí..."
 
 #: data/scripts/slime_potion_pool.dat:3
 msgid "It looks like..."
-msgstr ""
+msgstr "Vyzerá to ako...."
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
-msgstr ""
+msgstr "Je to také tučné ako..."
 
 #: data/scripts/slime_potion_pool.dat:5
 msgid "And it tastes like..."
-msgstr ""
+msgstr "A chuti to ako..."
 
 #: data/scripts/slime_potion_pool.dat:8
 msgid "It is! It's naturally occurring Slime potion!"
-msgstr ""
+msgstr "Presne! Je to prírodný slizový lektvar"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "Gotcha!"
-msgstr ""
+msgstr "Mám ťa!"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "Not so clever now are you?"
-msgstr ""
+msgstr "Teraz niesi až taký bystrý, že?"
 
 #: data/scripts/cave_boss_die.dat:79
 msgid "I REALLY have to get out of here!"
-msgstr ""
+msgstr "Ja sa vážne musím odtiaľto dostať!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
-msgstr ""
+msgstr "Ahoj Maggie"
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "Och Edgar, ty si zranený! Ukáž, nech ošetrím tvoje rany"
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
-msgstr ""
+msgstr "Ďakujem Maggie!"
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
-msgstr ""
+msgstr "Si neodbytný, že?"
 
 #: data/scripts/sorceror_intro_3.dat:10
 msgid ""
 "I don't know what you did last time, but trust me, you won't escape again!"
-msgstr ""
+msgstr "Ja neviem čo si naposledy urobil, ale ver mi, už mi neutečieš!"
 
 #: data/scripts/sorceror_intro_3.dat:20
 msgid "(Phew)"
-msgstr ""
+msgstr "(Uf)"
 
 #: data/scripts/sorceror_intro_3.dat:21
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
+msgstr "(Hej, pozri tam, jeden z prstencov na štíte sa rozžiaril...)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Tvoje kúzlo už na mňa nebude viac účinkovať"
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
-msgstr ""
+msgstr "Teraz ak mi nepovieš, kde sa nachádza môj otec"
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
-msgstr ""
+msgstr "Budem to musieť z teba vytĺcť"
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
-msgstr ""
+msgstr "Už nikdy nedostaneš takú šancu"
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore, I summon you! Destroy this pest!"
-msgstr ""
+msgstr "Grimlore, volám ťa! Znič túto háveď!"
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Rozlúč sa Edgar"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
-msgstr ""
+msgstr "Niečo prichádza..."
 
 #: data/scripts/spirit.dat:1
 msgid ""
 "That spirit isn't going to let me past, I'll have to find a way to get rid "
 "of it"
-msgstr ""
+msgstr "Ten duch ma nechce opustiť. Musím najsť spôsob ako sa ho zbaviť."
 
 #: data/scripts/swamp_intro.dat:2
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "Toto miesto nevyzerá až tak zle..."
 
 #: data/scripts/occult_book.dat:51
 msgid "What was that?"
-msgstr ""
+msgstr "Čo to bolo?"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Uf och..."
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr ""
+msgstr "V hre sú dva druhy dverí. Manuálne a automatické dvere."
 
 #: data/scripts/tutorial_doors.dat:2
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
-msgstr ""
+msgstr "Manuálne sa otvárajú kľúčom, automatické potrebujú spínač"
 
 #: data/scripts/tutorial_doors.dat:3
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
+"Na otvorenie dverí, ku ktorým máš kĺúč, stačí pristúpiť. Nie je nutne zvoliť "
+"kľúč z inventára."
 
 #: data/scripts/tutorial_doors.dat:4
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "Otvor dvere a pokračuj do prava"
 
 #: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "Och, čo sa stalo?"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "Kde to som?"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
-msgstr ""
+msgstr "Teraz vyskúšaj svoj štít"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr ""
+msgstr "Zablokuj úlety z rastliny a dostaň sa na druhú rímsu"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
-msgstr ""
+msgstr "Nemôžem tomu uveriť, že je preč"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "Tak veľmi som sa snažil ho najsť"
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
-msgstr ""
+msgstr "Ale sklamal som"
 
 #: data/scripts/ending_part1.dat:15
 msgid "What am I going to do now?"
-msgstr ""
+msgstr "Čo budem teraz robiť?"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
-msgstr ""
+msgstr "*fňuk*"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr ""
+msgstr "Edgar! Edgar, kde si?"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "!"
-msgstr ""
+msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
-msgstr ""
+msgstr "Ten hlas..."
 
 #: data/scripts/ending_part1.dat:22
 msgid "It can't be..."
-msgstr ""
+msgstr "To nemôže byť..."
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr ""
+msgstr "Otec!"
 
 #: data/scripts/jacob.dat:14
 msgid "Edgar!"
-msgstr ""
+msgstr "Edgar!"
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Jacob, ja som ho našiel!"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "Čo tu robíš synček? Je to tu nebezpečné, musíme odísť"
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "Prišiel som ťa zachrániť!"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
-msgstr ""
+msgstr "Haa? Čo si.... Nie, povieš mi to neskôr. Poďme domov"
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "Skúsim to opäť"
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
-msgstr ""
+msgstr "Vzdať tp?"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "Najdem spôsob ako na to nabudúce"
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "Budem skúšať naďalej"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
-msgstr ""
+msgstr "Tento notový zápis by mala by byť jeho hymna, mal by som to skusiť"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
-msgstr ""
+msgstr "Musím zistiť aká je Ivanova hymna"
 
 #: data/scripts/tomb_door.dat:34
 msgid "Randomly ringing bells isn't going to work..."
-msgstr ""
+msgstr "Náhodne zvonenie zvoncov nebude fungovať..."
 
 #: data/scripts/tomb_door.dat:39
 msgid "Something is etched on this door"
-msgstr ""
+msgstr "Niečo je vyleptané na dverách"
 
 #: data/scripts/tomb_door.dat:40
 msgid "Enshrined in this tomb is the great warrior Ivan"
-msgstr ""
+msgstr "V tomto hrobe je uzmknutý veľký bojovník Ivan"
 
 #: data/scripts/tomb_door.dat:41
 msgid "Defeater of the evil dragon known as Chaos"
-msgstr ""
+msgstr "Premožiteľ hrôzostrašného draka známeho pod menom Chaos"
 
 #: data/scripts/tomb_door.dat:42
 msgid "Access to his tomb is granted only to those who play his anthem"
-msgstr ""
+msgstr "Vstup do jeho hrobky je povoleny len tomu kto zahrá jeho hymnu"
 
 #: data/scripts/tomb_door.dat:43
 msgid "His anthem? How on earth am I going to figure that out?!"
-msgstr ""
+msgstr "Jeho hymnu? Ako do pekla ju zistím?!"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
-msgstr ""
+msgstr "Celá časť je plná monštier"
 
 #: data/scripts/monsters.dat:3
 msgid ""
 "I don't have any reason to read these but I'll keep it in mind in case I do"
-msgstr ""
+msgstr "Nemám žiaden dôvod to čítať, ale keď bude treba, mám to na pamäti"
 
 #: data/scripts/monsters.dat:6
 msgid "I wonder what other monsters there are..."
-msgstr ""
+msgstr "Som zvedavý ake iné monštrá tam sú..."
 
 #: data/scripts/monsters.dat:8
 msgid "Chaos"
-msgstr ""
+msgstr "Chaos"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr ""
+msgstr "Chaos, je pradávny hrôzostrašný drak"
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
-msgstr ""
+msgstr "Drak?! Otec mi povedal, že boli vsšetky draky vyhynuli!"
 
 #: data/scripts/monsters.dat:15
 msgid ""
@@ -1593,7 +1645,7 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
-msgstr ""
+msgstr "Do kelu, to je všetko čo mi to hovorí"
 
 #: data/scripts/enchanting_weapons.dat:23
 msgid ""

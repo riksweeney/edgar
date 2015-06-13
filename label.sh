@@ -72,6 +72,16 @@ then
 	exit 1
 fi
 
+CURRENT_YEAR=`date +%Y`
+VERSION_YEAR=`grep YEAR src/defs.h | cut -d' ' -f 3`
+
+if [ "$CURRENT_YEAR" != "$VERSION_YEAR" ];
+then
+	echo "Year is wrong in defs.h"
+	echo "Should be $CURRENT_YEAR"
+	exit 1
+fi
+
 UNCOMMIT_COUNT=`svn status | wc -l`
 
 if [ "$UNCOMMIT_COUNT" != "0" ];
@@ -80,4 +90,4 @@ then
 	exit 1
 fi
 
-svn copy https://svn.code.sf.net/p/legendofedgar/code/trunk https://svn.code.sf.net/p/legendofedgar/code/tags/$1 -m "Tagging $1"
+svn copy https://github.com/riksweeney/edgar/trunk https://github.com/riksweeney/edgar/tags/$1 -m "Tagging $1"
