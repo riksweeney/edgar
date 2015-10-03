@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2014 Edgar Muniz Berlinck <edgar.vv@gmail.com> -->
 
-<!-- HOUSEKEEPING, REMOVE THIS COMMENT WHEN THIS GOES UPSTREAM
-BugReportURL: https://github.com/riksweeney/edgar/issues
-SentUpstream: 2014-09-24
--->
-
 <application>
   <id type="desktop">edgar.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>

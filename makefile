@@ -29,6 +29,7 @@ BIN_DIR = $(PREFIX)/games/
 DOC_DIR = $(PREFIX)/share/doc/$(PROG)/
 ICON_DIR = $(PREFIX)/share/icons/hicolor/
 DESKTOP_DIR = $(PREFIX)/share/applications/
+APPDATA_DIR = $(PREFIX)/share/appdata/
 LOCALE_DIR = $(PREFIX)/share/locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
@@ -152,6 +153,7 @@ else
 	mkdir -p $(ICON_DIR)48x48/apps
 	mkdir -p $(ICON_DIR)64x64/apps
 	mkdir -p $(DESKTOP_DIR)
+	mkdir -p $(APPDATA_DIR)
 	mkdir -p $(PREFIX)/share/man/man6
 
 	cp $(PROG) $(BIN_DIR)$(PROG)
@@ -162,6 +164,7 @@ else
 	cp $(ICONS)48x48.png $(ICON_DIR)48x48/apps/$(PROG).png
 	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
 	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
+	cp $(ICONS)$(PROG).appdata.xml $(APPDATA_DIR)
 	install -m 0644 $(MAN)$(PROG).6x.gz $(PREFIX)/share/man/man6
 
 	@for f in $(LOCALE_MO); do \
@@ -183,6 +186,7 @@ uninstall:
 	$(RM) $(ICON_DIR)48x48/apps/$(PROG).png
 	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)$(PROG).desktop
+	$(RM) $(APPDATA_DIR)$(PROG).appdata.xml
 	$(RM) $(PREFIX)/share/man/man6/$(PROG).6x.gz
 
 	@for f in $(LOCALE_MO); do \
