@@ -8,7 +8,8 @@ dfsg_diff.patch
 diff.txt
 dist
 doc/TODO
-./edgar*
+edgar
+edgar.pak
 en_GB
 locale/*.mo
 makefile.dep
@@ -18,6 +19,7 @@ medaldata
 medalKey
 medals
 messages.po
+*.o
 pak*
 po_creator*
 readme_dfsg
