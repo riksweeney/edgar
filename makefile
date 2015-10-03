@@ -41,12 +41,13 @@ DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
 ifeq ($(DEV),1)
-CFLAGS = -Wall -Werror -g -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+CFLAGS ?= -Wall -Werror -g -pedantic
 else
-CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+CFLAGS ?= -Wall -pedantic
 endif
+DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
+LFLAGS = $(LDFLAGS) `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
@@ -105,7 +106,7 @@ makefile.dep : src/*/*.h src/*.h
 
 # compiling other source files.
 %.o:
-	$(CC) $(CFLAGS) -c -s $<
+	$(CC) $(CFLAGS) $(DEFINES) -c -s $<
 
 %.mo: %.po
 	msgfmt -c -o $@ $<
