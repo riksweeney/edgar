@@ -38,4 +38,4 @@ make install DESTDIR=$RPM_BUILD_ROOT
 /usr/share/icons/hicolor/32x32/apps/%{name}.png
 /usr/share/icons/hicolor/48x48/apps/%{name}.png
 /usr/share/icons/hicolor/64x64/apps/%{name}.png
-/usr/share/man/man6/%{name}.6x.gz
+/usr/share/man/man6/%{name}.6

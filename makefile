@@ -30,6 +30,7 @@ DOC_DIR = $(PREFIX)/share/doc/$(PROG)/
 ICON_DIR = $(PREFIX)/share/icons/hicolor/
 DESKTOP_DIR = $(PREFIX)/share/applications/
 APPDATA_DIR = $(PREFIX)/share/appdata/
+MAN_DIR = $(PREFIX)/share/man/man6/
 LOCALE_DIR = $(PREFIX)/share/locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
@@ -154,7 +155,7 @@ else
 	mkdir -p $(ICON_DIR)64x64/apps
 	mkdir -p $(DESKTOP_DIR)
 	mkdir -p $(APPDATA_DIR)
-	mkdir -p $(PREFIX)/share/man/man6
+	mkdir -p $(MAN_DIR)
 
 	cp $(PROG) $(BIN_DIR)$(PROG)
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
@@ -165,7 +166,7 @@ else
 	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
 	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
 	cp $(ICONS)$(PROG).appdata.xml $(APPDATA_DIR)
-	install -m 0644 $(MAN)$(PROG).6x.gz $(PREFIX)/share/man/man6
+	install -m 0644 $(MAN)$(PROG).6 $(MAN_DIR)
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
@@ -187,7 +188,7 @@ uninstall:
 	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)$(PROG).desktop
 	$(RM) $(APPDATA_DIR)$(PROG).appdata.xml
-	$(RM) $(PREFIX)/share/man/man6/$(PROG).6x.gz
+	$(RM) $(MAN_DIR)/$(PROG).6*
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \

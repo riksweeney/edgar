@@ -1,0 +1,33 @@
+.\" Manpage for edgar.
+.\" Contact riksweeney@users.sourceforge.net to correct errors or typos.
+.TH man 8 "15 Nov 2014" "1.0" "edgar man page"
+.SH NAME
+edgar \- A platform game with a persistent world.
+.SH SYNOPSIS
+edgar
+.SH DESCRIPTION
+The Legend of Edgar is a platform game, not unlike those found on the Amiga and SNES. Edgar must battle his way across the world, solving puzzles and defeating powerful enemies to achieve his quest.
+.SH OPTIONS
+edgar takes the following command line options
+.PP
+-record <filename>: Captures keyboard input
+.PP
+-playback <filename>: Replays keyboard input
+.PP
+-load <save_slot>: Loads the game in slot <save_slot>. Slots start at 0
+.PP
+-nojoystick: Disables the joystick
+.PP
+-joystick <joystick_slot>: Use joystick <joystick_slot>. Slots start at 0
+.PP
+-showcredits: Shows the end credits
+.PP
+-language <language_code>: Use language <language_code>. e.g. en_US, es, pl
+.SH EXAMPLES
+edgar -joystick 1 -language ru
+.PP
+This will run the game in Russian and will use control from second joystick plugged into the system
+.SH BUGS
+No major bugs.
+.SH AUTHOR
+Richard Sweeney (riksweeney@hotmail.com)
