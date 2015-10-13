@@ -29,6 +29,8 @@ BIN_DIR = $(PREFIX)/games/
 DOC_DIR = $(PREFIX)/share/doc/$(PROG)/
 ICON_DIR = $(PREFIX)/share/icons/hicolor/
 DESKTOP_DIR = $(PREFIX)/share/applications/
+APPDATA_DIR = $(PREFIX)/share/appdata/
+MAN_DIR = $(PREFIX)/share/man/man6/
 LOCALE_DIR = $(PREFIX)/share/locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
@@ -39,12 +41,13 @@ DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
 ifeq ($(DEV),1)
-CFLAGS = -Wall -Werror -g -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+CFLAGS ?= -Wall -Werror -g -pedantic
 else
-CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+CFLAGS ?= -Wall -pedantic
 endif
+DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
+LFLAGS = $(LDFLAGS) `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
@@ -103,7 +106,7 @@ makefile.dep : src/*/*.h src/*.h
 
 # compiling other source files.
 %.o:
-	$(CC) $(CFLAGS) -c -s $<
+	$(CC) $(CFLAGS) $(DEFINES) -c -s $<
 
 %.mo: %.po
 	msgfmt -c -o $@ $<
@@ -152,7 +155,8 @@ else
 	mkdir -p $(ICON_DIR)48x48/apps
 	mkdir -p $(ICON_DIR)64x64/apps
 	mkdir -p $(DESKTOP_DIR)
-	mkdir -p $(PREFIX)/share/man/man6
+	mkdir -p $(APPDATA_DIR)
+	mkdir -p $(MAN_DIR)
 
 	cp $(PROG) $(BIN_DIR)$(PROG)
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
@@ -162,7 +166,8 @@ else
 	cp $(ICONS)48x48.png $(ICON_DIR)48x48/apps/$(PROG).png
 	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
 	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
-	install -m 0644 $(MAN)$(PROG).6x.gz $(PREFIX)/share/man/man6
+	cp $(ICONS)$(PROG).appdata.xml $(APPDATA_DIR)
+	install -m 0644 $(MAN)$(PROG).6 $(MAN_DIR)
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
@@ -183,7 +188,8 @@ uninstall:
 	$(RM) $(ICON_DIR)48x48/apps/$(PROG).png
 	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)$(PROG).desktop
-	$(RM) $(PREFIX)/share/man/man6/$(PROG).6x.gz
+	$(RM) $(APPDATA_DIR)$(PROG).appdata.xml
+	$(RM) $(MAN_DIR)/$(PROG).6*
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \

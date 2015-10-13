@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Type=Application
 Name=The Legend of Edgar
-GenericName=The Legend of Edgar
+GenericName=2D platform game
 Comment=A 2D platform game with a persistent world
 Icon=edgar
 Exec=edgar
 Terminal=false
-Categories=Game;ArcadeGame;
+Categories=Game;ArcadeGame;AdventureGame;
