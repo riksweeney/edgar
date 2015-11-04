@@ -39,14 +39,14 @@ Entity *addGrapplingHook(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Light Target");
+		showErrorAndExit("No free slots to add a Grappling Hook");
 	}
 
 	loadProperties(name, e);
 
 	e->touch = &touch;
 
-	e->action = &init;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -96,10 +96,8 @@ static void fireHook()
 
 	if (self->dirX == 0)
 	{
-
+		self->action = &entityWait;
 	}
-
-	self->action = &entityWait;
 }
 
 static int draw()

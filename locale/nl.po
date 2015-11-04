@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-05-12 08:08+0000\n"
+"PO-Revision-Date: 2015-07-01 19:06+0000\n"
 "Last-Translator: grapjos <grapjos@hotmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-10 07:29+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2015-08-23 09:12+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 "Language: nl\n"
 #: data/scripts/olaf.dat:6
@@ -1887,6 +1887,7 @@ msgstr "De Wortel van een alruinplant"
 #: data/scripts/enchanting_weapons.dat:44
 msgid "The fat of a Mantis (left to stand for 3 months)"
 msgstr ""
+"Het vet van een bidsprinkhaan (oudbakken, minstens 3 maanden laten staan)"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -7207,7 +7208,7 @@ msgstr "Mandragora-wortel"
 
 #: data/props/item/cauldron.props:160
 msgid "Mantis Fat"
-msgstr ""
+msgstr "Bidsprinkhanenvet"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"

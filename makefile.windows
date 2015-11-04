@@ -1,4 +1,4 @@
-VERSION = 1.21
+VERSION = 1.22
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -12,7 +12,7 @@ ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
 
 CC        = i586-mingw32msvc-gcc
-SDLC      = /opt/Windows/bin/sdl-config
+SDLC      = /home/mint/Windows/bin/sdl-config
 
 LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
