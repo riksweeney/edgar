@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2015-07-16 19:06+0000\n"
+"PO-Revision-Date: 2015-12-25 22:25+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-23 09:12+0000\n"
-"X-Generator: Launchpad (build 17690)\n"
+"X-Launchpad-Export-Date: 2015-12-29 17:28+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 "Language: de\n"
 #: data/scripts/olaf.dat:6
@@ -3696,7 +3696,7 @@ msgstr ""
 
 #: data/scripts/has_combination.dat:1
 msgid "Hmmm, maybe this scrap of paper is the combination"
-msgstr ""
+msgstr "Hmmm, vielleicht ist dieses Stück Papier die Kombination"
 
 #: data/scripts/has_combination.dat:2
 msgid "I'll give it a try"
@@ -4240,7 +4240,7 @@ msgstr "Hey, was ist das?"
 
 #: data/scripts/hoover.dat:12
 msgid "It's a baby Hoover"
-msgstr ""
+msgstr "Es ist ein Baby-Staubsauger"
 
 #: data/scripts/hoover.dat:13
 msgid ""
@@ -4258,7 +4258,7 @@ msgstr ""
 
 #: data/scripts/hoover.dat:20
 msgid "Hello little fella, are you lost?"
-msgstr ""
+msgstr "Hallo kleiner Kerl, bist du verloren?"
 
 #: data/scripts/hoover.dat:21
 msgid "Don't worry, I won't hurt you"
@@ -4277,7 +4277,7 @@ msgstr ""
 
 #: data/scripts/hoover.dat:34
 msgid "They're vegetarians so I'll have to find some fruit or vegetables..."
-msgstr ""
+msgstr "Sie sind Vegetarier, so muss ich etwas Obst oder Gemüse finden ..."
 
 #: data/scripts/armoury_intro.dat:2
 msgid "Wow, this place is empty!"
@@ -4334,7 +4334,7 @@ msgstr "Also hier läuft gar nicht mehr..."
 
 #: data/scripts/slime_potion.dat:11
 msgid "Urgh!! This is horrible!"
-msgstr ""
+msgstr "Würg!! Das ist schrecklich!"
 
 #: data/scripts/slime_potion.dat:12
 msgid ""
@@ -4390,7 +4390,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:40
 msgid "The book said it was sealed below a fortress"
-msgstr ""
+msgstr "Das Buch sagte, dass es unter einer Festung verschlossen sei"
 
 #: data/scripts/cauldron.dat:41
 msgid ""
@@ -4434,11 +4434,11 @@ msgstr "Hat es funktioniert?"
 
 #: data/scripts/cauldron.dat:91
 msgid "I think it's safe now..."
-msgstr ""
+msgstr "Ich denke, es ist nun sicher ..."
 
 #: data/scripts/cauldron.dat:98
 msgid "I'll use my wooden shield..."
-msgstr ""
+msgstr "Ich werde meinen Holzschild benutzen ..."
 
 #: data/scripts/cauldron.dat:139
 msgid "Stupid thing. Maggie makes it all look so easy..."
@@ -4454,11 +4454,11 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
-msgstr ""
+msgstr "Und den Rest der Zutaten ebenfalls"
 
 #: data/scripts/cauldron.dat:167
 msgid "Aha! It's gone blue, just like the book said it would"
-msgstr ""
+msgstr "Aha! Es ist blau geworden, genau wie es das Buch vorhersagte"
 
 #: data/scripts/cauldron.dat:168
 msgid "Now to add the shield"
@@ -4470,7 +4470,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:203
 msgid "I need all the main ingredients"
-msgstr ""
+msgstr "Ich brauche alle Hauptbestandteile"
 
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
@@ -4498,7 +4498,7 @@ msgstr ""
 
 #: data/scripts/black_book_search.dat:19
 msgid "I'll take it with me, it might come in handy"
-msgstr ""
+msgstr "Ich werde es mitnehmen, könnte sich als nützlich erweisen"
 
 #: data/scripts/black_book_search.dat:20
 msgid ""
@@ -4526,7 +4526,7 @@ msgstr ""
 
 #: data/scripts/cave_statue.dat:7
 msgid "Typical..."
-msgstr ""
+msgstr "Typisch ..."
 
 #: data/scripts/cave_statue.dat:8
 msgid ""
@@ -4551,6 +4551,8 @@ msgid ""
 "This card is blank, I'll have to put some instructions on it to make it "
 "useable."
 msgstr ""
+"Diese Karte ist leer, ich muss erst ein paar Anweisungen notieren, um sie "
+"nutzbar zu machen."
 
 #: data/scripts/sorceror_study.dat:1
 msgid ""
@@ -4572,11 +4574,11 @@ msgstr "Es wird Zeit meinem Doppelgänger das Schild abknöpfen..."
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
-msgstr ""
+msgstr "Finde den bösen Edgar"
 
 #: data/scripts/spores.dat:1
 msgid "Hey, those look familiar"
-msgstr ""
+msgstr "Hey, solche kommen mir bekannt vor"
 
 #: data/scripts/spores.dat:2
 msgid "They look like hypnotic spores"
@@ -4594,7 +4596,7 @@ msgstr ""
 
 #: data/scripts/tomb_door_open.dat:10
 msgid "Great, that worked!"
-msgstr ""
+msgstr "Toll, das funktioniert!"
 
 #: data/scripts/tomb_door_open.dat:11
 msgid "What a terrible anthem though, almost completely random"
@@ -4602,7 +4604,7 @@ msgstr ""
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
-msgstr ""
+msgstr "Dies sieht aus wie das Andenken"
 
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
@@ -4611,7 +4613,7 @@ msgstr ""
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
-msgstr ""
+msgstr "Jetzt hier raus ..."
 
 #: data/scripts/lava_door.dat:1
 msgid "I've seen this type of metal before, it heats up really easily"
@@ -4669,7 +4671,7 @@ msgstr "Toll, das war aufregend! Das muss ein mechanischer Transporter sein."
 
 #: data/scripts/teleporter_discovery.dat:9
 msgid "I wonder if it works both ways..."
-msgstr ""
+msgstr "Ich frage mich, ob es in beide Richtungen funktioniert ..."
 
 #: data/scripts/teleporter_discovery.dat:14
 msgid "Horray!"
@@ -6043,11 +6045,11 @@ msgstr ""
 
 #: src/item/colour_pot.c:183
 msgid "The pot is empty"
-msgstr ""
+msgstr "Der Topf ist leer"
 
 #: src/enemy/frog.c:370
 msgid "Your %s has been stolen!"
-msgstr ""
+msgstr "Dein %s wurde gestohlen!"
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
@@ -6059,7 +6061,7 @@ msgstr ""
 
 #: data/props/item/apple.props:5
 msgid "A delicious apple"
-msgstr ""
+msgstr "Ein köstlicher Apfel"
 
 #: data/props/item/tortoise_shell.props:5
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
@@ -6111,7 +6113,7 @@ msgstr ""
 
 #: src/credits.c:863
 msgid "Play Time"
-msgstr ""
+msgstr "Spielzeit"
 
 #: src/credits.c:866
 msgid "Kills"
@@ -6135,7 +6137,7 @@ msgstr ""
 
 #: src/credits.c:881
 msgid "Secrets Found"
-msgstr ""
+msgstr "Geheimnisse gefunden"
 
 #: src/credits.c:884
 msgid "Continues"
@@ -6171,7 +6173,7 @@ msgstr ""
 
 #: src/menu/about_menu.c:75
 msgid "The Legend of Edgar v%0.2f"
-msgstr ""
+msgstr "Die Legende von Edgar v%0.2f"
 
 #: src/credits.c:124
 msgid "King Grub"
@@ -6179,7 +6181,7 @@ msgstr ""
 
 #: src/credits.c:125
 msgid "The Golem"
-msgstr ""
+msgstr "Der Golem"
 
 #: src/credits.c:126
 msgid "Queen Wasp"
@@ -6219,7 +6221,7 @@ msgstr ""
 
 #: data/scripts/evil_edgar_start.dat:1
 msgid "Evil Edgar"
-msgstr ""
+msgstr "Böse Edgar"
 
 #: src/credits.c:136
 msgid "The Sewer Dweller"
@@ -6227,11 +6229,11 @@ msgstr ""
 
 #: src/credits.c:137
 msgid "The Salamander"
-msgstr ""
+msgstr "Der Salamander"
 
 #: src/credits.c:138
 msgid "The Black Book"
-msgstr ""
+msgstr "Das schwarze Buch"
 
 #: src/credits.c:141
 msgid "The Sorceror"
@@ -6455,7 +6457,7 @@ msgstr ""
 
 #: src/player.c:2098
 msgid "Your controls have been reversed!"
-msgstr ""
+msgstr "Deine Steuerung wurde umgekehrt!"
 
 #: src/item/portable_save.c:82
 msgid "You cannot use this here"
@@ -6739,7 +6741,7 @@ msgstr "Bitte alle Steuerelemente konfigurieren"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
-msgstr ""
+msgstr "Schnell nach links und rechts drehen um die Stücke abzuschütteln!"
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
@@ -6763,11 +6765,11 @@ msgstr ""
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
-msgstr ""
+msgstr "Das Spiel mit nur 5 Trefferpunkten beendet"
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"
-msgstr ""
+msgstr "Das Spiel ohne Fortsetzen beendet"
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
@@ -6893,7 +6895,7 @@ msgstr ""
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "Zeit, um wieder auf die Rettung meines Vaters zu kommen ..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
