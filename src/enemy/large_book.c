@@ -931,7 +931,7 @@ static void iceDrop()
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		playSoundToMap("sound/common/shatter", -1, self->x, self->y, 0);
 
@@ -1076,9 +1076,17 @@ static void createIceBlock()
 
 static void iceBlockDrop()
 {
-	if (self->standingOn != NULL && strcmpignorecase(self->name, self->standingOn->name) == 0)
+	if (self->standingOn != NULL)
 	{
-		self->standingOn->action = self->standingOn->die;
+		if (strcmpignorecase(self->name, self->standingOn->name) == 0)
+		{
+			self->standingOn->action = self->standingOn->die;
+		}
+
+		else
+		{
+			self->die();
+		}
 	}
 
 	self->thinkTime--;
