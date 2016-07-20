@@ -31,7 +31,7 @@ static int32_t fileCount;
 
 void initPakFile()
 {
-        #ifdef PAK_FILE
+        #if defined(PAK_FILE) && DEV == 0
 		int32_t offset;
 		FILE *fp;
 		int i;
@@ -88,7 +88,7 @@ void initPakFile()
 
 void verifyVersion()
 {
-        #ifdef PAK_FILE
+        #if defined(PAK_FILE) && DEV == 0
             char version[5];
 
             snprintf(version, sizeof(version), "%0.2f", VERSION);
@@ -168,7 +168,7 @@ Mix_Music *loadMusicFromPak(char *name)
 {
 	Mix_Music *music;
 
-	#ifndef PAK_FILE
+	#if !defined(PAK_FILE) || DEV == 1
                 char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
                 snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
@@ -222,11 +222,11 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 {
 	unsigned char *source, *dest;
 	FILE *fp;
-	#ifdef PAK_FILE
+	#if defined(PAK_FILE) && DEV == 0
 		int i, index;
 	#endif
 
-	#ifndef PAK_FILE
+	#if !defined(PAK_FILE) || DEV == 1
                 char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
                 snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
@@ -332,7 +332,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		showErrorAndExit("Failed to allocate a whole %d bytes for filename", MAX_PATH_LENGTH);
 	}
 
-        #ifndef PAK_FILE
+        #if !defined(PAK_FILE) || DEV == 1
                 char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
                 snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
@@ -465,7 +465,7 @@ int existsInPak(char *name)
 {
 	int exists;
 
-	#ifndef PAK_FILE
+	#if !defined(PAK_FILE) || DEV == 1
                 char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
                 snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
@@ -504,7 +504,7 @@ int existsInPak(char *name)
 
 void freePakFile()
 {
-	#ifndef PAK_FILE
+	#if defined(PAK_FILE) && DEV == 0
 		if (fileData != NULL)
 		{
 			free(fileData);

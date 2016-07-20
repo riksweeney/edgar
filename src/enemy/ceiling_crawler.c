@@ -290,7 +290,7 @@ static void fireShot()
 
 	e->flags |= FLY;
 
-	e->y += !(self->flags & FLY) > 0 ? 5 : (self->h - 5);
+	e->y += !(self->flags & FLY) ? 5 : (self->h - 5);
 
 	e->type = ENEMY;
 

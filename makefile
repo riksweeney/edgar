@@ -41,7 +41,6 @@ endif
 CFLAGS += -Wall -pedantic
 ifeq ($(DEV),1)
 CFLAGS += -Werror -g
-NO_PAK = 1
 endif
 
 DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DUNIX=$(UNIX)
