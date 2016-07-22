@@ -172,6 +172,14 @@ static void loadMenuLayout()
 
 	width = 0;
 
+	menu.w = 0;
+
+	menu.h = 0;
+
+	menu.startY = 0;
+
+	menu.endY = 0;
+
 	menu.widgetCount = medalCount;
 
 	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
@@ -214,8 +222,6 @@ static void loadMenuLayout()
 	}
 
 	width += 15;
-
-	menu.w = 0;
 
 	menu.h = SCREEN_HEIGHT - BUTTON_PADDING;
 

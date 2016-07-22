@@ -31,7 +31,7 @@ static int32_t fileCount;
 
 void initPakFile()
 {
-        #if defined(PAK_FILE) && DEV == 0
+	#if defined(PAK_FILE) && DEV == 0
 		int32_t offset;
 		FILE *fp;
 		int i;
@@ -169,10 +169,10 @@ Mix_Music *loadMusicFromPak(char *name)
 	Mix_Music *music;
 
 	#if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
-
+		char fullName[MAX_PATH_LENGTH];
 		FILE *fp;
+
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -227,8 +227,8 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 	#endif
 
 	#if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		char fullName[MAX_PATH_LENGTH];
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -318,6 +318,9 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 
 static unsigned char *uncompressFile(char *name, int writeToFile)
 {
+	#if !defined(PAK_FILE) || DEV == 1
+		char fullName[MAX_PATH_LENGTH];
+	#endif
 	char *filename;
 	unsigned long size;
 	unsigned char *source, *dest;
@@ -332,9 +335,8 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		showErrorAndExit("Failed to allocate a whole %d bytes for filename", MAX_PATH_LENGTH);
 	}
 
-        #if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+	#if !defined(PAK_FILE) || DEV == 1
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -363,7 +365,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		source = NULL;
 	#else
-                int i;
+		int i;
 		int index = -1;
 
 		for (i=0;i<fileCount;i++)
@@ -466,10 +468,11 @@ int existsInPak(char *name)
 	int exists;
 
 	#if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
-
+		char fullName[MAX_PATH_LENGTH];
 		FILE *fp;
+
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+
 		fp = fopen(fullName, "rb");
 
 
@@ -485,7 +488,7 @@ int existsInPak(char *name)
 			exists = TRUE;
 		}
 	#else
-                int i;
+		int i;
 		exists = FALSE;
 
 		for (i=0;i<fileCount;i++)
