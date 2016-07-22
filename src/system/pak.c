@@ -31,7 +31,7 @@ static int32_t fileCount;
 
 void initPakFile()
 {
-        #if defined(PAK_FILE) && DEV == 0
+	#if defined(PAK_FILE) && DEV == 0
 		int32_t offset;
 		FILE *fp;
 		int i;
@@ -88,16 +88,16 @@ void initPakFile()
 
 void verifyVersion()
 {
-        #if defined(PAK_FILE) && DEV == 0
-            char version[5];
+	#if defined(PAK_FILE) && DEV == 0
+		char version[5];
 
-            snprintf(version, sizeof(version), "%0.2f", VERSION);
+		snprintf(version, sizeof(version), "%0.2f", VERSION);
 
-                if (existsInPak(version) == FALSE)
-                {
-                        showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
-                }
-        #endif
+		if (existsInPak(version) == FALSE)
+		{
+			showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
+		}
+	#endif
 }
 
 SDL_Surface *loadImageFromPak(char *name)
@@ -169,8 +169,8 @@ Mix_Music *loadMusicFromPak(char *name)
 	Mix_Music *music;
 
 	#if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		FILE *fp;
 
@@ -227,8 +227,8 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 	#endif
 
 	#if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -332,9 +332,9 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		showErrorAndExit("Failed to allocate a whole %d bytes for filename", MAX_PATH_LENGTH);
 	}
 
-        #if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+	#if !defined(PAK_FILE) || DEV == 1
+		char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -363,7 +363,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		source = NULL;
 	#else
-                int i;
+		int i;
 		int index = -1;
 
 		for (i=0;i<fileCount;i++)
@@ -466,8 +466,8 @@ int existsInPak(char *name)
 	int exists;
 
 	#if !defined(PAK_FILE) || DEV == 1
-                char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
-                snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		char fullName[MAX_PATH_LENGTH] = INSTALL_PATH;
+		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		FILE *fp;
 		fp = fopen(fullName, "rb");
@@ -485,7 +485,7 @@ int existsInPak(char *name)
 			exists = TRUE;
 		}
 	#else
-                int i;
+		int i;
 		exists = FALSE;
 
 		for (i=0;i<fileCount;i++)
