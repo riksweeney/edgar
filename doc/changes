@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 1.25
+* Updated German translation
+* Fixed the mine cart's reset switch in the Fortress Dungeon
+* Fixed the scrolling in the medals table
+
 Version 1.24
 * Updated Brazilian Portuguese and German translations
 * The ice blocks dropped by the large blue book's third form now shatter if they land on lifts

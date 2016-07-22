@@ -604,7 +604,7 @@ void doPlayer()
 
 					else
 					{
-						if (playerShield.inUse == TRUE && playerShield.health >= 4)
+						if (playerShield.inUse == TRUE && playerShield.health >= 4 && strcmpignorecase(playerShield.objectiveName, "Disintegration Shield") == 0)
 						{
 							setEntityAnimation(self, "STAND");
 							setEntityAnimation(&playerShield, "STAND");
