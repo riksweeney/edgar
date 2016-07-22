@@ -22,8 +22,6 @@ PO_PROG   = po_creator
 TILE_PROG = tile_creator
 endif
 
-CC       = gcc
-
 PREFIX = $(DESTDIR)/usr
 BIN_DIR = $(PREFIX)/games/
 DOC_DIR = $(PREFIX)/share/doc/$(PROG)/
@@ -40,14 +38,17 @@ else
 DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
+CFLAGS += -Wall -pedantic
 ifeq ($(DEV),1)
-CFLAGS ?= -Wall -Werror -g -pedantic
-else
-CFLAGS ?= -Wall -pedantic
+CFLAGS += -Werror -g
 endif
-DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 
-LFLAGS = $(LDFLAGS) `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
+DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DUNIX=$(UNIX)
+ifndef NO_PAK
+DEFINES += -DPAK_FILE=\"$(PAK_FILE)\"
+endif
+
+LDFLAGS += `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
@@ -105,7 +106,7 @@ makefile.dep : src/*/*.h src/*.h
 	for i in src/*.c src/*/*.c; do $(CC) -MM "$${i}"; done > $@
 
 # compiling other source files.
-%.o:
+$(MAIN_OBJS) $(CORE_OBJS) $(EDIT_OBJS) $(TITLE_OBJS) $(PAK_OBJS) $(PO_OBJS):
 	$(CC) $(CFLAGS) $(DEFINES) -c -s $<
 
 %.mo: %.po
@@ -113,39 +114,43 @@ makefile.dep : src/*/*.h src/*.h
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CC) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
+	$(CC) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LDFLAGS)
 
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CC) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
+	$(CC) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LDFLAGS)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CC) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
+	$(CC) $(PAK_OBJS) -o $(PAK_PROG) $(LDFLAGS)
 
 # linking the program.
 $(PO_PROG): $(PO_OBJS)
-	$(CC) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
+	$(CC) $(PO_OBJS) -o $(PO_PROG) $(LDFLAGS)
 
 # linking the program.
 $(TILE_PROG): $(TILE_OBJS)
-	$(CC) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS) -lpng
+	$(CC) $(TILE_OBJS) -o $(TILE_PROG) $(LDFLAGS) -lpng
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
 	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PO_PROG) $(TILE_PROG) $(PAK_FILE) $(LOCALE_MO) $(TILE_PROG) *.o makefile.dep
 
 buildpak: $(PAK_PROG)
+ifndef NO_PAK
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 	./$(PAK_PROG) -test $(PAK_FILE)
+endif
 
 # install
 install: all
 ifeq ($(DEV),1)
 	echo Cannot install if DEV is set to 1!
 else
+ifndef NO_PAK
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 	./$(PAK_PROG) -test $(PAK_FILE)
+endif
 
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)
@@ -159,7 +164,9 @@ else
 	mkdir -p $(MAN_DIR)
 
 	cp $(PROG) $(BIN_DIR)$(PROG)
+ifndef NO_PAK
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
+endif
 	cp $(DOCS) $(DOC_DIR)
 	cp $(ICONS)16x16.png $(ICON_DIR)16x16/apps/$(PROG).png
 	cp $(ICONS)32x32.png $(ICON_DIR)32x32/apps/$(PROG).png
