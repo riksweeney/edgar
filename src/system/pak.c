@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2016 Parallel Realities
+Copyright (C) 2009-2017 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -320,6 +320,9 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	#if !defined(PAK_FILE) || DEV == 1
 		char fullName[MAX_PATH_LENGTH];
+	#else
+		int i;
+		int index = -1;
 	#endif
 	char *filename;
 	unsigned long size;
@@ -365,9 +368,6 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		source = NULL;
 	#else
-		int i;
-		int index = -1;
-
 		for (i=0;i<fileCount;i++)
 		{
 			if (strcmpignorecase(fileData[i].filename, name) == 0)

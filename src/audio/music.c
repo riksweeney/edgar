@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2016 Parallel Realities
+Copyright (C) 2009-2017 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -73,7 +73,7 @@ static char *newMusicTracks[] = {
 			"TITLE_MUSIC", "music/Menu_loop.ogg",
 			"MAP01_MUSIC", "music/Lazy Day v0_9.ogg",
 			"MAP02_MUSIC", "music/Ruinous Laments(5.6).ogg",
-			"MAP03_MUSIC", "music/Devilish design.ogg",
+			"MAP03_MUSIC", "music/Danza del bosque.ogg",
 			"MAP04_MUSIC", "music/Avgvst - Mushrooms_1.ogg",
 			"MAP05_MUSIC", "music/MysticalCaverns.ogg",
 			"MAP06_MUSIC", "music/Red Curtain.ogg",
