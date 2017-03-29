@@ -80,7 +80,7 @@ static char *newMusicTracks[] = {
 			"MAP07_MUSIC", "music/ratsrats_0.ogg",
 			"MAP08_MUSIC", "music/beauty_of_chaos.ogg",
 			"MAP09_MUSIC", "music/Battle in the winter.ogg",
-			"MAP10_MUSIC", "music/Devilish design.ogg",
+			"MAP10_MUSIC", "music/A tricky puzzle.ogg",
 			"MAP11_MUSIC", "music/Decision.ogg",
 			"MAP12_MUSIC", "music/Ruinous Laments(5.6).ogg",
 			"MAP13_MUSIC", "music/Heroic Minority.ogg",
