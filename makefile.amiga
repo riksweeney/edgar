@@ -1,4 +1,4 @@
-VERSION = 1.28
+VERSION = 1.27
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak

@@ -1,7 +1,8 @@
 CHANGE LOG
 ----------
 
-Version 1.28
+Version 1.27
+* Added new music for the Laboratory
 * Updated German translation
 * Fixed a problem where Evil Edgar could get blocked by monsters during his first cutscene
 * Increased the size of the safe dial image
@@ -9,9 +10,6 @@ Version 1.28
 * Boulders spin more realistically
 * The Gargoyle now hovers lower down during his second phase attack
 * Fixed a memory leak when saving PNG images
-
-Version 1.27
-* Added new music for the Laboratory
 
 Version 1.26
 * Replaced the Forest music
