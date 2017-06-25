@@ -103,6 +103,8 @@ static void fall()
 	}
 
 	moveTarget();
+
+	syncBoulderFrameSpeed();
 }
 
 static void roll()
@@ -130,6 +132,8 @@ static void roll()
 	{
 		moveTarget();
 	}
+
+	syncBoulderFrameSpeed();
 }
 
 static void shakeFree()

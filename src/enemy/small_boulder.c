@@ -114,6 +114,8 @@ static void roll()
 	{
 		self->die();
 	}
+
+	syncBoulderFrameSpeed();
 }
 
 static void die()

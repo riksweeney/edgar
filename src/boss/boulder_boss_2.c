@@ -117,6 +117,8 @@ static void entityWait()
 
 		setEntityAnimation(self, "WALK");
 
+		syncBoulderFrameSpeed();
+
 		self->action = &chasePlayer;
 
 		self->thinkTime = 1;
@@ -137,8 +139,6 @@ static void chasePlayer()
 	else if (self->thinkTime == 0)
 	{
 		facePlayer();
-
-		self->frameSpeed = 12;
 
 		checkToMap(self);
 	}
@@ -167,13 +167,13 @@ static void chasePlayer()
 				self->thinkTime = 30;
 
 				self->dirX = 0;
-
-				self->frameSpeed = 0;
 			}
 
 			self->mental = 0;
 		}
 	}
+
+	syncBoulderFrameSpeed();
 }
 
 static void touch(Entity *other)

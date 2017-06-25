@@ -967,7 +967,7 @@ static void fallToGround()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSoundToMap("sound/common/crash", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash", -1, self->x, self->y, 0);
 
 		setEntityAnimation(self, "PAIN");
 

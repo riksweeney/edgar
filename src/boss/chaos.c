@@ -2318,7 +2318,7 @@ static void die()
 
 	self->weight = 1;
 
-	playSoundToMap("sound/boss/chaos/die", BOSS_CHANNEL, self->x, self->y, -1);
+	playSoundToMap("sound/boss/chaos/die", BOSS_CHANNEL, self->x, self->y, 0);
 
 	setEntityAnimation(self, "DIE_1");
 

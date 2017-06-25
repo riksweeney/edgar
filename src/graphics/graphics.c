@@ -26,6 +26,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/pak.h"
 #include "decoration.h"
 #include "graphics.h"
+#include "save_png.h"
 
 extern Game game;
 extern Entity *self;
@@ -1043,15 +1044,15 @@ void takeScreenshot()
 
 	if (strlen(screenshotPath) != 0)
 	{
-		snprintf(filename, sizeof(filename), "%s/edgar%06d.bmp", screenshotPath, frame);
+		snprintf(filename, sizeof(filename), "%s/edgar%06d.png", screenshotPath, frame);
 
 		frame++;
 
-		SDL_SaveBMP(game.screen, filename);
+		savePNG(game.screen, filename);
 	}
 }
 
 void takeSingleScreenshot(char *name)
 {
-	SDL_SaveBMP(game.screen, name);
+	savePNG(game.screen, name);
 }

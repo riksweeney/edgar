@@ -662,7 +662,7 @@ static void clawWait()
 
 		self->thinkTime = self->layer == FOREGROUND_LAYER ? 30 : 60;
 
-		self->endX = 5;
+		self->endX = 15;
 	}
 
 	else if (self->head->mental == -10)
@@ -949,23 +949,31 @@ static void punchAttackInit()
 {
 	if (atTarget())
 	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		if (self->head->mental == -5)
 		{
-			self->targetX = self->face == LEFT ? self->startX - 256 : self->startX + 256;
-			self->targetY = self->y;
+			self->head->mental = -6;
+		}
 
-			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		else if (self->head->mental == -6)
+		{
+			self->thinkTime--;
 
-			self->dirX *= 12;
-			self->dirY *= 12;
+			if (self->thinkTime <= 0)
+			{
+				self->targetX = self->face == LEFT ? self->startX - 256 : self->startX + 256;
+				self->targetY = self->y;
 
-			self->flags &= ~UNBLOCKABLE;
+				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-			self->action = &punchAttack;
+				self->dirX *= 12;
+				self->dirY *= 12;
 
-			self->reactToBlock = &punchReactToBlock;
+				self->flags &= ~UNBLOCKABLE;
+
+				self->action = &punchAttack;
+
+				self->reactToBlock = &punchReactToBlock;
+			}
 		}
 	}
 
@@ -1155,7 +1163,7 @@ static void grabTouch(Entity *other)
 
 		self->touch = &entityTouch;
 
-		self->maxThinkTime = 5;
+		self->maxThinkTime = 7;
 	}
 }
 
@@ -1170,7 +1178,7 @@ static void grabWait()
 
 	alignArmToClaw();
 
-	if (self->thinkTime >= 240)
+	if (self->thinkTime >= 180)
 	{
 		self->targetX = self->x + (self->face == LEFT ? -128 : 128);
 		self->targetY = self->startY - 64;

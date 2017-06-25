@@ -321,12 +321,14 @@ static void finalAttackInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	self->x = t->x;
-	self->y = t->y;
-
 	playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
 
 	self->flags |= NO_DRAW;
+
+	setEntityAnimation(self, "ATTACK_4");
+
+	self->x = t->x;
+	self->y = t->y;
 
 	self->thinkTime = 30;
 
@@ -348,8 +350,6 @@ static void finalAttack()
 		switch (self->mental)
 		{
 			case 0:
-				setEntityAnimation(self, "ATTACK_4");
-
 				addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
 				playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);

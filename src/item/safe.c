@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../entity.h"
 #include "../event/script.h"
 #include "../graphics/animation.h"
@@ -148,6 +149,8 @@ static void readInputCode()
 		input.left = 0;
 
 		val = -1;
+
+		playSound("sound/common/click");
 	}
 
 	else if (input.right == 1)
@@ -155,6 +158,8 @@ static void readInputCode()
 		input.right = 0;
 
 		val = 1;
+
+		playSound("sound/common/click");
 	}
 
 	else if (input.attack == 1 || input.block == 1)
@@ -261,7 +266,7 @@ static void addDisplay()
 	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w / 2 - e->w / 2;
-	e->y = self->y - 32;
+	e->y = self->y - 64;
 
 	self->target = e;
 }

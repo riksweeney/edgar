@@ -145,6 +145,8 @@ static void entityWait()
 		self->thinkTime = 65;
 
 		self->action = &chasePlayer;
+
+		syncBoulderFrameSpeed();
 	}
 }
 
@@ -203,6 +205,8 @@ static void chasePlayer()
 
 		stopSound(BOSS_CHANNEL);
 	}
+
+	syncBoulderFrameSpeed();
 }
 
 static void idle()

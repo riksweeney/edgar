@@ -1,6 +1,15 @@
 CHANGE LOG
 ----------
 
+Version 1.28
+* Updated German translation
+* Fixed a problem where Evil Edgar could get blocked by monsters during his first cutscene
+* Increased the size of the safe dial image
+* Health potions now restore 5 health points
+* Boulders spin more realistically
+* The Gargoyle now hovers lower down during his second phase attack
+* Fixed a memory leak when saving PNG images
+
 Version 1.27
 * Added new music for the Laboratory
 

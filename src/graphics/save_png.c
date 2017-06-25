@@ -75,6 +75,8 @@ static void writeData(char *name, png_bytep *rows, int w, int h, int colourtype,
 
 	png_write_end(pngPtr, NULL);
 
+	png_destroy_write_struct(&pngPtr, &infoPtr);
+
 	fclose(fp);
 }
 

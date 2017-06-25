@@ -2427,6 +2427,8 @@ static void shieldTouch(Entity *other)
 		playSoundToMap("sound/edgar/shield", BOSS_CHANNEL, player.x, player.y, 0);
 
 		other->health = 0;
+
+		fadeFromColour(255, 0, 0, 15);
 	}
 }
 

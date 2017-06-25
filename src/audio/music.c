@@ -59,7 +59,6 @@ static char *oldMusicTracks[] = {
 			"MAP24_MUSIC", "music/climax.it",
 			"MAP25_MUSIC", "music/crypt.xm",
 			"MAP26_MUSIC", "music/szc2_-_fight_for_your_lives.xm",
-			"MAP25_MUSIC", "music/crypt",
 			"TUTORIAL_MUSIC", "music/jk_village.xm",
 			"CREDITS_MUSIC", "music/credits.mod",
 			"GAMEOVER_MUSIC", "music/oxide_-_sadness.xm",

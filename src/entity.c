@@ -368,6 +368,53 @@ void removeEntity()
 	}
 }
 
+void removeAllSpawnedIn()
+{
+	Entity *e;
+	EntityList *el;
+
+	for (el=entities->next;el!=NULL;el=el->next)
+	{
+		e = el->entity;
+
+		if (e->inUse == TRUE && (e->flags & SPAWNED_IN))
+		{
+			/* Teleport expired enemies beneath the map */
+
+			if (e->health != 0)
+			{
+				e->y = (MAX_MAP_Y + 1) * TILE_SIZE;
+
+				e->action = &entityDieNoDrop;
+			}
+		}
+	}
+}
+
+void disableSpawners(int disable)
+{
+	Entity *e;
+	EntityList *el;
+
+	for (el=entities->next;el!=NULL;el=el->next)
+	{
+		e = el->entity;
+
+		if (e->inUse == TRUE && e->type == SPAWNER)
+		{
+			if (disable == TRUE)
+			{
+				e->flags |= HELPLESS;
+			}
+
+			else
+			{
+				e->flags &= ~HELPLESS;
+			}
+		}
+	}
+}
+
 void doNothing()
 {
 	self->thinkTime--;
@@ -506,6 +553,17 @@ void floatLeftToRight()
 			self->thinkTime = 120;
 		}
 	}
+}
+
+void syncBoulderFrameSpeed()
+{
+	float distancePerRevolution = self->w;
+
+	distancePerRevolution *= PI;
+
+	distancePerRevolution /= getFrameCount(self) + 1;
+
+	self->frameSpeed = fabs(self->dirX) / distancePerRevolution;
 }
 
 void entityDie()

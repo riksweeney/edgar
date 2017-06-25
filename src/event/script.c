@@ -1018,6 +1018,18 @@ void readNextScriptLine()
 			script.thinkTime = atoi(token);
 		}
 
+		else if (strcmpignorecase("REMOVE_ALL_SPAWNED_IN", command) == 0)
+		{
+			removeAllSpawnedIn();
+		}
+
+		else if (strcmpignorecase("DISABLE_SPAWNERS", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			disableSpawners(atoi(token));
+		}
+
 		else if (strcmpignorecase("PLAY_SOUND", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);

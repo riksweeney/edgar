@@ -1310,7 +1310,7 @@ static void invisibleDropWait()
 
 static void bridgeDestroyInit()
 {
-	Target *t = getTargetByName("GARGOYLE_MID_TARGET");
+	Target *t = getTargetByName("GARGOYLE_BOTTOM_TARGET");
 
 	setEntityAnimation(self, "LANCE_THROW_READY");
 
@@ -1350,35 +1350,19 @@ static void bridgeDestroyFollowPlayer()
 {
 	float target;
 
-	target = player.x - self->w / 2 + player.w / 2;
+	self->thinkTime--;
 
-	/* Move above the player */
-
-	if (fabs(target - self->x) <= fabs(self->dirX))
+	if (self->thinkTime <= 0)
 	{
-		self->targetY = self->y - self->h;
+		self->thinkTime = 0;
 
-		self->thinkTime = 15;
+		target = player.x - self->w / 2 + player.w / 2;
 
-		self->dirX = 0;
+		/* Move above the player */
 
-		if (player.y < getMapStartY() + SCREEN_HEIGHT)
+		if (fabs(target - self->x) <= fabs(self->dirX))
 		{
-			self->action = &bridgeDestroy;
-		}
-	}
-
-	else
-	{
-		self->dirX = self->speed;
-
-		self->x += target > self->x ? self->dirX : -self->dirX;
-
-		if (self->x < self->startX)
-		{
-			self->x = self->startX;
-
-			/* Throw if at the edge of the screen */
+			self->targetY = self->y - self->h;
 
 			self->thinkTime = 15;
 
@@ -1390,19 +1374,42 @@ static void bridgeDestroyFollowPlayer()
 			}
 		}
 
-		else if (self->x > self->endX)
+		else
 		{
-			self->x = self->endX;
+			self->dirX = self->speed;
 
-			/* Throw if at the edge of the screen */
+			self->x += target > self->x ? self->dirX : -self->dirX;
 
-			self->thinkTime = 15;
-
-			self->dirX = 0;
-
-			if (player.y < getMapStartY() + SCREEN_HEIGHT)
+			if (self->x < self->startX)
 			{
-				self->action = &bridgeDestroy;
+				self->x = self->startX;
+
+				/* Throw if at the edge of the screen */
+
+				self->thinkTime = 15;
+
+				self->dirX = 0;
+
+				if (player.y < getMapStartY() + SCREEN_HEIGHT)
+				{
+					self->action = &bridgeDestroy;
+				}
+			}
+
+			else if (self->x > self->endX)
+			{
+				self->x = self->endX;
+
+				/* Throw if at the edge of the screen */
+
+				self->thinkTime = 15;
+
+				self->dirX = 0;
+
+				if (player.y < getMapStartY() + SCREEN_HEIGHT)
+				{
+					self->action = &bridgeDestroy;
+				}
 			}
 		}
 	}
