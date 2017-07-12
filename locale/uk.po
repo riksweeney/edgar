@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-11-13 13:32+0000\n"
+"PO-Revision-Date: 2017-07-10 14:08+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-14 07:01+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2017-07-12 05:53+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 "Language: uk\n"
 
 #: data/scripts/olaf.dat:6
@@ -5119,8 +5119,8 @@ msgid "A potion which will transform you..."
 msgstr "Зілля, що перетворить тебе..."
 
 #: data/props/item/health_potion.props:6
-msgid "A potion which will restore all of your health"
-msgstr "Зілля, що повністю відновить здоров’я"
+msgid "A potion which will restore 5 health points"
+msgstr "Зілля відновлення 5 одиниць здоров’я"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"

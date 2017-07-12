@@ -192,7 +192,7 @@ void getInput(int gameType)
 
 				else if (key == SCREENSHOT_KEY && game.gameType != RECORDING)
 				{
-					takeSingleScreenshot("edgar.bmp");
+					takeSingleScreenshot("edgar.png");
 				}
 
 				if (key == SDLK_UP)

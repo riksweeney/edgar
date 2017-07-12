@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-12 05:52+0000\n"
-"X-Generator: Launchpad (build 17487)\n"
+"X-Launchpad-Export-Date: 2017-07-06 21:52+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 "Language: sk\n"
 
 #: data/scripts/olaf.dat:6
@@ -4800,7 +4800,7 @@ msgid "A potion which will transform you..."
 msgstr ""
 
 #: data/props/item/health_potion.props:6
-msgid "A potion which will restore all of your health"
+msgid "A potion which will restore 5 health points"
 msgstr ""
 
 #: data/props/item/bomb.props:6

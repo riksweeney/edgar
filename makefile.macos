@@ -1,4 +1,4 @@
-VERSION = 1.27
+VERSION = 1.28
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -194,4 +194,4 @@ uninstall:
 		$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
 
-include makefile.dep
+-include makefile.dep

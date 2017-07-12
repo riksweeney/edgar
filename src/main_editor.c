@@ -168,7 +168,7 @@ int main(int argc, char *argv[])
 
 			drawExport();
 
-			snprintf(filename, MAX_VALUE_LENGTH, "%03d_%s_%03d.bmp", row, argv[1], col);
+			snprintf(filename, MAX_VALUE_LENGTH, "%03d_%s_%03d.png", row, argv[1], col);
 
 			takeSingleScreenshot(filename);
 

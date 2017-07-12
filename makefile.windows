@@ -1,4 +1,4 @@
-VERSION = 1.27
+VERSION = 1.28
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -101,4 +101,4 @@ buildpak: $(PAK_PROG)
 	wine $(PAK_PROG) data gfx music sound font $(PAK_FILE)
 	wine $(PAK_PROG) -test $(PAK_FILE)
 
-include makefile.dep
+-include makefile.dep

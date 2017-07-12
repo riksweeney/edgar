@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: The Legend of Edgar 0.98\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-11-10 07:45+0000\n"
+"PO-Revision-Date: 2017-07-02 07:09+0000\n"
 "Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-02 22:41+0000\n"
-"X-Generator: Launchpad (build 17274)\n"
+"X-Launchpad-Export-Date: 2017-07-06 21:52+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 "X-Poedit-Country: UNITED STATES\n"
 "Language: en_US\n"
 "X-Poedit-Language: English\n"
@@ -5181,8 +5181,8 @@ msgid "A potion which will transform you..."
 msgstr "A potion which will transform you..."
 
 #: data/props/item/health_potion.props:6
-msgid "A potion which will restore all of your health"
-msgstr "A potion which will restore all of your health"
+msgid "A potion which will restore 5 health points"
+msgstr "A potion which will restore 5 health points"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
@@ -6118,7 +6118,7 @@ msgstr "The Swamp Guardian"
 
 #: src/credits.c:128
 msgid "The Gargoyle"
-msgstr ""
+msgstr "The Gargoyle"
 
 #: src/credits.c:129
 msgid "The Blob"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-11-08 04:06+0000\n"
+"PO-Revision-Date: 2017-07-11 13:59+0000\n"
 "Last-Translator: maruhiro <maruhiro@bridge.ocn.ne.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2017-07-12 05:53+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 "Language: ja\n"
 
 #: data/scripts/olaf.dat:6
@@ -811,13 +811,13 @@ msgstr "コウモリは大丈夫だったけど…"
 
 #: data/scripts/borgan.dat:38
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr "ところで、 あの炭鉱では数年前に何かあったそうだ。"
+msgstr "ところで、 あの炭鉱では数年前に事故があったそうだ。"
 
 #: data/scripts/borgan.dat:39
 msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
-msgstr "ああ、 そうだ、 「事件」と言ったほうがいいだろう。 だが、 炭鉱のその場所は 長いこと立ち入り禁止になっている。"
+msgstr "いや、 「事件」と言ったほうがいいだろう。 だが、 炭鉱のその場所は 長いこと立ち入り禁止になっている。"
 
 #: data/scripts/borgan.dat:40
 msgid "Right..."
@@ -4084,7 +4084,7 @@ msgstr "おや、 あれは見たことがある。"
 
 #: data/scripts/spores.dat:2
 msgid "They look like hypnotic spores"
-msgstr "睡眠胞子みたいだ。"
+msgstr "眠り胞子みたいだ。"
 
 #: data/scripts/spores.dat:3
 msgid ""
@@ -4758,8 +4758,8 @@ msgid "A potion which will transform you..."
 msgstr "あなたを変身させる薬…"
 
 #: data/props/item/health_potion.props:6
-msgid "A potion which will restore all of your health"
-msgstr "体力を全回復させる薬"
+msgid "A potion which will restore 5 health points"
+msgstr "体力が 5ポイント 回復する 薬"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
@@ -5519,7 +5519,7 @@ msgstr "アルマジロのトゲ玉。 投げるとトゲを撒き散らす"
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
-msgstr "ウワバミに爆弾を飲み込ませてみよう…"
+msgstr "ワームに爆弾を飲み込ませてみよう…"
 
 #: data/props/item/spores.props:5
 msgid "Spores that will make certain monsters temporarily harmless"
@@ -5719,7 +5719,7 @@ msgstr "フェニックス"
 
 #: src/credits.c:134
 msgid "The Borer"
-msgstr "ウワバミ"
+msgstr "ワーム"
 
 #: data/scripts/evil_edgar_start.dat:1
 msgid "Evil Edgar"
@@ -5899,7 +5899,7 @@ msgstr "ブロブを倒した"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
-msgstr "ウワバミを倒した"
+msgstr "ワームを倒した"
 
 #: data/medals.dat:43
 msgid "Defeated Evil Edgar"
@@ -6043,7 +6043,7 @@ msgstr "武器庫"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr "ウワバミの洞窟"
+msgstr "ワームの洞窟"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
@@ -6131,7 +6131,7 @@ msgstr "書庫"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr "ウワバミの洞窟"
+msgstr "ワームの洞窟"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"

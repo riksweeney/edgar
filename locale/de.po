@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2017-04-22 16:50+0000\n"
+"PO-Revision-Date: 2017-07-01 13:29+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-23 07:29+0000\n"
-"X-Generator: Launchpad (build 18361)\n"
+"X-Launchpad-Export-Date: 2017-07-06 21:52+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 "Language: de\n"
 
 #: data/scripts/olaf.dat:6
@@ -5376,8 +5376,8 @@ msgid "A potion which will transform you..."
 msgstr "Ein elixir, dass dich verwandeln wird..."
 
 #: data/props/item/health_potion.props:6
-msgid "A potion which will restore all of your health"
-msgstr "Ein Elixir, das deine Gesundheit wiederherstellen wird"
+msgid "A potion which will restore 5 health points"
+msgstr "Ein Trank, der 5  Gesundheitspunkte wieder herstellt"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"

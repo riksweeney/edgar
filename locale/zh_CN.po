@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2013-05-21 08:12+0000\n"
-"Last-Translator: supermurray <u5206800@anu.edu.au>\n"
+"PO-Revision-Date: 2017-07-04 22:22+0000\n"
+"Last-Translator: sudofluff <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-10 07:28+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2017-07-06 21:52+0000\n"
+"X-Generator: Launchpad (build 18419)\n"
 "Language: zh_CN\n"
 
 #: data/scripts/olaf.dat:6
@@ -4747,8 +4747,8 @@ msgid "A potion which will transform you..."
 msgstr "一瓶药剂能使你变形……"
 
 #: data/props/item/health_potion.props:6
-msgid "A potion which will restore all of your health"
-msgstr "一瓶能恢复你全部生命值的药剂"
+msgid "A potion which will restore 5 health points"
+msgstr ""
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
@@ -6575,20 +6575,20 @@ msgstr ""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"
-msgstr ""
+msgstr "图书馆钥匙"
 
 #: data/props/item/yellow_gem.props:4
 msgid "Yellow Gem"
-msgstr ""
+msgstr "黄色香口胶"
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"
-msgstr ""
+msgstr "曼德拉草根"
 
 #: data/props/item/cauldron.props:160
 msgid "Mantis Fat"
-msgstr ""
+msgstr "螳螂脂肪"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
-msgstr ""
+msgstr "秃鹰骨头"
