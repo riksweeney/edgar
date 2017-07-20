@@ -180,7 +180,7 @@ static void recurseDirectory(char *dirName)
 
 	if (dirp == NULL)
 	{
-		printf("%s: Directory does not exist or is not accessable\n", dirName);
+		printf("%s: Directory does not exist or is not accessible\n", dirName);
 
 		exit(1);
 	}
