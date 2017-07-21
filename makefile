@@ -166,6 +166,8 @@ endif
 	cp $(PROG) $(BIN_DIR)$(PROG)
 ifndef NO_PAK
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
+else
+	cp -a data gfx music sound font $(DATA_DIR)
 endif
 	cp $(DOCS) $(DOC_DIR)
 	cp $(ICONS)16x16.png $(ICON_DIR)16x16/apps/$(PROG).png
