@@ -27,7 +27,7 @@ FileData *fileData;
 static int countFiles(char *);
 static void cleanup(void);
 static void recurseDirectory(char *);
-static void compressFile(char *, DIR *);
+static void compressFile(char *);
 static void testPak(char *);
 
 int main(int argc, char *argv[])
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
 		recurseDirectory(argv[i]);
 	}
 
-	compressFile(versionName, NULL);
+	compressFile(versionName);
 
 	remove(versionName);
 
@@ -180,7 +180,7 @@ static void recurseDirectory(char *dirName)
 
 	if (dirp == NULL)
 	{
-		printf("%s: Directory does not exist or is not accessable\n", dirName);
+		printf("%s: Directory does not exist or is not accessible\n", dirName);
 
 		exit(1);
 	}
@@ -205,14 +205,14 @@ static void recurseDirectory(char *dirName)
 
 		else
 		{
-			compressFile(filename, dirp);
+			compressFile(filename);
 		}
 	}
 
 	closedir(dirp);
 }
 
-static void compressFile(char *filename, DIR *dirp)
+static void compressFile(char *filename)
 {
 	FILE *infile;
 	int compressionResult;
@@ -228,7 +228,6 @@ static void compressFile(char *filename, DIR *dirp)
 	{
 		printf("Couldn't open %s for reading!\n", filename);
 
-		closedir(dirp);
 		fclose(pak);
 
 		exit(1);
@@ -274,8 +273,6 @@ static void compressFile(char *filename, DIR *dirp)
 	if (!fp)
 	{
 		printf("Couldn't open %s for reading!\n", filename);
-
-		closedir(dirp);
 
 		fclose(pak);
 
