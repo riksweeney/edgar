@@ -20,19 +20,20 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "headers.h"
 
 FILE *pak;
-int fileID = 0;
+int fileID;
 int32_t totalFiles;
 FileData *fileData;
+char **filenames;
 
-static int countFiles(char *);
+static void getFilenames(char *, int *);
 static void cleanup(void);
-static void recurseDirectory(char *);
 static void compressFile(char *);
 static void testPak(char *);
+static int compare (const void *, const void *);
 
 int main(int argc, char *argv[])
 {
-	int i;
+	int i, arraySize;
 	int32_t length;
 	char versionName[5];
 	FILE *versionFile;
@@ -54,15 +55,21 @@ int main(int argc, char *argv[])
 
 		exit(1);
 	}
+	
+	atexit(cleanup);
 
 	pak = fopen(argv[argc - 1], "wb");
 
-	totalFiles = 0;
+	arraySize = 1000;
+	
+	filenames = malloc(arraySize * sizeof(char *));
 
 	for (i=1;i<argc-1;i++)
 	{
-		totalFiles += countFiles(argv[i]);
+		getFilenames(argv[i], &arraySize);
 	}
+	
+	qsort(filenames, totalFiles, sizeof(char *), compare);
 
 	totalFiles++;
 
@@ -79,8 +86,6 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	atexit(cleanup);
-
 	snprintf(versionName, sizeof(versionName), "%0.2f", VERSION);
 
 	versionFile = fopen(versionName, "wb");
@@ -89,9 +94,9 @@ int main(int argc, char *argv[])
 
 	fclose(versionFile);
 
-	for (i=1;i<argc-1;i++)
+	for (i=0;i<totalFiles-1;i++)
 	{
-		recurseDirectory(argv[i]);
+		compressFile(filenames[i]);
 	}
 
 	compressFile(versionName);
@@ -127,12 +132,12 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-static int countFiles(char *dirName)
+static void getFilenames(char *dirName, int *arraySize)
 {
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
 	char filename[MAX_FILE_LENGTH];
-	int count = 0;
+	char **ptr;
 
 	dirp = opendir(dirName);
 
@@ -151,65 +156,70 @@ static int countFiles(char *dirName)
 		{
 			closedir(dirp2);
 
-			count += countFiles(filename);
+			getFilenames(filename, arraySize);
 		}
 
 		else
 		{
-			count++;
+			filenames[totalFiles] = malloc(MAX_FILE_LENGTH);
+			
+			STRNCPY(filenames[totalFiles], filename, MAX_FILE_LENGTH);
+			
+			totalFiles++;
+			
+			if (totalFiles == *arraySize)
+			{
+				*arraySize += 500;
+				
+				ptr = realloc(filenames, *arraySize * sizeof(char *));
+				
+				if (ptr)
+				{
+					filenames = ptr;
+				}
+				
+				else
+				{
+					printf("Failed to allocate %d bytes whilst indexing files\n", *arraySize * (int)sizeof(char *));
+
+					exit(1);
+				}
+			}
 		}
 	}
 
 	closedir(dirp);
+}
 
-	return count;
+static int compare(const void *a, const void *b)
+{
+	char* aa = *(char**)a;
+	char* bb = *(char**)b;
+	
+	return strcmpignorecase(aa, bb);
 }
 
 static void cleanup()
 {
-
-}
-
-static void recurseDirectory(char *dirName)
-{
-	DIR *dirp, *dirp2;
-	struct dirent *dfile;
-	char filename[1024];
-
-	dirp = opendir(dirName);
-
-	if (dirp == NULL)
+	int i;
+	
+	if (filenames != NULL)
 	{
-		printf("%s: Directory does not exist or is not accessible\n", dirName);
-
-		exit(1);
+		for (i=0;i<totalFiles-1;i++)
+		{
+			if (filenames[i] != NULL)
+			{
+				free(filenames[i]);
+			}
+		}
+		
+		free(filenames);
 	}
-
-	while ((dfile = readdir(dirp)))
+	
+	if (fileData != NULL)
 	{
-		if (dfile->d_name[0] == '.')
-		{
-			continue;
-		}
-
-		snprintf(filename, sizeof(filename), "%s/%s", dirName, dfile->d_name);
-
-		dirp2 = opendir(filename);
-
-		if (dirp2)
-		{
-			closedir(dirp2);
-
-			recurseDirectory(filename);
-		}
-
-		else
-		{
-			compressFile(filename);
-		}
+		free(fileData);
 	}
-
-	closedir(dirp);
 }
 
 static void compressFile(char *filename)
@@ -227,8 +237,6 @@ static void compressFile(char *filename)
 	if (!infile)
 	{
 		printf("Couldn't open %s for reading!\n", filename);
-
-		fclose(pak);
 
 		exit(1);
 	}
@@ -273,8 +281,6 @@ static void compressFile(char *filename)
 	if (!fp)
 	{
 		printf("Couldn't open %s for reading!\n", filename);
-
-		fclose(pak);
 
 		exit(1);
 	}
@@ -365,7 +371,7 @@ static void testPak(char *pakFile)
 
 	if (fileData == NULL)
 	{
-		printf("Could not allocate %d bytes for FileData\n", (int)(fileCount * sizeof(FileData)));
+		printf("Could not allocate %d bytes for FileData\n", fileCount * (int)sizeof(FileData));
 
 		exit(1);
 	}
