@@ -88,6 +88,7 @@ static void lanceAttack1Wait(void);
 static void lanceAttack2(void);
 static void lanceAttack3(void);
 static void lanceAttackTeleportFinish(void);
+static void lanceThrowTeleportFinish(void);
 static void lanceDie(void);
 static void weaponRemoveBlastInit(void);
 static void weaponRemoveBlast(void);
@@ -129,6 +130,7 @@ static void lanceAttack2(void);
 static void lanceAttack2Wait(void);
 static void lanceDestroyBridge(void);
 static void lanceFallout(void);
+static void lanceThrowFallout(void);
 static void lanceAttack3(void);
 static void fakeLanceDropInit(void);
 static void fakeLanceDropAppear(void);
@@ -1553,8 +1555,6 @@ static void lanceThrow()
 			self->action = &lanceThrowWait;
 
 			self->thinkTime = 30;
-
-			self->maxThinkTime++;
 		}
 	}
 
@@ -1744,6 +1744,8 @@ static void lanceWait()
 		self->pain = &enemyPain;
 
 		self->touch = &entityTouch;
+		
+		self->fallout = &lanceThrowFallout;
 
 		self->action = &lanceDrop;
 	}
@@ -1820,6 +1822,16 @@ static void lanceFallout()
 	self->action = &lanceAttackTeleportFinish;
 }
 
+static void lanceThrowFallout()
+{
+	self->currentFrame = self->head->currentFrame;
+	self->frameTimer = self->head->frameTimer;
+
+	self->y = self->head->y + self->offsetY;
+
+	self->action = &lanceThrowTeleportFinish;
+}
+
 static void lanceDrop()
 {
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
@@ -1831,6 +1843,8 @@ static void lanceDrop()
 		setEntityAnimation(self, "LANCE_IN_GROUND");
 
 		playSoundToMap("sound/enemy/ground_spear/spear", -1, self->x, self->y, 0);
+		
+		self->head->maxThinkTime++;
 
 		switch (self->maxThinkTime)
 		{
@@ -2746,6 +2760,28 @@ static void lanceAttackTeleportFinish()
 		self->touch = NULL;
 
 		self->action = &lanceWait;
+
+		self->mental = 0;
+	}
+}
+
+static void lanceThrowTeleportFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~(NO_DRAW|ATTACKING);
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell", -1, self->x, self->y, 0);
+
+		self->touch = NULL;
+
+		self->action = &lanceWait;
+		
+		self->head->action = &lanceThrowInit;
 
 		self->mental = 0;
 	}
