@@ -147,11 +147,7 @@ install: all
 ifeq ($(DEV),1)
 	echo Cannot install if DEV is set to 1!
 else
-ifndef NO_PAK
-	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
-	./$(PAK_PROG) -test $(PAK_FILE)
-endif
-
+	$(MAKE) buildpak
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)
 	mkdir -p $(DOC_DIR)
@@ -166,6 +162,8 @@ endif
 	cp $(PROG) $(BIN_DIR)$(PROG)
 ifndef NO_PAK
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
+else
+	cp -a data gfx music sound font $(DATA_DIR)
 endif
 	cp $(DOCS) $(DOC_DIR)
 	cp $(ICONS)16x16.png $(ICON_DIR)16x16/apps/$(PROG).png
