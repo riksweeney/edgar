@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2014-10-09 06:06+0000\n"
-"Last-Translator: RedGuff <domsau2@yahoo.fr>\n"
+"PO-Revision-Date: 2017-08-01 09:09+0000\n"
+"Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-07-06 21:53+0000\n"
-"X-Generator: Launchpad (build 18419)\n"
+"X-Launchpad-Export-Date: 2017-08-02 05:49+0000\n"
+"X-Generator: Launchpad (build 18441)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
@@ -56,7 +56,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
-msgstr ""
+msgstr "Kiel?"
 
 #: data/scripts/olaf.dat:16
 msgid ""
@@ -6554,7 +6554,7 @@ msgstr ""
 
 #: src/item/apple_tree.h:20
 msgid "Apple"
-msgstr ""
+msgstr "Pomo"
 
 #: src/boss/evil_edgar.c:703
 msgid "Dud Exploding Gazer Eyeball"
