@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 1.29
+* Added Indonesian translation
+
 Version 1.28
 * Updated German, Italian, Japanese, Simplified Chinese, Russian and Ukrainian translations
 * Fixed a problem where the Gargoyle could freeze if its lance was thrown through a missing bridge section

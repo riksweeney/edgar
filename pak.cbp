@@ -33,7 +33,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option='-DVERSION=&quot;1.28&quot;' />
+			<Add option='-DVERSION=&quot;1.29&quot;' />
 			<Add directory="../../../../MinGW/libs/SDL-1.2.15/include" />
 			<Add directory="../../../../MinGW/libs/CEGUI-0.7.9/dependencies/include" />
 		</Compiler>
