@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2017-08-01 09:09+0000\n"
+"PO-Revision-Date: 2018-01-17 02:15+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-08-02 05:49+0000\n"
-"X-Generator: Launchpad (build 18441)\n"
+"X-Launchpad-Export-Date: 2018-01-17 06:56+0000\n"
+"X-Generator: Launchpad (build 18532)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
@@ -28,11 +28,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr ""
+msgstr "Mi certe faros"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
-msgstr ""
+msgstr "Do kio okazas nun?"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
@@ -98,11 +98,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr ""
+msgstr "Jes estas! Dankon pro trovado!"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "Mi devus vendi ĉi tion por deca prezo ĉe la merkato"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "Reiru al la fortikaĵo?"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
@@ -220,7 +220,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
-msgstr ""
+msgstr "Jes, kiel vi sciis?"
 
 #: data/scripts/olaf.dat:101
 msgid "Where I'm from it used to happen at least once a month"
@@ -228,7 +228,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:103
 msgid "Why are you here?"
-msgstr ""
+msgstr "Kial vi estas ĉi tie?"
 
 #: data/scripts/olaf.dat:104
 msgid "The sorceror caught me looting his fortress and he banished me here"
@@ -236,11 +236,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"
-msgstr ""
+msgstr "Kion vi ŝtelis?"
 
 #: data/scripts/olaf.dat:106
 msgid "It was a small golden statue, probably worth a lot of money"
-msgstr ""
+msgstr "Ĝi estis malgranda ora statuo, verŝajne valora multe da mono"
 
 #: data/scripts/olaf.dat:107
 msgid ""
@@ -269,11 +269,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:114
 msgid "OK, good luck!"
-msgstr ""
+msgstr "Bone, bonŝanco!"
 
 #: data/scripts/olaf.dat:120
 msgid "What do you need?"
-msgstr ""
+msgstr "Kion vi bezonas?"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
@@ -287,7 +287,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr ""
+msgstr "Jen ĝi?"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
@@ -307,7 +307,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:132
 msgid "OK, it was just a suggestion"
-msgstr ""
+msgstr "Bone, tio estis nur sugesto"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
@@ -321,7 +321,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr ""
+msgstr "Dankon!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
@@ -339,7 +339,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
-msgstr ""
+msgstr "Bone"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
@@ -347,7 +347,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:147
 msgid "Sorry, did you say something?"
-msgstr ""
+msgstr "Pardonu, ĉu vi diris ion?"
 
 #: data/scripts/olaf.dat:148
 msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
@@ -355,7 +355,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:159
 msgid "Yes, let's go"
-msgstr ""
+msgstr "Jes, ni iru"
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
@@ -363,7 +363,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr ""
+msgstr "Dankon, Olafo"
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
@@ -397,7 +397,7 @@ msgstr ""
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "Eble neniu aŭdis tion?"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
@@ -415,7 +415,7 @@ msgstr ""
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "The shield will protect you from most enemy attacks"
-msgstr ""
+msgstr "La ŝildo protektos vin de plej multaj malamikoj"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
@@ -445,11 +445,11 @@ msgstr ""
 
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
-msgstr ""
+msgstr "Ĝi estas portreto"
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
-msgstr ""
+msgstr "Mi havas ĝin!"
 
 #: data/scripts/scorpion_statue.dat:2
 msgid ""
@@ -466,7 +466,7 @@ msgstr ""
 
 #: data/scripts/outskirts_intro.dat:15
 msgid "Wait, what's that?"
-msgstr ""
+msgstr "Atendu, kio estas tio?"
 
 #: data/scripts/outskirts_intro.dat:23
 msgid "Maybe I could tunnel my way in..."
@@ -478,7 +478,7 @@ msgstr ""
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "Ho, kio estas tio?"
 
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
@@ -499,7 +499,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:10
 msgid "So, you escaped"
-msgstr ""
+msgstr "Do vi eskapis"
 
 #: data/scripts/sorceror_intro_2.dat:11
 msgid "Yes I did, and my father wasn't there"
@@ -523,7 +523,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
-msgstr ""
+msgstr "Vi ĝenas malgranda brato"
 
 #: data/scripts/sorceror_intro_2.dat:21
 msgid "I wouldn't be surprised if your father has abandoned you"
@@ -531,11 +531,11 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?!"
-msgstr ""
+msgstr "Kio?!"
 
 #: data/scripts/sorceror_intro_2.dat:23
 msgid "I'll show you!"
-msgstr ""
+msgstr "Mi montros al vi"
 
 #: data/scripts/sorceror_intro_2.dat:28
 msgid "That, was a mistake"
@@ -551,7 +551,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:35
 msgid "Where did he go?"
-msgstr ""
+msgstr "Kie li iris?"
 
 #: data/scripts/old_shield.dat:12
 msgid ""
@@ -565,7 +565,7 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
-msgstr ""
+msgstr "Granda, malpeza ŝildo!"
 
 #: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
@@ -592,11 +592,11 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
-msgstr ""
+msgstr "Tio ne estas bona signo..."
 
 #: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
-msgstr ""
+msgstr "Estas noto ĉi tie"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
@@ -624,7 +624,7 @@ msgstr ""
 
 #: data/scripts/centurion_note_2.dat:7
 msgid "There's a skull here"
-msgstr ""
+msgstr "Jen kranio ĉi tie"
 
 #: data/scripts/centurion_note_2.dat:8
 msgid "Looks like he didn't manage to get out..."
@@ -636,7 +636,7 @@ msgstr ""
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Reiru nun"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
@@ -653,7 +653,7 @@ msgstr ""
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "Gratulojn, vi trovis sekreton!"
 
 #: data/scripts/tutorial_secret.dat:3
 msgid "There are many secrets in the main game so keep a look out for them"
@@ -719,19 +719,19 @@ msgstr ""
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
-msgstr ""
+msgstr "Tenu praktikadon!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi"
-msgstr ""
+msgstr "Saluton"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
-msgstr ""
+msgstr "Saluton Edgaro"
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "Ĉu mi povas prunti vian ŝildon?"
 
 #: data/scripts/borgan.dat:14
 msgid "Off to practice your fighting skills?"
@@ -776,7 +776,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:23
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "Ĉu vi havas sakon?"
 
 #: data/scripts/borgan.dat:24
 msgid "No, you can probably find one in the mine though"
@@ -784,7 +784,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:25
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "Bone, mi akiros la karbon"
 
 #: data/scripts/borgan.dat:27
 msgid ""
@@ -841,7 +841,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
-msgstr ""
+msgstr "Dankon, Borgano!"
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
@@ -887,7 +887,7 @@ msgstr ""
 
 #: data/scripts/slime_potion_pool.dat:3
 msgid "It looks like..."
-msgstr ""
+msgstr "Ĝi aspektas kiel..."
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
@@ -919,7 +919,7 @@ msgstr ""
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "Ho Edgaro, vi estas vundita! Lasu min resanigi viajn vundojn"
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
@@ -944,7 +944,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Via sorĉado plu ne funkcios kontraŭ mi"
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
@@ -964,7 +964,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Adiaŭ, Edgaro"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
@@ -1014,11 +1014,11 @@ msgstr ""
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "Kie mi estas?"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
-msgstr ""
+msgstr "Nun provu vian ŝildon"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
@@ -1046,11 +1046,11 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr ""
+msgstr "Edgaro! Edgaro, kie vi estas?"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "!"
-msgstr ""
+msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
@@ -1062,15 +1062,15 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr ""
+msgstr "Paĉjo!"
 
 #: data/scripts/jacob.dat:14
 msgid "Edgar!"
-msgstr ""
+msgstr "Edgaro!"
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Jakobo, mi trovis lin!"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
@@ -1078,7 +1078,7 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "Mi venis por savi vin!"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
@@ -1147,11 +1147,11 @@ msgstr ""
 
 #: data/scripts/monsters.dat:8
 msgid "Chaos"
-msgstr ""
+msgstr "Ĥaoso"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr ""
+msgstr "Ĥaoso estas malnova, malica drako"
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
@@ -1200,7 +1200,7 @@ msgstr ""
 
 #: data/scripts/monsters.dat:24
 msgid "Unless..."
-msgstr ""
+msgstr "Krom se..."
 
 #: data/scripts/sorceror_start.dat:5
 msgid "Grimlore"
@@ -1614,7 +1614,7 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:36
 msgid "Swords... Armour... Wands..."
-msgstr ""
+msgstr "Glavoj... Kiraso... Vandaloj..."
 
 #: data/scripts/enchanting_weapons.dat:37
 msgid "Stupid book. It's not in order and there's no index"
@@ -1630,7 +1630,7 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:17
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediencoj"
 
 #: data/scripts/occult_book.dat:18
 msgid "One must gather the following"
@@ -1711,11 +1711,11 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:68
 msgid "Find another shield"
-msgstr ""
+msgstr "Trovu alian ŝildon"
 
 #: data/scripts/enchanting_weapons.dat:70
 msgid "Blend eyeballs and tentacle"
-msgstr ""
+msgstr "Miksu okulvitrojn kaj tentaklon"
 
 #: data/scripts/enchanting_weapons.dat:78
 msgid "It's a book about enchanting equipment"
@@ -1742,7 +1742,7 @@ msgstr ""
 
 #: data/scripts/items_found.dat:4
 msgid "If I can..."
-msgstr ""
+msgstr "Se mi povas..."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
@@ -1804,7 +1804,7 @@ msgstr ""
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr ""
+msgstr "Kie iris la sorĉisto?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
@@ -1812,7 +1812,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_1.dat:9
 msgid "Who are you?"
-msgstr ""
+msgstr "Kiu vi estas?"
 
 #: data/scripts/sorceror_intro_1.dat:10
 msgid ""
@@ -1821,7 +1821,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_1.dat:11
 msgid "Fascinating. What do you want?"
-msgstr ""
+msgstr "Fascinante. Kion vi volas?"
 
 #: data/scripts/sorceror_intro_1.dat:12
 msgid "I've come to rescue my father, tell me where he is!"
@@ -1856,7 +1856,7 @@ msgstr ""
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
-msgstr ""
+msgstr "Jen multe da ŝlimo"
 
 #: data/scripts/purifier.dat:4
 msgid ""
@@ -1919,7 +1919,7 @@ msgstr ""
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "Ŭaŭ, laboratorio!"
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
@@ -1971,7 +1971,7 @@ msgstr ""
 
 #: data/scripts/sorceror_start.dat:16
 msgid "Prepare yourself, Edgar"
-msgstr ""
+msgstr "Preparu vin, Edgaro"
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
@@ -1985,7 +1985,7 @@ msgstr ""
 
 #: data/scripts/black_book.dat:1
 msgid "This book is different to the rest"
-msgstr ""
+msgstr "Ĉi tiu libro estas malsama al la resto"
 
 #: data/scripts/black_book.dat:2
 msgid "I can feel a powerful magic emanating from it"
@@ -1993,7 +1993,7 @@ msgstr ""
 
 #: data/scripts/black_book.dat:3
 msgid "A powerful evil magic"
-msgstr ""
+msgstr "Potenca malbona magio"
 
 #: data/scripts/black_book.dat:4
 msgid "Maybe I should leave it alone"
@@ -2091,6 +2091,7 @@ msgstr ""
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
 msgstr ""
+"Por movi Edgaro maldekstren kaj dekstren, uzu [INPUT_LEFT] kaj [INPUT_RIGHT]."
 
 #: data/scripts/tutorial_intro.dat:9
 msgid ""
@@ -2115,7 +2116,7 @@ msgstr ""
 
 #: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
-msgstr ""
+msgstr "Kiu diris tion?"
 
 #: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
@@ -2159,7 +2160,7 @@ msgstr ""
 
 #: data/scripts/centurion_note_1.dat:10
 msgid "Find 9 Puzzle Pieces"
-msgstr ""
+msgstr "Trovu 9 puzajn pecojn"
 
 #: data/scripts/wrong_order.dat:2
 msgid "Nothing happened. I don't think that's the right order"
@@ -2207,7 +2208,7 @@ msgstr ""
 
 #: data/scripts/sleeping.dat:2
 msgid "It's sleeping"
-msgstr ""
+msgstr "Ĝi dormas"
 
 #: data/scripts/sleeping.dat:3
 msgid "I'm safe anyway since it's in that cage..."
@@ -2255,7 +2256,7 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:38
 msgid "several drinks"
-msgstr ""
+msgstr "pluraj trinkaĵoj"
 
 #: data/scripts/ending_part2.dat:39
 msgid "On the way home I stopped by the well to have a drink of water"
@@ -2267,7 +2268,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?"
-msgstr ""
+msgstr "Kio?"
 
 #: data/scripts/ending_part2.dat:45
 msgid "I fell down the well"
@@ -2279,7 +2280,7 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:47
 msgid "Are you kidding me?"
-msgstr ""
+msgstr "Ĉu vi ĝojas min?"
 
 #: data/scripts/ending_part2.dat:49
 msgid "I shouted down that well, didn't you hear me?"
@@ -2295,7 +2296,7 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:53
 msgid "I crossed the swamp"
-msgstr ""
+msgstr "Mi transiris la marĉon"
 
 #: data/scripts/ending_part2.dat:54
 msgid "Broke into the Sorceror's Fortress"
@@ -2315,7 +2316,7 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:58
 msgid "I nearly died!"
-msgstr ""
+msgstr "Mi preskaŭ mortis!"
 
 #: data/scripts/ending_part2.dat:61
 msgid "Near misses don't count"
@@ -2366,7 +2367,7 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:83
 msgid "Be quiet!"
-msgstr ""
+msgstr "Silentu!"
 
 #: data/scripts/ending_part2.dat:84
 msgid "I just need to think of something suitable..."
@@ -2404,7 +2405,7 @@ msgstr ""
 
 #: data/scripts/jigsaw_puzzle.dat:19
 msgid "The frame is empty"
-msgstr ""
+msgstr "La kadro estas malplena"
 
 #: data/scripts/jigsaw_puzzle.dat:20
 msgid ""
@@ -2436,7 +2437,7 @@ msgstr ""
 
 #: data/scripts/ice_spray.dat:1
 msgid "More water?!"
-msgstr ""
+msgstr "Pli da akvo?!"
 
 #: data/scripts/ice_spray.dat:7
 msgid ""
@@ -2492,7 +2493,7 @@ msgstr ""
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "Nun mortigu ĉiujn batojn en la regiono!"
 
 #: data/scripts/raft_2.dat:8
 msgid "Aw, not again!"
@@ -2538,7 +2539,7 @@ msgstr ""
 
 #: data/scripts/robot.dat:3
 msgid "The robot uses instruction cards to move around"
-msgstr ""
+msgstr "La roboto uzas instrukartojn por moviĝi"
 
 #: data/scripts/robot.dat:4
 msgid ""
@@ -2565,7 +2566,7 @@ msgstr ""
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
-msgstr ""
+msgstr "Ho ne, mi estas kaptita!"
 
 #: data/scripts/dungeon_intro.dat:13
 msgid "There must be a way to get this door open"
@@ -2641,7 +2642,7 @@ msgstr ""
 
 #: data/scripts/soul_merger.dat:29
 msgid "Wait, something's wrong..."
-msgstr ""
+msgstr "Atendu, io malbona..."
 
 #: data/scripts/soul_merger.dat:30
 msgid "OH NO! THIS IS THE WRONG MACHINE!!"
@@ -2716,7 +2717,7 @@ msgstr ""
 
 #: data/scripts/protection_ring.dat:3
 msgid "Wow, what a nice ring"
-msgstr ""
+msgstr "Ŭaŭ, kia bela ringo"
 
 #: data/scripts/protection_ring.dat:5
 msgid ""
@@ -2762,7 +2763,7 @@ msgstr ""
 
 #: data/scripts/crossbow.dat:25
 msgid "It's a giant crossbow"
-msgstr ""
+msgstr "Ĝi estas giganta ballestero"
 
 #: data/scripts/crossbow.dat:29
 msgid "I could probably use it to create a bridge over those spikes"
@@ -2774,7 +2775,7 @@ msgstr ""
 
 #: data/scripts/fortress_mine_lift.dat:1
 msgid "There's a sign here"
-msgstr ""
+msgstr "Jen signo ĉi tie"
 
 #: data/scripts/fortress_mine_lift.dat:2
 msgid "If the lift is out of order then it must be reset"
@@ -2828,7 +2829,7 @@ msgstr ""
 
 #: data/scripts/apple_tree.dat:1
 msgid "It's an apple tree"
-msgstr ""
+msgstr "Ĝi estas pomarbo"
 
 #: data/scripts/apple_tree.dat:2
 msgid "Shame it's not a banana tree, I don't like apples"
@@ -2848,7 +2849,7 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
-msgstr ""
+msgstr "Multaj libroj"
 
 #: data/scripts/occult_book.dat:3
 msgid "Nothing of interest here though"
@@ -2947,7 +2948,7 @@ msgstr ""
 
 #: data/scripts/creepers.dat:3
 msgid "They also look very dangerous..."
-msgstr ""
+msgstr "Ili ankaŭ aspektas tre danĝeraj..."
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
@@ -6591,4 +6592,4 @@ msgstr ""
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
-msgstr ""
+msgstr "Kondoraj ostoj"
