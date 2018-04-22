@@ -72,12 +72,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		STRNCPY(language, languageCode, MAX_LINE_LENGTH);
 	}
 
-	if (strstr(language, ".") != NULL)
-	{
-		lang = strtok(language, ".");
-
-		STRNCPY(language, lang, MAX_LINE_LENGTH);
-	}
+	strtok(language, ".");
 
 	printf("Locale is %s\n", language);
 
@@ -100,9 +95,7 @@ void setLanguage(char *applicationName, char *languageCode)
 			return;
 		}
 
-		lang = strtok(language, "_");
-
-		STRNCPY(language, lang, MAX_LINE_LENGTH);
+		strtok(language, "_");
 
 		snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 

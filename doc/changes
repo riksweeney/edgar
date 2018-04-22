@@ -4,6 +4,7 @@ CHANGE LOG
 Version 1.29
 * Added Indonesian translation
 * Updated Esperanto translation
+* Fixed a crash on some systems when determining the localisation
 
 Version 1.28
 * Updated German, Italian, Japanese, Simplified Chinese, Russian and Ukrainian translations
