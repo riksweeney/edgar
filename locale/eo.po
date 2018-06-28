@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2018-04-21 04:57+0000\n"
+"PO-Revision-Date: 2018-06-22 18:18+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-04-21 10:28+0000\n"
-"X-Generator: Launchpad (build 18617)\n"
+"X-Launchpad-Export-Date: 2018-06-26 06:41+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr ""
+msgstr "Dankon, ĉi tio estas perfekta!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr ""
+msgstr "Ĉu vi havas ĉion, kion vi bezonas nun?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
@@ -36,11 +36,12 @@ msgstr "Do kio okazas nun?"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
-msgstr ""
+msgstr "Ni povas eliri el ĉi tie! Kien vi volas iri?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
 msgstr ""
+"Reen al la fortikaĵo, mi ankoraŭ bezonas savi mian paĉjon el la sorĉisto"
 
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
@@ -48,11 +49,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr ""
+msgstr "Mi pensas tiel..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
-msgstr ""
+msgstr "Iru al la laboratorio kaj kombini tiun ringon kaj vian ŝildon"
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
@@ -90,7 +91,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr ""
+msgstr "Donu la statuon al Olafo?"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
@@ -110,7 +111,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "Preta por iri?"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
@@ -126,11 +127,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "Ĉu vi ankoraŭ sukcesis trovi la kornon?"
 
 #: data/scripts/olaf.dat:62
 msgid "Have you found everything yet?"
-msgstr ""
+msgstr "Ĉu vi ankoraŭ trovis ĉion?"
 
 #: data/scripts/olaf.dat:63
 msgid "Not yet, I'm still looking"
@@ -6343,7 +6344,7 @@ msgstr ""
 
 #: src/credits.c:458
 msgid "Chaos has been subdued"
-msgstr ""
+msgstr "Kaoso estis submetita"
 
 #: src/credits.c:460
 msgid "For now..."
@@ -6351,7 +6352,7 @@ msgstr ""
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"
-msgstr ""
+msgstr "Kaoso baldaŭ estos libera"
 
 #: src/credits.c:467
 msgid "To terrorise the world once again"
@@ -6363,7 +6364,7 @@ msgstr "Fendo"
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Tendroj"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
@@ -6393,11 +6394,11 @@ msgstr ""
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
-msgstr ""
+msgstr "Ĝi finiĝis"
 
 #: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
-msgstr ""
+msgstr "Hej, kio estas tio? Ĝi aspektas kiel glavo"
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
@@ -6405,15 +6406,15 @@ msgstr "Ĉi tio devas esti la glavo de Ivano"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Vi... Vi neniam venkos min"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Mi eskapos de ĉi tiu mizera loko"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Eĉ se ĝi al mi prenas aliajn 100 jarojn"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
@@ -6429,11 +6430,11 @@ msgstr ""
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "Kio horora nokto"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Edgaro, mi devas eliri dum kelkaj horoj"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
@@ -6443,11 +6444,11 @@ msgstr ""
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "La sekvan matenon..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Paĉjo! Kie vi estas?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
@@ -6467,7 +6468,7 @@ msgstr ""
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Io tre potenca estis ĉi tie"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
@@ -6563,7 +6564,7 @@ msgstr ""
 
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
-msgstr ""
+msgstr "Ŝildo de fajro"
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
