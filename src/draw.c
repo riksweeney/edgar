@@ -26,6 +26,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "game.h"
 #include "graphics/decoration.h"
 #include "graphics/graphics.h"
+#include "graphics/texture_cache.h"
 #include "hud.h"
 #include "inventory.h"
 #include "map.h"
@@ -59,7 +60,7 @@ void draw()
 			break;
 
 			case IN_INVENTORY:
-				SDL_SetClipRect(game.screen, NULL);
+				SDL_RenderSetClipRect(game.renderer, NULL);
 
 				showPauseDialog();
 
@@ -105,12 +106,12 @@ void draw()
 
 						rect.w = rect.h = spotlightSize();
 
-						SDL_SetClipRect(game.screen, &rect);
+						SDL_RenderSetClipRect(game.renderer, &rect);
 					}
 
 					else
 					{
-						SDL_SetClipRect(game.screen, NULL);
+						SDL_RenderSetClipRect(game.renderer, NULL);
 					}
 
 					/* Draw the background */
@@ -159,7 +160,7 @@ void draw()
 
 						drawSpotlight(clipX, clipY);
 
-						SDL_SetClipRect(game.screen, NULL);
+						SDL_RenderSetClipRect(game.renderer, NULL);
 					}
 
 					/* Draw the hud */
@@ -191,6 +192,11 @@ void draw()
 							snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 						}
 					#endif
+
+					if (scriptWaiting() == FALSE && (game.frames % 600 == 0))
+					{
+						checkTextureCache();
+					}
 				}
 			break;
 		}
@@ -202,7 +208,7 @@ void draw()
 
 	else
 	{
-		SDL_SetClipRect(game.screen, NULL);
+		SDL_RenderSetClipRect(game.renderer, NULL);
 
 		showPauseDialog();
 
@@ -211,7 +217,7 @@ void draw()
 
 	/* Swap the buffers */
 
-	SDL_Flip(game.screen);
+	SDL_RenderPresent(game.renderer);
 
 	/* Sleep briefly */
 

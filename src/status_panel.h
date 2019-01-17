@@ -19,4 +19,3 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 void setStatusPanelMessage(char *, ...);
 void drawStatusPanel(void);
-void freeStatusPanel(void);

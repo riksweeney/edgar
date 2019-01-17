@@ -251,7 +251,7 @@ static void drawRain()
 	{
 		if (droplet[i].active == TRUE)
 		{
-			drawBox(game.screen, droplet[i].x, droplet[i].y, 1, 8, 220, 220, 220);
+			drawBox(droplet[i].x, droplet[i].y, 1, 8, 220, 220, 220, 255);
 		}
 	}
 }
@@ -264,7 +264,7 @@ static void drawSnow()
 	{
 		if (droplet[i].active == TRUE)
 		{
-			drawBox(game.screen, droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255);
+			drawBox(droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255, 255);
 		}
 	}
 }

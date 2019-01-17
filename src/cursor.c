@@ -410,7 +410,7 @@ void drawCursor()
 
 		if (isValidOnMap(&cursor.entity) == 0 || e != NULL)
 		{
-			drawBox(game.screen, cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
+			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0, 255);
 		}
 
 		if (e != NULL)

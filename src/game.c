@@ -112,24 +112,17 @@ void initGame()
 	game.showHUD = TRUE;
 
 	game.offsetX = game.offsetY = 0;
-
-	if (game.alphaSurface != NULL)
-	{
-		SDL_FreeSurface(game.alphaSurface);
-
-		game.alphaSurface = NULL;
-	}
-
+	
 	if (game.pauseSurface != NULL)
 	{
-		SDL_FreeSurface(game.pauseSurface);
+		destroyTexture(game.pauseSurface);
 
 		game.pauseSurface = NULL;
 	}
 
 	if (game.gameOverSurface != NULL)
 	{
-		SDL_FreeSurface(game.gameOverSurface);
+		destroyTexture(game.gameOverSurface);
 
 		game.gameOverSurface = NULL;
 	}
@@ -170,30 +163,16 @@ void freeGame()
 {
 	if (game.pauseSurface != NULL)
 	{
-		SDL_FreeSurface(game.pauseSurface);
+		destroyTexture(game.pauseSurface);
 
 		game.pauseSurface = NULL;
 	}
-
+	
 	if (game.gameOverSurface != NULL)
 	{
-		SDL_FreeSurface(game.gameOverSurface);
+		destroyTexture(game.gameOverSurface);
 
 		game.gameOverSurface = NULL;
-	}
-
-	if (game.pauseSurface != NULL)
-	{
-		SDL_FreeSurface(game.pauseSurface);
-
-		game.pauseSurface = NULL;
-	}
-
-	if (game.alphaSurface != NULL)
-	{
-		SDL_FreeSurface(game.alphaSurface);
-
-		game.alphaSurface = NULL;
 	}
 }
 
@@ -207,9 +186,15 @@ void drawWeather()
 
 void drawGame()
 {
-	if (game.alphaSurface != NULL)
+	float alpha;
+	
+	if (game.alphaSurface.w != 0 && game.alphaSurface.h != 0)
 	{
-		drawImage(game.alphaSurface, 0, 0, FALSE, -1);
+		alpha = 255.0f / game.alphaTime;
+
+		alpha *= game.thinkTime;
+
+		drawBox(game.alphaSurface.x, game.alphaSurface.y, game.alphaSurface.w, game.alphaSurface.h, game.alphaSurface.r, game.alphaSurface.g, game.alphaSurface.b, alpha);
 	}
 
 	drawGameOver();
@@ -326,7 +311,7 @@ static void wipeOutRightToLeft()
 		return;
 	}
 
-	drawBox(game.screen, game.transitionX < 0 ? 0 : game.transitionX, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(game.transitionX < 0 ? 0 : game.transitionX, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0, 255);
 
 	game.transitionX -= 15;
 }
@@ -347,7 +332,7 @@ static void wipeOutLeftToRight()
 		return;
 	}
 
-	drawBox(game.screen, 0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0, 255);
 
 	game.transitionX += 15;
 }
@@ -368,7 +353,7 @@ static void wipeInLeftToRight()
 		return;
 	}
 
-	drawBox(game.screen, game.transitionX, 0, SCREEN_WIDTH - game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(game.transitionX, 0, SCREEN_WIDTH - game.transitionX, SCREEN_HEIGHT, 0, 0, 0, 255);
 
 	game.transitionX += 15;
 }
@@ -389,7 +374,7 @@ static void wipeInRightToLeft()
 		return;
 	}
 
-	drawBox(game.screen, 0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0, 255);
 
 	game.transitionX -= 15;
 }
@@ -616,12 +601,10 @@ void pauseGame()
 			game.status = IN_MENU;
 
 			game.menu = initMainMenu();
-
+			
 			if (game.pauseSurface == NULL)
 			{
-				game.pauseSurface = createSurface(game.screen->w, game.screen->h);
-
-				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
+				game.pauseSurface = copyScreen();
 			}
 
 			if (game.previousStatus == IN_GAME)
@@ -646,11 +629,11 @@ void pauseGame()
 			{
 				if (game.pauseSurface != NULL)
 				{
-					SDL_FreeSurface(game.pauseSurface);
+					destroyTexture(game.pauseSurface);
 
 					game.pauseSurface = NULL;
 				}
-
+				
 				game.paused = FALSE;
 
 				game.status = game.previousStatus;
@@ -692,23 +675,21 @@ void pauseGameInventory()
 			game.status = IN_INVENTORY;
 
 			clearInventoryDescription();
-
+			
 			if (game.pauseSurface == NULL)
 			{
-				game.pauseSurface = createSurface(game.screen->w, game.screen->h);
-
-				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
+				game.pauseSurface = copyScreen();
 			}
 		break;
 
 		case IN_INVENTORY:
 			if (game.pauseSurface != NULL)
 			{
-				SDL_FreeSurface(game.pauseSurface);
+				destroyTexture(game.pauseSurface);
 
 				game.pauseSurface = NULL;
 			}
-
+			
 			game.status = IN_GAME;
 		break;
 	}
@@ -987,35 +968,28 @@ void fadeFromColour(int r, int g, int b, int fadeTime)
 {
 	game.alphaTime = game.thinkTime = fadeTime;
 
-	if (game.alphaSurface != NULL)
-	{
-		SDL_FreeSurface(game.alphaSurface);
-
-		game.alphaSurface = NULL;
-	}
-
-	game.alphaSurface = createSurface(game.screen->w, game.screen->h);
-
-	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, r, g, b);
+	game.alphaSurface.x = 0;
+	game.alphaSurface.y = 0;
+	game.alphaSurface.w = SCREEN_WIDTH;
+	game.alphaSurface.h = SCREEN_HEIGHT;
+	
+	game.alphaSurface.r = r;
+	game.alphaSurface.g = g;
+	game.alphaSurface.b = b;
+	
+	drawBox(0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0, 255);
 }
 
 static void fadeToNormal()
 {
-	if (game.alphaSurface != NULL)
+	if (game.alphaSurface.w != 0 && game.alphaSurface.h != 0)
 	{
-		float alpha = 255.0f / game.alphaTime;
-
-		alpha *= game.thinkTime;
-
-		SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
-
 		game.thinkTime--;
 
 		if (game.thinkTime <= 0)
 		{
-			SDL_FreeSurface(game.alphaSurface);
-
-			game.alphaSurface = NULL;
+			game.alphaSurface.w = 0;
+			game.alphaSurface.h = 0;
 		}
 	}
 }

@@ -246,8 +246,8 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 			showErrorAndExit("Image index %d is NULL!", animation[e->currentAnim].frameID[e->currentFrame]);
 		}
 
-		e->w = sprite->image->w;
-		e->h = sprite->image->h;
+		e->w = sprite->w;
+		e->h = sprite->h;
 
 		e->box = sprite->box;
 	}
@@ -259,7 +259,7 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 	if (center == 1)
 	{
-		drawImage(sprite->image, x + (w - sprite->image->w) / 2, y + (h - sprite->image->h) / 2, FALSE, e->alpha);
+		drawImage(sprite->image, x + (w - sprite->w) / 2, y + (h - sprite->h) / 2, FALSE, e->alpha);
 	}
 
 	else
@@ -326,7 +326,7 @@ int drawLoopingAnimationToMap()
 
 		self->frameTimer = animation[self->currentAnim].frameTimer[self->currentFrame];
 
-		if (self->face == LEFT)
+		if (self->flags & FLASH)
 		{
 			sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
 		}
@@ -341,8 +341,8 @@ int drawLoopingAnimationToMap()
 			showErrorAndExit("Image index %d is NULL!", animation[self->currentAnim].frameID[self->currentFrame]);
 		}
 
-		self->w = sprite->image->w;
-		self->h = sprite->image->h;
+		self->w = sprite->w;
+		self->h = sprite->h;
 
 		self->offsetX = animation[self->currentAnim].offsetX[self->currentFrame];
 		self->offsetY = animation[self->currentAnim].offsetY[self->currentFrame];
@@ -352,7 +352,7 @@ int drawLoopingAnimationToMap()
 
 	else
 	{
-		if (self->face == LEFT)
+		if (self->flags & FLASH)
 		{
 			sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
 		}
@@ -398,11 +398,11 @@ int drawLoopingAnimationToMap()
 		}
 	}
 
-	if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
+	if (collision(x, y, sprite->w, sprite->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		drawn = TRUE;
 
-		drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
+		drawImage(sprite->image, x, y, (self->face == LEFT) ? TRUE : FALSE, self->alpha);
 
 		/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 	}
@@ -421,7 +421,7 @@ int drawSpriteToMap()
 	startX = getMapStartX();
 	startY = getMapStartY();
 
-	if (self->face == LEFT)
+	if (self->flags & FLASH)
 	{
 		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
 	}
@@ -466,11 +466,11 @@ int drawSpriteToMap()
 		}
 	}
 
-	if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
+	if (collision(x, y, sprite->w, sprite->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		drawn = TRUE;
 
-		drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
+		drawImage(sprite->image, x, y, (self->face == LEFT) ? TRUE : FALSE, self->alpha);
 
 		/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 	}
@@ -486,7 +486,7 @@ void drawSprite(Entity *e, int x, int y, int w, int h, int center)
 
 	if (center == 1)
 	{
-		drawImage(sprite->image, x + (w - sprite->image->w) / 2, y + (h - sprite->image->h) / 2, FALSE, e->alpha);
+		drawImage(sprite->image, x + (w - sprite->w) / 2, y + (h - sprite->h) / 2, FALSE, e->alpha);
 	}
 
 	else
@@ -567,8 +567,8 @@ void setEntityAnimation(Entity *e, char *animationName)
 			showErrorAndExit("Image index %d for %s is NULL!", animation[e->currentAnim].frameID[0], e->name);
 		}
 
-		e->w = sprite->image->w;
-		e->h = sprite->image->h;
+		e->w = sprite->w;
+		e->h = sprite->h;
 
 		e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
 		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
@@ -636,8 +636,8 @@ void setFrameData(Entity *e)
 
 	sprite = getSprite(animation[e->currentAnim].frameID[e->currentFrame]);
 
-	e->w = sprite->image->w;
-	e->h = sprite->image->h;
+	e->w = sprite->w;
+	e->h = sprite->h;
 
 	e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
 	e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
@@ -647,7 +647,7 @@ void setFrameData(Entity *e)
 
 Sprite *getCurrentSprite(Entity *e)
 {
-	if (self->face == LEFT)
+	if (self->flags & FLASH)
 	{
 		return getSprite(animation[e->currentAnim].frameID[e->currentFrame] + 1);
 	}

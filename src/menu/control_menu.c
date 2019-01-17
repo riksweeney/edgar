@@ -416,7 +416,7 @@ static void realignGrid()
 	{
 		if (menu.background != NULL)
 		{
-			SDL_FreeSurface(menu.background);
+			destroyTexture(menu.background);
 
 			menu.background = NULL;
 		}
@@ -449,7 +449,7 @@ void freeControlMenu()
 
 	if (menu.background != NULL)
 	{
-		SDL_FreeSurface(menu.background);
+		destroyTexture(menu.background);
 
 		menu.background = NULL;
 	}

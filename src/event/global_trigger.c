@@ -257,11 +257,11 @@ void updateGlobalTrigger(char *name, int value)
 	}
 }
 
-SDL_Surface *listObjectives()
+Texture *listObjectives()
 {
 	int i;
 	char message[MAX_MESSAGE_LENGTH], *allMessages;
-	SDL_Surface *image;
+	Texture *image;
 
 	allMessages = malloc(MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 

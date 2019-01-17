@@ -22,6 +22,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../audio/audio.h"
 #include "../draw.h"
 #include "../graphics/graphics.h"
+#include "../graphics/texture_cache.h"
 #include "../hud.h"
 #include "../init.h"
 #include "../medal.h"
@@ -53,14 +54,14 @@ void drawMedalsMenu()
 	rect.w = menu.w;
 	rect.h = menu.h;
 
-	SDL_SetClipRect(game.screen, &rect);
+	SDL_RenderSetClipRect(game.renderer, &rect);
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		drawWidget(menu.widgets[i], &menu, -1);
 	}
 
-	SDL_SetClipRect(game.screen, NULL);
+	SDL_RenderSetClipRect(game.renderer, NULL);
 }
 
 static void doMenu()
@@ -163,6 +164,7 @@ static void loadMenuLayout()
 {
 	Medal *medal;
 	int i, width, medalCount;
+	Texture *texture;
 
 	medal = getMedals();
 
@@ -214,7 +216,9 @@ static void loadMenuLayout()
 			width = menu.widgets[i]->x + menu.widgets[i]->normalState->w;
 		}
 
-		menu.widgets[i]->label = createImageLabel(getMedalImage(medal[i].medalType, medal[i].obtained), menu.widgets[i]->x, menu.widgets[i]->y);
+		texture = getMedalImage(medal[i].medalType, medal[i].obtained);
+
+		menu.widgets[i]->label = createImageLabel(texture, menu.widgets[i]->x, menu.widgets[i]->y);
 
 		menu.widgets[i]->label->y = menu.widgets[i]->y + menu.widgets[i]->normalState->h / 2 - menu.widgets[i]->label->text->h / 2;
 
@@ -277,7 +281,7 @@ void freeMedalsMenu()
 
 	if (menu.background != NULL)
 	{
-		SDL_FreeSurface(menu.background);
+		destroyTexture(menu.background);
 
 		menu.background = NULL;
 	}

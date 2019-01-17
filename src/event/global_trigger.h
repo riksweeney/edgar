@@ -23,5 +23,5 @@ void fireGlobalTrigger(char *);
 void writeGlobalTriggersToFile(FILE *);
 void addGlobalTriggerFromScript(char *);
 void updateGlobalTrigger(char *, int);
-SDL_Surface *listObjectives(void);
+Texture *listObjectives(void);
 void removeGlobalTrigger(char *);

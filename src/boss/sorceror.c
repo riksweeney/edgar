@@ -420,11 +420,22 @@ static void disintegrationTouch(Entity *other)
 
 int drawDisintegrationSpell()
 {
-	int colour1, colour2, colour3;
+	Colour colour1, colour2, colour3;
 
-	colour1 = getColour(231, 231, 231);
-	colour2 = getColour(57, 57, 224);
-	colour3 = getColour(41, 41, 160);
+	colour1.r = 231;
+	colour1.g = 231;
+	colour1.b = 231;
+	colour1.a = 255;
+	
+	colour2.r = 57;
+	colour2.g = 57;
+	colour2.b = 224;
+	colour2.a = 255;
+	
+	colour3.r = 41;
+	colour3.g = 41;
+	colour3.b = 160;
+	colour3.a = 255;
 
 	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, colour1, colour2, colour3);
 
@@ -500,7 +511,7 @@ static void arrowTakeDamage(Entity *other, int damage)
 	}
 }
 
-void drawDisintegrationLine(int x1, int y1, int x2, int y2, int colour1, int colour2, int colour3)
+void drawDisintegrationLine(int x1, int y1, int x2, int y2, Colour colour1, Colour colour2, Colour colour3)
 {
 	int speed;
 	float dirX, dirY, x, y, xx, yy;

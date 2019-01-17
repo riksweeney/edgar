@@ -40,10 +40,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define JUMP_HEIGHT 12
 
-#define TRANS_R 127
-#define TRANS_G 255
-#define TRANS_B 127
-
 #define MAX_ANIMATIONS 1024
 
 #define MAX_ENTITIES 1024

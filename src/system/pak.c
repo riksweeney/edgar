@@ -93,10 +93,10 @@ void verifyVersion()
 
             snprintf(version, sizeof(version), "%0.2f", VERSION);
 
-                if (existsInPak(version) == FALSE)
-                {
-                        showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
-                }
+			if (existsInPak(version) == FALSE)
+			{
+				showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
+			}
         #endif
 }
 
@@ -112,6 +112,11 @@ SDL_Surface *loadImageFromPak(char *name)
 	rw = SDL_RWFromMem(buffer, size);
 
 	surface = IMG_Load_RW(rw, TRUE);
+	
+	if (surface == NULL)
+	{
+		showErrorAndExit("Failed to load image %s", name);
+	}
 
 	free(buffer);
 

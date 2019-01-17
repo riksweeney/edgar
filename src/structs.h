@@ -19,11 +19,30 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "defs.h"
 
+typedef struct Texture
+{
+	int w, h;
+	SDL_Texture *texture;
+} Texture;
+
+typedef struct TextureCache
+{
+	char name[MAX_MESSAGE_LENGTH];
+	long expiry;
+	Texture *texture;
+	struct TextureCache *next;
+} TextureCache;
+
+typedef struct Colour
+{
+	int r, g, b, a;
+} Colour;
+
 typedef struct Label
 {
 	int x, y;
 	int r, g, b;
-	SDL_Surface *text;
+	Texture *text;
 } Label;
 
 typedef struct Widget
@@ -35,14 +54,14 @@ typedef struct Widget
 	void (*rightAction)(void);
 	void (*leftAction)(void);
 	Label *label;
-	SDL_Surface *normalState, *selectedState, *disabledState;
+	Texture *normalState, *selectedState, *disabledState;
 } Widget;
 
 typedef struct Menu
 {
 	int index, x, y, w, h, widgetCount;
 	int startY, endY;
-	SDL_Surface *background;
+	Texture *background;
 	Widget **widgets;
 	Label **labels;
 	void (*action)(void);
@@ -57,7 +76,8 @@ typedef struct BoundingBox
 typedef struct Sprite
 {
 	char name[MAX_FILE_LENGTH];
-	SDL_Surface *image;
+	int w, h;
+	Texture *image;
 	BoundingBox box;
 } Sprite;
 
@@ -149,7 +169,7 @@ typedef struct Map
 	float cameraX, cameraY;
 	AnimTile *animTile;
 	Entity *targetEntity;
-	SDL_Surface *background[2];
+	Texture *background[2];
 	Mix_Chunk *ambience[MAX_AMBIENT_SOUNDS];
 } Map;
 
@@ -158,6 +178,12 @@ typedef struct Sound
 	char name[MAX_VALUE_LENGTH];
 	Mix_Chunk *effect;
 } Sound;
+
+typedef struct AlphaSurface
+{
+	int x, y, w, h;
+	int r, g, b;
+} AlphaSurface;
 
 typedef struct Game
 {
@@ -186,7 +212,10 @@ typedef struct Game
 	void (*transition)(void);
 	void (*transitionCallback)(void);
 	Menu *menu;
-	SDL_Surface *screen, *tempSurface, *pauseSurface, *gameOverSurface, *alphaSurface;
+	AlphaSurface alphaSurface;
+	SDL_Renderer *renderer;
+	SDL_Window *window;
+	Texture *screen, *gameOverSurface, *tempSurface, *pauseSurface;
 	TTF_Font *font, *largeFont;
 	SDL_Joystick *joystick;
 } Game;
@@ -202,7 +231,7 @@ typedef struct Message
 {
 	char text[MAX_MESSAGE_LENGTH];
 	int thinkTime, r, g, b;
-	SDL_Surface *surface;
+	Texture *surface;
 	struct Message *next;
 } Message;
 
@@ -211,7 +240,7 @@ typedef struct Inventory
 	int selectedIndex, x, y, cursorIndex;
 	int hasBow, hasLightningSword;
 	Entity item[MAX_INVENTORY_ITEMS];
-	SDL_Surface *background, *cursor, *description, *objectives;
+	Texture *background, *cursor, *description, *objectives;
 } Inventory;
 
 typedef struct Droplet
@@ -268,9 +297,9 @@ typedef struct Script
 typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime, quantity;
-	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
-	SDL_Surface *medalSurface[4], *disabledMedalSurface;
-	SDL_Surface *slimeTimerSurface;
+	Texture *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
+	Texture *medalSurface[4], *disabledMedalSurface;
+	Texture *slimeTimerSurface;
 	Message infoMessage;
 } Hud;
 
@@ -322,7 +351,7 @@ typedef struct ContinueData
 typedef struct DialogBox
 {
 	int thinkTime;
-	SDL_Surface *dialogSurface;
+	Texture *dialogSurface;
 } DialogBox;
 
 typedef struct CreditLine
@@ -330,7 +359,7 @@ typedef struct CreditLine
 	char text[MAX_LINE_LENGTH];
 	int r, g, b;
 	float x, y;
-	SDL_Surface *textImage;
+	Texture *textImage;
 } CreditLine;
 
 typedef struct Credits
@@ -339,13 +368,14 @@ typedef struct Credits
 	int startDelay, nextEntityDelay, status;
 	float speed;
 	CreditLine *creditLine;
-	SDL_Surface *edgarLogo, *prLogo, *fadeSurface;
+	AlphaSurface fadeSurface;
+	Texture *edgarLogo, *prLogo;
 } Credits;
 
 typedef struct Title
 {
 	int thinkTime, continueSlot;
-	SDL_Surface *edgarLogo, *copyright, *startButton;
+	Texture *edgarLogo, *copyright, *startButton;
 } Title;
 
 typedef struct Bucket

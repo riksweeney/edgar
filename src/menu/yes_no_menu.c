@@ -228,7 +228,7 @@ void freeYesNoMenu()
 
 	if (menu.background != NULL)
 	{
-		SDL_FreeSurface(menu.background);
+		destroyTexture(menu.background);
 
 		menu.background = NULL;
 	}

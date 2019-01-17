@@ -890,11 +890,22 @@ static void soulStealSpellAttack()
 
 int drawSoulStealSpell()
 {
-	int colour1, colour2, colour3;
+	Colour colour1, colour2, colour3;
 
-	colour1 = getColour(38, 152, 38);
-	colour2 = getColour(50, 200, 50);
-	colour3 = getColour(56, 225, 56);
+	colour1.r = 38;
+	colour1.g = 152;
+	colour1.b = 38;
+	colour1.a = 255;
+	
+	colour2.r = 50;
+	colour2.g = 200;
+	colour2.b = 50;
+	colour1.a = 255;
+	
+	colour3.r = 56;
+	colour3.g = 225;
+	colour3.b = 56;
+	colour1.a = 255;
 
 	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, colour1, colour2, colour3);
 

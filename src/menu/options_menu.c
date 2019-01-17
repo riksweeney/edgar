@@ -65,11 +65,14 @@ void drawOptionsMenu()
 static void doMenu()
 {
 	int i, left, right, up, down, attack, xAxisMoved, yAxisMoved;
+	char c;
 	Widget *w;
 
-	if (game.cheatsEnabled == FALSE && input.lastPressedKey != -1 && isalnum(input.lastPressedKey))
+	if (game.cheatsEnabled == FALSE && input.lastPressedKey >= 'A' && input.lastPressedKey <= 'z')
 	{
-		lastKeys[lastKeysIndex] = tolower(input.lastPressedKey);
+		c = tolower(input.lastPressedKey);
+		
+		lastKeys[lastKeysIndex] = c;
 
 		lastKeysIndex++;
 
@@ -359,7 +362,7 @@ void freeOptionsMenu()
 
 	if (menu.background != NULL)
 	{
-		SDL_FreeSurface(menu.background);
+		destroyTexture(menu.background);
 
 		menu.background = NULL;
 	}

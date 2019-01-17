@@ -23,6 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "game.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
+#include "graphics/texture_cache.h"
 #include "input.h"
 #include "system/error.h"
 
@@ -50,16 +51,27 @@ void createAutoDialogBox(char *title, char *text, int thinkTime)
 	dialogBox.thinkTime = thinkTime;
 }
 
-SDL_Surface *createDialogBox(char *title, char *msg)
+Texture *createDialogBox(char *title, char *msg)
 {
 	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr, *titleText;
 	int i, lines, w, h, maxWidth, lineBreak, *lineBreaks;
 	SDL_Surface **surface, *tempSurface;
+	Texture *texture;
 	SDL_Rect dest;
 
 	savePtr = NULL;
 
 	freeDialogBox();
+
+	if (strstr(msg, "[") == NULL)
+	{
+		texture = getTextureFromCache(msg);
+
+		if (texture != NULL)
+		{
+			return texture;
+		}
+	}
 
 	text = malloc(strlen(msg) + 1);
 
@@ -114,11 +126,11 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		lines++;
 	}
 
-	surface = malloc(sizeof(SDL_Surface *) * lines);
+	surface = malloc(sizeof(SDL_Texture *) * lines);
 
 	if (surface == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Surface *) * lines);
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Texture *) * lines);
 	}
 
 	lineBreaks = malloc(sizeof(int) * lines);
@@ -264,7 +276,9 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		}
 	}
 
-	tempSurface = addBorder(tempSurface, 255, 255, 255, 0, 0, 0);
+	texture = addBorder(tempSurface, 255, 255, 255, 0, 0, 0);
+
+	addTextureToCache(msg, texture, FALSE);
 
 	free(surface);
 
@@ -277,7 +291,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	free(lineBreaks);
 
-	return tempSurface;
+	return texture;
 }
 
 void doDialogBox()
@@ -305,8 +319,6 @@ void freeDialogBox()
 {
 	if (dialogBox.dialogSurface != NULL)
 	{
-		SDL_FreeSurface(dialogBox.dialogSurface);
-
 		dialogBox.dialogSurface = NULL;
 
 		dialogBox.thinkTime = 0;

@@ -37,7 +37,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "world/target.h"
 
 static Map map;
-static SDL_Surface *mapImages[MAX_TILES];
+static Texture *mapImages[MAX_TILES];
 static int lavaTile, waterTile, slimeTile;
 
 extern Entity *self, player;
@@ -846,7 +846,7 @@ void drawMap(int depth)
 
 			if (game.status == IN_CREDITS)
 			{
-				drawBox(game.screen, x, y, TILE_SIZE, TILE_SIZE, 0, 0, 0);
+				drawBox(x, y, TILE_SIZE, TILE_SIZE, 0, 0, 0, 255);
 			}
 
 			else
@@ -1077,14 +1077,14 @@ void freeMap()
 
 	if (map.background[0] != NULL)
 	{
-		SDL_FreeSurface(map.background[0]);
+		destroyTexture(map.background[0]);
 
 		map.background[0] = NULL;
 	}
 
 	if (map.background[1] != NULL)
 	{
-		SDL_FreeSurface(map.background[1]);
+		destroyTexture(map.background[1]);
 
 		map.background[1] = NULL;
 	}
@@ -1095,7 +1095,7 @@ void freeMap()
 	{
 		if (mapImages[i] != NULL)
 		{
-			SDL_FreeSurface(mapImages[i]);
+			destroyTexture(mapImages[i]);
 
 			mapImages[i] = NULL;
 		}
@@ -1116,12 +1116,12 @@ void freeMap()
 	memset(&map, 0, sizeof(Map));
 }
 
-SDL_Surface *tileImage(int id)
+Texture *tileImage(int id)
 {
 	return mapImages[id];
 }
 
-SDL_Surface *mapImageAt(int x, int y)
+Texture *mapImageAt(int x, int y)
 {
 	return mapImages[map.tile[y][x]];
 }

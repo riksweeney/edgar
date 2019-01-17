@@ -22,6 +22,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "audio/audio.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
+#include "graphics/texture_cache.h"
 #include "hud.h"
 #include "inventory.h"
 #include "medal.h"
@@ -80,7 +81,7 @@ void doHud()
 	{
 		if (hud.medalTextSurface != NULL)
 		{
-			SDL_FreeSurface(hud.medalTextSurface);
+			destroyTexture(hud.medalTextSurface);
 
 			hud.medalTextSurface = NULL;
 
@@ -96,8 +97,6 @@ void doHud()
 	{
 		if (hud.infoMessage.surface != NULL)
 		{
-			SDL_FreeSurface(hud.infoMessage.surface);
-
 			hud.infoMessage.surface = NULL;
 
 			hud.infoMessage.text[0] = '\0';
@@ -133,9 +132,11 @@ void doHud()
 void drawHud()
 {
 	char quantity[4];
+	char cacheName[10];
 	int i, x, y, h, w, itemBoxMid, quant;
 	float percentage, clipWidth;
 	Entity *e;
+	SDL_Surface *quantitySurface;
 
 	if (game.showHUD == TRUE)
 	{
@@ -143,7 +144,7 @@ void drawHud()
 
 		if (game.status == IN_INVENTORY)
 		{
-			drawBox(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
+			drawBox(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0, 255);
 		}
 
 		drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
@@ -182,14 +183,20 @@ void drawHud()
 
 				if (hud.quantity != quant)
 				{
-					if (hud.quantitySurface != NULL)
-					{
-						SDL_FreeSurface(hud.quantitySurface);
-					}
-
 					snprintf(quantity, 4, "%d", quant);
 
-					hud.quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255, FALSE);
+					snprintf(cacheName, 10, "hud_%d", quant);
+
+					hud.quantitySurface = getTextureFromCache(cacheName);
+
+					if (hud.quantitySurface == NULL)
+					{
+						quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255, FALSE);
+
+						hud.quantitySurface = convertSurfaceToTexture(quantitySurface, TRUE);
+
+						addTextureToCache(cacheName, hud.quantitySurface, FALSE);
+					}
 				}
 
 				drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
@@ -285,58 +292,51 @@ void freeHud()
 
 	if (hud.itemBox != NULL)
 	{
-		SDL_FreeSurface(hud.itemBox);
+		destroyTexture(hud.itemBox);
 
 		hud.itemBox = NULL;
 	}
 
 	if (hud.heart != NULL)
 	{
-		SDL_FreeSurface(hud.heart);
+		destroyTexture(hud.heart);
 
 		hud.heart = NULL;
 	}
 
 	if (hud.emptyHeart != NULL)
 	{
-		SDL_FreeSurface(hud.emptyHeart);
+		destroyTexture(hud.emptyHeart);
 
 		hud.emptyHeart = NULL;
 	}
 
 	if (hud.spotlight != NULL)
 	{
-		SDL_FreeSurface(hud.spotlight);
+		destroyTexture(hud.spotlight);
 
 		hud.spotlight = NULL;
 	}
 
 	if (hud.infoMessage.surface != NULL)
 	{
-		SDL_FreeSurface(hud.infoMessage.surface);
-
 		hud.infoMessage.surface = NULL;
 	}
 
 	if (hud.medalTextSurface != NULL)
 	{
-		SDL_FreeSurface(hud.medalTextSurface);
+		destroyTexture(hud.medalTextSurface);
 
 		hud.medalTextSurface = NULL;
 	}
 
-	if (hud.quantitySurface != NULL)
-	{
-		SDL_FreeSurface(hud.quantitySurface);
-
-		hud.quantitySurface = NULL;
-	}
+	hud.quantitySurface = NULL;
 
 	for (i=0;i<4;i++)
 	{
 		if (hud.medalSurface[i] != NULL)
 		{
-			SDL_FreeSurface(hud.medalSurface[i]);
+			destroyTexture(hud.medalSurface[i]);
 
 			hud.medalSurface[i] = NULL;
 		}
@@ -344,29 +344,24 @@ void freeHud()
 
 	if (hud.disabledMedalSurface != NULL)
 	{
-		SDL_FreeSurface(hud.disabledMedalSurface);
+		destroyTexture(hud.disabledMedalSurface);
 
 		hud.disabledMedalSurface = NULL;
 	}
 
-	if (hud.slimeTimerSurface != NULL)
-	{
-		SDL_FreeSurface(hud.slimeTimerSurface);
-
-		hud.slimeTimerSurface = NULL;
-	}
+	hud.slimeTimerSurface = NULL;
 
 	freeMessageQueue();
 }
 
 void setSlimeTimerValue(int value)
 {
+	SDL_Surface *slimeTimerSurface;
+
 	char timeValue[5];
 
 	if (hud.slimeTimerSurface != NULL || value < 0)
 	{
-		SDL_FreeSurface(hud.slimeTimerSurface);
-
 		hud.slimeTimerSurface = NULL;
 
 		if (value < 0)
@@ -377,9 +372,16 @@ void setSlimeTimerValue(int value)
 
 	snprintf(timeValue, 5, "%d", value);
 
-	hud.slimeTimerSurface = generateTextSurface(timeValue, game.font, 220, 220, 220, 0, 0, 0);
+	hud.slimeTimerSurface = getTextureFromCache(timeValue);
 
-	hud.slimeTimerSurface = addBorder(hud.slimeTimerSurface, 255, 255, 255, 0, 0, 0);
+	if (hud.slimeTimerSurface == NULL)
+	{
+		slimeTimerSurface = generateTextSurface(timeValue, game.font, 220, 220, 220, 0, 0, 0);
+
+		hud.slimeTimerSurface = addBorder(slimeTimerSurface, 255, 255, 255, 0, 0, 0);
+
+		addTextureToCache(timeValue, hud.slimeTimerSurface, FALSE);
+	}
 }
 
 void setInfoBoxMessage(int thinkTime, int r, int g, int b, char *fmt, ...)
@@ -433,6 +435,7 @@ static void addMessageToQueue(char *text, int thinkTime, int r, int g, int b)
 static void getNextMessageFromQueue()
 {
 	Message *head = messageHead.next;
+	SDL_Surface *infoSurface;
 
 	if (head != NULL)
 	{
@@ -442,16 +445,16 @@ static void getNextMessageFromQueue()
 		hud.infoMessage.g = head->g;
 		hud.infoMessage.b = head->b;
 
-		if (hud.infoMessage.surface != NULL)
+		hud.infoMessage.surface = getTextureFromCache(hud.infoMessage.text);
+
+		if (hud.infoMessage.surface == NULL)
 		{
-			SDL_FreeSurface(hud.infoMessage.surface);
+			infoSurface = generateTextSurface(hud.infoMessage.text, game.font, hud.infoMessage.r, hud.infoMessage.g, hud.infoMessage.b, 0, 0, 0);
 
-			hud.infoMessage.surface = NULL;
+			hud.infoMessage.surface = addBorder(infoSurface, 255, 255, 255, 0, 0, 0);
+
+			addTextureToCache(hud.infoMessage.text, hud.infoMessage.surface, FALSE);
 		}
-
-		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, hud.infoMessage.r, hud.infoMessage.g, hud.infoMessage.b, 0, 0, 0);
-
-		hud.infoMessage.surface = addBorder(hud.infoMessage.surface, 255, 255, 255, 0, 0, 0);
 
 		hud.infoMessage.thinkTime = (head->thinkTime <= 0 ? 5 : head->thinkTime);
 
@@ -476,8 +479,6 @@ void freeMessageQueue()
 
 	if (hud.infoMessage.surface != NULL)
 	{
-		SDL_FreeSurface(hud.infoMessage.surface);
-
 		hud.infoMessage.surface = NULL;
 
 		hud.infoMessage.text[0] = '\0';
@@ -507,8 +508,10 @@ void drawSpotlight(int x, int y)
 
 void showMedal(int medalType, char *message)
 {
-	SDL_Surface *textSurface, *medalSurface;
+	SDL_Surface *textSurface;
 	SDL_Rect dest;
+	Texture *texture, *textTexture;
+	SDL_Texture *currentTarget;
 
 	if (hud.medalTextSurface != NULL)
 	{
@@ -517,31 +520,35 @@ void showMedal(int medalType, char *message)
 
 	textSurface = generateTextSurface(_(message), game.font, 0, 220, 0, 0, 0, 0);
 
-	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textSurface->h, hud.medalSurface[medalType]->h));
+	textTexture = addBorder(textSurface, 255, 255, 255, 0, 0, 0);
+
+	texture = createTexture(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textSurface->h, hud.medalSurface[medalType]->h), 0, 0, 0);
+
+	currentTarget = SDL_GetRenderTarget(game.renderer);
+
+	SDL_SetRenderTarget(game.renderer, texture->texture);
 
 	dest.x = 5;
-	dest.y = hud.medalSurface[medalType]->h / 2 - medalSurface->h / 2;
+	dest.y = hud.medalSurface[medalType]->h / 2 - texture->h / 2;
 	dest.w = hud.medalSurface[medalType]->w;
 	dest.h = hud.medalSurface[medalType]->h;
 
-	SDL_BlitSurface(hud.medalSurface[medalType], NULL, medalSurface, &dest);
+	SDL_RenderCopy(game.renderer, hud.medalSurface[medalType]->texture, NULL, &dest);
 
 	dest.x = hud.medalSurface[medalType]->w + 13;
 	dest.y = hud.medalSurface[medalType]->h / 2 - textSurface->h / 2;
 	dest.w = textSurface->w;
 	dest.h = textSurface->h;
 
-	SDL_BlitSurface(textSurface, NULL, medalSurface, &dest);
+	SDL_RenderCopy(game.renderer, textTexture->texture, NULL, &dest);
 
-	hud.medalTextSurface = addBorder(medalSurface, 255, 255, 255, 0, 0, 0);
+	hud.medalTextSurface = texture;
 
 	hud.medalThinkTime = 180;
 
-	SDL_FreeSurface(textSurface);
-
 	playSound("sound/common/trophy");
 
-	return;
+	SDL_SetRenderTarget(game.renderer, currentTarget);
 }
 
 int spotlightSize()
@@ -549,7 +556,7 @@ int spotlightSize()
 	return hud.spotlight->w;
 }
 
-SDL_Surface *getMedalImage(int medalType, int obtained)
+Texture *getMedalImage(int medalType, int obtained)
 {
 	return obtained == TRUE ? hud.medalSurface[medalType] : hud.disabledMedalSurface;
 }

@@ -115,21 +115,21 @@ void freeWidget(Widget *w)
 	{
 		if (w->normalState != NULL)
 		{
-			SDL_FreeSurface(w->normalState);
+			destroyTexture(w->normalState);
 
 			w->normalState = NULL;
 		}
 
 		if (w->selectedState != NULL)
 		{
-			SDL_FreeSurface(w->selectedState);
+			destroyTexture(w->selectedState);
 
 			w->selectedState = NULL;
 		}
 
 		if (w->disabledState != NULL)
 		{
-			SDL_FreeSurface(w->disabledState);
+			destroyTexture(w->disabledState);
 
 			w->disabledState = NULL;
 		}
@@ -178,11 +178,11 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 
 	lines = i;
 
-	surface = malloc(sizeof(SDL_Surface *) * lines);
+	surface = malloc(sizeof(SDL_Texture *) * lines);
 
 	if (surface == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Surface *) * lines);
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Texture *) * lines);
 	}
 
 	lineBreaks = malloc(sizeof(int) * lines);

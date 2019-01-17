@@ -17,7 +17,7 @@ along with this program; if not, write to the Free Software
 Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
-SDL_Surface *createDialogBox(char *, char *);
+Texture *createDialogBox(char *, char *);
 void drawDialogBox(void);
 void freeDialogBox(void);
 void createDialogBoxFromScript(char *);

@@ -1,4 +1,4 @@
-VERSION = 1.30
+VERSION = 1.31
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -48,7 +48,7 @@ ifndef NO_PAK
 DEFINES += -DPAK_FILE=\"$(PAK_FILE)\"
 endif
 
-LDFLAGS += `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm -lpng
+LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lz -lm -lpng
 
 TILE_OBJS  = tile_creator.o
 PAK_OBJS   = pak_creator.o
@@ -93,6 +93,7 @@ CORE_OBJS += baby_salamander.o safe_combination.o grimlore.o grimlore_artifact.o
 CORE_OBJS += poison_meat.o train.o train_track.o flame_statue.o armour_changer.o credits.o black_book_3.o sorceror_2.o sorceror_dark_summoner.o
 CORE_OBJS += sorceror_floor.o medals_menu.o skull_door.o ghost.o slug.o portable_save.o crypt_skull.o skeleton.o bell_rope.o
 CORE_OBJS += music_sheet_display.o title.o azriel.o zombie.o mini_gargoyle.o gargoyle.o chaos.o chaos_vine.o i18n.o azriel_grave.o chaos_chain_base.o save_png.o
+CORE_OBJS += texture_cache.o
 
 ifeq ($(UNIX),0)
 CORE_OBJS += strtok_r.o

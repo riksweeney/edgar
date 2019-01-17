@@ -19,4 +19,4 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 Entity *addSorceror(int, int, char *);
 int drawDisintegrationSpell(void);
-void drawDisintegrationLine(int, int, int, int, int, int, int);
+void drawDisintegrationLine(int, int, int, int, Colour, Colour, Colour);

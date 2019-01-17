@@ -75,7 +75,7 @@ void draw()
 
 	/* Swap the buffers */
 
-	SDL_Flip(game.screen);
+	SDL_RenderPresent(game.renderer);
 
 	/* Sleep briefly */
 
@@ -98,7 +98,7 @@ void drawExport()
 
 	/* Swap the buffers */
 
-	SDL_Flip(game.screen);
+	SDL_RenderPresent(game.renderer);
 }
 
 void delay(unsigned int frameLimit)
