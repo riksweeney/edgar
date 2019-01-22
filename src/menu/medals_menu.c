@@ -242,7 +242,7 @@ static void loadMenuLayout()
 		}
 	}
 
-	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
+	menu.background = addBorder(createSurface(menu.w, menu.h, FALSE), 255, 255, 255, 0, 0, 0);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;

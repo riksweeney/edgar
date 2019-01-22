@@ -7,4 +7,7 @@ if [ $TYPE -gt 0 ];
 then
 	svn revert $i
 fi
+pngcrush -c 6 $i "$i"_tmp
+rm $i
+mv "$i"_tmp $i
 done

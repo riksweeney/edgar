@@ -53,7 +53,7 @@ void createAutoDialogBox(char *title, char *text, int thinkTime)
 
 Texture *createDialogBox(char *title, char *msg)
 {
-	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr, *titleText;
+	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr, *titleText, *playTime;
 	int i, lines, w, h, maxWidth, lineBreak, *lineBreaks;
 	SDL_Surface **surface, *tempSurface;
 	Texture *texture;
@@ -166,8 +166,12 @@ Texture *createDialogBox(char *title, char *msg)
 		snprintf(word, sizeof(word), "%d", game.kills);
 
 		token = replaceString(token, "[GAME_KILLS]", word);
+		
+		playTime = getPlayTimeHours();
 
-		token = replaceString(token, "[HOURS]", getPlayTimeHours());
+		token = replaceString(token, "[HOURS]", playTime);
+		
+		free(playTime);
 
 		snprintf(word, sizeof(word), "%d", game.continues);
 
@@ -244,7 +248,7 @@ Texture *createDialogBox(char *title, char *msg)
 
 	h -= 5;
 
-	tempSurface = createSurface(maxWidth, h);
+	tempSurface = createSurface(maxWidth, h, FALSE);
 
 	w = h = 0;
 

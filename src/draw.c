@@ -193,17 +193,13 @@ void draw()
 						}
 					#endif
 
-					if (scriptWaiting() == FALSE && (game.frames % 600 == 0))
+					if (scriptRunning() == FALSE && (game.frames % 600 == 0))
 					{
 						checkTextureCache();
 					}
 				}
 			break;
 		}
-
-		#if DEV == 1
-			takeScreenshot();
-		#endif
 	}
 
 	else

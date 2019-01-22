@@ -875,9 +875,7 @@ void readControlsFromFile(char *buffer)
 
 char *getKeyValue(int key)
 {
-	char *text;
-	
-	text = malloc(MAX_VALUE_LENGTH);
+	static char text[MAX_VALUE_LENGTH];
 
 	if (key == -1)
 	{

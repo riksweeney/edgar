@@ -82,7 +82,7 @@ static int loadSprite(char *name)
 {
 	int i, x, y, w, h, read, alpha;
 	char filename[MAX_FILE_LENGTH];
-	SDL_Surface *image, *whiteImage;
+	SDL_Surface *image;
 
 	read = sscanf(name, "%s %d %d %d %d %d\n", filename, &x, &y, &w, &h, &alpha);
 
@@ -95,10 +95,8 @@ static int loadSprite(char *name)
 	}
 	
 	image = loadImageAsSurface(filename);
-	
-	whiteImage = convertImageToWhite(image);
 
-	sprite[spriteID].image = convertSurfaceToTexture(image, TRUE);
+	sprite[spriteID].image = convertSurfaceToTexture(image, FALSE);
 
 	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
 	
@@ -125,7 +123,7 @@ static int loadSprite(char *name)
 
 	spriteID++;
 
-	sprite[spriteID].image = convertSurfaceToTexture(whiteImage, TRUE);
+	sprite[spriteID].image = convertImageToWhite(image, TRUE);
 
 	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
 	

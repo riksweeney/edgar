@@ -297,7 +297,7 @@ typedef struct Script
 typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime, quantity;
-	Texture *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
+	Texture *itemBox, *heart, *whiteHeart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
 	Texture *medalSurface[4], *disabledMedalSurface;
 	Texture *slimeTimerSurface;
 	Message infoMessage;

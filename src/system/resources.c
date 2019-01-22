@@ -255,6 +255,8 @@ void freeAllResources()
 		{
 			free(key[i]);
 		}
+		
+		free(key);
 
 		key = NULL;
 	}
@@ -265,6 +267,8 @@ void freeAllResources()
 		{
 			free(value[i]);
 		}
+		
+		free(value);
 
 		value = NULL;
 	}

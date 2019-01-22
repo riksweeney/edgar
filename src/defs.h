@@ -48,6 +48,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define MAX_SCRIPT_WIDTH 380
 
+#define TEXTURE_CACHE_TIME 18000
+
 #define BLANK_TILE 0
 
 #define SOLID_TILE_START 1

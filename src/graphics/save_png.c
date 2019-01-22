@@ -18,6 +18,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 #include "../headers.h"
+
 #include "graphics.h"
 
 #include <png.h>
@@ -89,7 +90,6 @@ void savePNG(SDL_Surface *surface, char *name)
 	SDL_Surface *temp;
 	SDL_Rect ss_rect;
 	int i;
-	int alpha = 0;
 
 	ss_rows = 0;
 	ss_size = 0;
@@ -98,12 +98,7 @@ void savePNG(SDL_Surface *surface, char *name)
 	ss_w = surface->w;
 	ss_h = surface->h;
 
-	if (surface->format->Amask)
-	{
-		alpha = 1;
-	}
-
-	temp = createSurface(surface->w, surface->h);
+	temp = createSurface(surface->w, surface->h, FALSE);
 
 	ss_rect.x = 0;
 	ss_rect.y = 0;
@@ -130,14 +125,7 @@ void savePNG(SDL_Surface *surface, char *name)
 		ss_rows[i] = ((unsigned char*)temp->pixels) + i * temp->pitch;
 	}
 
-	if (alpha)
-	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB_ALPHA, 8);
-	}
-	else
-	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB, 8);
-	}
+	writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB_ALPHA, 8);
 
 	free(ss_rows);
 

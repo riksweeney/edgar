@@ -177,7 +177,7 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 		return NULL;
 	}
 	
-	backgroundSurface = createSurface(textSurface->w, textSurface->h);
+	backgroundSurface = createSurface(textSurface->w, textSurface->h, FALSE);
 	
 	SDL_BlitSurface(textSurface, NULL, backgroundSurface, NULL);
 	

@@ -1474,6 +1474,11 @@ void readNextScriptLine()
 	}
 }
 
+int scriptRunning()
+{
+	return script.lineCount != 0;
+}
+
 int scriptWaiting()
 {
 	return (script.thinkTime != 0 || script.counter != 0);

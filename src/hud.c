@@ -39,9 +39,15 @@ static void getNextMessageFromQueue(void);
 
 void initHud()
 {
+	SDL_Surface *heart;
+	
 	hud.itemBox = loadImage("gfx/hud/item_box.png");
 
-	hud.heart = loadImage("gfx/hud/heart.png");
+	heart = loadImageAsSurface("gfx/hud/heart.png");
+	
+	hud.heart = convertSurfaceToTexture(heart, FALSE);
+	
+	hud.whiteHeart = convertImageToWhite(heart, TRUE);
 
 	hud.emptyHeart = loadImage("gfx/hud/heart_empty.png");
 
@@ -150,11 +156,11 @@ void drawHud()
 		drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
 
 		drawImage(hud.itemBox, itemBoxMid, 15, FALSE, 255);
+		
+		x = FALSE;
 
 		if (playerWeapon.inUse == TRUE)
 		{
-			x = FALSE;
-
 			if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
 			{
 				e = getInventoryItemByObjectiveName(playerWeapon.requires);
@@ -181,7 +187,7 @@ void drawHud()
 					quant = 0;
 				}
 
-				if (hud.quantity != quant)
+				if (hud.quantity != quant || (game.frames % (TEXTURE_CACHE_TIME / 2)) == 0)
 				{
 					snprintf(quantity, 4, "%d", quant);
 
@@ -197,13 +203,15 @@ void drawHud()
 
 						addTextureToCache(cacheName, hud.quantitySurface, FALSE);
 					}
+					
+					hud.quantity = quant;
 				}
 
 				drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
 			}
 		}
 
-		else
+		if (x == FALSE)
 		{
 			hud.quantity = -1;
 		}
@@ -261,7 +269,15 @@ void drawHud()
 
 			if (i < player.health)
 			{
-				drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30), 255);
+				if (player.health <= 3 && hud.thinkTime <= 30)
+				{
+					drawImage(hud.whiteHeart, w, h, FALSE, 255);
+				}
+				
+				else
+				{
+					drawImage(hud.heart, w, h, FALSE, 255);
+				}
 			}
 
 			drawImage(hud.emptyHeart, w, h, FALSE, 255);
@@ -508,10 +524,9 @@ void drawSpotlight(int x, int y)
 
 void showMedal(int medalType, char *message)
 {
-	SDL_Surface *textSurface;
+	SDL_Surface *textSurface, *medalSurface;
 	SDL_Rect dest;
-	Texture *texture, *textTexture;
-	SDL_Texture *currentTarget;
+	Texture *medalTexture, *textTexture, *targetTexture;
 
 	if (hud.medalTextSurface != NULL)
 	{
@@ -520,35 +535,39 @@ void showMedal(int medalType, char *message)
 
 	textSurface = generateTextSurface(_(message), game.font, 0, 220, 0, 0, 0, 0);
 
-	textTexture = addBorder(textSurface, 255, 255, 255, 0, 0, 0);
+	textTexture = convertSurfaceToTexture(textSurface, TRUE);
+	
+	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textTexture->h, hud.medalSurface[medalType]->h), FALSE);
 
-	texture = createTexture(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textSurface->h, hud.medalSurface[medalType]->h), 0, 0, 0);
+	medalTexture = addBorder(medalSurface, 255, 255, 255, 0, 0, 0);
+	
+	targetTexture = createWritableTexture(medalTexture->w, medalTexture->h);
+	
+	SDL_SetRenderTarget(game.renderer, targetTexture->texture);
 
-	currentTarget = SDL_GetRenderTarget(game.renderer);
+	SDL_RenderCopy(game.renderer, medalTexture->texture, NULL, NULL);
 
-	SDL_SetRenderTarget(game.renderer, texture->texture);
-
-	dest.x = 5;
-	dest.y = hud.medalSurface[medalType]->h / 2 - texture->h / 2;
+	dest.x = 5 + BORDER_PADDING;
+	dest.y = medalTexture->h / 2 - hud.medalSurface[medalType]->h / 2;
 	dest.w = hud.medalSurface[medalType]->w;
 	dest.h = hud.medalSurface[medalType]->h;
 
 	SDL_RenderCopy(game.renderer, hud.medalSurface[medalType]->texture, NULL, &dest);
 
-	dest.x = hud.medalSurface[medalType]->w + 13;
-	dest.y = hud.medalSurface[medalType]->h / 2 - textSurface->h / 2;
-	dest.w = textSurface->w;
-	dest.h = textSurface->h;
+	dest.x = hud.medalSurface[medalType]->w + 13 + BORDER_PADDING;
+	dest.y = medalTexture->h / 2 - textTexture->h / 2;
+	dest.w = textTexture->w;
+	dest.h = textTexture->h;
 
 	SDL_RenderCopy(game.renderer, textTexture->texture, NULL, &dest);
 
-	hud.medalTextSurface = texture;
+	hud.medalTextSurface = targetTexture;
 
 	hud.medalThinkTime = 180;
 
 	playSound("sound/common/trophy");
 
-	SDL_SetRenderTarget(game.renderer, currentTarget);
+	SDL_SetRenderTarget(game.renderer, NULL);
 }
 
 int spotlightSize()

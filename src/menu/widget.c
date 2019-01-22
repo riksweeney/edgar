@@ -255,7 +255,7 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 
 	h -= 5;
 
-	tempSurface = createSurface(maxWidth, h);
+	tempSurface = createSurface(maxWidth, h, FALSE);
 
 	w = h = 0;
 

@@ -33,7 +33,7 @@ void showErrorAndExit(char *fmt, ...)
 	int h, y;
 	SDL_Rect dest;
 	SDL_Surface *surface;
-	SDL_Texture *currentTarget;
+	Texture *targetTexture;
 	Texture *title, *error1, *error2, *error3;
 	char text[MAX_MESSAGE_LENGTH];
 	va_list ap;
@@ -82,12 +82,10 @@ void showErrorAndExit(char *fmt, ...)
 
 		game.tempSurface = NULL;
 	}
+	
+	targetTexture = createWritableTexture(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	currentTarget = SDL_GetRenderTarget(game.renderer);
-
-	game.tempSurface = createTexture(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
-
-	SDL_SetRenderTarget(game.renderer, game.tempSurface->texture);
+	SDL_SetRenderTarget(game.renderer, targetTexture->texture);
 
 	drawBox(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0, 255);
 
@@ -133,8 +131,10 @@ void showErrorAndExit(char *fmt, ...)
 	destroyTexture(error1);
 	destroyTexture(error2);
 	destroyTexture(error3);
+	
+	game.tempSurface = targetTexture;
 
-	SDL_SetRenderTarget(game.renderer, currentTarget);
+	SDL_SetRenderTarget(game.renderer, NULL);
 
 	stopMusic();
 

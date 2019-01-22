@@ -46,7 +46,7 @@ Texture *getTextureFromCache(char *name)
 	{
 		if (strcmpignorecase(textureCache->name, name) == 0)
 		{
-			textureCache->expiry = textureCache->expiry == -1 ? -1 : game.frames + 3600;
+			textureCache->expiry = textureCache->expiry == -1 ? -1 : game.frames + TEXTURE_CACHE_TIME;
 
 			return textureCache->texture;
 		}
@@ -84,7 +84,7 @@ void addTextureToCache(char *name, Texture *texture, int doNotExpire)
 
 	textureCache->texture = texture;
 
-	textureCache->expiry = doNotExpire == TRUE ? -1 : game.frames + 3600;
+	textureCache->expiry = doNotExpire == TRUE ? -1 : game.frames + TEXTURE_CACHE_TIME;
 
 	textureCache->next = NULL;
 
@@ -107,6 +107,8 @@ void checkTextureCache()
 			prev->next = t2;
 
 			removed++;
+			
+			printf("Expiring %s\n", t1->name);
 
 			destroyTexture(t1->texture);
 
@@ -135,8 +137,6 @@ void freeTextureCache()
 
 	for (p=textureCacheHead.next;p!=NULL;p=q)
 	{
-		printf("Freeing %s\n", p->name);
-		
 		destroyTexture(p->texture);
 
 		q = p->next;

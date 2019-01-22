@@ -106,13 +106,40 @@ Texture *createTexture(int width, int height, int r, int g, int b)
 	Texture *texture;
 	SDL_Surface *surface;
 
-	surface = createSurface(width, height);
+	surface = createSurface(width, height, FALSE);
 
 	SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, r, g, b));
 
 	texture = convertSurfaceToTexture(surface, TRUE);
 
 	return texture;
+}
+
+Texture *createWritableTexture(int width, int height)
+{
+	SDL_Texture *texture;
+	Texture *textureWrapper;
+
+	textureWrapper = malloc(sizeof(Texture));
+
+	if (textureWrapper == NULL)
+	{
+		showErrorAndExit("Failed to allocate %ld bytes to create texture", sizeof(Texture));
+	}
+
+	texture = SDL_CreateTexture(game.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+
+	if (texture == NULL)
+	{
+		showErrorAndExit("Failed to create writable texture");
+	}
+
+	textureWrapper->texture = texture;
+
+	textureWrapper->w = width;
+	textureWrapper->h = height;
+
+	return textureWrapper;
 }
 
 void destroyTexture(Texture *image)
@@ -268,6 +295,12 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	clipW = clipRect.x + clipRect.w;
 	clipH = clipRect.y + clipRect.h;
+	
+	if (clipX == 0 && clipY == 0 && clipW == 0 && clipH == 0)
+	{
+		clipW = SCREEN_WIDTH;
+		clipH = SCREEN_HEIGHT;
+	}
 
 	x1 -= startX;
 	y1 -= startY;
@@ -362,6 +395,12 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Colour colour1, Colour col
 
 	clipW = clipRect.x + clipRect.w;
 	clipH = clipRect.y + clipRect.h;
+	
+	if (clipX == 0 && clipY == 0 && clipW == 0 && clipH == 0)
+	{
+		clipW = SCREEN_WIDTH;
+		clipH = SCREEN_HEIGHT;
+	}
 
 	x1 -= startX;
 	y1 -= startY;
@@ -563,7 +602,7 @@ Texture *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, in
 	SDL_Surface *newSurface;
 	Texture *texture;
 
-	newSurface = createSurface(surface->w + BORDER_PADDING * 2, surface->h + BORDER_PADDING * 2);
+	newSurface = createSurface(surface->w + BORDER_PADDING * 2, surface->h + BORDER_PADDING * 2, FALSE);
 
 	colour = SDL_MapRGB(surface->format, r, g, b);
 
@@ -624,7 +663,7 @@ Texture *copyScreen()
 	SDL_Surface *tempSurface;
 	Texture *texture;
 
-	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);
+	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT, TRUE);
 
 	SDL_SetRenderDrawColor(game.renderer, 255, 255, 255, 255);
 
@@ -652,7 +691,7 @@ void drawHitBox(int startX, int startY, int w, int h)
 
 	transparent = 0;
 
-	image = createSurface(w, h);
+	image = createSurface(w, h, FALSE);
 
 	red = SDL_MapRGB(image->format, 255, 0, 0);
 
@@ -699,15 +738,16 @@ void drawHitBox(int startX, int startY, int w, int h)
 	destroyTexture(texture);
 }
 
-SDL_Surface *convertImageToWhite(SDL_Surface *image)
+Texture *convertImageToWhite(SDL_Surface *image, int delete)
 {
 	unsigned char r, g, b, a;
 	int x, y;
+	Uint32 white = SDL_MapRGB(image->format, 255, 255, 255);
 	Uint32 pixel;
-	Uint32 colour = SDL_MapRGB(image->format, 255, 255, 255);
-	SDL_Surface *white;
+	SDL_Surface *whiteImage;
+	Texture *texture;
 
-	white = createSurface(image->w, image->h);
+	whiteImage = createSurface(image->w, image->h, FALSE);
 
 	if (SDL_MUSTLOCK(image))
 	{
@@ -721,8 +761,11 @@ SDL_Surface *convertImageToWhite(SDL_Surface *image)
 			pixel = getPixel(image, x, y);
 
 			SDL_GetRGBA(pixel, image->format, &r, &g, &b, &a);
-
-			putPixelToSurface(white, x, y, a == 255 ? pixel : colour);
+			
+			if (a == 255)
+			{
+				putPixelToSurface(whiteImage, x, y, white);
+			}
 		}
 	}
 
@@ -730,8 +773,10 @@ SDL_Surface *convertImageToWhite(SDL_Surface *image)
 	{
 		SDL_UnlockSurface(image);
 	}
+	
+	texture = convertSurfaceToTexture(whiteImage, delete);
 
-	return white;
+	return texture;
 }
 
 EntityList *createPixelsFromSprite(Sprite *sprite)
@@ -795,11 +840,32 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 	return list;
 }
 
-SDL_Surface *createSurface(int width, int height)
+SDL_Surface *createSurface(int width, int height, int useDefaults)
 {
     SDL_Surface *newSurface;
+    Uint32 rmask, gmask, bmask, amask;
 
-	newSurface = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
+	#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		rmask = 0xff000000;
+		gmask = 0x00ff0000;
+		bmask = 0x0000ff00;
+		amask = 0x000000ff;
+	#else
+		rmask = 0x000000ff;
+		gmask = 0x0000ff00;
+		bmask = 0x00ff0000;
+		amask = 0xff000000;
+	#endif
+
+	if (useDefaults == TRUE)
+	{
+		newSurface = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
+	}
+	
+	else
+	{
+		newSurface = SDL_CreateRGBSurface(0, width, height, 32, rmask, gmask, bmask, amask);
+	}
 
 	if (newSurface == NULL)
 	{
@@ -907,7 +973,7 @@ void takeScreenshot()
 	char filename[MAX_PATH_LENGTH];
 	SDL_Surface *tempSurface;
 
-	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);
+	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT, TRUE);
 
 	SDL_RenderReadPixels(game.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, tempSurface->pixels, tempSurface->pitch);
 
@@ -927,7 +993,7 @@ void takeSingleScreenshot(char *name)
 {
 	SDL_Surface *tempSurface;
 
-	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);
+	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT, TRUE);
 
 	SDL_RenderReadPixels(game.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, tempSurface->pixels, tempSurface->pitch);
 
