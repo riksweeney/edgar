@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2018-06-22 18:18+0000\n"
+"PO-Revision-Date: 2019-02-03 01:13+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-06-26 06:41+0000\n"
-"X-Generator: Launchpad (build 18688)\n"
+"X-Launchpad-Export-Date: 2019-02-03 08:05+0000\n"
+"X-Generator: Launchpad (build 18862)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
@@ -6206,15 +6206,15 @@ msgstr ""
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "Senfina sano"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "Senfinaj sagoj"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "Lafo estas fatala"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
@@ -6226,11 +6226,11 @@ msgstr ""
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Use"
-msgstr ""
+msgstr "Uzu"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "Bonvolu agordi ĉiujn kontrolojn"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
@@ -6238,11 +6238,11 @@ msgstr ""
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
-msgstr ""
+msgstr "Azrielo"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
-msgstr ""
+msgstr "Ĝis ni renkontiĝos denove ..."
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
@@ -6250,7 +6250,7 @@ msgstr ""
 
 #: src/inventory.c:364
 msgid "Selected %s"
-msgstr ""
+msgstr "Elektita %s"
 
 #: src/player.c:2995
 msgid "Press buttons to break the petrification!"
@@ -6266,7 +6266,7 @@ msgstr ""
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
-msgstr ""
+msgstr "Aliris la Kripton"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
@@ -6274,11 +6274,11 @@ msgstr ""
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
-msgstr ""
+msgstr "Drako Ŝildo"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
-msgstr ""
+msgstr "Ŝildo kiu povas rezisti draka spiro"
 
 #: src/game.c:870
 msgid ""
@@ -6299,7 +6299,7 @@ msgstr ""
 
 #: src/boss/chaos.c:814
 msgid "Stalagmite"
-msgstr ""
+msgstr "Stalagmito"
 
 #: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
@@ -6307,11 +6307,11 @@ msgstr ""
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
-msgstr ""
+msgstr "Sentu mian potencon!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
-msgstr ""
+msgstr "Suferi!"
 
 #: src/boss/chaos.c:1472
 msgid "Pathetic"
@@ -6335,7 +6335,7 @@ msgstr ""
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr ""
+msgstr "Glavo de Legendo"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""
@@ -6426,7 +6426,7 @@ msgstr ""
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Ne! MALPERMESU!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
@@ -6452,7 +6452,7 @@ msgstr "Paĉjo! Kie vi estas?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "Ĝi ne aspektas kiel paĉjo venis hejmen hieraŭ nokte"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
@@ -6488,15 +6488,15 @@ msgstr "Magia Tranĉilo"
 
 #: data/maps/map11.dat:5217
 msgid "Third Floor Passage Key"
-msgstr ""
+msgstr "Ŝlosilo de tria etaĝo"
 
 #: data/maps/map11.dat:7267
 msgid "Third Floor Keycard"
-msgstr ""
+msgstr "Kortkarto de tria etaĝo"
 
 #: data/maps/map11.dat:9292
 msgid "Fourth Floor Keycard"
-msgstr ""
+msgstr "Kartokarto de kvara etaĝo"
 
 #: data/maps/map11.dat:6368
 msgid "Anti-Gravity Switch Key 1"
@@ -6536,7 +6536,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:7
 msgid "Full Soul Bottle"
-msgstr ""
+msgstr "Plena Animo Botelo"
 
 #: data/maps/map10.dat:3167
 msgid "Potion of Invisibility"
@@ -6568,7 +6568,7 @@ msgstr "Ŝildo de fajro"
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
-msgstr ""
+msgstr "Patro_de_Edgaro"
 
 #: data/scripts/attribute.dat:2
 msgid ""
@@ -6577,11 +6577,11 @@ msgstr ""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"
-msgstr ""
+msgstr "Klavo de Biblioteko"
 
 #: data/props/item/yellow_gem.props:4
 msgid "Yellow Gem"
-msgstr ""
+msgstr "Flava Gemo"
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"

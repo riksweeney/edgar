@@ -144,11 +144,10 @@ ifndef NO_PAK
 endif
 
 # install
-install: all
+install: all buildpak
 ifeq ($(DEV),1)
 	echo Cannot install if DEV is set to 1!
 else
-	$(MAKE) buildpak
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)
 	mkdir -p $(DOC_DIR)
