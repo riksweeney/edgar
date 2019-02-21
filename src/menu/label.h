@@ -18,7 +18,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 Label *createLabel(char *, int, int);
-Label *createImageLabel(SDL_Surface *, int, int);
+Label *createImageLabel(Texture *, int, int);
 void drawLabel(Label *, Menu *);
 void freeLabel(Label *);
 void updateLabelText(Label *, char *);

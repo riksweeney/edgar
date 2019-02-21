@@ -1,5 +1,13 @@
 #!/bin/bash
-# Change 127 0 127 -> 127 255 127
+# Change 127 255 127 -> transparent
 for i in `find gfx -name '*.png'`;do
-echo convert $i -fill "#7fff7f" -opaque "#7f007f" -colorspace rgb -type TrueColor $i
+convert $i -transparent "#7fff7f" $i
+TYPE=`identify -verbose $i | grep "Colorspace: Gray" | wc -l`
+if [ $TYPE -gt 0 ];
+then
+	svn revert $i
+fi
+pngcrush -c 6 $i "$i"_tmp
+rm $i
+mv "$i"_tmp $i
 done

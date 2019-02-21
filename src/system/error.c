@@ -32,7 +32,9 @@ void showErrorAndExit(char *fmt, ...)
 {
 	int h, y;
 	SDL_Rect dest;
-	SDL_Surface *title, *error1, *error2, *error3;
+	SDL_Surface *surface;
+	Texture *targetTexture;
+	Texture *title, *error1, *error2, *error3;
 	char text[MAX_MESSAGE_LENGTH];
 	va_list ap;
 
@@ -42,15 +44,9 @@ void showErrorAndExit(char *fmt, ...)
 
 	error1 = error2 = error3 = title = NULL;
 
-	if (game.font != NULL)
+	if (game.status == IN_ERROR)
 	{
-		title = generateTextSurface(_("The Legend of Edgar has encountered the following error"), game.font, 0, 220, 0, 0, 0, 0);
-
-		error1 = generateTextSurface(text, game.font, 220, 220, 220, 0, 0, 0);
-
-		error2 = generateTextSurface(_("Please report this error to Parallel Realities"), game.font, 0, 220, 0, 0, 0, 0);
-
-		error3 = generateTextSurface(_("Press Escape to exit"), game.font, 0, 220, 0, 0, 0, 0);
+		exit(1);
 	}
 
 	printf("%s\n", text);
@@ -59,21 +55,39 @@ void showErrorAndExit(char *fmt, ...)
 		exit(1);
 	#endif
 
-	if (title == NULL || error1 == NULL || error2 == NULL || error3 == NULL)
+	game.status = IN_ERROR;
+
+	if (game.font != NULL)
 	{
-		exit(1);
+		surface = generateTextSurface(_("The Legend of Edgar has encountered the following error"), game.font, 0, 220, 0, 0, 0, 0);
+
+		title = convertSurfaceToTexture(surface, TRUE);
+
+		surface = generateTextSurface(text, game.font, 220, 220, 220, 0, 0, 0);
+
+		error1 = convertSurfaceToTexture(surface, TRUE);
+
+		surface = generateTextSurface(_("Please report this error to Parallel Realities"), game.font, 0, 220, 0, 0, 0, 0);
+
+		error2 = convertSurfaceToTexture(surface, TRUE);
+
+		surface = generateTextSurface(_("Press Escape to exit"), game.font, 0, 220, 0, 0, 0, 0);
+
+		error3 = convertSurfaceToTexture(surface, TRUE);
 	}
 
 	if (game.tempSurface != NULL)
 	{
-		SDL_FreeSurface(game.tempSurface);
+		destroyTexture(game.tempSurface);
 
 		game.tempSurface = NULL;
 	}
+	
+	targetTexture = createWritableTexture(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	game.tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);
+	SDL_SetRenderTarget(game.renderer, targetTexture->texture);
 
-	drawBox(game.tempSurface, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0, 255);
 
 	h = title->h + error1->h + error2->h + error3->h + 45;
 
@@ -84,7 +98,7 @@ void showErrorAndExit(char *fmt, ...)
 	dest.w = title->w;
 	dest.h = title->h;
 
-	SDL_BlitSurface(title, NULL, game.tempSurface, &dest);
+	SDL_RenderCopy(game.renderer, title->texture, NULL, &dest);
 
 	y += title->h + 15;
 
@@ -93,7 +107,7 @@ void showErrorAndExit(char *fmt, ...)
 	dest.w = error1->w;
 	dest.h = error1->h;
 
-	SDL_BlitSurface(error1, NULL, game.tempSurface, &dest);
+	SDL_RenderCopy(game.renderer, error1->texture, NULL, &dest);
 
 	y += error1->h + 15;
 
@@ -102,7 +116,7 @@ void showErrorAndExit(char *fmt, ...)
 	dest.w = error2->w;
 	dest.h = error2->h;
 
-	SDL_BlitSurface(error2, NULL, game.tempSurface, &dest);
+	SDL_RenderCopy(game.renderer, error2->texture, NULL, &dest);
 
 	y += error2->h + 15;
 
@@ -111,14 +125,16 @@ void showErrorAndExit(char *fmt, ...)
 	dest.w = error3->w;
 	dest.h = error3->h;
 
-	SDL_BlitSurface(error3, NULL, game.tempSurface, &dest);
+	SDL_RenderCopy(game.renderer, error3->texture, NULL, &dest);
 
-	SDL_FreeSurface(title);
-	SDL_FreeSurface(error1);
-	SDL_FreeSurface(error2);
-	SDL_FreeSurface(error3);
+	destroyTexture(title);
+	destroyTexture(error1);
+	destroyTexture(error2);
+	destroyTexture(error3);
+	
+	game.tempSurface = targetTexture;
 
-	game.status = IN_ERROR;
+	SDL_SetRenderTarget(game.renderer, NULL);
 
 	stopMusic();
 
@@ -133,11 +149,11 @@ static void drawError()
 
 		clearScreen(0, 0, 0);
 
-		SDL_BlitSurface(game.tempSurface, NULL, game.screen, NULL);
+		SDL_RenderCopy(game.renderer, game.tempSurface->texture, NULL, NULL);
 
 		/* Swap the buffers */
 
-		SDL_Flip(game.screen);
+		SDL_RenderPresent(game.renderer);
 
 		/* Sleep briefly */
 

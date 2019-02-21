@@ -21,6 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../graphics/font.h"
 #include "../graphics/graphics.h"
+#include "../graphics/texture_cache.h"
 #include "../system/error.h"
 
 extern Game game;
@@ -28,6 +29,10 @@ extern Game game;
 Label *createLabel(char *text, int x, int y)
 {
 	Label *l;
+	char keyName[MAX_FILE_LENGTH];
+	SDL_Surface *textSurface;
+
+	snprintf(keyName, MAX_FILE_LENGTH, "l_%s", text);
 
 	l = malloc(sizeof(Label));
 
@@ -36,7 +41,16 @@ Label *createLabel(char *text, int x, int y)
 		showErrorAndExit("Failed to allocate %d bytes to create Label %s", (int)sizeof(Label), text);
 	}
 
-	l->text = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
+	l->text = getTextureFromCache(keyName);
+
+	if (l->text == NULL)
+	{
+		textSurface = generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0);
+		
+		l->text = addBorder(textSurface, 255, 255, 255, 0, 0, 0);
+
+		addTextureToCache(keyName, l->text, TRUE);
+	}
 
 	l->x = x;
 
@@ -45,7 +59,7 @@ Label *createLabel(char *text, int x, int y)
 	return l;
 }
 
-Label *createImageLabel(SDL_Surface *image, int x, int y)
+Label *createImageLabel(Texture *texture, int x, int y)
 {
 	Label *l;
 
@@ -56,7 +70,7 @@ Label *createImageLabel(SDL_Surface *image, int x, int y)
 		showErrorAndExit("Failed to allocate %d bytes to create image Label", (int)sizeof(Label));
 	}
 
-	l->text = copyImage(image, 0, 0, image->w, image->h);
+	l->text = texture;
 
 	l->x = x;
 
@@ -67,14 +81,18 @@ Label *createImageLabel(SDL_Surface *image, int x, int y)
 
 void updateLabelText(Label *l, char *text)
 {
-	if (l->text != NULL)
+	char keyName[MAX_VALUE_LENGTH];
+
+	snprintf(keyName, MAX_VALUE_LENGTH, "l_%s", text);
+
+	l->text = getTextureFromCache(keyName);
+
+	if (l->text == NULL)
 	{
-		SDL_FreeSurface(l->text);
+		l->text = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
 
-		l->text = NULL;
+		addTextureToCache(keyName, l->text, TRUE);
 	}
-
-	l->text = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
 }
 
 void drawLabel(Label *l, Menu *m)
@@ -97,13 +115,6 @@ void freeLabel(Label *l)
 {
 	if (l != NULL)
 	{
-		if (l->text != NULL)
-		{
-			SDL_FreeSurface(l->text);
-
-			l->text = NULL;
-		}
-
 		free(l);
 
 		l = NULL;

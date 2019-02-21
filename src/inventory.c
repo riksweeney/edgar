@@ -55,31 +55,21 @@ void freeInventory()
 
 	if (inventory.background != NULL)
 	{
-		SDL_FreeSurface(inventory.background);
+		destroyTexture(inventory.background);
 
 		inventory.background = NULL;
 	}
 
-	if (inventory.description != NULL)
-	{
-		SDL_FreeSurface(inventory.description);
-
-		inventory.description = NULL;
-	}
+	inventory.description = NULL;
 
 	if (inventory.cursor != NULL)
 	{
-		SDL_FreeSurface(inventory.cursor);
+		destroyTexture(inventory.cursor);
 
 		inventory.cursor = NULL;
 	}
 
-	if (inventory.objectives != NULL)
-	{
-		SDL_FreeSurface(inventory.objectives);
-
-		inventory.objectives = NULL;
-	}
+	inventory.objectives = NULL;
 }
 
 int addToInventory(Entity *e)
@@ -271,12 +261,7 @@ void moveInventoryCursor(int index)
 		inventory.cursorIndex += MAX_INVENTORY_ITEMS;
 	}
 
-	if (inventory.description != NULL)
-	{
-		SDL_FreeSurface(inventory.description);
-
-		inventory.description = NULL;
-	}
+	inventory.description = NULL;
 }
 
 void nextInventoryItem(int index)
@@ -307,12 +292,7 @@ void nextInventoryItem(int index)
 
 	inventory.cursorIndex = inventory.selectedIndex;
 
-	if (inventory.description != NULL)
-	{
-		SDL_FreeSurface(inventory.description);
-
-		inventory.description = NULL;
-	}
+	inventory.description = NULL;
 }
 
 void moveInventoryItem(int index)
@@ -819,19 +799,9 @@ void writeInventoryToFile(FILE *fp)
 
 void clearInventoryDescription()
 {
-	if (inventory.description != NULL)
-	{
-		SDL_FreeSurface(inventory.description);
+	inventory.description = NULL;
 
-		inventory.description = NULL;
-	}
-
-	if (inventory.objectives != NULL)
-	{
-		SDL_FreeSurface(inventory.objectives);
-
-		inventory.objectives = NULL;
-	}
+	inventory.objectives = NULL;
 }
 
 void drawInventory()
@@ -842,7 +812,7 @@ void drawInventory()
 
 	if (inventory.background == NULL)
 	{
-		inventory.background = createSurface(INVENTORY_BOX_SIZE * INVENTORY_COLUMN_COUNT, INVENTORY_BOX_SIZE * INVENTORY_ROW_COUNT);
+		inventory.background = createTexture(INVENTORY_BOX_SIZE * INVENTORY_COLUMN_COUNT, INVENTORY_BOX_SIZE * INVENTORY_ROW_COUNT, 0, 0, 0);
 
 		inventory.x = (SCREEN_WIDTH - inventory.background->w) / 2;
 		inventory.y = 64;
@@ -953,11 +923,6 @@ void setInventoryDialogMessage(char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
-
-	if (inventory.description != NULL)
-	{
-		SDL_FreeSurface(inventory.description);
-	}
 
 	inventory.description = createDialogBox(NULL, text);
 }

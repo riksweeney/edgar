@@ -196,6 +196,7 @@ static void doEndCredits()
 {
 	int i, r, g, b, remainingEntities;
 	Target *t;
+	SDL_Surface *surface;
 
 	if (credits.creditLine == NULL)
 	{
@@ -210,7 +211,7 @@ static void doEndCredits()
 
 		if (credits.creditLine[i].y < -64)
 		{
-			SDL_FreeSurface(credits.creditLine[i].textImage);
+			destroyTexture(credits.creditLine[i].textImage);
 
 			credits.creditLine[i].textImage = NULL;
 		}
@@ -227,7 +228,9 @@ static void doEndCredits()
 					g = credits.creditLine[i].g;
 					b = credits.creditLine[i].b;
 
-					credits.creditLine[i].textImage = generateTransparentTextSurface(credits.creditLine[i].text, game.font, r, g, b, TRUE);
+					surface = generateTransparentTextSurface(credits.creditLine[i].text, game.font, r, g, b, TRUE);
+					
+					credits.creditLine[i].textImage = convertSurfaceToTexture(surface, TRUE);
 				}
 			}
 		}
@@ -433,6 +436,7 @@ static void doChaos()
 {
 	Entity *e;
 	Target *t;
+	SDL_Surface *surface;
 
 	if (credits.creditLine == NULL)
 	{
@@ -479,9 +483,13 @@ static void doChaos()
 
 		credits.line = -1;
 
-		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+		surface = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.creditLine[0].textImage = convertSurfaceToTexture(surface, TRUE);
 
-		credits.creditLine[1].textImage = generateTransparentTextSurface(credits.creditLine[1].text, game.largeFont, 220, 220, 220, TRUE);
+		surface = generateTransparentTextSurface(credits.creditLine[1].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.creditLine[1].textImage = convertSurfaceToTexture(surface, TRUE);
 
 		credits.creditLine[0].x = (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2;
 
@@ -497,9 +505,14 @@ static void doChaos()
 
 		credits.startDelay = 180;
 
-		credits.fadeSurface = createSurface(game.screen->w, MAX(credits.creditLine[0].textImage->h, credits.creditLine[1].textImage->h));
-
-		drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
+		credits.fadeSurface.x = 0;
+		credits.fadeSurface.y = 0;
+		credits.fadeSurface.w = SCREEN_WIDTH;
+		credits.fadeSurface.h = MAX(credits.creditLine[0].textImage->h, credits.creditLine[1].textImage->h);
+		
+		credits.fadeSurface.r = 0;
+		credits.fadeSurface.g = 0;
+		credits.fadeSurface.b = 0;
 	}
 
 	doCreditsEntities();
@@ -531,12 +544,15 @@ static void doChaos()
 				credits.startDelay = 180;
 
 				credits.line = 1;
-
-				SDL_FreeSurface(credits.fadeSurface);
-
-				credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
-
-				drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
+				
+				credits.fadeSurface.x = 0;
+				credits.fadeSurface.y = 0;
+				credits.fadeSurface.w = SCREEN_WIDTH;
+				credits.fadeSurface.h = SCREEN_HEIGHT;
+				
+				credits.fadeSurface.r = 0;
+				credits.fadeSurface.g = 0;
+				credits.fadeSurface.b = 0;
 			}
 		}
 	}
@@ -585,6 +601,7 @@ static void doChaos()
 static void doEdgarLogo()
 {
 	char copyright[MAX_VALUE_LENGTH];
+	SDL_Surface *surface;
 
 	if (credits.edgarLogo == NULL)
 	{
@@ -599,7 +616,9 @@ static void doEdgarLogo()
 
 		STRNCPY(credits.creditLine[0].text, copyright, sizeof(credits.creditLine[0].text));
 
-		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.font, 220, 220, 220, TRUE);
+		surface = generateTransparentTextSurface(credits.creditLine[0].text, game.font, 220, 220, 220, TRUE);
+		
+		credits.creditLine[0].textImage = convertSurfaceToTexture(surface, TRUE);
 
 		credits.edgarLogo = loadImage("gfx/title_screen/logo.png");
 
@@ -607,9 +626,14 @@ static void doEdgarLogo()
 
 		credits.alpha = 255;
 
-		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
-
-		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
+		credits.fadeSurface.x = 0;
+		credits.fadeSurface.y = 0;
+		credits.fadeSurface.w = SCREEN_WIDTH;
+		credits.fadeSurface.h = SCREEN_HEIGHT;
+		
+		credits.fadeSurface.r = 0;
+		credits.fadeSurface.g = 0;
+		credits.fadeSurface.b = 0;
 
 		credits.line = -2;
 
@@ -696,7 +720,7 @@ static void drawEndCredits()
 
 	if (credits.fading == TRUE)
 	{
-		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
+		drawBox(credits.fadeSurface.x, credits.fadeSurface.y, credits.fadeSurface.w, credits.fadeSurface.h, credits.fadeSurface.r, credits.fadeSurface.g, credits.fadeSurface.b, credits.alpha);
 	}
 }
 
@@ -735,7 +759,7 @@ static void drawDefeatedBosses()
 
 	if (credits.fading == TRUE)
 	{
-		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
+		drawBox(credits.fadeSurface.x, credits.fadeSurface.y, credits.fadeSurface.w, credits.fadeSurface.h, credits.fadeSurface.r, credits.fadeSurface.g, credits.fadeSurface.b, credits.alpha);
 	}
 }
 
@@ -744,14 +768,14 @@ static void drawChaos()
 	if (credits.creditLine != NULL)
 	{
 		drawImage(credits.creditLine[0].textImage, credits.creditLine[0].x, credits.creditLine[0].y, FALSE, 255);
-
-		drawImage(credits.fadeSurface, 0, credits.creditLine[0].y, FALSE, credits.creditLine[0].r);
+		
+		drawBox(0, credits.creditLine[0].y, credits.fadeSurface.w, credits.fadeSurface.h, credits.fadeSurface.r, credits.fadeSurface.g, credits.fadeSurface.b, credits.creditLine[0].r);
 
 		if (credits.creditLine[1].r <= 255)
 		{
 			drawImage(credits.creditLine[1].textImage, credits.creditLine[1].x, credits.creditLine[1].y, FALSE, 255);
 
-			drawImage(credits.fadeSurface, 0, credits.creditLine[1].y, FALSE, credits.creditLine[1].r);
+			drawBox(0, credits.creditLine[1].y, credits.fadeSurface.w, credits.fadeSurface.h, credits.fadeSurface.r, credits.fadeSurface.g, credits.fadeSurface.b, credits.creditLine[1].r);
 		}
 	}
 }
@@ -780,7 +804,7 @@ static void drawEdgarLogo()
 
 		drawImage(credits.creditLine[0].textImage, (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2, height, FALSE, 255);
 
-		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
+		drawBox(credits.fadeSurface.x, credits.fadeSurface.y, credits.fadeSurface.w, credits.fadeSurface.h, credits.fadeSurface.r, credits.fadeSurface.g, credits.fadeSurface.b, credits.alpha);
 	}
 }
 
@@ -864,6 +888,7 @@ static void initCredits()
 static void initGameStats()
 {
 	int i, x, y;
+	SDL_Surface *surface;
 
 	credits.lineCount = 15;
 
@@ -906,7 +931,9 @@ static void initGameStats()
 
 	for (i=0;i<credits.lineCount;i++)
 	{
-		credits.creditLine[i].textImage = generateTransparentTextSurface(credits.creditLine[i].text, game.largeFont, 220, 220, 220, TRUE);
+		surface = generateTransparentTextSurface(credits.creditLine[i].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.creditLine[i].textImage = convertSurfaceToTexture(surface, TRUE);
 
 		if (credits.creditLine[i].textImage->w > x)
 		{
@@ -944,6 +971,8 @@ static void initGameStats()
 
 static void initDefeatedBosses()
 {
+	SDL_Surface *surface;
+	
 	credits.lineCount = 3;
 
 	credits.creditLine = malloc(credits.lineCount * sizeof(CreditLine));
@@ -957,7 +986,9 @@ static void initDefeatedBosses()
 
 	credits.creditLine[0].y = 64;
 
-	credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+	surface = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+	
+	credits.creditLine[0].textImage = convertSurfaceToTexture(surface, TRUE);
 
 	STRNCPY(credits.creditLine[1].text, "", MAX_LINE_LENGTH);
 
@@ -1016,7 +1047,7 @@ void freeCredits()
 		{
 			if (credits.creditLine[i].textImage != NULL)
 			{
-				SDL_FreeSurface(credits.creditLine[i].textImage);
+				destroyTexture(credits.creditLine[i].textImage);
 
 				credits.creditLine[i].textImage = NULL;
 			}
@@ -1029,24 +1060,19 @@ void freeCredits()
 
 	if (credits.prLogo != NULL)
 	{
-		SDL_FreeSurface(credits.prLogo);
+		destroyTexture(credits.prLogo);
 
 		credits.prLogo = NULL;
 	}
 
 	if (credits.edgarLogo != NULL)
 	{
-		SDL_FreeSurface(credits.edgarLogo);
+		destroyTexture(credits.edgarLogo);
 
 		credits.edgarLogo = NULL;
 	}
-
-	if (credits.fadeSurface != NULL)
-	{
-		SDL_FreeSurface(credits.fadeSurface);
-
-		credits.fadeSurface = NULL;
-	}
+	
+	credits.fadeSurface.w = 0;
 }
 
 static Entity *loadCreditsEntity(char *name)
@@ -1091,6 +1117,7 @@ static int getNextEntity()
 static Entity *loadCreditsBoss(char *name)
 {
 	Entity *e;
+	SDL_Surface *surface;
 
 	e = addEnemy(name, SCREEN_WIDTH, 0);
 
@@ -1112,19 +1139,21 @@ static Entity *loadCreditsBoss(char *name)
 
 	if (credits.creditLine[1].textImage != NULL)
 	{
-		SDL_FreeSurface(credits.creditLine[1].textImage);
+		destroyTexture(credits.creditLine[1].textImage);
 
 		credits.creditLine[1].textImage = NULL;
 	}
 
 	if (credits.creditLine[2].textImage != NULL)
 	{
-		SDL_FreeSurface(credits.creditLine[2].textImage);
+		destroyTexture(credits.creditLine[2].textImage);
 
 		credits.creditLine[2].textImage = NULL;
 	}
 
-	credits.creditLine[1].textImage = generateTransparentTextSurface(credits.creditLine[1].text, game.largeFont, 220, 220, 220, TRUE);
+	surface = generateTransparentTextSurface(credits.creditLine[1].text, game.largeFont, 220, 220, 220, TRUE);
+	
+	credits.creditLine[1].textImage = convertSurfaceToTexture(surface, TRUE);
 
 	return e;
 }
@@ -1145,20 +1174,27 @@ static int getNextBoss()
 
 void fadeCredits()
 {
-	if (credits.fadeSurface == NULL)
+	if (credits.fadeSurface.w != SCREEN_WIDTH)
 	{
 		credits.fading = TRUE;
 
 		credits.alpha = 0;
 
-		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
-
-		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
+		credits.fadeSurface.x = 0;
+		credits.fadeSurface.y = 0;
+		credits.fadeSurface.w = SCREEN_WIDTH;
+		credits.fadeSurface.h = SCREEN_HEIGHT;
+		
+		credits.fadeSurface.r = 0;
+		credits.fadeSurface.g = 0;
+		credits.fadeSurface.b = 0;
 	}
 }
 
 void bossMoveToMiddle()
 {
+	SDL_Surface *surface;
+	
 	self->x -= 20;
 
 	if (self->x <= self->targetX)
@@ -1169,12 +1205,16 @@ void bossMoveToMiddle()
 		{
 			if (credits.line == TRUE)
 			{
-				credits.creditLine[2].textImage = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 0, 220, 0, TRUE);
+				surface = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 0, 220, 0, TRUE);
+				
+				credits.creditLine[2].textImage = convertSurfaceToTexture(surface, TRUE);
 			}
 
 			else
 			{
-				credits.creditLine[2].textImage = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 220, 0, 0, TRUE);
+				surface = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 220, 0, 0, TRUE);
+				
+				credits.creditLine[2].textImage = convertSurfaceToTexture(surface, TRUE);
 			}
 		}
 

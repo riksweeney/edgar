@@ -20,6 +20,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "headers.h"
 
 #include "audio/audio.h"
+#include "graphics/texture_cache.h"
 #include "medal.h"
 #include "system/load_save.h"
 #include "system/pak.h"
@@ -32,7 +33,11 @@ extern Game game;
 void init(char *title, int joystickNum)
 {
 	int joysticks, buttons;
-	long flags;
+	long windowFlags, rendererFlags;
+
+	windowFlags = 0;
+
+	rendererFlags = SDL_RENDERER_ACCELERATED;
 
 	/* Set up the home directory */
 
@@ -56,22 +61,20 @@ void init(char *title, int joystickNum)
 		exit(1);
 	}
 
-	flags = SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE;
-
 	/* Load the settings */
 
 	loadConfig();
 
 	if (game.fullscreen == TRUE)
 	{
-		flags |= SDL_FULLSCREEN;
+		windowFlags |= SDL_WINDOW_FULLSCREEN;
 	}
 
 	/* Open a screen */
 
-	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, flags);
+	game.window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, windowFlags);
 
-	if (game.screen == NULL)
+	if (game.window == NULL)
 	{
 		printf("Couldn't set screen mode to %d x %d: %s\n", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_GetError());
 
@@ -96,7 +99,7 @@ void init(char *title, int joystickNum)
 
 	if (joysticks > 0)
 	{
-		printf("Found %d joysticks. Opening Joystick #%d: %s\n", joysticks, joystickNum, SDL_JoystickName(joystickNum));
+		printf("Found %d joysticks. Opening Joystick #%d\n", joysticks, joystickNum);
 
 		game.joystick = SDL_JoystickOpen(joystickNum);
 
@@ -107,17 +110,31 @@ void init(char *title, int joystickNum)
 		printf("Joystick has %d axes\n", SDL_JoystickNumAxes(game.joystick));
 	}
 
-	/* Set the screen title */
+	/* Set the scaling hint */
 
-	SDL_WM_SetCaption(title, NULL);
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 
-	/* Hide the mouse cursor */
+	/* Init the renderers */
 
-	SDL_ShowCursor(SDL_DISABLE);
+	game.renderer = SDL_CreateRenderer(game.window, -1, rendererFlags);
+
+	/* Enable blending */
+
+	SDL_SetRenderDrawBlendMode(game.renderer, SDL_BLENDMODE_BLEND);
+
+	/* Init SDL Image */
+	IMG_Init(IMG_INIT_PNG|IMG_INIT_JPG);
+
+	/* Hide the cursor */
+
+	SDL_ShowCursor(0);
 
 	/* Set the prandom seed */
 
 	setSeed(time(NULL));
+
+	/* Initalise the texture cache */
+	initTextureCache();
 
 	/* Init the PAK file */
 
@@ -130,11 +147,11 @@ void init(char *title, int joystickNum)
 
 void toggleFullScreen()
 {
-	long flags = game.screen->flags;
+	long fullScreen = SDL_GetWindowFlags(game.window) & SDL_WINDOW_FULLSCREEN;
 
-	flags ^= SDL_FULLSCREEN;
+	fullScreen ^= SDL_WINDOW_FULLSCREEN;
 
-	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, flags);
+	SDL_SetWindowFullscreen(game.window, fullScreen);
 }
 
 void cleanup()
@@ -197,6 +214,10 @@ void cleanup()
 	printf("Exiting\n");
 
 	/* Shut down SDL */
+
+	SDL_DestroyRenderer(game.renderer);
+
+	SDL_DestroyWindow(game.window);
 
 	SDL_Quit();
 }

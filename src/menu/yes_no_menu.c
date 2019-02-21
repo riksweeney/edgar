@@ -186,7 +186,7 @@ static void loadMenuLayout(char *text)
 	menu.widgets[2]->x = (menu.w - x) / 2;
 	menu.widgets[3]->x = menu.widgets[2]->x + menu.widgets[2]->selectedState->w + BUTTON_PADDING;
 
-	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
+	menu.background = addBorder(createSurface(menu.w, menu.h, FALSE), 255, 255, 255, 0, 0, 0);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
@@ -228,7 +228,7 @@ void freeYesNoMenu()
 
 	if (menu.background != NULL)
 	{
-		SDL_FreeSurface(menu.background);
+		destroyTexture(menu.background);
 
 		menu.background = NULL;
 	}

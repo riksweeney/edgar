@@ -73,14 +73,19 @@ void drawTitle()
 static void initTitle()
 {
 	char copyright[MAX_VALUE_LENGTH];
+	SDL_Surface *surface;
 
 	snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
-	title.copyright = generateTransparentTextSurface(copyright, game.font, 220, 220, 220, TRUE);
+	surface = generateTransparentTextSurface(copyright, game.font, 220, 220, 220, TRUE);
+	
+	title.copyright = convertSurfaceToTexture(surface, TRUE);
 
 	title.edgarLogo = loadImage("gfx/title_screen/logo.png");
 
-	title.startButton = generateTransparentTextSurface(_("Press any key"), game.largeFont, 220, 220, 220, TRUE);
+	surface = generateTransparentTextSurface(_("Press any key"), game.largeFont, 220, 220, 220, TRUE);
+	
+	title.startButton = convertSurfaceToTexture(surface, TRUE);
 
 	title.thinkTime = 30;
 
@@ -106,21 +111,21 @@ void freeTitle()
 {
 	if (title.edgarLogo != NULL)
 	{
-		SDL_FreeSurface(title.edgarLogo);
+		destroyTexture(title.edgarLogo);
 
 		title.edgarLogo = NULL;
 	}
 
 	if (title.copyright != NULL)
 	{
-		SDL_FreeSurface(title.copyright);
+		destroyTexture(title.copyright);
 
 		title.copyright = NULL;
 	}
 
 	if (title.startButton != NULL)
 	{
-		SDL_FreeSurface(title.startButton);
+		destroyTexture(title.startButton);
 
 		title.startButton = NULL;
 	}

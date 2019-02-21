@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 #include "../system/pak.h"
+#include "graphics.h"
 
 extern Game game;
 
@@ -118,6 +119,7 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 {
 	SDL_Rect dest;
 	SDL_Surface *surface;
+	Texture *texture;
 	SDL_Color foregroundcolour;
 
 	foregroundcolour.r = r;
@@ -137,21 +139,23 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 
 	/* Blit the entire surface to the screen */
 
-	dest.x = (centerX == 1 ? (game.screen->w - surface->w) / 2 : x);
-	dest.y = (centerY == 1 ? (game.screen->h - surface->h) / 2 : y);
+	dest.x = (centerX == 1 ? (SCREEN_WIDTH - surface->w) / 2 : x);
+	dest.y = (centerY == 1 ? (SCREEN_HEIGHT - surface->h) / 2 : y);
 	dest.w = surface->w;
 	dest.h = surface->h;
+	
+	texture = convertSurfaceToTexture(surface, TRUE);
 
-	SDL_BlitSurface(surface, NULL, game.screen, &dest);
+	SDL_RenderCopy(game.renderer, texture->texture, NULL, &dest);
 
 	/* Free the generated string image */
-
-	SDL_FreeSurface(surface);
+	
+	destroyTexture(texture);
 }
 
 SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb, int br, int bg, int bb)
 {
-	SDL_Surface *surface;
+	SDL_Surface *textSurface, *backgroundSurface;
 	SDL_Color foregroundcolour, backgroundcolour;
 
 	foregroundcolour.r = fr;
@@ -162,20 +166,26 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 	backgroundcolour.g = bg;
 	backgroundcolour.b = bb;
 
-	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+	/* Use SDL_TTF to generate a string image, this returns an SDL_Texture */
 
-	surface = TTF_RenderUTF8_Shaded(font, text, foregroundcolour, backgroundcolour);
+	textSurface = TTF_RenderUTF8_Shaded(font, text, foregroundcolour, backgroundcolour);
 
-	if (surface == NULL)
+	if (textSurface == NULL)
 	{
 		printf("Couldn't create String %s: %s\n", text, SDL_GetError());
 
 		return NULL;
 	}
+	
+	backgroundSurface = createSurface(textSurface->w, textSurface->h, FALSE);
+	
+	SDL_BlitSurface(textSurface, NULL, backgroundSurface, NULL);
+	
+	SDL_FreeSurface(textSurface);
 
 	/* Return the generated string image */
 
-	return surface;
+	return backgroundSurface;
 }
 
 SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb, int blend)
@@ -191,7 +201,7 @@ SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, 
 	{
 		TTF_SetFontStyle(font, TTF_STYLE_BOLD);
 
-		/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+		/* Use SDL_TTF to generate a string image, this returns an SDL_Texture */
 
 		surface = TTF_RenderUTF8_Solid(font, text, foregroundcolour);
 

@@ -19,6 +19,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "graphics.h"
+
 #include <png.h>
 
 /*
@@ -88,11 +90,6 @@ void savePNG(SDL_Surface *surface, char *name)
 	SDL_Surface *temp;
 	SDL_Rect ss_rect;
 	int i;
-	int alpha = 0;
-	int pixel_bits = 32;
-
-	unsigned surf_flags;
-	unsigned surf_alpha;
 
 	ss_rows = 0;
 	ss_size = 0;
@@ -101,44 +98,7 @@ void savePNG(SDL_Surface *surface, char *name)
 	ss_w = surface->w;
 	ss_h = surface->h;
 
-	if (surface->format->Amask)
-	{
-		alpha = 1;
-		pixel_bits = 32;
-	}
-
-	else
-	{
-		pixel_bits = 24;
-	}
-
-	temp = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, ss_w, ss_h, pixel_bits,
-		#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-			0xff0000, 0xff00, 0xff, 0x000000ff
-		#else
-			0xff, 0xff00, 0xff0000, 0xff000000
-		#endif
-		);
-
-	if (temp == NULL)
-	{
-		printf("Error creating PNG surface\n");
-
-		exit(1);
-	}
-
-	surf_flags = surface->flags & (SDL_SRCALPHA | SDL_SRCCOLORKEY);
-	surf_alpha = surface->format->alpha;
-
-	if (surf_flags & SDL_SRCALPHA)
-	{
-		SDL_SetAlpha(surface, 0, 255);
-	}
-
-	if (surf_flags & SDL_SRCCOLORKEY)
-	{
-		SDL_SetColorKey(surface, 0, surface->format->colorkey);
-	}
+	temp = createSurface(surface->w, surface->h, FALSE);
 
 	ss_rect.x = 0;
 	ss_rect.y = 0;
@@ -160,29 +120,12 @@ void savePNG(SDL_Surface *surface, char *name)
 		}
 	}
 
-	if (surf_flags & SDL_SRCALPHA)
-	{
-		SDL_SetAlpha(surface, SDL_SRCALPHA, (Uint8)surf_alpha);
-	}
-
-	if (surf_flags & SDL_SRCCOLORKEY)
-	{
-		SDL_SetColorKey(surface, SDL_SRCCOLORKEY, surface->format->colorkey);
-	}
-
 	for (i = 0; i < ss_h; i++)
 	{
 		ss_rows[i] = ((unsigned char*)temp->pixels) + i * temp->pitch;
 	}
 
-	if (alpha)
-	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB_ALPHA, 8);
-	}
-	else
-	{
-		writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB, 8);
-	}
+	writeData(name, ss_rows, surface->w, surface->h, PNG_COLOR_TYPE_RGB_ALPHA, 8);
 
 	free(ss_rows);
 

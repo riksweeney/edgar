@@ -82,6 +82,7 @@ static int loadSprite(char *name)
 {
 	int i, x, y, w, h, read, alpha;
 	char filename[MAX_FILE_LENGTH];
+	SDL_Surface *image;
 
 	read = sscanf(name, "%s %d %d %d %d %d\n", filename, &x, &y, &w, &h, &alpha);
 
@@ -92,10 +93,15 @@ static int loadSprite(char *name)
 			return i;
 		}
 	}
+	
+	image = loadImageAsSurface(filename);
 
-	sprite[spriteID].image = loadImage(filename);
+	sprite[spriteID].image = convertSurfaceToTexture(image, FALSE);
 
 	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
+	
+	sprite[spriteID].w = sprite[spriteID].image->w;
+	sprite[spriteID].h = sprite[spriteID].image->h;
 
 	if (read == 5)
 	{
@@ -117,9 +123,12 @@ static int loadSprite(char *name)
 
 	spriteID++;
 
-	sprite[spriteID].image = flipImage(sprite[spriteID - 1].image);
+	sprite[spriteID].image = convertImageToWhite(image, TRUE);
 
 	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
+	
+	sprite[spriteID].w = sprite[spriteID].image->w;
+	sprite[spriteID].h = sprite[spriteID].image->h;
 
 	if (read == 5)
 	{
@@ -148,7 +157,10 @@ int createSpriteFromSurface(char *name, SDL_Surface *image)
 
 	STRNCPY(sprite[spriteID].name, name, MAX_FILE_LENGTH);
 
-	sprite[spriteID].image = image;
+	sprite[spriteID].image = convertSurfaceToTexture(image, TRUE);
+	
+	sprite[spriteID].w = sprite[spriteID].image->w;
+	sprite[spriteID].h = sprite[spriteID].image->h;
 
 	sprite[spriteID].box.x = 0;
 	sprite[spriteID].box.y = 0;
@@ -185,7 +197,7 @@ void freeSprites()
 	{
 		if (sprite[i].image != NULL)
 		{
-			SDL_FreeSurface(sprite[i].image);
+			destroyTexture(sprite[i].image);
 
 			sprite[i].image = NULL;
 		}

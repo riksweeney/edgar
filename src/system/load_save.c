@@ -1696,11 +1696,16 @@ static void showPatchMessage(char *message)
 {
 	int y;
 	SDL_Rect dest;
-	SDL_Surface *title, *completion;
+	Texture *title, *completion;
+	SDL_Surface *text;
 
-	title = generateTextSurface(_("Patching your save game. Please wait..."), game.font, 220, 220, 220, 0, 0, 0);
+	text = generateTextSurface(_("Patching your save game. Please wait..."), game.font, 220, 220, 220, 0, 0, 0);
+	
+	title = convertSurfaceToTexture(text, TRUE);
 
-	completion = generateTextSurface(message, game.font, 220, 220, 220, 0, 0, 0);
+	text = generateTextSurface(message, game.font, 220, 220, 220, 0, 0, 0);
+	
+	completion = convertSurfaceToTexture(text, TRUE);
 
 	if (title == NULL || completion == NULL)
 	{
@@ -1715,8 +1720,8 @@ static void showPatchMessage(char *message)
 	dest.y = y;
 	dest.w = title->w;
 	dest.h = title->h;
-
-	SDL_BlitSurface(title, NULL, game.screen, &dest);
+	
+	SDL_RenderCopy(game.renderer, title->texture, NULL, &dest);
 
 	y += title->h + 15;
 
@@ -1724,16 +1729,16 @@ static void showPatchMessage(char *message)
 	dest.y = y;
 	dest.w = completion->w;
 	dest.h = completion->h;
+	
+	SDL_RenderCopy(game.renderer, completion->texture, NULL, &dest);
 
-	SDL_BlitSurface(completion, NULL, game.screen, &dest);
+	destroyTexture(title);
 
-	SDL_FreeSurface(title);
-
-	SDL_FreeSurface(completion);
+	destroyTexture(completion);
 
 	/* Swap the buffers */
 
-	SDL_Flip(game.screen);
+	SDL_RenderPresent(game.renderer);
 }
 
 void loadObtainedMedals()

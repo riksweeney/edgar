@@ -49,15 +49,12 @@ void getInput(int gameType)
 				exit(0);
 			break;
 
-			case SDL_ACTIVEEVENT:
-				if ((event.active.state & SDL_APPINPUTFOCUS) && event.active.gain == FALSE)
+			case SDL_WINDOWEVENT:
+				switch (event.window.event)
 				{
-					focusLost();
-				}
-
-				else if ((event.active.state & SDL_APPACTIVE) && event.active.gain == FALSE)
-				{
-					focusLost();
+					case SDL_WINDOWEVENT_FOCUS_LOST:
+						focusLost();
+					break;
 				}
 			break;
 
@@ -878,21 +875,21 @@ void readControlsFromFile(char *buffer)
 
 char *getKeyValue(int key)
 {
-	char *text;
+	static char text[MAX_VALUE_LENGTH];
 
 	if (key == -1)
 	{
-		text = "?";
+		STRNCPY(text, "?", MAX_VALUE_LENGTH);
 	}
 
 	else if (key < 0)
 	{
-		text = getJoystickButton(key);
+		STRNCPY(text, getJoystickButton(key), MAX_VALUE_LENGTH);
 	}
 
 	else
 	{
-		text = SDL_GetKeyName(key);
+		STRNCPY(text, SDL_GetKeyName(key), MAX_VALUE_LENGTH);
 	}
 
 	return text;

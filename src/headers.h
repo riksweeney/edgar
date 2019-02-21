@@ -43,11 +43,11 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 	#include <windows.h>
 #endif
 
-#include "SDL/SDL.h"
-#include "SDL/SDL_endian.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_mixer.h"
-#include "SDL/SDL_ttf.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_endian.h"
+#include "SDL2/SDL_image.h"
+#include "SDL2/SDL_mixer.h"
+#include "SDL2/SDL_ttf.h"
 
 #include "structs.h"
 #include "i18n.h"

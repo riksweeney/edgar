@@ -28,5 +28,5 @@ void freeBossHealthBar(void);
 void drawSpotlight(int, int);
 void showMedal(int, char *);
 int spotlightSize(void);
-SDL_Surface *getMedalImage(int, int);
+Texture *getMedalImage(int, int);
 void setSlimeTimerValue(int);

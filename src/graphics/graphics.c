@@ -31,60 +31,133 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 extern Game game;
 extern Entity *self;
 
-static void drawImageWhite(SDL_Surface *, int, int);
 static Uint32 getPixel(SDL_Surface *, int, int);
-static void putPixel(SDL_Surface *, int, int, Uint32);
+static void putPixel(int, int, Colour);
+static void putPixelToSurface(SDL_Surface *, int, int, Uint32);
+Texture *convertSurfaceToTexture(SDL_Surface *, int);
+void destroyTexture(Texture *);
 
 static char screenshotPath[MAX_PATH_LENGTH];
 static int frame = 0;
 
-SDL_Surface *loadImage(char *name)
+Texture *loadImage(char *name)
 {
 	/* Load the image using SDL Image */
 
-	SDL_Surface *temp;
+	SDL_Surface *image;
+	Texture *texture;
+
+	image = loadImageFromPak(name);
+
+	texture = convertSurfaceToTexture(image, TRUE);
+
+	/* Return the processed image */
+
+	return texture;
+}
+
+SDL_Surface *loadImageAsSurface(char *name)
+{
+	/* Load the image using SDL Image */
+
 	SDL_Surface *image;
 
-	temp = loadImageFromPak(name);
-
-	if (temp == NULL)
-	{
-		showErrorAndExit("Failed to load image %s", name);
-	}
-
-	/* Make the background transparent */
-
-	SDL_SetColorKey(temp, SDL_SRCCOLORKEY|SDL_RLEACCEL, SDL_MapRGB(temp->format, TRANS_R, TRANS_G, TRANS_B));
-
-	/* Convert the image to the screen's native format */
-
-	image = SDL_DisplayFormat(temp);
-
-	SDL_FreeSurface(temp);
-
-	if (image == NULL)
-	{
-		showErrorAndExit("Failed to convert image %s to native format", name);
-	}
+	image = loadImageFromPak(name);
 
 	/* Return the processed image */
 
 	return image;
 }
 
-void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
+Texture *convertSurfaceToTexture(SDL_Surface *surface, int delete)
+{
+	SDL_Texture *texture;
+	Texture *textureWrapper;
+
+	textureWrapper = malloc(sizeof(Texture));
+
+	if (textureWrapper == NULL)
+	{
+		showErrorAndExit("Failed to allocate %ld bytes to create texture", sizeof(Texture));
+	}
+
+	texture = SDL_CreateTextureFromSurface(game.renderer, surface);
+
+	if (texture == NULL)
+	{
+		showErrorAndExit("Failed to convert image to texture");
+	}
+
+	textureWrapper->texture = texture;
+
+	textureWrapper->w = surface->w;
+	textureWrapper->h = surface->h;
+
+	if (delete == TRUE)
+	{
+		SDL_FreeSurface(surface);
+	}
+
+	return textureWrapper;
+}
+
+Texture *createTexture(int width, int height, int r, int g, int b)
+{
+	Texture *texture;
+	SDL_Surface *surface;
+
+	surface = createSurface(width, height, FALSE);
+
+	SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, r, g, b));
+
+	texture = convertSurfaceToTexture(surface, TRUE);
+
+	return texture;
+}
+
+Texture *createWritableTexture(int width, int height)
+{
+	SDL_Texture *texture;
+	Texture *textureWrapper;
+
+	textureWrapper = malloc(sizeof(Texture));
+
+	if (textureWrapper == NULL)
+	{
+		showErrorAndExit("Failed to allocate %ld bytes to create texture", sizeof(Texture));
+	}
+
+	texture = SDL_CreateTexture(game.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+
+	if (texture == NULL)
+	{
+		showErrorAndExit("Failed to create writable texture");
+	}
+
+	textureWrapper->texture = texture;
+
+	textureWrapper->w = width;
+	textureWrapper->h = height;
+
+	return textureWrapper;
+}
+
+void destroyTexture(Texture *image)
+{
+	if (image != NULL)
+	{
+		SDL_DestroyTexture(image->texture);
+
+		free(image);
+	}
+}
+
+void drawImage(Texture *image, int x, int y, int flip, int alpha)
 {
 	SDL_Rect dest;
 
 	if (alpha == 0)
 	{
-		return;
-	}
-
-	if (white == TRUE)
-	{
-		drawImageWhite(image, x, y);
-
 		return;
 	}
 
@@ -97,22 +170,22 @@ void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 
 	if (alpha != 255 && alpha != -1)
 	{
-		SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
+		SDL_SetTextureAlphaMod(image->texture, alpha);
 	}
 
 	/* Blit the entire image onto the screen at coordinates x and y */
 
-	SDL_BlitSurface(image, NULL, game.screen, &dest);
+	SDL_RenderCopyEx(game.renderer, image->texture, NULL, &dest, 0, NULL, flip == TRUE ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 
-	SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, 255);
+	SDL_SetTextureAlphaMod(image->texture, 255);
 }
 
-void drawImageToMap(SDL_Surface *image, int x, int y, int white, int alpha)
+void drawImageToMap(Texture *image, int x, int y, int flip, int alpha)
 {
-	drawImage(image, x - getMapStartX(), y - getMapStartY(), white, alpha);
+	drawImage(image, x - getMapStartX(), y - getMapStartY(), flip, alpha);
 }
 
-void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int destY, int width, int height)
+void drawClippedImage(Texture *image, int srcX, int srcY, int destX, int destY, int width, int height)
 {
 	SDL_Rect src, dest;
 
@@ -126,93 +199,15 @@ void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int des
 	dest.w = width;
 	dest.h = height;
 
-	SDL_BlitSurface(image, &src, game.screen, &dest);
+	SDL_RenderCopy(game.renderer, image->texture, &src, &dest);
 }
 
-SDL_Surface *copyImage(SDL_Surface *image, int x, int y, int w, int h)
+void drawBoxToSurface(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int b)
 {
-	int x1, y1, x2, y2;
-	Uint32 pixel;
-	SDL_Surface *flipped;
-
-	flipped = createSurface(w, h);
-
-	if (SDL_MUSTLOCK(image))
-	{
-		SDL_LockSurface(image);
-	}
-
-	x2 = y2 = 0;
-
-	for (y1=y;y1<y+h;y1++)
-	{
-		for (x1=x;x1<x+w;x1++)
-		{
-			pixel = getPixel(image, x1, y1);
-
-			putPixel(flipped, x2, y2, pixel);
-
-			x2++;
-		}
-
-		x2 = 0;
-
-		y2++;
-	}
-
-	if (SDL_MUSTLOCK(image))
-	{
-		SDL_UnlockSurface(image);
-	}
-
-	if (image->flags & SDL_SRCCOLORKEY)
-	{
-		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
-	}
-
-	return flipped;
-}
-
-SDL_Surface *flipImage(SDL_Surface *image)
-{
-	int x, y;
-	Uint32 pixel;
-	SDL_Surface *flipped;
-
-	flipped = createSurface(image->w, image->h);
-
-	if (SDL_MUSTLOCK(image))
-	{
-		SDL_LockSurface(image);
-	}
-
-	for (y=0;y<image->h;y++)
-	{
-		for (x=0;x<image->w;x++)
-		{
-			pixel = getPixel(image, x, y);
-
-			putPixel(flipped, image->w - 1 - x, y, pixel);
-		}
-	}
-
-	if (SDL_MUSTLOCK(image))
-	{
-		SDL_UnlockSurface(image);
-	}
-
-	if (image->flags & SDL_SRCCOLORKEY)
-	{
-		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
-	}
-
-	return flipped;
-}
-
-void drawBox(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int b)
-{
-	int colour = SDL_MapRGB(surface->format, r, g, b);
 	SDL_Rect rect;
+	Uint32 colour;
+
+	colour = SDL_MapRGB(surface->format, r, g, b);
 
 	rect.x = x;
 	rect.y = y;
@@ -222,9 +217,22 @@ void drawBox(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int
 	SDL_FillRect(surface, &rect, colour);
 }
 
+void drawBox(int x, int y, int w, int h, int r, int g, int b, int a)
+{
+	SDL_Rect rect;
+
+	SDL_SetRenderDrawColor(game.renderer, r, g, b, a);
+
+	rect.x = x;
+	rect.y = y;
+	rect.w = w;
+	rect.h = h;
+
+	SDL_RenderFillRect(game.renderer, &rect);
+}
+
 void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 {
-	int colour;
 	SDL_Rect rect;
 
 	rect.x = x - getMapStartX();
@@ -234,16 +242,16 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
-		colour = SDL_MapRGB(game.screen->format, r, g, b);
+		SDL_SetRenderDrawColor(game.renderer, r, g, b, 255);
 
-		SDL_FillRect(game.screen, &rect, colour);
+		SDL_RenderFillRect(game.renderer, &rect);
 	}
 }
 
 void putPixelToMap(int x, int y, int r, int g, int b)
 {
-	Uint32 colour = SDL_MapRGB(game.screen->format, r, g, b);
 	int startX, startY;
+	Colour colour;
 
 	startX = getMapStartX();
 	startY = getMapStartY();
@@ -256,37 +264,43 @@ void putPixelToMap(int x, int y, int r, int g, int b)
 		return;
 	}
 
-	if (SDL_MUSTLOCK(game.screen))
-	{
-		SDL_LockSurface(game.screen);
-	}
+	colour.r = r;
+	colour.g = g;
+	colour.b = b;
+	colour.a = 255;
 
-	putPixel(game.screen, x, y, colour);
-
-	if (SDL_MUSTLOCK(game.screen))
-	{
-		SDL_UnlockSurface(game.screen);
-	}
+	putPixel(x, y, colour);
 }
 
 void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 {
-	Uint32 colour = SDL_MapRGB(game.screen->format, r, g, b);
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
 	int clipX, clipY, clipW, clipH;
 	SDL_Rect clipRect;
+	Colour colour;
+
+	colour.r = r;
+	colour.g = g;
+	colour.b = b;
+	colour.a = 255;
 
 	startX = getMapStartX();
 	startY = getMapStartY();
 
-	SDL_GetClipRect(game.screen, &clipRect);
+	SDL_RenderGetClipRect(game.renderer, &clipRect);
 
 	clipX = clipRect.x;
 	clipY = clipRect.y;
 
 	clipW = clipRect.x + clipRect.w;
 	clipH = clipRect.y + clipRect.h;
+	
+	if (clipX == 0 && clipY == 0 && clipW == 0 && clipH == 0)
+	{
+		clipW = SCREEN_WIDTH;
+		clipH = SCREEN_HEIGHT;
+	}
 
 	x1 -= startX;
 	y1 -= startY;
@@ -308,11 +322,6 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	sStep = SIGN(sDelta);
 	sDelta = abs(sDelta);
 
-	if (SDL_MUSTLOCK(game.screen))
-	{
-		SDL_LockSurface(game.screen);
-	}
-
 	if (sDelta < lDelta)
 	{
 		cycle = lDelta >> 1;
@@ -321,7 +330,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 		{
 			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 			{
-				putPixel(game.screen, x1, y1, colour);
+				putPixel(x1, y1, colour);
 			}
 
 			cycle += sDelta;
@@ -338,7 +347,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			putPixel(game.screen, x1, y1, colour);
+			putPixel(x1, y1, colour);
 		}
 	}
 
@@ -348,7 +357,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	{
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			putPixel(game.screen, x1, y1, colour);
+			putPixel(x1, y1, colour);
 		}
 
 		cycle += lDelta;
@@ -365,16 +374,11 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 	{
-		putPixel(game.screen, x1, y1, colour);
-	}
-
-	if (SDL_MUSTLOCK(game.screen))
-	{
-		SDL_UnlockSurface(game.screen);
+		putPixel(x1, y1, colour);
 	}
 }
 
-void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 colour2, Uint32 colour3)
+void drawColouredLine(int x1, int y1, int x2, int y2, Colour colour1, Colour colour2, Colour colour3)
 {
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
@@ -384,13 +388,19 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 col
 	startX = getMapStartX();
 	startY = getMapStartY();
 
-	SDL_GetClipRect(game.screen, &clipRect);
+	SDL_RenderGetClipRect(game.renderer, &clipRect);
 
 	clipX = clipRect.x;
 	clipY = clipRect.y;
 
 	clipW = clipRect.x + clipRect.w;
 	clipH = clipRect.y + clipRect.h;
+	
+	if (clipX == 0 && clipY == 0 && clipW == 0 && clipH == 0)
+	{
+		clipW = SCREEN_WIDTH;
+		clipH = SCREEN_HEIGHT;
+	}
 
 	x1 -= startX;
 	y1 -= startY;
@@ -412,11 +422,6 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 col
 	sStep = SIGN(sDelta);
 	sDelta = abs(sDelta);
 
-	if (SDL_MUSTLOCK(game.screen))
-	{
-		SDL_LockSurface(game.screen);
-	}
-
 	if (sDelta < lDelta)
 	{
 		cycle = lDelta >> 1;
@@ -425,11 +430,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 col
 		{
 			if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 			{
-				putPixel(game.screen, x1, y1 - 2, colour3);
-				putPixel(game.screen, x1, y1 - 1, colour2);
-				putPixel(game.screen, x1, y1, colour1);
-				putPixel(game.screen, x1, y1 + 1, colour2);
-				putPixel(game.screen, x1, y1 + 2, colour3);
+				putPixel(x1, y1 - 2, colour3);
+				putPixel(x1, y1 - 1, colour2);
+				putPixel(x1, y1, colour1);
+				putPixel(x1, y1 + 1, colour2);
+				putPixel(x1, y1 + 2, colour3);
 			}
 
 			cycle += sDelta;
@@ -446,11 +451,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 col
 
 		if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 		{
-			putPixel(game.screen, x1, y1 - 2, colour3);
-			putPixel(game.screen, x1, y1 - 1, colour2);
-			putPixel(game.screen, x1, y1, colour1);
-			putPixel(game.screen, x1, y1 + 1, colour2);
-			putPixel(game.screen, x1, y1 + 2, colour3);
+			putPixel(x1, y1 - 2, colour3);
+			putPixel(x1, y1 - 1, colour2);
+			putPixel(x1, y1, colour1);
+			putPixel(x1, y1 + 1, colour2);
+			putPixel(x1, y1 + 2, colour3);
 		}
 	}
 
@@ -460,11 +465,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 col
 	{
 		if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 		{
-			putPixel(game.screen, x1, y1 - 2, colour3);
-			putPixel(game.screen, x1, y1 - 1, colour2);
-			putPixel(game.screen, x1, y1, colour1);
-			putPixel(game.screen, x1, y1 + 1, colour2);
-			putPixel(game.screen, x1, y1 + 2, colour3);
+			putPixel(x1, y1 - 2, colour3);
+			putPixel(x1, y1 - 1, colour2);
+			putPixel(x1, y1, colour1);
+			putPixel(x1, y1 + 1, colour2);
+			putPixel(x1, y1 + 2, colour3);
 		}
 
 		cycle += lDelta;
@@ -481,205 +486,127 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 colour1, Uint32 col
 
 	if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 	{
-		putPixel(game.screen, x1, y1 - 2, colour3);
-		putPixel(game.screen, x1, y1 - 1, colour2);
-		putPixel(game.screen, x1, y1, colour1);
-		putPixel(game.screen, x1, y1 + 1, colour2);
-		putPixel(game.screen, x1, y1 + 2, colour3);
-	}
-
-	if (SDL_MUSTLOCK(game.screen))
-	{
-		SDL_UnlockSurface(game.screen);
+		putPixel(x1, y1 - 2, colour3);
+		putPixel(x1, y1 - 1, colour2);
+		putPixel(x1, y1, colour1);
+		putPixel(x1, y1 + 1, colour2);
+		putPixel(x1, y1 + 2, colour3);
 	}
 }
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)
 {
-	int f, ddF_x, ddF_y, xx, yy, colour;
-	SDL_Rect rect;
+    int xx = radius - 1;
+    int yy = 0;
+    int dx = 1;
+    int dy = 1;
+    int err = dx - radius * 2;
 
-	f = 1 - radius;
-	ddF_x = 1;
-	ddF_y = -2 * radius;
-	xx = 0;
-	yy = radius;
-	colour = SDL_MapRGB(game.screen->format, r, g, b);
+    SDL_SetRenderDrawColor(game.renderer, r, g, b, 255);
 
-	rect.x = x;
-	rect.y = y - radius;
-	rect.w = 1;
-	rect.h = radius * 2;
+    while (xx >= yy)
+    {
+		SDL_RenderDrawLine(game.renderer, x - xx, y + yy, x + xx, y + yy);
 
-	SDL_FillRect(game.screen, &rect, colour);
+		SDL_RenderDrawLine(game.renderer, x - yy, y - xx, x + yy, y - xx);
 
-	rect.x = x - radius;
-	rect.y = y;
-	rect.w = radius * 2;
-	rect.h = 1;
+		SDL_RenderDrawLine(game.renderer, x - xx, y - yy, x + xx, y - yy);
 
-	SDL_FillRect(game.screen, &rect, colour);
+		SDL_RenderDrawLine(game.renderer, x - yy, y + xx, x + yy, y + xx);
 
-	while (xx < yy)
-	{
-		if (f >= 0)
-		{
-			yy--;
-			ddF_y += 2;
-			f += ddF_y;
-		}
+        if (err <= 0)
+        {
+            yy++;
+            err += dy;
+            dy += 2;
+        }
 
-		xx++;
-		ddF_x += 2;
-		f += ddF_x;
-
-		rect.x = x - xx;
-		rect.y = y + yy;
-		rect.w = xx * 2;
-		rect.h = 1;
-
-		SDL_FillRect(game.screen, &rect, colour);
-
-		rect.x = x - xx;
-		rect.y = y - yy;
-		rect.w = xx * 2;
-		rect.h = 1;
-
-		SDL_FillRect(game.screen, &rect, colour);
-
-		rect.x = x - yy;
-		rect.y = y + xx;
-		rect.w = yy * 2;
-		rect.h = 1;
-
-		SDL_FillRect(game.screen, &rect, colour);
-
-		rect.x = x - yy;
-		rect.y = y - xx;
-		rect.w = yy * 2;
-		rect.h = 1;
-
-		SDL_FillRect(game.screen, &rect, colour);
-	}
+        if (err > 0)
+        {
+            xx--;
+            dx += 2;
+            err += dx - (radius << 1);
+        }
+    }
 }
 
 void drawCircleFromSurface(int x, int y, int radius)
 {
-	int f, ddF_x, ddF_y, xx, yy;
-	SDL_Rect src, dest;
+    int xx = radius - 1;
+    int yy = 0;
+    int dx = 1;
+    int dy = 1;
+    int err = dx - radius * 2;
+    SDL_Rect rect;
 
-	f = 1 - radius;
-	ddF_x = 1;
-	ddF_y = -2 * radius;
-	xx = 0;
-	yy = radius;
+    SDL_SetRenderDrawColor(game.renderer, 0, 0, 0, 255);
 
-	game.tempSurface = createSurface(game.screen->w, game.screen->h);
+    rect.x = 0;
+    rect.y = 0;
+    rect.w = SCREEN_WIDTH;
+    rect.h = y - radius + 1;
 
-	SDL_BlitSurface(game.screen, NULL, game.tempSurface, NULL);
+    if (rect.h > 0)
+    {
+    	SDL_RenderFillRect(game.renderer, &rect);
+    }
 
-	SDL_FillRect(game.screen, NULL, 0);
+    rect.x = 0;
+    rect.y = y + radius;
+    rect.w = SCREEN_WIDTH;
+    rect.h = SCREEN_HEIGHT - y - radius;
 
-	src.x = x;
-	src.y = y - radius;
-	src.w = 1;
-	src.h = radius * 2;
+    if (rect.h > 0)
+    {
+    	SDL_RenderFillRect(game.renderer, &rect);
+    }
 
-	dest.x = x;
-	dest.y = y - radius;
-	dest.w = 1;
-	dest.h = radius * 2;
+    while (xx >= yy)
+    {
+		SDL_RenderDrawLine(game.renderer, 0, y + yy, x - xx, y + yy);
 
-	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+		SDL_RenderDrawLine(game.renderer, x + xx, y + yy, SCREEN_WIDTH, y + yy);
 
-	src.x = x - radius;
-	src.y = y;
-	src.w = radius * 2;
-	src.h = 1;
+		SDL_RenderDrawLine(game.renderer, 0, y - xx, x - yy, y - xx);
 
-	dest.x = x - radius;
-	dest.y = y;
-	dest.w = radius * 2;
-	dest.h = 1;
+		SDL_RenderDrawLine(game.renderer, x + yy, y - xx, SCREEN_WIDTH, y - xx);
 
-	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
+		SDL_RenderDrawLine(game.renderer, 0, y - yy, x - xx, y - yy);
 
-	while (xx < yy)
-	{
-		if (f >= 0)
-		{
-			yy--;
-			ddF_y += 2;
-			f += ddF_y;
-		}
+		SDL_RenderDrawLine(game.renderer, x + xx, y - yy, SCREEN_WIDTH, y - yy);
 
-		xx++;
-		ddF_x += 2;
-		f += ddF_x;
+		SDL_RenderDrawLine(game.renderer, 0, y + xx, x - yy, y + xx);
 
-		src.x = x - xx;
-		src.y = y + yy;
-		src.w = xx * 2;
-		src.h = 1;
+		SDL_RenderDrawLine(game.renderer, x + yy, y + xx, SCREEN_WIDTH, y + xx);
 
-		dest.x = x - xx;
-		dest.y = y + yy;
-		dest.w = xx * 2;
-		dest.h = 1;
+        if (err <= 0)
+        {
+            yy++;
+            err += dy;
+            dy += 2;
+        }
 
-		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-
-		src.x = x - xx;
-		src.y = y - yy;
-		src.w = xx * 2;
-		src.h = 1;
-
-		dest.x = x - xx;
-		dest.y = y - yy;
-		dest.w = xx * 2;
-		dest.h = 1;
-
-		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-
-		src.x = x - yy;
-		src.y = y + xx;
-		src.w = yy * 2;
-		src.h = 1;
-
-		dest.x = x - yy;
-		dest.y = y + xx;
-		dest.w = yy * 2;
-		dest.h = 1;
-
-		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-
-		src.x = x - yy;
-		src.y = y - xx;
-		src.w = yy * 2;
-		src.h = 1;
-
-		dest.x = x - yy;
-		dest.y = y - xx;
-		dest.w = yy * 2;
-		dest.h = 1;
-
-		SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
-	}
-
-	SDL_FreeSurface(game.tempSurface);
-
-	game.tempSurface = NULL;
+        if (err > 0)
+        {
+            xx--;
+            dx += 2;
+            err += dx - (radius << 1);
+        }
+    }
 }
 
-SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, int bb)
+Texture *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, int bb)
 {
-	int colour = SDL_MapRGB(game.screen->format, r, g, b);
+	int colour;
 	SDL_Rect rect;
 	SDL_Surface *newSurface;
+	Texture *texture;
 
-	newSurface = createSurface(surface->w + BORDER_PADDING * 2, surface->h + BORDER_PADDING * 2);
+	newSurface = createSurface(surface->w + BORDER_PADDING * 2, surface->h + BORDER_PADDING * 2, FALSE);
 
-	SDL_FillRect(newSurface, NULL, SDL_MapRGB(game.screen->format, br, bg, bb));
+	colour = SDL_MapRGB(surface->format, r, g, b);
+
+	SDL_FillRect(newSurface, NULL, SDL_MapRGB(newSurface->format, br, bg, bb));
 
 	rect.x = BORDER_PADDING;
 	rect.y = BORDER_PADDING;
@@ -724,18 +651,34 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 
 	SDL_FillRect(newSurface, &rect, colour);
 
-	SDL_SetColorKey(newSurface, SDL_RLEACCEL|SDL_SRCCOLORKEY, SDL_MapRGB(newSurface->format, TRANS_R, TRANS_G, TRANS_B));
-
 	SDL_FreeSurface(surface);
 
-	return newSurface;
+	texture = convertSurfaceToTexture(newSurface, TRUE);
+
+	return texture;
+}
+
+Texture *copyScreen()
+{
+	SDL_Surface *tempSurface;
+	Texture *texture;
+
+	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT, TRUE);
+
+	SDL_SetRenderDrawColor(game.renderer, 255, 255, 255, 255);
+
+	SDL_RenderReadPixels(game.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, tempSurface->pixels, tempSurface->pitch);
+
+	texture = convertSurfaceToTexture(tempSurface, TRUE);
+
+	return texture;
 }
 
 void clearScreen(int r, int g, int b)
 {
-	int colour = SDL_MapRGB(game.screen->format, r, g, b);
+	SDL_SetRenderDrawColor(game.renderer, r, g, b, 255);
 
-	SDL_FillRect(game.screen, NULL, colour);
+	SDL_RenderClear(game.renderer);
 }
 
 void drawHitBox(int startX, int startY, int w, int h)
@@ -744,12 +687,13 @@ void drawHitBox(int startX, int startY, int w, int h)
 	Uint32 red, transparent;
 	SDL_Rect dest;
 	SDL_Surface *image;
+	Texture *texture;
 
-	red = SDL_MapRGB(game.screen->format, 255, 0, 0);
+	transparent = 0;
 
-	transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
+	image = createSurface(w, h, FALSE);
 
-	image = createSurface(w, h);
+	red = SDL_MapRGB(image->format, 255, 0, 0);
 
 	if (SDL_MUSTLOCK(image))
 	{
@@ -762,17 +706,17 @@ void drawHitBox(int startX, int startY, int w, int h)
 		{
 			if (y == 0 || y == (image->h - 1))
 			{
-				putPixel(image, x, y, red);
+				putPixelToSurface(image, x, y, red);
 			}
 
 			else if (x == 0 || x == (image->w - 1))
 			{
-				putPixel(image, x, y, red);
+				putPixelToSurface(image, x, y, red);
 			}
 
 			else
 			{
-				putPixel(image, x, y, transparent);
+				putPixelToSurface(image, x, y, transparent);
 			}
 		}
 	}
@@ -782,36 +726,33 @@ void drawHitBox(int startX, int startY, int w, int h)
 		SDL_UnlockSurface(image);
 	}
 
-	SDL_SetColorKey(image, SDL_RLEACCEL|SDL_SRCCOLORKEY, SDL_MapRGB(image->format, TRANS_R, TRANS_G, TRANS_B));
+	texture = convertSurfaceToTexture(image, TRUE);
 
 	dest.x = startX;
 	dest.y = startY;
 	dest.w = image->w;
 	dest.h = image->h;
 
-	SDL_BlitSurface(image, NULL, game.screen, &dest);
+	SDL_RenderCopy(game.renderer, texture->texture, NULL, &dest);
 
-	SDL_FreeSurface(image);
+	destroyTexture(texture);
 }
 
-static void drawImageWhite(SDL_Surface *image, int destX, int destY)
+Texture *convertImageToWhite(SDL_Surface *image, int delete)
 {
-	unsigned char r, g, b, transR, transG, transB;
+	unsigned char r, g, b, a;
 	int x, y;
+	Uint32 white = SDL_MapRGB(image->format, 255, 255, 255);
 	Uint32 pixel;
-	Uint32 colour = SDL_MapRGB(game.screen->format, 255, 255, 255);
-	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
-	SDL_Rect dest;
-	SDL_Surface *flipped;
+	SDL_Surface *whiteImage;
+	Texture *texture;
 
-	flipped = createSurface(image->w, image->h);
+	whiteImage = createSurface(image->w, image->h, FALSE);
 
 	if (SDL_MUSTLOCK(image))
 	{
 		SDL_LockSurface(image);
 	}
-
-	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
 
 	for (x=0;x<image->w;x++)
 	{
@@ -819,9 +760,12 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 		{
 			pixel = getPixel(image, x, y);
 
-			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
-
-			putPixel(flipped, x, y, (r == transR && g == transG && b == transB) ? pixel : colour);
+			SDL_GetRGBA(pixel, image->format, &r, &g, &b, &a);
+			
+			if (a == 255)
+			{
+				putPixelToSurface(whiteImage, x, y, white);
+			}
 		}
 	}
 
@@ -829,35 +773,22 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 	{
 		SDL_UnlockSurface(image);
 	}
+	
+	texture = convertSurfaceToTexture(whiteImage, delete);
 
-	if (image->flags & SDL_SRCCOLORKEY)
-	{
-		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
-	}
-
-	/* Set the blitting rectangle to the size of the src image */
-
-	dest.x = game.offsetX + destX;
-	dest.y = game.offsetY + destY;
-	dest.w = flipped->w;
-	dest.h = flipped->h;
-
-	/* Blit the entire image onto the screen at coordinates x and y */
-
-	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
-
-	SDL_FreeSurface(flipped);
+	return texture;
 }
 
 EntityList *createPixelsFromSprite(Sprite *sprite)
 {
-	unsigned char r, g, b, transR, transG, transB;
+	unsigned char r, g, b, a;
 	int x, y;
 	Uint32 pixel;
-	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
-	SDL_Surface *image = sprite->image;
+	SDL_Surface *image;
 	Entity *d;
 	EntityList *list;
+
+	image = loadImageFromPak(sprite->name);
 
 	list = malloc(sizeof(EntityList));
 
@@ -873,17 +804,15 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 		SDL_LockSurface(image);
 	}
 
-	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
-
 	for (y=0;y<image->h;y++)
 	{
 		for (x=0;x<image->w;x++)
 		{
 			pixel = getPixel(image, x, y);
 
-			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
+			SDL_GetRGBA(pixel, image->format, &r, &g, &b, &a);
 
-			if (r != transR && g != transG && b != transB)
+			if (a != 0)
 			{
 				d = addPixelDecoration(self->x + x, self->y + y);
 
@@ -906,50 +835,44 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 		SDL_UnlockSurface(image);
 	}
 
+	SDL_FreeSurface(image);
+
 	return list;
 }
 
-int isTransparent(SDL_Surface *image, int x, int y)
+SDL_Surface *createSurface(int width, int height, int useDefaults)
 {
-	Uint32 pixel;
-	unsigned char r, g, b, transR, transG, transB;
-	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
+    SDL_Surface *newSurface;
+    Uint32 rmask, gmask, bmask, amask;
 
-	if (SDL_MUSTLOCK(image))
+	#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		rmask = 0xff000000;
+		gmask = 0x00ff0000;
+		bmask = 0x0000ff00;
+		amask = 0x000000ff;
+	#else
+		rmask = 0x000000ff;
+		gmask = 0x0000ff00;
+		bmask = 0x00ff0000;
+		amask = 0xff000000;
+	#endif
+
+	if (useDefaults == TRUE)
 	{
-		SDL_LockSurface(image);
+		newSurface = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
+	}
+	
+	else
+	{
+		newSurface = SDL_CreateRGBSurface(0, width, height, 32, rmask, gmask, bmask, amask);
 	}
 
-	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
-
-	pixel = getPixel(image, x, y);
-
-	if (SDL_MUSTLOCK(image))
+	if (newSurface == NULL)
 	{
-		SDL_UnlockSurface(image);
+		showErrorAndExit("Failed to create a surface");
 	}
-
-	SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
-
-	return (r == transR && g == transG && b == transB);
-}
-
-SDL_Surface *createSurface(int width, int height)
-{
-	SDL_Surface *temp, *newSurface;
-
-	temp = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-	newSurface = SDL_DisplayFormat(temp);
-
-	SDL_FreeSurface(temp);
 
 	return newSurface;
-}
-
-int getColour(int r, int g, int b)
-{
-	return SDL_MapRGB(game.screen->format, r, g, b);
 }
 
 static Uint32 getPixel(SDL_Surface *surface, int x, int y)
@@ -989,7 +912,14 @@ static Uint32 getPixel(SDL_Surface *surface, int x, int y)
 	}
 }
 
-static void putPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
+static void putPixel(int x, int y, Colour colour)
+{
+	SDL_SetRenderDrawColor(game.renderer, colour.r, colour.g, colour.b, colour.a);
+
+	SDL_RenderDrawPoint(game.renderer, x, y);
+}
+
+static void putPixelToSurface(SDL_Surface *surface, int x, int y, Uint32 pixel)
 {
 	int bpp = surface->format->BytesPerPixel;
 
@@ -1041,6 +971,11 @@ void setScreenshotDir(char *name)
 void takeScreenshot()
 {
 	char filename[MAX_PATH_LENGTH];
+	SDL_Surface *tempSurface;
+
+	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT, TRUE);
+
+	SDL_RenderReadPixels(game.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, tempSurface->pixels, tempSurface->pitch);
 
 	if (strlen(screenshotPath) != 0)
 	{
@@ -1048,11 +983,21 @@ void takeScreenshot()
 
 		frame++;
 
-		savePNG(game.screen, filename);
+		savePNG(tempSurface, filename);
 	}
+
+	SDL_FreeSurface(tempSurface);
 }
 
 void takeSingleScreenshot(char *name)
 {
-	savePNG(game.screen, name);
+	SDL_Surface *tempSurface;
+
+	tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT, TRUE);
+
+	SDL_RenderReadPixels(game.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, tempSurface->pixels, tempSurface->pitch);
+
+	savePNG(tempSurface, name);
+
+	SDL_FreeSurface(tempSurface);
 }

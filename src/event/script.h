@@ -24,3 +24,4 @@ int scriptWaiting(void);
 void setScriptCounter(int);
 void scriptDrawMenu(void);
 void doScriptMenu(void);
+int scriptRunning(void);
