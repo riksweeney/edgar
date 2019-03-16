@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 1.31
+* Updated game to use SDL2
+* Updated Esperanto translation
+
 Version 1.30
 * Updated Esperanto translation
 * Updated homepage URL
