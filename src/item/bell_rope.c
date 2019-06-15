@@ -131,7 +131,7 @@ static void activate(int val)
 		{
 			for (i=0;i<8;i++)
 			{
-				snprintf(tune, MAX_VALUE_LENGTH, "%ld", prand() % 5);
+				SNPRINTF(tune, MAX_VALUE_LENGTH, "%ld", prand() % 5);
 
 				self->requires[i] = tune[0];
 			}
@@ -165,13 +165,13 @@ static void activate(int val)
 
 			setEntityAnimation(self, "RING");
 
-			snprintf(tune, MAX_VALUE_LENGTH, "sound/item/bell%d", self->mental);
+			SNPRINTF(tune, MAX_VALUE_LENGTH, "sound/item/bell%d", self->mental);
 
 			playSoundToMap(tune, -1, self->x, self->y, 0);
 
 			if (self->head->active == TRUE)
 			{
-				snprintf(tune, MAX_VALUE_LENGTH, "%d", self->mental);
+				SNPRINTF(tune, MAX_VALUE_LENGTH, "%d", self->mental);
 
 				self->head->description[self->head->health] = tune[0];
 

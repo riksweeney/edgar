@@ -66,7 +66,7 @@ static void init()
 	char display[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	snprintf(display, MAX_VALUE_LENGTH, "%s_METER", self->objectiveName);
+	SNPRINTF(display, MAX_VALUE_LENGTH, "%s_METER", self->objectiveName);
 
 	e = getEntityByObjectiveName(display);
 

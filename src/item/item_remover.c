@@ -132,7 +132,7 @@ static void removeItems()
 
 			allTargets++;
 
-			snprintf(targetName, MAX_VALUE_LENGTH, "REMOVER_TARGET_%d", j);
+			SNPRINTF(targetName, MAX_VALUE_LENGTH, "REMOVER_TARGET_%d", j);
 
 			t = getTargetByName(targetName);
 
@@ -149,7 +149,7 @@ static void removeItems()
 
 			e->inUse = FALSE;
 
-			snprintf(targetName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_TRIGGER \"ITEMS\"", e->objectiveName);
+			SNPRINTF(targetName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_TRIGGER \"ITEMS\"", e->objectiveName);
 
 			count++;
 
@@ -159,7 +159,7 @@ static void removeItems()
 
 	freeInventory();
 
-	snprintf(targetName, MAX_LINE_LENGTH, "\"ITEMS\" %d UPDATE_OBJECTIVE \"Retrieve items\"", count);
+	SNPRINTF(targetName, MAX_LINE_LENGTH, "\"ITEMS\" %d UPDATE_OBJECTIVE \"Retrieve items\"", count);
 
 	addGlobalTriggerFromScript(targetName);
 

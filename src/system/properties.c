@@ -91,7 +91,7 @@ void loadProperties(char *name, Entity *e)
 
 	savePtr1 = NULL;
 
-	snprintf(path, sizeof(path), "data/props/%s.props", name);
+	SNPRINTF(path, sizeof(path), "data/props/%s.props", name);
 
 	index = -1;
 

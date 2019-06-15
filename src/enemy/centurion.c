@@ -377,7 +377,7 @@ static void die()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	fireTrigger(self->objectiveName);
 
@@ -428,7 +428,7 @@ static void redDie()
 
 	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	for (i=0;i<9;i++)
 	{

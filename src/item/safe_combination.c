@@ -86,7 +86,7 @@ static void touch(Entity *other)
 			{
 				unit = 1 + prand() % 20;
 
-				snprintf(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == 0 ? "L" : "R");
+				SNPRINTF(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == 0 ? "L" : "R");
 
 				STRNCPY(self->requires, combination, sizeof(self->requires));
 
@@ -126,12 +126,12 @@ static void activate(int val)
 
 			if (strlen(combination) == 0)
 			{
-				snprintf(self->description, sizeof(self->description), "%d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
+				SNPRINTF(self->description, sizeof(self->description), "%d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
 			}
 
 			else
 			{
-				snprintf(self->description, sizeof(self->description), ", %d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
+				SNPRINTF(self->description, sizeof(self->description), ", %d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
 			}
 
 			strncat(combination, self->description, MAX_MESSAGE_LENGTH - strlen(combination) - 1);
@@ -144,5 +144,5 @@ static void activate(int val)
 
 	STRNCPY(self->description, combination, sizeof(self->description));
 
-	snprintf(self->description, sizeof(self->description), _("A scrap of paper. \"%s\" is written on it"), combination);
+	SNPRINTF(self->description, sizeof(self->description), _("A scrap of paper. \"%s\" is written on it"), combination);
 }

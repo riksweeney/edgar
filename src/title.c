@@ -75,7 +75,7 @@ static void initTitle()
 	char copyright[MAX_VALUE_LENGTH];
 	SDL_Surface *surface;
 
-	snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
+	SNPRINTF(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
 	surface = generateTransparentTextSurface(copyright, game.font, 220, 220, 220, TRUE);
 	

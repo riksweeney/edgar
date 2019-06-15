@@ -284,7 +284,7 @@ static void fireShot()
 
 	self->thinkTime = 60;
 
-	e = addProjectile("common/green_blob", self, self->x + self->w / 2, self->y, 0, 3 * (self->flags & FLY) ? 1 : -1);
+	e = addProjectile("common/green_blob", self, self->x + self->w / 2, self->y, 0, 3 * ((self->flags & FLY) ? 1 : -1));
 
 	e->x -= e->w / 2;
 

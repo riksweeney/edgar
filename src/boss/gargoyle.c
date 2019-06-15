@@ -1875,7 +1875,7 @@ static void lanceDie()
 
 	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	for (i=0;i<6;i++)
 	{
@@ -3111,7 +3111,7 @@ static void addExitTrigger(Entity *e)
 {
 	char itemName[MAX_LINE_LENGTH];
 
-	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"GARGOYLE_BOSS\"", e->objectiveName);
+	SNPRINTF(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"GARGOYLE_BOSS\"", e->objectiveName);
 
 	addGlobalTriggerFromScript(itemName);
 }

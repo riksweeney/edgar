@@ -103,7 +103,7 @@ static void followTargets()
 
 	if (self->dirX == 0 && self->dirY == 0)
 	{
-		snprintf(name, sizeof(name), "%s_TARGET_%d", self->objectiveName, self->thinkTime);
+		SNPRINTF(name, sizeof(name), "%s_TARGET_%d", self->objectiveName, self->thinkTime);
 
 		t = getTargetByName(name);
 

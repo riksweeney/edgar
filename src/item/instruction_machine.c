@@ -221,7 +221,7 @@ static void init()
 
 	setEntityAnimation(self, "STAND");
 
-	snprintf(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
+	SNPRINTF(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
 
 	e = getEntityByObjectiveName(display);
 

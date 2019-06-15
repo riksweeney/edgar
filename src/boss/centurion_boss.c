@@ -524,7 +524,7 @@ static void die()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	snprintf(name, sizeof(name), "boss/gold_centurion_boss_piece");
+	STRNCPY(name, "boss/gold_centurion_boss_piece", sizeof(name));
 
 	playSoundToMap("sound/enemy/centurion/centurion_die", BOSS_CHANNEL, self->x, self->y, 0);
 

@@ -36,7 +36,7 @@ void initPakFile()
 		FILE *fp;
 		int i;
 
-		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
+		SNPRINTF(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
 
 		fp = fopen(pakFile, "rb");
 
@@ -91,7 +91,7 @@ void verifyVersion()
         #if defined(PAK_FILE) && DEV == 0
             char version[5];
 
-            snprintf(version, sizeof(version), "%0.2f", VERSION);
+            SNPRINTF(version, sizeof(version), "%0.2f", VERSION);
 
 			if (existsInPak(version) == FALSE)
 			{
@@ -177,7 +177,7 @@ Mix_Music *loadMusicFromPak(char *name)
 		char fullName[MAX_PATH_LENGTH];
 		FILE *fp;
 
-		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		SNPRINTF(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -233,7 +233,7 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 
 	#if !defined(PAK_FILE) || DEV == 1
 		char fullName[MAX_PATH_LENGTH];
-		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		SNPRINTF(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -344,7 +344,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 	}
 
 	#if !defined(PAK_FILE) || DEV == 1
-		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		SNPRINTF(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 
@@ -428,7 +428,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		{
 			fclose(fp);
 
-			snprintf(filename, MAX_PATH_LENGTH, "%spakdata", getGameSavePath());
+			SNPRINTF(filename, MAX_PATH_LENGTH, "%spakdata", getGameSavePath());
 
 			printf("Writing to %s\n", filename);
 
@@ -476,7 +476,7 @@ int existsInPak(char *name)
 		char fullName[MAX_PATH_LENGTH];
 		FILE *fp;
 
-		snprintf(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
+		SNPRINTF(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, name);
 
 		fp = fopen(fullName, "rb");
 

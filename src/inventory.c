@@ -860,22 +860,22 @@ void drawInventory()
 		{
 			if (e->flags & STACKABLE)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->description), e->health);
+				SNPRINTF(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->description), e->health);
 			}
 
 			else if (strcmpignorecase(e->name, "weapon/lightning_sword") == 0)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->objectiveName), e->mental);
+				SNPRINTF(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->objectiveName), e->mental);
 			}
 
 			else if (strlen(e->description) == 0 && strlen(e->objectiveName) != 0)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s", _(e->objectiveName));
+				SNPRINTF(description, MAX_MESSAGE_LENGTH, "%s", _(e->objectiveName));
 			}
 
 			else
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s", _(e->description));
+				SNPRINTF(description, MAX_MESSAGE_LENGTH, "%s", _(e->description));
 			}
 
 			inventory.description = createDialogBox(NULL, description);

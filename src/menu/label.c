@@ -32,7 +32,7 @@ Label *createLabel(char *text, int x, int y)
 	char keyName[MAX_FILE_LENGTH];
 	SDL_Surface *textSurface;
 
-	snprintf(keyName, MAX_FILE_LENGTH, "l_%s", text);
+	SNPRINTF(keyName, MAX_FILE_LENGTH, "l_%s", text);
 
 	l = malloc(sizeof(Label));
 
@@ -83,7 +83,7 @@ void updateLabelText(Label *l, char *text)
 {
 	char keyName[MAX_VALUE_LENGTH];
 
-	snprintf(keyName, MAX_VALUE_LENGTH, "l_%s", text);
+	SNPRINTF(keyName, MAX_VALUE_LENGTH, "l_%s", text);
 
 	l->text = getTextureFromCache(keyName);
 

@@ -184,12 +184,12 @@ void draw()
 
 						if (player.face == LEFT)
 						{
-							snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
+							SNPRINTF(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 						}
 
 						else
 						{
-							snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
+							SNPRINTF(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 						}
 					#endif
 

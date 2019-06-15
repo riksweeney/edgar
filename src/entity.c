@@ -2064,7 +2064,7 @@ void addDuplicateImage(Entity *e)
 
 	duplicate->creditsAction = &duplicateWait;
 
-	snprintf(shadowAnim, MAX_VALUE_LENGTH, "%s_SHADOW", getAnimationTypeAtIndex(e));
+	SNPRINTF(shadowAnim, MAX_VALUE_LENGTH, "%s_SHADOW", getAnimationTypeAtIndex(e));
 
 	setEntityAnimation(duplicate, shadowAnim);
 

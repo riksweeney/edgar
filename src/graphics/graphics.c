@@ -979,7 +979,7 @@ void takeScreenshot()
 
 	if (strlen(screenshotPath) != 0)
 	{
-		snprintf(filename, sizeof(filename), "%s/edgar%06d.png", screenshotPath, frame);
+		SNPRINTF(filename, sizeof(filename), "%s/edgar%06d.png", screenshotPath, frame);
 
 		frame++;
 

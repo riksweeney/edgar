@@ -901,7 +901,7 @@ static char *getJoystickButton(int val)
 
 	val = abs(val) - 1000;
 
-	snprintf(text, MAX_VALUE_LENGTH, _("Joy Button #%d"), val);
+	SNPRINTF(text, MAX_VALUE_LENGTH, _("Joy Button #%d"), val);
 
 	return text;
 }

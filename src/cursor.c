@@ -68,7 +68,7 @@ void initCursor(char *name)
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
-	snprintf(line, sizeof(line), "data/cursor/%s.dat", name);
+	SNPRINTF(line, sizeof(line), "data/cursor/%s.dat", name);
 
 	buffer = loadFileFromPak(line);
 
@@ -201,7 +201,7 @@ void doCursor()
 				{
 					if (strcmpignorecase(cursor.entity.name, "lift/lift_target") == 0)
 					{
-						snprintf(name, sizeof(name), "NEW_TARGET_%03d", targetID);
+						SNPRINTF(name, sizeof(name), "NEW_TARGET_%03d", targetID);
 
 						addTarget(getMapStartX() + cursor.x, getMapStartY() + cursor.y, name);
 

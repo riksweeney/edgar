@@ -97,25 +97,25 @@ static void loadMenuLayout()
 
 	token = getPlayTimeAsString();
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), token);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), token);
 
 	free(token);
 
 	menu.widgets[1] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Kills: %d"), game.kills);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Kills: %d"), game.kills);
 
 	menu.widgets[2] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Arrows Fired: %d"), game.arrowsFired);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Arrows Fired: %d"), game.arrowsFired);
 
 	menu.widgets[3] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Bats Drowned: %d"), game.batsDrowned);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Bats Drowned: %d"), game.batsDrowned);
 
 	menu.widgets[4] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Times Eaten: %d"), game.timesEaten);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Times Eaten: %d"), game.timesEaten);
 
 	menu.widgets[5] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
@@ -123,23 +123,23 @@ static void loadMenuLayout()
 
 	distance /= 45000; /* 45 pixels is 1 metre */
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Distanced Travelled: %0.1fKM"), distance);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Distanced Travelled: %0.1fKM"), distance);
 
 	menu.widgets[6] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Attacks Blocked: %d"), game.attacksBlocked);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Attacks Blocked: %d"), game.attacksBlocked);
 
 	menu.widgets[7] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
 	token = getSlimeTimeAsString();
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), token);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), token);
 
 	free(token);
 
 	menu.widgets[8] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 
-	snprintf(menuName, MAX_VALUE_LENGTH, _("Secrets Found: %d / %d"), game.secretsFound, TOTAL_SECRETS);
+	SNPRINTF(menuName, MAX_VALUE_LENGTH, _("Secrets Found: %d / %d"), game.secretsFound, TOTAL_SECRETS);
 
 	menu.widgets[9] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
 

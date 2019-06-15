@@ -1351,7 +1351,7 @@ static void takeDamage(Entity *other, int damage)
 
 						STRNCPY(oldShieldName, playerShield.name, sizeof(oldShieldName));
 
-						snprintf(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
+						SNPRINTF(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
 
 						loadProperties(shieldName, &playerShield);
 

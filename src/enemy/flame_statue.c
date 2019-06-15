@@ -272,7 +272,7 @@ static void die()
 
 	playSoundToMap("sound/common/crumble", -1, self->x, self->y, 0);
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	fireTrigger(self->objectiveName);
 

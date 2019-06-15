@@ -110,7 +110,7 @@ static void entityWait()
 
 		self->targetX = 0;
 
-		snprintf(self->requires, MAX_VALUE_LENGTH, _("Attempts remaining: %d"), self->health);
+		SNPRINTF(self->requires, MAX_VALUE_LENGTH, _("Attempts remaining: %d"), self->health);
 	}
 
 	if (self->thinkTime > 0)
@@ -394,7 +394,7 @@ static void checkPairs()
 
 		self->health--;
 
-		snprintf(self->requires, MAX_VALUE_LENGTH, _("Attempts remaining: %d"), self->health);
+		SNPRINTF(self->requires, MAX_VALUE_LENGTH, _("Attempts remaining: %d"), self->health);
 	}
 }
 

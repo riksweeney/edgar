@@ -1971,7 +1971,7 @@ static void raiseDead()
 
 	if (self->thinkTime <= 0)
 	{
-		snprintf(targetName, MAX_VALUE_LENGTH, "GRAVE_%c", self->description[self->mental]);
+		SNPRINTF(targetName, MAX_VALUE_LENGTH, "GRAVE_%c", self->description[self->mental]);
 
 		t = getTargetByName(targetName);
 

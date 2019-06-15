@@ -134,7 +134,7 @@ static void die()
 
 	loadProperties(prand() % 2 == 0 ? "enemy/arrow_skeleton" : "enemy/sword_skeleton", self);
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	self->mental = 0;
 
@@ -764,7 +764,7 @@ static void creditsDie()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	self->mental = 0;
 

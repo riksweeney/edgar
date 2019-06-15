@@ -66,7 +66,7 @@ static void init()
 	char name[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	snprintf(name, MAX_VALUE_LENGTH, "%s_CLOUD", self->objectiveName);
+	SNPRINTF(name, MAX_VALUE_LENGTH, "%s_CLOUD", self->objectiveName);
 
 	e = getEntityByObjectiveName(name);
 
@@ -124,7 +124,7 @@ static void touch(Entity *other)
 
 	if (other->dirY > 0)
 	{
-		snprintf(name, MAX_VALUE_LENGTH, "%s_CLOUD", self->name);
+		SNPRINTF(name, MAX_VALUE_LENGTH, "%s_CLOUD", self->name);
 
 		if (other->type == ITEM && strcmpignorecase(other->name, name) == 0)
 		{

@@ -71,9 +71,9 @@ extern Game game;
 		userHome = pass->pw_dir;
 
 		#if MACOS == 1
-		snprintf(dir, sizeof(dir), "%s/Library/Application Support", userHome);
+		SNPRINTF(dir, sizeof(dir), "%s/Library/Application Support", userHome);
 		#else
-		snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
+		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 		#endif
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
@@ -84,9 +84,9 @@ extern Game game;
 		}
 
 		#if MACOS == 1
-		snprintf(dir, sizeof(dir), "%s/Library/Application Support/Edgar", userHome);
+		SNPRINTF(dir, sizeof(dir), "%s/Library/Application Support/Edgar", userHome);
 		#else
-		snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
+		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
 		#endif
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
@@ -97,16 +97,16 @@ extern Game game;
 		}
 
 		#if MACOS == 1
-		snprintf(gameSavePath, sizeof(gameSavePath), "%s/Library/Application Support/Edgar/", userHome);
+		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/Library/Application Support/Edgar/", userHome);
 		#else
-		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
+		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 		#endif
 
-		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
+		SNPRINTF(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
-		snprintf(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
+		SNPRINTF(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
 
-		snprintf(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
+		SNPRINTF(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
 	}
 #else
 	void setupUserHomeDirectory()
@@ -184,7 +184,7 @@ int loadGame(int slot)
 
 	savePtr = NULL;
 
-	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+	SNPRINTF(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
 	fp = fopen(saveFile, "rb");
 
@@ -299,7 +299,7 @@ int loadGame(int slot)
 
 			loadMap(itemName, FALSE);
 
-			snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
+			SNPRINTF(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
 		}
 
 		else if (strcmpignorecase(line, mapName) == 0)
@@ -326,7 +326,7 @@ int loadGame(int slot)
 
 		/* Back up the original save file */
 
-		snprintf(backup, sizeof(backup), "%s.bak", saveFile);
+		SNPRINTF(backup, sizeof(backup), "%s.bak", saveFile);
 
 		copyFile(saveFile, backup);
 
@@ -342,7 +342,7 @@ int loadGame(int slot)
 
 			percentage += steps;
 
-			snprintf(completion, 5, "%d%%", (int)percentage);
+			SNPRINTF(completion, 5, "%d%%", (int)percentage);
 
 			if ((int)(version * 100) > (int)(VERSION * 100))
 			{
@@ -466,7 +466,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 				if (saveMap == FALSE)
 				{
-					snprintf(itemName, sizeof(itemName), "%ld_old", game.playTime * SDL_GetTicks());
+					SNPRINTF(itemName, sizeof(itemName), "%ld_old", game.playTime * SDL_GetTicks());
 				}
 
 				if (savedLocation == FALSE)
@@ -584,7 +584,7 @@ void saveGame(int slot)
 	{
 		for (i=1001;;i++)
 		{
-			snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
+			SNPRINTF(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
 
 			read = fopen(saveFile, "rb");
 
@@ -604,9 +604,9 @@ void saveGame(int slot)
 	{
 		/* Backup older save */
 
-		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+		SNPRINTF(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
-		snprintf(tempSaveFile, sizeof(tempSaveFile), "%stempsave%d", gameSavePath, slot);
+		SNPRINTF(tempSaveFile, sizeof(tempSaveFile), "%stempsave%d", gameSavePath, slot);
 	}
 
 	write = fopen(tempSaveFile, "wb");
@@ -797,7 +797,7 @@ static void updateSaveFileIndex(int slot)
 
 	strftime(buffer, MAX_VALUE_LENGTH, "%H:%M %d %b %Y", timeinfo);
 
-	snprintf(saveName, MAX_VALUE_LENGTH, "%s - %s", _(getMapName()), buffer);
+	SNPRINTF(saveName, MAX_VALUE_LENGTH, "%s - %s", _(getMapName()), buffer);
 
 	STRNCPY(data[slot], saveName, MAX_VALUE_LENGTH);
 
@@ -831,7 +831,7 @@ int getMostRecentSave()
 
 	for (i=0;i<MAX_SAVE_SLOTS;i++)
 	{
-		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
+		SNPRINTF(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
 
 		fp = fopen(saveFile, "rb");
 
@@ -868,7 +868,7 @@ void saveTemporaryData()
 
 	savePtr = NULL;
 
-	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
+	SNPRINTF(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
 
 	read = fopen(tempFile, "rb");
 
@@ -1011,7 +1011,7 @@ void saveContinueData()
 
 	savePtr = NULL;
 
-	snprintf(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
+	SNPRINTF(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
 
 	write = fopen(saveFile, "wb");
 
@@ -1185,7 +1185,7 @@ int loadContinueData()
 
 	savePtr = NULL;
 
-	snprintf(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
+	SNPRINTF(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
 
 	fp = fopen(saveFile, "rb");
 
@@ -1286,7 +1286,7 @@ int loadContinueData()
 
 			loadMap(itemName, FALSE);
 
-			snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
+			SNPRINTF(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
 		}
 
 		else if (strcmpignorecase(line, mapName) == 0)
@@ -1321,7 +1321,7 @@ int hasPersistance(char *mapName)
 
 	savePtr = NULL;
 
-	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
+	SNPRINTF(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
 	read = fopen(tempFile, "rb");
 
@@ -1430,7 +1430,7 @@ void loadPersitanceData(char *mapName)
 
 	savePtr = NULL;
 
-	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
+	SNPRINTF(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
 	buffer = decompressFile(tempFile);
 
@@ -1508,7 +1508,7 @@ void loadConfig()
 
 	game.hasConfig = FALSE;
 
-	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
+	SNPRINTF(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
 
 	resetControls(FALSE);
 
@@ -1573,7 +1573,7 @@ void saveConfig()
 	FILE *fp;
 	char settingsFile[MAX_PATH_LENGTH];
 
-	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
+	SNPRINTF(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
 
 	fp = fopen(settingsFile, "wb");
 
@@ -1660,7 +1660,7 @@ char **getSaveFileIndex()
 	{
 		/* Check for a save game from version 0.1 */
 
-		snprintf(save0, sizeof(save0), "%ssave0", gameSavePath);
+		SNPRINTF(save0, sizeof(save0), "%ssave0", gameSavePath);
 
 		fp = fopen(save0, "rb");
 
@@ -1749,7 +1749,7 @@ void loadObtainedMedals()
 
 	savePtr = NULL;
 
-	snprintf(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
+	SNPRINTF(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
 
 	fp = fopen(medalFile, "rb");
 
@@ -1781,7 +1781,7 @@ void saveObtainedMedals()
 	Medal *medal;
 	FILE *fp;
 
-	snprintf(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
+	SNPRINTF(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
 
 	fp = fopen(medalFile, "wb");
 

@@ -111,7 +111,7 @@ static void explode()
 
 	playSoundToMap("sound/common/explosion", -1, self->x, self->y, 0);
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	e = addProjectile(name, self, self->x, self->y, -12, 0);
 

@@ -188,7 +188,7 @@ static void doIntro()
 	{
 		self->flags |= DO_NOT_PERSIST;
 
-		snprintf(name, sizeof(name), "boss/awesome_boss_%d", self->mental);
+		SNPRINTF(name, sizeof(name), "boss/awesome_boss_%d", self->mental);
 
 		e = addEnemy(name, self->x - 8 * self->mental, self->y - 64);
 

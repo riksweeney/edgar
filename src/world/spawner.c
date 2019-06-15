@@ -91,12 +91,12 @@ static void init()
 	{
 		if (strcmpignorecase(self->name, "common/spawner") == 0 && strstr(token, "/") == NULL)
 		{
-			snprintf(name, sizeof(name), "enemy/%s", token);
+			SNPRINTF(name, sizeof(name), "enemy/%s", token);
 		}
 
 		else
 		{
-			snprintf(name, sizeof(name), "%s", token);
+			SNPRINTF(name, sizeof(name), "%s", token);
 		}
 
 		loadProperties(name, e);
@@ -217,12 +217,12 @@ static void spawn()
 
 						if (strstr(token, "/") == NULL)
 						{
-							snprintf(name, sizeof(name), "enemy/%s", token);
+							SNPRINTF(name, sizeof(name), "enemy/%s", token);
 						}
 
 						else
 						{
-							snprintf(name, sizeof(name), "%s", token);
+							SNPRINTF(name, sizeof(name), "%s", token);
 						}
 
 						e = addEnemy(name, self->x, self->y);
@@ -300,12 +300,12 @@ static void spawn()
 
 				if (strstr(token, "/") == NULL)
 				{
-					snprintf(name, sizeof(name), "enemy/%s", token);
+					SNPRINTF(name, sizeof(name), "enemy/%s", token);
 				}
 
 				else
 				{
-					snprintf(name, sizeof(name), "%s", token);
+					SNPRINTF(name, sizeof(name), "%s", token);
 				}
 
 				e = addEnemy(name, self->x, self->y);

@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
 
 		token = strtok(NULL, "\0");
 
-		snprintf(line, sizeof(line), "msgid \"%s\"", token);
+		SNPRINTF(line, sizeof(line), "msgid \"%s\"", token);
 
 		if (textAlreadyAdded(line) == FALSE)
 		{
@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		snprintf(filename, sizeof(filename), "data/scripts/%s", dfile->d_name);
+		SNPRINTF(filename, sizeof(filename), "data/scripts/%s", dfile->d_name);
 
 		dirp2 = opendir(filename);
 
@@ -173,7 +173,7 @@ int main(int argc, char *argv[])
 
 					token = strtok(NULL, "\0");
 
-					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+					SNPRINTF(line, sizeof(line), "msgid \"%s\"", token);
 
 					if (textAlreadyAdded(line) == FALSE)
 					{
@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
 
 					token = strtok(NULL, "\0");
 
-					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+					SNPRINTF(line, sizeof(line), "msgid \"%s\"", token);
 
 					if (textAlreadyAdded(line) == FALSE)
 					{
@@ -201,7 +201,7 @@ int main(int argc, char *argv[])
 				{
 					sscanf(line, "%*s %*s \"%[^\"]\"", filename);
 
-					snprintf(line, sizeof(line), "msgid \"%s\"", filename);
+					SNPRINTF(line, sizeof(line), "msgid \"%s\"", filename);
 
 					if (textAlreadyAdded(line) == FALSE)
 					{
@@ -215,7 +215,7 @@ int main(int argc, char *argv[])
 
 					token = strtok(NULL, "\0");
 
-					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+					SNPRINTF(line, sizeof(line), "msgid \"%s\"", token);
 
 					if (textAlreadyAdded(line) == FALSE)
 					{
@@ -246,7 +246,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		snprintf(filename, sizeof(filename), "data/props/item/%s", dfile->d_name);
+		SNPRINTF(filename, sizeof(filename), "data/props/item/%s", dfile->d_name);
 
 		dirp2 = opendir(filename);
 
@@ -279,7 +279,7 @@ int main(int argc, char *argv[])
 
 					token = strtok(NULL, "\0");
 
-					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+					SNPRINTF(line, sizeof(line), "msgid \"%s\"", token);
 
 					if (textAlreadyAdded(line) == FALSE)
 					{
@@ -310,7 +310,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		snprintf(filename, sizeof(filename), "data/props/weapon/%s", dfile->d_name);
+		SNPRINTF(filename, sizeof(filename), "data/props/weapon/%s", dfile->d_name);
 
 		dirp2 = opendir(filename);
 
@@ -343,7 +343,7 @@ int main(int argc, char *argv[])
 
 					token = strtok(NULL, "\0");
 
-					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+					SNPRINTF(line, sizeof(line), "msgid \"%s\"", token);
 
 					if (textAlreadyAdded(line) == FALSE)
 					{
@@ -433,7 +433,7 @@ static char *replaceString(char *string, char *find, char *replace)
 
 	buffer[p - string] = '\0';
 
-	snprintf(buffer + (p - string), MAX_LINE_LENGTH, "%s%s", replace, p + strlen(find));
+	SNPRINTF(buffer + (p - string), MAX_LINE_LENGTH, "%s%s", replace, p + strlen(find));
 
 	return buffer;
 }
@@ -463,7 +463,7 @@ static int recurseDirectory(char *dirName, char *searchString)
 			continue;
 		}
 
-		snprintf(filename, sizeof(filename), "%s/%s", dirName, dfile->d_name);
+		SNPRINTF(filename, sizeof(filename), "%s/%s", dirName, dfile->d_name);
 
 		dirp2 = opendir(filename);
 

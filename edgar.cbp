@@ -34,7 +34,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option='-DLOCALE_DIR=\&quot;locale\&quot;' />
-			<Add option='-DVERSION=&quot;1.31&quot;' />
+			<Add option='-DVERSION=&quot;1.32&quot;' />
 			<Add option='-DINSTALL_PATH=\&quot;\&quot;' />
 			<Add option='-DPAK_FILE=\&quot;edgar.pak\&quot;' />
 			<Add directory="../../../../MinGW/libs/SDL-1.2.15/include" />

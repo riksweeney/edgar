@@ -170,7 +170,7 @@ void fireGlobalTrigger(char *name)
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
+				SNPRINTF(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 
@@ -278,12 +278,12 @@ Texture *listObjectives()
 		{
 			if (trigger[i].total > 1)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
+				SNPRINTF(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 			}
 
 			else
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s\n ", _(trigger[i].targetName));
+				SNPRINTF(message, MAX_MESSAGE_LENGTH, "%s\n ", _(trigger[i].targetName));
 			}
 
 			strncat(allMessages, message, (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - strlen(allMessages) - 1);

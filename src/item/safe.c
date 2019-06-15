@@ -183,7 +183,7 @@ static void readInputCode()
 			{
 				if (self->health != 0)
 				{
-					snprintf(code, sizeof(code), "%s%d%s", self->target->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
+					SNPRINTF(code, sizeof(code), "%s%d%s", self->target->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
 
 					STRNCPY(self->target->objectiveName, code, sizeof(self->target->objectiveName));
 
@@ -212,7 +212,7 @@ static void readInputCode()
 
 		if (val == 5)
 		{
-			snprintf(code, sizeof(code), "%s%d%s", self->target->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
+			SNPRINTF(code, sizeof(code), "%s%d%s", self->target->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
 
 			STRNCPY(self->target->objectiveName, code, sizeof(self->target->objectiveName));
 

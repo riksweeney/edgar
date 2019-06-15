@@ -441,7 +441,7 @@ static char *getVolumePercent(int volume)
 		showErrorAndExit("Failed to allocate a whole 3 bytes for a Volume label");
 	}
 
-	snprintf(text, 3, "%d", volume);
+	SNPRINTF(text, 3, "%d", volume);
 
 	return text;
 }
@@ -462,7 +462,7 @@ static char *getQuality()
 		showErrorAndExit("Failed to allocate a whole 10 bytes for a Quality label");
 	}
 
-	snprintf(text, 10, "%d", game.audioQuality);
+	SNPRINTF(text, 10, "%d", game.audioQuality);
 
 	return text;
 }

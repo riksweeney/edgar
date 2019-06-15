@@ -1517,7 +1517,7 @@ static void gargoyleLanceDie()
 
 	playSoundToMap("sound/enemy/centurion/centurion_die", -1, self->x, self->y, 0);
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	SNPRINTF(name, sizeof(name), "%s_piece", self->name);
 
 	for (i=0;i<6;i++)
 	{
@@ -2423,7 +2423,7 @@ static void guardianCreateBody()
 		showErrorAndExit("Failed to allocate a whole %d bytes for Snake Boss body...", self->mental * (int)sizeof(Entity *));
 	}
 
-	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
+	SNPRINTF(bodyName, sizeof(bodyName), "%s_body", self->name);
 
 	for (i=self->mental-1;i>=0;i--)
 	{
@@ -3422,7 +3422,7 @@ static void awesomeIntro()
 	{
 		self->flags |= DO_NOT_PERSIST;
 
-		snprintf(name, sizeof(name), "boss/awesome_boss_%d", self->mental);
+		SNPRINTF(name, sizeof(name), "boss/awesome_boss_%d", self->mental);
 
 		e = addEnemy(name, self->x - 8 * self->mental, self->y - 64);
 
@@ -6632,7 +6632,7 @@ static void addExitTrigger(Entity *e)
 {
 	char itemName[MAX_LINE_LENGTH];
 
-	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"BLACK_BOOK_2\"", e->objectiveName);
+	SNPRINTF(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"BLACK_BOOK_2\"", e->objectiveName);
 
 	addGlobalTriggerFromScript(itemName);
 }

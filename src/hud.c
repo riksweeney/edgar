@@ -189,9 +189,9 @@ void drawHud()
 
 				if (hud.quantity != quant || (game.frames % (TEXTURE_CACHE_TIME / 2)) == 0)
 				{
-					snprintf(quantity, 4, "%d", quant);
+					SNPRINTF(quantity, 4, "%d", quant);
 
-					snprintf(cacheName, 10, "hud_%d", quant);
+					SNPRINTF(cacheName, 10, "hud_%d", quant);
 
 					hud.quantitySurface = getTextureFromCache(cacheName);
 
@@ -386,7 +386,7 @@ void setSlimeTimerValue(int value)
 		}
 	}
 
-	snprintf(timeValue, 5, "%d", value);
+	SNPRINTF(timeValue, 5, "%d", value);
 
 	hud.slimeTimerSurface = getTextureFromCache(timeValue);
 

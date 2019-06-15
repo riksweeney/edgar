@@ -204,7 +204,7 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 	{
 		lineBreak = FALSE;
 
-		snprintf(word, sizeof(word), "%s ", token);
+		SNPRINTF(word, sizeof(word), "%s ", token);
 
 		if (word[strlen(word) - 2] == '\n')
 		{

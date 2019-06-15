@@ -138,7 +138,7 @@ void fireMapTrigger(char *name)
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
+				SNPRINTF(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 

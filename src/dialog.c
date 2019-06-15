@@ -163,7 +163,7 @@ Texture *createDialogBox(char *title, char *msg)
 	{
 		lineBreak = FALSE;
 
-		snprintf(word, sizeof(word), "%d", game.kills);
+		SNPRINTF(word, sizeof(word), "%d", game.kills);
 
 		token = replaceString(token, "[GAME_KILLS]", word);
 		
@@ -173,7 +173,7 @@ Texture *createDialogBox(char *title, char *msg)
 		
 		free(playTime);
 
-		snprintf(word, sizeof(word), "%d", game.continues);
+		SNPRINTF(word, sizeof(word), "%d", game.continues);
 
 		token = replaceString(token, "[CONTINUE_COUNT]", word);
 
@@ -197,7 +197,7 @@ Texture *createDialogBox(char *title, char *msg)
 
 		token = replaceString(token, "[INPUT_NEXT]", getKeyValue(control.button[CONTROL_NEXT]));
 
-		snprintf(word, sizeof(word), "%s ", token);
+		SNPRINTF(word, sizeof(word), "%s ", token);
 
 		if (word[strlen(word) - 2] == '\n')
 		{
@@ -345,7 +345,7 @@ static char *replaceString(char *string, char *find, char *replace)
 
 	buffer[p - string] = '\0';
 
-	snprintf(buffer + (p - string), MAX_VALUE_LENGTH, "%s%s", replace, p + strlen(find));
+	SNPRINTF(buffer + (p - string), MAX_VALUE_LENGTH, "%s%s", replace, p + strlen(find));
 
 	return buffer;
 }

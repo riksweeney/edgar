@@ -245,7 +245,7 @@ Mix_Chunk *loadSound(char *name)
 		return NULL;
 	}
 
-	snprintf(path, sizeof(path), "%s", name);
+	SNPRINTF(path, sizeof(path), "%s", name);
 
 	/* Load the sound specified by the filename */
 

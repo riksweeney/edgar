@@ -187,7 +187,7 @@ static void nextLevelPause()
 
 	if (self->thinkTime <= 0)
 	{
-		snprintf(mapName, sizeof(mapName), "%s %s", self->objectiveName, self->name);
+		SNPRINTF(mapName, sizeof(mapName), "%s %s", self->objectiveName, self->name);
 
 		setNextLevelFromScript(mapName);
 

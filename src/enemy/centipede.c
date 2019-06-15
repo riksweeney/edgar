@@ -173,7 +173,7 @@ static void addSegments()
 		mental = 0;
 	}
 
-	snprintf(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
+	SNPRINTF(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
 
 	for (i=0;i<5;i++)
 	{

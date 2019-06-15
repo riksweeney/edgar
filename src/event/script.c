@@ -69,7 +69,7 @@ void runScript(char *name)
 
 	savePtr = NULL;
 
-	snprintf(filename, sizeof(filename), "data/scripts/%s.dat", name);
+	SNPRINTF(filename, sizeof(filename), "data/scripts/%s.dat", name);
 
 	buffer = loadFileFromPak(filename);
 

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2015-07-01 19:06+0000\n"
+"PO-Revision-Date: 2019-03-26 22:15+0000\n"
 "Last-Translator: grapjos <grapjos@hotmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-07-06 21:53+0000\n"
-"X-Generator: Launchpad (build 18419)\n"
+"X-Launchpad-Export-Date: 2019-03-27 07:01+0000\n"
+"X-Generator: Launchpad (build 18910)\n"
 
 "Language: nl\n"
 #: data/scripts/olaf.dat:6
@@ -662,8 +662,8 @@ msgstr "Dit schild ziet er niet beter uit dan mijn huidige exemplaar."
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
 msgstr ""
-"Ik hoef alleen maar een vloeistof vervaardigen uit de voelspriet van een "
-"slijmslak en de oogbol van een cycloop"
+"Ik hoef alleen maar een vloeistof te vervaardigen uit de voelspriet van een "
+"slijmslak en de het oog van een cycloop"
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
@@ -1621,7 +1621,7 @@ msgstr ""
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
-"Hun einige oog is normaal gesproken gesloten en ze gebruiken hun sonar bij "
+"Hun enige oog is normaal gesproken gesloten en ze gebruiken hun sonar bij "
 "het voortbewegen"
 
 #: data/scripts/monsters.dat:113
@@ -1651,7 +1651,7 @@ msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
-"De oogbol van een cycloop bezit magische krachten en is een veelgebruikt "
+"Het oog van een cycloop bezit magische krachten en is een veelgebruikt "
 "ingrediënt bij de voorbereiding van betoveringen"
 
 #: data/scripts/monsters.dat:120
@@ -1908,8 +1908,8 @@ msgstr "Het schild om mee te toveren"
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr ""
-"Meng de oogbollen van de cyclopen met de voelspriet van de slijmslak tot een "
-"gladde vloeistof"
+"Roer de cyclopen-ogen en de voelspriet van een slijmslak tot een gladde "
+"vloeistof"
 
 #: data/scripts/enchanting_weapons.dat:50
 msgid ""
@@ -2166,8 +2166,8 @@ msgstr ""
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
-"Om de drank te maken heb ik een voelspriet van een rode slak nodig en 3 "
-"oogbollen van cyclopen"
+"Om de toverdrank te maken heb ik een voelspriet van een rode slak nodig en 3 "
+"cyclopen-ogen"
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
@@ -2709,7 +2709,7 @@ msgstr "Ik moet iets passends bedenken..."
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
-msgstr "Het lijkt erop dat je kippen alweer tijn ontsnapt, Jacob"
+msgstr "Het lijkt erop dat je kippen alweer zijn ontsnapt, Jacob"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
@@ -2868,7 +2868,7 @@ msgstr "Dit is hopelijk de laatste keer dat ik dit moet doen..."
 
 #: data/scripts/coal_mining.dat:1
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr "Dit moet de Steenkool zijn die ik voor Borgan zou verzamelen"
+msgstr "Dit moet de steenkool zijn, die ik voor Borgan zou verzamelen"
 
 #: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
@@ -3579,8 +3579,8 @@ msgid ""
 "You saved me a lot of time. Maggie made me something else but since you have "
 "been so helpful, you can have it."
 msgstr ""
-"Je hebt me een hoop tijd bespaard. Maggie heeft nog iets voor gemaakt maar "
-"omdat je me zo goed hebt geholpen, mag jij het hebben."
+"Je hebt me een hoop tijd bespaard. Maggie had nog iets voor me en omdat je "
+"me zo goed hebt geholpen, mag jij het hebben."
 
 #: data/scripts/power_generators.dat:3
 msgid "These machines aren't working."
@@ -4047,8 +4047,8 @@ msgid ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
 msgstr ""
-"Hmmm, de lucht voelt geladen, het herinnert me aan Maggie's huis toen "
-"toverspreuken aan het maken was. Ik zal voorzichtig zijn."
+"Hmmm, de lucht voelt geladen, het herinnert me aan Maggie's huis toen ze "
+"toverspreuken aan het oefenen was. Ik zal voorzichtig zijn."
 
 #: data/scripts/grasslands_intro.dat:7
 msgid ""
@@ -4492,7 +4492,7 @@ msgstr "Het is een ketel. Maggie heeft er net zo een"
 
 #: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
-msgstr "OK, de oogbol van de cycloop en de tentakel zijn toegevoegd"
+msgstr "OK, het oog van de cycloop en de tentakel zijn toegevoegd"
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
@@ -4517,12 +4517,11 @@ msgstr "Ik heb all basis-ingrediënten nodig"
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr ""
-"3 oogbollen van cyclopen, 1 tentekel van een rode slak en een reserve schild"
+"3 cyclopen-ogen, 1 tentekel van een rode slijm slak en een reserve schild"
 
 #: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
-msgstr ""
-"Ik moet ook nog een vloeistof maken van de oogbollen en de voelspriet"
+msgstr "Ik moet ook nog een vloeistof maken van de ogen en een voelspriet"
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
@@ -4897,7 +4896,7 @@ msgstr "Jij gaat in de linker en ik in de rechter"
 
 #: data/scripts/evil_edgar_start.dat:31
 msgid "It will then merge your body into mine, leaving just me"
-msgstr "Onze lichamen worden dan samengevoegd, zodat ik alleen overblijf"
+msgstr "Onze lichamen worden dan samengevoegd, zodat alleen ik overblijf"
 
 #: data/scripts/evil_edgar_start.dat:32
 msgid "Merge us together? Over my dead body!"
@@ -5258,15 +5257,15 @@ msgstr "Sleutel van de  afvalverwerking"
 
 #: data/scripts/sewer_trap_note.dat:12
 msgid "Access Key 1"
-msgstr "Sleutel toegangspoort 1"
+msgstr "Sleutel voor deur 1"
 
 #: data/scripts/sewer_trap_note.dat:13
 msgid "Access Key 2"
-msgstr "Sleutel toegangspoort 2"
+msgstr "Sleutel voor deur 2"
 
 #: data/scripts/sewer_trap_note.dat:14
 msgid "Access Key 3"
-msgstr "Sleutel toegangspoort 3"
+msgstr "Sleutel voor deur 3"
 
 #: data/maps/map07.dat:2518
 msgid "Trap Door Switch Key"
@@ -5346,7 +5345,7 @@ msgstr "Een toverdrank die je zal transformeren..."
 
 #: data/props/item/health_potion.props:6
 msgid "A potion which will restore 5 health points"
-msgstr ""
+msgstr "Een drankje herstelt 5 hartjes"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
@@ -5358,7 +5357,7 @@ msgstr "Een toverdrank die je onzichtbaar maakt voor bepaalde vijanden"
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr "De oogbol van een cycloop"
+msgstr "Een cyclopen-oog"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
@@ -5564,7 +5563,7 @@ msgstr "Sleutel van de rechter vleugel"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine Entrance Door Key"
-msgstr "Toegangspoort van de mijn"
+msgstr "Sleutel voor de toegangspoort van de mijn"
 
 #: data/maps/map07.dat:3168
 msgid "Sewage Restricted Zone Key"
@@ -5768,7 +5767,7 @@ msgstr "Oogbollensmoothie"
 
 #: data/props/item/eyeball_smoothie.props:5
 msgid "A liquid made from eyeballs and tentacles"
-msgstr "Een vloeistof van oogbollen en voelsprieten"
+msgstr "Een vloeistof van ogen en voelsprieten"
 
 #: src/system/load_save.c:1673
 msgid "Patching your save game. Please wait..."
@@ -6050,7 +6049,7 @@ msgstr "Een steeksleutel"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
-msgstr "Een exploderende cyclopen oogbol. Een fiasco?"
+msgstr "Een exploderende cyclopen-oog. Een misser?"
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
@@ -7069,7 +7068,7 @@ msgstr "Papa, waar ben je?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr "het lijkt er niet op dat mij vader gisteravond naar huis is gekomen"
+msgstr "Het lijkt er niet op, dat mijn vader gisteravond thuis is gekomen"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
@@ -7169,7 +7168,7 @@ msgstr "Opgerold gordeldier met stekels"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer Eyeball"
-msgstr "Oogbol van een cycloop"
+msgstr "Cyclopen-oog"
 
 #: src/item/apple_tree.h:20
 msgid "Apple"

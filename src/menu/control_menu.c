@@ -613,7 +613,7 @@ static char *getDeadZoneValue(int value)
 		showErrorAndExit("Failed to allocate a whole 10 bytes for the dead zone label");
 	}
 
-	snprintf(text, 10, "%d", value);
+	SNPRINTF(text, 10, "%d", value);
 
 	return text;
 }

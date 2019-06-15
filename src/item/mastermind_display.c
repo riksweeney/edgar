@@ -359,7 +359,7 @@ static void generateSolution()
 
 	for (i=0;i<4;i++)
 	{
-		snprintf(c, 2, "%ld", 1 + prand() % self->health);
+		SNPRINTF(c, 2, "%ld", 1 + prand() % self->health);
 
 		self->requires[i] = c[0];
 	}
@@ -413,7 +413,7 @@ static int checkSolution()
 			return -1;
 		}
 
-		snprintf(c, 2, "%d", e->health);
+		SNPRINTF(c, 2, "%d", e->health);
 
 		solution[i] = c[0];
 

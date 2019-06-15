@@ -263,7 +263,7 @@ static void addExitTrigger(Entity *e)
 {
 	char itemName[MAX_LINE_LENGTH];
 
-	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"WHIRLWIND\"", e->objectiveName);
+	SNPRINTF(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"WHIRLWIND\"", e->objectiveName);
 
 	addGlobalTriggerFromScript(itemName);
 }

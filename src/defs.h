@@ -152,6 +152,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 
+#define SNPRINTF(dest, size, format, ...) if (snprintf(dest, size, format, __VA_ARGS__) > size) printf("Warning: Buffer too small for %s\n", dest)
+
 #define SWORD_MAX_CHARGE 50
 
 #if DEV == 1

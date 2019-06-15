@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	snprintf(versionName, sizeof(versionName), "%0.2f", VERSION);
+	SNPRINTF(versionName, sizeof(versionName), "%0.2f", VERSION);
 
 	versionFile = fopen(versionName, "wb");
 
@@ -148,7 +148,7 @@ static void getFilenames(char *dirName, int *arraySize)
 			continue;
 		}
 
-		sprintf(filename, "%s/%s", dirName, dfile->d_name);
+		SNPRINTF(filename, sizeof(filename), "%s/%s", dirName, dfile->d_name);
 
 		dirp2 = opendir(filename);
 

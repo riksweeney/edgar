@@ -163,7 +163,7 @@ static void summon()
 		summonCount++;
 	}
 
-	snprintf(enemyToSummon, MAX_VALUE_LENGTH, "enemy/%s", token);
+	SNPRINTF(enemyToSummon, MAX_VALUE_LENGTH, "enemy/%s", token);
 
 	e = addEnemy(enemyToSummon, self->x, self->y);
 

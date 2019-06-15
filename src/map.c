@@ -64,7 +64,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	waterTile = WATER_TILE_START + 1;
 
-	snprintf(filename, sizeof(filename), "data/maps/%s.dat", name);
+	SNPRINTF(filename, sizeof(filename), "data/maps/%s.dat", name);
 
 	buffer = loadFileFromPak(filename);
 
@@ -506,7 +506,7 @@ int saveMap()
 		return FALSE;
 	}
 
-	snprintf(filename, sizeof(filename), "data/maps/%s.dat", map.filename);
+	SNPRINTF(filename, sizeof(filename), "data/maps/%s.dat", map.filename);
 
 	printf("Saving map to %s\n", filename);
 
@@ -652,7 +652,7 @@ static void loadMapTiles(char *dir)
 
 	for (i=1;i<MAX_TILES;i++)
 	{
-		snprintf(filename, sizeof(filename), "gfx/map/%s/%d.png", dir, i);
+		SNPRINTF(filename, sizeof(filename), "gfx/map/%s/%d.png", dir, i);
 
 		if (existsInPak(filename) == FALSE)
 		{
@@ -662,11 +662,11 @@ static void loadMapTiles(char *dir)
 		mapImages[i] = loadImage(filename);
 	}
 
-	snprintf(filename, sizeof(filename), "gfx/map/%s/background.png", dir);
+	SNPRINTF(filename, sizeof(filename), "gfx/map/%s/background.png", dir);
 
 	loadMapBackground(filename, 0);
 
-	snprintf(filename, sizeof(filename), "gfx/map/%s/background1.png", dir);
+	SNPRINTF(filename, sizeof(filename), "gfx/map/%s/background1.png", dir);
 
 	loadMapBackground(filename, 1);
 }
@@ -1055,7 +1055,7 @@ static void loadAmbience(char *dir)
 	{
 		for (j=0;extensions[j]!=NULL;j++)
 		{
-			snprintf(filename, sizeof(filename), "ambience/%s/%d.%s", dir, i, extensions[j]);
+			SNPRINTF(filename, sizeof(filename), "ambience/%s/%d.%s", dir, i, extensions[j]);
 
 			if (existsInPak(filename) == FALSE)
 			{

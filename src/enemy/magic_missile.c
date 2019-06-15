@@ -205,7 +205,7 @@ static void addTrail()
 
 	e->head = self;
 
-	snprintf(animName, MAX_VALUE_LENGTH, "TRAIL_%d", self->mental);
+	SNPRINTF(animName, MAX_VALUE_LENGTH, "TRAIL_%d", self->mental);
 
 	setEntityAnimation(e, animName);
 }

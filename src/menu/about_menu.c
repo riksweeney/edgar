@@ -72,7 +72,7 @@ static void loadMenuLayout()
 
 	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
-	snprintf(versionText, MAX_VALUE_LENGTH, _("The Legend of Edgar v%0.2f"), VERSION);
+	SNPRINTF(versionText, MAX_VALUE_LENGTH, _("The Legend of Edgar v%0.2f"), VERSION);
 
 	if (menu.widgets == NULL)
 	{
@@ -85,7 +85,7 @@ static void loadMenuLayout()
 
 	y += menu.widgets[0]->selectedState->h + BUTTON_PADDING;
 
-	snprintf(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
+	SNPRINTF(copyright, MAX_VALUE_LENGTH, _("Copyright Parallel Realities 2009 - %d"), YEAR);
 
 	menu.widgets[1] = createWidget(copyright, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 

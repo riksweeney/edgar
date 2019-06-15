@@ -77,7 +77,7 @@ static void init()
 
 	if (nextTrack != -1)
 	{
-		snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? self->mental : self->health);
+		SNPRINTF(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? self->mental : self->health);
 
 		self->target = getEntityByObjectiveName(targetTrackName);
 
@@ -87,7 +87,7 @@ static void init()
 		}
 	}
 
-	snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? (int)self->endX : (int)self->endY);
+	SNPRINTF(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? (int)self->endX : (int)self->endY);
 
 	self->parent = getEntityByObjectiveName(targetTrackName);
 
@@ -117,7 +117,7 @@ static void entityWait()
 
 		if (nextTrack != -1)
 		{
-			snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? self->mental : self->health);
+			SNPRINTF(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? self->mental : self->health);
 
 			self->target = getEntityByObjectiveName(targetTrackName);
 
@@ -127,7 +127,7 @@ static void entityWait()
 			}
 		}
 
-		snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? (int)self->endX : (int)self->endY);
+		SNPRINTF(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? (int)self->endX : (int)self->endY);
 
 		self->parent = getEntityByObjectiveName(targetTrackName);
 	}

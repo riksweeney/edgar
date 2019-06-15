@@ -643,7 +643,7 @@ int patchEntities(double versionFile, char *mapName)
 
 	savePtr = NULL;
 
-	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
+	SNPRINTF(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
 
 	saveMap = TRUE;
 

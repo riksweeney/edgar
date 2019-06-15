@@ -907,7 +907,7 @@ char *getPlayTimeAsString()
 
 	minutes = tempTime / (60 * 60);
 
-	snprintf(timeString, 15, "%dH %dM", hours, minutes);
+	SNPRINTF(timeString, 15, "%dH %dM", hours, minutes);
 
 	return timeString;
 }
@@ -931,7 +931,7 @@ char *getPlayTimeHours()
 
 	hours = tempTime / (60 * 60 * 60);
 
-	snprintf(timeString, 5, "%d", hours);
+	SNPRINTF(timeString, 5, "%d", hours);
 
 	return timeString;
 }
@@ -959,7 +959,7 @@ char *getSlimeTimeAsString()
 
 	tempTime /= 60;
 
-	snprintf(timeString, 15, "%dM %ldS", minutes, tempTime);
+	SNPRINTF(timeString, 15, "%dM %ldS", minutes, tempTime);
 
 	return timeString;
 }

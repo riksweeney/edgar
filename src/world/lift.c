@@ -166,7 +166,7 @@ static Target *getLiftTarget(char *name, int targetID)
 {
 	char targetName[MAX_VALUE_LENGTH];
 
-	snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", name, targetID);
+	SNPRINTF(targetName, sizeof(targetName), "%s_TARGET_%d", name, targetID);
 
 	/* Search for the lift's target */
 
@@ -353,7 +353,7 @@ static void setToStart()
 
 	else
 	{
-		snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", self->objectiveName, self->health);
+		SNPRINTF(targetName, sizeof(targetName), "%s_TARGET_%d", self->objectiveName, self->health);
 
 		/* Search for the lift's target */
 

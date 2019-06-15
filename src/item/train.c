@@ -116,7 +116,7 @@ static void moveAlongTrack()
 
 		if (self->thinkTime <= 0)
 		{
-			snprintf(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, self->health);
+			SNPRINTF(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, self->health);
 
 			e = getEntityByObjectiveName(trackName);
 
@@ -126,7 +126,7 @@ static void moveAlongTrack()
 				{
 					track = e->active == FALSE ? e->mental : e->health;
 
-					snprintf(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, track);
+					SNPRINTF(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, track);
 
 					e = getEntityByObjectiveName(trackName);
 
@@ -155,7 +155,7 @@ static void moveAlongTrack()
 				{
 					track = e->active == FALSE ? e->endX : e->endY;
 
-					snprintf(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, track);
+					SNPRINTF(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, track);
 
 					e = getEntityByObjectiveName(trackName);
 

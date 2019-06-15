@@ -76,7 +76,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	printf("Locale is %s\n", language);
 
-	snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
+	SNPRINTF(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 
 	#if DEV == 1
 		printf("Opening %s\n", c);
@@ -97,7 +97,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 		strtok(language, "_");
 
-		snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
+		SNPRINTF(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 
 		#if DEV == 1
 			printf("Opening %s\n", c);
