@@ -53,7 +53,7 @@ void createAutoDialogBox(char *title, char *text, int thinkTime)
 
 Texture *createDialogBox(char *title, char *msg)
 {
-	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr, *titleText, *playTime;
+	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr, *titleText, *playTime, *cachedText;
 	int i, lines, w, h, maxWidth, lineBreak, *lineBreaks;
 	SDL_Surface **surface, *tempSurface;
 	Texture *texture;
@@ -65,13 +65,48 @@ Texture *createDialogBox(char *title, char *msg)
 
 	if (strstr(msg, "[") == NULL)
 	{
-		texture = getTextureFromCache(msg);
+        if (title != NULL)
+        {
+            i = strlen(title) + strlen(msg) + 1;
+            
+            cachedText = malloc(i);
+            
+            if (cachedText == NULL)
+            {
+                showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", i);
+            }
+            
+            SNPRINTF(cachedText, i, "%s%s", title, msg);
+        }
+        
+        else
+        {
+            i = strlen(msg) + 1;
+            
+            cachedText = malloc(i);
+            
+            if (cachedText == NULL)
+            {
+                showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", i);
+            }
+            
+            SNPRINTF(cachedText, i, "%s", msg);
+        }
+        
+		texture = getTextureFromCache(cachedText);
 
 		if (texture != NULL)
 		{
+            free(cachedText);
+            
 			return texture;
 		}
 	}
+	
+	else
+    {
+        cachedText = NULL;
+    }
 
 	text = malloc(strlen(msg) + 1);
 
@@ -282,7 +317,12 @@ Texture *createDialogBox(char *title, char *msg)
 
 	texture = addBorder(tempSurface, 255, 255, 255, 0, 0, 0);
 
-	addTextureToCache(msg, texture, FALSE);
+    if (cachedText != NULL)
+    {
+        addTextureToCache(cachedText, texture, FALSE);
+        
+        free(cachedText);
+    }
 
 	free(surface);
 

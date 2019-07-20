@@ -108,7 +108,9 @@ void checkTextureCache()
 
 			removed++;
 			
-			printf("Expiring %s\n", t1->name);
+            #if DEV == 1
+                printf("Expiring %s\n", t1->name);
+            #endif
 
 			destroyTexture(t1->texture);
 
