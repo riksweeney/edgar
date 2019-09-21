@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 1.32
 * Updated Dutch translation
+* Fixed an issue with wrong names being displayed in certain dialogs
 
 Version 1.31
 * Updated game to use SDL2
