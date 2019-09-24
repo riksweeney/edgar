@@ -62,6 +62,7 @@ rm $APPDIR/makefile.*
 rm $APPDIR/*.cbp
 rm $APPDIR/*.workspace
 rm $APPDIR/*.rc
+rm $APPDIR/*.gitignore
 
 for i in `find . -name *.wav | grep -v doc`;do
 	rm $i

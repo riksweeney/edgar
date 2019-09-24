@@ -11,15 +11,15 @@ PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
 
-CC        = i586-mingw32msvc-gcc
-SDLC      = /home/mint/Windows/bin/sdl2-config
+CC        = x86_64-w64-mingw32-gcc
+SDLC      = /opt/Windows/bin/sdl2-config
 
 LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 CFLAGS = `$(SDLC) --cflags` -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
 
-LFLAGS = `$(SDLC) --libs` -lz -lpng -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lSDL2main
+LFLAGS = `$(SDLC) --libs` -lpng -lz -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lSDL2main
 
 TILE_OBJS  = tile_creator.o
 PAK_OBJS   = pak_creator.o
