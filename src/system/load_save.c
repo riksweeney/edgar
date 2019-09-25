@@ -76,9 +76,9 @@ extern Game game;
 		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 		#endif
 
-		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
+		if (mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0 && errno != EEXIST)
 		{
-			printf("Couldn't create required directory '%s'", dir);
+			printf("Couldn't create required directory '%s'\n", dir);
 
 			exit(1);
 		}
@@ -89,9 +89,9 @@ extern Game game;
 		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
 		#endif
 
-		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
+		if (mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0 && errno != EEXIST)
 		{
-			printf("Couldn't create required directory '%s'", dir);
+			printf("Couldn't create required directory '%s'\n", dir);
 
 			exit(1);
 		}
@@ -108,13 +108,52 @@ extern Game game;
 
 		SNPRINTF(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
 	}
+#elif _WIN32
+	void setupUserHomeDirectory()
+	{
+        char *userHome;
+        char dir[MAX_PATH_LENGTH];
+        
+        userHome = getenv("appdata");
+        
+        if (userHome == NULL)
+        {
+            userHome = "";
+        }
+        
+        SNPRINTF(dir, sizeof(dir), "%s/parallelrealities", userHome);
+        
+        if (mkdir(dir) != 0 && errno != EEXIST)
+        {
+            printf("Couldn't create required directory '%s'\n", dir);
+
+            exit(1);
+        }
+        
+        SNPRINTF(dir, sizeof(dir), "%s/parallelrealities/edgar", userHome);
+        
+        if (mkdir(dir) != 0 && errno != EEXIST)
+        {
+            printf("Couldn't create required directory '%s'\n", dir);
+
+            exit(1);
+        }
+        
+        SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/parallelrealities/edgar/", userHome);
+        
+		SNPRINTF(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
+
+		SNPRINTF(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
+
+		SNPRINTF(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
+	}
 #else
 	void setupUserHomeDirectory()
 	{
-		STRNCPY(gameSavePath, "", sizeof(gameSavePath));
-		STRNCPY(tempFile, "tmpsave", sizeof(tempFile));
-		STRNCPY(saveFileIndex, "saveheader", sizeof(saveFileIndex));
-		STRNCPY(continueFile, "continuesave", sizeof(continueFile));
+        STRNCPY(gameSavePath, "", sizeof(gameSavePath));
+        STRNCPY(tempFile, "tmpsave", sizeof(tempFile));
+        STRNCPY(saveFileIndex, "saveheader", sizeof(saveFileIndex));
+        STRNCPY(continueFile, "continuesave", sizeof(continueFile));
 	}
 #endif
 
