@@ -5264,7 +5264,7 @@ msgstr "Uma poção que te transformará"
 
 #: data/props/item/health_potion.props:6
 msgid "A potion which will restore 5 health points"
-msgstr ""
+msgstr "Uma poção que irá restaurar 5 pontos de vida"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
