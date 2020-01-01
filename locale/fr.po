@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2017-11-04 13:11+0000\n"
-"Last-Translator: anarkhya <Unknown>\n"
+"PO-Revision-Date: 2019-12-15 02:51+0000\n"
+"Last-Translator: Magali Caffarel de Morangies <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-04 20:44+0000\n"
-"X-Generator: Launchpad (build 18493)\n"
+"X-Launchpad-Export-Date: 2019-12-15 09:48+0000\n"
+"X-Generator: Launchpad (build c597c3229eb023b1e626162d5947141bf7befb13)\n"
 "Language: fr\n"
 
 #: data/scripts/olaf.dat:6
@@ -45,11 +45,12 @@ msgstr "De retour à la forteresse, je dois encore sauver mon père du sorcier"
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
 msgstr ""
-"Ok, tu te souviens de ce que je t'ai dis à propos du sort de désintégration ?"
+"Ok, tu te souviens de ce que je t'ai dit à propos de son sort de "
+"désintégration ?"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr "Je crois..."
+msgstr "Je pense..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
