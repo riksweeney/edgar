@@ -15,7 +15,7 @@ APPRELEASE="$2"
 
 APPDIR="$APPNAME-$APPVERSION/"
 
-DISTNAME="$APPNAME-$APPVERSION-$APPRELEASE.win64.zip"
+DISTNAME="$APPNAME-$APPVERSION-$APPRELEASE.win32.zip"
 
 #############################
 
@@ -61,9 +61,9 @@ done
 
 cd $APPDIR
 
-make -f makefile.windows VERSION=$1 -j3
+make -f makefile.windows CC=i686-w64-mingw32-gcc VERSION=$1 -j3
 
-make -f makefile.windows -j3 buildpak
+make -f makefile.windows CC=i686-w64-mingw32-gcc -j3 buildpak
 
 cp /opt/Windows/lib/*.dll .
 

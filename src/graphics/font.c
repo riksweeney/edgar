@@ -125,6 +125,7 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 	foregroundcolour.r = r;
 	foregroundcolour.g = g;
 	foregroundcolour.b = b;
+	foregroundcolour.a = 255;
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
@@ -161,10 +162,12 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 	foregroundcolour.r = fr;
 	foregroundcolour.g = fg;
 	foregroundcolour.b = fb;
+	foregroundcolour.a = 255;
 
 	backgroundcolour.r = br;
 	backgroundcolour.g = bg;
 	backgroundcolour.b = bb;
+	backgroundcolour.a = 255;
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Texture */
 
@@ -196,6 +199,7 @@ SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, 
 	foregroundcolour.r = fr;
 	foregroundcolour.g = fg;
 	foregroundcolour.b = fb;
+	foregroundcolour.a = 255;
 
 	if (blend == FALSE)
 	{
