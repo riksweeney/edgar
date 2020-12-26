@@ -370,6 +370,7 @@ int main(int argc, char *argv[])
 		}
 
 		draw();
+		garbageCollectEntities();
 
 		/* Sleep briefly to stop sucking up all the CPU time */
 

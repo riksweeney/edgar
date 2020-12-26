@@ -254,8 +254,8 @@ void doEntities()
 
 void drawEntities(int depth)
 {
-	int i, drawn, removeCount;
-	EntityList *el, *prev, *el2;
+	int i, drawn;
+	EntityList *el;
 
 	/* Draw standard entities */
 
@@ -318,6 +318,12 @@ void drawEntities(int depth)
 			}
 		}
 	}
+}
+
+void garbageCollectEntities(void)
+{
+	int removeCount;
+	EntityList *el, *prev, *el2;
 
 	if (game.frames % 300 == 0)
 	{

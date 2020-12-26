@@ -22,6 +22,7 @@ void freeEntities(void);
 Entity *getFreeEntity(void);
 void doEntities(void);
 void drawEntities(int);
+void garbageCollectEntities(void);
 void removeEntity(void);
 void removeAllSpawnedIn(void);
 void disableSpawners(int);
