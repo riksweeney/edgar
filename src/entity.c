@@ -38,6 +38,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "system/random.h"
 #include "system/resources.h"
 
+extern Entity player;
 extern Entity *self;
 extern Game game;
 
@@ -2106,6 +2107,11 @@ static int isReferenced(Entity *e)
 		{
 			return TRUE;
 		}
+	}
+
+	if (player.head == e || player.target == e || player.standingOn == e)
+	{
+		return TRUE;
 	}
 
 	return FALSE;
