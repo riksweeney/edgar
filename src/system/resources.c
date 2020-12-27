@@ -392,7 +392,7 @@ char *loadResources(char *buffer)
 
 		else if (strcmpignorecase(line, "}") == 0)
 		{
-			e = addEntityFromResource(value[type], value[name], startX == -1 ? 0 : atoi(value[startX]), startY == -1 ? 0 : atoi(value[startY]));
+			e = addEntityFromResource(value[type], name == -1 ? "" : value[name], startX == -1 ? 0 : atoi(value[startX]), startY == -1 ? 0 : atoi(value[startY]));
 
 			if (e != NULL)
 			{
