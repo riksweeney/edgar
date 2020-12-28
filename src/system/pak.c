@@ -18,6 +18,10 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 #include "../headers.h"
+
+#if defined(PAK_FILE) && DEV == 0
+#include "../init.h"
+#endif
 #include "pak.h"
 #include "error.h"
 #include "load_save.h"
@@ -47,7 +51,7 @@ void initPakFile()
 			printf("%s", _("If you compiled the game from source, you need to do a make install"));
 			printf("\n");
 
-			exit(0);
+			cleanup(0);
 		}
 
 		fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);

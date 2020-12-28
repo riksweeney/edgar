@@ -226,7 +226,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define TABLE_SIZE 255
 
-#define YEAR 2020
+#define YEAR 2021
 
 #ifdef TRUE
 	#undef TRUE

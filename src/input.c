@@ -46,7 +46,7 @@ void getInput(int gameType)
 		switch (event.type)
 		{
 			case SDL_QUIT:
-				exit(0);
+				cleanup(0);
 			break;
 
 			case SDL_WINDOWEVENT:
@@ -55,6 +55,17 @@ void getInput(int gameType)
 					case SDL_WINDOWEVENT_FOCUS_LOST:
 						focusLost();
 					break;
+				}
+			break;
+			
+			case SDL_JOYDEVICEADDED:
+				addJoystick(event.jdevice.which);
+			break;
+			
+			case SDL_JOYDEVICEREMOVED:
+				if (removeJoystick(event.jdevice.which) == TRUE)
+				{
+					focusLost();
 				}
 			break;
 
@@ -67,7 +78,7 @@ void getInput(int gameType)
 				{
 					if (key == SDLK_ESCAPE)
 					{
-						exit(0);
+						cleanup(0);
 					}
 				}
 
@@ -717,7 +728,7 @@ int getSingleInput()
 		switch (event.type)
 		{
 			case SDL_QUIT:
-				exit(0);
+				cleanup(0);
 			break;
 
 			case SDL_KEYDOWN:

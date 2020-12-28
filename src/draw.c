@@ -200,6 +200,11 @@ void draw()
 				}
 			break;
 		}
+		
+		if (game.frames % 300 == 0)
+		{
+			removeUnreferencedEntities();
+		}
 	}
 
 	else

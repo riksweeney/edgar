@@ -23,6 +23,9 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../collisions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
+#if DEV == 1
+#include "../init.h"
+#endif
 #include "../system/error.h"
 #include "../system/properties.h"
 
@@ -31,7 +34,7 @@ extern Entity *self;
 static void entityWait(void);
 static void rise(void);
 static void sink(void);
-static void init(void);
+static void initialise(void);
 
 Entity *addGroundSpear(int x, int y, char *name)
 {
@@ -47,7 +50,7 @@ Entity *addGroundSpear(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &init;
+	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -59,7 +62,7 @@ Entity *addGroundSpear(int x, int y, char *name)
 	return e;
 }
 
-static void init()
+static void initialise()
 {
 	switch (self->mental)
 	{
@@ -173,7 +176,7 @@ static void rise()
 			{
 				printf("Loop time %d\n", self->health);
 
-				exit(0);
+				cleanup(0);
 			}
 			#endif
 		}

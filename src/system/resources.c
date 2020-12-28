@@ -37,6 +37,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../graphics/sprites.h"
 #include "../graphics/texture_cache.h"
 #include "../hud.h"
+#include "../init.h"
 #include "../inventory.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
@@ -344,7 +345,7 @@ char *loadResources(char *buffer)
 			printf("WARNING: Line starts with a space\n");
 
 			#if DEV == 1
-				exit(0);
+				cleanup(0);
 			#endif
 
 			line = strtok_r(NULL, "\n", &savePtr);
@@ -392,7 +393,7 @@ char *loadResources(char *buffer)
 
 		else if (strcmpignorecase(line, "}") == 0)
 		{
-			e = addEntityFromResource(value[type], value[name], startX == -1 ? 0 : atoi(value[startX]), startY == -1 ? 0 : atoi(value[startY]));
+			e = addEntityFromResource(value[type], name == -1 ? "" : value[name], startX == -1 ? 0 : atoi(value[startX]), startY == -1 ? 0 : atoi(value[startY]));
 
 			if (e != NULL)
 			{

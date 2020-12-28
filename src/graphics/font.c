@@ -18,6 +18,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 #include "../headers.h"
+#include "../init.h"
 #include "../system/pak.h"
 #include "graphics.h"
 
@@ -31,7 +32,7 @@ TTF_Font *loadFont(char *name, int size)
 	{
 		printf("Failed to open Font %s: %s\n", name, TTF_GetError());
 
-		exit(1);
+		cleanup(1);
 	}
 
 	return font;
@@ -45,7 +46,7 @@ TTF_Font *loadCustomFont(char *name, int size)
 	{
 		printf("Failed to open Font %s: %s\n", name, TTF_GetError());
 
-		exit(1);
+		cleanup(1);
 	}
 
 	return font;

@@ -18,6 +18,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 void init(char *, int);
-void cleanup(void);
+void cleanup(int) __attribute__((noreturn));
 void toggleFullScreen(void);
+void addJoystick(int);
+int removeJoystick(int);
 void quitGame(void);

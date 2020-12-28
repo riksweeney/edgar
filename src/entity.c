@@ -254,8 +254,8 @@ void doEntities()
 
 void drawEntities(int depth)
 {
-	int i, drawn, removeCount;
-	EntityList *el, *prev, *el2;
+	int i, drawn;
+	EntityList *el;
 
 	/* Draw standard entities */
 
@@ -318,45 +318,6 @@ void drawEntities(int depth)
 			}
 		}
 	}
-
-	if (game.frames % 300 == 0)
-	{
-		removeCount = 0;
-
-		prev = entities;
-
-		for (el=entities->next;el!=NULL;el=el2)
-		{
-			el2 = el->next;
-
-			if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
-			{
-				prev->next = el2;
-
-				removeCount++;
-
-				free(el->entity);
-
-				el->entity = NULL;
-
-				free(el);
-
-				el = NULL;
-			}
-
-			else
-			{
-				prev = prev->next;
-			}
-		}
-
-		#if DEV == 1
-		if (removeCount != 0)
-		{
-			printf("Removed %d entities taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
-		}
-		#endif
-	}
 }
 
 void removeEntity()
@@ -390,6 +351,48 @@ void removeAllSpawnedIn()
 			}
 		}
 	}
+}
+
+void removeUnreferencedEntities()
+{
+	int removeCount;
+	EntityList *el, *prev, *el2;
+	
+	removeCount = 0;
+
+	prev = entities;
+
+	for (el=entities->next;el!=NULL;el=el2)
+	{
+		el2 = el->next;
+
+		if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
+		{
+			prev->next = el2;
+
+			removeCount++;
+
+			free(el->entity);
+
+			el->entity = NULL;
+
+			free(el);
+
+			el = NULL;
+		}
+
+		else
+		{
+			prev = prev->next;
+		}
+	}
+
+	#if DEV == 1
+	if (removeCount != 0)
+	{
+		printf("Removed %d entities taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
+	}
+	#endif
 }
 
 void disableSpawners(int disable)

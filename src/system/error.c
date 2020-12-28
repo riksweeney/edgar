@@ -22,6 +22,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../audio/music.h"
 #include "../graphics/font.h"
 #include "../graphics/graphics.h"
+#include "../init.h"
 #include "../input.h"
 
 extern Game game;
@@ -46,13 +47,13 @@ void showErrorAndExit(char *fmt, ...)
 
 	if (game.status == IN_ERROR)
 	{
-		exit(1);
+		cleanup(1);
 	}
 
 	printf("%s\n", text);
 
 	#if DEV == 1
-		exit(1);
+		cleanup(1);
 	#endif
 
 	game.status = IN_ERROR;

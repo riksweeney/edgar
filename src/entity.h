@@ -24,6 +24,7 @@ void doEntities(void);
 void drawEntities(int);
 void removeEntity(void);
 void removeAllSpawnedIn(void);
+void removeUnreferencedEntities(void);
 void disableSpawners(int);
 void doNothing(void);
 void entityDie(void);

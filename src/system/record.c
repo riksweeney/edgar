@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../init.h"
 #include "../map.h"
 #include "error.h"
 #include "random.h"
@@ -163,7 +164,7 @@ Input getBuffer()
 	{
 		printf("End of replay\n");
 
-		exit(0);
+		cleanup(0);
 	}
 
 	input = inputBuffer[bufferID];

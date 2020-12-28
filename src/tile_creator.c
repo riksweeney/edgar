@@ -21,7 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "graphics/save_png.h"
 
-static void cleanup(void);
+static void cleanup(int);
 static SDL_Surface *loadImage(char *);
 static int isDuplicate(SDL_Surface *, int, int);
 static Uint32 getPixel(SDL_Surface *, int, int);
@@ -43,16 +43,14 @@ int main(int argc, char *argv[])
 	{
 		printf("Usage: %s <PNG File> <Start_Index>\n", argv[0]);
 
-		exit(0);
+		cleanup(0);
 	}
-
-	atexit(cleanup);
 
 	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK|SDL_INIT_AUDIO) < 0)
 	{
 		printf("Could not initialize SDL: %s\n", SDL_GetError());
 
-		exit(1);
+		cleanup(1);
 	}
 
 	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
@@ -122,7 +120,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	exit(0);
+	cleanup(0);
 }
 
 static SDL_Surface *loadImage(char *name)
@@ -138,7 +136,7 @@ static SDL_Surface *loadImage(char *name)
 	{
 		printf("Failed to load image %s", name);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	/* Make the background transparent */
@@ -155,7 +153,7 @@ static SDL_Surface *loadImage(char *name)
 	{
 		printf("Failed to convert image %s to native format", name);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	/* Return the processed image */
@@ -245,7 +243,7 @@ static Uint32 getPixel(SDL_Surface *surface, int x, int y)
 	}
 }
 
-static void cleanup()
+static void cleanup(int exitCode)
 {
 	if (temp != NULL)
 	{
@@ -263,4 +261,6 @@ static void cleanup()
 	}
 
 	SDL_Quit();
+	
+	exit(exitCode);
 }

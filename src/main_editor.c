@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	#if DEV == 0
 		printf("Editor doesn't work if DEV is set to 0\n");
 
-		exit(1);
+		cleanup(1);
 	#endif
 
 	setLanguage("edgar", NULL);
@@ -54,10 +54,6 @@ int main(int argc, char *argv[])
 	/* Start up SDL */
 
 	init("Map Editor", 1);
-
-	/* Call the cleanup function when the program exits */
-
-	atexit(cleanup);
 
 	export = FALSE;
 
@@ -87,7 +83,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Usage: %s <map file name>\n", argv[0]);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	if (export == TRUE)
@@ -188,7 +184,7 @@ int main(int argc, char *argv[])
 
 				if (y >= maxY)
 				{
-					exit(0);
+					cleanup(0);
 				}
 			}
 
@@ -227,5 +223,5 @@ int main(int argc, char *argv[])
 
 	/* Exit the program */
 
-	exit(0);
+	cleanup(0);
 }

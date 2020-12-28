@@ -26,7 +26,7 @@ FileData *fileData;
 char **filenames;
 
 static void getFilenames(char *, int *);
-static void cleanup(void);
+static void cleanup(int);
 static void compressFile(char *);
 static void testPak(char *);
 static int compare (const void *, const void *);
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 		{
 			testPak(argv[2]);
 
-			exit(0);
+			cleanup(0);
 		}
 	}
 
@@ -53,10 +53,8 @@ int main(int argc, char *argv[])
 		printf("Usage   : pak <directory names> <outputname>\n");
 		printf("Example : pak data music gfx sound font edgar.pak\n");
 
-		exit(1);
+		cleanup(1);
 	}
-	
-	atexit(cleanup);
 
 	pak = fopen(argv[argc - 1], "wb");
 
@@ -83,7 +81,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Failed to create File Data\n");
 
-		exit(1);
+		cleanup(1);
 	}
 
 	SNPRINTF(versionName, sizeof(versionName), "%0.2f", VERSION);
@@ -182,7 +180,7 @@ static void getFilenames(char *dirName, int *arraySize)
 				{
 					printf("Failed to allocate %d bytes whilst indexing files\n", *arraySize * (int)sizeof(char *));
 
-					exit(1);
+					cleanup(1);
 				}
 			}
 		}
@@ -199,7 +197,7 @@ static int compare(const void *a, const void *b)
 	return strcmpignorecase(aa, bb);
 }
 
-static void cleanup()
+static void cleanup(int exitCode)
 {
 	int i;
 	
@@ -220,6 +218,8 @@ static void cleanup()
 	{
 		free(fileData);
 	}
+	
+	exit(exitCode);
 }
 
 static void compressFile(char *filename)
@@ -238,7 +238,7 @@ static void compressFile(char *filename)
 	{
 		printf("Couldn't open %s for reading!\n", filename);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	fseek(infile, 0L, SEEK_END);
@@ -249,7 +249,7 @@ static void compressFile(char *filename)
 	{
 		printf("%s is an empty file.\n", filename);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	ensuredSize = fileSize * 1.01 + 12;
@@ -264,7 +264,7 @@ static void compressFile(char *filename)
 	{
 		printf("Could not create buffer\n");
 
-		exit(1);
+		cleanup(1);
 	}
 
 	output = malloc(ensuredSize * sizeof(unsigned char));
@@ -273,7 +273,7 @@ static void compressFile(char *filename)
 	{
 		printf("Could not create output\n");
 
-		exit(1);
+		cleanup(1);
 	}
 
 	fp = gzopen(filename, "rb");
@@ -282,7 +282,7 @@ static void compressFile(char *filename)
 	{
 		printf("Couldn't open %s for reading!\n", filename);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	gzread(fp, buffer, fileSize);
@@ -315,7 +315,7 @@ static void compressFile(char *filename)
 			printf("Unknown error\n");
 		}
 
-		exit(1);
+		cleanup(1);
 	}
 
 	percentage = fileID;
@@ -356,7 +356,7 @@ static void testPak(char *pakFile)
 	{
 		printf("Failed to open PAK file %s\n", pakFile);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);
@@ -373,7 +373,7 @@ static void testPak(char *pakFile)
 	{
 		printf("Could not allocate %d bytes for FileData\n", fileCount * (int)sizeof(FileData));
 
-		exit(1);
+		cleanup(1);
 	}
 
 	fseek(fp, offset, SEEK_SET);
@@ -403,7 +403,7 @@ static void testPak(char *pakFile)
 		{
 			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].compressedSize * (int)sizeof(unsigned char), fileData[i].filename);
 
-			exit(1);
+			cleanup(1);
 		}
 
 		dest = malloc((fileData[i].fileSize + 1) * sizeof(unsigned char));
@@ -412,7 +412,7 @@ static void testPak(char *pakFile)
 		{
 			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].fileSize * (int)sizeof(unsigned char), fileData[i].filename);
 
-			exit(1);
+			cleanup(1);
 		}
 
 		fread(source, fileData[i].compressedSize, 1, fp);
@@ -427,7 +427,7 @@ static void testPak(char *pakFile)
 		{
 			printf("\nFailed to decompress %s. Expected %d, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
 
-			exit(1);
+			cleanup(1);
 		}
 
 		free(source);

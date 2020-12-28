@@ -179,6 +179,8 @@ void playMapMusic()
 	Mix_PlayMusic(music, -1);
 
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+	
+	Mix_ResumeMusic();
 }
 
 void stopMusic()

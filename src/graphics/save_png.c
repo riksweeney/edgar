@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../init.h"
 #include "graphics.h"
 
 #include <png.h>
@@ -39,7 +40,7 @@ static void writeData(char *name, png_bytep *rows, int w, int h, int colourtype,
 	{
 		printf("Could not save %s\n", name);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	pngPtr = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
@@ -48,7 +49,7 @@ static void writeData(char *name, png_bytep *rows, int w, int h, int colourtype,
 	{
 		printf("Failed to create PNG structure");
 
-		exit(1);
+		cleanup(1);
 	}
 
 	infoPtr = png_create_info_struct(pngPtr);
@@ -57,14 +58,14 @@ static void writeData(char *name, png_bytep *rows, int w, int h, int colourtype,
 	{
 		printf("Failed to create PNG info");
 
-		exit(1);
+		cleanup(1);
 	}
 
 	if (setjmp(png_jmpbuf(pngPtr)) != 0)
 	{
 		printf("PNG Jump point failed\n");
 
-		exit(1);
+		cleanup(1);
 	}
 
 	png_init_io(pngPtr, fp);
@@ -116,7 +117,7 @@ void savePNG(SDL_Surface *surface, char *name)
 		{
 			printf("Ran out of memory when creating PNG rows\n");
 
-			exit(1);
+			cleanup(1);
 		}
 	}
 

@@ -21,6 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "audio/audio.h"
 #include "graphics/texture_cache.h"
+#include "init.h"
 #include "medal.h"
 #include "system/load_save.h"
 #include "system/pak.h"
@@ -49,7 +50,7 @@ void init(char *title, int joystickNum)
 	{
 		printf("Could not initialize SDL: %s\n", SDL_GetError());
 
-		exit(1);
+		cleanup(1);
 	}
 
 	/* Initialise SDL_TTF */
@@ -58,7 +59,7 @@ void init(char *title, int joystickNum)
 	{
 		printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
 
-		exit(1);
+		cleanup(1);
 	}
 
 	/* Load the settings */
@@ -78,7 +79,7 @@ void init(char *title, int joystickNum)
 	{
 		printf("Couldn't set screen mode to %d x %d: %s\n", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_GetError());
 
-		exit(1);
+		cleanup(1);
 	}
 
 	if (game.audio == TRUE)
@@ -154,7 +155,45 @@ void toggleFullScreen()
 	SDL_SetWindowFullscreen(game.window, fullScreen);
 }
 
-void cleanup()
+void addJoystick(int joystickNum)
+{
+	int buttons = 0;
+	
+	printf("Detected joystick\n");
+
+	if (joystickNum == 0)
+	{
+		printf("Opening Joystick #%d\n", joystickNum);
+
+		game.joystick = SDL_JoystickOpen(joystickNum);
+
+		buttons = SDL_JoystickNumButtons(game.joystick);
+
+		printf("Joystick has %d buttons\n", buttons);
+
+		printf("Joystick has %d axes\n", SDL_JoystickNumAxes(game.joystick));
+	}
+}
+
+int removeJoystick(int joystickNum)
+{
+	printf("Joystick removed\n");
+
+	if (joystickNum == 0 && game.joystick != NULL)
+	{
+		printf("Closing joystick #%d\n", joystickNum);
+		
+		SDL_JoystickClose(game.joystick);
+		
+		game.joystick = NULL;
+		
+		return TRUE;
+	}
+	
+	return FALSE;
+}
+
+void cleanup(int exitCode)
 {
 	float fps;
 
@@ -220,9 +259,11 @@ void cleanup()
 	SDL_DestroyWindow(game.window);
 
 	SDL_Quit();
+	
+	exit(exitCode);
 }
 
 void quitGame()
 {
-	exit(0);
+	cleanup(0);
 }

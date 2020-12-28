@@ -840,7 +840,7 @@ void drawMap(int depth)
 			{
 				printf("Tile %d is NULL\n", tileID);
 
-				exit(0);
+				cleanup(0);
 			}
 			*/
 

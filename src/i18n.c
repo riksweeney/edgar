@@ -19,6 +19,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "headers.h"
 
+#include "init.h"
+
 static HashTable table;
 
 static int hashCode(char *);
@@ -134,7 +136,7 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		printf("Failed to allocate %d bytes for translation strings\n", (int)sizeof(MOEntry) * header.stringCount);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	#if DEV == 1
@@ -151,7 +153,7 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		printf("Failed to allocate a whole %d bytes for translation strings\n", (int)sizeof(char *) * header.stringCount);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	for (i=0;i<header.stringCount;i++)
@@ -171,7 +173,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		{
 			printf("Failed to allocate a whole %d bytes for translation string\n", original[i].length + 1);
 
-			exit(1);
+			cleanup(1);
 		}
 	}
 
@@ -194,7 +196,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		{
 			printf("Failed to allocate a whole %d bytes for translation string\n", translation[i].length + 1);
 
-			exit(1);
+			cleanup(1);
 		}
 	}
 
@@ -279,7 +281,7 @@ static void initTable()
 	{
 		printf("Failed to allocate %d bytes for a HashTable\n", (int)sizeof(Bucket *) * TABLE_SIZE);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	for (i=0;i<TABLE_SIZE;i++)
@@ -314,7 +316,7 @@ static void put(char *key, char *value)
 	{
 		printf("Failed to allocate a whole %d bytes for a HashTable bucket\n", (int)sizeof(Bucket));
 
-		exit(1);
+		cleanup(1);
 	}
 
 	newBucket->key   = malloc(strlen(key) + 1);
@@ -324,7 +326,7 @@ static void put(char *key, char *value)
 	{
 		printf("Failed to allocate a whole %d bytes for a translation\n", (int)strlen(newBucket->key) + 1);
 
-		exit(1);
+		cleanup(1);
 	}
 
 	STRNCPY(newBucket->key, key, strlen(key) + 1);
