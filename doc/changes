@@ -1,6 +1,14 @@
 CHANGE LOG
 ----------
 
+Version 1.34
+* Fixed issue with dialog box text sometimes not appearing on certain platforms
+* Fixed a crash when exiting the game on certain platforms
+* Music now plays when loading a save from within the game
+* Joysticks are now detected whilst the game is running, as opposed to being needed to be connected before startup
+* Fixed a rare crash when loading a game
+* Fixed a rare crash when drawing entities
+
 Version 1.33
 * Updated Updated Brazilian Portuguese and French translations
 
