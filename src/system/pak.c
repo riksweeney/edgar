@@ -26,8 +26,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "error.h"
 #include "load_save.h"
 
-static unsigned char *uncompressFile(char *, int);
-static unsigned char *uncompressFileRW(char *, unsigned long *);
+static unsigned char *uncompressFile(const char *, int);
+static unsigned char *uncompressFileRW(const char *, unsigned long *);
 
 static FileData *fileData;
 static char pakFile[MAX_PATH_LENGTH];
@@ -227,7 +227,7 @@ Mix_Music *loadMusicFromPak(char *name)
 	#endif
 }
 
-static unsigned char *uncompressFileRW(char *name, unsigned long *size)
+static unsigned char *uncompressFileRW(const char *name, unsigned long *size)
 {
 	unsigned char *source, *dest;
 	FILE *fp;
@@ -325,7 +325,7 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 	return dest;
 }
 
-static unsigned char *uncompressFile(char *name, int writeToFile)
+static unsigned char *uncompressFile(const char *name, int writeToFile)
 {
 	#if !defined(PAK_FILE) || DEV == 1
 		char fullName[MAX_PATH_LENGTH];
@@ -570,7 +570,7 @@ void *gamerzillaPakOpen(const char *filename)
 	gamerzillaFd *fd = (gamerzillaFd *)malloc(sizeof(gamerzillaFd));
 	fd->readPtr = 0;
 	fd->dataSize = gamerzillaPakSize(filename);
-	fd->data = loadFileFromPak(filename);
+	fd->data = uncompressFile(filename, FALSE);
 	return fd;
 }
 
@@ -591,4 +591,4 @@ void gamerzillaPakClose(void *fd)
 	free((gamerzillaFd*)fd);
 }
 
-#endif GAMERZILLA
+#endif

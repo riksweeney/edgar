@@ -35,7 +35,9 @@ static MedalQueue medalQueue;
 static Medal *medal;
 static Message messageHead;
 static int medalCount, awardedMedalIndex;
+#ifdef GAMERZILLA
 static int gameId = -1;
+#endif
 
 static void addMedalToQueue(char *);
 static void getNextMedalFromQueue(void);
@@ -132,6 +134,9 @@ static void getNextMedalFromQueue()
 				STRNCPY(medalQueue.medalMessage.text, head->text, sizeof(medalQueue.medalMessage.text));
 
 				medal[i].obtained = TRUE;
+				#ifdef GAMERZILLA
+					GamerzillaSetTrophy(gameId, medal[i].name);
+				#endif
 
 				awardedMedalIndex = i;
 			}

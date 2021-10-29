@@ -47,13 +47,13 @@ DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=
 ifndef NO_PAK
 DEFINES += -DPAK_FILE=\"$(PAK_FILE)\"
 endif
-ifndef NO_GAMERZILLA
+ifdef GAMERZILLA
 DEFINES += -DGAMERZILLA
 CFLAGS += `pkg-config --cflags gamerzilla`
 endif
 
 LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lz -lm -lpng
-ifndef NO_GAMERZILLA
+ifdef GAMERZILLA
 LDFLAGS += `pkg-config --libs gamerzilla`
 endif
 
