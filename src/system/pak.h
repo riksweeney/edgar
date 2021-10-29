@@ -26,3 +26,8 @@ unsigned char *loadFileFromPak(char *);
 TTF_Font *loadFontFromPak(char *, int);
 int existsInPak(char *);
 void verifyVersion(void);
+
+size_t gamerzillaPakSize(const char *filename);
+void *gamerzillaPakOpen(const char *filename);
+size_t gamerzillaPakRead(void *fd, void *buf, size_t count);
+void gamerzillaPakClose(void *fd);

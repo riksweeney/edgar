@@ -311,7 +311,7 @@ typedef struct MedalQueue
 
 typedef struct Medal
 {
-	char code[MAX_VALUE_LENGTH], description[MAX_MESSAGE_LENGTH];
+	char code[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH], description[MAX_MESSAGE_LENGTH];
 	int medalType, obtained, hidden;
 } Medal;
 

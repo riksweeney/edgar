@@ -25,6 +25,9 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "system/error.h"
 #include "system/load_save.h"
 #include "system/pak.h"
+#ifdef GAMERZILLA
+#include <gamerzilla.h>
+#endif
 
 extern Game game;
 
@@ -32,6 +35,7 @@ static MedalQueue medalQueue;
 static Medal *medal;
 static Message messageHead;
 static int medalCount, awardedMedalIndex;
+static int gameId = -1;
 
 static void addMedalToQueue(char *);
 static void getNextMedalFromQueue(void);
@@ -182,7 +186,7 @@ void medalProcessingFinished()
 static void loadMedals()
 {
 	int i;
-	char *line, *medalType, *hidden, *code, *description, *savePtr1, *savePtr2;
+	char *line, *medalType, *hidden, *code, *name, *description, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 
 	savePtr1 = NULL;
@@ -206,11 +210,13 @@ static void loadMedals()
 
 	while (line != NULL)
 	{
-		code = strtok_r(line, " ", &savePtr2);
+		code = strtok_r(line, ",", &savePtr2);
 
-		medalType = strtok_r(NULL, " ", &savePtr2);
+		medalType = strtok_r(NULL, ",", &savePtr2);
 
-		hidden = strtok_r(NULL, " ", &savePtr2);
+		hidden = strtok_r(NULL, ",", &savePtr2);
+
+		name = strtok_r(NULL, ",", &savePtr2);
 
 		description = strtok_r(NULL, "\0", &savePtr2);
 
@@ -243,6 +249,8 @@ static void loadMedals()
 
 		medal[i].hidden = strcmpignorecase(hidden, "Y") == 0 ? TRUE : FALSE;
 
+		STRNCPY(medal[i].name, name, sizeof(medal[i].name));
+
 		STRNCPY(medal[i].description, description, sizeof(medal[i].description));
 
 		medal[i].obtained = FALSE;
@@ -253,6 +261,35 @@ static void loadMedals()
 	}
 
 	free(buffer);
+
+#ifdef GAMERZILLA
+	Gamerzilla g;
+	char *gameSavePath = getGameSavePath();
+	char *gamerzillaPath = (char *)malloc(MAX_PATH_LENGTH);
+	strcpy(gamerzillaPath, gameSavePath);
+	strcat(gamerzillaPath, "gamerzilla/");
+	GamerzillaSetRead(&gamerzillaPakSize, &gamerzillaPakOpen, &gamerzillaPakRead, &gamerzillaPakClose);
+	GamerzillaStart(false, gamerzillaPath);
+	GamerzillaInitGame(&g);
+	g.version = 1;
+	g.short_name = strdup("edgar");
+	g.name = strdup("The Legend of Edgar");
+	g.image = strdup("gamerzilla/edgar.png");
+	for (i = 0; i < medalCount; i++)
+	{
+		if (medal[i].medalType == 0)
+			GamerzillaGameAddTrophy(&g, medal[i].name, medal[i].description, 0, "gamerzilla/bronze_medal.png", "gamerzilla/disabled_medal.png");
+		else if (medal[i].medalType == 1)
+			GamerzillaGameAddTrophy(&g, medal[i].name, medal[i].description, 0, "gamerzilla/silver_medal.png", "gamerzilla/disabled_medal.png");
+		else if (medal[i].medalType == 2)
+			GamerzillaGameAddTrophy(&g, medal[i].name, medal[i].description, 0, "gamerzilla/gold_medal.png", "gamerzilla/disabled_medal.png");
+		else if (medal[i].medalType == 3)
+			GamerzillaGameAddTrophy(&g, medal[i].name, medal[i].description, 0, "gamerzilla/ruby_medal.png", "gamerzilla/disabled_medal.png");
+	}
+	gameId = GamerzillaSetGame(&g);
+    GamerzillaClearGame(&g);
+	free(gamerzillaPath);
+#endif
 }
 
 Medal *getMedals()
@@ -275,6 +312,9 @@ void setObtainedMedal(char *medalCode)
 		{
 			medal[i].obtained = TRUE;
 
+			#ifdef GAMERZILLA
+				GamerzillaSetTrophy(gameId, medal[i].name);
+			#endif
 			break;
 		}
 	}

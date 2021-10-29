@@ -523,3 +523,72 @@ void freePakFile()
 		}
 	#endif
 }
+
+#ifdef GAMERZILLA
+
+typedef struct gamerzillaFd
+{
+	size_t readPtr;
+	size_t dataSize;
+	unsigned char *data;
+} gamerzillaFd;
+
+size_t gamerzillaPakSize(const char *filename)
+{
+	#if defined(PAK_FILE) && DEV == 0
+		int index = -1;
+		for (int i=0;i<fileCount;i++)
+		{
+			if (strcmpignorecase(fileData[i].filename, filename) == 0)
+			{
+				index = i;
+
+				break;
+			}
+		}
+
+		if (index == -1)
+		{
+			showErrorAndExit("Failed to find %s in PAK file", filename);
+		}
+		return fileData[index].fileSize;
+	#else
+		char fullName[MAX_PATH_LENGTH];
+
+		SNPRINTF(fullName, sizeof(fullName), "%s%s", INSTALL_PATH, filename);
+		struct stat statbuf;
+		if (0 == stat(fullName, &statbuf))
+		{
+			return statbuf.st_size;
+		}
+		return 0;
+	#endif
+}
+
+void *gamerzillaPakOpen(const char *filename)
+{
+	gamerzillaFd *fd = (gamerzillaFd *)malloc(sizeof(gamerzillaFd));
+	fd->readPtr = 0;
+	fd->dataSize = gamerzillaPakSize(filename);
+	fd->data = loadFileFromPak(filename);
+	return fd;
+}
+
+size_t gamerzillaPakRead(void *fd, void *buf, size_t count)
+{
+	size_t sz = count;
+	gamerzillaFd *fdActual = (gamerzillaFd *)fd;
+	if (fdActual->readPtr + sz > fdActual->dataSize)
+		sz = fdActual->dataSize - fdActual->readPtr;
+	memcpy(buf, fdActual->data + fdActual->readPtr, sz);
+	fdActual->readPtr += sz;
+	return sz;
+}
+
+void gamerzillaPakClose(void *fd)
+{
+	free(((gamerzillaFd*)fd)->data);
+	free((gamerzillaFd*)fd);
+}
+
+#endif GAMERZILLA

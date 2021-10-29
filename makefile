@@ -47,8 +47,15 @@ DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=
 ifndef NO_PAK
 DEFINES += -DPAK_FILE=\"$(PAK_FILE)\"
 endif
+ifndef NO_GAMERZILLA
+DEFINES += -DGAMERZILLA
+CFLAGS += `pkg-config --cflags gamerzilla`
+endif
 
 LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lz -lm -lpng
+ifndef NO_GAMERZILLA
+LDFLAGS += `pkg-config --libs gamerzilla`
+endif
 
 TILE_OBJS  = tile_creator.o
 PAK_OBJS   = pak_creator.o
@@ -139,7 +146,7 @@ clean:
 
 buildpak: $(PAK_PROG)
 ifndef NO_PAK
-	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) data gfx music sound font gamerzilla $(PAK_FILE)
 	./$(PAK_PROG) -test $(PAK_FILE)
 endif
 
@@ -163,7 +170,7 @@ else
 ifndef NO_PAK
 	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
 else
-	cp -a data gfx music sound font $(DATA_DIR)
+	cp -a data gfx music sound font gamerzilla $(DATA_DIR)
 endif
 	cp $(DOCS) $(DOC_DIR)
 	cp $(ICONS)16x16.png $(ICON_DIR)16x16/apps/$(PROG).png
