@@ -19,6 +19,10 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#ifdef __HAIKU__
+#include <FindDirectory.h>
+#endif
+
 #include "../audio/music.h"
 #include "../entity.h"
 #include "../event/global_trigger.h"
@@ -58,6 +62,7 @@ extern Game game;
 	{
 		char *userHome;
 		char dir[MAX_PATH_LENGTH];
+		char path[MAX_PATH_LENGTH];
 		struct passwd *pass;
 
 		pass = getpwuid(geteuid());
@@ -73,6 +78,9 @@ extern Game game;
 
 		#if MACOS == 1
 		SNPRINTF(dir, sizeof(dir), "%s/Library/Application Support", userHome);
+		#elif defined(__HAIKU__)
+		find_directory(B_USER_SETTINGS_DIRECTORY, 0, true, path, sizeof(path));
+		snprintf(dir, sizeof(dir), "%s/parallelrealities", path);
 		#else
 		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 		#endif
@@ -86,6 +94,9 @@ extern Game game;
 
 		#if MACOS == 1
 		SNPRINTF(dir, sizeof(dir), "%s/Library/Application Support/Edgar", userHome);
+		#elif defined(__HAIKU__)
+		find_directory(B_USER_SETTINGS_DIRECTORY, 0, true, path, sizeof(path));
+		snprintf(dir, sizeof(dir), "%s/parallelrealities/Edgar", path);
 		#else
 		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
 		#endif
@@ -99,6 +110,9 @@ extern Game game;
 
 		#if MACOS == 1
 		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/Library/Application Support/Edgar/", userHome);
+		#elif defined(__HAIKU__)
+		find_directory(B_USER_SETTINGS_DIRECTORY, 0, true, path, sizeof(path));
+		snprintf(gameSavePath, sizeof(gameSavePath), "%s/parallelrealities/Edgar", path);
 		#else
 		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 		#endif
