@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2021 Parallel Realities
+Copyright (C) 2009-2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -62,7 +62,9 @@ extern Game game;
 	{
 		char *userHome;
 		char dir[MAX_PATH_LENGTH];
+		#ifdef __HAIKU__
 		char path[MAX_PATH_LENGTH];
+		#endif
 		struct passwd *pass;
 
 		pass = getpwuid(geteuid());
@@ -80,7 +82,7 @@ extern Game game;
 		SNPRINTF(dir, sizeof(dir), "%s/Library/Application Support", userHome);
 		#elif defined(__HAIKU__)
 		find_directory(B_USER_SETTINGS_DIRECTORY, 0, true, path, sizeof(path));
-		snprintf(dir, sizeof(dir), "%s/parallelrealities", path);
+		SNPRINTF(dir, sizeof(dir), "%s/parallelrealities", path);
 		#else
 		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 		#endif
@@ -96,7 +98,7 @@ extern Game game;
 		SNPRINTF(dir, sizeof(dir), "%s/Library/Application Support/Edgar", userHome);
 		#elif defined(__HAIKU__)
 		find_directory(B_USER_SETTINGS_DIRECTORY, 0, true, path, sizeof(path));
-		snprintf(dir, sizeof(dir), "%s/parallelrealities/Edgar", path);
+		SNPRINTF(dir, sizeof(dir), "%s/parallelrealities/Edgar", path);
 		#else
 		SNPRINTF(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
 		#endif
@@ -112,7 +114,7 @@ extern Game game;
 		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/Library/Application Support/Edgar/", userHome);
 		#elif defined(__HAIKU__)
 		find_directory(B_USER_SETTINGS_DIRECTORY, 0, true, path, sizeof(path));
-		snprintf(gameSavePath, sizeof(gameSavePath), "%s/parallelrealities/Edgar", path);
+		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/parallelrealities/Edgar", path);
 		#else
 		SNPRINTF(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 		#endif

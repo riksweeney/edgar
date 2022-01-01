@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 1.35
+* Added Latvian translation
+* Added compilation fixes for Haiku OS
+
 Version 1.34
 * Fixed issue with dialog box text sometimes not appearing on certain platforms
 * Fixed a crash when exiting the game on certain platforms
