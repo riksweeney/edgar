@@ -38,7 +38,7 @@ else
 DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
-CFLAGS += -Wall -pedantic
+CFLAGS += `sdl2-config --cflags` -Wall -pedantic
 ifeq ($(DEV),1)
 CFLAGS += -Werror -g
 endif
