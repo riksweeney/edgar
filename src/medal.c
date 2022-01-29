@@ -292,7 +292,7 @@ static void loadMedals()
 			GamerzillaGameAddTrophy(&g, medal[i].name, medal[i].description, 0, "gamerzilla/ruby_medal.png", "gamerzilla/disabled_medal.png");
 	}
 	gameId = GamerzillaSetGame(&g);
-    GamerzillaClearGame(&g);
+	GamerzillaClearGame(&g);
 	free(gamerzillaPath);
 #endif
 }
