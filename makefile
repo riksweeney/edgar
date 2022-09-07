@@ -155,6 +155,7 @@ else
 	mkdir -p $(ICON_DIR)32x32/apps
 	mkdir -p $(ICON_DIR)48x48/apps
 	mkdir -p $(ICON_DIR)64x64/apps
+	mkdir -p $(ICON_DIR)128x128/apps
 	mkdir -p $(DESKTOP_DIR)
 	mkdir -p $(APPDATA_DIR)
 	mkdir -p $(MAN_DIR)
@@ -170,6 +171,7 @@ endif
 	cp $(ICONS)32x32.png $(ICON_DIR)32x32/apps/$(PROG).png
 	cp $(ICONS)48x48.png $(ICON_DIR)48x48/apps/$(PROG).png
 	cp $(ICONS)64x64.png $(ICON_DIR)64x64/apps/$(PROG).png
+	cp $(ICONS)128x128.png $(ICON_DIR)128x128/apps/$(PROG).png
 	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
 	cp $(ICONS)$(PROG).appdata.xml $(APPDATA_DIR)
 	install -m 0644 $(MAN)$(PROG).6 $(MAN_DIR)
@@ -191,6 +193,7 @@ uninstall:
 	$(RM) $(ICON_DIR)32x32/apps/$(PROG).png
 	$(RM) $(ICON_DIR)48x48/apps/$(PROG).png
 	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
+	$(RM) $(ICON_DIR)128x128/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)$(PROG).desktop
 	$(RM) $(APPDATA_DIR)$(PROG).appdata.xml
 	$(RM) $(MAN_DIR)/$(PROG).6*
