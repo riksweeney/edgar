@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2019-02-03 01:13+0000\n"
+"PO-Revision-Date: 2022-06-02 11:10+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-03 08:05+0000\n"
-"X-Generator: Launchpad (build 18862)\n"
+"X-Launchpad-Export-Date: 2022-07-14 17:12+0000\n"
+"X-Generator: Launchpad (build 3033a640b736845d098ec36e3bb953aaececcd2d)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
@@ -71,7 +71,7 @@ msgstr "Ek..."
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
-msgstr ""
+msgstr "Nenio misfunkcios ĉi-foje!"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
@@ -175,7 +175,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:87
 msgid "Well, it looks like the ring's power is almost completely gone"
-msgstr ""
+msgstr "Nu, ŝajnas, ke la potenco de la ringo preskaŭ tute malaperis"
 
 #: data/scripts/olaf.dat:88
 msgid ""
@@ -217,7 +217,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
-msgstr ""
+msgstr "Ĉu ĝi kreis malbonan version de vi mem?"
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
@@ -278,7 +278,7 @@ msgstr "Kion vi bezonas?"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "Ĝi estas la korno de aparta speco de monstro"
 
 #: data/scripts/olaf.dat:122
 msgid ""
@@ -312,7 +312,7 @@ msgstr "Bone, tio estis nur sugesto"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
-msgstr ""
+msgstr "Ho, ankaŭ vi bezonos ĉi tion"
 
 #: data/scripts/olaf.dat:135
 msgid ""
@@ -336,7 +336,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:142
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "Serioze, nur prenu la kornon"
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
-msgstr ""
+msgstr "Ve, katapulto!"
 
 #: data/scripts/catapult.dat:2
 msgid ""
@@ -420,7 +420,7 @@ msgstr "La ŝildo protektos vin de plej multaj malamikoj"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
-msgstr ""
+msgstr "Iuj malamikaj atakoj ne povas esti blokitaj"
 
 #: data/scripts/tutorial_shield.dat:3
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
@@ -484,10 +484,11 @@ msgstr "Ho, kio estas tio?"
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr ""
+"Ĝi estas libro de Stephen J Sweeney nomita \"La Honoro de la Kavaliroj\""
 
 #: data/scripts/third_side.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
-msgstr ""
+msgstr "Ĝi haveblas ĉe iBooks kaj la Amazon Kindle"
 
 #: data/scripts/third_side.dat:4
 msgid ""
@@ -512,7 +513,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:13
 msgid "Have another look"
-msgstr ""
+msgstr "Rigardu alian"
 
 #: data/scripts/sorceror_intro_2.dat:18
 msgid "Maybe you should work on your spells"
@@ -520,7 +521,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_2.dat:19
 msgid "NOW TELL ME WHERE MY FATHER IS!"
-msgstr ""
+msgstr "NUN DIRU AL MI KIE ESTAS MIA PATRO!"
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
@@ -601,7 +602,7 @@ msgstr "Estas noto ĉi tie"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
-msgstr ""
+msgstr "Mi trovis manieron mortigi la Centurionojn"
 
 #: data/scripts/centurion_note_2.dat:3
 msgid ""
@@ -633,7 +634,7 @@ msgstr ""
 
 #: data/scripts/chaos_warn.dat:2
 msgid "Leave now if you wish to live"
-msgstr ""
+msgstr "Foriru nun, se vi volas vivi"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
@@ -662,7 +663,7 @@ msgstr ""
 
 #: data/scripts/tutorial_secret.dat:4
 msgid "Here's a hint to get you started"
-msgstr ""
+msgstr "Jen sugesto por komenci vin"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid ""
@@ -4690,11 +4691,11 @@ msgstr ""
 
 #: data/scripts/power_generators.dat:9
 msgid "Red Gem"
-msgstr ""
+msgstr "Ruĝa Gemo"
 
 #: data/scripts/power_generators.dat:10
 msgid "Blue Gem"
-msgstr ""
+msgstr "Blua Gemo"
 
 #: data/scripts/power_generators.dat:11
 msgid "Purple Gem"
@@ -6074,7 +6075,7 @@ msgstr ""
 
 #: data/medals.dat:21
 msgid "the Crypt"
-msgstr ""
+msgstr "la Kripto"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "Village"
@@ -6166,7 +6167,7 @@ msgstr ""
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
-msgstr ""
+msgstr "Kripto"
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - %d"
