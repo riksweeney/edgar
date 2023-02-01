@@ -773,7 +773,7 @@ static void fireDropMoveAbovePlayer()
 		self->targetX = player.x - (self->w - self->offsetX) + player.w / 2;
 	}
 
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -950,7 +950,7 @@ static void ceilingBurnMoveToTop()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
-	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	else if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -1163,7 +1163,7 @@ static void incinerateMoveToTop()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
-	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	else if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -1543,7 +1543,7 @@ static void eggDropMove()
 {
 	Entity *e;
 
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -1656,7 +1656,7 @@ static void icicleDropMoveToTop()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
-	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	else if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -1976,7 +1976,7 @@ static void acidStreamMoveToTop()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
-	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	else if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -2080,7 +2080,7 @@ static void acidStream()
 
 static void acidStreamFinish()
 {
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 

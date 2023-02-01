@@ -138,7 +138,7 @@ static void moveToTarget()
 		self->targetY = self->active == TRUE ? self->endY : self->startY;
 	}
 
-	if (abs(self->x - self->targetX) > self->speed)
+	if (fabsf(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
 	}
@@ -148,7 +148,7 @@ static void moveToTarget()
 		self->x = self->targetX;
 	}
 
-	if (abs(self->y - self->targetY) > self->speed)
+	if (fabsf(self->y - self->targetY) > self->speed)
 	{
 		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
 	}

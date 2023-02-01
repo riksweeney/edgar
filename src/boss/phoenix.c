@@ -291,7 +291,7 @@ static void dropAttackInit()
 
 	/* Position above the player */
 
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -356,7 +356,7 @@ static void riseAttackInit()
 
 	/* Position below the player */
 
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 

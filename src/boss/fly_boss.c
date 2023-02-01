@@ -376,7 +376,7 @@ static void dropInit()
 	{
 		/* Move towards player */
 
-		if (abs(self->x - self->targetX) <= self->speed)
+		if (fabsf(self->x - self->targetX) <= self->speed)
 		{
 			self->dirX = 0;
 		}

@@ -3295,7 +3295,7 @@ static void guardianAddSmokeAlongBody()
 
 	shakeScreen(MEDIUM, 15);
 
-	bodyLength = abs(self->endX - self->x);
+	bodyLength = fabsf(self->endX - self->x);
 
 	for (i=0;i<100;i++)
 	{
@@ -5457,7 +5457,7 @@ static void queenWaspDropInit()
 	{
 		/* Move towards player */
 
-		if (abs(self->x - self->targetX) <= self->speed)
+		if (fabsf(self->x - self->targetX) <= self->speed)
 		{
 			self->dirX = 0;
 		}

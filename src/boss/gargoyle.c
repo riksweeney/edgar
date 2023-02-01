@@ -1801,9 +1801,9 @@ static void lanceFallout()
 		if (el->entity->inUse == TRUE && el->entity->type == WEAK_WALL && el->entity->mental == -1 &&
 			el->entity->touch != NULL && el->entity->x >= startX && el->entity->x < endX)
 		{
-			if (abs(el->entity->x - self->head->x) > distance)
+			if (fabsf(el->entity->x - self->head->x) > distance)
 			{
-				distance = abs(el->entity->x - self->head->x);
+				distance = fabsf(el->entity->x - self->head->x);
 
 				checkpointX = el->entity->x;
 			}

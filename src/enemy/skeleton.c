@@ -487,7 +487,7 @@ static void attackPlayer()
 
 	facePlayer();
 
-	if ((self->face == LEFT && abs(self->x - (player.x + player.w)) < 24) || (self->face == RIGHT && abs(player.x - (self->x + self->w)) < 24))
+	if ((self->face == LEFT && fabsf(self->x - (player.x + player.w)) < 24) || (self->face == RIGHT && fabsf(player.x - (self->x + self->w)) < 24))
 	{
 		setEntityAnimation(self, "STAND");
 

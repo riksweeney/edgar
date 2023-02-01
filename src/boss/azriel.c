@@ -567,7 +567,7 @@ static void lightningCageMoveBackToPlayer()
 
 	/* Position above the player */
 
-	if (abs(self->x - self->targetX) <= player.speed / 2)
+	if (fabsf(self->x - self->targetX) <= player.speed / 2)
 	{
 		self->action = &lightningCage;
 

@@ -211,7 +211,7 @@ static void appleWait()
 	{
 		self->x += self->dirX;
 
-		if (abs(self->startX - self->x) > 1)
+		if (fabsf(self->startX - self->x) > 1)
 		{
 			self->dirX *= -1;
 		}

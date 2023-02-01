@@ -262,7 +262,7 @@ static void followPlayer()
 	{
 		/* Position under the player */
 
-		if (abs(self->x - self->targetX) <= self->speed * 3)
+		if (fabsf(self->x - self->targetX) <= self->speed * 3)
 		{
 			self->dirX = 0;
 		}

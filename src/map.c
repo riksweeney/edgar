@@ -987,7 +987,7 @@ void centerEntityOnMap()
 		}
 	}
 
-	if (abs(map.cameraX - map.startX) > speed)
+	if (fabsf(map.cameraX - map.startX) > speed)
 	{
 		map.cameraX += map.cameraX < map.startX ? speed : -speed;
 	}
@@ -997,7 +997,7 @@ void centerEntityOnMap()
 		map.cameraX = map.startX;
 	}
 
-	if (abs(map.cameraY - map.startY) > speed)
+	if (fabsf(map.cameraY - map.startY) > speed)
 	{
 		if (map.cameraY < map.startY)
 		{

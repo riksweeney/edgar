@@ -109,8 +109,8 @@ static void initialise()
 	self->x = self->startX;
 	self->y = self->startY;
 
-	self->w = abs(self->startX - self->endX) + 1;
-	self->h = abs(self->startY - self->endY) + 1;
+	self->w = fabsf(self->startX - self->endX) + 1;
+	self->h = fabsf(self->startY - self->endY) + 1;
 
 	self->box.x = 0;
 	self->box.y = 0;

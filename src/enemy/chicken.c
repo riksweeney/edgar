@@ -182,7 +182,7 @@ static void moveToFood()
 		self->action = &wander;
 	}
 
-	else if (abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
+	else if (fabsf(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
 

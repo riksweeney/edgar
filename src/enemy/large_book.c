@@ -2066,7 +2066,7 @@ static void followPlayer()
 		hover();
 	}
 
-	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	else if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 
