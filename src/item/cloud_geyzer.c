@@ -150,7 +150,7 @@ static void cloudTouch(Entity *other)
 		{
 			bottomBefore = other->y + other->h - other->dirY - 1;
 
-			if (abs(bottomBefore - self->y) < self->h - 1)
+			if (fabsf(bottomBefore - self->y) < self->h - 1)
 			{
 				/* Place the player as close to the solid tile as possible */
 

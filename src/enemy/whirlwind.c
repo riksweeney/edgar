@@ -165,7 +165,7 @@ static void suckIn()
 {
 	Entity *e;
 
-	if (fabs(self->target->x - self->targetX) > fabs(4))
+	if (fabs(self->target->x - self->targetX) > 4)
 	{
 		self->target->x += self->target->x > self->targetX ? -4 : 4;
 

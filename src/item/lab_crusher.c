@@ -99,7 +99,7 @@ static void followTarget()
 
 		/* Position above the player */
 
-		if (abs(self->x - self->targetX) <= abs(self->dirX))
+		if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 		{
 			self->x = self->targetX;
 
@@ -261,7 +261,7 @@ static void touch(Entity *other)
 		{
 			bottomBefore = other->y + other->h - other->dirY - 1;
 
-			if (abs(bottomBefore - self->y) < self->h - 1)
+			if (fabsf(bottomBefore - self->y) < self->h - 1)
 			{
 				if (self->dirY < 0)
 				{

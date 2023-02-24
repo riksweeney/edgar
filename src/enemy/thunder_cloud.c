@@ -78,7 +78,7 @@ static void followPlayer()
 
 	/* Position above the player */
 
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	if (fabsf(self->x - self->targetX) <= fabsf(self->dirX))
 	{
 		self->x = self->targetX;
 

@@ -140,7 +140,7 @@ static void touch(Entity *other)
 
 		dirY *= 14;
 
-		if (abs(dirY) > self->maxHealth && self->maxThinkTime == 0)
+		if (fabsf(dirY) > self->maxHealth && self->maxThinkTime == 0)
 		{
 			self->maxHealth = dirY > 14 ? 14 : dirY;
 

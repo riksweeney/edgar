@@ -106,7 +106,7 @@ static void touch(Entity *other)
 		{
 			bottomBefore = other->y + other->h - other->dirY - 1;
 
-			if (abs(bottomBefore - self->y) < self->h - 1)
+			if (fabsf(bottomBefore - self->y) < self->h - 1)
 			{
 				if (self->dirY < 0)
 				{
@@ -231,7 +231,7 @@ static void moveToTarget()
 
 	if (self->active == TRUE || self->type == MANUAL_LIFT)
 	{
-		if (abs(self->x - self->targetX) > self->speed)
+		if (fabsf(self->x - self->targetX) > self->speed)
 		{
 			self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
 		}
@@ -241,7 +241,7 @@ static void moveToTarget()
 			self->x = self->targetX;
 		}
 
-		if (abs(self->y - self->targetY) > self->speed)
+		if (fabsf(self->y - self->targetY) > self->speed)
 		{
 			self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
 		}

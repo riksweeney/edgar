@@ -1663,7 +1663,7 @@ static void scriptEntityMoveToTarget()
 		showErrorAndExit("%s has a speed of 0 and will not move!", self->objectiveName);
 	}
 
-	if (abs(self->x - self->targetX) > self->speed)
+	if (fabsf(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
 	}
@@ -1678,7 +1678,7 @@ static void scriptEntityMoveToTarget()
 		self->targetY = self->y;
 	}
 
-	if (abs(self->y - self->targetY) > self->speed)
+	if (fabsf(self->y - self->targetY) > self->speed)
 	{
 		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
 	}
@@ -1743,7 +1743,7 @@ static void entityMoveToTarget()
 		showErrorAndExit("%s has a speed of 0 and will not move!", self->objectiveName);
 	}
 
-	if (abs(self->x - self->targetX) > self->speed)
+	if (fabsf(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
 	}
@@ -1760,7 +1760,7 @@ static void entityMoveToTarget()
 		self->targetY = self->y;
 	}
 
-	if (abs(self->y - self->targetY) > self->speed)
+	if (fabsf(self->y - self->targetY) > self->speed)
 	{
 		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
 	}
@@ -1840,7 +1840,7 @@ void doTeleport()
 	float speed;
 	Entity *e;
 
-	if (abs(self->x - self->targetX) < TELEPORT_SPEED && abs(self->y - self->targetY) < TELEPORT_SPEED)
+	if (fabsf(self->x - self->targetX) < TELEPORT_SPEED && fabsf(self->y - self->targetY) < TELEPORT_SPEED)
 	{
 		self->flags &= ~(NO_DRAW|HELPLESS|TELEPORTING);
 

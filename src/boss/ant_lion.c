@@ -157,7 +157,7 @@ static void hunt()
 
 	/* Position under the player */
 
-	if (abs(self->x - self->targetX) <= self->speed * 3)
+	if (fabsf(self->x - self->targetX) <= self->speed * 3)
 	{
 		self->dirX = 0;
 
@@ -224,7 +224,7 @@ static void trapTarget(Entity *other)
 		return;
 	}
 
-	if (abs((self->y + self->h) - (other->y + other->h)) > 5)
+	if (fabsf((self->y + self->h) - (other->y + other->h)) > 5)
 	{
 		return;
 	}

@@ -192,7 +192,7 @@ static void redTakeDamage(Entity *other, int damage)
 
 static void retreat()
 {
-	if (abs(self->y - self->targetY) <= self->speed * 3)
+	if (fabsf(self->y - self->targetY) <= self->speed * 3)
 	{
 		self->y = self->targetY;
 	}
@@ -247,7 +247,7 @@ static void move()
 
 	else
 	{
-		if (abs(self->y - self->targetY) > self->speed)
+		if (fabsf(self->y - self->targetY) > self->speed)
 		{
 			self->dirY = (self->y < self->targetY ? self->speed * 5 : -self->speed);
 		}

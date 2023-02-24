@@ -1185,7 +1185,7 @@ static void addSmokeAlongBody()
 
 	shakeScreen(MEDIUM, 15);
 
-	bodyLength = abs(self->endX - self->x);
+	bodyLength = (int)fabsf(self->endX - self->x);
 
 	for (i=0;i<100;i++)
 	{

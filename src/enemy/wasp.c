@@ -87,7 +87,7 @@ static void flyToTarget()
 
 	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
 
-	if (abs(self->x - self->targetX) > self->speed)
+	if (fabsf(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
 	}

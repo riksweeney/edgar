@@ -79,14 +79,14 @@ static void entityWait()
 			{
 				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
 
-				self->frameSpeed = abs(self->frameSpeed);
+				self->frameSpeed = fabsf(self->frameSpeed);
 			}
 
 			else
 			{
 				self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
 
-				self->frameSpeed = -abs(self->frameSpeed);
+				self->frameSpeed = -fabsf(self->frameSpeed);
 			}
 		}
 
@@ -119,14 +119,14 @@ static void init()
 		{
 			self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
 
-			self->frameSpeed = abs(self->frameSpeed);
+			self->frameSpeed = fabsf(self->frameSpeed);
 		}
 
 		else
 		{
 			self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
 
-			self->frameSpeed = -abs(self->frameSpeed);
+			self->frameSpeed = -fabsf(self->frameSpeed);
 		}
 	}
 

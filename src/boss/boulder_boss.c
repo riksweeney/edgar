@@ -181,7 +181,7 @@ static void chasePlayer()
 		addDust();
 	}
 
-	if (self->dirX == 0 && abs(self->endX) > 2)
+	if (self->dirX == 0 && fabsf(self->endX) > 2)
 	{
 		self->action = &idle;
 
