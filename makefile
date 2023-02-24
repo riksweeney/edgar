@@ -41,6 +41,8 @@ endif
 CFLAGS += `sdl2-config --cflags` -Wall -pedantic
 ifeq ($(DEV),1)
 CFLAGS += -Werror -g
+else
+LDFLAGS += -s
 endif
 
 DEFINES = -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DUNIX=$(UNIX)
@@ -108,7 +110,7 @@ makefile.dep : src/*/*.h src/*.h
 
 # compiling other source files.
 $(MAIN_OBJS) $(CORE_OBJS) $(EDIT_OBJS) $(TITLE_OBJS) $(PAK_OBJS) $(PO_OBJS) $(TILE_OBJS):
-	$(CC) $(CFLAGS) $(DEFINES) -c -s $<
+	$(CC) $(CFLAGS) $(DEFINES) -c $<
 
 %.mo: %.po
 	msgfmt -c -o $@ $<
