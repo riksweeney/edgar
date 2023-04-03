@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2022-06-02 11:10+0000\n"
+"PO-Revision-Date: 2023-03-10 13:02+0000\n"
 "Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-14 17:12+0000\n"
-"X-Generator: Launchpad (build 3033a640b736845d098ec36e3bb953aaececcd2d)\n"
+"X-Launchpad-Export-Date: 2023-03-12 11:00+0000\n"
+"X-Generator: Launchpad (build 997ba17554f0ee82f56d9282fce82d3e09a43780)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
@@ -6316,15 +6316,15 @@ msgstr "Suferi!"
 
 #: src/boss/chaos.c:1472
 msgid "Pathetic"
-msgstr ""
+msgstr "Patosa"
 
 #: src/boss/chaos.c:1490
 msgid "Impale"
-msgstr ""
+msgstr "Palisumi"
 
 #: src/player.h:61
 msgid "Confuse"
-msgstr ""
+msgstr "Konfuzi"
 
 #: src/boss/chaos.c:1687
 msgid "Darkness"
