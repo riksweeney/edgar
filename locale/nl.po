@@ -3572,7 +3572,7 @@ msgstr "En dit is iets heel bijzonders"
 
 #: data/scripts/jacob.dat:92
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr "Moge dit je helpen een ​​sterke krijger te worden"
+msgstr "Moge dit je helpen een sterke krijger te worden"
 
 #: data/scripts/jacob.dat:126
 msgid ""
@@ -3926,7 +3926,7 @@ msgstr ""
 #: data/scripts/fish.dat:3
 msgid "But the fish will go for me the moment I enter the water"
 msgstr ""
-"Maar de vis zal voor me uit gaan op het ​​moment dat ik het water betreed"
+"Maar de vis zal voor me uit gaan op het moment dat ik het water betreed"
 
 #: data/scripts/fish.dat:4
 msgid "I'll have to find a way to get rid of them..."
