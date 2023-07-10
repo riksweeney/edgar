@@ -2125,7 +2125,7 @@ msgstr "Als ik daarheen ga, dan wordt ik vast en zeker opgegeten"
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr "Misschien kann ik iets of iemand anders in die greppel lokken..."
+msgstr "Misschien kan ik iets of iemand anders in die greppel lokken..."
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
@@ -2155,7 +2155,7 @@ msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
 msgstr ""
-"Het ziet er naar uit alsof het klem zot. Waarschijnlijk kan ik het met een "
+"Het ziet er naar uit alsof het klem zit. Waarschijnlijk kan ik het met een "
 "pikhouweel los maken..."
 
 #: data/scripts/blender.dat:2
