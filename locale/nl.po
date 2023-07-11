@@ -162,7 +162,7 @@ msgid ""
 "I'm not sure, I think the sorceror sent me here, but he said he was going to "
 "kill me"
 msgstr ""
-"Ik weet het niet zeker, ik denk dat de tovenaar me me daarheen zond, hoewel "
+"Ik weet het niet zeker, ik denk dat de tovenaar me daarheen zond, hoewel "
 "hij zei dat hij me zou ombrengen"
 
 #: data/scripts/olaf.dat:83
@@ -219,7 +219,7 @@ msgid ""
 "have been limited to a single use"
 msgstr ""
 "Misschien is het een ring met magische krachten die je beschermen. Ik kan me "
-"voorstellen, dat hem maar één keer kunt gebruiken"
+"voorstellen, dat je hem maar één keer kunt gebruiken"
 
 #: data/scripts/olaf.dat:96
 msgid ""
@@ -284,12 +284,12 @@ msgid ""
 "I just need one more thing, but it's in a cave to the west and I have no "
 "weapons to protect myself"
 msgstr ""
-"I heb nog één ding nodig, maar dat ligt in de westelijke grot en ik heb geen "
+"Ik heb nog één ding nodig, maar dat ligt in de westelijke grot en ik heb geen "
 "wapens om me te beschermen"
 
 #: data/scripts/olaf.dat:109
 msgid "But now you're here you can help me retrieve it"
-msgstr "Nu je hier bent, kun je me helpen het te op te halen"
+msgstr "Nu je hier bent, kun je me helpen het op te halen"
 
 #: data/scripts/olaf.dat:112
 msgid ""
@@ -367,7 +367,7 @@ msgstr "Bedankt!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
-msgstr "Oh, nog een laatste opmerking."
+msgstr "Oh, nog één laatste opmerking."
 
 #: data/scripts/olaf.dat:141
 msgid ""
@@ -473,7 +473,7 @@ msgstr "Het schild zal je beschermen tegen de meeste vijandelijke aanvallen"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
-msgstr "Sommige aanvallen kunnen niet worden afgeblockt"
+msgstr "Sommige aanvallen kunnen niet worden afgeweerd"
 
 #: data/scripts/tutorial_shield.dat:3
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
@@ -484,13 +484,13 @@ msgstr ""
 #: data/scripts/tutorial_shield.dat:4
 msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
 msgstr ""
-"Om een aanval af te weren, de block-toets drukken en gedrukt houden "
+"Om een aanval af te weren, de afweertoets drukken en gedrukt houden "
 "([INPUT_BLOCK])."
 
 #: data/scripts/tutorial_shield.dat:5
 msgid "You must be facing the attack to successfully block it"
 msgstr ""
-"Je moet je tegenstander in de ogen kijken zien, om een aanval succesvol af "
+"Je moet je tegenstander in de ogen kijken, om een aanval succesvol af "
 "te weren."
 
 #: data/scripts/tutorial_shield.dat:6
@@ -522,7 +522,7 @@ msgstr ""
 
 #: data/scripts/scorpion_statue.dat:3
 msgid "I'd better get out of here and get back to the Fortress..."
-msgstr "Ik kan hier maar beter weggaan en keer terug naar het fort..."
+msgstr "Ik kan hier maar beter weggaan en terugkeren naar het fort..."
 
 #: data/scripts/outskirts_intro.dat:10
 msgid "Drat, the drawbridge is up. There must be another entrance..."
@@ -639,7 +639,7 @@ msgstr "Geweldig, een reserve schild!"
 
 #: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
-msgstr "Ik heb nu  alles wat ik nodig heb"
+msgstr "Ik heb nu alles wat ik nodig heb"
 
 #: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
@@ -656,7 +656,7 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
-msgstr "Dit schild ziet er niet beter uit dan mijn huidige exemplaar."
+msgstr "Dit schild ziet er niet eens beter uit dan mijn huidige exemplaar."
 
 #: data/scripts/old_shield.dat:27
 msgid ""
@@ -682,7 +682,7 @@ msgid ""
 "They will reform unless one of their parts falls into the slime or lava"
 msgstr ""
 "Ze zullen zich telkens weer regenereren totdat een deel van hen in de "
-"schlijm of lava valt"
+"slijm of lava valt"
 
 #: data/scripts/centurion_note_2.dat:4
 msgid ""
@@ -716,7 +716,7 @@ msgstr "Verdwijn nu, indien je wilt blijven leven"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr "Ga terug"
+msgstr "Ga nu terug"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
@@ -759,13 +759,13 @@ msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
 msgstr ""
-"Je kunt bepaalde objekte wegslepen door ertegen te duwen en de actie toets "
-"te drukken."
+"Je kunt bepaalde objecten wegslepen door ertegen te duwen en de actietoets "
+"in te drukken."
 
 #: data/scripts/box_pushing.dat:2
 msgid "You can then pull it around until you let go of the Action button"
 msgstr ""
-"Je kunt het dan zolang verslepen totdat je de actie toets weer loslaat"
+"Je kunt het dan zolang verslepen totdat je de actietoets weer loslaat"
 
 #: data/scripts/drainers.dat:1
 msgid ""
@@ -780,7 +780,7 @@ msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
 "drainers should restore the power here."
 msgstr ""
-"Dat zou verklaren waarom de lift niet funktioneerde. Pas nadat alle "
+"Dat zou verklaren waarom de lift niet functioneerde. Pas nadat alle "
 "aftappers zijn verslagen, functioneert de lift hier waarschijnlijk weer."
 
 #: data/scripts/drainers.dat:3
@@ -813,8 +813,8 @@ msgid ""
 "There's no way I'll be able to figure out the combination, I'll have to find "
 "out what it is"
 msgstr ""
-"Er is geen enkele andere mogelijkheid de kombinatie te achterhalen dan "
-"uitproberen, ik zal het zalf uit moeten zoeken"
+"Er is geen enkele andere mogelijkheid de combinatie te achterhalen dan "
+"uitproberen, ik zal het zelf uit moeten zoeken"
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
@@ -895,7 +895,7 @@ msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
 msgstr ""
-"Hier, neem deze pikhouweel. Je kunt er de steenkool mee delven èn zwakkere "
+"Hier, neem dit pikhouweel. Je kunt er de steenkool mee delven èn zwakkere "
 "muren mee slopen, mocht je die tegenkomen"
 
 #: data/scripts/borgan.dat:29
@@ -950,7 +950,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:46
 msgid "Sure thing, just bring it back in one piece"
-msgstr "Goed gereedschap, breng het wel heel terug"
+msgstr "Natuurlijk, breng het wel heel terug"
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
@@ -976,7 +976,7 @@ msgid ""
 "You must have the statue you wish to use highlighted in your inventory box"
 msgstr ""
 "Je moet het standbeeld dat je wilt gebruiken, markeren in de "
-"inventarisdailoog"
+"inventarisdialoog"
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
@@ -1283,11 +1283,11 @@ msgstr "Chaos"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr "Chaos is een oeroude, kwaade draak"
+msgstr "Chaos is een oeroude, kwaadde draak"
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
-msgstr "Een draak? Papa heeft gezegd dat die zijn uitgestorven"
+msgstr "Een draak?! Papa heeft gezegd dat die zijn uitgestorven"
 
 #: data/scripts/monsters.dat:15
 msgid ""
@@ -1337,7 +1337,7 @@ msgstr ""
 msgid ""
 "But if its breath destroys anything then I won't be able to protect myself"
 msgstr ""
-"Maar wanneer zijn adem alles vernietig, dan kan ik me niet beschermen"
+"Maar wanneer zijn adem alles vernietigd, dan kan ik me niet beschermen"
 
 #: data/scripts/monsters.dat:24
 msgid "Unless..."
@@ -1358,7 +1358,7 @@ msgstr ""
 #: data/scripts/monsters.dat:33
 msgid "The most common reason to summon this beast is to act as a bodyguard"
 msgstr ""
-"De meest warschijnlijke reden dit beest aan te roepen is, om het als "
+"De meest waarschijnlijke reden dit beest aan te roepen is, om het als "
 "lijfwacht te gebruiken"
 
 #: data/scripts/monsters.dat:34
@@ -1406,8 +1406,8 @@ msgid ""
 "Their staff is highly magical and although it cannot be used by humans "
 "directly, its magical properties are used in spell creation"
 msgstr ""
-"Hoewel hun staf extreem magisch is, kan ze niet direct door mensen worden "
-"gebruikt. Zijn magische eigenschappen worden gebruikt om te betoveren"
+"Hoewel hun staf extreem magisch is, kunnen ze niet direct door mensen "
+"worden gebruikt. Zijn magische eigenschappen worden gebruikt om te betoveren"
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
@@ -1504,7 +1504,7 @@ msgid ""
 "However, the shell of a rampaging Master Tortoise is highly magical and is "
 "an essential ingredient when creating powerful magics and items"
 msgstr ""
-"Evenwel, de schelp van een razende meester schildpad is zeer magisch en is "
+"Evenwel, het schild van een razende meester schildpad is zeer magisch en is "
 "een essentieel ingrediënt bij het maken van krachtige toverspreuken en "
 "magische voorwerpen"
 
@@ -1518,7 +1518,7 @@ msgid ""
 "anything they view as a threat"
 msgstr ""
 "Rode rupsen zijn agressiever als groene en vallen alles aan wat in hun ogen "
-"eeneen bedreiging vormt"
+"een bedreiging vormt"
 
 #: data/scripts/monsters.dat:82
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
@@ -1531,7 +1531,7 @@ msgid ""
 "like substance capable of holding its prey in place"
 msgstr ""
 "Sommigen van hen verpoppen en veranderen in een wespenkoningin. Deze "
-"koninginnen kunnen een slijmachtige stof  produceren, die het mogelijk maakt "
+"koninginnen kunnen een slijmachtige stof produceren, die het mogelijk maakt "
 "een prooi vast te houden"
 
 #: data/scripts/monsters.dat:89
@@ -1604,7 +1604,7 @@ msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
-"Terwijl grijze Centurions worden meestal gebruikt om de wijde omtrek van "
+"Terwijl grijze Centurions meestal worden gebruikt om de wijde omtrek van "
 "iets te bewaken, rode Centurions bewaken gebieden die van groot belang zijn."
 
 #: data/scripts/cauldron.dat:153
@@ -1614,7 +1614,7 @@ msgstr "Cycloop"
 #: data/scripts/monsters.dat:111
 msgid "Gazers are flying cycloptic creatures found in various places"
 msgstr ""
-"Cyclopen zijn vliegende, eenogige wezens, die je op meerdere plaatsen tegen "
+"Cyclopen zijn vliegende, éénogige wezens, die je op meerdere plaatsen tegen "
 "kunt komen"
 
 #: data/scripts/monsters.dat:112
@@ -1664,12 +1664,12 @@ msgstr "34 delen! Hoeveel monster zij er wel niet op deze wereld?!"
 
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
-msgstr "Dit zou pas kunnen komen toen ik op jacht was naar rode slakken"
+msgstr "Dit had van pas kunnen komen toen ik op jacht was naar rode slakken"
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
 msgstr ""
-"Trotzdem könnte etwas Interessantes in diesen Büchern zu finden sein..."
+"Toch is er misschien iets interessants te vinden in deze boeken..."
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
@@ -1697,7 +1697,7 @@ msgid ""
 "been found lurking in areas of mines abandoned by humans"
 msgstr ""
 "Ze hebben een voorliefde voor droge mineraalrijke gebieden. Om die reden "
-"liggen ze op loer in verlaten mijnen"
+"liggen ze op de loer in verlaten mijnen"
 
 #: data/scripts/monsters.dat:135
 msgid ""
@@ -1764,7 +1764,7 @@ msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
-"De bibliotheek moet informatie over alles mogelijke kunne leveren, ook een "
+"De bibliotheek zou informatie over alles moeten hebben, dus ook een "
 "gedetaileerde beschrijving over het maken van een schild, hetgeen tegen "
 "vuurspuwende draken bescherming bieden kan..."
 
@@ -1781,7 +1781,7 @@ msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
-"Ik moet 3 cylopenogen, een tenktakel van een rode slijmslak en een extra "
+"Ik moet 3 cylopenogen, een tentakel van een rode slijmslak en een extra "
 "schild vinden om hier een schild van te maken wat tegen vuur bestand is"
 
 #: data/scripts/enchanting_weapons.dat:10
@@ -1850,7 +1850,7 @@ msgstr "Maar ik heb toch overal gezocht?"
 
 #: data/scripts/enchanting_weapons.dat:33
 msgid "There's a book here about enchanting equipment"
-msgstr "Hier is een boek dat gaat over het betoveren van dingen"
+msgstr "Hier is een boek dat gaat over het betoveren van uitrusting"
 
 #: data/scripts/enchanting_weapons.dat:34
 msgid "Maybe I can create a shield..."
@@ -1903,7 +1903,7 @@ msgstr "Een voelspriet van een rode vrouwtjes slak"
 
 #: data/scripts/occult_book.dat:22
 msgid "The shield to apply the enchantment"
-msgstr "Het schild om mee te toveren"
+msgstr "Het schild om te betoveren"
 
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
@@ -1922,7 +1922,7 @@ msgstr ""
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
 msgstr ""
-"Wanneer het mengsel een lichtblauwe kleur krijgt, voegt het het schild toe"
+"Wanneer het mengsel een lichtblauwe kleur krijgt, voeg het schild toe"
 
 #: data/scripts/enchanting_weapons.dat:54
 msgid ""
@@ -1944,7 +1944,7 @@ msgstr ""
 #: data/scripts/enchanting_weapons.dat:59
 msgid "And the Gazers hang around in the basement so that's not a problem"
 msgstr ""
-"En de cyclopen wandelen rond in de kelder dus dat is niet het problem"
+"En de cyclopen wandelen rond in de kelder dus dat is niet het probleem"
 
 #: data/scripts/enchanting_weapons.dat:60
 msgid ""
@@ -1959,7 +1959,7 @@ msgid ""
 "have to find another one"
 msgstr ""
 "Ik kan mijn huidige schild niet voor dit experiment gebruiken, voor het "
-"geval dat er iets mis gaat- Ik zal nog een schild moeten vinden"
+"geval dat er iets mis gaat. Ik zal nog een schild moeten vinden"
 
 #: data/scripts/enchanting_weapons.dat:64
 msgid "Obtain 3 Gazer Eyes"
@@ -2074,7 +2074,7 @@ msgstr "Hier, terug naar je eigen dimensie"
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr "Waar is de tovernaar heen?"
+msgstr "Waar is de tovenaar heen?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
@@ -2125,7 +2125,7 @@ msgstr "Als ik daarheen ga, dan wordt ik vast en zeker opgegeten"
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr "Misschien kann ik iets of iemand anders in die greppel lokken..."
+msgstr "Misschien kan ik iets of iemand anders in die greppel lokken..."
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
@@ -2155,7 +2155,7 @@ msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
 msgstr ""
-"Het ziet er naar uit alsof het klem zot. Waarschijnlijk kan ik het met een "
+"Het ziet er naar uit alsof het klem zit. Waarschijnlijk kan ik het met een "
 "pikhouweel los maken..."
 
 #: data/scripts/blender.dat:2
@@ -2181,7 +2181,7 @@ msgstr "OK, daar gaan we!"
 msgid "Some items in the game can be pushed and pulled"
 msgstr ""
 "Sommige objecten in het spel kunnen worden verplaats door er tegen te duwen "
-"of er aan te trekkken"
+"of er aan te trekken"
 
 #: data/scripts/tutorial_boxes.dat:2
 msgid "To push an item, simply walk into it"
@@ -2197,7 +2197,7 @@ msgstr ""
 #: data/scripts/tutorial_boxes.dat:4
 msgid "You can then pull the item around until you let go of Action"
 msgstr ""
-"Zolang de actietoets ingedrukt blijft, kan het betreffende object worden "
+"Zolang de actietoets gedrukt blijft, kan het betreffende object worden "
 "versleept"
 
 #: data/scripts/tutorial_boxes.dat:5
@@ -2218,7 +2218,7 @@ msgstr ""
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr "Nu kun je je nergens meer achter verbergen, tovernaar"
+msgstr "Nu kun je je nergens meer achter verbergen, tovenaar"
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
@@ -2299,7 +2299,7 @@ msgstr "Misschien moet ik er vanaf blijven"
 #: data/scripts/black_book.dat:5
 msgid "Still, I could be wrong, maybe it's not evil magic..."
 msgstr ""
-"Ik het is best mogelijk dat ik het mis heb en misschien is het toch geen "
+"Het is best mogelijk dat ik het mis heb en misschien is het toch geen "
 "zwarte magie..."
 
 #: data/scripts/black_book_search.dat:9
@@ -2313,8 +2313,8 @@ msgstr "Wat is er zojuist gebeurd?"
 #: data/scripts/black_book.dat:22
 msgid "Maybe I shouldn't go around touching books that give off an evil aura"
 msgstr ""
-"Misschien doe ik er beter aan, niet zomaar aan vreemde boeken met een kwade "
-"aura"
+"Misschien doe ik er beter aan, niet zomaar vreemde boeken met een kwade "
+"aura aan te raken"
 
 #: data/scripts/black_book.dat:23
 msgid "And spend more time looking for my Dad"
@@ -2342,7 +2342,7 @@ msgstr "Ik moet oppassen waar ik mijn voeten neerzet..."
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "Escape the Catacombs"
-msgstr "Onstnap uit de Catacomben"
+msgstr "Ontsnap uit de Catacomben"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
@@ -2384,7 +2384,7 @@ msgid ""
 msgstr ""
 "Een andere mogelijkheid om de volgende dialog weer te geven is door de "
 "aanvalstoets ([INPUT_ATTACK]), de afweertoets ([INPUT_BLOCK]), de "
-"Springentoets ([INPUT_JUMP]) de actietoets ([INPUT_INTERACT]) of de Item "
+"springentoets ([INPUT_JUMP]) de actietoets ([INPUT_INTERACT]) of de Item "
 "gebruiken toets ([INPUT_ACTIVATE]) te drukken."
 
 #: data/scripts/tutorial_intro.dat:6
@@ -2422,7 +2422,7 @@ msgstr "Om een item te gebruiken druk [INPUT_INTERACT]"
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr "Loop naar de actiepunt en druk [INPUT_INTERACT]"
+msgstr "Loop naar het actiepunt en druk [INPUT_INTERACT]"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
@@ -2494,11 +2494,11 @@ msgstr "Er gebeurde niets. Ik denk dat het niet de juiste volgorde is"
 
 #: data/scripts/fortress_mine_exit_sign.dat:1
 msgid "There's another sign here"
-msgstr "Hier is noch een wegwijzer"
+msgstr "Hier is nog een wegwijzer"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "If the exit lift is out of order then proceed to the left"
-msgstr "Indien de lift buiten gebruik is is, ga verder naar links"
+msgstr "Indien de lift buiten gebruik is, ga verder naar links"
 
 #: data/scripts/fortress_mine_exit_sign.dat:3
 msgid "Warning : Exit route may be hazardous"
@@ -2733,7 +2733,7 @@ msgstr ""
 
 #: data/scripts/jigsaw_puzzle.dat:9
 msgid "Still, it looks like this is the only way out"
-msgstr "Nu, het lijkt erop dat dit de enige uitweg"
+msgstr "Nu, het lijkt erop dat dit de enige uitweg is"
 
 #: data/scripts/jigsaw_puzzle.dat:16
 msgid "Looks like I need 9 pieces to slot into the frame"
@@ -2843,8 +2843,8 @@ msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
 msgstr ""
-"Indien een vleermuis op je af komt gevlogen, kan deze afweren door je schild "
-"te gebruiken"
+"Indien een vleermuis op je af komt gevlogen, kan je deze afweren door je "
+"schild te gebruiken"
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
@@ -2986,7 +2986,7 @@ msgstr "Trotseer het moeras"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
-msgstr "Hier heerst een plaag"
+msgstr "Daar is een plaat"
 
 #: data/scripts/statues.dat:2
 msgid "Place the 4 statues in the correct order"
@@ -3236,7 +3236,7 @@ msgstr "Het lijkt erop dat er een aantal appels aan hangen..."
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
 msgstr ""
-"de deur gaat neit open, vermoedelijk heb ik een verkeerde combinatie "
+"de deur gaat niet open, vermoedelijk heb ik een verkeerde combinatie "
 "ingegeven"
 
 #: data/scripts/occult_book.dat:2
@@ -3274,7 +3274,7 @@ msgstr "Wanneer ik al deze items heb verzameld, gooi ik ze in een ketel..."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
-msgstr "Dat is een boek over occulte magie"
+msgstr "Dit is een boek over occulte magie"
 
 #: data/scripts/occult_book.dat:14
 msgid "Hmm..."
@@ -3282,7 +3282,7 @@ msgstr "Hmm..."
 
 #: data/scripts/occult_book.dat:15
 msgid "This is interesting:"
-msgstr "Dat is interessant:"
+msgstr "Dit is interessant:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
@@ -3327,7 +3327,7 @@ msgstr ""
 msgid "I've got the shell and the staff, but where do I find the keepsake?"
 msgstr ""
 "Ik heb het stuk schildpaddenschild en de toverstaf, maar waar vind ik het "
-"aandeken aan deze krijger?"
+"aandenken aan deze krijger?"
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
@@ -3404,8 +3404,8 @@ msgid ""
 "Note that if the sword completely loses its power it will revert to a "
 "regular sword with very little power until you can find more charges"
 msgstr ""
-"Merk op dat als het zwaard zijn kracht volledig verliest het zal weer een "
-"doodnormaal zwaard met zeer weinig kracht totdat je er weer lading voor vindt"
+"Merk op dat als het zwaard zijn kracht volledig verliest zal het weer een "
+"doodnormaal zwaard zijn met zeer weinig kracht totdat je er lading voor vindt"
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
@@ -3572,7 +3572,7 @@ msgstr "En dit is iets heel bijzonders"
 
 #: data/scripts/jacob.dat:92
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr "Moge dit je helpen een ​​sterke krijger te worden"
+msgstr "Moge dit je helpen een sterke krijger te worden"
 
 #: data/scripts/jacob.dat:126
 msgid ""
@@ -3584,7 +3584,7 @@ msgstr ""
 
 #: data/scripts/power_generators.dat:3
 msgid "These machines aren't working."
-msgstr "Deze machines werken niet"
+msgstr "Deze machines werken niet."
 
 #: data/scripts/power_generators.dat:5
 msgid ""
@@ -3611,8 +3611,8 @@ msgid ""
 "It's connected to this treadmill so I could probably charge it up with "
 "enough speed"
 msgstr ""
-"Het is verbonden met dit looprad dus als ik heel snel loop zou kunnen "
-"proberen om het op te laden"
+"Het is verbonden met dit looprad dus als ik heel snel loop zou ik het "
+"kunnen proberen om het op te laden"
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
@@ -3637,7 +3637,7 @@ msgstr "Daarvoor in de plaats zal ik wel iets anders te doen krijgen"
 #: data/scripts/gold_centurion.dat:2
 msgid "I'll find something else to work the treadmill for me"
 msgstr ""
-"Ik zal iets anders moeten zoeken om de het looprad aan de gang te krijgen"
+"Ik zal iets anders moeten zoeken om het looprad aan de gang te krijgen"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
@@ -3834,7 +3834,7 @@ msgid ""
 "I'll have to find something else to stand on the pressure plate for me..."
 msgstr ""
 "Ik zal iets anders moeten zoeken om in plaats van mij op de drukschakelaar "
-"kan staan..."
+"te staan..."
 
 #: data/scripts/wasteland_intro_2.dat:2
 msgid ""
@@ -3902,7 +3902,7 @@ msgstr "Het is een gigantische mastermind puzzel!"
 msgid ""
 "I used to play these all the time when we were travelling up to the big city"
 msgstr ""
-"Ik heb zukke de hele tijd gespeeld, toen we naar de grote stad reisden"
+"Ik heb zulke de hele tijd gespeeld, toen we naar de grote stad reisden"
 
 #: data/scripts/mastermind.dat:20
 msgid "It doesn't look like it's working though"
@@ -3926,7 +3926,7 @@ msgstr ""
 #: data/scripts/fish.dat:3
 msgid "But the fish will go for me the moment I enter the water"
 msgstr ""
-"Maar de vis zal voor me uit gaan op het ​​moment dat ik het water betreed"
+"Maar de vis zal voor me uit gaan op het moment dat ik het water betreed"
 
 #: data/scripts/fish.dat:4
 msgid "I'll have to find a way to get rid of them..."
@@ -4140,7 +4140,7 @@ msgstr ""
 #: data/scripts/tutorial_items.dat:2
 msgid ""
 "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
-msgstr "Druk [INPUT_INVENTORY] om de inventaris te bekijken"
+msgstr "Druk [INPUT_INVENTORY] om je inventaris te bekijken"
 
 #: data/scripts/tutorial_items.dat:3
 msgid "Whilst in the inventory, use the arrow keys to view the items."
@@ -4223,7 +4223,7 @@ msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
 msgstr ""
-"Indien het de de toetsconfiguratie is voltooid, ga rechts naar volgende"
+"Indien de toetsconfiguratie is voltooid, ga rechts naar het volgende actiepunt"
 
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
@@ -4311,7 +4311,7 @@ msgstr ""
 
 #: data/scripts/armoury_intro.dat:4
 msgid "Still, there must be something of use in here"
-msgstr "Toch moet er hier binnen iets nuttigs te vinden zijn"
+msgstr "Toch moet er hierbinnen iets nuttigs te vinden zijn"
 
 #: data/scripts/well.dat:3
 msgid "I've already checked, he's not down there..."
@@ -4404,7 +4404,7 @@ msgstr "Achteraf gezien is het misschien niet eens zo erg"
 #: data/scripts/cauldron.dat:21
 msgid "That's all the ingredients, I just need to add a shield"
 msgstr ""
-"Dat zijn alle ingrediënten, ik heb moet alleen nog maar een schild toevoegen"
+"Dat zijn alle ingrediënten, ik moet alleen nog maar een schild toevoegen"
 
 #: data/scripts/cauldron.dat:22
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
@@ -4440,7 +4440,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:42
 msgid "I should start my search there"
-msgstr "Ik zal mijn zoektoch daar beginnen"
+msgstr "Ik zal mijn zoektocht daar beginnen"
 
 #: data/scripts/cauldron.dat:45
 msgid "I don't have all the ingredients yet."
@@ -4448,7 +4448,7 @@ msgstr "Ik heb nog niet alle ingrediënten."
 
 #: data/scripts/cauldron.dat:46
 msgid "The book said I needed to find the following"
-msgstr "In het boek stond dat ik volgende zaken nodig zijn"
+msgstr "In het boek stond dat ik het volgende moet vinden"
 
 #: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
@@ -4496,7 +4496,7 @@ msgstr "OK, het oog van de cycloop en de tentakel zijn toegevoegd"
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
-msgstr "En de rest van de ingrediënten"
+msgstr "En ook de rest van de ingrediënten"
 
 #: data/scripts/cauldron.dat:167
 msgid "Aha! It's gone blue, just like the book said it would"
@@ -4512,12 +4512,12 @@ msgstr "Oh oh..."
 
 #: data/scripts/cauldron.dat:203
 msgid "I need all the main ingredients"
-msgstr "Ik heb all basis-ingrediënten nodig"
+msgstr "Ik heb alle basis-ingrediënten nodig"
 
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr ""
-"3 cyclopen-ogen, 1 tentekel van een rode slijm slak en een reserve schild"
+"3 cyclopen-ogen, 1 tentakel van een rode slijm slak en een reserve schild"
 
 #: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
@@ -4588,7 +4588,7 @@ msgstr ""
 
 #: data/scripts/fortress_mine_intro.dat:1
 msgid "Huh, déjà vu..."
-msgstr "Huh, ik geloof ik heb een déjà vu..."
+msgstr "Huh, ik geloof dat ik déjà vu heb..."
 
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
@@ -4597,7 +4597,7 @@ msgstr "Het lijkt erop dat daarbeneden nog een groter gangenstelsel bestaat"
 #: data/scripts/monster_horn_taken.dat:6
 msgid "Olaf did tell me to just get the horn and leave"
 msgstr ""
-"Olaf heeft gezegd dat ik alleen de hoorn op moet te halen en dan direct weer "
+"Olaf heeft gezegd dat ik alleen de hoorn moet ophalen en dan direct weer "
 "weg te gaan"
 
 #: data/scripts/no_instructions.dat:1
@@ -4718,7 +4718,7 @@ msgstr "Ik kan een vlot bouwen als ik genoeg bomen omhak in het bos"
 
 #: data/scripts/raft.dat:29
 msgid "I'm not going to the swamp without a sword and shield"
-msgstr "Ik ga niet het moeris in zonder zwaard en schild"
+msgstr "Ik ga niet het moeras in zonder zwaard en schild"
 
 #: data/scripts/teleporter_discovery.dat:1
 msgid "Hey, what's this?"
@@ -4757,7 +4757,7 @@ msgstr "Het vermeldt het volgende:"
 
 #: data/scripts/correct_combination.dat:11
 msgid "Cheaters never prosper"
-msgstr "Valsspelers gaat het nooit voorspoedig"
+msgstr "Met valsspelers gaat het nooit voorspoedig"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Oh..."
@@ -4875,7 +4875,7 @@ msgstr "Ik ben nog aan het woord!"
 #: data/scripts/evil_edgar_start.dat:26
 msgid "There should only be one of us in this world: one body, one conscious"
 msgstr ""
-"Er heeft maar één van ons beiden bestaansrecht: Een lichaam, een bewustzijn"
+"Er heeft maar één van ons beiden bestaansrecht: één lichaam, één bewustzijn"
 
 #: data/scripts/evil_edgar_start.dat:27
 msgid "These machines will join us together"
@@ -4907,7 +4907,7 @@ msgid ""
 "That was the plan. Since you're alive though, you've saved me the bother of "
 "having to drag your carcass all the way back here"
 msgstr ""
-"Dat was het plan. Aangezien je nog leeft, hoef ik niet je carcas de hele weg "
+"Dat was het plan. Aangezien je nog leeft, hoef ik niet je karkas de hele weg "
 "terug te dragen"
 
 #: data/scripts/evil_edgar_start.dat:34
@@ -4916,7 +4916,7 @@ msgstr "Ga nu in de machine!"
 
 #: data/scripts/disintegration_shield.dat:1
 msgid "Wow, what a cool looking shield"
-msgstr "Wauw, what een cool schild"
+msgstr "Wauw, wat een cool schild"
 
 #: data/scripts/disintegration_shield.dat:2
 msgid "Hopefully this will protect me from that spell"
@@ -5053,11 +5053,11 @@ msgstr "Tesla Pack"
 
 #: src/item/tesla_charger.c:169
 msgid "Press Action to retrieve Tesla Pack"
-msgstr "Druk de actietiets om het Tesla Pack op te ontvangen"
+msgstr "Druk de actietoets om het Tesla Pack te ontvangen"
 
 #: src/item/tesla_charger.c:178
 msgid "Press Action to replace Tesla Pack"
-msgstr "Druk de actietiets om het Tesla Pack te vervangen"
+msgstr "Druk de actietoets om het Tesla Pack te vervangen"
 
 #: src/item/slime_potion_pool.c:94
 msgid "Obtained %s"
@@ -5077,7 +5077,7 @@ msgstr "Gebruikt %s"
 
 #: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
-msgstr "Items kunnen in betoverde toestand niet worden gerbuikt"
+msgstr "Items kunnen in betoverde toestand niet worden gebruikt"
 
 #: src/player.c:1079
 msgid "Equipped %s"
@@ -5097,7 +5097,7 @@ msgstr "Een boog is nodig om dit item te gebruiken"
 
 #: src/player.c:2513
 msgid "Cannot transmogrify here..."
-msgstr "Hier kan niet worden omgetoverd..."
+msgstr "Hier kan je niet worden omgetoverd..."
 
 #: data/scripts/jacob.dat:46
 msgid "Yes"
@@ -5173,11 +5173,11 @@ msgstr "Druk de actietoets om de schakelaar te drukken"
 
 #: src/world/save_point.c:97
 msgid "Press Action to save your game"
-msgstr "druk de actietoets om het spel op te slaan"
+msgstr "Druk de actietoets om het spel op te slaan"
 
 #: src/world/pressure_plate.c:113
 msgid "%s is required to use this Pressure Plate"
-msgstr "%s is nodig om de druk plaat te kunnen gebruiken"
+msgstr "%s is nodig om de drukplaat te kunnen gebruiken"
 
 #: src/world/door.c:122
 msgid "%s is needed to open this door"
@@ -5277,7 +5277,7 @@ msgstr "Steenkool"
 
 #: data/scripts/jacob.dat:3
 msgid "Chopped Log"
-msgstr "houtblok"
+msgstr "Houtblok"
 
 #: data/scripts/power_generators.dat:8
 msgid "Green Gem"
@@ -5437,7 +5437,7 @@ msgstr "Sleutel voor de overspanningsdoorgang"
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
-msgstr "Sluetel voor de ontmantelingsruimte"
+msgstr "Sleutel voor de ontmantelingsruimte"
 
 #: src/event/global_trigger.c:302
 msgid "No Objectives"
@@ -5719,7 +5719,7 @@ msgstr "Volle mijnwagen"
 
 #: data/maps/map12.dat:2442
 msgid "Processing Lift Key"
-msgstr "Sleutel van de verwrkingslift"
+msgstr "Sleutel van de verwerkingslift"
 
 #: data/maps/map12.dat:5318
 msgid "Right Grabber Key"
@@ -5751,7 +5751,7 @@ msgstr "Afweermiddel"
 
 #: data/maps/map12.dat:1
 msgid "Fortress Mine"
-msgstr "Mijn"
+msgstr "Mijn van het fort"
 
 #: data/scripts/cauldron.dat:204
 msgid "Sludge Tentacle"
@@ -5985,7 +5985,7 @@ msgstr "Hun partner zal hen genezen als ze vallen..."
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
-msgstr "Het avondeten is klaar ..."
+msgstr "Het avondeten is klaar..."
 
 #: src/player.c:1692
 msgid "Used Amulet of Resurrection"
@@ -6033,7 +6033,7 @@ msgstr "Kom naar beneden!"
 
 #: src/boss/evil_edgar.c:786
 msgid "Stupid duds..."
-msgstr "Stomme blindgangers ..."
+msgstr "Stomme blindgangers..."
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
@@ -6082,7 +6082,7 @@ msgstr "Het glas ziet er nu erg zwak uit..."
 
 #: src/system/error.c:53
 msgid "Press Escape to exit"
-msgstr "Druk Escape om"
+msgstr "Druk Escape om te verlaten"
 
 #: data/props/item/protection_ring.props:4
 msgid "A beautiful ring"
@@ -6128,7 +6128,7 @@ msgstr "Mislukt"
 
 #: src/item/mastermind_display.c:411
 msgid "Select a colour for every peg in the row"
-msgstr "Selecteer een kleut voor iedere pin in de rij"
+msgstr "Selecteer een kleur voor iedere pin in de rij"
 
 #: src/item/monster_skull.c:98
 msgid "Press Action to retrieve the Horn"
@@ -6351,7 +6351,7 @@ msgstr "Versloeg de tovenaar"
 
 #: data/medals.dat:6
 msgid "Obtained the Dragon Shield"
-msgstr "Verzamelde het draken schild"
+msgstr "Verzamelde het drakenschild"
 
 #: data/medals.dat:5
 msgid "Found all secrets"
@@ -6383,11 +6383,11 @@ msgstr "Grimlore verslagen"
 
 #: data/medals.dat:16
 msgid "Defeated the Phoenix"
-msgstr "Fenix verslagen"
+msgstr "Feniks verslagen"
 
 #: data/medals.dat:9
 msgid "Defeated Azriel"
-msgstr "Azrael verslagen"
+msgstr "Azraël verslagen"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
@@ -6531,7 +6531,7 @@ msgstr "De wachter van het verboden moeras verslagen"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
-msgstr "Het handboek over monster helemaal gelezen"
+msgstr "Het handboek over monsters helemaal gelezen"
 
 #: data/medals.dat:53
 msgid "Obtained the Amulet of Resurrection"
@@ -6607,7 +6607,7 @@ msgstr "De grot"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr "De rand van het bos"
+msgstr "De rand van het fort"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
@@ -6619,7 +6619,7 @@ msgstr "De kelder van het fort"
 
 #: data/maps/map17.dat:11143
 msgid "the Fortress Ground Floor"
-msgstr "de begane grond van het fort"
+msgstr "De begane grond van het fort"
 
 #: data/scripts/old_shield.dat:18
 msgid "the Laboratory"
@@ -6639,7 +6639,7 @@ msgstr "De wapenkamer"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr "de borer grot"
+msgstr "De Borer grot"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
@@ -6655,15 +6655,15 @@ msgstr "De gevangenis"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr "De bevroren riolering"
+msgstr "De bevroren woestenij"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
-msgstr "het buitenste grotten netwerk"
+msgstr "Het buitenste grotten netwerk"
 
 #: data/maps/map19.dat:5643
 msgid "the Inner Cave Network"
-msgstr "het binnenste grotten netwerk"
+msgstr "Het binnenste grotten netwerk"
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
@@ -6675,11 +6675,11 @@ msgstr "De linker toren"
 
 #: data/maps/map16.dat:1968
 msgid "the Right Tower"
-msgstr "de rechter toren"
+msgstr "De rechter toren"
 
 #: data/medals.dat:21
 msgid "the Crypt"
-msgstr "De"
+msgstr "De Crypte"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "Village"
@@ -6703,7 +6703,7 @@ msgstr "Grot"
 
 #: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
-msgstr "Rand van het bos"
+msgstr "Rand van het fort"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
@@ -6711,7 +6711,7 @@ msgstr "Riool"
 
 #: data/maps/map09.dat:5943
 msgid "Fortress Basement"
-msgstr "Kelder an het fort"
+msgstr "Kelder van het fort"
 
 #: data/maps/map09.dat:1
 msgid "Fortress Ground Floor"
@@ -6767,7 +6767,7 @@ msgstr "Rechtse toren"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
-msgstr "De  sterrenwacht"
+msgstr "De sterrenwacht"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
@@ -6791,7 +6791,7 @@ msgstr "Druk een toets"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
-msgstr "kan geen items gebruiken gedurende een aanval"
+msgstr "Kan geen items gebruiken gedurende een aanval"
 
 #: src/credits.c:884
 msgid "Continue"
@@ -6843,7 +6843,7 @@ msgstr "Beweeg snel van links naar rechts om alle stukken af te schudden!"
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
-msgstr "Azraë"
+msgstr "Azraël"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
@@ -6959,7 +6959,7 @@ msgstr "Chaos heeft zich aan je onderworpen"
 
 #: src/credits.c:460
 msgid "For now..."
-msgstr "Voor nu ..."
+msgstr "Voor nu..."
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"
@@ -6988,14 +6988,14 @@ msgstr "Ik zal je vernietigen!"
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
 msgstr ""
-"Hij moet me weg hebben geteleporteerd  met het laatste restje van zijn magie"
+"Hij moet me weg hebben geteleporteerd met het laatste restje van zijn magie"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
-"Hoewel ik er niet in geslaagd om hem te doden, is hij nu te zwak om een "
+"Hoewel ik er niet in geslaagd ben om hem te doden, is hij nu te zwak om een "
 "bedreiging voor de wereld te vormen"
 
 #: data/scripts/chaos_finish.dat:19
@@ -7048,7 +7048,7 @@ msgstr "Wat een afschuwlijke nacht"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr "Edgar,"
+msgstr "Edgar, ik moet een paar uur naar buiten"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
@@ -7064,7 +7064,7 @@ msgstr "De volgende morgen..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr "Papa, waar ben je?"
+msgstr "Papa! waar ben je?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
