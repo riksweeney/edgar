@@ -108,7 +108,7 @@ cp $DISTNAME $RPMROOT/SOURCES
 
 echo "Building RPMs..."
 
-rpmbuild -bb $SPECNAME --target $ARCH --define "name $APPNAME" --define "version $APPVERSION" --define "release $APPRELEASE"
+rpmbuild  -bb $SPECNAME --target $ARCH --define "name $APPNAME" --define "version $APPVERSION" --define "release $APPRELEASE" --define "_topdir $RPMROOT"
 
 echo "Retrieving RPMs"
 

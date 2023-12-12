@@ -359,7 +359,9 @@ static void testPak(char *pakFile)
 		cleanup(1);
 	}
 
-	fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);
+	offset = sizeof(int32_t) + sizeof(int32_t);
+
+	fseek(fp, -offset, SEEK_END);
 
 	fread(&offset, sizeof(int32_t), 1, fp);
 	fread(&fileCount, sizeof(int32_t), 1, fp);

@@ -30,7 +30,10 @@ static void initTable(void);
 void setLanguage(char *applicationName, char *languageCode)
 {
 	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
-	char *lang, **key, **value;
+	#ifndef _WIN32
+		char *lang;
+	#endif
+	char **key, **value;
 	int i, swap;
 	FILE *fp;
 	MOHeader header;

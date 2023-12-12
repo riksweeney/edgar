@@ -472,6 +472,10 @@ void doNothing()
 
 	if (self->environment == WATER && (self->flags & FLOATS))
 	{
+		self->y = getWaterTop(self->x, self->y);
+		
+		self->y = self->y - TILE_SIZE;
+		
 		self->action = &floatLeftToRight;
 
 		self->endX = self->dirX = 1.0;

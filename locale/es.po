@@ -6,19 +6,19 @@ msgstr ""
 "Project-Id-Version: Traduccion de Edgar 0.75\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2023-04-06 01:08+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2023-12-10 21:05+0000\n"
+"Last-Translator: Jorge Maldonado Ventura <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-04-06 06:24+0000\n"
-"X-Generator: Launchpad (build ce6856af661dea2cdabcc7883eecafbc1fccc4ad)\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Basepath: /home/traperic/Documentos/edgar-0.75/locale\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2023-12-11 18:24+0000\n"
+"X-Generator: Launchpad (build e1eeab5b20e19239bd7d5f36676f7a52988db88b)\n"
 "X-Poedit-Country: SPAIN\n"
 "Language: es\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: /home/traperic/Documentos/edgar-0.75/locale\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3305,7 +3305,7 @@ msgstr "Supongo que ahora no tengo elección."
 
 #: data/scripts/raft_end.dat:12
 msgid "Hang on Dad, I'm coming..."
-msgstr "Espera papá, ya voy..."
+msgstr "Espera, papá, ya voy..."
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
@@ -6368,7 +6368,7 @@ msgstr "Has obtenido el Escudo de Fuego"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr "Entra en la Fortaleza"
+msgstr "Llegaste a la Fortaleza"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"

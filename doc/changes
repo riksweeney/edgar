@@ -2,8 +2,8 @@ CHANGE LOG
 ----------
 
 Version 1.37
-* Updated Spanish translation
-* Updated Esperanto translation
+* Updated Spanish and Esperanto translations
+* Fixed an issue whereby the Grub King could push the player out of the map
 
 Version 1.36
 * Updated Polish translation
