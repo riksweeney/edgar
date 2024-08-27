@@ -27,15 +27,9 @@ cd dist
 
 rm -rf $APPDIR
 
-echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
+echo "Getting Git Tag $APPVERSION-$APPRELEASE"
 
-svn export https://github.com/riksweeney/edgar/tags/$APPVERSION $APPDIR
-
-echo "Getting latest translations from the trunk"
-
-rm -rf $APPDIR/locale
-
-svn export https://github.com/riksweeney/edgar/trunk/locale $APPDIR/locale
+git clone --branch $APPVERSION --depth=1 https://github.com/riksweeney/edgar $APPDIR
 
 echo "Removing unwanted data files..."
 
@@ -60,6 +54,8 @@ for i in `find . -name *.jpg | grep -v doc`;do
 done
 
 cd $APPDIR
+
+rm -rf .git
 
 make -f makefile.windows CC=i686-w64-mingw32-gcc VERSION=$1 -j3
 

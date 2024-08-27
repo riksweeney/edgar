@@ -82,7 +82,7 @@ then
 	exit 1
 fi
 
-UNCOMMIT_COUNT=`svn status | wc -l`
+UNCOMMIT_COUNT=`git status --porcelain | wc -l`
 
 if [ "$UNCOMMIT_COUNT" != "0" ];
 then
@@ -90,4 +90,6 @@ then
 	exit 1
 fi
 
-svn copy https://github.com/riksweeney/edgar/trunk https://github.com/riksweeney/edgar/tags/$1 -m "Tagging $1"
+git tag $1 -m "Tagging $1"
+
+git push origin $1

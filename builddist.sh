@@ -42,9 +42,9 @@ mkdir -p dist
 
 cd dist
 
-echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
+echo "Getting Git Tag $APPVERSION-$APPRELEASE"
 
-svn export https://github.com/riksweeney/edgar/tags/$APPVERSION $APPDIR
+git clone --branch $APPVERSION --depth=1 https://github.com/riksweeney/edgar $APPDIR
 
 echo "Removing unwanted data files..."
 
@@ -52,6 +52,7 @@ cp $APPDIR/edgar.spec.base edgar.spec
 
 rm -rf $APPDIR/dev
 rm -rf $APPDIR/test
+rm -rf $APPDIR/.git
 rm $APPDIR/disclaimer.txt
 rm $APPDIR/*.spec*
 rm $APPDIR/*.sh

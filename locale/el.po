@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-06-22 09:26+0000\n"
-"Last-Translator: Χρήστος Ροδόπουλος <xr_ro@yahoo.gr>\n"
+"PO-Revision-Date: 2024-05-26 17:27+0000\n"
+"Last-Translator: Kiriakos Economides <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-07-06 21:52+0000\n"
-"X-Generator: Launchpad (build 18419)\n"
+"X-Launchpad-Export-Date: 2024-08-04 08:04+0000\n"
+"X-Generator: Launchpad (build e3ace39cea497a5ecb83e8fb6dd8e7e169f02939)\n"
 "Language: el\n"
 
 #: data/scripts/olaf.dat:6
@@ -28,7 +28,7 @@ msgstr "Χρειάζεται κάτι να ξέρεις;"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr ""
+msgstr "Εννοείται"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
@@ -93,7 +93,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr ""
+msgstr "Να δώσουμε το άγαλμα στον Όλαφ;"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
@@ -145,17 +145,19 @@ msgstr "Εντάξει, τα έχω βρεί όλα τώρα"
 
 #: data/scripts/olaf.dat:77
 msgid "ARGHHHHH!!"
-msgstr ""
+msgstr "ARGHHHHH!!"
 
 #: data/scripts/olaf.dat:79
 msgid "Another human, out here? How did you get out here?"
-msgstr ""
+msgstr "Άλλος ένας άνθρωπος, εδώ έξω; Πώς βρέθηκες εδώ έξω;"
 
 #: data/scripts/olaf.dat:80
 msgid ""
 "I'm not sure, I think the sorceror sent me here, but he said he was going to "
 "kill me"
 msgstr ""
+"Δεν είμαι σίγουρος, νομίζω ότι ο μάγος με έστειλε εδώ, αλλά είπε ότι θα με "
+"σκοτώσει."
 
 #: data/scripts/olaf.dat:83
 msgid "Hmmm, what's that on your hand?"
@@ -185,7 +187,7 @@ msgstr "Λοιπόν, από ότι φαίνεται η δύναμη του δα
 msgid ""
 "If he hits you with that spell again it will almost certainly kill you"
 msgstr ""
-"Αν σε ξαναχτυπήσει με αυτό ξόρκι, είναι σχεδόν σίγουρο ότι θα σε σκοτώσει"
+"Αν σε ξαναχτυπήσει με αυτό το ξόρκι, είναι σχεδόν σίγουρο ότι θα σε σκοτώσει"
 
 #: data/scripts/olaf.dat:91
 msgid ""
@@ -251,490 +253,549 @@ msgstr "Ο μάγος με έπιασε να κλέβω το κάστρο του
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"
-msgstr ""
+msgstr "Τι έκλεψες;"
 
 #: data/scripts/olaf.dat:106
 msgid "It was a small golden statue, probably worth a lot of money"
-msgstr ""
+msgstr "Ήταν ένα μικρό χρυσό άγαλμα, που μάλλον άξιζε πολλά χρήματα."
 
 #: data/scripts/olaf.dat:107
 msgid ""
 "I've been here for months now, but I've almost got all the ingredients I "
 "need to teleport back home"
 msgstr ""
+"Είμαι εδώ μήνες τώρα, αλλά έχω σχεδόν όλα τα υλικά που χρειάζομαι για να "
+"τηλεμεταφερθώ πίσω στην πατρίδα."
 
 #: data/scripts/olaf.dat:108
 msgid ""
 "I just need one more thing, but it's in a cave to the west and I have no "
 "weapons to protect myself"
 msgstr ""
+"Χρειάζομαι μόνο ένα ακόμη πράγμα, αλλά είναι σε μια σπηλιά στα δυτικά και "
+"δεν έχω όπλα για να προστατευτώ."
 
 #: data/scripts/olaf.dat:109
 msgid "But now you're here you can help me retrieve it"
-msgstr ""
+msgstr "Αλλά τώρα που είσαι εδώ μπορείς να με βοηθήσεις να το ανακτήσω."
 
 #: data/scripts/olaf.dat:112
 msgid ""
 "I haven't gotten all my stuff back yet. I think everything's here though"
 msgstr ""
+"Δεν έχω πάρει όλα μου τα πράγματα ακόμα πίσω. Νομίζω πάντως ότι όλα είναι "
+"εδώ."
 
 #: data/scripts/olaf.dat:113
 msgid "When I've found everything I'll come back"
-msgstr ""
+msgstr "Όταν θα έχω βρει τα πάντα θα επιστρέψω"
 
 #: data/scripts/olaf.dat:114
 msgid "OK, good luck!"
-msgstr ""
+msgstr "Εντάξει, καλή τύχη!"
 
 #: data/scripts/olaf.dat:120
 msgid "What do you need?"
-msgstr ""
+msgstr "Τι χρειάζεσαι;"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "Είναι το κέρατο ενός συγκεκριμένου τύπου τέρατος"
 
 #: data/scripts/olaf.dat:122
 msgid ""
 "There should be plenty of bones littered around so you shouldn't have to "
 "find one and kill it. Just get the horn and get out"
 msgstr ""
+"Θα πρέπει να υπάρχουν πολλά κόκαλα τριγύρω, ώστε να μη χρειαστεί να βρεις "
+"ένα και να το σκοτώσεις. Απλά πάρε το κέρατο και φύγε."
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr ""
+msgstr "Αυτό είναι όλο;"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
-msgstr ""
+msgstr "Χμμμμ"
 
 #: data/scripts/olaf.dat:130
 msgid ""
 "Well, my stock of logs is looking quite low, maybe you could get me some "
 "more while you're out?"
 msgstr ""
+"Λοιπόν, το απόθεμα των ξύλων δείχνει αρκετά μειωμένο, μήπως θα μπορούσες να "
+"μου φέρεις μερικά ακόμη όσο θα είσαι έξω;"
 
 #: data/scripts/olaf.dat:131
 msgid ""
 "Don't even think about it, I'm fed up of chopping down trees and collecting "
 "logs!"
-msgstr ""
+msgstr "Ούτε να το σκέφτεσαι, βαρέθηκα να κόβω δέντρα και να μαζεύω κορμούς!"
 
 #: data/scripts/olaf.dat:132
 msgid "OK, it was just a suggestion"
-msgstr ""
+msgstr "Εντάξει, ήταν απλά μια πρόταση...μην τρελένεσαι bro μου!"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
-msgstr ""
+msgstr "Α! θα χρειαστείς και αυτό"
 
 #: data/scripts/olaf.dat:135
 msgid ""
 "Dip your arrows into it to turn them into fire arrows, it will help you burn "
 "down the vines blocking the entrance"
 msgstr ""
+"Βούτηξε τα βέλη σου σε αυτό για να τα μετατρέψεις σε βέλη φωτιάς, θα σε "
+"βοηθήσει να κάψεις τα αμπέλια που μπλοκάρουν την είσοδο."
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr "Ευχαριστούμε!"
+msgstr "Ευχαριστώ!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
-msgstr ""
+msgstr "Και κάτι τελευταίο."
 
 #: data/scripts/olaf.dat:141
 msgid ""
 "Don't hang around in that cave, the monsters that live in there are like "
 "nothing you'll have ever encountered before"
 msgstr ""
+"Μην τριγυρνάς σε αυτή τη σπηλιά, τα τέρατα που ζουν εκεί μέσα δεν μοιάζουν "
+"με τίποτα από όσα έχεις συναντήσει ποτέ στο παρελθόν."
 
 #: data/scripts/olaf.dat:142
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "Σοβαρά, όμως, πρέπει απλά να πάρεις το κέρατο και να φύγεις!"
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
-msgstr "OK"
+msgstr "Eντάξει"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
-msgstr ""
+msgstr "Μήπως μόλις έστειλα ένα νεαρό αγόρι στο θάνατο;"
 
 #: data/scripts/olaf.dat:147
 msgid "Sorry, did you say something?"
-msgstr ""
+msgstr "Συγγνώμη, είπες κάτι;"
 
 #: data/scripts/olaf.dat:148
 msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
-msgstr ""
+msgstr "Ε;! Ω, όχι, απλά έκανα εξάσκηση στο ξόρκι της τηλεμεταφοράς..."
 
 #: data/scripts/olaf.dat:159
 msgid "Yes, let's go"
-msgstr ""
+msgstr "Ναι, πάμε."
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
-msgstr ""
+msgstr "Καλή τύχη φίλε μου! Ελπίζω να βρεις τον πατέρα σου"
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr "Ευχαριστούμε, Olaf"
+msgstr "Ευχαριστώ Olaf"
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
 msgstr ""
+"Αυτό το ασανσέρ δεν λειτουργεί. Δεν θα μπορώ να το χρησιμοποιήσω μέχρι να "
+"αποκαταστήσω το ρεύμα"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
-msgstr ""
+msgstr "Ουάου, ένας καταπέλτης!"
 
 #: data/scripts/catapult.dat:2
 msgid ""
 "The hinges look rusted though, I doubt it'll work until I get them fixed"
 msgstr ""
+"Οι μεντεσέδες φαίνονται σκουριασμένοι όμως, αμφιβάλλω αν θα δουλέψει μέχρι "
+"να τους φτιάξω"
 
 #: data/scripts/drawbridge_pulley.dat:2
 msgid "It looks like the pulley for the drawbridge"
-msgstr ""
+msgstr "Φαίνεται να είναι η τροχαλία για την ανύψωση της γέφυρας"
 
 #: data/scripts/drawbridge_pulley.dat:3
 msgid "The mechanism seems to be locked tight"
-msgstr ""
+msgstr "Φαίνεται αδύνατο να ξεκλειδώσει ο μηχανισμός"
 
 #: data/scripts/drawbridge_pulley.dat:4
 msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
-msgstr ""
+msgstr "Φαίνεται εύθραυστο, ίσως μπορώ απλά να το σπάσω..."
 
 #: data/scripts/drawbridge_pulley.dat:10
 msgid "Oops..."
-msgstr ""
+msgstr "Ουπς..."
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "Ίσως να μην το άκουσε κανείς;"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
-msgstr ""
+msgstr "Εν τω μεταξύ, η γέφυρα είναι ανοιχτή..."
 
 #: data/scripts/flame_pillar.dat:1
 msgid ""
 "Those flames are incredibly hot. I'll be burnt to cinders if I try and walk "
 "through them"
 msgstr ""
+"Με αυτή την φωτιά δεν παίζεις. Θα γίνω στάχτη αν προσπαθήσω να περάσω από "
+"μέσα της"
 
 #: data/scripts/flame_pillar.dat:2
 msgid "There must be a way to cool them down..."
-msgstr ""
+msgstr "Πρέπει να υπάρχει τρόπος να τη δροσίσουμε..."
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "The shield will protect you from most enemy attacks"
-msgstr ""
+msgstr "Η ασπίδα θα σε σώσει από τις περισσότερες εχθρικές επιθέσεις"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
-msgstr ""
+msgstr "Μερικές επιθέσεις εχθρών δεν μπορούν να αντιμετωπιστούν"
 
 #: data/scripts/tutorial_shield.dat:3
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
 msgstr ""
+"Φυσικές απειλές, όπως οι καταρρεύσεις βράχων, δεν μπορούν να ελεγχθούν"
 
 #: data/scripts/tutorial_shield.dat:4
 msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
 msgstr ""
+"Για να αποκρούσεις μια επίθεση, κράτησε πατημένο το κουμπί ([INPUT_BLOCK])."
 
 #: data/scripts/tutorial_shield.dat:5
 msgid "You must be facing the attack to successfully block it"
 msgstr ""
+"Για να αποκρούσεις επιτυχώς μια επίθεση, οφείλεις να την αντιμετωπίσεις άμεσα"
 
 #: data/scripts/tutorial_shield.dat:6
 msgid ""
 "Note that you cannot move whilst blocking, but you can face the other way. "
 "You also cannot block in the air"
 msgstr ""
+"Να σημειωθεί ότι δεν μπορείς να κινηθείς ενώ μπλοκάρεις, αλλά μπορείς να "
+"κοιτάξεις προς την άλλη πλευρά. Επίσης, δεν μπορείς να μπλοκάρεις στον αέρα."
 
 #: data/scripts/tutorial_shield.dat:7
 msgid "Pick up the shield and continue to the right"
-msgstr ""
+msgstr "Σήκωσε την ασπίδα και συνέχισε προς τα δεξιά"
 
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
-msgstr ""
+msgstr "Είναι ένα πορτρέτο"
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
-msgstr ""
+msgstr "Το έπιασα!"
 
 #: data/scripts/scorpion_statue.dat:2
 msgid ""
 "What a ridiculous amount of effort to go through just to get a statue..."
-msgstr ""
+msgstr "Αξίζει τόση φασαρία για ένα άγαλμα;"
 
 #: data/scripts/scorpion_statue.dat:3
 msgid "I'd better get out of here and get back to the Fortress..."
-msgstr ""
+msgstr "Καλύτερα να φύγω από εδώ και να επιστρέψω στο Κάστρο..."
 
 #: data/scripts/outskirts_intro.dat:10
 msgid "Drat, the drawbridge is up. There must be another entrance..."
 msgstr ""
+"Στο διάβολο! Η γέφυρα είναι ανεβασμένη. Πρέπει να υπάρχει άλλος τρόπος να "
+"μπω..."
 
 #: data/scripts/outskirts_intro.dat:15
 msgid "Wait, what's that?"
-msgstr ""
+msgstr "Περίμενε, τι είναι αυτό;"
 
 #: data/scripts/outskirts_intro.dat:23
 msgid "Maybe I could tunnel my way in..."
-msgstr ""
+msgstr "Ίσως  να μπορώ να σκάψω μια σήραγγα για να μπω..."
 
 #: data/scripts/borer_boss_die.dat:3
 msgid "Yuck..."
-msgstr ""
+msgstr "Μπλιαχ..."
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "Ω, τι είναι αυτό;"
 
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr ""
+"Είναι ένα βιβλίο του Stephen J Sweeney με τίτλο \"Η τιμή των ιπποτών\"."
 
 #: data/scripts/third_side.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
-msgstr ""
+msgstr "Είναι διαθέσιμο στο iBooks και στο Amazon Kindle"
 
 #: data/scripts/third_side.dat:4
 msgid ""
 "I'm not exactly sure what any of that means, but it sounds interesting"
 msgstr ""
+"Δεν είμαι ακριβώς σίγουρος τι σημαίνει αυτό, αλλά ακούγεται ενδιαφέρον."
 
 #: data/scripts/third_side.dat:5
 msgid "I might read that later..."
-msgstr ""
+msgstr "Ίσως το διαβάσω αργότερα..."
 
 #: data/scripts/sorceror_intro_2.dat:10
 msgid "So, you escaped"
-msgstr ""
+msgstr "Λοιπόν, δραπέτευσες"
 
 #: data/scripts/sorceror_intro_2.dat:11
 msgid "Yes I did, and my father wasn't there"
-msgstr ""
+msgstr "Ναι, το έκανα, και ο πατέρας μου δεν ήταν εκεί"
 
 #: data/scripts/sorceror_intro_2.dat:12
 msgid "Maybe you just didn't look hard enough"
-msgstr ""
+msgstr "Πιθανότατα δεν έψαξες αρκετά"
 
 #: data/scripts/sorceror_intro_2.dat:13
 msgid "Have another look"
-msgstr ""
+msgstr "Ρίξε ακόμη μια ματιά"
 
 #: data/scripts/sorceror_intro_2.dat:18
 msgid "Maybe you should work on your spells"
-msgstr ""
+msgstr "Ίσως θα έπρεπε να εξασκηθείς στα ξόρκια σου"
 
 #: data/scripts/sorceror_intro_2.dat:19
 msgid "NOW TELL ME WHERE MY FATHER IS!"
-msgstr ""
+msgstr "ΠΕΣ ΜΟΥ ΤΩΡΑ ΠΟΥ ΕΙΝΑΙ Ο ΠΑΤΕΡΑΣ ΜΟΥ!"
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
-msgstr ""
+msgstr "Μικρέ και ενοχλητικέ τύπε"
 
 #: data/scripts/sorceror_intro_2.dat:21
 msgid "I wouldn't be surprised if your father has abandoned you"
-msgstr ""
+msgstr "Δεν θα με εξέπλησσε αν σε είχε εγκαταλείψει ο πατέρας σου"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?!"
-msgstr ""
+msgstr "Τι;"
 
 #: data/scripts/sorceror_intro_2.dat:23
 msgid "I'll show you!"
-msgstr ""
+msgstr "Τώρα θα δεις!"
 
 #: data/scripts/sorceror_intro_2.dat:28
 msgid "That, was a mistake"
-msgstr ""
+msgstr "Αυτό, ήταν λάθος"
 
 #: data/scripts/sorceror_intro_2.dat:29
 msgid "Die"
-msgstr ""
+msgstr "Πέθανε"
 
 #: data/scripts/sorceror_intro_2.dat:34
 msgid "That was odd, he was supposed to explode"
-msgstr ""
+msgstr "Αυτό ήταν περίεργο, υποτίθεται ότι θα ανατιναζόταν..."
 
 #: data/scripts/sorceror_intro_2.dat:35
 msgid "Where did he go?"
-msgstr ""
+msgstr "Πού πήγε;"
 
 #: data/scripts/old_shield.dat:12
 msgid ""
 "That's it? Just this old shield? It doesn't look any better than my current "
 "one."
 msgstr ""
+"Αυτό είναι όλο; Μόνο αυτή η παλιά ασπίδα; Δεν μοιάζει καθόλου καλύτερη από "
+"την δική μου."
 
 #: data/scripts/old_shield.dat:13
 msgid "Still, I'll hold onto it for the time being, it might come in handy"
-msgstr ""
+msgstr "Παρόλα αυτά, θα την κρατήσω, μπορεί να μου φανεί χρήσιμη."
 
 #: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
-msgstr ""
+msgstr "Υπέροχα, μια εφεδρική ασπίδα!"
 
 #: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
-msgstr ""
+msgstr "Έχω ό,τι χρειάζομαι τώρα"
 
 #: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
-msgstr ""
+msgstr "Υπάρχει ένα καζάνι στο εργαστήριο, πρέπει να πάω εκεί"
 
 #: data/scripts/old_shield.dat:21
 msgid ""
 "This doesn't look like a Fire Shield to me. I was really hoping to find one "
 "here too"
 msgstr ""
+"Αυτό δεν μου μοιάζει με ασπίδα φωτιάς. Ήλπιζα πραγματικά να βρω μια εδώ"
 
 #: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
-msgstr ""
+msgstr "Αυτή η ασπίδα δεν φαίνεται καν καλύτερη από την τωρινή μου."
 
 #: data/scripts/old_shield.dat:27
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
 msgstr ""
+"Απλά χρειάζεται να δημιουργήσω το υγρό από το πλοκάμι βλέννας και τα μάτια "
+"του Gazer"
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
-msgstr ""
+msgstr "Αυτό δεν είναι καλό σημάδι..."
 
 #: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
-msgstr ""
+msgstr "Υπάρχει μια σημείωση εδώ"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
-msgstr ""
+msgstr "Βρήκα έναν τρόπο να σκοτώσω τους Centurions"
 
 #: data/scripts/centurion_note_2.dat:3
 msgid ""
 "They will reform unless one of their parts falls into the slime or lava"
 msgstr ""
+"Θα ανασχηματιστούν, εκτός αν ένα από τα μέρη τους πέσει στη γλίτσα ή στη λάβα"
 
 #: data/scripts/centurion_note_2.dat:4
 msgid ""
 "I managed to retrieve two of the puzzle pieces before I was caught and "
 "locked in here again"
 msgstr ""
+"Κατάφερα να ανακτήσω δύο από τα κομμάτια του παζλ πριν με πιάσουν και με "
+"ξανακλειδώσουν εδώ μέσα"
 
 #: data/scripts/centurion_note_2.dat:5
 msgid "If I can break out of here again I'll be sure to escape"
-msgstr ""
+msgstr "Αν καταφέρω να ξεφύγω ξανά από εδώ, σίγουρα θα δραπετεύσω"
 
 #: data/scripts/centurion_note_2.dat:6
 msgid ""
 "Otherwise I hope another unfortunate victim will find this information useful"
 msgstr ""
+"Διαφορετικά, ελπίζω ότι ένα άλλο άτυχο θύμα θα βρει αυτές τις πληροφορίες "
+"χρήσιμες"
 
 #: data/scripts/centurion_note_2.dat:7
 msgid "There's a skull here"
-msgstr ""
+msgstr "Υπάρχει ένα κρανίο εδώ"
 
 #: data/scripts/centurion_note_2.dat:8
 msgid "Looks like he didn't manage to get out..."
-msgstr ""
+msgstr "Φαίνεται ότι δεν κατάφερε να βγει έξω..."
 
 #: data/scripts/chaos_warn.dat:2
 msgid "Leave now if you wish to live"
-msgstr ""
+msgstr "Φύγε τώρα αν θέλεις να ζήσεις"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Πήγαινε πίσω τώρα"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
 "If you proceed, I will fight you and destroy you. Flee now, while you can"
 msgstr ""
+"Αν συνεχίσεις, θα σε πολεμήσω και θα σε καταστρέψω. Φύγε τώρα, όσο "
+"προλαβαίνεις, αλλιώς η μάνα σου θα κλαίει στο μνήμα"
 
 #: data/scripts/chaos_warn.dat:28
 msgid "You fool. Do you truly seek destruction?"
-msgstr ""
+msgstr "Ηλίθιε. Θέλεις όντως να καταστραφείς;"
 
 #: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
-msgstr ""
+msgstr "Τότε θα σε καταστρέψω!!"
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "Συγχαρητήρια, βρήκες ένα μυστικό!"
 
 #: data/scripts/tutorial_secret.dat:3
 msgid "There are many secrets in the main game so keep a look out for them"
 msgstr ""
+"Υπάρχουν πολλά μυστικά στο παιχνίδι, γι' αυτό να έχεις το νου σου γι' αυτά."
 
 #: data/scripts/tutorial_secret.dat:4
 msgid "Here's a hint to get you started"
-msgstr ""
+msgstr "Ορίστε μια συμβουλή για να ξεκινήσεις"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid ""
 "Although Jacob only requires you to catch 3 of his chickens, why not be nice "
 "to him and catch more? There are 10 wandering the map in all"
 msgstr ""
+"Αν και ο Jacob θέλει μόνο να πιάσεις 3 από τα κοτόπουλά του, γιατί να μην "
+"είσαι καλός μαζί του και να πιάσεις περισσότερα; Συνολικά υπάρχουν 10 που "
+"περιπλανώνται στο χάρτη."
 
 #: data/scripts/box_pushing.dat:1
 msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
 msgstr ""
+"Μπορείς να τραβήξεις κάποια αντικείμενα πιέζοντας τα ενώ κρατάς πατημένο το "
+"κουμπί δράσης."
 
 #: data/scripts/box_pushing.dat:2
 msgid "You can then pull it around until you let go of the Action button"
-msgstr ""
+msgstr "Μπορείς να το τραβήξεις μέχρι να αφήσεις το κουμπί Δράσης"
 
 #: data/scripts/drainers.dat:1
 msgid ""
 "Whatever that thing was it was draining the power from that generator and "
 "using it against me."
 msgstr ""
+"Ό,τι κι αν ήταν αυτό το πράγμα, απορροφούσε την ενέργεια από τη γεννήτρια "
+"και τη χρησιμοποιούσε εναντίον μου."
 
 #: data/scripts/drainers.dat:2
 msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
 "drainers should restore the power here."
 msgstr ""
+"Αυτό ίσως να εξηγεί γιατί ο ανελκυστήρας δεν λειτουργούσε. Η εξάλειψη των "
+"άλλων αγωγών θα πρέπει να αποκαταστήσει την ενέργεια εδώ."
 
 #: data/scripts/drainers.dat:3
 msgid "Defeat all Energy Drainers"
-msgstr ""
+msgstr "Κατάστρεψε όλους τους αγωγούς ενέργειας"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use left and right to move the dial 1 unit at a time"
 msgstr ""
+"Πάτα τα πλήκτρα αριστερά και δεξιά για να μετακινήσεις το κουμπί μία μονάδα "
+"κάθε φορά"
 
 #: data/scripts/safe_instructions.dat:2
 msgid ""
 "Make sure you keep count of how many times you move the dial since no on-"
 "screen notification is given"
 msgstr ""
+"Βεβαιώσου ότι μετράς πόσες φορές μετακινείς το κουμπί αφού δεν εμφανίζεται "
+"κάποια ειδοποίηση στην οθόνη"
 
 #: data/scripts/safe_instructions.dat:3
 msgid ""
 "When you think you've entered the combination correctly, press Attack to try "
 "and open the door"
 msgstr ""
+"Όταν θεωρήσεις ότι πληκτρολόγησες σωστά τον συνδυασμό, πάτησε Attack για να "
+"προσπαθήσεις να ανοίξεις την πόρτα"
 
 #: data/scripts/no_combination.dat:1
 msgid ""
 "There's no way I'll be able to figure out the combination, I'll have to find "
 "out what it is"
 msgstr ""
+"Δεν υπάρχει περίπτωση να το βρω με τυχαίες δοκιμές. Πρέπει να μάθω ποιος "
+"είναι ο συνδυασμός."
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
-msgstr ""
+msgstr "Συνέχισε να εξασκείσαι!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi"
@@ -742,117 +803,128 @@ msgstr "Γειά"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
-msgstr ""
+msgstr "Γεια σου Edgar"
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "Μπορώ να δανειστώ την ασπίδα σου;"
 
 #: data/scripts/borgan.dat:14
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "Πηγαίνεις να εξασκήσεις τις πολεμικές σου ικανότητες;"
 
 #: data/scripts/borgan.dat:15
 msgid "Something like that"
-msgstr ""
+msgstr "Κάτι τέτοιο"
 
 #: data/scripts/borgan.dat:16
 msgid "If you run me an errand then you can have the shield"
-msgstr ""
+msgstr "Αν με βοηθήσεις με κάτι, τότε μπορείς να κρατήσεις την ασπίδα"
 
 #: data/scripts/borgan.dat:17
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Τι πρέπει να κάνω;"
 
 #: data/scripts/borgan.dat:18
 msgid "Go to the mine and collect me some coal"
-msgstr ""
+msgstr "Πήγαινε στο ορυχείο και μάζεψε μου λίγο κάρβουνο"
 
 #: data/scripts/borgan.dat:19
 msgid "But we have plenty of coal!"
-msgstr ""
+msgstr "Μα έχουμε άφθονο κάρβουνο!"
 
 #: data/scripts/borgan.dat:20
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
 msgstr ""
+"Ναι, αλλά αυτό δεν είναι οποιοδήποτε κάρβουνο, αυτό το κάρβουνο είναι "
+"ξεχωριστό, καίει πιο δυνατά και διαρκεί περισσότερο."
 
 #: data/scripts/borgan.dat:21
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
+msgstr "Χρειάζομαι μόνο 10 κομμάτια, οπότε δεν θα σου πάρει πολύ χρόνο"
 
 #: data/scripts/borgan.dat:22
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
 msgstr ""
+"Βεβαιώσου ότι θα το βάλεις σε έναν σάκο, γιατί αν έρχεσαι σε επαφή για πολύ "
+"ώρα θα κάνει κακό στην υγεία σου"
 
 #: data/scripts/borgan.dat:23
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "Έχεις σάκο;"
 
 #: data/scripts/borgan.dat:24
 msgid "No, you can probably find one in the mine though"
-msgstr ""
+msgstr "Όχι, αλλά πιθανώς μπορείς να βρεις ένα στο ορυχείο"
 
 #: data/scripts/borgan.dat:25
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "OK, θα πάρω το κάρβουνο"
 
 #: data/scripts/borgan.dat:27
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
 msgstr ""
+"Πάρε αυτή την αξίνα. Θα μπορείς να τη χρησιμοποιήσεις για να εξορύξεις το "
+"κάρβουνο και να σπάσεις κάθε αδύναμο τοίχο που θα συναντήσεις"
 
 #: data/scripts/borgan.dat:29
 msgid "You'll also need this key to get into the mine"
-msgstr ""
+msgstr "Θα χρειαστείς επίσης αυτό το κλειδί για να μπεις στο ορυχείο"
 
 #: data/scripts/borgan.dat:31
 msgid "Collect 10 pieces of Coal"
-msgstr ""
+msgstr "Μάζεψε 10 κομμάτια κάρβουνου"
 
 #: data/scripts/borgan.dat:36
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
+"Ευχαριστώ Έντγκαρ, αυτό το κάρβουνο είναι τέλειο! Ελπίζω οι νυχτερίδες να "
+"μην σε τρόμαξαν"
 
 #: data/scripts/borgan.dat:37
 msgid "The bats were the least of my worries..."
-msgstr ""
+msgstr "Οι νυχτερίδες ήταν το τελευταίο που με απασχολούσε..."
 
 #: data/scripts/borgan.dat:38
 msgid "Say, I heard that something happened in that mine a few years ago"
 msgstr ""
+"Άκουσα ότι κάτι συνέβη σε εκείνο το ορυχείο πριν από μερικά χρόνια..."
 
 #: data/scripts/borgan.dat:39
 msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
 msgstr ""
+"Ναι, υπήρξε ένα περιστατικό, αλλά αυτό το τμήμα του ορυχείου έχει σφραγιστεί "
+"εδώ και πολύ καιρό"
 
 #: data/scripts/borgan.dat:40
 msgid "Right..."
-msgstr ""
+msgstr "Σωστά..."
 
 #: data/scripts/borgan.dat:42
 msgid "Here, have my shield and have fun!"
-msgstr ""
+msgstr "Ορίστε, πάρε την ασπίδα μου και διασκέδασε!"
 
 #: data/scripts/borgan.dat:44
 msgid "Just stay away from the Forbidden Swamp"
-msgstr ""
+msgstr "Απλά μείνε μακριά από τον Απαγορευμένο Βάλτο"
 
 #: data/scripts/borgan.dat:45
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "Θα το κάνω, μπορώ να κρατήσω την αξίνα σου για λίγο;"
 
 #: data/scripts/borgan.dat:46
 msgid "Sure thing, just bring it back in one piece"
-msgstr ""
+msgstr "Εντάξει, μπορώ να κρατήσω την αξίνα σου για λίγο;"
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
@@ -860,81 +932,84 @@ msgstr "Ευχαριστούμε, Borgan!"
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
-msgstr ""
+msgstr "Κατάφερες να βρεις το κάρβουνο;"
 
 #: data/scripts/safe.dat:5
 msgid "A safe in a library? Bit of a cliché..."
-msgstr ""
+msgstr "Χρηματοκιβώτιο σε βιβλιοθήκη; Πόσο κλισέ..."
 
 #: data/scripts/safe.dat:11
 msgid ""
 "It looks too thick to break open, I'll have to open it using the combination"
 msgstr ""
+"Φαίνεται πολύ χοντρό για να το σπάσω. Θα πρέπει να το ανοίξω με τον κωδικό"
 
 #: data/scripts/statue_required.dat:1
 msgid ""
 "You must have the statue you wish to use highlighted in your inventory box"
 msgstr ""
+"Πρέπει να έχεις επιλεγμένο το άγαλμα που θέλεις να χρησιμοποιήσεις στο "
+"Inventory box"
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
-msgstr ""
+msgstr "Χα, τι είναι αυτό;"
 
 #: data/scripts/centurion_boss_start.dat:14
 msgid "ESCAPEE LOCATED"
-msgstr ""
+msgstr "Ο ΔΡΑΠΕΤΗΣ ΕΝΤΟΠΙΣΤΗΚΕ"
 
 #: data/scripts/centurion_boss_start.dat:15
 msgid "TARGET IS ARMED AND DANGEROUS"
-msgstr ""
+msgstr "Ο ΣΤΟΧΟΣ ΕΊΝΑΙ ΟΠΛΙΣΜΕΝΟΣ ΚΑΙ ΕΠΙΚΙΝΔΥΝΟΣ"
 
 #: data/scripts/centurion_boss_start.dat:16
 msgid "COMMENCING DESTRUCTION OF TARGET"
-msgstr ""
+msgstr "ΕΝΑΡΞΗ ΚΑΤΑΣΤΡΟΦΗΣ ΤΟΥ ΣΤΟΧΟΥ"
 
 #: data/scripts/blank_card_required.dat:1
 msgid "I need a blank card to put the instructions on"
-msgstr ""
+msgstr "Χρειάζομαι μια άγραφη κάρτα για να σημειώσω τις οδηγίες"
 
 #: data/scripts/slime_potion_pool.dat:1
 msgid "That smell..."
-msgstr ""
+msgstr "Αυτή η μυρωδιά..."
 
 #: data/scripts/slime_potion_pool.dat:3
 msgid "It looks like..."
-msgstr ""
+msgstr "μοιάζει με..."
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
-msgstr ""
+msgstr "Είναι τόσο παχύ όσο..."
 
 #: data/scripts/slime_potion_pool.dat:5
 msgid "And it tastes like..."
-msgstr ""
+msgstr "Και έχει γεύση σαν..."
 
 #: data/scripts/slime_potion_pool.dat:8
 msgid "It is! It's naturally occurring Slime potion!"
-msgstr ""
+msgstr "Είναι! Είναι φυσικό Φίλτρο Βλέννας!"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "Gotcha!"
-msgstr ""
+msgstr "Σ' έπιασα!"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "Not so clever now are you?"
-msgstr ""
+msgstr "Δεν είσαι και τόσο έξυπνος τώρα, έτσι δεν είναι;"
 
 #: data/scripts/cave_boss_die.dat:79
 msgid "I REALLY have to get out of here!"
-msgstr ""
+msgstr "ΠΡΑΓΜΑΤΙΚΑ πρέπει να φύγω από εδώ!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
-msgstr ""
+msgstr "Γεια σου Μάγκι"
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "Ω Έντγκαρ, χτύπησες! Άσε με να γιατρέψω τις πληγές σου"
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
@@ -942,642 +1017,763 @@ msgstr "Ευχαριστούμε Maggie!"
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
-msgstr ""
+msgstr "Είσαι επίμονος, έτσι δεν είναι;"
 
 #: data/scripts/sorceror_intro_3.dat:10
 msgid ""
 "I don't know what you did last time, but trust me, you won't escape again!"
 msgstr ""
+"Δεν ξέρω τι έκανες την τελευταία φορά, αλλά πίστεψέ με, δεν θα ξεφύγεις ξανά!"
 
 #: data/scripts/sorceror_intro_3.dat:20
 msgid "(Phew)"
-msgstr ""
+msgstr "(Φτου)"
 
 #: data/scripts/sorceror_intro_3.dat:21
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
+msgstr "(Έι, κοίτα αυτό, μια από τις σφαίρες στην ασπίδα έχει ανάψει...)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Το ξόρκι σου δεν θα δουλέψει πια εναντίον μου."
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
-msgstr ""
+msgstr "Τώρα, αν δεν μου πεις πού βρίσκεται ο πατέρας μου..."
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
-msgstr ""
+msgstr "Θα σε αναγκάσω να το πεις με το ζόρι"
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
-msgstr ""
+msgstr "Δεν θα έχεις ποτέ αυτή την ευκαιρία"
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore, I summon you! Destroy this pest!"
-msgstr ""
+msgstr "Γκρίμλορ, σε καλώ! Καταστρέψε αυτό το παράσιτο!"
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Αντίο, Έντγκαρ"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
-msgstr ""
+msgstr "Κάτι έρχεται..."
 
 #: data/scripts/spirit.dat:1
 msgid ""
 "That spirit isn't going to let me past, I'll have to find a way to get rid "
 "of it"
 msgstr ""
+"Αυτό το πνεύμα δεν πρόκειται να με αφήσει να περάσω, θα πρέπει να βρω έναν "
+"τρόπο να το ξεφορτωθώ."
 
 #: data/scripts/swamp_intro.dat:2
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "Αυτό το μέρος δεν φαίνεται και τόσο άσχημο..."
 
 #: data/scripts/occult_book.dat:51
 msgid "What was that?"
-msgstr ""
+msgstr "Τι σκατά ήταν αυτό;"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Ωχ..."
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
 msgstr ""
+"Υπάρχουν δύο τύποι πόρτας στο παιχνίδι. Χειροκίνητες πόρτες και αυτόματες "
+"πόρτες."
 
 #: data/scripts/tutorial_doors.dat:2
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
 msgstr ""
+"Οι χειροκίνητες πόρτες χρειάζονται κλειδιά για να ανοίξουν, οι αυτόματες "
+"πόρτες χρειάζονται διακόπτες."
 
 #: data/scripts/tutorial_doors.dat:3
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
+"Για να ανοίξεις μια κλειδωμένη πόρτα για την οποία έχεις το κλειδί, απλά "
+"μπες μέσα. Δεν χρειάζεται να έχεις επιλέξει το κλειδί από το απόθεμά σου."
 
 #: data/scripts/tutorial_doors.dat:4
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "Άνοιξε την πόρτα και συνέχισε προς τα δεξιά"
 
 #: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "Τι συνέβη;"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "Πού βρίσκομαι;"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
-msgstr ""
+msgstr "Τώρα δοκίμασε την ασπίδα σου"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
 msgstr ""
+"Μπλόκαρε τα σφαιρίδια που εκτοξεύει το φυτό και πήδα στο επόμενο περβάζι"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
-msgstr ""
+msgstr "Δεν μπορώ να πιστέψω ότι έφυγε"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "Προσπάθησα τόσο σκληρά για να τον βρω"
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
-msgstr ""
+msgstr "Και απέτυχα"
 
 #: data/scripts/ending_part1.dat:15
 msgid "What am I going to do now?"
-msgstr ""
+msgstr "Τι θα κάνω τώρα;"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
-msgstr ""
+msgstr "*σνιφ*"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr ""
+msgstr "Έντγκαρ! Έντγκαρ, πού είσαι;"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "!"
-msgstr ""
+msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
-msgstr ""
+msgstr "Αυτή η φωνή..."
 
 #: data/scripts/ending_part1.dat:22
 msgid "It can't be..."
-msgstr ""
+msgstr "Δεν μπορεί να είναι..."
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr ""
+msgstr "Μπαμπά!"
 
 #: data/scripts/jacob.dat:14
 msgid "Edgar!"
-msgstr ""
+msgstr "Έντγκαρ!"
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Τζέικομπ, τον βρήκα!"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "Τι κάνεις εδώ, γιε μου; Είναι επικίνδυνα, πρέπει να φύγουμε"
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "Ήρθα να σε σώσω!"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
-msgstr ""
+msgstr "Ε; Τι κάνεις... Όχι, πες μου αργότερα, πάμε σπίτι"
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "Θα προσπαθήσω ξανά"
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
-msgstr ""
+msgstr "Τα παρατάς;"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "Θα το σκεφτώ μια άλλη φορά"
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "Θα συνεχίσω να προσπαθώ"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
-msgstr ""
+msgstr "Αυτή η παρτιτούρα μπορεί να είναι ο ύμνος του, θα το δοκιμάσω"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
-msgstr ""
+msgstr "Πρέπει να μάθω ποιος είναι ο ύμνος του Ιβάν"
 
 #: data/scripts/tomb_door.dat:34
 msgid "Randomly ringing bells isn't going to work..."
-msgstr ""
+msgstr "Το να χτυπάς τυχαία κουδούνια δεν πρόκειται να δουλέψει..."
 
 #: data/scripts/tomb_door.dat:39
 msgid "Something is etched on this door"
-msgstr ""
+msgstr "Κάτι είναι χαραγμένο σε αυτή την πόρτα"
 
 #: data/scripts/tomb_door.dat:40
 msgid "Enshrined in this tomb is the great warrior Ivan"
-msgstr ""
+msgstr "Σε αυτόν τον τάφο είναι θαμμένος ο μεγάλος πολεμιστής Ιβάν"
 
 #: data/scripts/tomb_door.dat:41
 msgid "Defeater of the evil dragon known as Chaos"
-msgstr ""
+msgstr "Νικητής του σατανικού δράκου γνωστού ως Χάος"
 
 #: data/scripts/tomb_door.dat:42
 msgid "Access to his tomb is granted only to those who play his anthem"
-msgstr ""
+msgstr "Πρόσβαση στον τάφο του έχουν μόνο όσοι παίζουν τον ύμνο του"
 
 #: data/scripts/tomb_door.dat:43
 msgid "His anthem? How on earth am I going to figure that out?!"
-msgstr ""
+msgstr "Ο ύμνος του; Πώς στο καλό θα το βρω αυτό;!"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
-msgstr ""
+msgstr "Ολόκληρη αυτή η ενότητα αφορά τα τέρατα"
 
 #: data/scripts/monsters.dat:3
 msgid ""
 "I don't have any reason to read these but I'll keep it in mind in case I do"
 msgstr ""
+"Δεν έχω κανέναν λόγο να τα διαβάσω αυτά, αλλά θα τα έχω κατά νου σε "
+"περίπτωση που χρειαστεί"
 
 #: data/scripts/monsters.dat:6
 msgid "I wonder what other monsters there are..."
-msgstr ""
+msgstr "Αναρωτιέμαι τι άλλα τέρατα να υπάρχουν..."
 
 #: data/scripts/monsters.dat:8
 msgid "Chaos"
-msgstr ""
+msgstr "Χάος"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr ""
+msgstr "Ο Χάος είναι ένας αρχαίος, σατανικός δράκος"
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
-msgstr ""
+msgstr "Ένας δράκος;! Ο μπαμπάς μου είπε ότι έχουν εξαφανιστεί!"
 
 #: data/scripts/monsters.dat:15
 msgid ""
 "For years he wreaked havoc across this land and took thousands of innocent "
 "lives, his fiery breath incinerated everything in its path"
 msgstr ""
+"Για χρόνια σκόρπισε τον όλεθρο σε αυτή τη γη και αφαίρεσε χιλιάδες αθώες "
+"ζωές, η πύρινη ανάσα του αποτέφρωνε τα πάντα στο πέρασμά της"
 
 #: data/scripts/monsters.dat:16
 msgid ""
 "Finally a brave warrior and a group of magicians managed to overwhelm and "
 "bind him"
 msgstr ""
+"Τελικά ένας γενναίος πολεμιστής και μια ομάδα μάγων κατάφεραν να τον νικήσουν"
 
 #: data/scripts/monsters.dat:17
 msgid "They sealed the dragon away beneath an old fortress"
-msgstr ""
+msgstr "Κλείδωσαν τον δράκο κάτω από ένα παλιό οχυρό"
 
 #: data/scripts/monsters.dat:18
 msgid "It is believed he is still there"
-msgstr ""
+msgstr "Πιστεύεται ότι βρίσκεται ακόμη εκεί"
 
 #: data/scripts/monsters.dat:19
 msgid ""
 "Slowly regaining his power until he is strong enough to break free and "
 "terrorise the world once again"
 msgstr ""
+"Ανακτά σιγά σιγά τη δύναμή του μέχρι να γίνει αρκετά δυνατός ώστε να "
+"απελευθερωθεί και να τρομοκρατεί ξανά τον κόσμο"
 
 #: data/scripts/monsters.dat:21
 msgid "Beneath an old fortress? Maybe they mean this one..."
-msgstr ""
+msgstr "Κάτω από ένα παλιό οχυρό; Ίσως εννοούν αυτό εδώ..."
 
 #: data/scripts/monsters.dat:22
 msgid ""
 "If that dragon is regaining its power then it must be stopped before it's "
 "too late"
 msgstr ""
+"Αν αυτός ο δράκος ανακτά τη δύναμή του, τότε πρέπει να τον σταματήσουμε πριν "
+"να είναι πολύ αργά"
 
 #: data/scripts/monsters.dat:23
 msgid ""
 "But if its breath destroys anything then I won't be able to protect myself"
-msgstr ""
+msgstr "Εάν η πνοή του διαλύει ό,τι αγγίζει, τότε δεν θα μπορέσω να σωθώ"
 
 #: data/scripts/monsters.dat:24
 msgid "Unless..."
-msgstr ""
+msgstr "Εκτός αν..."
 
 #: data/scripts/sorceror_start.dat:5
 msgid "Grimlore"
-msgstr ""
+msgstr "Γκρίμλορ"
 
 #: data/scripts/monsters.dat:32
 msgid ""
 "Grimlore is a creature from another dimension. It can be summoned using "
 "powerful dark magic"
 msgstr ""
+"Ο Grimlore είναι ένα ον από μια άλλη διάσταση. Μπορεί να καλεστεί με τη "
+"χρήση ισχυρής σκοτεινής μαγείας"
 
 #: data/scripts/monsters.dat:33
 msgid "The most common reason to summon this beast is to act as a bodyguard"
 msgstr ""
+"Ο πιο συνηθισμένος λόγος για το κάλεσμα αυτού του θηρίου είναι να "
+"χρησιμεύσει ως σωματοφύλακας"
 
 #: data/scripts/monsters.dat:34
 msgid ""
 "There is no known way to kill Grimlore since upon sustaining critical "
 "injuries it will simply return to its own dimension"
 msgstr ""
+"Δεν υπάρχει γνωστός τρόπος να σκοτώσεις τον Γκρίμλορ, καθώς όταν υφίσταται "
+"θανάσιμα τραύματα, απλά επιστρέφει στη δική του διάσταση"
 
 #: data/scripts/monsters.dat:35
 msgid ""
 "But even injuring it is a monumental task. Anyone encountering this creature "
 "is advised to escape as quickly as possible"
 msgstr ""
+"Ακόμη και ο τραυματισμός του αποτελεί τιτάνιο έργο. Σε οποιονδήποτε "
+"συναντήσει αυτό το πλάσμα, συνιστάται η άμεση διαφυγή, Σε απλά ελληνικά: "
+"«του φευγάτου η μάνα, δεν έκλαψε ποτέ!»"
 
 #: data/scripts/monsters.dat:36
 msgid "Or they will die very quickly"
-msgstr ""
+msgstr "Ή θα πεθάνουν πολύ γρήγορα"
 
 #: data/scripts/monsters.dat:42
 msgid "Summoner, Dark"
-msgstr ""
+msgstr "Προστάτης Σκοτεινών Δυνάμεων"
 
 #: data/scripts/monsters.dat:43
 msgid ""
 "Just like regular Summoners, Dark Summoners call in other beasts to do their "
 "bidding"
 msgstr ""
+"Ακριβώς όπως και οι κανονικοί προστάτες (Summoners), οι Σκοτεινοί προστάτες "
+"(Dark Summoners) καλούν άλλα θηρία να εκτελέσουν τις εντολές τους"
 
 #: data/scripts/monsters.dat:44
 msgid ""
 "Additionally though they can teleport short distances to escape from their "
 "opponents"
 msgstr ""
+"Επιπλέον, μπορούν να τηλεμεταφέρονται σε μικρές αποστάσεις για να ξεφύγουν "
+"από τους αντιπάλους τους"
 
 #: data/scripts/monsters.dat:45
 msgid ""
 "Their staff is highly magical and although it cannot be used by humans "
 "directly, its magical properties are used in spell creation"
 msgstr ""
+"Το ραβδί τους είναι εξαιρετικά μαγικό και παρόλο που δεν μπορεί να "
+"χρησιμοποιηθεί άμεσα από τους ανθρώπους, οι μαγικές του ιδιότητες "
+"χρησιμοποιούνται στη δημιουργία ξορκιών"
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
-msgstr ""
+msgstr "Ροζ Χούβερ"
 
 #: data/scripts/monsters.dat:52
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr ""
+msgstr "Τα Ροζ Χούβερ είναι μικρά τετράποδα ζώα με μακρύ ρύγχος"
 
 #: data/scripts/monsters.dat:53
 msgid ""
 "The primary purpose of the snout is to forage for food but it also serves as "
 "a defence mechanism"
 msgstr ""
+"Η κύρια λειτουργία της ρύγχους είναι η αναζήτηση τροφής, αλλά χρησιμεύει "
+"επίσης ως μηχανισμός άμυνας"
 
 #: data/scripts/monsters.dat:54
 msgid ""
 "and are more than capable of keeping a predator at bay by simply blowing "
 "them away"
 msgstr ""
+"και έχουν την ικανότητα να απομακρύνουν έναν θηρευτή, απλώς φυσώντας τον "
+"μακριά"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap, mobile"
-msgstr ""
+msgstr "Mobile Venus Flytraps (Κινητές Διονυσοπαγίδες)"
 
 #: data/scripts/monsters.dat:61
 msgid ""
 "Mobile Venus Flytraps have evolved roots and are able to move to their food "
 "rather than waiting for it to come to them"
 msgstr ""
+"Τα Mobile Venus Flytraps  έχουν εξελίξει ρίζες που τους επιτρέπουν να "
+"κινηθούν προς την τροφή τους αντί να περιμένουν να έρθει προς αυτές"
 
 #: data/scripts/monsters.dat:62
 msgid ""
 "Their necks are incredibly elastic and are able to snap at their prey from a "
 "considerable distance away"
 msgstr ""
+"Οι λαιμοί τους είναι απίστευτα ελαστικοί και μπορούν να χτυπήσουν το θήραμά "
+"τους από μεγάλη απόσταση"
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
-msgstr ""
+msgstr "Master Tortoises (Χελώνες Δάσκαλοι)"
 
 #: data/scripts/monsters.dat:69
 msgid ""
 "Master Tortoises are frightening beasts. Found in far away lands they "
 "possess the ability to change their heads"
 msgstr ""
+"Οι Master Tortoises (Χελώνες Δάσκαλοι) είναι τρομακτικά θεριά. Βρίσκονται σε "
+"μακρινές χώρες και διαθέτουν την ικανότητα να αλλάζουν τα κεφάλια τους"
 
 #: data/scripts/monsters.dat:70
 msgid ""
 "They combine all the abilities of their cousins to breathe fire, create ice "
 "and electrify themselves"
 msgstr ""
+"Ενσωματώνουν όλες τις ικανότητες των ξαδέρφων τους να εκτοξεύουν φλόγες, να "
+"δημιουργούν πάγο και να φορτίζονται ηλεκτρικά"
 
 #: data/scripts/monsters.dat:71
 msgid ""
 "And of course they are also impervious to attacks from matching elements, "
 "absorbing the energy to heal themselves"
 msgstr ""
+"Και φυσικά, είναι επίσης άτρωτα σε επιθέσεις από στοιχεία του ίδιου τύπου, "
+"απορροφώντας την ενέργεια για να αυτοθεραπευτούν"
 
 #: data/scripts/monsters.dat:72
 msgid ""
 "But additionally, if they receive too much energy from healing, they evolve "
 "and go on the rampage"
 msgstr ""
+"Εκτός όμως από αυτό, εάν λάβουν υπερβολική ενέργεια από την θεραπεία, "
+"εξελίσσονται και εξαγριώνονται"
 
 #: data/scripts/monsters.dat:73
 msgid ""
 "In this state they will smash through any defence and produce Dark Matter "
 "which destroys anything it touches"
 msgstr ""
+"Σε αυτή την κατάσταση θα συντρίψουν οποιαδήποτε άμυνα και θα παράγουν "
+"Σκοτεινή Ύλη που καταστρέφει οτιδήποτε αγγίζει"
 
 #: data/scripts/monsters.dat:74
 msgid ""
 "However, the shell of a rampaging Master Tortoise is highly magical and is "
 "an essential ingredient when creating powerful magics and items"
 msgstr ""
+"Ωστόσο, το καβούκι ενός εξαγριωμένου Αρχιχελώνα (Master Tortoise) είναι "
+"εξαιρετικά μαγικό και αποτελεί απαραίτητο συστατικό για τη δημιουργία "
+"ισχυρών μαγικών και αντικειμένων."
 
 #: data/scripts/monsters.dat:80
 msgid "Grub, Red"
-msgstr ""
+msgstr "Κόκκινες Προνύμφες"
 
 #: data/scripts/monsters.dat:81
 msgid ""
 "Red Grubs are more aggressive than their green counterparts and will attack "
 "anything they view as a threat"
 msgstr ""
+"Οι κόκκινες προνύμφες είναι πιο επιθετικές από τις πράσινες και θα επιτεθούν "
+"σε οτιδήποτε θεωρούν απειλή"
 
 #: data/scripts/monsters.dat:82
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
 msgstr ""
+"Μόλις ενηλικιωθούν, θα σχηματίσουν ένα κουκούλι και θα μεταμορφωθούν σε σφήκα"
 
 #: data/scripts/monsters.dat:83
 msgid ""
 "Some however will morph into a queen wasp. These queens can produce a mucus-"
 "like substance capable of holding its prey in place"
 msgstr ""
+"Μερικές όμως θα μεταμορφωθούν σε βασίλισσες σφήκες. Αυτές οι βασίλισσες "
+"μπορούν να παράγουν μια βλεννοειδή ουσία ικανή να κρατάει το θήραμά τους "
+"ακινητοποιημένο"
 
 #: data/scripts/monsters.dat:89
 msgid "Splitter"
-msgstr ""
+msgstr "Splitter (Διαχωριστής)"
 
 #: data/scripts/monsters.dat:90
 msgid "Splitters are harmless monsters unless attacked."
 msgstr ""
+"Οι Splitters είναι ακίνδυνα τέρατα εκτός αν δεχθούν επίθεση (τότε τη "
+"γ....σες)"
 
 #: data/scripts/monsters.dat:91
 msgid ""
 "Upon sustaining too much damage they will split in two and attack their "
 "predator"
 msgstr ""
+"Εάν υποστούν υπερβολική ζημιά, θα χωριστούν στα δύο και θα επιτεθούν στον "
+"θηρευτή τους"
 
 #: data/scripts/monsters.dat:92
 msgid "If one of these sustains too much damage it will split once again"
-msgstr ""
+msgstr "Εάν ένα από αυτά υποστεί μεγάλη ζημιά, θα χωριστεί και πάλι"
 
 #: data/scripts/monsters.dat:93
 msgid ""
 "These versions are completely harmless and in this state can be simply "
 "stepped on"
 msgstr ""
+"Αυτές οι εκδοχές είναι εντελώς ακίνδυνες και σε αυτήν την κατάσταση μπορούν "
+"απλά να πατηθούν"
 
 #: data/scripts/monsters.dat:94
 msgid ""
 "If all its parts are still alive, a splitter will reform itself after a "
 "while and heal its wounds"
 msgstr ""
+"Εάν όλα τα μέρη του είναι ακόμα ζωντανά, ένας διαχωριστής (splitter) θα "
+"αναμορφωθεί μετά από λίγο καιρό και θα επουλώσει τις πληγές του."
 
 #: data/scripts/monsters.dat:100
 msgid "Centurion, Grey"
-msgstr ""
+msgstr "Γκρι Εκατόνταρχος (Centurion)"
 
 #: data/scripts/monsters.dat:101
 msgid ""
 "Centurions are magically created creatures, usually dispatched as sentries "
 "or guards"
 msgstr ""
+"Οι Centurions είναι μαγικά δημιουργημένα όντα, συνήθως αποστέλλονται ως "
+"φρουροί ή φύλακες"
 
 #: data/scripts/monsters.dat:102
 msgid ""
 "Though slow moving, their massive size allows them to simply march through "
 "any defence"
 msgstr ""
+"Παρότι κινούνται αργά, το τεράστιο μέγεθός τους τους επιτρέπει να διαπερνούν "
+"εύκολα κάθε άμυνα"
 
 #: data/scripts/monsters.dat:103
 msgid ""
 "Instead of arms, many have huge pile drivers which they use to shake the "
 "ground and disorientate threats"
 msgstr ""
+"Αντί για χέρια, πολλά από τα πλάσματα έχουν τεράστιους πασσάλους, τους "
+"οποίους χρησιμοποιούν για να ταρακουνούν το έδαφος και να αποπροσανατολίζουν "
+"τους επιτιθέμενους"
 
 #: data/scripts/monsters.dat:104
 msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
+"Ενώ οι Γκρι Centurions θα χρησιμοποιούνται για να φυλάνε τις εξωτερικές "
+"περιμέτρους, οι Κόκκινοι Centurions είναι γνωστό ότι υπάρχουν και "
+"χρησιμοποιούνται για να προστατεύουν περιοχές μεγάλης σημασίας"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer"
-msgstr ""
+msgstr "Gazer"
 
 #: data/scripts/monsters.dat:111
 msgid "Gazers are flying cycloptic creatures found in various places"
 msgstr ""
+"οι Gazers είναι Ιπτάμενα πλάσματα με ένα μάτι που εντοπίζονται σε διάφορα "
+"μέρη"
 
 #: data/scripts/monsters.dat:112
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
+"Το μοναδικό τους μάτι παραμένει συνήθως κλειστό και η κίνησή τους στηρίζεται "
+"στο σόναρ"
 
 #: data/scripts/monsters.dat:113
 msgid ""
 "They use their strong sense of smell to look out for predator and prey alike"
 msgstr ""
+"Χρησιμοποιούν την οξεία τους όσφρηση για να εντοπίζουν τόσο θηρευτές όσο και "
+"θηράματα"
 
 #: data/scripts/monsters.dat:114
 msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
 msgstr ""
+"Οι Gazers επιτίθενται (και αμύνονται) ανοίγοντας το μάτι τους, το οποίο θα "
+"θάμπωνε οποιονδήποτε το κοιτούσε"
 
 #: data/scripts/monsters.dat:115
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
+"Αυτή η επίθεση είναι αποτελεσματική μόνο εάν το θύμα είναι στραμμένο προς "
+"τον Gazer"
 
 #: data/scripts/monsters.dat:116
 msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
+"Το μάτι ενός Gazer έχει μαγικές ιδιότητες και αποτελεί συνηθισμένο συστατικό "
+"στην παρασκευή ξορκιών"
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
-msgstr ""
+msgstr "Α, ιδού ένας κατάλογος με τέρατα"
 
 #: data/scripts/monsters.dat:121
 msgid "34 volumes! How can there be so many monsters in the world?!"
 msgstr ""
+"34 τόμοι! Πώς είναι δυνατόν να υπάρχουν τόσα πολλά τέρατα στον κόσμο;"
 
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
-msgstr ""
+msgstr "Αυτό θα μπορούσε να ήταν χρήσιμο όταν κυνηγούσα τους Red Sludges"
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
 msgstr ""
+"Παρόλα αυτά, ίσως να υπάρχει κάτι άλλο σε αυτά τα βιβλία που αξίζει να "
+"διαβαστεί..."
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
-msgstr ""
+msgstr "Πιθανότατα είναι ταξινομημένα αλφαβητικά, παρόλα αυτά"
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr ""
+msgstr "Slime, πράσινο...  Slime, μοβ... Sludge, πράσινο..."
 
 #: data/scripts/monsters.dat:132
 msgid "Sludge, Red"
-msgstr ""
+msgstr "Sludge, κόκκινο"
 
 #: data/scripts/monsters.dat:133
 msgid ""
 "Unlike its green cousin, the Red Sludge stays deep underground and rarely, "
 "if ever, surfaces"
 msgstr ""
+"Σε αντίθεση με τον πράσινο ξάδελφό του, το κόκκινο Sludge παραμένει βαθιά "
+"στο υπέδαφος και σπάνια βγαίνει στην επιφάνεια"
 
 #: data/scripts/monsters.dat:134
 msgid ""
 "Its preferred habitat are dry and mineral rich areas and as a result have "
 "been found lurking in areas of mines abandoned by humans"
 msgstr ""
+"Το αγαπημένο του περιβάλλον είναι οι ξηρές και πλούσιες σε ορυκτά περιοχές, "
+"με αποτέλεσμα να έχει βρεθεί να παραμονεύει σε περιοχές ορυχείων που έχουν "
+"εγκαταλειφθεί από τους ανθρώπους"
 
 #: data/scripts/monsters.dat:135
 msgid ""
 "They are very wary of humans and will attack on sight, usually vomiting up "
 "an acid which takes time to evaporate"
 msgstr ""
+"Είναι πολύ επιφυλακτικοί με τους ανθρώπους και επιτίθενται μόλις τους δουν, "
+"συνήθως ξερνώντας ένα οξύ που χρειάζεται χρόνο για να εξατμιστεί"
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
-msgstr ""
+msgstr "Smacker, Lesser..."
 
 #: data/scripts/monsters.dat:137
 msgid ""
 "Great, that's all it says. I don't even know how to tell the difference "
 "between a male and female. I'll just to take a chance..."
 msgstr ""
+"Ωραία, αυτό είναι το μόνο που λέει. Δεν ξέρω καν πώς να ξεχωρίσω ένα "
+"αρσενικό από ένα θηλυκό. Θα το ρισκάρω..."
 
 #: data/scripts/monsters.dat:138
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
+msgstr "Εξάλλου, ποιο είναι το χειρότερο που θα μπορούσε να συμβεί;"
 
 #: data/scripts/monsters.dat:139
 msgid ""
 "I didn't see any Sludges in the mine when I went to get Borgan's coal and "
 "even if there were any I can't get back there since my raft sank"
 msgstr ""
+"Δεν είδα κανέναν από τους Sludges στο ορυχείο όταν πήγα να πάρω το κάρβουνο "
+"του Borgan και ακόμα και αν υπήρχαν δεν μπορώ να επιστρέψω εκεί αφού η "
+"σχεδία μου βυθίστηκε"
 
 #: data/scripts/monsters.dat:140
 msgid "I'll have to find another mine around here..."
-msgstr ""
+msgstr "Θα πρέπει να βρω ένα άλλο ορυχείο εδώ γύρω..."
 
 #: data/scripts/mine2_exit.dat:1
 msgid "The boss that was guarding the Mine wasn't in the previous version"
 msgstr ""
+"Το αφεντικό που φρουρούσε το Ορυχείο δεν υπήρχε στην προηγούμενη έκδοση"
 
 #: data/scripts/mine2_exit.dat:2
 msgid "Because it is in this version you won't be able to leave"
-msgstr ""
+msgstr "Επειδή είναι σε αυτή την έκδοση, δεν θα μπορείς να φύγεις"
 
 #: data/scripts/mine2_exit.dat:3
 msgid "You will now be transported outside"
-msgstr ""
+msgstr "Τώρα θα μεταφερθείς έξω"
 
 #: data/scripts/mine2_exit.dat:4
 msgid "We apologize for the inconvenience"
-msgstr ""
+msgstr "Ζητάμε συγγνώμη για την αναστάτωση"
 
 #: data/scripts/sewer_boss_start.dat:15
 msgid ""
 "So you're back? Well this time, only one of us is getting out of here alive!"
 msgstr ""
+"Ώστε επέστρεψες; Λοιπόν, αυτή τη φορά, μόνο ένας από εμάς θα βγει από εδώ "
+"ζωντανός!"
 
 #: data/scripts/enchanting_weapons.dat:2
 msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
+"Αυτή η βιβλιοθήκη πρέπει να έχει πληροφορίες για όλα, οπότε πρέπει να "
+"υπάρχει εδώ κάποιο βιβλίο που να περιγράφει λεπτομερώς τη δημιουργία μιας "
+"Ασπίδας Αντοχής σε Φωτιά Δράκου..."
 
 #: data/scripts/enchanting_weapons.dat:8
 msgid ""
 "That dragon stuff sounded interesting, but I'll read about it after I've "
 "created the Fire Shield"
 msgstr ""
+"Τα πράγματα για τους δράκους ακούγονται ενδιαφέροντα, αλλά θα διαβάσω για "
+"αυτά αφού δημιουργήσω την Πύρινη Ασπίδα"
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
+"Χρειάζομαι να βρω 3 Μάτια Gazer, 1 Κόκκινο Sludge και μια επιπλέον ασπίδα "
+"για να δημιουργήσω την Ασπίδα Αντοχής στη Φωτιά"
 
 #: data/scripts/enchanting_weapons.dat:10
 msgid ""
 "Once I've found all these items I'll have to find a place to create the "
 "shield"
 msgstr ""
+"Μόλις βρω όλα αυτά τα αντικείμενα, θα πρέπει να βρω ένα μέρος για να φτιάξω "
+"την ασπίδα"
 
 #: data/scripts/enchanting_weapons.dat:14
 msgid ""
 "That monster encyclopedia said the dragon's breath incinerated everything, "
 "but that warrior still managed to defeat it"
 msgstr ""
+"Η εγκυκλοπαίδεια των τεράτων έλεγε ότι η ανάσα του δράκου αποτέφρωνε τα "
+"πάντα, αλλά ο πολεμιστής κατάφερε παρόλα αυτά να το νικήσει"
 
 #: data/scripts/enchanting_weapons.dat:15
 msgid ""
@@ -6569,7 +6765,7 @@ msgstr ""
 
 #: src/item/apple_tree.h:20
 msgid "Apple"
-msgstr ""
+msgstr "Μήλο"
 
 #: src/boss/evil_edgar.c:703
 msgid "Dud Exploding Gazer Eyeball"
@@ -6581,7 +6777,7 @@ msgstr ""
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
-msgstr ""
+msgstr "Ο Πατέρας του Edgar"
 
 #: data/scripts/attribute.dat:2
 msgid ""
@@ -6590,20 +6786,20 @@ msgstr ""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"
-msgstr ""
+msgstr "Κλειδί βιβλιοθήκης"
 
 #: data/props/item/yellow_gem.props:4
 msgid "Yellow Gem"
-msgstr ""
+msgstr "Κίτρινο Πετράδι"
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"
-msgstr ""
+msgstr "Ρίζα Μανδραγόρα"
 
 #: data/props/item/cauldron.props:160
 msgid "Mantis Fat"
-msgstr ""
+msgstr "Mantis Fat"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
-msgstr ""
+msgstr "Οστά Κόνδορα"

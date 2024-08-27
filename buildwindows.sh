@@ -27,15 +27,9 @@ cd dist
 
 rm -rf $APPDIR
 
-echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
+echo "Getting Git Tag $APPVERSION-$APPRELEASE"
 
-svn export https://github.com/riksweeney/edgar/tags/$APPVERSION $APPDIR
-
-echo "Getting latest translations from the trunk"
-
-rm -rf $APPDIR/locale
-
-svn export https://github.com/riksweeney/edgar/trunk/locale $APPDIR/locale
+git clone --branch $APPVERSION --depth=1 https://github.com/riksweeney/edgar $APPDIR
 
 echo "Removing unwanted data files..."
 
@@ -61,6 +55,8 @@ done
 
 cd $APPDIR
 
+rm -rf .git
+
 make -f makefile.windows VERSION=$1 -j3
 
 make -f makefile.windows -j3 buildpak
@@ -81,7 +77,7 @@ rm locale/*.po
 
 makensis install.nsi
 
-mv *.installer.exe ../edgar-$APPVERSION-$APPRELEASE.installer.exe
+mv *.installer.exe ../edgar-$APPVERSION-$APPRELEASE.installer64.exe
 
 cd ..
 

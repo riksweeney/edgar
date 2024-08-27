@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2023-03-10 13:02+0000\n"
-"Last-Translator: Stefan Haubenthal <polluks@sdf.lonestar.org>\n"
+"PO-Revision-Date: 2023-12-09 11:14+0000\n"
+"Last-Translator: Jorge Maldonado Ventura <Unknown>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-03-12 11:00+0000\n"
-"X-Generator: Launchpad (build 997ba17554f0ee82f56d9282fce82d3e09a43780)\n"
+"X-Launchpad-Export-Date: 2024-08-04 08:04+0000\n"
+"X-Generator: Launchpad (build e3ace39cea497a5ecb83e8fb6dd8e7e169f02939)\n"
 "Language: eo\n"
 
 #: data/scripts/olaf.dat:6
@@ -161,7 +161,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:84
 msgid "This? This is just a ring I found in his fortress"
-msgstr ""
+msgstr "Ĉu tio? Tio estas nur ringo, kiun mi trovis en lia fortikaĵo"
 
 #: data/scripts/olaf.dat:85
 msgid ""
