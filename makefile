@@ -8,6 +8,8 @@ MAN = man/
 UNIX = 1
 MACOS = 0
 
+PKG_CONFIG ?= pkg-config
+
 ifeq ($(UNIX),0)
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
@@ -38,7 +40,7 @@ else
 DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
-CFLAGS += `sdl2-config --cflags` -Wall -pedantic
+CFLAGS += `$(PKG_CONFIG) --cflags sdl2 SDL2_mixer SDL2_image SDL2_ttf zlib libpng` -Wall -pedantic
 ifeq ($(DEV),1)
 CFLAGS += -Werror -g
 else
@@ -50,7 +52,7 @@ ifndef NO_PAK
 DEFINES += -DPAK_FILE=\"$(PAK_FILE)\"
 endif
 
-LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lz -lm -lpng
+LDFLAGS += `$(PKG_CONFIG) --libs sdl2 SDL2_mixer SDL2_image SDL2_ttf zlib libpng` -lm
 
 TILE_OBJS  = tile_creator.o
 PAK_OBJS   = pak_creator.o
