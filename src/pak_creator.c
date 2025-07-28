@@ -17,7 +17,13 @@ along with this program; if not, write to the Free Software
 Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
-#include "headers.h"
+#include <dirent.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <zlib.h>
+#include "defs.h"
+#include "system/pak_data.h"
 
 FILE *pak;
 int fileID;
