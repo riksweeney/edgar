@@ -8,13 +8,6 @@ MAN = man/
 UNIX = 1
 MACOS = 0
 
-PKG_CONFIG ?= pkg-config
-
-BUILD_CC := $(CC)
-BUILD_CFLAGS := $(CFLAGS)
-BUILD_LDFLAGS := $(LDFLAGS)
-BUILD_PKG_CONFIG := $(PKG_CONFIG)
-
 ifeq ($(UNIX),0)
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
@@ -45,8 +38,7 @@ else
 DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
-CFLAGS += `$(PKG_CONFIG) --cflags sdl2 SDL2_mixer SDL2_image SDL2_ttf zlib libpng` -Wall -pedantic
-BUILD_CFLAGS += `$(BUILD_PKG_CONFIG) --cflags zlib`
+CFLAGS += `sdl2-config --cflags` -Wall -pedantic
 ifeq ($(DEV),1)
 CFLAGS += -Werror -g
 else
@@ -58,8 +50,7 @@ ifndef NO_PAK
 DEFINES += -DPAK_FILE=\"$(PAK_FILE)\"
 endif
 
-LDFLAGS += `$(PKG_CONFIG) --libs sdl2 SDL2_mixer SDL2_image SDL2_ttf zlib libpng` -lm
-BUILD_LDFLAGS += `$(BUILD_PKG_CONFIG) --libs zlib`
+LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lz -lm -lpng
 
 TILE_OBJS  = tile_creator.o
 PAK_OBJS   = pak_creator.o
@@ -118,11 +109,8 @@ makefile.dep : src/*/*.h src/*.h
 	for i in src/*.c src/*/*.c; do $(CC) $(CFLAGS) -MM "$${i}"; done > $@
 
 # compiling other source files.
-$(MAIN_OBJS) $(CORE_OBJS) $(EDIT_OBJS) $(TITLE_OBJS) $(PO_OBJS) $(TILE_OBJS):
+$(MAIN_OBJS) $(CORE_OBJS) $(EDIT_OBJS) $(TITLE_OBJS) $(PAK_OBJS) $(PO_OBJS) $(TILE_OBJS):
 	$(CC) $(CFLAGS) $(DEFINES) -c $<
-
-$(PAK_OBJS):
-	$(BUILD_CC) $(BUILD_CFLAGS) $(DEFINES) -c $<
 
 %.mo: %.po
 	msgfmt -c -o $@ $<
@@ -137,7 +125,7 @@ $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(BUILD_CC) $(PAK_OBJS) -o $(PAK_PROG) $(BUILD_LDFLAGS)
+	$(CC) $(PAK_OBJS) -o $(PAK_PROG) $(LDFLAGS)
 
 # linking the program.
 $(PO_PROG): $(PO_OBJS)
