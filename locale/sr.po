@@ -8,51 +8,50 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2016-09-06 16:37+0000\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"PO-Revision-Date: 2025-12-06 05:54+0000\n"
+"Last-Translator: Milos Petrovic <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-07-06 21:53+0000\n"
-"X-Generator: Launchpad (build 18419)\n"
+"X-Launchpad-Export-Date: 2025-12-06 07:12+0000\n"
+"X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
 
-"Language: sr\n"
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr ""
+msgstr "Хвала, ово је савршено!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr ""
+msgstr "Јел имаш све што ти треба?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr ""
+msgstr "Да, тако је"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
-msgstr ""
+msgstr "Шта сад?"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
-msgstr ""
+msgstr "Можемо да одемо одавде! Где желиш да идеш?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
-msgstr ""
+msgstr "Назад у тврђаву, још увек морам да спасим тату од чаробњака"
 
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
-msgstr ""
+msgstr "Сећаш ли се шта сам ти рекао о његовој чаролији дезинтеграцијe?"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr ""
+msgstr "мислим да да..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
-msgstr ""
+msgstr "Oди у лабораторију и споји тај прстен и штит"
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
@@ -63,6 +62,8 @@ msgid ""
 "Throw the shield and ring into the cauldron along with some mandrake root, "
 "that should do it"
 msgstr ""
+"Баци штит и прстен у казан заједно са кореном мандрагоре, то би требало да "
+"буде довољно"
 
 #: data/scripts/jacob.dat:35
 msgid "OK..."
@@ -70,7 +71,7 @@ msgstr "У реду..."
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
-msgstr ""
+msgstr "Овог пута нећемо имати проблемe!"
 
 #: data/scripts/third_side.dat:5
 msgid "..."
@@ -78,220 +79,239 @@ msgstr "..."
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr ""
+msgstr "(Имам статуу коју је Олаф украо)"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
-msgstr ""
+msgstr "(Можда би требало да му га вратим, он ме ипак спасава)"
 
 #: data/scripts/olaf.dat:25
 msgid "(Then again, he did steal it, and I nearly died trying to get it)"
-msgstr ""
+msgstr "(али ипак га је украо, и ја сам скоро умро покушавајући да га узмем)"
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr ""
+msgstr "Дати статуу Олафу?"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
-msgstr ""
+msgstr "Нашао сам ово у пећини, је ли то статуа коју си ти узео?"
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr ""
+msgstr "Јесте! Хвала што си га нашао!"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "Требало би да могу да ово продам на пијаци за кој кусур"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
-msgstr ""
+msgstr "(Мислим да ћу да га сачувам за себе)"
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "Спремни за полазак?"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "Повратак у тврђаву?"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
-msgstr ""
+msgstr "Не још, има још нешто што треба да урадим"
 
 #: data/scripts/olaf.dat:47
 msgid "OK, let me know when you're ready"
-msgstr ""
+msgstr "У реду, реси ми кад си спреман"
 
 #: data/scripts/olaf.dat:51
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "Јеси успео да нађеш рог?"
 
 #: data/scripts/olaf.dat:62
 msgid "Have you found everything yet?"
-msgstr ""
+msgstr "Јеси већ све пронашао?"
 
 #: data/scripts/olaf.dat:63
 msgid "Not yet, I'm still looking"
-msgstr ""
+msgstr "нисам још, још увек тражим"
 
 #: data/scripts/olaf.dat:68
 msgid "OK, I've found everything now"
-msgstr ""
+msgstr "У реду, сад сам све пронашао"
 
 #: data/scripts/olaf.dat:77
 msgid "ARGHHHHH!!"
-msgstr ""
+msgstr "АРГХХХХХ!!"
 
 #: data/scripts/olaf.dat:79
 msgid "Another human, out here? How did you get out here?"
-msgstr ""
+msgstr "Још један човек, овде? Како си доспео овде?"
 
 #: data/scripts/olaf.dat:80
 msgid ""
 "I'm not sure, I think the sorceror sent me here, but he said he was going to "
 "kill me"
 msgstr ""
+"Нисам сигуран, мислим да ме је чаробњак послао овде, али је рекао да ће да "
+"ме убије"
 
 #: data/scripts/olaf.dat:83
 msgid "Hmmm, what's that on your hand?"
-msgstr ""
+msgstr "Хмм, шта ти је то на руци?"
 
 #: data/scripts/olaf.dat:84
 msgid "This? This is just a ring I found in his fortress"
-msgstr ""
+msgstr "Ово? Ово је само прстен који сам нашао у његовој тврђави"
 
 #: data/scripts/olaf.dat:85
 msgid ""
 "It looks like a ring of protection, it must have saved you. Why were you in "
 "his fortress?"
 msgstr ""
+"Изгледа као заштитни прстен, мора да те је спасио. Зашто си био у његовој "
+"тврђави?"
 
 #: data/scripts/olaf.dat:86
 msgid "He's kidnapped my Dad and I was there trying to save him"
-msgstr ""
+msgstr "Отео ми је тату, а ја сам био тамо покушавајући да га спасим"
 
 #: data/scripts/olaf.dat:87
 msgid "Well, it looks like the ring's power is almost completely gone"
-msgstr ""
+msgstr "Па, изгледа да је моћ прстена скоро потпуно нестала"
 
 #: data/scripts/olaf.dat:88
 msgid ""
 "If he hits you with that spell again it will almost certainly kill you"
-msgstr ""
+msgstr "Ако те поново погоди том чаролијом, готово сигурно ће те убити"
 
 #: data/scripts/olaf.dat:91
 msgid ""
 "Something must have protected you from the spell. Were you wearing a pendant "
 "or a ring?"
 msgstr ""
+"Нешто те је сигурно заштитило од чаролије. Јеси ли носио привезак или прстен?"
 
 #: data/scripts/olaf.dat:92
 msgid ""
 "I did find a ring in the fortress but it didn't seem to have any powers"
 msgstr ""
+"Јесам нашао прстен у тврђави, али чинило ми се да није имао никакве моћи"
 
 #: data/scripts/olaf.dat:93
 msgid ""
 "It might have been a ring of protection. I imagine that the protection would "
 "have been limited to a single use"
 msgstr ""
+"Можда је то био заштитни прстен. Претпостављам да би заштита била ограничена "
+"на једнократну употребу"
 
 #: data/scripts/olaf.dat:96
 msgid ""
 "What you could do though is combine the ring and your shield together to "
 "create a shield that will protect you from the spell"
 msgstr ""
+"Оно што би могао да урадиш је да спојиш прстен и штит да направиш штит који "
+"че да те заштити од чаролије."
 
 #: data/scripts/olaf.dat:97
 msgid "Do you have any experience mixing spells?"
-msgstr ""
+msgstr "Имаш ли искуство са мешањем чаролија?"
 
 #: data/scripts/olaf.dat:98
 msgid ""
 "Kind of, but the last time I tried creating a shield the spell backfired "
 "and..."
 msgstr ""
+"Мање-више, али последњи пут када сам покушао да направим штит, чаролија се "
+"повратила и..."
 
 #: data/scripts/olaf.dat:99
 msgid "It created an evil version of yourself?"
-msgstr ""
+msgstr "Створило злу верзију тебе?"
 
 #: data/scripts/olaf.dat:100
 msgid "Yeah, how did you know?"
-msgstr ""
+msgstr "Да, како си знао?"
 
 #: data/scripts/olaf.dat:101
 msgid "Where I'm from it used to happen at least once a month"
-msgstr ""
+msgstr "У мојим крајевима, то се дешава бар једном месечно"
 
 #: data/scripts/olaf.dat:103
 msgid "Why are you here?"
-msgstr ""
+msgstr "Зашто си овде?"
 
 #: data/scripts/olaf.dat:104
 msgid "The sorceror caught me looting his fortress and he banished me here"
 msgstr ""
+"Чаробњак ме је ухватио како пљачкам његову тврђаву и протерао ме је овде"
 
 #: data/scripts/olaf.dat:105
 msgid "What did you steal?"
-msgstr ""
+msgstr "Шта си украо?"
 
 #: data/scripts/olaf.dat:106
 msgid "It was a small golden statue, probably worth a lot of money"
-msgstr ""
+msgstr "Једну малу статуу, вероватно јако пуно вредела"
 
 #: data/scripts/olaf.dat:107
 msgid ""
 "I've been here for months now, but I've almost got all the ingredients I "
 "need to teleport back home"
 msgstr ""
+"Овде сам већ месецима, али скоро имам све потребне састојке за телепортацију "
+"кући"
 
 #: data/scripts/olaf.dat:108
 msgid ""
 "I just need one more thing, but it's in a cave to the west and I have no "
 "weapons to protect myself"
 msgstr ""
+"Треба ми још једна ствар, али је у пећини на западу и немам оружје да се "
+"заштитим"
 
 #: data/scripts/olaf.dat:109
 msgid "But now you're here you can help me retrieve it"
-msgstr ""
+msgstr "Али сада си овде и можеш ми помоћи да га вратим назад"
 
 #: data/scripts/olaf.dat:112
 msgid ""
 "I haven't gotten all my stuff back yet. I think everything's here though"
-msgstr ""
+msgstr "Још нисам добио све своје ствари назад. Али мислим да је све овде"
 
 #: data/scripts/olaf.dat:113
 msgid "When I've found everything I'll come back"
-msgstr ""
+msgstr "Кад све пронађем, вратићу се"
 
 #: data/scripts/olaf.dat:114
 msgid "OK, good luck!"
-msgstr ""
+msgstr "У реду, срећно!"
 
 #: data/scripts/olaf.dat:120
 msgid "What do you need?"
-msgstr ""
+msgstr "Шта ти треба?"
 
 #: data/scripts/olaf.dat:121
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "То је рог одређене врсте чудовишта"
 
 #: data/scripts/olaf.dat:122
 msgid ""
 "There should be plenty of bones littered around so you shouldn't have to "
 "find one and kill it. Just get the horn and get out"
 msgstr ""
+"Требало би да има доста кости разбацаних около, тако да не би требало да "
+"мораш да пронађеш једну и убијеш је. Само узми рог и изађи напоље"
 
 #: data/scripts/jacob.dat:39
 msgid "That's it?"
-msgstr ""
+msgstr "То је то?"
 
 #: data/scripts/library_intro.dat:6
 msgid "Hmmm"
-msgstr ""
+msgstr "Хммм"
 
 #: data/scripts/olaf.dat:130
 msgid ""
@@ -304,721 +324,759 @@ msgid ""
 "Don't even think about it, I'm fed up of chopping down trees and collecting "
 "logs!"
 msgstr ""
+"Немој ни да помислиш о томе, доста ми је сече дрвећа и сакупљања балвана!"
 
 #: data/scripts/olaf.dat:132
 msgid "OK, it was just a suggestion"
-msgstr ""
+msgstr "У реду, то је само био предлог"
 
 #: data/scripts/olaf.dat:133
 msgid "Oh, you'll need this too"
-msgstr ""
+msgstr "и ово ће ти требати"
 
 #: data/scripts/olaf.dat:135
 msgid ""
 "Dip your arrows into it to turn them into fire arrows, it will help you burn "
 "down the vines blocking the entrance"
 msgstr ""
+"Умочи стреле да бих их претворио у ватрене стреле, то ће ти помости  да "
+"спалиш винове лозе које блокирају улаз"
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr ""
+msgstr "Хвала!"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
-msgstr ""
+msgstr "Још једна ствар."
 
 #: data/scripts/olaf.dat:141
 msgid ""
 "Don't hang around in that cave, the monsters that live in there are like "
 "nothing you'll have ever encountered before"
 msgstr ""
+"Не задржавај се у тој пећини, чудовишта која тамо живе су много опаснија од "
+"оних на које си навикао"
 
 #: data/scripts/olaf.dat:142
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "Брате, само нађи рог"
 
 #: data/scripts/jacob.dat:35
 msgid "OK"
-msgstr ""
+msgstr "У реду"
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
-msgstr ""
+msgstr "Можда сам погрешио што сам послао дете у опасност..."
 
 #: data/scripts/olaf.dat:147
 msgid "Sorry, did you say something?"
-msgstr ""
+msgstr "Извини, јеси ли нешто рекао?"
 
 #: data/scripts/olaf.dat:148
 msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
-msgstr ""
+msgstr "Шта?! О не, само сам вежбао чаролију за телепортацију..."
 
 #: data/scripts/olaf.dat:159
 msgid "Yes, let's go"
-msgstr ""
+msgstr "Да, хајдемо"
 
 #: data/scripts/olaf.dat:160
 msgid "OK, here goes nothing, good luck finding your father"
-msgstr ""
+msgstr "Хајде, па шта буде, желим ти срећу да пронађеш тату"
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr ""
+msgstr "Хвала, Олаф"
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
 "This lift is not working. I won't be able to use it until I restore the power"
-msgstr ""
+msgstr "Овај лифт не ради. Нећу моћи да га користим док не вратим струју"
 
 #: data/scripts/catapult.dat:1
 msgid "Wow, a catapult!"
-msgstr ""
+msgstr "Вау, катапулт!"
 
 #: data/scripts/catapult.dat:2
 msgid ""
 "The hinges look rusted though, I doubt it'll work until I get them fixed"
-msgstr ""
+msgstr "ове шарке изгледају зарђале, сумњам да ће радити док их не поправим"
 
 #: data/scripts/drawbridge_pulley.dat:2
 msgid "It looks like the pulley for the drawbridge"
-msgstr ""
+msgstr "Изгледа као чекрк за покретни мост"
 
 #: data/scripts/drawbridge_pulley.dat:3
 msgid "The mechanism seems to be locked tight"
-msgstr ""
+msgstr "Чини се да је механизам чврсто закључан"
 
 #: data/scripts/drawbridge_pulley.dat:4
 msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
-msgstr ""
+msgstr "Не изгледа баш чврсто, можда бих могао да га разбијем..."
 
 #: data/scripts/drawbridge_pulley.dat:10
 msgid "Oops..."
-msgstr ""
+msgstr "Јој..."
 
 #: data/scripts/drawbridge_pulley.dat:15
 msgid "Maybe nobody heard that?"
-msgstr ""
+msgstr "Можда није нико чуо?"
 
 #: data/scripts/drawbridge_pulley.dat:16
 msgid "Well, the drawbridge is down at any rate..."
-msgstr ""
+msgstr "Па, покретни мост је у сваком случају спуштен..."
 
 #: data/scripts/flame_pillar.dat:1
 msgid ""
 "Those flames are incredibly hot. I'll be burnt to cinders if I try and walk "
 "through them"
 msgstr ""
+"Ови пламени су невероватно врући. Изгорећу у пепео ако покушам да прођем "
+"кроз њих"
 
 #: data/scripts/flame_pillar.dat:2
 msgid "There must be a way to cool them down..."
-msgstr ""
+msgstr "Мора да постоји начин да ин охладим..."
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "The shield will protect you from most enemy attacks"
-msgstr ""
+msgstr "Штит ће те заштитити од већине врста напада"
 
 #: data/scripts/tutorial_shield.dat:2
 msgid "Some enemy attacks cannot be blocked"
-msgstr ""
+msgstr "Неке врсте напада се не могу блокирати"
 
 #: data/scripts/tutorial_shield.dat:3
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr ""
+msgstr "Опасности попут падајућег камења се не могу блокирати"
 
 #: data/scripts/tutorial_shield.dat:4
 msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
-msgstr ""
+msgstr "Да бисте блокирали напад, притисните и држите блок ([INPUT_BLOCK])."
 
 #: data/scripts/tutorial_shield.dat:5
 msgid "You must be facing the attack to successfully block it"
-msgstr ""
+msgstr "Морате бити окренути ка нападу да бисте га успешно блокирали"
 
 #: data/scripts/tutorial_shield.dat:6
 msgid ""
 "Note that you cannot move whilst blocking, but you can face the other way. "
 "You also cannot block in the air"
 msgstr ""
+"Имајте на уму да се не можете кретати док блокирате, али можете бити "
+"окренути на другу страну. Такође не можете блокирати у ваздуху"
 
 #: data/scripts/tutorial_shield.dat:7
 msgid "Pick up the shield and continue to the right"
-msgstr ""
+msgstr "Узми штит и настави десно"
 
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
-msgstr ""
+msgstr "То је портрет"
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
-msgstr ""
+msgstr "Важи!"
 
 #: data/scripts/scorpion_statue.dat:2
 msgid ""
 "What a ridiculous amount of effort to go through just to get a statue..."
-msgstr ""
+msgstr "Каква глупост, онолики труд само за једну статуу..."
 
 #: data/scripts/scorpion_statue.dat:3
 msgid "I'd better get out of here and get back to the Fortress..."
-msgstr ""
+msgstr "Боље да кренем одавде и да се вратим у Тврђаву..."
 
 #: data/scripts/outskirts_intro.dat:10
 msgid "Drat, the drawbridge is up. There must be another entrance..."
 msgstr ""
+"Доврага, покретни мост је подигнут. Мора да постоји још један улаз..."
 
 #: data/scripts/outskirts_intro.dat:15
 msgid "Wait, what's that?"
-msgstr ""
+msgstr "Чекај брате, шта је то?"
 
 #: data/scripts/outskirts_intro.dat:23
 msgid "Maybe I could tunnel my way in..."
-msgstr ""
+msgstr "Можда бих могао да ископам тунел да уђем..."
 
 #: data/scripts/borer_boss_die.dat:3
 msgid "Yuck..."
-msgstr ""
+msgstr "фуј..."
 
 #: data/scripts/third_side.dat:1
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "Шта је ово?"
 
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
+msgstr "То је књига Стивена Џ. Свинија под називом \"Част витезова\""
 
 #: data/scripts/third_side.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
-msgstr ""
+msgstr "Доступно је на iBooks и Amazon Kindle"
 
 #: data/scripts/third_side.dat:4
 msgid ""
 "I'm not exactly sure what any of that means, but it sounds interesting"
-msgstr ""
+msgstr "Нисам баш сигуран шта то значи, али звучи занимљиво"
 
 #: data/scripts/third_side.dat:5
 msgid "I might read that later..."
-msgstr ""
+msgstr "Можда ћу то прочитати касније..."
 
 #: data/scripts/sorceror_intro_2.dat:10
 msgid "So, you escaped"
-msgstr ""
+msgstr "Значи, успео си да побегнеш"
 
 #: data/scripts/sorceror_intro_2.dat:11
 msgid "Yes I did, and my father wasn't there"
-msgstr ""
+msgstr "Јесам, али мој тата није био тамо"
 
 #: data/scripts/sorceror_intro_2.dat:12
 msgid "Maybe you just didn't look hard enough"
-msgstr ""
+msgstr "Можда једноставно ниси довољно пажљиво тражио"
 
 #: data/scripts/sorceror_intro_2.dat:13
 msgid "Have another look"
-msgstr ""
+msgstr "Погледај још једном"
 
 #: data/scripts/sorceror_intro_2.dat:18
 msgid "Maybe you should work on your spells"
-msgstr ""
+msgstr "Можда требаш да вежбаш твоје чаролије"
 
 #: data/scripts/sorceror_intro_2.dat:19
 msgid "NOW TELL ME WHERE MY FATHER IS!"
-msgstr ""
+msgstr "РЕЦИ МИ, ГДЕ ЈЕ МОЈ ТАТА!"
 
 #: data/scripts/sorceror_intro_2.dat:20
 msgid "You annoying little brat"
-msgstr ""
+msgstr "Ти досадни мали прдежу"
 
 #: data/scripts/sorceror_intro_2.dat:21
 msgid "I wouldn't be surprised if your father has abandoned you"
-msgstr ""
+msgstr "Не би ме изненадило да те отац напустио"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?!"
-msgstr ""
+msgstr "Шта?!"
 
 #: data/scripts/sorceror_intro_2.dat:23
 msgid "I'll show you!"
-msgstr ""
+msgstr "Показаћу ти!"
 
 #: data/scripts/sorceror_intro_2.dat:28
 msgid "That, was a mistake"
-msgstr ""
+msgstr "То, је била грешка"
 
 #: data/scripts/sorceror_intro_2.dat:29
 msgid "Die"
-msgstr ""
+msgstr "Умри"
 
 #: data/scripts/sorceror_intro_2.dat:34
 msgid "That was odd, he was supposed to explode"
-msgstr ""
+msgstr "То је било чудно, очекивао сам да експлодира"
 
 #: data/scripts/sorceror_intro_2.dat:35
 msgid "Where did he go?"
-msgstr ""
+msgstr "Где је отишао?"
 
 #: data/scripts/old_shield.dat:12
 msgid ""
 "That's it? Just this old shield? It doesn't look any better than my current "
 "one."
 msgstr ""
+"То је то? Само неки стари штит? Не изгледа ништа бољи од мог садашњег штита"
 
 #: data/scripts/old_shield.dat:13
 msgid "Still, I'll hold onto it for the time being, it might come in handy"
-msgstr ""
+msgstr "Ипак, задржаћу га за сада, можда ми буде од користи"
 
 #: data/scripts/old_shield.dat:16
 msgid "Great, a spare shield!"
-msgstr ""
+msgstr "Одлично, резервни штит!"
 
 #: data/scripts/old_shield.dat:17
 msgid "I have everything I need now"
-msgstr ""
+msgstr "Сада имам све што ми треба"
 
 #: data/scripts/old_shield.dat:18
 msgid "There's a cauldron in the Laboratory, I should head back there"
-msgstr ""
+msgstr "Има казан у лабораторији, требало би да се вратим тамо"
 
 #: data/scripts/old_shield.dat:21
 msgid ""
 "This doesn't look like a Fire Shield to me. I was really hoping to find one "
 "here too"
 msgstr ""
+"Ово ми не личи на Ватрени штит. Баш сам се надао да ћу једног овде наћи"
 
 #: data/scripts/old_shield.dat:22
 msgid "This shield doesn't even look any better than my current one."
-msgstr ""
+msgstr "Овај штит не изгледа ништа бољи од мог тренутног."
 
 #: data/scripts/old_shield.dat:27
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
-msgstr ""
+msgstr "Само треба да направим течност од пипака муља и од ока Газера"
 
 #: data/scripts/old_shield.dat:33
 msgid "That's not a good sign..."
-msgstr ""
+msgstr "То није добар знак..."
 
 #: data/scripts/sewer_trap_note.dat:1
 msgid "There's a note here"
-msgstr ""
+msgstr "Овде има белешка"
 
 #: data/scripts/centurion_note_2.dat:2
 msgid "I've found a way to kill the Centurions"
-msgstr ""
+msgstr "Нашао сам начин да убијем Центурионе"
 
 #: data/scripts/centurion_note_2.dat:3
 msgid ""
 "They will reform unless one of their parts falls into the slime or lava"
-msgstr ""
+msgstr "Реформисаћу се осим ако један њихов део падне у слуз или лаву"
 
 #: data/scripts/centurion_note_2.dat:4
 msgid ""
 "I managed to retrieve two of the puzzle pieces before I was caught and "
 "locked in here again"
 msgstr ""
+"Успео сам да пронађем два дела слагалице пре него што су ме ухватили и "
+"бацили у затвор"
 
 #: data/scripts/centurion_note_2.dat:5
 msgid "If I can break out of here again I'll be sure to escape"
-msgstr ""
+msgstr "Ако могу поново да побегнем одавде, сигурно ћу побећи"
 
 #: data/scripts/centurion_note_2.dat:6
 msgid ""
 "Otherwise I hope another unfortunate victim will find this information useful"
 msgstr ""
+"Надам се да ће још некој несрећној особи ове информације бити корисне"
 
 #: data/scripts/centurion_note_2.dat:7
 msgid "There's a skull here"
-msgstr ""
+msgstr "Има лобања"
 
 #: data/scripts/centurion_note_2.dat:8
 msgid "Looks like he didn't manage to get out..."
-msgstr ""
+msgstr "Изгледа није успео да се извуче..."
 
 #: data/scripts/chaos_warn.dat:2
 msgid "Leave now if you wish to live"
-msgstr ""
+msgstr "Врати се назад ако желиш да живиш"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Врати се назад"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
 "If you proceed, I will fight you and destroy you. Flee now, while you can"
 msgstr ""
+"Ако наставиш напред, борићу се с тобом и уништићу те. Бежи сада, док можеш"
 
 #: data/scripts/chaos_warn.dat:28
 msgid "You fool. Do you truly seek destruction?"
-msgstr ""
+msgstr "Буздоване глупи, да ли заиста желиш смрт?"
 
 #: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
-msgstr ""
+msgstr "Онда ћу да те средим!!"
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "Браво, открили сте тајну!"
 
 #: data/scripts/tutorial_secret.dat:3
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr ""
+msgstr "У главној игри има много тајне, будите на опрезу док играте"
 
 #: data/scripts/tutorial_secret.dat:4
 msgid "Here's a hint to get you started"
-msgstr ""
+msgstr "Ево вам савет за почетак"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid ""
 "Although Jacob only requires you to catch 3 of his chickens, why not be nice "
 "to him and catch more? There are 10 wandering the map in all"
 msgstr ""
+"Иако Јаков захтева да ухватите само 3 његове кокошке, зашто не бисте били "
+"љубазни и уловили још? Укупно их 10 лута мапом"
 
 #: data/scripts/box_pushing.dat:1
 msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
 msgstr ""
+"Можете вући неке предмете тако што их гурате док држите притиснуто дугме "
+"Акција."
 
 #: data/scripts/box_pushing.dat:2
 msgid "You can then pull it around until you let go of the Action button"
-msgstr ""
+msgstr "Можете вући док не пустите дугме Акција"
 
 #: data/scripts/drainers.dat:1
 msgid ""
 "Whatever that thing was it was draining the power from that generator and "
 "using it against me."
-msgstr ""
+msgstr "То чудовиште је користило струју из генератора против мене."
 
 #: data/scripts/drainers.dat:2
 msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
 "drainers should restore the power here."
 msgstr ""
+"То би могло да објасни што лифт није радио. Уништавање осталих исцеђивача "
+"требало би да обнови струју."
 
 #: data/scripts/drainers.dat:3
 msgid "Defeat all Energy Drainers"
-msgstr ""
+msgstr "Уништите све исцеђиваче"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use left and right to move the dial 1 unit at a time"
-msgstr ""
+msgstr "Користите лево и десно да померате бирац за 1 јединицу"
 
 #: data/scripts/safe_instructions.dat:2
 msgid ""
 "Make sure you keep count of how many times you move the dial since no on-"
 "screen notification is given"
 msgstr ""
+"Обавезно бројите колико пута померате бирац јер се не приказује на екрану"
 
 #: data/scripts/safe_instructions.dat:3
 msgid ""
 "When you think you've entered the combination correctly, press Attack to try "
 "and open the door"
 msgstr ""
+"Када мислите да сте правилно унели комбинацију, притисните Напад да покушате "
+"да отворите врата"
 
 #: data/scripts/no_combination.dat:1
 msgid ""
 "There's no way I'll be able to figure out the combination, I'll have to find "
 "out what it is"
-msgstr ""
+msgstr "Нема шансе да схватим комбинацију, мораћу да откријем шта је"
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
-msgstr ""
+msgstr "Настави да вежбаш!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi"
-msgstr ""
+msgstr "Здраво"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar"
-msgstr ""
+msgstr "Здраво Едгаре"
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "Јел могу да позајмим твој штит?"
 
 #: data/scripts/borgan.dat:14
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "Јел идеш да вежбаш борилачке вештине?"
 
 #: data/scripts/borgan.dat:15
 msgid "Something like that"
-msgstr ""
+msgstr "Тако нешто да"
 
 #: data/scripts/borgan.dat:16
 msgid "If you run me an errand then you can have the shield"
-msgstr ""
+msgstr "Ако ми нешто одрадиш, онда можеш да узмеш штит"
 
 #: data/scripts/borgan.dat:17
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Шта треба да урадим?"
 
 #: data/scripts/borgan.dat:18
 msgid "Go to the mine and collect me some coal"
-msgstr ""
+msgstr "Иди у рудник и покупи ми мало угља"
 
 #: data/scripts/borgan.dat:19
 msgid "But we have plenty of coal!"
-msgstr ""
+msgstr "Али имамо гомиле угља!"
 
 #: data/scripts/borgan.dat:20
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
 msgstr ""
+"Да, али ово није обичан угаљ, овај угаљ је посебан, гори топлије и дуже траје"
 
 #: data/scripts/borgan.dat:21
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
+msgstr "Треба ми само 10 комада, тако да вам не би требало дуго"
 
 #: data/scripts/borgan.dat:22
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
-msgstr ""
+msgstr "Обавезно га стави у кесу, предуги контакт је лоше за здравље"
 
 #: data/scripts/borgan.dat:23
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "Имаш ли торбу?"
 
 #: data/scripts/borgan.dat:24
 msgid "No, you can probably find one in the mine though"
-msgstr ""
+msgstr "Не, вероватно можеш наћи један у руднику"
 
 #: data/scripts/borgan.dat:25
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "У реду, донећу угаљ"
 
 #: data/scripts/borgan.dat:27
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
 msgstr ""
+"Ево, узми овај пијук. Можеш га користити за вађење угља и сечење кроз "
+"слабије зидове на које наиђеш"
 
 #: data/scripts/borgan.dat:29
 msgid "You'll also need this key to get into the mine"
-msgstr ""
+msgstr "Такође ће ти требати овај кључ да уђеш у рудник"
 
 #: data/scripts/borgan.dat:31
 msgid "Collect 10 pieces of Coal"
-msgstr ""
+msgstr "Скупи 10 комада угља"
 
 #: data/scripts/borgan.dat:36
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
+"Хвала ти Едгаре, овај угаљ је савршен! Надам се да те слепи мишеви нису "
+"уплашили."
 
 #: data/scripts/borgan.dat:37
 msgid "The bats were the least of my worries..."
-msgstr ""
+msgstr "Слепи мишеви су били моја најмања брига..."
 
 #: data/scripts/borgan.dat:38
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr ""
+msgstr "Хммм, чуо сам да се нешто десило у том руднику пре неколико година"
 
 #: data/scripts/borgan.dat:39
 msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
 msgstr ""
+"Па, да, десио се, како би се рекло, \"инцидент\", али тај део рудника је "
+"одавно запечаћен."
 
 #: data/scripts/borgan.dat:40
 msgid "Right..."
-msgstr ""
+msgstr "Да... да..."
 
 #: data/scripts/borgan.dat:42
 msgid "Here, have my shield and have fun!"
-msgstr ""
+msgstr "Ево, узми мој штит и забави се!"
 
 #: data/scripts/borgan.dat:44
 msgid "Just stay away from the Forbidden Swamp"
-msgstr ""
+msgstr "Само се држи подаље од Забрањене мочваре"
 
 #: data/scripts/borgan.dat:45
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "Разумем, могу ли мало дуже да задржим твој пијук?"
 
 #: data/scripts/borgan.dat:46
 msgid "Sure thing, just bring it back in one piece"
-msgstr ""
+msgstr "Може, само га врати у једном комаду"
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
-msgstr ""
+msgstr "Хвала, Боргане!"
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
-msgstr ""
+msgstr "Јеси успео да нађеш угаљ?"
 
 #: data/scripts/safe.dat:5
 msgid "A safe in a library? Bit of a cliché..."
-msgstr ""
+msgstr "Сеф у библиотеци? Помало клише..."
 
 #: data/scripts/safe.dat:11
 msgid ""
 "It looks too thick to break open, I'll have to open it using the combination"
 msgstr ""
+"Изгледа превише дебело да би се отворило силом, мораћу да га отворим "
+"користећи комбинацију"
 
 #: data/scripts/statue_required.dat:1
 msgid ""
 "You must have the statue you wish to use highlighted in your inventory box"
-msgstr ""
+msgstr "Морате истакнути у свом инвентару статуу коју желите да користите"
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
-msgstr ""
+msgstr "Шта је то?"
 
 #: data/scripts/centurion_boss_start.dat:14
 msgid "ESCAPEE LOCATED"
-msgstr ""
+msgstr "ПОБЕГЛИЦА ПРОНАЂЕНА"
 
 #: data/scripts/centurion_boss_start.dat:15
 msgid "TARGET IS ARMED AND DANGEROUS"
-msgstr ""
+msgstr "НАОРУЖАН И ОПАСАН ЈЕ"
 
 #: data/scripts/centurion_boss_start.dat:16
 msgid "COMMENCING DESTRUCTION OF TARGET"
-msgstr ""
+msgstr "ПОЧИЊЕ УНИШТАВАЊАЊЕ ОСОБЕ"
 
 #: data/scripts/blank_card_required.dat:1
 msgid "I need a blank card to put the instructions on"
-msgstr ""
+msgstr "Требна ми празна картица да на њу ставим упутства"
 
 #: data/scripts/slime_potion_pool.dat:1
 msgid "That smell..."
-msgstr ""
+msgstr "Тај мирис..."
 
 #: data/scripts/slime_potion_pool.dat:3
 msgid "It looks like..."
-msgstr ""
+msgstr "Изгледа као..."
 
 #: data/scripts/slime_potion_pool.dat:4
 msgid "It's as thick as..."
-msgstr ""
+msgstr "Дебео је као..."
 
 #: data/scripts/slime_potion_pool.dat:5
 msgid "And it tastes like..."
-msgstr ""
+msgstr "И има укус као..."
 
 #: data/scripts/slime_potion_pool.dat:8
 msgid "It is! It's naturally occurring Slime potion!"
-msgstr ""
+msgstr "Јесте! То је природни напитак од слуза!"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "Gotcha!"
-msgstr ""
+msgstr "Имам те!"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "Not so clever now are you?"
-msgstr ""
+msgstr "Ниси више паметан сад кад сам те ухватио, мало гованце"
 
 #: data/scripts/cave_boss_die.dat:79
 msgid "I REALLY have to get out of here!"
-msgstr ""
+msgstr "Морам стварно да бегам одавде!"
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
-msgstr ""
+msgstr "Здраво Меги"
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "Едгаре, повређен си! Дозволи ми да те излечим"
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
-msgstr ""
+msgstr "Хвала Меги!"
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
-msgstr ""
+msgstr "Заиста си упоран"
 
 #: data/scripts/sorceror_intro_3.dat:10
 msgid ""
 "I don't know what you did last time, but trust me, you won't escape again!"
-msgstr ""
+msgstr "Не знам шта си урадио прошли пут, али веруј ми, нећеш поново побећи!"
 
 #: data/scripts/sorceror_intro_3.dat:20
 msgid "(Phew)"
-msgstr ""
+msgstr "(Уф)"
 
 #: data/scripts/sorceror_intro_3.dat:21
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
+msgstr "(Погледај то, једна од кугли на штиту се упалила...)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Твоја чаролија неће више радити против мене"
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
-msgstr ""
+msgstr "Сада, ако ми не кажеш где је мој тата"
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
-msgstr ""
+msgstr "Мораћу да те пребијем док не постанеш инвалид"
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
-msgstr ""
+msgstr "Никад нећеш добити ту прилику"
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore, I summon you! Destroy this pest!"
-msgstr ""
+msgstr "Гримлоре, призивам те! Уништи овог буздована!"
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Збогом, Едгаре"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
-msgstr ""
+msgstr "Нешто долази..."
 
 #: data/scripts/spirit.dat:1
 msgid ""
 "That spirit isn't going to let me past, I'll have to find a way to get rid "
 "of it"
-msgstr ""
+msgstr "Тај дух ме неће пустити, мораћу да пронађем начин да га се решим"
 
 #: data/scripts/swamp_intro.dat:2
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "Ово место не изгледа тако лоше..."
 
 #: data/scripts/occult_book.dat:51
 msgid "What was that?"
-msgstr ""
+msgstr "Шта је то било?"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Ох не..."
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr ""
+msgstr "У игри постоје две врсте врата. Ручна врата и аутоматска врата."
 
 #: data/scripts/tutorial_doors.dat:2
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
 msgstr ""
+"Ручна врата захтевају кључеве за отварање, аутоматска врата захтевају "
+"прекидаче."
 
 #: data/scripts/tutorial_doors.dat:3
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
+"Да бисте отворили закључана врата за која имате кључ, уђите у њих. Нема "
+"потребе да кључ буде изабран у вашем инвентару."
 
 #: data/scripts/tutorial_doors.dat:4
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "Отворите врата и наставите десно"
 
 #: data/scripts/cave_intro.dat:4
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "Ургх, шта се десило?"
 
 #: data/scripts/borer_cave_intro.dat:11
 msgid "Where am I?"
-msgstr ""
+msgstr "Где сам?"
 
 #: data/scripts/tutorial_blocking.dat:1
 msgid "Now try out your shield"
-msgstr ""
+msgstr "Испробај свој штит"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
@@ -1026,136 +1084,138 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
-msgstr ""
+msgstr "Не могу да верујем да га више нема"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "Толко сам се трудио да га нађем"
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
-msgstr ""
+msgstr "И нисам успео"
 
 #: data/scripts/ending_part1.dat:15
 msgid "What am I going to do now?"
-msgstr ""
+msgstr "Шта ћу сада да радим?"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
-msgstr ""
+msgstr "*шмрц*"
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr ""
+msgstr "Едгаре! Едгаре, где си?"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "!"
-msgstr ""
+msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
-msgstr ""
+msgstr "Тај глас..."
 
 #: data/scripts/ending_part1.dat:22
 msgid "It can't be..."
-msgstr ""
+msgstr "Не може бити..."
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr ""
+msgstr "Тата!"
 
 #: data/scripts/jacob.dat:14
 msgid "Edgar!"
-msgstr ""
+msgstr "Едгаре!"
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Јаков, нашао сам га!"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "Сине, шта радиш овде? Опасно је, морамо да се вратимо"
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "Дошао сам да те спасим!"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
-msgstr ""
+msgstr "А? Шта ти... Не, реци ми касније, хајдемо кући"
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "Пробаћу поново"
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
-msgstr ""
+msgstr "Одустати?"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "Схватићу ово неки други пут"
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "Наставићу да покушавам"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
-msgstr ""
+msgstr "Ова музика је можда његова химна, дај да пробам"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
-msgstr ""
+msgstr "Морам да сазнам шта је Иванова химна"
 
 #: data/scripts/tomb_door.dat:34
 msgid "Randomly ringing bells isn't going to work..."
-msgstr ""
+msgstr "насумично звонити звона неће успети..."
 
 #: data/scripts/tomb_door.dat:39
 msgid "Something is etched on this door"
-msgstr ""
+msgstr "Нешто је угравирано на овим вратима"
 
 #: data/scripts/tomb_door.dat:40
 msgid "Enshrined in this tomb is the great warrior Ivan"
-msgstr ""
+msgstr "У овој гробници је сахрањен велики ратник Иван"
 
 #: data/scripts/tomb_door.dat:41
 msgid "Defeater of the evil dragon known as Chaos"
-msgstr ""
+msgstr "Ратник који је победно злог змаја Хаос"
 
 #: data/scripts/tomb_door.dat:42
 msgid "Access to his tomb is granted only to those who play his anthem"
 msgstr ""
+"Приступ његовој гробници је дозвољен само онима који свирају његову химну"
 
 #: data/scripts/tomb_door.dat:43
 msgid "His anthem? How on earth am I going to figure that out?!"
-msgstr ""
+msgstr "Његова химна? Где очекују да то нађем!?"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
-msgstr ""
+msgstr "Читав овај одељак је о чудовиштима"
 
 #: data/scripts/monsters.dat:3
 msgid ""
 "I don't have any reason to read these but I'll keep it in mind in case I do"
 msgstr ""
+"Немам разлога да ово читам, али ћу имати на уму у случају да ми затреба"
 
 #: data/scripts/monsters.dat:6
 msgid "I wonder what other monsters there are..."
-msgstr ""
+msgstr "Какве још врсте чудовишта постоје..."
 
 #: data/scripts/monsters.dat:8
 msgid "Chaos"
-msgstr ""
+msgstr "Хаос"
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
-msgstr ""
+msgstr "Хаос је древни, зли змај"
 
 #: data/scripts/monsters.dat:14
 msgid "A dragon?! Dad told me they were all extinct!"
-msgstr ""
+msgstr "Змај?! Тата ми је рекао да су сви изумрли!"
 
 #: data/scripts/monsters.dat:15
 msgid ""
@@ -1168,49 +1228,56 @@ msgid ""
 "Finally a brave warrior and a group of magicians managed to overwhelm and "
 "bind him"
 msgstr ""
+"Коначно, један храбри ратник и група мађионичара успели су да га савладају"
 
 #: data/scripts/monsters.dat:17
 msgid "They sealed the dragon away beneath an old fortress"
-msgstr ""
+msgstr "Запечатили су змаја испод старе тврђаве"
 
 #: data/scripts/monsters.dat:18
 msgid "It is believed he is still there"
-msgstr ""
+msgstr "Верује да је он још увек тамо"
 
 #: data/scripts/monsters.dat:19
 msgid ""
 "Slowly regaining his power until he is strong enough to break free and "
 "terrorise the world once again"
 msgstr ""
+"Полако скупља снагу док не буде довољно јак да се ослободи и да би поново "
+"дивљао ро свету"
 
 #: data/scripts/monsters.dat:21
 msgid "Beneath an old fortress? Maybe they mean this one..."
-msgstr ""
+msgstr "Испод старе тврђаве? Можда мисле на ову..."
 
 #: data/scripts/monsters.dat:22
 msgid ""
 "If that dragon is regaining its power then it must be stopped before it's "
 "too late"
 msgstr ""
+"Ако тај змај повраћа своју снагу, онда мора да се заустави пре него што буде "
+"превише касно"
 
 #: data/scripts/monsters.dat:23
 msgid ""
 "But if its breath destroys anything then I won't be able to protect myself"
-msgstr ""
+msgstr "Али ако његов дах уништава било шта, онда нећу моћи да се заштитим"
 
 #: data/scripts/monsters.dat:24
 msgid "Unless..."
-msgstr ""
+msgstr "Осим ако..."
 
 #: data/scripts/sorceror_start.dat:5
 msgid "Grimlore"
-msgstr ""
+msgstr "Гримлоре"
 
 #: data/scripts/monsters.dat:32
 msgid ""
 "Grimlore is a creature from another dimension. It can be summoned using "
 "powerful dark magic"
 msgstr ""
+"Гримлор је створење из друге димензије. Може се призвати помоћу моћне мрачне "
+"магије"
 
 #: data/scripts/monsters.dat:33
 msgid "The most common reason to summon this beast is to act as a bodyguard"
@@ -1221,32 +1288,39 @@ msgid ""
 "There is no known way to kill Grimlore since upon sustaining critical "
 "injuries it will simply return to its own dimension"
 msgstr ""
+"Не постоји начин да се убије Гримлор, јер након озбиљне повреде, он би се "
+"једноставно вратио у своју димензију"
 
 #: data/scripts/monsters.dat:35
 msgid ""
 "But even injuring it is a monumental task. Anyone encountering this creature "
 "is advised to escape as quickly as possible"
 msgstr ""
+"Чак и да га повредиш је невероватно тешко. Савет за свакога ко наиђе на ово "
+"чудовиште је да побегну што пре"
 
 #: data/scripts/monsters.dat:36
 msgid "Or they will die very quickly"
-msgstr ""
+msgstr "Или они би врло брзо умрали"
 
 #: data/scripts/monsters.dat:42
 msgid "Summoner, Dark"
-msgstr ""
+msgstr "Призивач, Мрачни"
 
 #: data/scripts/monsters.dat:43
 msgid ""
 "Just like regular Summoners, Dark Summoners call in other beasts to do their "
 "bidding"
 msgstr ""
+"Баш као и обични Призивачи, Мрачни Призивачи позивају чудовишта да им помогну"
 
 #: data/scripts/monsters.dat:44
 msgid ""
 "Additionally though they can teleport short distances to escape from their "
 "opponents"
 msgstr ""
+"Поред тога, могу се телепортовати на кратке даљине да би побегли од "
+"противника"
 
 #: data/scripts/monsters.dat:45
 msgid ""
@@ -1256,11 +1330,11 @@ msgstr ""
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
-msgstr ""
+msgstr "Хоовер, Пинк"
 
 #: data/scripts/monsters.dat:52
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr ""
+msgstr "Рози Хоовери су мали четвороножци са дугом њушком"
 
 #: data/scripts/monsters.dat:53
 msgid ""
@@ -1292,13 +1366,15 @@ msgstr ""
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
-msgstr ""
+msgstr "Корњача, Господар"
 
 #: data/scripts/monsters.dat:69
 msgid ""
 "Master Tortoises are frightening beasts. Found in far away lands they "
 "possess the ability to change their heads"
 msgstr ""
+"Господар корњаче су застрашујуће звери. Налазе се у далеким земљама и имају "
+"способност да мењају главе"
 
 #: data/scripts/monsters.dat:70
 msgid ""
@@ -1352,21 +1428,21 @@ msgstr ""
 
 #: data/scripts/monsters.dat:89
 msgid "Splitter"
-msgstr ""
+msgstr "Раздвајач"
 
 #: data/scripts/monsters.dat:90
 msgid "Splitters are harmless monsters unless attacked."
-msgstr ""
+msgstr "Раздвајачи су безопасна чудовишта осим ако су нападнути."
 
 #: data/scripts/monsters.dat:91
 msgid ""
 "Upon sustaining too much damage they will split in two and attack their "
 "predator"
-msgstr ""
+msgstr "Када се озбиљно повреде, поделе се на два дела и нападну заједно"
 
 #: data/scripts/monsters.dat:92
 msgid "If one of these sustains too much damage it will split once again"
-msgstr ""
+msgstr "Ако се један од њих јако повреди, поново се раздвоји"
 
 #: data/scripts/monsters.dat:93
 msgid ""
@@ -1382,25 +1458,30 @@ msgstr ""
 
 #: data/scripts/monsters.dat:100
 msgid "Centurion, Grey"
-msgstr ""
+msgstr "Центурион, сиви"
 
 #: data/scripts/monsters.dat:101
 msgid ""
 "Centurions are magically created creatures, usually dispatched as sentries "
 "or guards"
 msgstr ""
+"Центуриони су магично створена створења, обично запослени као стражари"
 
 #: data/scripts/monsters.dat:102
 msgid ""
 "Though slow moving, their massive size allows them to simply march through "
 "any defence"
 msgstr ""
+"Иако се споро крећу, њихова огромна величина им омогућава да лако прођу кроз "
+"било какву одбрану"
 
 #: data/scripts/monsters.dat:103
 msgid ""
 "Instead of arms, many have huge pile drivers which they use to shake the "
 "ground and disorientate threats"
 msgstr ""
+"Уместо оружја, многи имају огромне шипове које користе да тресу земљу и да "
+"дезоријентишу непријатеље"
 
 #: data/scripts/monsters.dat:104
 msgid ""
@@ -1410,16 +1491,18 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer"
-msgstr ""
+msgstr "Газер"
 
 #: data/scripts/monsters.dat:111
 msgid "Gazers are flying cycloptic creatures found in various places"
 msgstr ""
+"Гајзери су летећа циклоптична створења која се налазе на разним местима"
 
 #: data/scripts/monsters.dat:112
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
+"Њихово једино око је обично затворено и ослањају се на сонар за кретање"
 
 #: data/scripts/monsters.dat:113
 msgid ""
@@ -1435,7 +1518,7 @@ msgstr ""
 #: data/scripts/monsters.dat:115
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
-msgstr ""
+msgstr "Овај напад ради само ако је непријатељ окренут ка Газеру"
 
 #: data/scripts/monsters.dat:116
 msgid ""
@@ -1453,11 +1536,11 @@ msgstr ""
 
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
-msgstr ""
+msgstr "Ово би ми било корисно кад сам ловио црвене муљеве"
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
-msgstr ""
+msgstr "Ипак, можда постоји још нешто у овим књигама што вреди прочитати..."
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
@@ -1465,17 +1548,19 @@ msgstr ""
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr ""
+msgstr "Слуз, зелен... Слуз, љубичаст... Муљ, зелен..."
 
 #: data/scripts/monsters.dat:132
 msgid "Sludge, Red"
-msgstr ""
+msgstr "Муљ, Црвен"
 
 #: data/scripts/monsters.dat:133
 msgid ""
 "Unlike its green cousin, the Red Sludge stays deep underground and rarely, "
 "if ever, surfaces"
 msgstr ""
+"За разлику од свог зеленог рођака, црвени муљ остаје дубоко под земљом и "
+"ретко, ако икада, излази на површину"
 
 #: data/scripts/monsters.dat:134
 msgid ""
@@ -1488,6 +1573,8 @@ msgid ""
 "They are very wary of humans and will attack on sight, usually vomiting up "
 "an acid which takes time to evaporate"
 msgstr ""
+"Веома су опрезни према људима и нападају чим их угледају, обично повраћајући "
+"киселину којој је потребно време да испари"
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
@@ -1498,151 +1585,167 @@ msgid ""
 "Great, that's all it says. I don't even know how to tell the difference "
 "between a male and female. I'll just to take a chance..."
 msgstr ""
+"Одлично, то је све што пише. Не знам ни како да разликујем мушкарца од жене. "
+"Мораћу да ризикујем..."
 
 #: data/scripts/monsters.dat:138
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
+msgstr "Шта је најгоре што може да се деси?"
 
 #: data/scripts/monsters.dat:139
 msgid ""
 "I didn't see any Sludges in the mine when I went to get Borgan's coal and "
 "even if there were any I can't get back there since my raft sank"
 msgstr ""
+"Нисам видео икакаве муљеве у руднику кад сам ишао по Борганов угаљ, а чак и "
+"да их је било, не могу се вратити тамо откако ми је сплав потонуо"
 
 #: data/scripts/monsters.dat:140
 msgid "I'll have to find another mine around here..."
-msgstr ""
+msgstr "Мораћу да нађем још један рудник овде негде..."
 
 #: data/scripts/mine2_exit.dat:1
 msgid "The boss that was guarding the Mine wasn't in the previous version"
-msgstr ""
+msgstr "Бос који је чувао рудник није био у претходној верзији"
 
 #: data/scripts/mine2_exit.dat:2
 msgid "Because it is in this version you won't be able to leave"
-msgstr ""
+msgstr "Пошто је у овој верзији нећете моћи да изађете одавде"
 
 #: data/scripts/mine2_exit.dat:3
 msgid "You will now be transported outside"
-msgstr ""
+msgstr "Сада ћете бити транспортовани напоље"
 
 #: data/scripts/mine2_exit.dat:4
 msgid "We apologize for the inconvenience"
-msgstr ""
+msgstr "Извињавамо се због непријатности"
 
 #: data/scripts/sewer_boss_start.dat:15
 msgid ""
 "So you're back? Well this time, only one of us is getting out of here alive!"
 msgstr ""
+"Знаћи успео си да се вратиш... Овог пута, само један од нас ће изаћи жив!"
 
 #: data/scripts/enchanting_weapons.dat:2
 msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
+"Ова библиотека мора да има информације о свему, тако да мора да постоји "
+"књига која детаљно описује израду штита са отпорношћу против змајеве ватре"
 
 #: data/scripts/enchanting_weapons.dat:8
 msgid ""
 "That dragon stuff sounded interesting, but I'll read about it after I've "
 "created the Fire Shield"
 msgstr ""
+"Та прича о змају је звучила занимљиво, али читаћу о томе кад будем направио "
+"Ватрени Штит."
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
+"Морам да скупим 3 ока од Газера, 1 пипак црвеног муља и додатни штит да бих "
+"направио штит са отпорношћу на ватру"
 
 #: data/scripts/enchanting_weapons.dat:10
 msgid ""
 "Once I've found all these items I'll have to find a place to create the "
 "shield"
-msgstr ""
+msgstr "Када нађем све ове предмете, мораћу да нађем место за израду штита"
 
 #: data/scripts/enchanting_weapons.dat:14
 msgid ""
 "That monster encyclopedia said the dragon's breath incinerated everything, "
 "but that warrior still managed to defeat it"
 msgstr ""
+"Та енциклопедија чудовишта је рекла да змајев дах спаљује све, али тај "
+"ратник је ипак успео да га победи"
 
 #: data/scripts/enchanting_weapons.dat:15
 msgid ""
 "Maybe this book has information about creating a shield to resist dragon "
 "breath"
-msgstr ""
+msgstr "Можда ова књига описује како направити штит са отпором на змајев дах"
 
 #: data/scripts/black_book_search.dat:11
 msgid "Hmmm..."
-msgstr ""
+msgstr "Хммм..."
 
 #: data/scripts/occult_book.dat:16
 msgid "Shield of Dragon Fire Resistance"
-msgstr ""
+msgstr "Штит Отпорности на Змајеву Ватру"
 
 #: data/scripts/enchanting_weapons.dat:20
 msgid ""
 "Creation of shields of dragon fire resistance require occult magics and very "
 "little is known about their manufacture"
 msgstr ""
+"Израда штитова отпорних на ватру змајева захтева окултну магију и врло мало "
+"се зна о њиховој производњи"
 
 #: data/scripts/enchanting_weapons.dat:21
 msgid ""
 "Known ingredients include the shell fragment from a Rampaging Master "
 "Tortoise and the staff of a Dark Summoner"
 msgstr ""
+"Познати састојци су фрагмент оклопа Господар Корњаче и штап Мрачног Призивача"
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
-msgstr ""
+msgstr "Доврага, то је све што пише"
 
 #: data/scripts/enchanting_weapons.dat:23
 msgid ""
 "This library is huge though, there must be a book in this place that "
 "describes the process"
-msgstr ""
+msgstr "Ова библиотека је огромна, мора да постоји књига која описује процес"
 
 #: data/scripts/enchanting_weapons.dat:24
 msgid "But I've looked everywhere, haven't I?"
-msgstr ""
+msgstr "Али сам свуда тражио, зар не?"
 
 #: data/scripts/enchanting_weapons.dat:33
 msgid "There's a book here about enchanting equipment"
-msgstr ""
+msgstr "Овде постоји књига о очаравајућој опреми"
 
 #: data/scripts/enchanting_weapons.dat:34
 msgid "Maybe I can create a shield..."
-msgstr ""
+msgstr "Можда могу да направим штит..."
 
 #: data/scripts/enchanting_weapons.dat:36
 msgid "Swords... Armour... Wands..."
-msgstr ""
+msgstr "Мачеви... Оклопи... Чаробни штапићи"
 
 #: data/scripts/enchanting_weapons.dat:37
 msgid "Stupid book. It's not in order and there's no index"
-msgstr ""
+msgstr "Глупа књига. Није по реду и нема индекса"
 
 #: data/scripts/enchanting_weapons.dat:39
 msgid "Here we go: Shields"
-msgstr ""
+msgstr "Ево нас: Штитови"
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid "Shield of Fire Resistance"
-msgstr ""
+msgstr "Штит отпорности на ватру"
 
 #: data/scripts/occult_book.dat:17
 msgid "Ingredients"
-msgstr ""
+msgstr "Састојци"
 
 #: data/scripts/occult_book.dat:18
 msgid "One must gather the following"
-msgstr ""
+msgstr "Мора да се скупе ови састојци"
 
 #: data/scripts/enchanting_weapons.dat:43
 msgid "The root of a Mandrake"
-msgstr ""
+msgstr "Корен мандрагоре"
 
 #: data/scripts/enchanting_weapons.dat:44
 msgid "The fat of a Mantis (left to stand for 3 months)"
-msgstr ""
+msgstr "Маст богомољка (остављен да одстоји 3 месеца)"
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
@@ -1650,19 +1753,19 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:46
 msgid "3 eyes of the Gazer"
-msgstr ""
+msgstr "3 ока Газера"
 
 #: data/scripts/enchanting_weapons.dat:47
 msgid "The freshly cut tentacle from a female Red Sludge"
-msgstr ""
+msgstr "Свежи одсечени пипак од женског црвеног муља"
 
 #: data/scripts/occult_book.dat:22
 msgid "The shield to apply the enchantment"
-msgstr ""
+msgstr "Штит на ком ће се применити чаролија"
 
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
-msgstr ""
+msgstr "Помешај очи од  Газера и пипак од Муља у глатку течност"
 
 #: data/scripts/enchanting_weapons.dat:50
 msgid ""
@@ -1672,208 +1775,217 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
-msgstr ""
+msgstr "Када смеса постане јарко плава, додај штит"
 
 #: data/scripts/enchanting_weapons.dat:54
 msgid ""
 "There might be potions room or lab where I can find the roots, fat and bones "
 "so I don't need to worry about those"
 msgstr ""
+"Можда постоји лабораторија где могу да нађем корење, масноћу и кости, тако "
+"да не морам да бринем о томе"
 
 #: data/scripts/enchanting_weapons.dat:57
 msgid ""
 "The lab probably has the roots, fat and bones so I don't need to worry about "
 "those"
 msgstr ""
+"Лабораторија вероватно има корење, масноћу и кости, тако да не морам да "
+"бринем о томе"
 
 #: data/scripts/enchanting_weapons.dat:59
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr ""
+msgstr "А газери се мотају по подруму тако да то није проблем"
 
 #: data/scripts/enchanting_weapons.dat:60
 msgid ""
 "What I do need to find is a Red Sludge, but I have no idea where to find one"
-msgstr ""
+msgstr "Треба да нађем црвени муљ, али немам појма где да га нађем"
 
 #: data/scripts/enchanting_weapons.dat:61
 msgid ""
 "I can't use my current shield in the experiment in case it backfires so I'll "
 "have to find another one"
 msgstr ""
+"Не могу да користим свој тренутни штит у експерименту у случају да не успе, "
+"па ћу морати да нађем други"
 
 #: data/scripts/enchanting_weapons.dat:64
 msgid "Obtain 3 Gazer Eyes"
-msgstr ""
+msgstr "Нађи 3 ока од Газера"
 
 #: data/scripts/monsters.dat:122
 msgid "Obtain 1 Red Sludge Tentacle"
-msgstr ""
+msgstr "Нађи 1 пипак од црвеног муља"
 
 #: data/scripts/enchanting_weapons.dat:68
 msgid "Find another shield"
-msgstr ""
+msgstr "Нађи још један штит"
 
 #: data/scripts/enchanting_weapons.dat:70
 msgid "Blend eyeballs and tentacle"
-msgstr ""
+msgstr "Помешај очи и пипак"
 
 #: data/scripts/enchanting_weapons.dat:78
 msgid "It's a book about enchanting equipment"
-msgstr ""
+msgstr "То је књига о чаробној опреми"
 
 #: data/scripts/enchanting_weapons.dat:79
 msgid ""
 "I don't have any reason to read this but I'll keep it in mind in case I do"
-msgstr ""
+msgstr "Немам разлога да ово читам, али ћу имати на уму за сваки случај"
 
 #: data/scripts/items_found.dat:1
 msgid "Hmm, I've looked everywhere and this appears to be everything"
-msgstr ""
+msgstr "Хмм, свуда сам тражио и ово изгледа да је све"
 
 #: data/scripts/items_found.dat:2
 msgid ""
 "I guess the other things must have been destroyed when the sorceror used "
 "that spell"
 msgstr ""
+"Претпостављам да су те ствари биле уништене када је чаробњак употребио ту "
+"чаролију"
 
 #: data/scripts/items_found.dat:3
 msgid "Now to find out where I am and how I can get back"
-msgstr ""
+msgstr "Сада да сазнам где сам и како да се вратим"
 
 #: data/scripts/items_found.dat:4
 msgid "If I can..."
-msgstr ""
+msgstr "Ако могу..."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
-msgstr ""
+msgstr "Хм, почела је киша"
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr ""
+msgstr "Осећам се као да сам био заробљен вечно"
 
 #: data/scripts/sewer_trap_note.dat:3
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr ""
+"Да бих изашао одавде, потребна су ми 3 кључа да бих могао користити лифтове"
 
 #: data/scripts/sewer_trap_note.dat:4
 msgid "So far I have only found 1"
-msgstr ""
+msgstr "До сада сам нашао само 1"
 
 #: data/scripts/sewer_trap_note.dat:5
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
 "placed arrow"
-msgstr ""
+msgstr "Да ствар буде гора, до неких прекидача могу доћи само стрелама"
 
 #: data/scripts/sewer_trap_note.dat:6
 msgid "But spares aren't common and I have run out"
-msgstr ""
+msgstr "Али резервз нису уобичајни, а ја немам више"
 
 #: data/scripts/sewer_trap_note.dat:7
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr ""
+msgstr "Ако не нађем ускоро излаз, бојим се да ћу умрети од глади"
 
 #: data/scripts/sewer_trap_note.dat:9
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr ""
+msgstr "Ако не изађем одавде, доживећу исту судбину..."
 
 #: data/scripts/sewer_trap_note.dat:10
 msgid "Collect 3 Access Keys"
-msgstr ""
+msgstr "Скупи 3 Кључа"
 
 #: data/scripts/tutorial_walls.dat:1
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr ""
+msgstr "Ово је слаб зид, може да се разбије са пијуком"
 
 #: data/scripts/tutorial_walls.dat:2
 msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
-msgstr ""
+msgstr "Да бисте користили пијук, притисните Напад ([INPUT_ATTACK])"
 
 #: data/scripts/tutorial_walls.dat:3
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
-msgstr ""
+msgstr "Имајте на уму да не могу сви слаби зидови да се разбију пијуком"
 
 #: data/scripts/tutorial_walls.dat:4
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr ""
+msgstr "Уништи зид пијуком и наставите"
 
 #: data/scripts/grimlore_die.dat:3
 msgid "There, back to your own dimension"
-msgstr ""
+msgstr "Ето, назад у своју димензију"
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr ""
+msgstr "Где је чаробњак отишао?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
-msgstr ""
+msgstr "Коначно се сретамо!"
 
 #: data/scripts/sorceror_intro_1.dat:9
 msgid "Who are you?"
-msgstr ""
+msgstr "Ко сте ви?"
 
 #: data/scripts/sorceror_intro_1.dat:10
 msgid ""
 "My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
-msgstr ""
+msgstr "Зовем се Едгар и последњих [HOURS] сати сам покушавао да те нађем!"
 
 #: data/scripts/sorceror_intro_1.dat:11
 msgid "Fascinating. What do you want?"
-msgstr ""
+msgstr "Занимљиво. Шта желиш?"
 
 #: data/scripts/sorceror_intro_1.dat:12
 msgid "I've come to rescue my father, tell me where he is!"
-msgstr ""
+msgstr "Дошао сам да спасим тату, реци ми где је!"
 
 #: data/scripts/sorceror_intro_1.dat:13
 msgid ""
 "Your father? My dear child, I do not have the foggiest idea what you are "
 "talking about"
-msgstr ""
+msgstr "Твој тата? Драго дете моје, немам благе везе о чему причаш"
 
 #: data/scripts/sorceror_intro_1.dat:14
 msgid ""
 "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
-msgstr ""
+msgstr "Али ако је негде, биће у мојој тамници. Зашто не погледаш тамо?"
 
 #: data/scripts/ant_lion.dat:1
 msgid "There's something moving around down there..."
-msgstr ""
+msgstr "Нешто се креће тамо доле..."
 
 #: data/scripts/ant_lion.dat:2
 msgid "It might be an ant lion looking for food"
-msgstr ""
+msgstr "Можда је то лав-мрав који тражи храну"
 
 #: data/scripts/ant_lion.dat:3
 msgid "If I go down there, it'll almost certainly eat me"
-msgstr ""
+msgstr "Ако сиђем доле, скоро сигурно ће ме појести"
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
+msgstr "Можда бих могао да намамим нешто друго у његову јаму..."
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
-msgstr ""
+msgstr "То је много слуза"
 
 #: data/scripts/purifier.dat:4
 msgid ""
 "I don't think the Ice Spray will get across this since it only works on water"
-msgstr ""
+msgstr "Не мислим да ће ледени спреј прећи преко овога јер ради само на води"
 
 #: data/scripts/purifier.dat:11
 msgid "Slimes can only swim in water so that's not going to help either"
-msgstr ""
+msgstr "Слузи могу пливати само у води, тако да ни то неће помоћи"
 
 #: data/scripts/purifier.dat:12
 msgid "I remember Borgan telling me how ironic that is"
-msgstr ""
+msgstr "Сећам се да ми је Борган рекао колко је то иронично"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across..."
-msgstr ""
+msgstr "Мораћу да нађем нешто што ће ми помоћи да пређем..."
 
 #: data/scripts/purple_gem.dat:1
 msgid ""
@@ -1883,43 +1995,46 @@ msgstr ""
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr ""
+msgstr "Изгледа као блендер. Могао бих ово да користим да нешто утечним"
 
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
+"Потребни су ми пипак Црвеног Муља и 3 ока  Газера да направим напитак"
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr ""
+msgstr "Још ми треба празна боца да убацим напитак"
 
 #: data/scripts/blender.dat:22
 msgid "OK, here goes!"
-msgstr ""
+msgstr "ОК, почињемо!"
 
 #: data/scripts/tutorial_boxes.dat:1
 msgid "Some items in the game can be pushed and pulled"
-msgstr ""
+msgstr "Неки предмети у игри могу се гурати и вући"
 
 #: data/scripts/tutorial_boxes.dat:2
 msgid "To push an item, simply walk into it"
-msgstr ""
+msgstr "Да бисте гурнули предмет, ходајте у њега"
 
 #: data/scripts/tutorial_boxes.dat:3
 msgid "To pull an item, walk into while holding down Action"
 msgstr ""
+"Да бисте вукли предмет, ходајте у њега док држите притиснут тастер Акција"
 
 #: data/scripts/tutorial_boxes.dat:4
 msgid "You can then pull the item around until you let go of Action"
-msgstr ""
+msgstr "Затим можете вући предмет док не отпустите тастер Акција"
 
 #: data/scripts/tutorial_boxes.dat:5
 msgid "Pull the box over the other side and use it to reach the ledge"
 msgstr ""
+"Превуците кутију на другу страну и употребите је да се попнете на ивицу"
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "Лабораторија!"
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
@@ -1929,145 +2044,154 @@ msgstr ""
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr ""
+msgstr "Нема више где да се сакрије"
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
-msgstr ""
+msgstr "Победио си Гримлора? Немогуће!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
-msgstr ""
+msgstr "Предао се мом мачу као и све остало у овом одвратном месту"
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
-msgstr ""
+msgstr "Ово ти је последња шанса, реци ми где је мој тата!"
 
 #: data/scripts/sorceror_start.dat:8
 msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
-msgstr ""
+msgstr "НЕМАМ ПОЈМА О ЧЕМУ ПРИЧАШ!"
 
 #: data/scripts/sorceror_start.dat:9
 msgid "LIAR! I've run out of patience, prepare to die!"
-msgstr ""
+msgstr "ЛАЖОВ! Немам више живаца, спреми се да погинеш!"
 
 #: data/scripts/sorceror_start.dat:11
 msgid "Very well. If that is your wish"
-msgstr ""
+msgstr "У реду. Ако је то твоја жеља"
 
 #: data/scripts/sorceror_start.dat:12
 msgid "Many have suffered at my hand"
-msgstr ""
+msgstr "Многи су видели свог бога, кад сам их пропустио кроз моје шаке"
 
 #: data/scripts/sorceror_start.dat:13
 msgid "Your death will be quick, but extremely painful"
-msgstr ""
+msgstr "Твоја смрт ће бити брза, али изузетно болна"
 
 #: data/scripts/sorceror_start.dat:14
 msgid ""
 "I will add your head to the long line of foolish adventurers who have tried "
 "to best me"
 msgstr ""
+"Додаћу твоју главу дугом низу глупих авантуриста који су покушали да ме среде"
 
 #: data/scripts/sorceror_start.dat:16
 msgid "Prepare yourself, Edgar"
-msgstr ""
+msgstr "Припреми се, Едгаре"
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
 msgstr ""
+"Прекидачи за ресетовање вам омогућавају да ресетујете положај објекта на мапи"
 
 #: data/scripts/tutorial_reset_switch.dat:2
 msgid ""
 "If an object becomes unreachable then you can use the switch to put it back "
 "in its original place"
 msgstr ""
+"Ако објекат постане недоступан, можете користити прекидач да га вратите на "
+"оригинално место"
 
 #: data/scripts/black_book.dat:1
 msgid "This book is different to the rest"
-msgstr ""
+msgstr "Ова књига је другаћија од осталих"
 
 #: data/scripts/black_book.dat:2
 msgid "I can feel a powerful magic emanating from it"
-msgstr ""
+msgstr "Осећам моћну магију која вири из ње"
 
 #: data/scripts/black_book.dat:3
 msgid "A powerful evil magic"
-msgstr ""
+msgstr "Моћна зла магија"
 
 #: data/scripts/black_book.dat:4
 msgid "Maybe I should leave it alone"
-msgstr ""
+msgstr "Можда би требало да га оставим на миру"
 
 #: data/scripts/black_book.dat:5
 msgid "Still, I could be wrong, maybe it's not evil magic..."
-msgstr ""
+msgstr "Ипак, могуће је да грешим, можда није зла магија..."
 
 #: data/scripts/black_book_search.dat:9
 msgid "Examine the book?"
-msgstr ""
+msgstr "Прегледати књигу?"
 
 #: data/scripts/black_book.dat:20
 msgid "What just happened?"
-msgstr ""
+msgstr "Шта се десило?"
 
 #: data/scripts/black_book.dat:22
 msgid "Maybe I shouldn't go around touching books that give off an evil aura"
-msgstr ""
+msgstr "Можда не би требало да додирујем књиге које зраче злом ауром"
 
 #: data/scripts/black_book.dat:23
 msgid "And spend more time looking for my Dad"
-msgstr ""
+msgstr "И проводити више времена тражећи тату"
 
 #: data/scripts/black_book.dat:25
 msgid ""
 "This would have allowed you to fight Mataeus, but it looks like you've "
 "already defeated him..."
 msgstr ""
+"Ово би ти омогућило да се бориш против Матеуса, али изгледа да си га већ "
+"победио..."
 
 #: data/scripts/black_book.dat:29
 msgid "I'll leave it alone, I'm not getting a good feeling from it"
-msgstr ""
+msgstr "Имам лош предосећај, оставићу то на миру"
 
 #: data/scripts/catacombs_intro.dat:2
 msgid "Oh great, I can barely see anything"
-msgstr ""
+msgstr "Одлично, једва мору ишта да видим"
 
 #: data/scripts/catacombs_intro.dat:9
 msgid "I'll have to be careful where I tread..."
-msgstr ""
+msgstr "Мораћу да пазим где газим..."
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "Escape the Catacombs"
-msgstr ""
+msgstr "Побегните из катакомби"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
-msgstr ""
+msgstr "Прошао је овуда, осећам га"
 
 #: data/scripts/final_battle.dat:2
 msgid ""
 "There's no going back once I step through that door, I'd better make sure "
 "I'm ready"
 msgstr ""
+"Нема повратка кад прођем кроз та врата, боље да се уверим да сам спреман"
 
 #: data/scripts/final_battle.dat:3
 msgid "Enter the door?"
-msgstr ""
+msgstr "Проћи кроз врата?"
 
 #: data/scripts/final_battle.dat:5
 msgid "OK, here we go..."
-msgstr ""
+msgstr "Ок, ево..."
 
 #: data/scripts/final_battle.dat:11
 msgid "Maybe I should prepare a little bit more first"
-msgstr ""
+msgstr "Можда би требало прво мало боље да се срипремим"
 
 #: data/scripts/tutorial_intro.dat:4
 msgid ""
 "Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
 "box"
 msgstr ""
+"Притисните [INPUT_JUMP] када завршите са читањем да бисте прешли на следећи "
+"дијалог"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid ""
@@ -2075,27 +2199,39 @@ msgid ""
 "([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
 "([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Такође можете прећи на следећи дијалог тако што притисните Напад "
+"([INPUT_ATTACK]), Блок ([INPUT_BLOCK]), Скок ([INPUT_JUMP]), Акција "
+"([INPUT_INTERACT]) или Коришћење предмета ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
+"Ово је туторијал за игру Легенда о Едгару. Овај туторијал ће објаснити како "
+"се игра."
 
 #: data/scripts/tutorial_intro.dat:7
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
 msgstr ""
+"Да бисте изашли из туторијала, притисните Escape и користите тастере са "
+"стрелицама горе доле бисте изабрали опцију. Притисните Enter да бисте је "
+"изабрали"
 
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
 msgstr ""
+"Да бисте померили Едгара лево и десно, користите [INPUT_LEFT] и "
+"[INPUT_RIGHT]."
 
 #: data/scripts/tutorial_intro.dat:9
 msgid ""
 "To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
 msgstr ""
+"Да бисте натерали Едгара да скочи, притисните [INPUT_JUMP]. Можете се "
+"кретати у ваздуху током скока"
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
@@ -2107,336 +2243,346 @@ msgstr ""
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
-msgstr ""
+msgstr "Морам да повратим ствари пре него што могу да наставим"
 
 #: data/scripts/azriel_start.dat:6
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
-msgstr ""
+msgstr "Ко се усуђује да пљачка гробницу великог ратника Ивана?"
 
 #: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
-msgstr ""
+msgstr "Ко је то рекао?"
 
 #: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
-msgstr ""
+msgstr "Дрски кретену, патићеш због свог непоштовања"
 
 #: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
-msgstr ""
+msgstr "Ја сам Азриел"
 
 #: data/scripts/centurion_note_1.dat:2
 msgid "I've managed to escape from my cell and am trying to find a way out"
-msgstr ""
+msgstr "Успео сам да побегнем из ћелије и покушавам да нађем излаз"
 
 #: data/scripts/centurion_note_1.dat:3
 msgid ""
 "I found a door blocked by a frame which you need to put 9 jigsaw puzzle "
 "pieces in"
 msgstr ""
+"Нашао сам врата блокирана оквиром у који треба да се убаце 9 делова слагалице"
 
 #: data/scripts/centurion_note_1.dat:4
 msgid ""
 "The pieces are locked behind doors which seem to be linked to the Red "
 "Centurions"
 msgstr ""
+"Делови су закључани иза врата која изгледају повезана са Црвеним Центурионима"
 
 #: data/scripts/centurion_note_1.dat:5
 msgid "The Centurions appear to be indestructible however"
-msgstr ""
+msgstr "Центуриони изгледају неуништиви, међутим"
 
 #: data/scripts/centurion_note_1.dat:6
 msgid "Unless I can find a way to destroy them I will die down here"
-msgstr ""
+msgstr "Осим ако не нађем начин да их уништим, умрећу овде"
 
 #: data/scripts/centurion_note_1.dat:7
 msgid "I'll find a way to destroy them"
-msgstr ""
+msgstr "Наћи ћу начин да их уништим"
 
 #: data/scripts/centurion_note_1.dat:8
 msgid "I'm so close to rescuing Dad now..."
-msgstr ""
+msgstr "Толко сам близу да спасим тату..."
 
 #: data/scripts/centurion_note_1.dat:10
 msgid "Find 9 Puzzle Pieces"
-msgstr ""
+msgstr "Пронађи 9 делова слагалице"
 
 #: data/scripts/wrong_order.dat:2
 msgid "Nothing happened. I don't think that's the right order"
-msgstr ""
+msgstr "Ништа се није десило. Мислим да то није прави редослед"
 
 #: data/scripts/fortress_mine_exit_sign.dat:1
 msgid "There's another sign here"
-msgstr ""
+msgstr "Овде има још један знак"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "If the exit lift is out of order then proceed to the left"
-msgstr ""
+msgstr "Ако излазни лифт не ради, онда наставите лево"
 
 #: data/scripts/fortress_mine_exit_sign.dat:3
 msgid "Warning : Exit route may be hazardous"
-msgstr ""
+msgstr "Упозорење: Излазни пут може бити опасан"
 
 #: data/scripts/fortress_mine_exit_sign.dat:5
 msgid "Maybe I should use the lift to get out"
-msgstr ""
+msgstr "Можда би требало да употребим лифт да изађем"
 
 #: data/scripts/crossbow.dat:16
 msgid "Cool, it worked!"
-msgstr ""
+msgstr "Супер, успело је!"
 
 #: data/scripts/smoothie_colour.dat:2
 msgid "I'm not sure about the colour though, I thought it would be red?"
-msgstr ""
+msgstr "Нисам сигуран за боју, мислио сам да ће бити црвена"
 
 #: data/scripts/smoothie_colour.dat:3
 msgid "Maybe it's supposed to be yellow..."
-msgstr ""
+msgstr "Можда би требало да буде жуто..."
 
 #: data/scripts/smoothie_colour.dat:10
 msgid "I just need to find another shield to enchant..."
-msgstr ""
+msgstr "Само треба да нађем још један штит да га зачарам..."
 
 #: data/scripts/cauldron_exploded.dat:7
 msgid "Maybe that wasn't such a good idea after all..."
-msgstr ""
+msgstr "Можда то ипак није била тако добра идеја..."
 
 #: data/scripts/cauldron_exploded.dat:9
 msgid "Looks like I'll have to find another way to get past those fireballs"
 msgstr ""
+"Изгледа да ћу морати да нађем други начин да прођем поред тих ватрених лопти"
 
 #: data/scripts/sleeping.dat:2
 msgid "It's sleeping"
-msgstr ""
+msgstr "Спава"
 
 #: data/scripts/sleeping.dat:3
 msgid "I'm safe anyway since it's in that cage..."
-msgstr ""
+msgstr "Свакако сам безбедан, јел је у кавезу..."
 
 #: data/scripts/gargoyle_start.dat:6
 msgid "I don't want to go back to the swamp"
-msgstr ""
+msgstr "Не желим да се вратим у мочвару"
 
 #: data/scripts/gargoyle_start.dat:8
 msgid "I'm pretty sure Dad's in the fortress"
-msgstr ""
+msgstr "Прилично сам сигуран да је тата у тврђави"
 
 #: data/scripts/gargoyle_start.dat:12
 msgid "Maybe I should check the swamp again..."
-msgstr ""
+msgstr "Можда би требало поново да проверим мочвару..."
 
 #: data/scripts/gargoyle_start.dat:21
 msgid "What was that?!"
-msgstr ""
+msgstr "Шта је то било?!"
 
 #: data/scripts/ending_part2.dat:32
 msgid "...and when you didn't come home last night I set off to find you"
-msgstr ""
+msgstr "...и кад синоћ ниси дошао кући, кренуо сам да те тражим"
 
 #: data/scripts/ending_part2.dat:33
 msgid "You went to the Sorceror's Fortress?!"
-msgstr ""
+msgstr "Био си у Чаробњачкој тврђави?!"
 
 #: data/scripts/ending_part2.dat:34
 msgid "I thought he'd kidnapped you! Where were you?"
-msgstr ""
+msgstr "Мислио сам да те је киднаповао! Где си био?"
 
 #: data/scripts/ending_part2.dat:35
 msgid "Erm... well you see"
-msgstr ""
+msgstr "Па... видиш..."
 
 #: data/scripts/ending_part2.dat:36
 msgid "When I went out last night I went to Jacob's for a couple of drinks"
-msgstr ""
+msgstr "Кад сам изашао синоћ, отишао сам код Џејкоба на пар пића"
 
 #: data/scripts/ending_part2.dat:37
 msgid "*cough*"
-msgstr ""
+msgstr "*кашаљ*"
 
 #: data/scripts/ending_part2.dat:38
 msgid "several drinks"
-msgstr ""
+msgstr "неколико пића"
 
 #: data/scripts/ending_part2.dat:39
 msgid "On the way home I stopped by the well to have a drink of water"
-msgstr ""
+msgstr "На путу кући, свратио сам код бунара да попијем воду"
 
 #: data/scripts/ending_part2.dat:40
 msgid "and I fell in"
-msgstr ""
+msgstr "и упао сам"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?"
-msgstr ""
+msgstr "Шта?"
 
 #: data/scripts/ending_part2.dat:45
 msgid "I fell down the well"
-msgstr ""
+msgstr "Упао сам у бунар"
 
 #: data/scripts/ending_part2.dat:46
 msgid "I was down there until only a couple of hours ago"
-msgstr ""
+msgstr "Био сам тамо доле до пре само пар сати"
 
 #: data/scripts/ending_part2.dat:47
 msgid "Are you kidding me?"
-msgstr ""
+msgstr "Јел ме завитлаваш?"
 
 #: data/scripts/ending_part2.dat:49
 msgid "I shouted down that well, didn't you hear me?"
-msgstr ""
+msgstr "Викао сам у тај бунар, зар ме ниси чуо?"
 
 #: data/scripts/ending_part2.dat:50
 msgid "I was out cold"
-msgstr ""
+msgstr "Био сам онесвешћен"
 
 #: data/scripts/ending_part2.dat:51
 msgid "Plus, the hangover was absolute murder"
-msgstr ""
+msgstr "Плус, мамурлук ме је средио"
 
 #: data/scripts/ending_part2.dat:53
 msgid "I crossed the swamp"
-msgstr ""
+msgstr "Прешао сам мочвару"
 
 #: data/scripts/ending_part2.dat:54
 msgid "Broke into the Sorceror's Fortress"
-msgstr ""
+msgstr "Ушао сам у Чаробњакову тврђаву"
 
 #: data/scripts/ending_part2.dat:55
 msgid "Fought countless numbers of ferocious monsters"
-msgstr ""
+msgstr "Борио се са гомилу опасних чудовишта"
 
 #: data/scripts/ending_part2.dat:56
 msgid "Got imprisoned in his dungeon"
-msgstr ""
+msgstr "Затворио ме је у његовој тамници"
 
 #: data/scripts/ending_part2.dat:57
 msgid "And was teleported to another part of the world!"
-msgstr ""
+msgstr "И био сам телепортован у други део света!"
 
 #: data/scripts/ending_part2.dat:58
 msgid "I nearly died!"
-msgstr ""
+msgstr "Скоро сам погинуо!"
 
 #: data/scripts/ending_part2.dat:61
 msgid "Near misses don't count"
-msgstr ""
+msgstr "Ситуације где сам се извукао за длаку се не броје"
 
 #: data/scripts/ending_part2.dat:64
 msgid "Only the once though"
-msgstr ""
+msgstr "Али само тај једини пут"
 
 #: data/scripts/ending_part2.dat:67
 msgid "[CONTINUE_COUNT] times according to my count"
-msgstr ""
+msgstr "[CONTINUE_COUNT] пута колко сам ја израчуниао"
 
 #: data/scripts/ending_part2.dat:73
 msgid ""
 "And after all that, when I defeated the Sorceror, he had no idea who you were"
 msgstr ""
+"И после свега тога, кад сам средио Чаробњака, он није имао појма ко си ти"
 
 #: data/scripts/ending_part2.dat:74
 msgid "You killed the Sorceror?!"
-msgstr ""
+msgstr "Убио си чаробњака?!"
 
 #: data/scripts/ending_part2.dat:75
 msgid "I thought he'd kidnapped Dad!"
-msgstr ""
+msgstr "Мислио сам да те је киднаповао!"
 
 #: data/scripts/ending_part2.dat:76
 msgid ""
 "Wow, that has to be the worst case of false accusation I think I'll ever "
 "hear!"
 msgstr ""
+"То мора да је најгори случај погрешне оптужбе коју мислим да ћу икада да "
+"чујем!"
 
 #: data/scripts/ending_part2.dat:78
 msgid "But more seriously, you disobeyed me, son"
-msgstr ""
+msgstr "Али озбиљно, ниси ме послушао, сине"
 
 #: data/scripts/ending_part2.dat:79
 msgid "I told you to never set foot in the Forbidden Swamp"
-msgstr ""
+msgstr "Рекао сам ти да никад не идеш у Забрањену мочвару"
 
 #: data/scripts/ending_part2.dat:80
 msgid "And for that, you'll have to be punished"
-msgstr ""
+msgstr "И због тога, мораћеш бити кажњен"
 
 #: data/scripts/ending_part2.dat:82
 msgid "But Dad..."
-msgstr ""
+msgstr "Али тата..."
 
 #: data/scripts/ending_part2.dat:83
 msgid "Be quiet!"
-msgstr ""
+msgstr "Тишина!"
 
 #: data/scripts/ending_part2.dat:84
 msgid "I just need to think of something suitable..."
-msgstr ""
+msgstr "Само треба да смислим нешто..."
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
-msgstr ""
+msgstr "Изгледа да су ти кокошке опет побегле, Јакобе"
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
-msgstr ""
+msgstr "Заправо, мислим да знам шта ће ти бити казна..."
 
 #: data/scripts/jigsaw_puzzle.dat:3
 msgid "A jigsaw puzzle?!"
-msgstr ""
+msgstr "Слагалица?!"
 
 #: data/scripts/jigsaw_puzzle.dat:4
 msgid "I'm not really a fan of these"
-msgstr ""
+msgstr "Нисам баш љубитељ ових"
 
 #: data/scripts/jigsaw_puzzle.dat:7
 msgid ""
 "I prefer the sliding puzzles, like the one I had to solve to get the "
 "Lightning Sword"
 msgstr ""
+"Више волим клизне загонетке, као ону коју сам морао да решим да бих добио "
+"Мач муње"
 
 #: data/scripts/jigsaw_puzzle.dat:9
 msgid "Still, it looks like this is the only way out"
-msgstr ""
+msgstr "Ипак, изгледа да је ово једини излаз"
 
 #: data/scripts/jigsaw_puzzle.dat:16
 msgid "Looks like I need 9 pieces to slot into the frame"
-msgstr ""
+msgstr "Изгледа ми треба 9 делова да уградим у оквир"
 
 #: data/scripts/jigsaw_puzzle.dat:19
 msgid "The frame is empty"
-msgstr ""
+msgstr "Оквир је празан"
 
 #: data/scripts/jigsaw_puzzle.dat:20
 msgid ""
 "Hopefully the pieces I need are around somewhere, otherwise I'm going to die "
 "down here"
 msgstr ""
+"Надам се да су делови који су ми потребни негде близу, иначе ћу умрети овде"
 
 #: data/scripts/jigsaw_puzzle.dat:23
 msgid ""
 "I've got all the pieces, I just need to place them in the frame and solve "
 "the puzzle"
 msgstr ""
+"Имам све делове, само треба да их поставим у рам и да решим слагалицу"
 
 #: data/scripts/jigsaw_puzzle.dat:24
 msgid "Push left, right, up or down to move the cursor"
-msgstr ""
+msgstr "Притисните лево, десно, горе или доле да бисте померили курсор"
 
 #: data/scripts/jigsaw_puzzle.dat:25
 msgid "Press Attack to select the current piece and move it around"
-msgstr ""
+msgstr "Притисните Напад да бисте изабрали тренутну фигуру и померили је"
 
 #: data/scripts/jigsaw_puzzle.dat:26
 msgid "Press Attack again to stop moving the current piece"
-msgstr ""
+msgstr "Поново притисните Напад да бисте зауставили померање тренутне фигуре"
 
 #: data/scripts/jigsaw_puzzle.dat:27
 msgid "Press Action to quit the puzzle"
-msgstr ""
+msgstr "Притисните Акцију да бисте изашли из слагалице"
 
 #: data/scripts/ice_spray.dat:1
 msgid "More water?!"
-msgstr ""
+msgstr "Још воде?!"
 
 #: data/scripts/ice_spray.dat:7
 msgid ""
@@ -2446,116 +2592,133 @@ msgstr ""
 
 #: data/scripts/ice_spray.dat:8
 msgid "Those fish look quite dangerous too"
-msgstr ""
+msgstr "Те рибе такође изгледају прилично опасно"
 
 #: data/scripts/ice_spray.dat:9
 msgid "I'll have to find another way of getting across"
-msgstr ""
+msgstr "Мораћу да нађем други начин да пређем"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across"
-msgstr ""
+msgstr "Мораћу да нађем нешто што ће ми помоћи да пређем"
 
 #: data/scripts/tutorial_combat.dat:1
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
 msgstr ""
+"Ово је последњи део туторијала и научиће вас да блокирате и нападате "
+"непријатеље"
 
 #: data/scripts/tutorial_combat.dat:2
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
 msgstr ""
+"Прво, требало би да изаберете мач јер има већи домет и јачи je од пијука"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid ""
 "Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
 "press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Притисните [INPUT_INVENTORY] да бисте видели свој инвентар, означите мач и "
+"притисните Напад ([INPUT_ATTACK]) или Користи предмет ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_combat.dat:4
 msgid "Press [INPUT_INVENTORY] again to close your inventory"
-msgstr ""
+msgstr "Поново притисните [INPUT_INVENTORY] да бисте затворили инвентар"
 
 #: data/scripts/tutorial_combat.dat:5
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
 msgstr ""
+"Повремено, од убијених непријатеља пашће срца која нестану након неколико "
+"секунди, зато треба брзо  да се покупе!"
 
 #: data/scripts/tutorial_combat.dat:6
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
 msgstr ""
+"Ако вам се слепи миш превише приближава, држите блок и он ће се безопасно "
+"одбити"
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "Сада убијте све слепе мишеве у подручју!"
 
 #: data/scripts/raft_2.dat:8
 msgid "Aw, not again!"
-msgstr ""
+msgstr "Јој, не опет!"
 
 #: data/scripts/raft_2.dat:9
 msgid "Collect 6 Chopped Logs"
-msgstr ""
+msgstr "Скупи 6 исечених трупаца"
 
 #: data/scripts/raft_2.dat:14
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr ""
+msgstr "Треба ми 6 исецканих балвана да направим сплав"
 
 #: data/scripts/raft_2.dat:18
 msgid "This had better be the last time I have to do this..."
-msgstr ""
+msgstr "Надам се да је ово последњи пут да морам ово да радим..."
 
 #: data/scripts/coal_mining.dat:1
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr ""
+msgstr "Ово мора да је угаљ који Борган жели да му ископам"
 
 #: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
-msgstr ""
+msgstr "Шта?!"
 
 #: data/scripts/evil_edgar_sighted.dat:26
 msgid "He looks just like me"
-msgstr ""
+msgstr "Он изгледа баш као ја"
 
 #: data/scripts/evil_edgar_sighted.dat:27
 msgid "AND HE HAS MY FIRE SHIELD!!"
-msgstr ""
+msgstr "И ОН ИМА МОЈ ВАТРЕНИ ШТИТ!!"
 
 #: data/scripts/robot.dat:1
 msgid "Hey wow, what a cute little machine!"
-msgstr ""
+msgstr "Хеј, каква слатка мала машина!"
 
 #: data/scripts/robot.dat:2
 msgid ""
 "It's got a little slot on the back of it. I guess I put something in there "
 "to make it do stuff"
 msgstr ""
+"Има мали отвор на позадини. Претпостављам да кад ставим нешто унутра да би "
+"радио ствари"
 
 #: data/scripts/robot.dat:3
 msgid "The robot uses instruction cards to move around"
-msgstr ""
+msgstr "Робот користи картице са упутствима за кретање"
 
 #: data/scripts/robot.dat:4
 msgid ""
 "Use the instructions to guide the robot to open areas that you cannot access"
 msgstr ""
+"Користите упутства да бисте робота водили до отварања подручја којима не "
+"можете приступити"
 
 #: data/scripts/robot.dat:5
 msgid ""
 "However, since you can't read the instructions on the card, you will have to "
 "try them all out until one works"
 msgstr ""
+"Међутим, пошто не можете да прочитате упутства на картици, мораћете да их "
+"све испробате док једна не успе"
 
 #: data/scripts/robot.dat:6
 msgid ""
 "If the robot doesn't reach its target, then it will return to its starting "
 "position allowing you to try again"
 msgstr ""
+"Ако робот не достигне циљ, вратиће се у почетну позицију, што вам омогућава "
+"да покушате поново"
 
 #: data/scripts/dungeon_intro.dat:4
 msgid ""
@@ -2565,59 +2728,60 @@ msgstr ""
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
-msgstr ""
+msgstr "О не, заробљен сам!"
 
 #: data/scripts/dungeon_intro.dat:13
 msgid "There must be a way to get this door open"
-msgstr ""
+msgstr "Мора да постоји начин да се ова врата отворе"
 
 #: data/scripts/dungeon_intro.dat:16
 msgid "Wait, perhaps that button unlocks it"
-msgstr ""
+msgstr "Чекај, можда га то дугме откључава"
 
 #: data/scripts/dungeon_intro.dat:17
 msgid "If only I could reach it..."
-msgstr ""
+msgstr "Кад бих само могао да га дохватим..."
 
 #: data/scripts/tutorial_pickaxe.dat:1
 msgid "The pickaxe is one of many weapons you will encounter in the game"
 msgstr ""
+"Пијук је једна од многих оружја од многих оружја које ћете користити у игри"
 
 #: data/scripts/tutorial_pickaxe.dat:2
 msgid "You can use it as both a weapon and a tool"
-msgstr ""
+msgstr "Можете га користити и као оружје и као алат"
 
 #: data/scripts/tutorial_pickaxe.dat:3
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr ""
+msgstr "Узми пијук и настави до следеће тачке Акције"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr ""
+msgstr "овде има промаја..."
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
-msgstr ""
+msgstr "И једна од ових цигли је лабава"
 
 #: data/scripts/hidden_passage.dat:7
 msgid "Aha! It's a hidden passage!"
-msgstr ""
+msgstr "Аха! То је скривени пролаз!"
 
 #: data/scripts/hidden_passage.dat:8
 msgid "Hopefully this will lead me to the sorceror..."
-msgstr ""
+msgstr "Надам се да ће ме ово одвести до чаробњака..."
 
 #: data/scripts/swamp_intro_2.dat:3
 msgid "Phew, I'm glad to be out of there"
-msgstr ""
+msgstr "Уф, драго ми је што сам изашао одатле"
 
 #: data/scripts/swamp_intro_2.dat:5
 msgid "Now to get through this swamp"
-msgstr ""
+msgstr "Сад да прођем кроз ову мочвару"
 
 #: data/scripts/swamp_intro_2.dat:6
 msgid "Negotiate the Swamp"
-msgstr ""
+msgstr "прођи кроз мочвару"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
@@ -2625,61 +2789,65 @@ msgstr ""
 
 #: data/scripts/statues.dat:2
 msgid "Place the 4 statues in the correct order"
-msgstr ""
+msgstr "Поставите 4 статуе исправним редоследом"
 
 #: data/scripts/flying_maggot_die_2.dat:8
 msgid "Strange creature..."
-msgstr ""
+msgstr "Чудно створење..."
 
 #: data/scripts/soul_merger.dat:2
 msgid "Ha ha ha!!!!"
-msgstr ""
+msgstr "Ха ха ха!!!!"
 
 #: data/scripts/soul_merger.dat:3
 msgid "Soon we will be one again..."
-msgstr ""
+msgstr "Ускоро ћемо опет бити једно..."
 
 #: data/scripts/soul_merger.dat:29
 msgid "Wait, something's wrong..."
-msgstr ""
+msgstr "Чекај, нешто није у реду..."
 
 #: data/scripts/soul_merger.dat:30
 msgid "OH NO! THIS IS THE WRONG MACHINE!!"
-msgstr ""
+msgstr "О НЕ! ОВО ЈЕ ПОГРЕШНА МАШИНА!!"
 
 #: data/scripts/soul_merger.dat:40
 msgid "ARGHHHHHH!!!!"
-msgstr ""
+msgstr "АРГХХХХХХ!!!!"
 
 #: data/scripts/soul_merger.dat:53
 msgid "Phew, I feel whole again"
-msgstr ""
+msgstr "Уф, осећам се цео"
 
 #: data/scripts/soul_merger.dat:54
 msgid "And there's my Fire Shield!"
-msgstr ""
+msgstr "А и ето га мој Ватрени штит!"
 
 #: data/scripts/soul_merger.dat:56
 msgid "Hopefully this will get me past all those fireballs..."
-msgstr ""
+msgstr "Надам се да ће ме ово провести кроз све ове ватрение лопте"
 
 #: data/scripts/soul_merger.dat:57
 msgid "Confront the Sorceror"
-msgstr ""
+msgstr "Суочи се са чаробњаком"
 
 #: data/scripts/armour_boss_start.dat:13
 msgid "I should be safe up here, but I need to get rid of it"
-msgstr ""
+msgstr "Требало би да сам безбедан овде горе, али морам да се отарасим тога"
 
 #: data/scripts/instruction_machine.dat:1
 msgid ""
 "This machine has a slot the same size as the cards. I guess I can use it to "
 "create new instructions."
 msgstr ""
+"Ова машина има слот исте величине као и ове картице. Претпостављам да могу "
+"да га користим да направим новех инструкције."
 
 #: data/scripts/instruction_machine.dat:2
 msgid "To create a new set of instructions you need to insert a blank card"
 msgstr ""
+"Да бисте направили нови сет инструкција, потребно је да убаците празну "
+"картицу"
 
 #: data/scripts/instruction_machine.dat:3
 msgid ""
@@ -2689,54 +2857,60 @@ msgstr ""
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
-msgstr ""
+msgstr "Када завршите са уносом упутства, притисните Напад"
 
 #: data/scripts/instruction_machine.dat:5
 msgid "The robot will then follow the instructions on the card"
-msgstr ""
+msgstr "Робот ће затим пратити упутства на картици"
 
 #: data/scripts/instruction_machine.dat:6
 msgid "If the directions aren't correct you can try again"
-msgstr ""
+msgstr "Ако упутства нису тачна, можете покушати поново"
 
 #: data/scripts/glass_wall.dat:1
 msgid ""
 "That glass looks too thick for me to crack, I'll have to find some other way "
 "of shattering it..."
 msgstr ""
+"То стакло изгледа превише дебело, мораћу да нађем неки други начин да га "
+"разбијем..."
 
 #: data/scripts/mine_secret.dat:1
 msgid ""
 "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr ""
+msgstr "Борган је рекао да је део рудника запечаћен након неког \"инцидента“"
 
 #: data/scripts/mine_secret.dat:7
 msgid "There must be something around here..."
-msgstr ""
+msgstr "Мора да постоји нешто овде..."
 
 #: data/scripts/protection_ring.dat:3
 msgid "Wow, what a nice ring"
-msgstr ""
+msgstr "Невероватно, какав леп прстен"
 
 #: data/scripts/protection_ring.dat:5
 msgid ""
 "Hang on a second, Maggie told me to always ask if someone had lost something "
 "before taking it..."
 msgstr ""
+"Чекај, Меги ми је рекла да увек питам да ли је неко нешто изгубио пре него "
+"што узмем..."
 
 #: data/scripts/protection_ring.dat:8
 msgid "ANYONE LOST A RING?!"
-msgstr ""
+msgstr "ДА ЛИ ЈЕ НЕКО ИЗГУБИО ПРСТЕН?!"
 
 #: data/scripts/protection_ring.dat:10
 msgid "No one? Guess it's mine then!"
-msgstr ""
+msgstr "Не? Нико? Претпостављам да је онда мој!"
 
 #: data/scripts/instruction_card.dat:1
 msgid ""
 "You must have the instruction card you wish to use highlighted in your "
 "inventory box"
 msgstr ""
+"Морате имати картицу са упутствима означено у инвентару коју желите да "
+"користите"
 
 #: data/scripts/boulder_boss_2_die.dat:3
 msgid "Good riddance..."
@@ -2744,7 +2918,7 @@ msgstr ""
 
 #: data/scripts/crossbow.dat:5
 msgid "OK, let's see if this works..."
-msgstr ""
+msgstr "ОК, да видимо да ли че ово да ради..."
 
 #: data/scripts/crossbow.dat:17
 msgid ""
@@ -2754,7 +2928,7 @@ msgstr ""
 
 #: data/scripts/crossbow.dat:18
 msgid "And Dad said it'd never come in handy!"
-msgstr ""
+msgstr "А тата је рекао да ми никад неће бити од користи!"
 
 #: data/scripts/crossbow.dat:21
 msgid "I need a length of rope to attach to the bolt"
@@ -2767,18 +2941,19 @@ msgstr ""
 #: data/scripts/crossbow.dat:29
 msgid "I could probably use it to create a bridge over those spikes"
 msgstr ""
+"Вероватно бих могао да га употребим да направим мост преко тих шиљака"
 
 #: data/scripts/crossbow.dat:34
 msgid "I'll need some rope first though"
-msgstr ""
+msgstr "Прво ће ми требати канап"
 
 #: data/scripts/fortress_mine_lift.dat:1
 msgid "There's a sign here"
-msgstr ""
+msgstr "Овде има знак"
 
 #: data/scripts/fortress_mine_lift.dat:2
 msgid "If the lift is out of order then it must be reset"
-msgstr ""
+msgstr "Ако лифт не ради, онда га треба ресетовати"
 
 #: data/scripts/fortress_mine_lift.dat:3
 msgid "There are 4 reset switches along the lift shaft which must be reset"
@@ -2787,34 +2962,39 @@ msgstr ""
 #: data/scripts/fortress_mine_lift.dat:4
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
 msgstr ""
+"Обавезно ресетујте лифт како бисте избегли дуг повратак на површину..."
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr ""
+msgstr "Мислио сам да сам нешто осетио. Овде има промаја..."
 
 #: data/scripts/tutorial_finish.dat:2
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
-msgstr ""
+msgstr "Честитам! Сада знате основе игре, време је да испробате главну игру"
 
 #: data/scripts/tutorial_finish.dat:3
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
 msgstr ""
+"Ако желите да се вратите на овај туторијал, притисните Escape и изаберите "
+"Туторијал из менија"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
+"Да бисте играли главну игру, притисните Escape и изаберите Нову Игру из "
+"менија"
 
 #: data/scripts/grappling_hook.dat:5
 msgid "There, the rope's firmly attached"
-msgstr ""
+msgstr "Ето, канап је чврсто закачен"
 
 #: data/scripts/grappling_hook.dat:9
 msgid "I need to find some rope before I can fire it"
-msgstr ""
+msgstr "Морам да нађем канап пре него што га спалим"
 
 #: data/scripts/grappling_hook.dat:13
 msgid "It's a Grappling Hook"
@@ -2825,34 +3005,36 @@ msgid ""
 "I could probably use it to form a bridge to the other side, but there's no "
 "rope"
 msgstr ""
+"Вероватно могу да га употребим да направим мост до друге стране, али нема "
+"канапа"
 
 #: data/scripts/apple_tree.dat:1
 msgid "It's an apple tree"
-msgstr ""
+msgstr "То дрво је јабука"
 
 #: data/scripts/apple_tree.dat:2
 msgid "Shame it's not a banana tree, I don't like apples"
-msgstr ""
+msgstr "Штета што није дрво банане, не волим јабуке"
 
 #: data/scripts/apple_tree.dat:4
 msgid "There aren't any apples left"
-msgstr ""
+msgstr "Нема више јабука"
 
 #: data/scripts/apple_tree.dat:7
 msgid "It looks like there are some apples in it..."
-msgstr ""
+msgstr "Изгледа као да има неколко јабука у њему..."
 
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
-msgstr ""
+msgstr "Врата се не отварају, претпостављам да сам погрешно унео комбинацију"
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
-msgstr ""
+msgstr "Пуно књига"
 
 #: data/scripts/occult_book.dat:3
 msgid "Nothing of interest here though"
-msgstr ""
+msgstr "Овде нема ништа занимљиво"
 
 #: data/scripts/occult_book.dat:6
 msgid ""
@@ -2862,32 +3044,32 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:7
 msgid "The keepsake of a warrior who has previously defeated the dragon"
-msgstr ""
+msgstr "Успомена од ратника који је победио змаја"
 
 #: data/scripts/occult_book.dat:8
 msgid "The soul of a wandering spirit"
-msgstr ""
+msgstr "Душа лутајућег духа"
 
 #: data/scripts/occult_book.dat:9
 msgid "And a spare shield"
-msgstr ""
+msgstr "И резервни штит"
 
 #: data/scripts/occult_book.dat:10
 msgid ""
 "Once I have all of those items I need to place them in the cauldron..."
-msgstr ""
+msgstr "Кад скупим све те ствари, морам их ставити у казан..."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
-msgstr ""
+msgstr "Ово је књига о окултној магији"
 
 #: data/scripts/occult_book.dat:14
 msgid "Hmm..."
-msgstr ""
+msgstr "хмм..."
 
 #: data/scripts/occult_book.dat:15
 msgid "This is interesting:"
-msgstr ""
+msgstr "ово је занимљиво:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
@@ -2895,7 +3077,7 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:20
 msgid "The staff of a Dark Summoner"
-msgstr ""
+msgstr "Штап Мрачног Призивача"
 
 #: data/scripts/occult_book.dat:23
 msgid "If the dragon has been defeated in the past then one must also gather"
@@ -2909,11 +3091,11 @@ msgstr ""
 msgid ""
 "Once the ingredients have been gathered, they must be placed in the "
 "cauldron..."
-msgstr ""
+msgstr "Када се састојци скупе, морају се ставити у казан..."
 
 #: data/scripts/occult_book.dat:26
 msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
-msgstr ""
+msgstr "О не, не опет! Доста ми је више тог глупог казана!"
 
 #: data/scripts/occult_book.dat:35
 msgid "I've got the staff, but where do I find the shell or the keepsake?"
@@ -2929,57 +3111,59 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
-msgstr ""
+msgstr "Ту има пуно састојка која немам појма где да нађем..."
 
 #: data/scripts/anti_gravity.dat:1
 msgid "Hmm, this is new."
-msgstr ""
+msgstr "Хмм, ово је ново."
 
 #: data/scripts/anti_gravity.dat:2
 msgid ""
 "It doesn't look like it can hurt me though, but there's only one way to find "
 "out..."
 msgstr ""
+"Изгледа да не може да ме повреди, али постоји само један начин да будем "
+"сигуран..."
 
 #: data/scripts/creepers.dat:2
 msgid "Those creepers look different to the others"
-msgstr ""
+msgstr "Ови крипери изгледају другачије од осталих"
 
 #: data/scripts/creepers.dat:3
 msgid "They also look very dangerous..."
-msgstr ""
+msgstr "Такође изгледају веома опасно..."
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
-msgstr ""
+msgstr "То је било лако! И увек могу да се вратим касније!"
 
 #: data/scripts/raft_end.dat:9
 msgid "Oh...."
-msgstr ""
+msgstr "Ох...."
 
 #: data/scripts/raft_end.dat:11
 msgid "Guess I have no choice now."
-msgstr ""
+msgstr "Изгледа да немам избора."
 
 #: data/scripts/raft_end.dat:12
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
+msgstr "Држи се тата, долазим..."
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
-msgstr ""
+msgstr "Хеј, муњевити мач!"
 
 #: data/scripts/lightning_sword.dat:3
 msgid "It looks a lot more powerful than my current sword too"
-msgstr ""
+msgstr "Изгледа много моћније од мог тренутног мача"
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
-msgstr ""
+msgstr "Са овим би требао да будем скоро незаустављив"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
-msgstr ""
+msgstr "Скоро"
 
 #: data/scripts/lightning_sword.dat:6
 msgid ""
@@ -2999,57 +3183,63 @@ msgstr ""
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
-msgstr ""
+msgstr "Уживајте!"
 
 #: data/scripts/jacob.dat:10
 msgid ""
 "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
+msgstr "Хвала што си ми спасио кокошке, јеси ми донео два балвана из шуме?"
 
 #: data/scripts/jacob.dat:14
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
 msgstr ""
+"Хвала Едгаре! Моје кокошке су на правом месту и ови балвани ће ми бити "
+"сасвим довољни"
 
 #: data/scripts/jacob.dat:16
 msgid "Take this sword, may it serve you well!"
-msgstr ""
+msgstr "Узми овај мач, нека те добро служи!"
 
 #: data/scripts/jacob.dat:17
 msgid "Thank you!"
-msgstr ""
+msgstr "Хвала вам!"
 
 #: data/scripts/jacob.dat:23
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr ""
+msgstr "Хвала за балвание, јеси ли имао среће са кокошкама?"
 
 #: data/scripts/jacob.dat:27
 msgid ""
 "I'll give you a sword if you get me 2 chopped logs from the forest and "
 "rescue at least 3 of my chickens"
 msgstr ""
+"Даћу ти мач ако ми донесеш 2 исечена балвана из шуме и спасиш бар 3 моје "
+"кокошке"
 
 #: data/scripts/jacob.dat:32
 msgid "Hello Edgar, what can I do for you today?"
-msgstr ""
+msgstr "Здраво Едгаре, шта могу данас да ти учиним?"
 
 #: data/scripts/jacob.dat:33
 msgid "Do you have a sword I can borrow?"
-msgstr ""
+msgstr "Имаш ли мач који могу да позајмим?"
 
 #: data/scripts/jacob.dat:34
 msgid ""
 "I do have a sword and you can have it if you do something for me first"
-msgstr ""
+msgstr "Имам мач и можеш да га узмеш ако прво нешто учиниш за мене"
 
 #: data/scripts/jacob.dat:35
 msgid "OK... what do I have to do?"
-msgstr ""
+msgstr "У реду... шта треба да урадим?"
 
 #: data/scripts/jacob.dat:36
 msgid ""
 "Some of my chickens have escaped from their pen and I would be very grateful "
 "if you can get them back for me"
 msgstr ""
+"Неке од мојих кокошка су побегле из тора и био бих веома захвалан ако би "
+"могао да их вратиш за мене"
 
 #: data/scripts/jacob.dat:38
 msgid ""
@@ -3057,100 +3247,114 @@ msgid ""
 "using this chicken feed. I don't need them all, but at least 3 would be very "
 "helpful. I can get the rest myself."
 msgstr ""
+"Поставио сам неколико замке близу њиховог тора, можеш да их намамиш у замке "
+"користећи ову храну за пилиће. Не мораш све да их вратиш, али бар 3 би ми "
+"много помогло. Остатак могу сам да нађем."
 
 #: data/scripts/jacob.dat:40
 msgid ""
 "Not quite. Can you also get me some wood from the forest? 2 logs should be "
 "sufficient"
 msgstr ""
+"Не баш. Можеш ли ми донети и дрва из шуме? 2 балвана би требало да буду "
+"довољна"
 
 #: data/scripts/jacob.dat:41
 msgid "Do you have an axe?"
-msgstr ""
+msgstr "Имаш ли секиру?"
 
 #: data/scripts/jacob.dat:42
 msgid ""
 "Erm... I left my axe in the forest somewhere. It should still be there"
 msgstr ""
+"Хм... Оставио сам моју секиру негде у шуми. Вероватно је још увек тамо"
 
 #: data/scripts/jacob.dat:43
 msgid "Isn't that forest dangerous?"
-msgstr ""
+msgstr "Зар није та шума опасна?"
 
 #: data/scripts/jacob.dat:44
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
-msgstr ""
+msgstr "Не баш, ако ти се нешто нађе на путу, само га удари оружјем"
 
 #: data/scripts/jacob.dat:45
 msgid "Such as an axe?"
-msgstr ""
+msgstr "Као секира?"
 
 #: data/scripts/jacob.dat:46
 msgid "Yes, that would do the trick"
-msgstr ""
+msgstr "Да, то би радило"
 
 #: data/scripts/jacob.dat:48
 msgid ""
 "But seriously, there's nothing in there that can really harm you. That "
 "problem was dealt with a long time ago..."
 msgstr ""
+"Али озбиљно, нема ничега што би те заиста могло повредити. Тај проблем је "
+"одавно решен..."
 
 #: data/scripts/jacob.dat:49
 msgid "Good luck!"
-msgstr ""
+msgstr "Срећно!"
 
 #: data/scripts/jacob.dat:51
 msgid "Collect 2 Chopped Logs"
-msgstr ""
+msgstr "Скупите 2 исечена балвана"
 
 #: data/scripts/jacob.dat:53
 msgid "Rescue 3 Chickens"
-msgstr ""
+msgstr "Спасите 3 кокошке"
 
 #: data/scripts/jacob.dat:62
 msgid ""
 "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
 msgstr ""
+"Ох, хвала Едгаре, требало ми је само 3, али хвала на додатној помоћи!"
 
 #: data/scripts/jacob.dat:64
 msgid ""
 "Here, Maggie made me this health potion but I don't need it so why don't you "
 "have it?"
 msgstr ""
+"Меги ми је направила овај напитак за здравље, али ми не треба, можеш да га "
+"узмеш."
 
 #: data/scripts/jacob.dat:65
 msgid "Thanks Jacob"
-msgstr ""
+msgstr "Хвала Јацобе"
 
 #: data/scripts/jacob.dat:86
 msgid "Wow, you caught them all, thanks alot!"
-msgstr ""
+msgstr "Вау, ухватио си их све, хвала пуно!"
 
 #: data/scripts/jacob.dat:87
 msgid "Here, I have these for you"
-msgstr ""
+msgstr "Ево, имам ово за тебе"
 
 #: data/scripts/jacob.dat:89
 msgid "Maggie made me this health potion but you can have it"
 msgstr ""
+"Меги ми је направила овај напитак за здравље, али можеш ти да га узмеш"
 
 #: data/scripts/jacob.dat:90
 msgid "And this is something very special"
-msgstr ""
+msgstr "И ово је нешто веома специално"
 
 #: data/scripts/jacob.dat:92
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr ""
+msgstr "Нека ти ово помогне на путу да постанеш јак ратник"
 
 #: data/scripts/jacob.dat:126
 msgid ""
 "You saved me a lot of time. Maggie made me something else but since you have "
 "been so helpful, you can have it."
 msgstr ""
+"Уштедео си ми много времена. Меги ми је направила нешто друго, али пошто си "
+"био од пуно користи, можеш да га узмеш."
 
 #: data/scripts/power_generators.dat:3
 msgid "These machines aren't working."
-msgstr ""
+msgstr "Ове машине не раде."
 
 #: data/scripts/power_generators.dat:5
 msgid ""
@@ -3160,15 +3364,15 @@ msgstr ""
 
 #: data/scripts/power_generators.dat:6
 msgid "Find 4 Gems"
-msgstr ""
+msgstr "Пронађите 4 драгуља"
 
 #: data/scripts/power_generators.dat:12
 msgid "Repair Generators"
-msgstr ""
+msgstr "Поправите Генераторе"
 
 #: data/scripts/gold_centurion.dat:7
 msgid "This centurion has no power"
-msgstr ""
+msgstr "Овај центурион нема моћ"
 
 #: data/scripts/gold_centurion.dat:9
 msgid ""
@@ -3178,23 +3382,24 @@ msgstr ""
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
-msgstr ""
+msgstr "Ипак, не могу да трчим у овом оклопу"
 
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
 msgstr ""
+"Плус, уморан сам од овог ходања, скакања, пливања, од свих ових борба..."
 
 #: data/scripts/gold_centurion.dat:12
 msgid "thinking, mining, chopping, pushing, pulling, carrying..."
-msgstr ""
+msgstr "размишљање, рударење, сецкање, гурање, вучење, ношење..."
 
 #: data/scripts/gold_centurion.dat:13
 msgid "and catching chickens"
-msgstr ""
+msgstr "и хватање кокошка"
 
 #: data/scripts/gold_centurion.dat:14
 msgid "I'll get something else to do it instead"
-msgstr ""
+msgstr "Наћи ћу нешто друго да радим"
 
 #: data/scripts/gold_centurion.dat:2
 msgid "I'll find something else to work the treadmill for me"
@@ -3202,56 +3407,63 @@ msgstr ""
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
-msgstr ""
+msgstr "Убијте све слепе мишеве!"
 
 #: data/scripts/cave_bomb.dat:1
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
 "to get through..."
 msgstr ""
+"Ова стена изгледа прејака за мој пијук. Мораћу да користим нешто друго да "
+"прођем..."
 
 #: data/scripts/cave_intro.dat:11
 msgid "Looks like this wasn't such a good idea after all"
-msgstr ""
+msgstr "Изгледа да ово ипак није била тако добра идеја"
 
 #: data/scripts/cave_intro.dat:12
 msgid "There must be way out of here..."
-msgstr ""
+msgstr "Мора да постоји излаз одавде..."
 
 #: data/scripts/cave_intro.dat:13
 msgid "Escape the Cave"
-msgstr ""
+msgstr "Побегните из Пећине"
 
 #: data/scripts/huge_spider.dat:6
 msgid "Wow, that thing is huge!"
-msgstr ""
+msgstr "Вау, та ствар је огромна!"
 
 #: data/scripts/huge_spider.dat:7
 msgid ""
 "I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
+"Сумњам да ће мој мач успети ии да га огребе, али морам да га прођем..."
 
 #: data/scripts/has_combination.dat:1
 msgid "Hmmm, maybe this scrap of paper is the combination"
-msgstr ""
+msgstr "Хмм, можда је овај комадић папира комбинација"
 
 #: data/scripts/has_combination.dat:2
 msgid "I'll give it a try"
-msgstr ""
+msgstr "Пробаћу"
 
 #: data/scripts/has_combination.dat:3
 msgid "Push left or right to move the dial 1 unit in that direction"
 msgstr ""
+"Притисните лево или десно да бисте померили бројчаник за 1 јединицу у том "
+"смеру"
 
 #: data/scripts/has_combination.dat:4
 msgid ""
 "When you think you've input the correct combination, press Attack to open "
 "the safe"
 msgstr ""
+"Када мислите да сте унели исправну комбинацију, притисните Напад да бисте "
+"отворили сеф"
 
 #: data/scripts/resurrection_amulet.dat:1
 msgid "Is this what I think it is?"
-msgstr ""
+msgstr "Да ли је ово оно што мислим?"
 
 #: data/scripts/resurrection_amulet.dat:3
 msgid "It is! It's an Amulet of Resurrection!"
@@ -3262,170 +3474,185 @@ msgid ""
 "Borgan has one of these, but it's been used up. He must have had a lucky "
 "escape from something."
 msgstr ""
+"Борган има један од ових, али је потрошен. Мора да је имао среће да нечему "
+"побегне."
 
 #: data/scripts/resurrection_amulet.dat:5
 msgid "This should make my quest a lot easier"
-msgstr ""
+msgstr "Ово би требало да ми олакша потрагу"
 
 #: data/scripts/resurrection_amulet.dat:6
 msgid ""
 "The Amulet of Resurrection will restore all your health once when it drops "
 "to 0"
-msgstr ""
+msgstr "Амулет васкрсења ће вам повратити здравље када падне на 0"
 
 #: data/scripts/resurrection_amulet.dat:7
 msgid ""
 "However, it will not save you from anything that causes instant death, such "
 "as lava or certain boss attacks"
 msgstr ""
+"Међутим, неће вас спасити од било чега што вас среди одмах попут лаве или "
+"одређених напада боса"
 
 #: data/scripts/evil_edgar_encounter_1.dat:9
 msgid "Me? I'm you!"
-msgstr ""
+msgstr "Ја? Ја сам ти!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:10
 msgid "No you're not, where did you come from?"
-msgstr ""
+msgstr "Не, ниси, одакле си дошао?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:11
 msgid ""
 "When your stupid experiment failed, part of your conscious separated and "
 "created me"
 msgstr ""
+"Кад је твој глупи експеримент пропао, део твоје свести се одвојио и створио "
+"мене"
 
 #: data/scripts/evil_edgar_encounter_1.dat:12
 msgid "I'm like you in every way, just more evil"
-msgstr ""
+msgstr "Ја сам као и ти, осим што сам више зао"
 
 #: data/scripts/evil_edgar_encounter_1.dat:13
 msgid "I'm not evil!"
-msgstr ""
+msgstr "Ја нисам зао!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:14
 msgid ""
 "Yes you are, you know that little part of you that enjoyed pulling the legs "
 "off insects?"
-msgstr ""
+msgstr "Јеси, сећаш ли се како си волео да чупаш ноге бубама?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:15
 msgid "Hey, I don't do that anymore!"
-msgstr ""
+msgstr "Више то не радим!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:16
 msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
-msgstr ""
+msgstr "О, наравно, а оних [GAME_KILLS] створења која си убио?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:17
 msgid "That was self defence!"
-msgstr ""
+msgstr "То је била самоодбрана!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:18
 msgid "Did you try talking to them?"
-msgstr ""
+msgstr "Јеси ли покушао да разговараш са њима?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:19
 msgid "You're crazy!"
-msgstr ""
+msgstr "Ти си луд!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:20
 msgid "No, I'm evil!"
-msgstr ""
+msgstr "Не, ја сам зао!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:21
 msgid "That's my shield! I need to it rescue my Dad!"
-msgstr ""
+msgstr "То је мој штит! Треба ми га да спасим тату!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:22
 msgid "Well it's mine now"
-msgstr ""
+msgstr "Па, сада је мој"
 
 #: data/scripts/evil_edgar_encounter_1.dat:23
 msgid "Give it back!"
-msgstr ""
+msgstr "Врати га!"
 
 #: data/scripts/evil_edgar_start.dat:35
 msgid "Make me!"
-msgstr ""
+msgstr "Натерај ме!"
 
 #: data/scripts/evil_edgar_start.dat:36
 msgid "Fine, I will!"
-msgstr ""
+msgstr "Управо ћу то и урадити!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:34
 msgid "Loser"
-msgstr ""
+msgstr "Будала"
 
 #: data/scripts/evil_edgar_encounter_1.dat:35
 msgid ""
 "I'll collect his corpse later. The equipment in the lab should be enough for "
 "me to carry out my plan..."
 msgstr ""
+"Касније ћу покупити његов леш. Опрема у лабораторији би требало да ми буде "
+"довољна да спроведем свој план..."
 
 #: data/scripts/centurion_pressure_plate.dat:1
 msgid ""
 "This lift is controlled by that pressure plate, but I can't stand on it and "
 "use the lift at the same time"
 msgstr ""
+"Ова притисна плоча контролише лифт, али не могу да стојим на притисној плочи "
+"и да користим лифт истовремено"
 
 #: data/scripts/centurion_pressure_plate.dat:2
 msgid ""
 "I'll have to find something else to stand on the pressure plate for me..."
-msgstr ""
+msgstr "Мораћу да нађем нешто друго да стане на притискајућу плочу..."
 
 #: data/scripts/wasteland_intro_2.dat:2
 msgid ""
 "To turn your normal arrows into flaming arrows, just use the flaming arrow "
 "potion in the inventory screen"
 msgstr ""
+"Да бисте претворили своје обичне стреле у ватрене стреле, само користите "
+"напитак за ватрене стреле из инвентара"
 
 #: data/scripts/wasteland_intro_2.dat:3
 msgid ""
 "To swap between firing normal arrows and flaming arrows, select the arrows "
 "in the inventory"
 msgstr ""
+"Да бисте мењали између обичних стрела и ватрених стрела, изаберите стреле у "
+"инвентару"
 
 #: data/scripts/wasteland_intro_2.dat:4
 msgid "Retrieve horn"
-msgstr ""
+msgstr "Узми рог"
 
 #: data/scripts/mastermind.dat:4
 msgid "Push left or right to move the cursor"
-msgstr ""
+msgstr "Притисните лево или десно да бисте померили курсор"
 
 #: data/scripts/mastermind.dat:5
 msgid "Press Attack to change the colour of the peg"
-msgstr ""
+msgstr "Притисните Напад да бисте променили боју клина"
 
 #: data/scripts/mastermind.dat:6
 msgid ""
 "When you have selected all of the colours, move the cursor onto the question "
 "mark and press Attack"
 msgstr ""
+"Када сте одабрали све боје, померите курсор на знак питања и притисните Напад"
 
 #: data/scripts/mastermind.dat:7
 msgid ""
 "The number shown in the box is the number of pegs that are correctly placed"
-msgstr ""
+msgstr "Број приказан у кутији је број клинова који су правилно постављени"
 
 #: data/scripts/mastermind.dat:8
 msgid "You have 10 attempts to guess the sequence"
-msgstr ""
+msgstr "Имате 10 покушаја да погодите низ"
 
 #: data/scripts/mastermind.dat:9
 msgid "Press Action to quit"
-msgstr ""
+msgstr "Притисните Акција да бисте изашли"
 
 #: data/scripts/mastermind.dat:12
 msgid "It's not working at the moment"
-msgstr ""
+msgstr "Тренутно не ради"
 
 #: data/scripts/mastermind.dat:13
 msgid "Maybe I should come back later..."
-msgstr ""
+msgstr "Можда да се вратим касније..."
 
 #: data/scripts/mastermind.dat:17
 msgid "It's a giant mastermind puzzle!"
-msgstr ""
+msgstr "То је огромна загонетка!"
 
 #: data/scripts/mastermind.dat:18
 msgid ""
@@ -3434,376 +3661,415 @@ msgstr ""
 
 #: data/scripts/mastermind.dat:20
 msgid "It doesn't look like it's working though"
-msgstr ""
+msgstr "Ипак, изгледа да не ради"
 
 #: data/scripts/gargoyle_stone.dat:1
 msgid "It's petrified again"
-msgstr ""
+msgstr "Опет је скамењено"
 
 #: data/scripts/fish.dat:1
 msgid "The water is full of those carnivorous fish"
-msgstr ""
+msgstr "Вода је пуна тих месождерних риба"
 
 #: data/scripts/fish.dat:2
 msgid ""
 "From the looks of things I'll have to swim through the water to get to the "
 "other side"
-msgstr ""
+msgstr "згледа да ћу морати да пливам да бих стигао на другу страну"
 
 #: data/scripts/fish.dat:3
 msgid "But the fish will go for me the moment I enter the water"
-msgstr ""
+msgstr "Али рибе ће кренути на мене чим уђем у воду"
 
 #: data/scripts/fish.dat:4
 msgid "I'll have to find a way to get rid of them..."
-msgstr ""
+msgstr "Морам да нађем начин да их се решим..."
 
 #: data/scripts/rusted.dat:4
 msgid "There, that's the hinges oiled. This should be as good as new now!"
-msgstr ""
+msgstr "Ето, шарке су подмазане. Требало би сада да буде као ново!"
 
 #: data/scripts/rusted.dat:7
 msgid "The hinges are rusted, I'll need to find some oil before I can use it"
-msgstr ""
+msgstr "Шарке су зарђале, мораћу да нађем мало уља за њих"
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
-msgstr ""
+msgstr "Ево почињем..."
 
 #: data/scripts/fireball_passage.dat:8
 msgid "I still need a Fire Shield"
-msgstr ""
+msgstr "И даље ми је потребан ватрени штит"
 
 #: data/scripts/fireball_passage.dat:12
 msgid ""
 "I don't think my shield will protect me from those fireballs. I'll have to "
 "find a stronger one..."
 msgstr ""
+"Не верујем да ће ме мој штит заштитити од тих ватрених лопти. Мораћу да "
+"нађем јачи..."
 
 #: data/scripts/fireball_passage.dat:13
 msgid "Obtain a Fire Shield"
-msgstr ""
+msgstr "Направите Ватрени Штит"
 
 #: data/scripts/puzzle_pieces.dat:5
 msgid "I need all 9 puzzle pieces"
-msgstr ""
+msgstr "Треба ми свих 9 делова слагалице"
 
 #: data/scripts/dungeon_escape.dat:2
 msgid "I'm back in the Fortress, thank goodness for that"
-msgstr ""
+msgstr "Хвала Богу што сам се вратио у Тврђаву"
 
 #: data/scripts/dungeon_escape.dat:3
 msgid ""
 "But Dad wasn't in there, I looked everywhere and there was no sign of him"
 msgstr ""
+"Али тата није био тамо, свуда сам тражио и није било ни трага од њега"
 
 #: data/scripts/dungeon_escape.dat:4
 msgid ""
 "The sorceror must have done something else with him, I'll have to go back "
 "and find out"
 msgstr ""
+"Чаробњак је сигурно урадио нешто друго са њим, мораћу да се вратим и да "
+"сазнам"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "Return to the Study"
-msgstr ""
+msgstr "Вратите се у Студију"
 
 #: data/scripts/wasteland_intro.dat:5
 msgid "Ouch, my head..."
-msgstr ""
+msgstr "Ау, моја глава..."
 
 #: data/scripts/wasteland_intro.dat:12
 msgid "Oh no, I've lost all my equipment!"
-msgstr ""
+msgstr "О не, изгубио сам сву своју опрему!"
 
 #: data/scripts/wasteland_intro.dat:20
 msgid "Some of my stuff is over there..."
-msgstr ""
+msgstr "Неке од мојих ствари су тамо..."
 
 #: data/scripts/wasteland_intro.dat:25
 msgid ""
 "If those items are in this wasteland then perhaps everything else is too"
-msgstr ""
+msgstr "Ако су ти предмети у овој пустоши, онда је можда и све остало такође"
 
 #: data/scripts/wasteland_intro.dat:26
 msgid "I'll have to try and retrieve as much as I can..."
-msgstr ""
+msgstr "Морам да покушам да скупим што више могу..."
 
 #: data/scripts/wasteland_intro.dat:27
 msgid "Retrieve items"
-msgstr ""
+msgstr "Нађите своју опрему"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid ""
 "That should do it. Hopefully that other lift by the Sewer should now be "
 "working"
 msgstr ""
+"То би требало да буде то. Надам се да ће онај други лифт поред канализације "
+"сада радити"
 
 #: data/scripts/monster_horn.dat:1
 msgid "This looks like the horn that Olaf needs"
-msgstr ""
+msgstr "Ово изгледа као рог који је Олафу потребан"
 
 #: data/scripts/monster_horn.dat:2
 msgid "I'll have to break it off somehow..."
-msgstr ""
+msgstr "Мораћу некако да га изкидам..."
 
 #: data/scripts/library_intro.dat:3
 msgid "Wow, I've never seen so many books in one place!"
-msgstr ""
+msgstr "Невероватно, никад нисам видео толико књига на једном месту!"
 
 #: data/scripts/library_intro.dat:4
 msgid ""
 "There must be information about every subject here, this could be useful..."
 msgstr ""
+"Овде мора да има информације о свакој теми, ово би могло бити корисно..."
 
 #: data/scripts/library_intro.dat:6
 msgid ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
 msgstr ""
+"Хммм, ваздух је наелектрисан, подсећа ме на Мегину кућу када је правила "
+"чаролије. Требало би да будем опрезан"
 
 #: data/scripts/grasslands_intro.dat:7
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
+"Чаробњак је сигурно одвео тату у свој замак. Мораћу да га спасим одатле."
 
 #: data/scripts/grasslands_intro.dat:8
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
 msgstr ""
+"Једини начин да се стигне до замка је кроз Забрањену мочвару на истоку."
 
 #: data/scripts/grasslands_intro.dat:9
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
-msgstr ""
+msgstr "Између Села и Мочваре има језеро, требаће ми сплав да га пређем"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
 "and Jacob to get these though."
 msgstr ""
+"Такође ће ми требати мач и штит да се браним. Могу да разговарам са Борганом "
+"и Џејкобом да се опремим."
 
 #: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
-msgstr ""
+msgstr "Разговарај са Борганом"
 
 #: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
-msgstr ""
+msgstr "Разговарај са Џејкобом"
 
 #: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
-msgstr ""
+msgstr "Пређите језеро до Мочваре"
 
 #: data/scripts/flying_maggot_start_2.dat:8
 msgid "Wait, what was that?"
-msgstr ""
+msgstr "Чекај, шта је то било?"
 
 #: data/scripts/flying_maggot_start_2.dat:13
 msgid "You again?!"
-msgstr ""
+msgstr "Ти опет?!"
 
 #: data/scripts/left_tower_intro.dat:7
 msgid "What a hassle that was"
-msgstr ""
+msgstr "Каква је то била гњаважа"
 
 #: data/scripts/left_tower_intro.dat:8
 msgid "I don't think I'll find my Dad in here"
-msgstr ""
+msgstr "Не мислим да ћу наћи тату овде"
 
 #: data/scripts/left_tower_intro.dat:9
 msgid "Maybe I should look somewhere else"
-msgstr ""
+msgstr "Можда да потражим негде другде"
 
 #: data/scripts/left_tower_intro.dat:10
 msgid "Still, there might be something in here worth my time..."
-msgstr ""
+msgstr "Ипак, можда овде има нешто вредно мог времена..."
 
 #: data/scripts/hidden_passage_hint.dat:1
 msgid ""
 "Hmmm.. I've been all around the fortress and there are no other doors "
 "leading off anywhere"
-msgstr ""
+msgstr "Хммм... Обишао сам целу тврђаву и нема других врата која воде никуда"
 
 #: data/scripts/hidden_passage_hint.dat:3
 msgid "Maybe I should have another look in here..."
-msgstr ""
+msgstr "Можда да поново погледам овде..."
 
 #: data/scripts/tutorial_items.dat:1
 msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
 "to your inventory."
 msgstr ""
+"Да бисте покупили предмет, једноставно уђите у њега. Сви предмети за "
+"сакупљање биће додати у ваш инвентар."
 
 #: data/scripts/tutorial_items.dat:2
 msgid ""
 "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
-msgstr ""
+msgstr "Садржај инвентара можете видети кад притиснете [INPUT_INVENTORY]"
 
 #: data/scripts/tutorial_items.dat:3
 msgid "Whilst in the inventory, use the arrow keys to view the items."
 msgstr ""
+"Док сте у инвентару, користите тастере са стрелицама да бисте видели "
+"предмете."
 
 #: data/scripts/tutorial_items.dat:4
 msgid ""
 "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
 "Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Можете одмах употребити предмет са притиском на Напад ([INPUT_ATTACK]) или "
+"Користи предмет ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_items.dat:5
 msgid ""
 "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
 "([INPUT_INTERACT])"
 msgstr ""
+"Можете припремити предмет за употребу притиском на Блок ([INPUT_BLOCK]) или "
+"Акција ([INPUT_INTERACT])"
 
 #: data/scripts/tutorial_items.dat:6
 msgid ""
 "You can also sort items in your inventory by using the Previous Item "
 "([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
 msgstr ""
+"Такође можете сортирати предмете у свом инвентару користећи дугме Претходни "
+"предмет ([INPUT_PREVIOUS]) и Следећи предмет ([INPUT_NEXT])"
 
 #: data/scripts/tutorial_items.dat:7
 msgid "Walk over the key to pick it up"
-msgstr ""
+msgstr "Пређи до кључа да га покупиш"
 
 #: data/scripts/fortress_intro.dat:3
 msgid "So this is the Fortress."
-msgstr ""
+msgstr "Значи ово је Тврђава."
 
 #: data/scripts/fortress_intro.dat:4
 msgid ""
 "It looks like a lot of doors lead off to other areas, I should have a proper "
 "look around before I go anywhere else..."
 msgstr ""
+"Изгледа да многа врата воде у друга места, требало би мало да истражим пре "
+"него што одем негде другде..."
 
 #: data/scripts/tutorial_keys.dat:1
 msgid ""
 "You can change all of the controls in the game by pressing Escape and "
 "selecting Options in the menu"
 msgstr ""
+"Све контроле у ​​игри можете променити притиском на тастер Escape и одабиром "
+"Опције у менију"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Select Configure Controls using the arrow keys and press Return"
 msgstr ""
+"Изаберите Конфигуриши контроле помоћу тастера са стрелама и притисните Return"
 
 #: data/scripts/tutorial_keys.dat:3
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
 msgstr ""
+"Користите тастере са стрелицама да бисте изабрали контролу коју желите да "
+"промените и притисните тастер Return."
 
 #: data/scripts/tutorial_keys.dat:4
 msgid "Next, press the key that you want to use instead."
-msgstr ""
+msgstr "Затим притисните тастер који желите да користите уместо њега."
 
 #: data/scripts/tutorial_keys.dat:5
 msgid ""
 "Regardless of what keys you choose, you can always navigate the menus using "
 "the arrow keys and Return"
 msgstr ""
+"Без обзира које тастере изаберете, увек можете да се крећете кроз меније "
+"помоћу тастера са стрелицама и тастера Return"
 
 #: data/scripts/tutorial_keys.dat:6
 msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
 msgstr ""
+"Када завршите са конфигурисањем тастера, пређите одмах на следећу тачку "
+"акције"
 
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
-msgstr ""
+msgstr "То је књига Стивена Џ. Свинија под називом \"Трећа страна\""
 
 #: data/scripts/sludge_pool.dat:1
 msgid ""
 "That stuff looks dangerous, it'd probably eat through my armour in seconds"
-msgstr ""
+msgstr "То изгледа опасно, вероватно би ми пробило оклоп за неколико секунди"
 
 #: data/scripts/sludge_pool.dat:2
 msgid "But I'll have to find a way across..."
-msgstr ""
+msgstr "Али мораћу да нађем начин да пређем..."
 
 #: data/scripts/hoover.dat:2
 msgid "There, looks like the little guy is full and is sleeping it off"
-msgstr ""
+msgstr "Изгледа да се мали заситио и да спава"
 
 #: data/scripts/hoover.dat:3
 msgid "I should be able to get past him without any bother now"
-msgstr ""
+msgstr "Сад могу да га заобиђем без икаквих проблема"
 
 #: data/scripts/hoover.dat:7
 msgid "Hey, what's that?"
-msgstr ""
+msgstr "Хеј, шта је то?"
 
 #: data/scripts/hoover.dat:12
 msgid "It's a baby Hoover"
-msgstr ""
+msgstr "То је Хувер беба"
 
 #: data/scripts/hoover.dat:13
 msgid ""
 "I saw a grown up one in the big city when I went there with my Dad, they're "
 "completely harmless"
 msgstr ""
+"Видео сам једног одраслог у великом граду кад сам био тамо са татом, потпуно "
+"су безопасни"
 
 #: data/scripts/hoover.dat:16
 msgid "I miss my Dad, I hope I find him soon..."
-msgstr ""
+msgstr "Недостаје ми тата, надам се да ћу га ускоро наћи..."
 
 #: data/scripts/hoover.dat:18
 msgid "Why is it here? It must be frightened"
-msgstr ""
+msgstr "Зашто је овде? Мора да је уплашен"
 
 #: data/scripts/hoover.dat:20
 msgid "Hello little fella, are you lost?"
-msgstr ""
+msgstr "Здраво малишане, јеси ли се изгубио?"
 
 #: data/scripts/hoover.dat:21
 msgid "Don't worry, I won't hurt you"
-msgstr ""
+msgstr "Не брини, нећу те повредити"
 
 #: data/scripts/hoover.dat:30
 msgid "Ow!"
-msgstr ""
+msgstr "Ај!"
 
 #: data/scripts/hoover.dat:33
 msgid ""
 "I guess it's scared. I might be able to get past it if I give it some food"
 msgstr ""
+"Претпостављам да је уплашен. Можда ћу моћи да прођем ако му дам мало хране"
 
 #: data/scripts/hoover.dat:34
 msgid "They're vegetarians so I'll have to find some fruit or vegetables..."
-msgstr ""
+msgstr "Они су вегетаријанци, па ћу морати да нађем неко воће или поврће..."
 
 #: data/scripts/armoury_intro.dat:2
 msgid "Wow, this place is empty!"
-msgstr ""
+msgstr "Ово место је празно!"
 
 #: data/scripts/armoury_intro.dat:3
 msgid "I guess the sorceror has no need for weapons since he has magic"
-msgstr ""
+msgstr "Претпостављам да чаробњаку није потребно оружје пошто има магију"
 
 #: data/scripts/armoury_intro.dat:4
 msgid "Still, there must be something of use in here"
-msgstr ""
+msgstr "Ипак, овде мора да има нешто корисно"
 
 #: data/scripts/well.dat:3
 msgid "I've already checked, he's not down there..."
-msgstr ""
+msgstr "Већ сам проверио, није тамо доле..."
 
 #: data/scripts/well.dat:7
 msgid ""
 "I've heard of people falling into the well before, maybe Dad's in there..."
 msgstr ""
+"Чуо сам приче о људима који су упали у бунар, можда је тата у бунару..."
 
 #: data/scripts/well.dat:8
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr ""
+msgstr "ТАТА!!!!! ЈЕСИ ЛИ ДОЛЕ?!!!!!"
 
 #: data/scripts/well.dat:10
 msgid "Nothing. I guess I'll have to keep on looking"
-msgstr ""
+msgstr "Ништа. Настављам да тражим"
 
 #: data/scripts/slime_potion.dat:3
 msgid "There's a note here too"
-msgstr ""
+msgstr "Исто има напомена"
 
 #: data/scripts/slime_potion.dat:4
 msgid ""
@@ -3819,67 +4085,74 @@ msgstr ""
 
 #: data/scripts/slime_potion.dat:6
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr ""
+msgstr "Остало је још мало, требало би да буде безбедно за пиће"
 
 #: data/scripts/slime_potion.dat:7
 msgid "OK, here goes nothing..."
-msgstr ""
+msgstr "ОК, почињем, нема смисла чекати..."
 
 #: data/scripts/slime_potion.dat:11
 msgid "Urgh!! This is horrible!"
-msgstr ""
+msgstr "Уф!! Ово је ужасно!"
 
 #: data/scripts/slime_potion.dat:12
 msgid ""
 "Borgan told me that Slimes can swim in water though, so maybe this will be "
 "useful..."
 msgstr ""
+"Борган ми је рекао да Слимови могу да пливају у води, тако да ће ово можда "
+"бити корисно..."
 
 #: data/scripts/slime_potion.dat:13
 msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
 msgstr ""
+"Када се трансформишеш у Слима, можеш се кретати као и обично. Такође можеш "
+"пливати у води и користити покрете горе-доле за кретање"
 
 #: data/scripts/slime_potion.dat:14
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
 msgstr ""
+"Кад притиснете горе или скок, искочићећете из воде ако сте близу површине"
 
 #: data/scripts/slime_potion.dat:15
 msgid ""
 "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
 "will automatically become human again"
 msgstr ""
+"Пратите тајмер на дну екрана. Када достигне 0, аутоматски ћете поново "
+"постати човек"
 
 #: data/scripts/cauldron.dat:2
 msgid "Maybe this thing isn't so bad after all"
-msgstr ""
+msgstr "Можда ово и није тако лоше на крају крајева"
 
 #: data/scripts/cauldron.dat:21
 msgid "That's all the ingredients, I just need to add a shield"
-msgstr ""
+msgstr "То су сви састојци, само треба да додам штит"
 
 #: data/scripts/cauldron.dat:22
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
-msgstr ""
+msgstr "Мислим да ми више неће требати Фантазмални штит..."
 
 #: data/scripts/cauldron.dat:27
 msgid "Please don't make another evil version of me..."
-msgstr ""
+msgstr "Молим те, не направи још једну злу верзију од мене..."
 
 #: data/scripts/cauldron.dat:37
 msgid "What a fine looking shield"
-msgstr ""
+msgstr "Какав леп штит"
 
 #: data/scripts/cauldron.dat:38
 msgid "But will it protect me from that dragon's flames?"
-msgstr ""
+msgstr "Али хоће ли ме то заштитити од пламена змаја?"
 
 #: data/scripts/cauldron.dat:39
 msgid "I guess there's only one way to find out..."
-msgstr ""
+msgstr "Постоји само један начин да се сазна..."
 
 #: data/scripts/cauldron.dat:40
 msgid "The book said it was sealed below a fortress"
@@ -3890,18 +4163,19 @@ msgid ""
 "If it is this one then the only two places it could be are the catacombs and "
 "the dungeon"
 msgstr ""
+"Ако је ово, онда су једина два места где би могло бити су катакомбе и тамница"
 
 #: data/scripts/cauldron.dat:42
 msgid "I should start my search there"
-msgstr ""
+msgstr "Почећу своју потрагу тамо"
 
 #: data/scripts/cauldron.dat:45
 msgid "I don't have all the ingredients yet."
-msgstr ""
+msgstr "Још немам све састојке."
 
 #: data/scripts/cauldron.dat:46
 msgid "The book said I needed to find the following"
-msgstr ""
+msgstr "У књизи је писало да треба да пронађем следеће"
 
 #: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
@@ -3909,7 +4183,7 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:54
 msgid "Hopefully I'll never have to use this again"
-msgstr ""
+msgstr "Надам се да ово више никада нећу морати да користим"
 
 #: data/scripts/cauldron.dat:57
 msgid ""
@@ -3919,27 +4193,27 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
-msgstr ""
+msgstr "Овај пут не ризикујем..."
 
 #: data/scripts/cauldron.dat:75
 msgid "Did it work?"
-msgstr ""
+msgstr "Јел је успело?"
 
 #: data/scripts/cauldron.dat:91
 msgid "I think it's safe now..."
-msgstr ""
+msgstr "Мислим да је сада безбедно..."
 
 #: data/scripts/cauldron.dat:98
 msgid "I'll use my wooden shield..."
-msgstr ""
+msgstr "Користићу свој дрвени штит..."
 
 #: data/scripts/cauldron.dat:139
 msgid "Stupid thing. Maggie makes it all look so easy..."
-msgstr ""
+msgstr "Глупа ствар. Меги све чини да изгледа лако..."
 
 #: data/scripts/cauldron.dat:142
 msgid "It's a cauldron. Maggie has one just like this"
-msgstr ""
+msgstr "То је котао. Меги има један баш такав"
 
 #: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
@@ -3947,23 +4221,23 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
-msgstr ""
+msgstr "И остали састојци такође"
 
 #: data/scripts/cauldron.dat:167
 msgid "Aha! It's gone blue, just like the book said it would"
-msgstr ""
+msgstr "Аха! Поплавело је, баш као што је књига описала"
 
 #: data/scripts/cauldron.dat:168
 msgid "Now to add the shield"
-msgstr ""
+msgstr "Сада да додам штит"
 
 #: data/scripts/cauldron.dat:177
 msgid "Uh-Oh..."
-msgstr ""
+msgstr "Ох Не..."
 
 #: data/scripts/cauldron.dat:203
 msgid "I need all the main ingredients"
-msgstr ""
+msgstr "Потребни су ми сви главни састојци"
 
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
@@ -3975,23 +4249,23 @@ msgstr ""
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
-msgstr ""
+msgstr "Мислим да је мртав"
 
 #: data/scripts/black_book_search.dat:7
 msgid "Or at least as dead as a book can be"
-msgstr ""
+msgstr "Или макар колико књига може бити мртва"
 
 #: data/scripts/black_book_search.dat:8
 msgid "It might be safe to touch now"
-msgstr ""
+msgstr "Можда је сада безбедно да додирнем"
 
 #: data/scripts/black_book_search.dat:18
 msgid "This page just has a sequence of numbers scrawled on it"
-msgstr ""
+msgstr "На овој страници је исписан низ бројева"
 
 #: data/scripts/black_book_search.dat:19
 msgid "I'll take it with me, it might come in handy"
-msgstr ""
+msgstr "Понећу га са собом, можда ми буде од користи"
 
 #: data/scripts/black_book_search.dat:20
 msgid ""
@@ -4001,63 +4275,66 @@ msgstr ""
 
 #: data/scripts/black_book_search.dat:25
 msgid "I'll leave it alone, especially after what happened last time..."
-msgstr ""
+msgstr "Оставићу га на миру, после онога што се десило прошлог пута..."
 
 #: data/scripts/cave_statue.dat:1
 msgid "Hmm, what's that?"
-msgstr ""
+msgstr "Хмм, шта је то?"
 
 #: data/scripts/cave_statue.dat:2
 msgid "It's a small statue. It must be the one that Olaf said he stole"
-msgstr ""
+msgstr "То је мала статуа. Мора да је она за коју је Олаф рекао да је украо"
 
 #: data/scripts/cave_statue.dat:3
 msgid ""
 "Well, since he's helping me get back to the sorceror, the least I can do is "
 "retrieve it for him"
 msgstr ""
+"Па, пошто ми помаже да се вратим код чаробњака, могу макар да му је донесем"
 
 #: data/scripts/cave_statue.dat:7
 msgid "Typical..."
-msgstr ""
+msgstr "Типично..."
 
 #: data/scripts/cave_statue.dat:8
 msgid ""
 "Well, it might have just fallen further down into the cave, I'll just have "
 "to keep looking"
-msgstr ""
+msgstr "Па, можда је пало дубље у пећину, морам дубље да тражим"
 
 #: data/scripts/fortress_mine_intro.dat:1
 msgid "Huh, déjà vu..."
-msgstr ""
+msgstr "Хм, дежа ви..."
 
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
-msgstr ""
+msgstr "Изгледа да доле постоји велика мрежа пећина"
 
 #: data/scripts/monster_horn_taken.dat:6
 msgid "Olaf did tell me to just get the horn and leave"
-msgstr ""
+msgstr "Олаф ми је рекао да само узмем рог па да се вратим"
 
 #: data/scripts/no_instructions.dat:1
 msgid ""
 "This card is blank, I'll have to put some instructions on it to make it "
 "useable."
 msgstr ""
+"Ова картица је празна, морам да напишем нека упутства на њој да би била "
+"употребљива."
 
 #: data/scripts/sorceror_study.dat:1
 msgid ""
 "The sorceror will almost certainly destroy me if I confront him without the "
 "shield"
-msgstr ""
+msgstr "Чаробњак ће ме сигурно уништити ако му се суочим без штита"
 
 #: data/scripts/sorceror_study.dat:2
 msgid "I'd better go and make it first"
-msgstr ""
+msgstr "Боље да прво одем да га направим"
 
 #: data/scripts/fortress_intro_2.dat:3
 msgid "Glad to be out of there"
-msgstr ""
+msgstr "Драго ми је што сам изашао одатле"
 
 #: data/scripts/fortress_intro_2.dat:4
 msgid "Now to get that shield back from my double..."
@@ -4065,37 +4342,39 @@ msgstr ""
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
-msgstr ""
+msgstr "Пронађите злог Едгара"
 
 #: data/scripts/spores.dat:1
 msgid "Hey, those look familiar"
-msgstr ""
+msgstr "Хеј, изгледају познато"
 
 #: data/scripts/spores.dat:2
 msgid "They look like hypnotic spores"
-msgstr ""
+msgstr "Изгледају као хипнотичке споре"
 
 #: data/scripts/spores.dat:3
 msgid ""
 "Borgan told me that they can temporarily trick certain creatures into "
 "thinking that you're not a threat and leave you alone"
 msgstr ""
+"Борган ми је рекао да могу привремено преварити одређена створења да помисле "
+"да ниси претња и да те оставе на миру"
 
 #: data/scripts/spores.dat:5
 msgid "Maybe they'll work on the creatures here..."
-msgstr ""
+msgstr "Можда ће радити на овим чудовиштима"
 
 #: data/scripts/tomb_door_open.dat:10
 msgid "Great, that worked!"
-msgstr ""
+msgstr "Одлично, успело је!"
 
 #: data/scripts/tomb_door_open.dat:11
 msgid "What a terrible anthem though, almost completely random"
-msgstr ""
+msgstr "Каква ужасна химна, скоро потпуно насумична"
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
-msgstr ""
+msgstr "Ово изгледа као успомена"
 
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
@@ -4104,240 +4383,243 @@ msgstr ""
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
-msgstr ""
+msgstr "А сада да одем одавде..."
 
 #: data/scripts/lava_door.dat:1
 msgid "I've seen this type of metal before, it heats up really easily"
-msgstr ""
+msgstr "Видео сам ову врсту метала раније, веома се лако загрева"
 
 #: data/scripts/lava_door.dat:2
 msgid "Maybe I can find a way to melt it..."
-msgstr ""
+msgstr "Можда могу да нађем начин да га отопим..."
 
 #: data/scripts/sliding_puzzle.dat:2
 msgid "Cool, a giant sliding puzzle! I have one of these back home!"
-msgstr ""
+msgstr "Супер, огромна клизна слагалица! Имам једну такву код куће!"
 
 #: data/scripts/sliding_puzzle.dat:3
 msgid "Well, not a giant one, obviously..."
-msgstr ""
+msgstr "Па, очигледно не огромну"
 
 #: data/scripts/sliding_puzzle.dat:6
 msgid "Push left, right, up or down to move the blocks"
-msgstr ""
+msgstr "Притисните лево, десно, горе или доле да бисте померили блокове"
 
 #: data/scripts/sliding_puzzle.dat:7
 msgid ""
 "Arrange the blocks so that the numbers 1 to 8 appear in order from left to "
 "right and the empty block is in the bottom right corner"
 msgstr ""
+"Поређајте блокове тако да бројеви од 1 до 8 иду редом од леве до десне "
+"стране, а празан блок да буде у доњем десном углу"
 
 #: data/scripts/sliding_puzzle.dat:8
 msgid "Press Attack to quit the puzzle"
-msgstr ""
+msgstr "Притисните Напад да бисте изашли из слагалице"
 
 #: data/scripts/raft.dat:8
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
-msgstr ""
+msgstr "Да бих стигао до Забрањене мочваре, мораћу да направим сплав."
 
 #: data/scripts/raft.dat:9
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr ""
+msgstr "Могу да направим сплав ако посечем довољно дрвећа из шуме"
 
 #: data/scripts/raft.dat:29
 msgid "I'm not going to the swamp without a sword and shield"
-msgstr ""
+msgstr "Не идем у мочвару без мача и штита"
 
 #: data/scripts/teleporter_discovery.dat:1
 msgid "Hey, what's this?"
-msgstr ""
+msgstr "Хеј, шта је ово?"
 
 #: data/scripts/teleporter_discovery.dat:3
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr ""
+msgstr "Изгледа прилично безопасно, покушаћу да га згазим"
 
 #: data/scripts/teleporter_discovery.dat:7
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr ""
+msgstr "То је било супер! Ово мора да је механички телепорт."
 
 #: data/scripts/teleporter_discovery.dat:9
 msgid "I wonder if it works both ways..."
-msgstr ""
+msgstr "Питам се да ли функционише у оба смера..."
 
 #: data/scripts/teleporter_discovery.dat:14
 msgid "Horray!"
-msgstr ""
+msgstr "Хорраи!"
 
 #: data/scripts/teleporter_discovery.dat:15
 msgid ""
 "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr ""
+msgstr "Не само да ће ми ово уштедити много ходања, исто је веома забавно!"
 
 #: data/scripts/correct_combination.dat:9
 msgid "There's a note in here"
-msgstr ""
+msgstr "Овде има белешка"
 
 #: data/scripts/correct_combination.dat:10
 msgid "It says the following:"
-msgstr ""
+msgstr "У њему пише следеће:"
 
 #: data/scripts/correct_combination.dat:11
 msgid "Cheaters never prosper"
-msgstr ""
+msgstr "Варалице никада не напредују"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Oh..."
-msgstr ""
+msgstr "Ох..."
 
 #: data/scripts/correct_combination.dat:19
 msgid "I saw this shield in the book about enchanting weapons"
-msgstr ""
+msgstr "Видео сам овај штит у књизи о чаробном оружју"
 
 #: data/scripts/correct_combination.dat:20
 msgid "It's a Phantasmal Shield"
-msgstr ""
+msgstr "То је Фантазмални штит"
 
 #: data/scripts/correct_combination.dat:21
 msgid "The Phantasmal Shield will protect you from phantasmal forces"
-msgstr ""
+msgstr "Фантазмални штит ће вас заштитити од фантазмалних сила"
 
 #: data/scripts/correct_combination.dat:22
 msgid ""
 "In addition to this it can reflect phantasmal projectiles back at the owner"
-msgstr ""
+msgstr "Поред тога, може да одбије фантазмалне пројектиле назад ка власнику"
 
 #: data/scripts/correct_combination.dat:23
 msgid ""
 "Blocking at the last moment increases the power of the reflected projectile"
-msgstr ""
+msgstr "Блокирање у последњем тренутку повећава снагу одбијеног пројектила"
 
 #: data/scripts/sorceror_die.dat:10
 msgid "Ugh, you have defeated me"
-msgstr ""
+msgstr "Уф, победио си ме"
 
 #: data/scripts/sorceror_die.dat:11
 msgid "How..."
-msgstr ""
+msgstr "Како..."
 
 #: data/scripts/sorceror_die.dat:12
 msgid "TALK! Where is my father?"
-msgstr ""
+msgstr "РЕЦИ! Где је мој тата?"
 
 #: data/scripts/sorceror_die.dat:13
 msgid "I... I don't understand..."
-msgstr ""
+msgstr "Ја... не разумем..."
 
 #: data/scripts/sorceror_die.dat:14
 msgid "Last night you came to my village and kidnapped my father"
-msgstr ""
+msgstr "Синоћ си дошао у моје село и отео ми тату"
 
 #: data/scripts/sorceror_die.dat:15
 msgid "Where is he?"
-msgstr ""
+msgstr "Где је?"
 
 #: data/scripts/evil_edgar_start.dat:15
 msgid "I..."
-msgstr ""
+msgstr "Ја..."
 
 #: data/scripts/sorceror_die.dat:18
 msgid "I have never been to your village"
-msgstr ""
+msgstr "Никад нисам био у твом селу"
 
 #: data/scripts/sorceror_die.dat:19
 msgid "I don't know where your father is..."
-msgstr ""
+msgstr "Не знам где је твој отац..."
 
 #: data/scripts/sorceror_die.dat:25
 msgid "But if you didn't take my Dad"
-msgstr ""
+msgstr "Али ако ти ниси узео мог тату"
 
 #: data/scripts/evil_edgar_start.dat:9
 msgid "Found you!"
-msgstr ""
+msgstr "Нашао сам те!"
 
 #: data/scripts/evil_edgar_start.dat:11
 msgid "You survived?!"
-msgstr ""
+msgstr "Преживео си?!"
 
 #: data/scripts/evil_edgar_start.dat:12
 msgid ""
 "You sound surprised, I thought you'd have known considering we're the same."
-msgstr ""
+msgstr "Звучиш изненађен, мислио сам да би знао са обзиром да смо исти."
 
 #: data/scripts/evil_edgar_start.dat:13
 msgid "Except you're evil"
-msgstr ""
+msgstr "Осим што си зао"
 
 #: data/scripts/evil_edgar_start.dat:14
 msgid "More evil"
-msgstr ""
+msgstr "Више зао"
 
 #: data/scripts/evil_edgar_start.dat:15
 msgid "Whatever, now I..."
-msgstr ""
+msgstr "Шта год, сада ја..."
 
 #: data/scripts/evil_edgar_start.dat:21
 msgid "What is all this stuff?"
-msgstr ""
+msgstr "Шта је све ово?"
 
 #: data/scripts/evil_edgar_start.dat:22
 msgid "Your experiment separated part of your conscious"
-msgstr ""
+msgstr "Твој експеримент је одвојио део твоје свести"
 
 #: data/scripts/evil_edgar_start.dat:23
 msgid "Yes I know that, you already told me"
-msgstr ""
+msgstr "Да, знам, већ си ми рекао"
 
 #: data/scripts/evil_edgar_start.dat:24
 msgid "I'm still talking!"
-msgstr ""
+msgstr "Још увек причам!"
 
 #: data/scripts/evil_edgar_start.dat:26
 msgid "There should only be one of us in this world: one body, one conscious"
-msgstr ""
+msgstr "Само један од нас може живити у овом свету: једно тело, једна свест"
 
 #: data/scripts/evil_edgar_start.dat:27
 msgid "These machines will join us together"
-msgstr ""
+msgstr "Ове машине ће нас спојити"
 
 #: data/scripts/evil_edgar_start.dat:28
 msgid "The one on the left is for the original body, you"
-msgstr ""
+msgstr "Онај са леве стране је за оригинално тело, ти"
 
 #: data/scripts/evil_edgar_start.dat:29
 msgid "And the one on the right is for the new body, me"
-msgstr ""
+msgstr "А она са десне стране је за ново тело... ја"
 
 #: data/scripts/evil_edgar_start.dat:30
 msgid ""
 "You will go in the one on the left and I'll go in the one on the right"
-msgstr ""
+msgstr "Ти ћеш ући у онај лево, а ја ћу у онај десно"
 
 #: data/scripts/evil_edgar_start.dat:31
 msgid "It will then merge your body into mine, leaving just me"
-msgstr ""
+msgstr "Онда ће спојити твоје тело са мојим, и ја ћу преузети контролу"
 
 #: data/scripts/evil_edgar_start.dat:32
 msgid "Merge us together? Over my dead body!"
-msgstr ""
+msgstr "Да се спојимо? Мораћеш прво да ме убијеш!"
 
 #: data/scripts/evil_edgar_start.dat:33
 msgid ""
 "That was the plan. Since you're alive though, you've saved me the bother of "
 "having to drag your carcass all the way back here"
 msgstr ""
+"То је био план. Пошто си жив, нисам морао да ти вучем тело чак до овде"
 
 #: data/scripts/evil_edgar_start.dat:34
 msgid "Now get in the machine!"
-msgstr ""
+msgstr "А сада уђи у машину!"
 
 #: data/scripts/disintegration_shield.dat:1
 msgid "Wow, what a cool looking shield"
-msgstr ""
+msgstr "Какав кул штит"
 
 #: data/scripts/disintegration_shield.dat:2
 msgid "Hopefully this will protect me from that spell"
-msgstr ""
+msgstr "Надам се да ће ме ово заштитити од те чаролије"
 
 #: data/scripts/disintegration_shield.dat:3
 msgid "But there's only one way to find out..."
