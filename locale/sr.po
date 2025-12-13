@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2025-12-06 05:54+0000\n"
+"PO-Revision-Date: 2025-12-13 19:57+0000\n"
 "Last-Translator: Milos Petrovic <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-12-06 07:12+0000\n"
+"X-Launchpad-Export-Date: 2025-12-13 20:00+0000\n"
 "X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
 
 #: data/scripts/olaf.dat:6
@@ -318,6 +318,7 @@ msgid ""
 "Well, my stock of logs is looking quite low, maybe you could get me some "
 "more while you're out?"
 msgstr ""
+"Моја залиха балвана је скоро празна, можда би могао да ми донесеш још?"
 
 #: data/scripts/olaf.dat:131
 msgid ""
@@ -1081,6 +1082,7 @@ msgstr "Испробај свој штит"
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
 msgstr ""
+"Блокирајте пројектиле које је биљка испљунула и скочите на следећу платформу"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
@@ -1222,6 +1224,8 @@ msgid ""
 "For years he wreaked havoc across this land and took thousands of innocent "
 "lives, his fiery breath incinerated everything in its path"
 msgstr ""
+"Годинама је убијао и уништавао по свету, узео хиљаде живота, и његов ватрени "
+"дах је могао да сравни све пред собом"
 
 #: data/scripts/monsters.dat:16
 msgid ""
@@ -1281,7 +1285,7 @@ msgstr ""
 
 #: data/scripts/monsters.dat:33
 msgid "The most common reason to summon this beast is to act as a bodyguard"
-msgstr ""
+msgstr "Најчешћи разлог за призивање ове звери је да делује као чувар"
 
 #: data/scripts/monsters.dat:34
 msgid ""
@@ -1327,6 +1331,8 @@ msgid ""
 "Their staff is highly magical and although it cannot be used by humans "
 "directly, its magical properties are used in spell creation"
 msgstr ""
+"Њихов штап је веома магичан и иако га људи не могу директно користити, "
+"његове магичне особине се користе у прављену чаролје"
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
@@ -1341,28 +1347,33 @@ msgid ""
 "The primary purpose of the snout is to forage for food but it also serves as "
 "a defence mechanism"
 msgstr ""
+"Примарна сврха њушке је тражење хране, али служи и као одбрамбени механизам"
 
 #: data/scripts/monsters.dat:54
 msgid ""
 "and are more than capable of keeping a predator at bay by simply blowing "
 "them away"
-msgstr ""
+msgstr "и способни су да држе предаторе на дистанци, тако што их одувају"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap, mobile"
-msgstr ""
+msgstr "Венерина Мухоловка, мобилна"
 
 #: data/scripts/monsters.dat:61
 msgid ""
 "Mobile Venus Flytraps have evolved roots and are able to move to their food "
 "rather than waiting for it to come to them"
 msgstr ""
+"Мобилне Венерине Мухоловке имају еволуирано корење и могу се кретати до "
+"хране уместо да чекају да храна дође до њих"
 
 #: data/scripts/monsters.dat:62
 msgid ""
 "Their necks are incredibly elastic and are able to snap at their prey from a "
 "considerable distance away"
 msgstr ""
+"Њихови вратови су невероватно еластични и способни су да ухвате плен са "
+"значајне удаљености"
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
@@ -1381,50 +1392,64 @@ msgid ""
 "They combine all the abilities of their cousins to breathe fire, create ice "
 "and electrify themselves"
 msgstr ""
+"Они комбинују све способности својих рођака да пљују ватру, стварају лед и "
+"електрификују се"
 
 #: data/scripts/monsters.dat:71
 msgid ""
 "And of course they are also impervious to attacks from matching elements, "
 "absorbing the energy to heal themselves"
 msgstr ""
+"И наравно, они су отпорни на нападе одговарајућих елемената, апсорбујући "
+"енергију да би се излечили"
 
 #: data/scripts/monsters.dat:72
 msgid ""
 "But additionally, if they receive too much energy from healing, they evolve "
 "and go on the rampage"
 msgstr ""
+"Али поред тога, ако приме превише енергије од лечења, еволуирају и почну да "
+"дивљају"
 
 #: data/scripts/monsters.dat:73
 msgid ""
 "In this state they will smash through any defence and produce Dark Matter "
 "which destroys anything it touches"
 msgstr ""
+"У овом стању ће пробити сваку одбрану и произвести тамну материју која "
+"уништава све што пипне"
 
 #: data/scripts/monsters.dat:74
 msgid ""
 "However, the shell of a rampaging Master Tortoise is highly magical and is "
 "an essential ingredient when creating powerful magics and items"
 msgstr ""
+"Међутим, оклоп Мајсторске Корњаче је веома магичан и неопходан састојак за "
+"моћне магије и предмете"
 
 #: data/scripts/monsters.dat:80
 msgid "Grub, Red"
-msgstr ""
+msgstr "Ларва, Црвен"
 
 #: data/scripts/monsters.dat:81
 msgid ""
 "Red Grubs are more aggressive than their green counterparts and will attack "
 "anything they view as a threat"
 msgstr ""
+"Црвене ларве су агресивније од својих зелених двојника и нападају све што "
+"сматрају као претњу"
 
 #: data/scripts/monsters.dat:82
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
-msgstr ""
+msgstr "Када одрасту, формирају чауру и трансформишу се у осу"
 
 #: data/scripts/monsters.dat:83
 msgid ""
 "Some however will morph into a queen wasp. These queens can produce a mucus-"
 "like substance capable of holding its prey in place"
 msgstr ""
+"Међутим, неке ће се трансформисати у краљице осе. Краљице могу да произведу "
+"супстанцу која држи свој плен на месту"
 
 #: data/scripts/monsters.dat:89
 msgid "Splitter"
@@ -1449,12 +1474,15 @@ msgid ""
 "These versions are completely harmless and in this state can be simply "
 "stepped on"
 msgstr ""
+"Ове верзије су потпуно безопасне и у овом стању се по њима може газити"
 
 #: data/scripts/monsters.dat:94
 msgid ""
 "If all its parts are still alive, a splitter will reform itself after a "
 "while and heal its wounds"
 msgstr ""
+"Ако су сви његови делови још увек живи, расцепач ће се после неког времена "
+"поново формирати"
 
 #: data/scripts/monsters.dat:100
 msgid "Centurion, Grey"
@@ -1488,6 +1516,8 @@ msgid ""
 "While Grey Centurions will be used to guard outer perimeters, Red Centurions "
 "are known to exist and are used to protect areas of great importance"
 msgstr ""
+"Сиви Сентуриони чувају спољне периметре, али постоје и Црвени Сентуриони "
+"који се користе за заштиту важних подручја"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer"
@@ -1507,13 +1537,15 @@ msgstr ""
 #: data/scripts/monsters.dat:113
 msgid ""
 "They use their strong sense of smell to look out for predator and prey alike"
-msgstr ""
+msgstr "Они користе свој јак мирис да примете предаторе и плен"
 
 #: data/scripts/monsters.dat:114
 msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
 msgstr ""
+"Газери нападају (и бране се) тако што отворе око, заслепљујући противника "
+"који их гледа"
 
 #: data/scripts/monsters.dat:115
 msgid ""
@@ -1525,14 +1557,16 @@ msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
+"Око Газера садржи магичне способности и зато је често састојак у припреми "
+"чаролије"
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
-msgstr ""
+msgstr "Ах, ево компендијум чудовишта"
 
 #: data/scripts/monsters.dat:121
 msgid "34 volumes! How can there be so many monsters in the world?!"
-msgstr ""
+msgstr "34 тома! Како може бити толико чудовишта на свету?!"
 
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
@@ -1544,7 +1578,7 @@ msgstr "Ипак, можда постоји још нешто у овим књи
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
-msgstr ""
+msgstr "Изгледа да су по абецедном редоследу"
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
@@ -1567,6 +1601,8 @@ msgid ""
 "Its preferred habitat are dry and mineral rich areas and as a result have "
 "been found lurking in areas of mines abandoned by humans"
 msgstr ""
+"Његово преферирано станиште је суво подручје богато у минералима. Због тога "
+"се често налазе скривени у рудникама које су људи напустили"
 
 #: data/scripts/monsters.dat:135
 msgid ""
@@ -1578,7 +1614,7 @@ msgstr ""
 
 #: data/scripts/monsters.dat:136
 msgid "Smacker, Lesser..."
-msgstr ""
+msgstr "Смакер, Мањи..."
 
 #: data/scripts/monsters.dat:137
 msgid ""
@@ -1749,7 +1785,7 @@ msgstr "Маст богомољка (остављен да одстоји 3 ме
 
 #: data/scripts/enchanting_weapons.dat:45
 msgid "Powered Condor bones"
-msgstr ""
+msgstr "Активне Кондорске кости"
 
 #: data/scripts/enchanting_weapons.dat:46
 msgid "3 eyes of the Gazer"
@@ -1772,6 +1808,8 @@ msgid ""
 "Add the root, fat and bones into the cauldron and mix together with the "
 "blended Gazer eyes and Sludge tentacle"
 msgstr ""
+"Додајте корен, масноћу и кости у котао и помешајте са изблендираним очима "
+"Газера и пипцима Слаџа"
 
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
@@ -1992,6 +2030,7 @@ msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
 msgstr ""
+"Изгледа да је чврсто заглављен. Вероватно могу да га олабавим пијуком..."
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
@@ -2041,6 +2080,8 @@ msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
 msgstr ""
+"Волим да гледам како Меги прави чаролије и напитке, можда и ја могу да "
+"направим неке своје овде!"
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
@@ -2235,11 +2276,11 @@ msgstr ""
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Да бисте интераговали са предметом, притисните [INPUT_INTERACT]"
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Идите до Тачке Акције и притисните [INPUT_INTERACT]"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
@@ -2589,6 +2630,7 @@ msgid ""
 "I don't think being able to turn into a Slime is going to help me here, "
 "since I might not be able to get back afterwards"
 msgstr ""
+"Претварање у Слуз ми овде неће помоћи, јер се можда нећу моћи вратити касније"
 
 #: data/scripts/ice_spray.dat:8
 msgid "Those fish look quite dangerous too"
@@ -2725,6 +2767,8 @@ msgid ""
 "Ugh, I'm getting really fed up of waking up in strange places with my eyes "
 "spinning around"
 msgstr ""
+"Уф, буђење у чудним местима са очима које ми се врте почиње страшно да ме "
+"нервира"
 
 #: data/scripts/dungeon_intro.dat:11
 msgid "Oh no, I'm trapped!"
@@ -2785,7 +2829,7 @@ msgstr "прођи кроз мочвару"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
-msgstr ""
+msgstr "Овде има плакета"
 
 #: data/scripts/statues.dat:2
 msgid "Place the 4 statues in the correct order"
@@ -2854,6 +2898,8 @@ msgid ""
 "You will then be prompted to input the directions for the robot to follow. "
 "This is done in the same way as the sequence doors"
 msgstr ""
+"Затим ће вам бити тражено да унесете упутства која робот треба да прати. То "
+"се ради на исти начин као и код секвенцијалних врата"
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
@@ -2914,7 +2960,7 @@ msgstr ""
 
 #: data/scripts/boulder_boss_2_die.dat:3
 msgid "Good riddance..."
-msgstr ""
+msgstr "Далеко ти лепа кућа..."
 
 #: data/scripts/crossbow.dat:5
 msgid "OK, let's see if this works..."
@@ -2925,6 +2971,8 @@ msgid ""
 "I'll have no problem walking over this rope either, thanks to my tightrope "
 "walking skills"
 msgstr ""
+"Нећу имати проблема ни са ходањем преко овог канапа, захваљујући мојим "
+"вештинама ходању по жици"
 
 #: data/scripts/crossbow.dat:18
 msgid "And Dad said it'd never come in handy!"
@@ -2932,11 +2980,11 @@ msgstr "А тата је рекао да ми никад неће бити од 
 
 #: data/scripts/crossbow.dat:21
 msgid "I need a length of rope to attach to the bolt"
-msgstr ""
+msgstr "Потребан ми је канап да причврстим на шраф"
 
 #: data/scripts/crossbow.dat:25
 msgid "It's a giant crossbow"
-msgstr ""
+msgstr "То је огроман самострел"
 
 #: data/scripts/crossbow.dat:29
 msgid "I could probably use it to create a bridge over those spikes"
@@ -2958,6 +3006,8 @@ msgstr "Ако лифт не ради, онда га треба ресетова
 #: data/scripts/fortress_mine_lift.dat:3
 msgid "There are 4 reset switches along the lift shaft which must be reset"
 msgstr ""
+"Дуж осовине лифта налазе се 4 прекидача за ресетовање који се морају "
+"ресетовати"
 
 #: data/scripts/fortress_mine_lift.dat:4
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
@@ -2998,7 +3048,7 @@ msgstr "Морам да нађем канап пре него што га спа
 
 #: data/scripts/grappling_hook.dat:13
 msgid "It's a Grappling Hook"
-msgstr ""
+msgstr "То је Кука за Хватање"
 
 #: data/scripts/grappling_hook.dat:14
 msgid ""
@@ -3041,6 +3091,8 @@ msgid ""
 "I need the shell of a Rampaging Master Tortoise, the staff from a Dark "
 "Summoner"
 msgstr ""
+"Потребан ми је Фрагмент оклопа Господара Корњаче, чаробни штап Мрачног "
+"Призивача"
 
 #: data/scripts/occult_book.dat:7
 msgid "The keepsake of a warrior who has previously defeated the dragon"
@@ -3073,7 +3125,7 @@ msgstr "ово је занимљиво:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Фрагмент оклопа Господара Корњаче"
 
 #: data/scripts/occult_book.dat:20
 msgid "The staff of a Dark Summoner"
@@ -3081,11 +3133,11 @@ msgstr "Штап Мрачног Призивача"
 
 #: data/scripts/occult_book.dat:23
 msgid "If the dragon has been defeated in the past then one must also gather"
-msgstr ""
+msgstr "Ако је змај поражен у прошлости, онда се мора сакупити и"
 
 #: data/scripts/occult_book.dat:24
 msgid "The keepsake from a warrior that previously defeated it"
-msgstr ""
+msgstr "Сувенир од ратника који га је претходно победио"
 
 #: data/scripts/occult_book.dat:25
 msgid ""
@@ -3099,15 +3151,15 @@ msgstr "О не, не опет! Доста ми је више тог глупо�
 
 #: data/scripts/occult_book.dat:35
 msgid "I've got the staff, but where do I find the shell or the keepsake?"
-msgstr ""
+msgstr "Имам чаробни штап, али где да нађем део оклопа или сувенир?"
 
 #: data/scripts/occult_book.dat:38
 msgid "I've got the shell, but where do I find the staff or the keepsake?"
-msgstr ""
+msgstr "Имам део оклопа, али где да нађем чаробни штап или сувенир?"
 
 #: data/scripts/occult_book.dat:41
 msgid "I've got the shell and the staff, but where do I find the keepsake?"
-msgstr ""
+msgstr "Имам део оклопа и чаробни штап, али где да нађем сувенир?"
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
@@ -3170,16 +3222,20 @@ msgid ""
 "The Lightning Sword has a limited number of charges and will lose its power "
 "when these charges are used up"
 msgstr ""
+"Мач Муње има ограничен број пуњења и изгубиће своју моћ када се та пуњења "
+"потроше"
 
 #: data/scripts/lightning_sword.dat:7
 msgid "Enemies will randomly drop more charges when they are killed"
-msgstr ""
+msgstr "Непријатељи ће насумично испуштати пуњења када буду убијени"
 
 #: data/scripts/lightning_sword.dat:8
 msgid ""
 "Note that if the sword completely loses its power it will revert to a "
 "regular sword with very little power until you can find more charges"
 msgstr ""
+"Имајте на уму да ако мач потпуно изгуби своју набој, претвориће се у обичан "
+"мач са врло мало снаге док не пронађете још пуњења."
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
@@ -3361,6 +3417,8 @@ msgid ""
 "It looks like a gem should fit in this hole, maybe I can find some "
 "replacements."
 msgstr ""
+"Изгледа да би драгуљ требало да стане у ову рупу, можда могу да нађем неке "
+"замене."
 
 #: data/scripts/power_generators.dat:6
 msgid "Find 4 Gems"
@@ -3379,6 +3437,8 @@ msgid ""
 "It's connected to this treadmill so I could probably charge it up with "
 "enough speed"
 msgstr ""
+"Повезан је са овом траком за трчање тако да бих га вероватно могао напунити "
+"довољном брзином"
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
@@ -3403,7 +3463,7 @@ msgstr "Наћи ћу нешто друго да радим"
 
 #: data/scripts/gold_centurion.dat:2
 msgid "I'll find something else to work the treadmill for me"
-msgstr ""
+msgstr "Наћи ћу нешто друго да ми помогне на траци за трчање"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
@@ -3467,7 +3527,7 @@ msgstr "Да ли је ово оно што мислим?"
 
 #: data/scripts/resurrection_amulet.dat:3
 msgid "It is! It's an Amulet of Resurrection!"
-msgstr ""
+msgstr "Јесте! То је Амулет Васкрсења!"
 
 #: data/scripts/resurrection_amulet.dat:4
 msgid ""
@@ -3657,7 +3717,7 @@ msgstr "То је огромна загонетка!"
 #: data/scripts/mastermind.dat:18
 msgid ""
 "I used to play these all the time when we were travelling up to the big city"
-msgstr ""
+msgstr "Играо сам их све време када смо путовали у велики град"
 
 #: data/scripts/mastermind.dat:20
 msgid "It doesn't look like it's working though"
@@ -4075,13 +4135,15 @@ msgstr "Исто има напомена"
 msgid ""
 "The potion is perfect! Quaffing it will turn a human into a creature for a "
 "small amount of time"
-msgstr ""
+msgstr "Напитак је савршен! Онај ко га попије ће на кратко постати чудовиште"
 
 #: data/scripts/slime_potion.dat:5
 msgid ""
 "So far I can only transmogrify myself into one creature but with a bit more "
 "time anything should be possible"
 msgstr ""
+"За сада могу да се претворим у само чудовиште, али уз мало више времена све "
+"би требало да буде могуће"
 
 #: data/scripts/slime_potion.dat:6
 msgid "There's a tiny bit left, it should be safe to drink"
@@ -4156,7 +4218,7 @@ msgstr "Постоји само један начин да се сазна..."
 
 #: data/scripts/cauldron.dat:40
 msgid "The book said it was sealed below a fortress"
-msgstr ""
+msgstr "У књизи је писало да је запечаћена испод тврђаве"
 
 #: data/scripts/cauldron.dat:41
 msgid ""
@@ -4179,7 +4241,7 @@ msgstr "У књизи је писало да треба да пронађем с
 
 #: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
-msgstr ""
+msgstr "Сувенир од ратника који га је претходно победио"
 
 #: data/scripts/cauldron.dat:54
 msgid "Hopefully I'll never have to use this again"
@@ -4190,6 +4252,8 @@ msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
 msgstr ""
+"Требало би да направим штит против дезинтеграције и спасем Тату пре него што "
+"кренем у потеру за тим змајем"
 
 #: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
@@ -4217,7 +4281,7 @@ msgstr "То је котао. Меги има један баш такав"
 
 #: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
-msgstr ""
+msgstr "У реду, додати су Око Газера и Пипак"
 
 #: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
@@ -4241,11 +4305,11 @@ msgstr "Потребни су ми сви главни састојци"
 
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
-msgstr ""
+msgstr "3 Ока Газера, 1 Пипак Црвеног Муља и резервни штит"
 
 #: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
-msgstr ""
+msgstr "Такође треба да изблендам очи и пипак у течност"
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
@@ -4272,6 +4336,8 @@ msgid ""
 "Besides, this thing nearly killed me twice, I should have some sort of "
 "trophy of my victory"
 msgstr ""
+"Он ме је скоро два пута убијо, требало би да имам неку врсту трофеја за "
+"своју победу"
 
 #: data/scripts/black_book_search.dat:25
 msgid "I'll leave it alone, especially after what happened last time..."
@@ -4338,7 +4404,7 @@ msgstr "Драго ми је што сам изашао одатле"
 
 #: data/scripts/fortress_intro_2.dat:4
 msgid "Now to get that shield back from my double..."
-msgstr ""
+msgstr "Сада да повратим штит од мог двојника..."
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
@@ -4379,7 +4445,7 @@ msgstr "Ово изгледа као успомена"
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
 "Thank goodness for that, I really didn't want to have to open that coffin"
-msgstr ""
+msgstr "Хвала богу, стварно нисам желео да отварам тај ковчег"
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
@@ -4623,2254 +4689,2270 @@ msgstr "Надам се да ће ме ово заштитити од те ча�
 
 #: data/scripts/disintegration_shield.dat:3
 msgid "But there's only one way to find out..."
-msgstr ""
+msgstr "Али постоји само један начин да се сазна..."
 
 #: data/scripts/disintegration_shield.dat:5
 msgid "Defeat the Sorceror"
-msgstr ""
+msgstr "Победи чаробњака"
 
 #: data/scripts/disable_study.dat:12
 msgid "It worked, I'm back!"
-msgstr ""
+msgstr "Успело је, вратио сам се!"
 
 #: data/scripts/disable_study.dat:13
 msgid "Now to create that shield and get that sorceror..."
-msgstr ""
+msgstr "Сада да направим тај штит па да пребијем чаробњака..."
 
 #: data/scripts/disable_study.dat:14
 msgid "Create a Resist Disintegration Shield"
-msgstr ""
+msgstr "Направите штит отпорности на дезинтеграцију"
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
-msgstr ""
+msgstr "Коришћење предмета који сте покупили је једноставно"
 
 #: data/scripts/tutorial_bomb.dat:2
 msgid ""
 "Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
 "the bomb"
 msgstr ""
+"Отворите свој инвентар ([INPUT_INVENTORY]) и користите тастере са стрелицама "
+"да бисте означили бомбу"
 
 #: data/scripts/tutorial_bomb.dat:3
 msgid ""
 "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
 msgstr ""
+"Сада притисните Напад ([INPUT_ATTACK]) или Користи предмет "
+"([INPUT_ACTIVATE]) да бисте га изабрали"
 
 #: data/scripts/tutorial_bomb.dat:4
 msgid "Now close the inventory ([INPUT_INVENTORY])"
-msgstr ""
+msgstr "Сада затворите инвентар ([INPUT_INVENTORY])"
 
 #: data/scripts/tutorial_bomb.dat:5
 msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Сада можете користити предмет притиском на Користи Предмет ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_bomb.dat:6
 msgid "Try it with the bomb, but make sure you stand well back!"
-msgstr ""
+msgstr "Пробај то са бомбом, не заборави да се удаљиш!"
 
 #: data/scripts/tutorial_bomb.dat:7
 msgid ""
 "While you are in the inventory screen, the action is paused so you can take "
 "your time"
-msgstr ""
+msgstr "Док сте на екрану инвентара, игра је паузирана, нема журбе"
 
 #: data/scripts/tutorial_bomb.dat:8
 msgid ""
 "Some items, such as health potions and weapons can be used in the inventory "
 "screen, so there is no need to exit the inventory"
 msgstr ""
+"Неки предмети, као што су лекови за здравље или оружје, могу се користити на "
+"екрану инвентара, тако да нема потребе за излазак из инвентара"
 
 #: data/scripts/final_generator.dat:1
 msgid "This generator looks OK, it just isn't on"
-msgstr ""
+msgstr "Овај генератор изгледа да ради, само није укључен"
 
 #: data/scripts/final_generator.dat:3
 msgid "I guess it powers that door, so I'll have to turn it on"
-msgstr ""
+msgstr "Претпостављам да покреће та врата, па ћу морати да га укључим"
 
 #: data/scripts/final_generator.dat:4
 msgid "Turn on the generator?"
-msgstr ""
+msgstr "Укључити генератор?"
 
 #: data/scripts/final_generator.dat:6
 msgid "Where's the switch?"
-msgstr ""
+msgstr "Где је прекидач?"
 
 #: data/scripts/final_generator.dat:8
 msgid "Ah, here it is!"
-msgstr ""
+msgstr "А, ево га!"
 
 #: data/scripts/final_generator.dat:36
 msgid "I'll leave it alone for the moment"
-msgstr ""
+msgstr "Оставићу га на миру за сада"
 
 #: src/graphics/font.c:61
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr ""
+msgstr "Брзо се окрећите лево и десно да бисте отресли слуз!"
 
 #: src/structs.h:212
 msgid "Bow"
-msgstr ""
+msgstr "Лук"
 
 #: src/graphics/font.c:60
 msgid "Press Action to interact"
-msgstr ""
+msgstr "Притисните Акција за интеракцију"
 
 #: src/item/instruction_machine.c:85
 msgid "%s is required"
-msgstr ""
+msgstr "%s је обавезан"
 
 #: src/item/bomb_pile.h:20
 msgid "Bomb"
-msgstr ""
+msgstr "Бомба"
 
 #: src/enemy/rock.c:74
 msgid "Small Rock"
-msgstr ""
+msgstr "Мали Камен"
 
 #: src/item/containment_unit_controls.c:123
 msgid "Press Action to retrieve the Purple Gem"
-msgstr ""
+msgstr "Притисните Акцију да бисте узели Љубичасти драгуљ"
 
 #: src/item/tesla_charger.c:146
 msgid "Tesla Pack"
-msgstr ""
+msgstr "Тесла Пакет"
 
 #: src/item/tesla_charger.c:169
 msgid "Press Action to retrieve Tesla Pack"
-msgstr ""
+msgstr "Притисните Акцију да бисте преузели Тесла Пакет"
 
 #: src/item/tesla_charger.c:178
 msgid "Press Action to replace Tesla Pack"
-msgstr ""
+msgstr "Притисните Акцију да бисте заменили Тесла Пакет"
 
 #: src/item/slime_potion_pool.c:94
 msgid "Obtained %s"
-msgstr ""
+msgstr "Добијено %s"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Complete"
-msgstr ""
+msgstr "Завршено"
 
 #: src/item/arrow_target.c:177
 msgid "%d more to go..."
-msgstr ""
+msgstr "%d остало..."
 
 #: src/item/light_pillar.c:109
 msgid "Used %s"
-msgstr ""
+msgstr "Употребљено %s"
 
 #: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
-msgstr ""
+msgstr "Не можеш да се опремиш док си трансмогрифициран"
 
 #: src/player.c:1079
 msgid "Equipped %s"
-msgstr ""
+msgstr "Опремљен %s"
 
 #: src/player.c:1710
 msgid "Maximum health has increased!"
-msgstr ""
+msgstr "Максимално здравље је повећано!"
 
 #: src/player.c:2447
 msgid "Bow will now fire %s"
-msgstr ""
+msgstr "Лук ће сада испаљивати %s"
 
 #: src/player.c:2466
 msgid "A bow is required to use this item"
-msgstr ""
+msgstr "Потребан је лук за коришћење овог предмета"
 
 #: src/player.c:2513
 msgid "Cannot transmogrify here..."
-msgstr ""
+msgstr "Овде не могу да се трансформишем..."
 
 #: data/scripts/jacob.dat:46
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: data/scripts/cave_boss_die.dat:11
 msgid "No"
-msgstr ""
+msgstr "Не"
 
 #: src/menu/main_menu.c:336
 msgid "Start a new game?"
-msgstr ""
+msgstr "Почети нову игру?"
 
 #: src/menu/main_menu.c:351
 msgid "Play the tutorial?"
-msgstr ""
+msgstr "Играти туторијал?"
 
 #: src/menu/main_menu.c:366
 msgid "Exit the game?"
-msgstr ""
+msgstr "Изаћи из игре?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: src/menu/io_menu.c:260
 msgid "Game Loaded"
-msgstr ""
+msgstr "Игра Учитана"
 
 #: src/menu/io_menu.c:279
 msgid "Game Saved"
-msgstr ""
+msgstr "Игра Снимљена"
 
 #: src/menu/yes_no_menu.c:117
 msgid "Any unsaved progress will be lost"
-msgstr ""
+msgstr "Сваки несачуван напредак ће бити изгубљен"
 
 #: src/input.c:904
 msgid "Joy Button #%d"
-msgstr ""
+msgstr "Дугме за џојстик #%d"
 
 #: src/world/npc.c:78
 msgid "Press Action to talk to %s"
-msgstr ""
+msgstr "Притисните Акцију да разговарате са %s"
 
 #: src/event/objective.c:103
 msgid "New Objective: %s"
-msgstr ""
+msgstr "Нови Циљ: %s"
 
 #: src/event/objective.c:124
 msgid "Objective Completed: %s"
-msgstr ""
+msgstr "Циљ Завршен: %s"
 
 #: src/item/lava_door.c:150
 msgid "This weapon is not having any effect..."
-msgstr ""
+msgstr "Ово оружје нема никаквог ефекта..."
 
 #: src/boss/blob_boss.c:1203
 msgid "Press Action to attach the Tesla Pack"
-msgstr ""
+msgstr "Притисните Акцију да бисте повезали Тесла Пакет"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid "The Legend of Edgar"
-msgstr ""
+msgstr "Легенда о Едгару"
 
 #: src/world/switch.c:105
 msgid "%s is needed to activate this switch"
-msgstr ""
+msgstr "%s је потребно за активирање овог прекидача"
 
 #: src/world/switch.c:308
 msgid "Press Action to use this switch"
-msgstr ""
+msgstr "Притисните Акцију да користите овај прекидач"
 
 #: src/world/save_point.c:97
 msgid "Press Action to save your game"
-msgstr ""
+msgstr "Притисните Акцију да снимите своју игру"
 
 #: src/world/pressure_plate.c:113
 msgid "%s is required to use this Pressure Plate"
-msgstr ""
+msgstr "%s је потребно за коришћење ове притисне плоче"
 
 #: src/world/door.c:122
 msgid "%s is needed to open this door"
-msgstr ""
+msgstr "Потребно је %s да се отворе ова врата"
 
 #: src/world/door.c:129
 msgid "This door is locked"
-msgstr ""
+msgstr "Ова врата су закључана"
 
 #: src/world/teleporter.c:138
 msgid "This teleporter is not active"
-msgstr ""
+msgstr "Овај телепорт није активан"
 
 #: src/world/lift.c:158
 msgid "Push Up or Down to use this lift"
-msgstr ""
+msgstr "Користите тастере Горе или Доле да користите овај лифт"
 
 #: src/entity.c:1329
 msgid "This lift is not active"
-msgstr ""
+msgstr "Овај лифт није активан"
 
 #: src/inventory.c:114
 msgid "Cannot carry any more %s"
-msgstr ""
+msgstr "Не могу да носим више %s"
 
 #: src/player.c:3243
 msgid "Picked up %s x %d"
-msgstr ""
+msgstr "Покупили сте: %s x %d"
 
 #: src/player.c:3243
 msgid "Picked up %s"
-msgstr ""
+msgstr "Покупили сте: %s"
 
 #: src/inventory.c:661
 msgid "%s is required to carry this item"
-msgstr ""
+msgstr "%s је потребан за ношење овог предмета"
 
 #: data/maps/map07.dat:4168
 msgid "Storage Key"
-msgstr ""
+msgstr "Кључ за Складиште"
 
 #: data/maps/map02.dat:2492
 msgid "Coal Bag Storage Switch Key"
-msgstr ""
+msgstr "Кључ од Складишта Врећа са Угљем"
 
 #: data/maps/map02.dat:1968
 msgid "Large Room Key"
-msgstr ""
+msgstr "Кључ од Велике Собе"
 
 #: data/scripts/borgan.dat:7
 msgid "Coal Bag"
-msgstr ""
+msgstr "Врећа Угља"
 
 #: data/maps/map03.dat:5218
 msgid "Forest Cell Key"
-msgstr ""
+msgstr "Кључ Шумске Ћелије"
 
 #: data/maps/map03.dat:5442
 msgid "Wood Axe"
-msgstr ""
+msgstr "Секира за Дрво"
 
 #: src/item/potions.c:47
 msgid "Health Potion"
-msgstr ""
+msgstr "Напитак здравља"
 
 #: data/maps/map07.dat:2218
 msgid "Outflow Key"
-msgstr ""
+msgstr "Излазни Кључ"
 
 #: data/maps/map07.dat:3642
 msgid "Flow Control Key"
-msgstr ""
+msgstr "Контрола Протока Кључ"
 
 #: data/maps/map07.dat:3668
 msgid "Waste Processing Key"
-msgstr ""
+msgstr "Кључ за Прераду Отпада"
 
 #: data/scripts/sewer_trap_note.dat:12
 msgid "Access Key 1"
-msgstr ""
+msgstr "Приступни Кључ 1"
 
 #: data/scripts/sewer_trap_note.dat:13
 msgid "Access Key 2"
-msgstr ""
+msgstr "Приступни Кључ 2"
 
 #: data/scripts/sewer_trap_note.dat:14
 msgid "Access Key 3"
-msgstr ""
+msgstr "Приступни Кључ 3"
 
 #: data/maps/map07.dat:2518
 msgid "Trap Door Switch Key"
-msgstr ""
+msgstr "Кључ Прекидача за Клопку"
 
 #: data/scripts/borgan.dat:7
 msgid "Coal"
-msgstr ""
+msgstr "Угаљ"
 
 #: data/scripts/jacob.dat:3
 msgid "Chopped Log"
-msgstr ""
+msgstr "Исецкан Балван"
 
 #: data/scripts/power_generators.dat:8
 msgid "Green Gem"
-msgstr ""
+msgstr "Зелени Драгуљ"
 
 #: data/scripts/power_generators.dat:9
 msgid "Red Gem"
-msgstr ""
+msgstr "Црвени Драгуљ"
 
 #: data/scripts/power_generators.dat:10
 msgid "Blue Gem"
-msgstr ""
+msgstr "Плави Драгуљ"
 
 #: data/scripts/power_generators.dat:11
 msgid "Purple Gem"
-msgstr ""
+msgstr "Љубичасти Драгуљ"
 
 #: data/maps/map10.dat:6167
 msgid "Teleporter Key"
-msgstr ""
+msgstr "Телепортер Кључ"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "New Game"
-msgstr ""
+msgstr "Нова Игра"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Tutorial"
-msgstr ""
+msgstr "Туторијал"
 
 #: src/menu/main_menu.c:176
 msgid "Load Game"
-msgstr ""
+msgstr "Учитај Игру"
 
 #: data/scripts/tutorial_keys.dat:1
 msgid "Options"
-msgstr ""
+msgstr "Опције"
 
 #: src/menu/main_menu.c:52
 msgid "About"
-msgstr ""
+msgstr "Опис"
 
 #: src/tile_creator.c:265
 msgid "Quit"
-msgstr ""
+msgstr "Изађи"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Configure Controls"
-msgstr ""
+msgstr "Контроле"
 
 #: src/menu/options_menu.c:191
 msgid "Configure Sound"
-msgstr ""
+msgstr "Звук"
 
 #: src/menu/options_menu.c:49
 msgid "Fullscreen"
-msgstr ""
+msgstr "Цео Екран"
 
 #: src/menu/options_menu.c:197
 msgid "Show Hints"
-msgstr ""
+msgstr "Покажи Помоћ"
 
 #: data/props/item/slime_potion.props:6
 msgid "A potion which will transform you..."
-msgstr ""
+msgstr "Напитак који ће те трансформисати..."
 
 #: data/props/item/health_potion.props:6
 msgid "A potion which will restore 5 health points"
-msgstr ""
+msgstr "Напитак који ће обновити 5 поена здравља"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
-msgstr ""
+msgstr "Моћна бомба"
 
 #: data/props/item/invisibility_potion.props:6
 msgid "A potion which renders you invisible to certain enemies"
-msgstr ""
+msgstr "Напитак који вас чини невидљивим за одређене непријатеље"
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr ""
+msgstr "Око од Газера"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
-msgstr ""
+msgstr "Тесла Пакет. Потпуно је празан."
 
 #: data/props/item/summoner_staff.props:5
 msgid "A Summoner's Staff. It cannot be used by humans."
-msgstr ""
+msgstr "A Summoner's Staff. It cannot be used by humans."
 
 #: data/props/item/tesla_pack_full.props:5
 msgid "A Tesla Pack. It is fully charged."
-msgstr ""
+msgstr "Тесла пакет. Потпуно је напуњен."
 
 #: data/props/item/empty_potion.props:6
 msgid "An empty potion bottle"
-msgstr ""
+msgstr "Празна бочица за напитак"
 
 #: data/props/item/chicken_feed_bag.props:6
 msgid "A bag of chicken feed"
-msgstr ""
+msgstr "Кеса хране за кокошке"
 
 #: data/props/item/coal_bag.props:6
 msgid "A bag suitable for carrying coal"
-msgstr ""
+msgstr "Торба погодна за ношење угља"
 
 #: data/scripts/raft.dat:19
 msgid "Basic Sword"
-msgstr ""
+msgstr "Основни Мач"
 
 #: data/props/weapon/basic_sword.props:6
 msgid "A Sword given to you by Jacob"
-msgstr ""
+msgstr "Мач који ти је дао Џејкоб"
 
 #: src/player.c:2466
 msgid "A bow"
-msgstr ""
+msgstr "Лук"
 
 #: data/scripts/cauldron.dat:58
 msgid "Small Wooden Shield"
-msgstr ""
+msgstr "Мали Дрвени Штит"
 
 #: data/props/weapon/small_wooden_shield.props:6
 msgid "A small shield that provides basic protection"
-msgstr ""
+msgstr "Мали штит који пружи основну заштиту"
 
 #: src/item/potions.c:213
 msgid "Normal Arrow"
-msgstr ""
+msgstr "Обична Стрела"
 
 #: data/props/weapon/normal_arrow.props:6
 msgid "Normal Arrows"
-msgstr ""
+msgstr "Обичне Стреле"
 
 #: data/props/weapon/wood_axe.props:6
 msgid "An axe suitable for chopping trees"
-msgstr ""
+msgstr "Секира погодна за сечење дрвећа"
 
 #: data/maps/tutorial.dat:2141
 msgid "Pickaxe"
-msgstr ""
+msgstr "Пијук"
 
 #: data/props/weapon/pickaxe.props:6
 msgid "A pickaxe lent to you by Borgan"
-msgstr ""
+msgstr "Пијук који ти је позајмио Борган"
 
 #: data/maps/map10.dat:4042
 msgid "Fire Burner Key"
-msgstr ""
+msgstr "Кључ Пламеника"
 
 #: data/maps/map10.dat:4192
 msgid "Potion Room Key"
-msgstr ""
+msgstr "Кључ Собе за Напитке"
 
 #: data/maps/map08.dat:2643
 msgid "Surge Passage Key"
-msgstr ""
+msgstr "Пренапонски Кључ"
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
-msgstr ""
+msgstr "Кључ Складишта Рушења"
 
 #: src/event/global_trigger.c:302
 msgid "No Objectives"
-msgstr ""
+msgstr "Без Циљева"
 
 #: src/world/switch.c:316
 msgid "Press Action to reset puzzle blocks"
-msgstr ""
+msgstr "Притисните Акцију да бисте ресетовали блокове слагалице"
 
 #: src/enemy/poltergiest.c:556
 msgid "Try hitting the skull..."
-msgstr ""
+msgstr "Пробај да погодиш лобању..."
 
 #: src/item/blending_machine.c:184
 msgid "This machine is not active"
-msgstr ""
+msgstr "Ова машина није активна"
 
 #: src/item/code_door.c:120
 msgid "Repeat the sequence"
-msgstr ""
+msgstr "Понови секвенцу"
 
 #: src/item/code_door.c:264
 msgid "Correct Sequence"
-msgstr ""
+msgstr "Исправна Секвенца"
 
 #: src/item/code_door.c:288
 msgid "Incorrect Sequence"
-msgstr ""
+msgstr "Нетачна Секвенца"
 
 #: src/system/error.c:47
 msgid "The Legend of Edgar has encountered the following error"
-msgstr ""
+msgstr "Легенда о Едгару је дошла до грешке"
 
 #: src/system/error.c:51
 msgid "Please report this error to Parallel Realities"
-msgstr ""
+msgstr "Молимо вас да пријавите ову грешку код Parallel Realities"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap"
-msgstr ""
+msgstr "Венерина Мухоловка"
 
 #: src/item/moveable_lift.c:72
 msgid "Push Up or Down to raise or lower the platform"
-msgstr ""
+msgstr "Притисните горе или доле да бисте подигли или спустили платформу"
 
 #: data/scripts/monsters.dat:82
 msgid "Up"
-msgstr ""
+msgstr "Горе"
 
 #: data/scripts/tutorial_intro.dat:7
 msgid "Down"
-msgstr ""
+msgstr "Доле"
 
 #: src/entity.c:424
 msgid "Left"
-msgstr ""
+msgstr "Лево"
 
 #: data/scripts/hidden_passage.dat:9
 msgid "Right"
-msgstr ""
+msgstr "Деснo"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid "Jump"
-msgstr ""
+msgstr "Скок"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Attack"
-msgstr ""
+msgstr "Napad"
 
 #: data/scripts/tutorial_items.dat:5
 msgid "Block"
-msgstr ""
+msgstr "Блок"
 
 #: data/scripts/box_pushing.dat:1
 msgid "Action"
-msgstr ""
+msgstr "Акција"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Use Item"
-msgstr ""
+msgstr "Употреби Ставку"
 
 #: data/scripts/tutorial_items.dat:6
 msgid "Previous Item"
-msgstr ""
+msgstr "Претходна Ставка"
 
 #: data/scripts/tutorial_items.dat:6
 msgid "Next Item"
-msgstr ""
+msgstr "Следећа Ставка"
 
 #: src/credits.c:829
 msgid "Inventory"
-msgstr ""
+msgstr "Инвентар"
 
 #: src/audio/audio.c:316
 msgid "Pause"
-msgstr ""
+msgstr "Паузирај"
 
 #: src/menu/control_menu.c:225
 msgid "Dead Zone"
-msgstr ""
+msgstr "Мртва Зона"
 
 #: src/structs.h:156
 msgid "Sound"
-msgstr ""
+msgstr "Звук"
 
 #: src/menu/sound_menu.c:151
 msgid "SFX Volume"
-msgstr ""
+msgstr "Звук Ефеката"
 
 #: src/menu/sound_menu.c:159
 msgid "Music Volume"
-msgstr ""
+msgstr "Јачина Музике"
 
 #: data/scripts/purifier.dat:2
 msgid "Ice Spray"
-msgstr ""
+msgstr "Ледени Спреј"
 
 #: data/maps/map09.dat:5468
 msgid "Right Wing Lift Key"
-msgstr ""
+msgstr "Кључ Десног Крила"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine Entrance Door Key"
-msgstr ""
+msgstr "Кључ Улазних Врата Рудника"
 
 #: data/maps/map07.dat:3168
 msgid "Sewage Restricted Zone Key"
-msgstr ""
+msgstr "Канализација Ограничена Зона Кључ"
 
 #: data/maps/map08.dat:2567
 msgid "Fortress Main Key"
-msgstr ""
+msgstr "Главни Кључ Тврђаве"
 
 #: data/maps/map08.dat:10217
 msgid "Teleporter Access Key 1"
-msgstr ""
+msgstr "Приступ Телепортеру Кључ 1"
 
 #: data/maps/map08.dat:10317
 msgid "Teleporter Access Key 2"
-msgstr ""
+msgstr "Приступ Телепортеру Кључ 2"
 
 #: data/maps/map08.dat:10943
 msgid "Teleporter Access Key 3"
-msgstr ""
+msgstr "Приступ Телепортеру Кључ 3"
 
 #: data/scripts/blender.dat:15
 msgid "Empty Bottle"
-msgstr ""
+msgstr "Празна Боца"
 
 #: data/maps/map11.dat:2093
 msgid "First Floor Key"
-msgstr ""
+msgstr "Кључ Првог Спрата"
 
 #: src/item/pedestal.c:138
 msgid "Press Action to retrieve %s"
-msgstr ""
+msgstr "Притисните Акцију да узмете %s"
 
 #: src/item/tuning_fork.c:41
 msgid "Tuning Fork"
-msgstr ""
+msgstr "Звучна Виљушка"
 
 #: data/maps/map11.dat:4817
 msgid "Second Floor Keycard"
-msgstr ""
+msgstr "Кључна Карта Другог Спрата"
 
 #: data/maps/map11.dat:2642
 msgid "Instruction Card #1"
-msgstr ""
+msgstr "Картица са Упутствима #1"
 
 #: data/maps/map11.dat:2567
 msgid "Instruction Card #2"
-msgstr ""
+msgstr "Картица са Упутствима #2"
 
 #: data/maps/map11.dat:8092
 msgid "Instruction Card #3"
-msgstr ""
+msgstr "Картица са Упутствима #3"
 
 #: data/maps/map11.dat:13192
 msgid "Instruction Card #4"
-msgstr ""
+msgstr "Картица са Упутствима #4"
 
 #: data/maps/map11.dat:3392
 msgid "Centurion Statue"
-msgstr ""
+msgstr "Статуа Центуриона"
 
 #: data/maps/map22.dat:10167
 msgid "Spider Statue"
-msgstr ""
+msgstr "Статуа Паука"
 
 #: data/maps/map07.dat:8567
 msgid "Tortoise Statue"
-msgstr ""
+msgstr "Статуа Корњаче"
 
 #: data/scripts/olaf.dat:20
 msgid "Scorpion Statue"
-msgstr ""
+msgstr "Статуа Шкорпиона"
 
 #: data/props/item/blue_gem.props:5
 msgid "A Blue Gem"
-msgstr ""
+msgstr "Плави Драгуљ"
 
 #: data/props/item/centurion_statue.props:4
 msgid "A statue of a Centurion. It has 2 legs."
-msgstr ""
+msgstr "Статуа Центуриона. Има 2 ноге."
 
 #: data/props/item/green_gem.props:5
 msgid "A Green Gem"
-msgstr ""
+msgstr "Зелени Драгуљ"
 
 #: data/props/item/purple_gem.props:5
 msgid "A Purple Gem"
-msgstr ""
+msgstr "Љубичасти Драгуљ"
 
 #: data/props/item/red_gem.props:5
 msgid "A Red Gem"
-msgstr ""
+msgstr "Црвени Драгуљ"
 
 #: data/props/item/scorpion_statue.props:4
 msgid "A statue of a Scorpion. It has 6 legs."
-msgstr ""
+msgstr "Статуа Шкорпије. Има 6 ноге."
 
 #: data/props/item/spider_statue.props:4
 msgid "A statue of a Spider. It has 8 legs."
-msgstr ""
+msgstr "Статуа Паука. Има 8 ногу."
 
 #: data/props/item/tortoise_statue.props:4
 msgid "A statue of a Tortoise. It has 4 legs."
-msgstr ""
+msgstr "Статуа Корњаче. Има 4 ноге."
 
 #: data/props/item/tuning_fork.props:4
 msgid "A Tuning Fork"
-msgstr ""
+msgstr "Звучна Виљушка"
 
 #: data/props/misc/chopped_log.props:7
 msgid "A chopped log"
-msgstr ""
+msgstr "Исецкан Балван"
 
 #: data/scripts/tutorial_combat.dat:1
 msgid "Narrator"
-msgstr ""
+msgstr "Наратор"
 
 #: src/item/instruction_machine.c:92
 msgid "Enter the directions"
-msgstr ""
+msgstr "Унесите упутства"
 
 #: src/item/instruction_machine.c:164
 msgid "Out of space for instructions"
-msgstr ""
+msgstr "Нема довољно простора за упутства"
 
 #: data/props/item/ice_spray.props:5
 msgid "Creates ice cubes that expand on contact with water"
-msgstr ""
+msgstr "Ствара коцкице леда које се шире при контакту са водом"
 
 #: data/props/item/soul_bottle.props:5
 msgid "A bottle capable of capturing souls"
-msgstr ""
+msgstr "Боца способна да ухвати душе"
 
 #: src/inventory.c:242
 msgid "Cannot pick up %s. Inventory full"
-msgstr ""
+msgstr "Не могу да узмем %s. Инвентар је пун"
 
 #: src/item/mine_cart.c:85
 msgid "Filling mine cart..."
-msgstr ""
+msgstr "Пуне се колица..."
 
 #: src/player.c:2181
 msgid "Out of arrows!"
-msgstr ""
+msgstr "Ван стрела!"
 
 #: data/props/item/full_soul_bottle.props:5
 msgid "A bottle with a soul trapped inside"
-msgstr ""
+msgstr "Боца са душом унутра"
 
 #: src/item/mine_cart.c:90
 msgid "Full Mine Cart"
-msgstr ""
+msgstr "Пуна Колица Рудника"
 
 #: data/maps/map12.dat:2442
 msgid "Processing Lift Key"
-msgstr ""
+msgstr "Лифт Обраде Кључ"
 
 #: data/maps/map12.dat:5318
 msgid "Right Grabber Key"
-msgstr ""
+msgstr "Десни Граббер Кључ"
 
 #: data/maps/map12.dat:5343
 msgid "Left Grabber Key"
-msgstr ""
+msgstr "Леви Граббер Кључ"
 
 #: data/maps/map12.dat:5443
 msgid "Master Key"
-msgstr ""
+msgstr "Главни Кључ"
 
 #: data/props/item/oil_can.props:5
 msgid "An Oil Can"
-msgstr ""
+msgstr "Канта Уља"
 
 #: data/scripts/rusted.dat:1
 msgid "Oil Can"
-msgstr ""
+msgstr "Канта Уља"
 
 #: data/props/item/repellent.props:5
 msgid "A powerful repellent"
-msgstr ""
+msgstr "Моћан Репелент"
 
 #: src/item/repellent.c:33
 msgid "Repellent"
-msgstr ""
+msgstr "Репелент"
 
 #: data/maps/map12.dat:1
 msgid "Fortress Mine"
-msgstr ""
+msgstr "Тврђава Рудник"
 
 #: data/scripts/cauldron.dat:204
 msgid "Sludge Tentacle"
-msgstr ""
+msgstr "Пипак Муља"
 
 #: data/props/item/sludge_tentacle.props:5
 msgid "A Red Sludge Tentacle"
-msgstr ""
+msgstr "Пипак Црвеног Муља"
 
 #: data/scripts/cauldron.dat:145
 msgid "Eyeball Smoothie"
-msgstr ""
+msgstr "Сок од Очи"
 
 #: data/props/item/eyeball_smoothie.props:5
 msgid "A liquid made from eyeballs and tentacles"
-msgstr ""
+msgstr "Течност направљена од очн и пипака"
 
 #: src/system/load_save.c:1673
 msgid "Patching your save game. Please wait..."
-msgstr ""
+msgstr "Закрпавање ваше сачуване игре. Молимо сачекајте..."
 
 #: src/enemy/huge_spider.c:272
 msgid "Now! Run while it's stunned!"
-msgstr ""
+msgstr "Сада! Бежи док је ошамућен!"
 
 #: data/scripts/smoothie_colour.dat:10
 msgid "I just need to find another shield to enchant"
-msgstr ""
+msgstr "Само треба да нађем још један штит да зачарам"
 
 #: src/boss/armour_boss.c:677
 msgid "Its wounds are already healing..."
-msgstr ""
+msgstr "Његове ране већ зарастају..."
 
 #: src/system/pak.c:47
 msgid "If you compiled the game from source, you need to do a make install"
 msgstr ""
+"Ако сте компајлирали игру из изворног кода, потребно је да урадите make "
+"install"
 
 #: data/props/item/yellow_gem.props:5
 msgid "A Yellow Gem"
-msgstr ""
+msgstr "Жути Драгуљ"
 
 #: src/system/pak.c:45
 msgid "Failed to open PAK file %s"
-msgstr ""
+msgstr "Није успело отварање PAK фила %s"
 
 #: src/boss/armour_boss.c:1437
 msgid "Find a way to remove the Gem..."
-msgstr ""
+msgstr "Нађите начин да скинете драгуљ..."
 
 #: src/boss/armour_boss.c:1448
 msgid "Press Action to retrieve the Yellow Gem"
-msgstr ""
+msgstr "Притисните Акцију да узмете Жути Драгуљ"
 
 #: data/scripts/third_side.dat:3
 msgid "Book"
-msgstr ""
+msgstr "Књига"
 
 #: data/scripts/fortress_mine_lift.dat:2
 msgid "Sign"
-msgstr ""
+msgstr "Знак"
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "Note"
-msgstr ""
+msgstr "Белешка"
 
 #: src/item/sliding_puzzle.c:81
 msgid "Solve the sliding puzzle"
-msgstr ""
+msgstr "Решите клизну слагалицу"
 
 #: src/enemy/baby_slime.c:252
 msgid "The armour is too tough for them to penetrate..."
-msgstr ""
+msgstr "Оклоп је прејак да би га пробили..."
 
 #: data/props/item/rope.props:5
 msgid "A length of rope"
-msgstr ""
+msgstr "Дужина канапа"
 
 #: data/props/item/extend_o_grab.props:5
 msgid "A device for grabbing far away objects"
-msgstr ""
+msgstr "Уређај за хватање удаљених предмета"
 
 #: data/props/item/water_purifier.props:6
 msgid "A bottle of pills that convert slime into water"
-msgstr ""
+msgstr "Бочица пилула које претварају слуз у воду"
 
 #: data/maps/tutorial.dat:1916
 msgid "Tutorial Key"
-msgstr ""
+msgstr "Туториал Кључ"
 
 #: data/maps/map13.dat:6544
 msgid "Light Key"
-msgstr ""
+msgstr "Кључ Светлости"
 
 #: data/scripts/crossbow.dat:2
 msgid "Rope"
-msgstr ""
+msgstr "Канап"
 
 #: src/item/extend_o_grab.c:47
 msgid "Extend-O-Grab"
-msgstr ""
+msgstr "Продужи-О-Зграби"
 
 #: data/maps/map13.dat:2968
 msgid "Water Purifiers"
-msgstr ""
+msgstr "Пречистачи Воде"
 
 #: data/maps/map13.dat:2494
 msgid "Right Wing Key"
-msgstr ""
+msgstr "Кључ Десног Крила"
 
 #: data/maps/map13.dat:3993
 msgid "Catapult Lift Key"
-msgstr ""
+msgstr "Катапулт Лифт Кључ"
 
 #: data/maps/map09.dat:2917
 msgid "Armoury"
-msgstr ""
+msgstr "Складиште Оружја"
 
 #: data/scripts/library_intro.dat:6
 msgid "Maggie"
-msgstr ""
+msgstr "Меги"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid "Jacob"
-msgstr ""
+msgstr "Џејкоб"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid "Borgan"
-msgstr ""
+msgstr "Борган"
 
 #: data/scripts/statues.dat:1
 msgid "Edgar"
-msgstr ""
+msgstr "Едгар"
 
 #: src/item/mine_cart.c:41
 msgid "Mine Cart"
-msgstr ""
+msgstr "Колица Рудника"
 
 #: src/player.c:3238
 msgid "%s has regained power"
-msgstr ""
+msgstr "%s је повратио струју"
 
 #: data/props/item/old_shield.props:5
 msgid "An old shield found in the Armoury"
-msgstr ""
+msgstr "Стари штит пронађен у Оружарници"
 
 #: data/props/weapon/lightning_sword_empty.props:6
 msgid "A Sword that can be charged with lightning"
-msgstr ""
+msgstr "Мач који се може напунити муњом"
 
 #: data/props/weapon/lightning_sword.props:6
 msgid "A Sword imbued with the power of lightning"
-msgstr ""
+msgstr "Мач са моћи муњом"
 
 #: data/scripts/lightning_sword.dat:6
 msgid "Lightning Sword"
-msgstr ""
+msgstr "Муњеви Мач"
 
 #: src/enemy/scanner.c:108
 msgid "INTRUDER!"
-msgstr ""
+msgstr "НАМЕТЉИВАЦ!"
 
 #: src/credits.c:861
 msgid "Statistics"
-msgstr ""
+msgstr "Статистике"
 
 #: src/menu/stats_menu.c:94
 msgid "Play Time: %s"
-msgstr ""
+msgstr "Време Играно: %s"
 
 #: src/menu/stats_menu.c:100
 msgid "Kills: %d"
-msgstr ""
+msgstr "Убиства: %d"
 
 #: src/menu/stats_menu.c:108
 msgid "Bats Drowned: %d"
-msgstr ""
+msgstr "Удављени Слепи Мишеви: %d"
 
 #: src/menu/stats_menu.c:112
 msgid "Times Eaten: %d"
-msgstr ""
+msgstr "Колико Пута Си Јео: %d"
 
 #: src/menu/stats_menu.c:120
 msgid "Distanced Travelled: %0.1fKM"
-msgstr ""
+msgstr "Даљина Пређена: %0.1fKM"
 
 #: src/menu/stats_menu.c:124
 msgid "Attacks Blocked: %d"
-msgstr ""
+msgstr "Блокирани Напади: %d"
 
 #: src/menu/stats_menu.c:130
 msgid "Time Spent As A Slime: %s"
-msgstr ""
+msgstr "Време Проведено Као Слуз: %s"
 
 #: src/menu/stats_menu.c:104
 msgid "Arrows Fired: %d"
-msgstr ""
+msgstr "Испаљене Стреле: %d"
 
 #: src/game.c:1057
 msgid "You found a secret!"
-msgstr ""
+msgstr "Нашли сте тајну!"
 
 #: src/player.c:3163
 msgid "10 charges remaining..."
-msgstr ""
+msgstr "10 пуњења је остало"
 
 #: src/player.c:3170
 msgid "%s is out of power"
-msgstr ""
+msgstr "%s је остао без струје"
 
 #: src/enemy/book.c:632
 msgid "The damage from this weapon is being absorbed..."
-msgstr ""
+msgstr "Моћ овог оружја се апсорбује..."
 
 #: src/menu/stats_menu.c:136
 msgid "Secrets Found: %d / %d"
-msgstr ""
+msgstr "Пронађене Тајне: %d / %d"
 
 #: src/item/light_pillar.c:151
 msgid "Press Action to activate the Light Pillar"
-msgstr ""
+msgstr "Притисните Акцију да активирате Светлосни Стуб"
 
 #: src/inventory.c:754
 msgid "Removed %s"
-msgstr ""
+msgstr "Уклоњено %s"
 
 #: src/boss/awesome_boss.c:1147
 msgid "Their partner will heal them when they fall..."
-msgstr ""
+msgstr "Њихов партнер ће их излечити када падну..."
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
-msgstr ""
+msgstr "Вечера је спремна..."
 
 #: src/player.c:1692
 msgid "Used Amulet of Resurrection"
-msgstr ""
+msgstr "Коришћена Амајлија Васкрсења"
 
 #: src/item/soul_merger.c:116
 msgid "Press Action to enter the Soul Merger"
-msgstr ""
+msgstr "Притисните Акцију да уђете у Спојач Душе"
 
 #: src/item/soul_merger.c:139
 msgid "An IN Chamber and an OUT Chamber are required"
-msgstr ""
+msgstr "Потребна је ИН комора и АУТ комора"
 
 #: src/item/lava_door.c:101
 msgid "One blow from the pickaxe should shatter it"
-msgstr ""
+msgstr "Један ударац са пијуком би требао да га разбије"
 
 #: src/item/soul_merger_control_panel.c:85
 msgid "Press Action to reprogram the Soul Merger"
-msgstr ""
+msgstr "Притисните Акцију да препрограмирате Спојач Душе"
 
 #: src/item/soul_merger_control_panel.c:93
 msgid "Spanner is required"
-msgstr ""
+msgstr "Клијешта су потребна"
 
 #: src/item/soul_merger_control_panel.c:150
 msgid "Press Action to Cancel"
-msgstr ""
+msgstr "Притисните Акцију да Откажете"
 
 #: src/item/light_pillar.c:116
 msgid "%s is needed to activate this Light Pillar"
-msgstr ""
+msgstr "Потребно је %s да би се активирао овај Светлосни Стуб"
 
 #: data/scripts/evil_edgar_start.dat:11
 msgid "Evil_Edgar"
-msgstr ""
+msgstr "Зли_Едгар"
 
 #: src/boss/evil_edgar.c:273
 msgid "I'm better than you in every single way..."
-msgstr ""
+msgstr "Ја сам бољи од тебе у сваком погледу..."
 
 #: src/boss/evil_edgar.c:286
 msgid "Get down from there!"
-msgstr ""
+msgstr "Силази одатле!"
 
 #: src/boss/evil_edgar.c:786
 msgid "Stupid duds..."
-msgstr ""
+msgstr "Каква глупост, ниједан није успео..."
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
-msgstr ""
+msgstr "Умри!"
 
 #: src/boss/evil_edgar.c:983
 msgid "Arghh! My eyes!"
-msgstr ""
+msgstr "Аргх! Моје очи!"
 
 #: data/props/item/spanner.props:6
 msgid "A spanner"
-msgstr ""
+msgstr "Клијешта"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
-msgstr ""
+msgstr "Експлодирајуће Око Газера. Неуспешно?"
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
-msgstr ""
+msgstr "Аутоматски вас оживи једном ако умрете"
 
 #: src/item/potions.c:247
 msgid "Flaming Arrows"
-msgstr ""
+msgstr "Ватрене Стреле"
 
 #: data/props/weapon/fire_shield.props:6
 msgid "A shield that can resist fire"
-msgstr ""
+msgstr "Штит који може да блокира ватру"
 
 #: src/item/jigsaw_puzzle.c:98
 msgid "Solve the jigsaw puzzle"
-msgstr ""
+msgstr "Решите слагалицу"
 
 #: src/boss/ant_lion.c:306
 msgid "Try luring something else into the Ant Lion's pit..."
-msgstr ""
+msgstr "Покушај да намамиш нешто друго у јаму мрављег лава..."
 
 #: data/props/item/puzzle_piece.props:5
 msgid "A piece of a puzzle"
-msgstr ""
+msgstr "Комадић слагалице"
 
 #: src/boss/centurion_boss.c:321
 msgid "The glass looks very weak now..."
-msgstr ""
+msgstr "стакло сад изгледа врло слабо..."
 
 #: src/system/error.c:53
 msgid "Press Escape to exit"
-msgstr ""
+msgstr "Притисните Escape да бисте изашли"
 
 #: data/props/item/protection_ring.props:4
 msgid "A beautiful ring"
-msgstr ""
+msgstr "Прелепи прстен"
 
 #: src/item/potions.c:213
 msgid "Normal Arrow is required"
-msgstr ""
+msgstr "Потребна је нормална стрела"
 
 #: src/item/potions.c:247
 msgid "Created %d Flaming Arrows"
-msgstr ""
+msgstr "Направљено %d ватрених стрела"
 
 #: src/enemy/giant_snowball.c:119
 msgid "Press buttons to escape the snowball!"
-msgstr ""
+msgstr "Притискај тастере да се извућеш из снега!"
 
 #: data/props/item/flaming_arrow_potion.props:6
 msgid "A potion to create flaming arrows"
-msgstr ""
+msgstr "Напитак за прављење ватрених стрела"
 
 #: data/props/item/spike_ball.props:5
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
-msgstr ""
+msgstr "Лопта са шиљцима армадила. Расипа шиљке када се баци"
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
-msgstr ""
+msgstr "Покушај да натераш Бушача да покупи бомбу..."
 
 #: data/props/item/spores.props:5
 msgid "Spores that will make certain monsters temporarily harmless"
-msgstr ""
+msgstr "Споре које ће одређена чудовишта учинити привремено безопасним"
 
 #: src/item/apple_tree.c:172
 msgid "It's out of apples..."
-msgstr ""
+msgstr "Остало је без јабука..."
 
 #: src/credits.c:453
 msgid "Failed"
-msgstr ""
+msgstr "Неуспех"
 
 #: src/item/mastermind_display.c:411
 msgid "Select a colour for every peg in the row"
-msgstr ""
+msgstr "Изаберите боју за сваки клин у реду"
 
 #: src/item/monster_skull.c:98
 msgid "Press Action to retrieve the Horn"
-msgstr ""
+msgstr "Притисните Акцију да бисте узели рог"
 
 #: src/item/memory_match_display.c:113
 msgid "Attempts remaining: %d"
-msgstr ""
+msgstr "Број покушаја остало: %d"
 
 #: src/item/colour_pot.c:183
 msgid "The pot is empty"
-msgstr ""
+msgstr "Лонац је празан"
 
 #: src/enemy/frog.c:370
 msgid "Your %s has been stolen!"
-msgstr ""
+msgstr "Ваш %s је украден!"
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
-msgstr ""
+msgstr "<Празно>"
 
 #: data/props/item/monster_horn.props:5
 msgid "The horn from a fearsome monster"
-msgstr ""
+msgstr "Рог од страшног чудовишта"
 
 #: data/props/item/apple.props:5
 msgid "A delicious apple"
-msgstr ""
+msgstr "Укусна јабука"
 
 #: data/props/item/tortoise_shell.props:5
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Фрагмент магичне љуске од господарске корњаче"
 
 #: data/props/weapon/disintegration_shield.props:5
 msgid "A shield that can resist disintegration"
-msgstr ""
+msgstr "Штит који може да блокира дезинтеграцију"
 
 #: src/enemy/magic_missile.c:292
 msgid "Try using one of the artifacts to protect yourself..."
-msgstr ""
+msgstr "Покушајте да користите артефакте да бисте се заштитили..."
 
 #: src/menu/io_menu.c:267
 msgid "Failed to load game"
-msgstr ""
+msgstr "Учитавање игре није успело"
 
 #: src/boss/grimlore.c:2752
 msgid "Your %s has been destroyed"
-msgstr ""
+msgstr "Ваш %s је уништен"
 
 #: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
-msgstr ""
+msgstr "Везивање ради само против ослабљених демона"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
-msgstr ""
+msgstr "Шаље ослабљеног демона назад у своју димензију"
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
-msgstr ""
+msgstr "Комад веома отровног меса"
 
 #: data/scripts/correct_combination.dat:4
 msgid "Scrap of Paper"
-msgstr ""
+msgstr "Парче Папира"
 
 #: data/props/item/reflection_artifact.props:5
 msgid "Creates a temporary shield that reflects magic spells"
-msgstr ""
+msgstr "Ствара привремени штит који одбија магичне чаролије"
 
 #: data/props/item/protection_artifact.props:5
 msgid "Protects against certain attacks. Stops working if you move"
-msgstr ""
+msgstr "Штити против одређених напада. Престаје да ради ако се померите"
 
 #: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
-msgstr ""
+msgstr "Притисните Напад док Блокирате да бисте користили штит..."
 
 #: src/credits.c:863
 msgid "Play Time"
-msgstr ""
+msgstr "Време Играно"
 
 #: src/credits.c:866
 msgid "Kills"
-msgstr ""
+msgstr "Сређених"
 
 #: src/credits.c:869
 msgid "Arrows Fired"
-msgstr ""
+msgstr "Испаљене Стреле"
 
 #: src/credits.c:872
 msgid "Distanced Travelled"
-msgstr ""
+msgstr "Пређена Дистанса"
 
 #: src/credits.c:875
 msgid "Attacks Blocked"
-msgstr ""
+msgstr "Напади Блокирани"
 
 #: src/credits.c:878
 msgid "Time Spent As A Slime"
-msgstr ""
+msgstr "Време Проведено Као Слуз"
 
 #: src/credits.c:881
 msgid "Secrets Found"
-msgstr ""
+msgstr "Тајне Откривене"
 
 #: src/credits.c:884
 msgid "Continues"
-msgstr ""
+msgstr "Потребних Наставка"
 
 #: src/credits.c:940
 msgid "Defeated Bosses"
-msgstr ""
+msgstr "Побеђени Шефови"
 
 #: src/credits.c:1095
 msgid "Undefeated"
-msgstr ""
+msgstr "Непоражен"
 
 #: src/credits.c:152
 msgid "Defeated"
-msgstr ""
+msgstr "Поражен"
 
 #: data/scripts/disintegration_shield.dat:5
 msgid "Sorceror"
-msgstr ""
+msgstr "Чаробњак"
 
 #: src/boss/sorceror_2.c:361
 msgid "Enough! Prepare to die..."
-msgstr ""
+msgstr "Доста! Спреми се да умреш..."
 
 #: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
-msgstr ""
+msgstr "Брзо се окретите лево и десно да бисте уклонили чаролију задржавања!"
 
 #: src/player.c:1353
 msgid "Your shield is increasing in power..."
-msgstr ""
+msgstr "Твој штит добија на снази..."
 
 #: src/menu/about_menu.c:75
 msgid "The Legend of Edgar v%0.2f"
-msgstr ""
+msgstr "Легенда о Едгару v%0.2f"
 
 #: src/credits.c:124
 msgid "King Grub"
-msgstr ""
+msgstr "Краљ Груб"
 
 #: src/credits.c:125
 msgid "The Golem"
-msgstr ""
+msgstr "Голем"
 
 #: src/credits.c:126
 msgid "Queen Wasp"
-msgstr ""
+msgstr "Краљица Оса"
 
 #: src/credits.c:127
 msgid "The Swamp Guardian"
-msgstr ""
+msgstr "Чувар Мочваре"
 
 #: src/credits.c:128
 msgid "The Gargoyle"
-msgstr ""
+msgstr "Гаргојл"
 
 #: src/credits.c:129
 msgid "The Blob"
-msgstr ""
+msgstr "Блоб"
 
 #: src/credits.c:130
 msgid "The Watchdog"
-msgstr ""
+msgstr "Пас Чувар"
 
 #: src/credits.c:131
 msgid "The Awesome Foursome"
-msgstr ""
+msgstr "Феноменална Четворица"
 
 #: data/scripts/black_book.dat:25
 msgid "Mataeus"
-msgstr ""
+msgstr "Матаеус"
 
 #: src/credits.c:133
 msgid "The Phoenix"
-msgstr ""
+msgstr "Феникс"
 
 #: src/credits.c:134
 msgid "The Borer"
-msgstr ""
+msgstr "Бушилац"
 
 #: data/scripts/evil_edgar_start.dat:1
 msgid "Evil Edgar"
-msgstr ""
+msgstr "Зли Едгар"
 
 #: src/credits.c:136
 msgid "The Sewer Dweller"
-msgstr ""
+msgstr "Становник Канализације"
 
 #: src/credits.c:137
 msgid "The Salamander"
-msgstr ""
+msgstr "Даждевњак"
 
 #: src/credits.c:138
 msgid "The Black Book"
-msgstr ""
+msgstr "Црна Књига"
 
 #: src/credits.c:141
 msgid "The Sorceror"
-msgstr ""
+msgstr "Чаробњак"
 
 #: data/medals.dat:1
 msgid "Became a legend"
-msgstr ""
+msgstr "Постаоло легенда"
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
-msgstr ""
+msgstr "Хаос је Побеђен"
 
 #: data/medals.dat:3
 msgid "Defeated the Sorceror"
-msgstr ""
+msgstr "Чаробњак је Повеђен"
 
 #: data/medals.dat:6
 msgid "Obtained the Dragon Shield"
-msgstr ""
+msgstr "Добио Змајев Штит"
 
 #: data/medals.dat:5
 msgid "Found all secrets"
-msgstr ""
+msgstr "Открио све тајне"
 
 #: data/medals.dat:8
 msgid "Walked 50km"
-msgstr ""
+msgstr "Препешачио 50км"
 
 #: data/medals.dat:10
 msgid "Fired 500 arrows"
-msgstr ""
+msgstr "Испалио 500 стрела"
 
 #: data/medals.dat:11
 msgid "Defeated 1000 enemies"
-msgstr ""
+msgstr "Победио 1000 непријатеља"
 
 #: data/medals.dat:12
 msgid "Defeated 2000 enemies"
-msgstr ""
+msgstr "Победио 2000 непријатеља"
 
 #: data/medals.dat:14
 msgid "Defeated the Black Book"
-msgstr ""
+msgstr "Победио Црну Књигу"
 
 #: data/medals.dat:15
 msgid "Defeated Grimlore"
-msgstr ""
+msgstr "Победио Гримлора"
 
 #: data/medals.dat:16
 msgid "Defeated the Phoenix"
-msgstr ""
+msgstr "Победио Феникса"
 
 #: data/medals.dat:9
 msgid "Defeated Azriel"
-msgstr ""
+msgstr "Победио Азријела"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
-msgstr ""
+msgstr "Победио Гаргојла"
 
 #: data/medals.dat:17
 msgid "Defeated a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Средио једну Господарску Корњачу"
 
 #: data/medals.dat:18
 msgid "Obtained the Lightning Sword"
-msgstr ""
+msgstr "Добио Мач Муње"
 
 #: data/medals.dat:19
 msgid "Opened the safe in the Library"
-msgstr ""
+msgstr "Отворио сеф у библиотеци"
 
 #: data/medals.dat:20
 msgid "Located the Occult Section"
-msgstr ""
+msgstr "Пронашао Окултну Сектију"
 
 #: data/medals.dat:22
 msgid "Met the Sorceror"
-msgstr ""
+msgstr "Упознао Чаробњака"
 
 #: data/medals.dat:23
 msgid "Obtained 10 Hit Points"
-msgstr ""
+msgstr "Освојено 10 Поена Живота"
 
 #: data/medals.dat:7
 msgid "Obtained 20 Hit Points"
-msgstr ""
+msgstr "Освојено 20 Поена Живота"
 
 #: data/medals.dat:24
 msgid "Rescued all of Jacob's chickens"
-msgstr ""
+msgstr "Спасио све Јакобове пилиће"
 
 #: data/medals.dat:25
 msgid "Fired 250 arrows"
-msgstr ""
+msgstr "Испалио 250 стрела"
 
 #: data/medals.dat:26
 msgid "Blocked 2000 attacks"
-msgstr ""
+msgstr "Блокирано 2000 напада"
 
 #: data/medals.dat:27
 msgid "Continued 20 times"
-msgstr ""
+msgstr "Наставио 20 пута"
 
 #: data/medals.dat:28
 msgid "Drowned 20 Red Bats"
-msgstr ""
+msgstr "Удављено 20 Црвених Слепих Мишева"
 
 #: data/medals.dat:29
 msgid "Escaped the Dungeon"
-msgstr ""
+msgstr "Побегао из Тамнице"
 
 #: data/medals.dat:30
 msgid "Got eaten 5 times"
-msgstr ""
+msgstr "Поједен 5 пута"
 
 #: data/medals.dat:31
 msgid "Entered the Forbidden Swamp"
-msgstr ""
+msgstr "Ушао у Забрањену Мочвару"
 
 #: data/medals.dat:32
 msgid "Completed the Tutorial"
-msgstr ""
+msgstr "Завршен Туториал"
 
 #: data/medals.dat:33
 msgid "Obtained the Fire Shield"
-msgstr ""
+msgstr "Добио Ватрени Штит"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "Стигао до Тврђаве"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
-msgstr ""
+msgstr "Победио Голема користећи само хватаче"
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
-msgstr ""
+msgstr "Победио 100 непријатеља"
 
 #: data/medals.dat:37
 msgid "Defeated 200 enemies"
-msgstr ""
+msgstr "Победио 200 непријатеља"
 
 #: data/medals.dat:38
 msgid "Defeated 500 enemies"
-msgstr ""
+msgstr "Победио 500 непријатеља"
 
 #: data/medals.dat:39
 msgid "Defeated the Watchdog"
-msgstr ""
+msgstr "Победио Пса Чувара"
 
 #: data/medals.dat:40
 msgid "Defeated the Awesome Foursome"
-msgstr ""
+msgstr "Победио феноменалну четворицу"
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
-msgstr ""
+msgstr "Победио Блоба"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
-msgstr ""
+msgstr "Победио Бушилаца"
 
 #: data/medals.dat:43
 msgid "Defeated Evil Edgar"
-msgstr ""
+msgstr "Победио Злог Едгара"
 
 #: data/medals.dat:44
 msgid "Defeated the Queen Fly"
-msgstr ""
+msgstr "Победио Краљицу Муве"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem"
-msgstr ""
+msgstr "Победио Голема"
 
 #: data/medals.dat:46
 msgid "Defeated the King Grub"
-msgstr ""
+msgstr "Победио Краља Граба"
 
 #: data/medals.dat:47
 msgid "Defeated Mataeus"
-msgstr ""
+msgstr "Победио Матеуса"
 
 #: data/medals.dat:48
 msgid "Defeated the Salamander"
-msgstr ""
+msgstr "Победио Даждевњака"
 
 #: data/medals.dat:49
 msgid "Defeated the Sewer Dweller"
-msgstr ""
+msgstr "Победио Становника Канализације"
 
 #: data/medals.dat:50
 msgid "Defeated the Forbidden Swamp Guardian"
-msgstr ""
+msgstr "Победио Чувара Забрањене Мочваре"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
-msgstr ""
+msgstr "Прочитајте цео Збирник Чудовишта"
 
 #: data/medals.dat:53
 msgid "Obtained the Amulet of Resurrection"
-msgstr ""
+msgstr "Добио Амулет Васкрсења"
 
 #: data/medals.dat:54
 msgid "Spent 10 minutes as a Slime"
-msgstr ""
+msgstr "Провео 10 минута као Слуз"
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
-msgstr ""
+msgstr "Скривена Медаља"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
-msgstr ""
+msgstr "Звоно"
 
 #: data/props/item/portable_save.props:4
 msgid "Creates a save point at your current position"
-msgstr ""
+msgstr "Направи снимак за вашу тренутну позицију"
 
 #: src/player.c:2098
 msgid "Your controls have been reversed!"
-msgstr ""
+msgstr "Ваше контроле су обрнуте!"
 
 #: src/item/portable_save.c:82
 msgid "You cannot use this here"
-msgstr ""
+msgstr "Не можете ово користити овде"
 
 #: src/item/portable_save.c:87
 msgid "You can only use this item in an empty space"
-msgstr ""
+msgstr "Овај предмет можете користити само у празном простору"
 
 #: src/item/bell_rope.c:42
 msgid "Bell"
-msgstr ""
+msgstr "Звоно"
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
-msgstr ""
+msgstr "Лист музике"
 
 #: src/menu/io_menu.c:125
 msgid "Choose slot to save to"
-msgstr ""
+msgstr "Изаберите слот где да снимите игру"
 
 #: src/menu/io_menu.c:130
 msgid "Choose slot to load from"
-msgstr ""
+msgstr "Изаберите слот за учитавање"
 
 #: src/world/level_exit.c:104
 msgid "Press Action to go to %s"
-msgstr ""
+msgstr "Притисните Акцију да пређете у %s"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
-msgstr ""
+msgstr "Село"
 
 #: data/scripts/mine2_exit.dat:1
 msgid "the Mine"
-msgstr ""
+msgstr "Рудник"
 
 #: data/maps/map01.dat:1843
 msgid "the Forest"
-msgstr ""
+msgstr "Шума"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "Забрањена Мочвара"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
-msgstr ""
+msgstr "Пећина"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr ""
+msgstr "Периферије Тврђаве"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
-msgstr ""
+msgstr "Канализација"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
-msgstr ""
+msgstr "Подрум Тврђаве"
 
 #: data/maps/map17.dat:11143
 msgid "the Fortress Ground Floor"
-msgstr ""
+msgstr "Приземље Тврђаве"
 
 #: data/scripts/old_shield.dat:18
 msgid "the Laboratory"
-msgstr ""
+msgstr "Лабораторија"
 
 #: data/medals.dat:19
 msgid "the Library"
-msgstr ""
+msgstr "Библиотека"
 
 #: data/maps/map08.dat:12568
 msgid "the Fortress Mine"
-msgstr ""
+msgstr "Рудник Тврђаве"
 
 #: data/maps/map09.dat:2918
 msgid "the Armoury"
-msgstr ""
+msgstr "Оружарница"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr ""
+msgstr "Пећина Бушача"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
-msgstr ""
+msgstr "Катакомбе"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "the Study"
-msgstr ""
+msgstr "Студија"
 
 #: data/medals.dat:29
 msgid "the Dungeon"
-msgstr ""
+msgstr "Тамница"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr ""
+msgstr "Смрзнута Пустиња"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
-msgstr ""
+msgstr "Спољна Мрежа Пећина"
 
 #: data/maps/map19.dat:5643
 msgid "the Inner Cave Network"
-msgstr ""
+msgstr "Унутрашња Мрежа Пећина"
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
-msgstr ""
+msgstr "Гробље"
 
 #: data/maps/map09.dat:10018
 msgid "the Left Tower"
-msgstr ""
+msgstr "Лева Кула"
 
 #: data/maps/map16.dat:1968
 msgid "the Right Tower"
-msgstr ""
+msgstr "Десна Кула"
 
 #: data/medals.dat:21
 msgid "the Crypt"
-msgstr ""
+msgstr "Крипта"
 
 #: data/scripts/grasslands_intro.dat:9
 msgid "Village"
-msgstr ""
+msgstr "Село"
 
 #: data/scripts/armour_boss_die.dat:4
 msgid "Mine"
-msgstr ""
+msgstr "Рудник"
 
 #: data/scripts/ending_part1.dat:35
 msgid "Forest"
-msgstr ""
+msgstr "Шума"
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "Forbidden Swamp"
-msgstr ""
+msgstr "Забрањена Мочвара"
 
 #: data/scripts/cave_intro.dat:13
 msgid "Cave"
-msgstr ""
+msgstr "Пећина"
 
 #: data/maps/map09.dat:10143
 msgid "Fortress Outskirts"
-msgstr ""
+msgstr "Периферије Тврђаве"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "Sewer"
-msgstr ""
+msgstr "Канализација"
 
 #: data/maps/map09.dat:5943
 msgid "Fortress Basement"
-msgstr ""
+msgstr "Подрум Тврђаве"
 
 #: data/maps/map09.dat:1
 msgid "Fortress Ground Floor"
-msgstr ""
+msgstr "Приземље Тврђаве"
 
 #: data/scripts/old_shield.dat:18
 msgid "Laboratory"
-msgstr ""
+msgstr "Лабораторија"
 
 #: src/graphics/save_png.c:25
 msgid "Library"
-msgstr ""
+msgstr "Библиотека"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr ""
+msgstr "Пећина Бушача"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"
-msgstr ""
+msgstr "Катакомбе"
 
 #: data/scripts/enable_study.dat:1
 msgid "Study"
-msgstr ""
+msgstr "Студија"
 
 #: src/boss/sorceror.c:45
 msgid "Dungeon"
-msgstr ""
+msgstr "Тамница"
 
 #: data/maps/map18.dat:1
 msgid "Frozen Wastes"
-msgstr ""
+msgstr "Смрзнута Пустиња"
 
 #: data/maps/map18.dat:4918
 msgid "Outer Cave Network"
-msgstr ""
+msgstr "Спољна Мрежа Пећина"
 
 #: data/maps/map19.dat:5643
 msgid "Inner Cave Network"
-msgstr ""
+msgstr "Унутрашња Мрежа Пећина"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Graveyard"
-msgstr ""
+msgstr "Гробље"
 
 #: data/maps/map09.dat:10018
 msgid "Left Tower"
-msgstr ""
+msgstr "Лева Кула"
 
 #: data/scripts/hidden_passage.dat:9
 msgid "Right Tower"
-msgstr ""
+msgstr "Десна Кула"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
-msgstr ""
+msgstr "Осматрачница"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
-msgstr ""
+msgstr "Крипта"
 
 #: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - %d"
-msgstr ""
+msgstr "Copyright Parallel Realities 2009 - %d"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
-msgstr ""
+msgstr "Покрените Игру од Снимка"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
-msgstr ""
+msgstr "Кодови за варање могу само бити активирани у игри"
 
 #: src/title.c:79
 msgid "Press any key"
-msgstr ""
+msgstr "Притисните било који тастер"
 
 #: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
-msgstr ""
+msgstr "Не можете опремити предмете док нападате"
 
 #: src/credits.c:884
 msgid "Continue"
-msgstr ""
+msgstr "Настави"
 
 #: src/init.c:128
 msgid "Medals"
-msgstr ""
+msgstr "Медаље"
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
-msgstr ""
+msgstr "Квалитет Звука"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
-msgstr ""
+msgstr "Кодови за Варање"
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "Бесконачно Здравље"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "Бесконачне Стреле"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "Лава је Фатална"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
-msgstr ""
+msgstr "Користите тастере горе и доле за избор. Ентер за промену."
 
 #: src/menu/control_menu.c:189
 msgid "Interact"
-msgstr ""
+msgstr "Интеракција"
 
 #: data/scripts/tutorial_combat.dat:3
 msgid "Use"
-msgstr ""
+msgstr "Користи"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "Конфигуришите све контроле"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
-msgstr ""
+msgstr "Брзо се врти лево и десно да отресеш комаде!"
 
 #: data/scripts/azriel_start.dat:18
 msgid "Azriel"
-msgstr ""
+msgstr "Азриел"
 
 #: src/boss/azriel.c:2313
 msgid "Until we meet again..."
-msgstr ""
+msgstr "Док се поново не сретнемо..."
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
-msgstr ""
+msgstr "Иванова Успомена"
 
 #: src/inventory.c:364
 msgid "Selected %s"
-msgstr ""
+msgstr "Изабран %s"
 
 #: src/player.c:2995
 msgid "Press buttons to break the petrification!"
-msgstr ""
+msgstr "Притисните тастере да бисте прекинули петрификатију!"
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
-msgstr ""
+msgstr "Завршио игру са само 5 поена живота"
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"
-msgstr ""
+msgstr "Завршио игру без наставка"
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
-msgstr ""
+msgstr "Приступио Крипти"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
-msgstr ""
+msgstr "Брзо се врти лево и десно да отресеш минијатурне гаргојле!"
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
-msgstr ""
+msgstr "Змајев Штит"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
-msgstr ""
+msgstr "Штит са отпорношћу на змајев дах"
 
 #: src/game.c:870
 msgid ""
 "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
 "font"
 msgstr ""
+"SMALL_FONT_SIZE и LARGE_FONT_SIZE морају бити подешени када се користи "
+"посебан фонт"
 
 #: src/menu/options_menu.c:354
 msgid ""
 "Enabling cheats will not allow you to achieve 100% completion in the game"
 msgstr ""
+"Омогућавање варе вам неће дозволити да постигнете 100% завршетак у игри"
 
 #: src/boss/evil_edgar.c:204
 msgid ""
 "You got into the machine by yourself?! You're even stupider than I thought "
 "you were!"
-msgstr ""
+msgstr "Сам си ушао у машину?! Глупљи си него што сам мислио!"
 
 #: src/boss/chaos.c:814
 msgid "Stalagmite"
-msgstr ""
+msgstr "Сталагмит"
 
 #: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
-msgstr ""
+msgstr "Изгори у пепео!"
 
 #: src/boss/chaos.c:1308
 msgid "Feel my power!"
-msgstr ""
+msgstr "Осети моју моћ!"
 
 #: src/boss/chaos.c:1316
 msgid "Suffer!"
-msgstr ""
+msgstr "Пати!"
 
 #: src/boss/chaos.c:1472
 msgid "Pathetic"
-msgstr ""
+msgstr "Патетично"
 
 #: src/boss/chaos.c:1490
 msgid "Impale"
-msgstr ""
+msgstr "Набити"
 
 #: src/player.h:61
 msgid "Confuse"
-msgstr ""
+msgstr "Збунити"
 
 #: src/boss/chaos.c:1687
 msgid "Darkness"
-msgstr ""
+msgstr "Затамњеност"
 
 #: src/boss/sorceror_2.c:1551
 msgid "Hold Person"
-msgstr ""
+msgstr "Држи Особу"
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr ""
+msgstr "Мач Легенде"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
+"Одбија фантазмалне силе. Блокирање у последњем тренутку повећава моћ."
 
 #: src/credits.c:458
 msgid "Chaos has been subdued"
-msgstr ""
+msgstr "Хаос је заустављен"
 
 #: src/credits.c:460
 msgid "For now..."
-msgstr ""
+msgstr "За сада..."
 
 #: src/credits.c:465
 msgid "Chaos will soon be free"
-msgstr ""
+msgstr "Хаос ће ускоро бити слободан"
 
 #: src/credits.c:467
 msgid "To terrorise the world once again"
-msgstr ""
+msgstr "Да поново терорише свет"
 
 #: src/item/attractor.c:36
 msgid "Rift"
-msgstr ""
+msgstr "Пукотина"
 
 #: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Витице"
 
 #: src/boss/chaos.c:1046
 msgid "Orbs"
-msgstr ""
+msgstr "Орбс"
 
 #: src/boss/chaos.c:1312
 msgid "I will destroy you!"
-msgstr ""
+msgstr "Уништићу те!"
 
 #: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
-msgstr ""
+msgstr "Мора да ме је телепортовао са задњим делом своје магије"
 
 #: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
+"Иако нисам успео да га убијем, сада је превише слаб да било шта уради"
 
 #: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
-msgstr ""
+msgstr "Време је да се вратим у потрагу за тату..."
 
 #: data/scripts/sealed_entrance.dat:1
 msgid "It's sealed tight. I'm not getting back in there"
-msgstr ""
+msgstr "Чврсто је затворено. Нема шансе да се вратим унутра"
 
 #: data/scripts/chaos_die.dat:6
 msgid "It's over"
-msgstr ""
+msgstr "Готово је"
 
 #: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
-msgstr ""
+msgstr "Шта је то? Изгледа као мач"
 
 #: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
-msgstr ""
+msgstr "Ово мора да је Иванов мач"
 
 #: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
-msgstr ""
+msgstr "Ти... Ти ме никада нећеш победити"
 
 #: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
-msgstr ""
+msgstr "Побећи ћу из овог одвратног места"
 
 #: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
-msgstr ""
+msgstr "Чак и ако ми треба још 100 година"
 
 #: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
-msgstr ""
+msgstr "Ови ланци ме неће држати заувек"
 
 #: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
-msgstr ""
+msgstr "Време је да се ово заврши. Припреми се!"
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Не! ОТЕРАЈ!"
 
 #: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
-msgstr ""
+msgstr "Каква ужасна ноћ"
 
 #: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
-msgstr ""
+msgstr "Едгаре, морам да изађем за пар сати"
 
 #: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
+"Можеш остати будан још 30 минута, али онда спакуј играчке и иди на спавање"
 
 #: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
-msgstr ""
+msgstr "Следећег јутра..."
 
 #: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
-msgstr ""
+msgstr "Тата! Где си?"
 
 #: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
-msgstr ""
+msgstr "Изгледа да Тата није дошао кући синоћ"
 
 #: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
-msgstr ""
+msgstr "Његов кревет није коришћен, и мој доручак није спреман"
 
 #: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
-msgstr ""
+msgstr "То може да значи само једна ствар..."
 
 #: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
-msgstr ""
+msgstr "Мора да га је киднаповао тај зли чаробњак!"
 
 #: data/scripts/black_book_vanished.dat:1
 msgid "Something very powerful was here"
-msgstr ""
+msgstr "Нешто веома моћно је било овде"
 
 #: data/scripts/black_book_vanished.dat:2
 msgid "I can still feel the magical charge that it gave off"
-msgstr ""
+msgstr "Још увек могу да осетим магију у околини"
 
 #: data/scripts/black_book_vanished.dat:3
 msgid "Whatever it was, it's long gone..."
-msgstr ""
+msgstr "Шта год да је било, одавно је отишло..."
 
 #: data/props/boss/mataeus_knife.props:6
 msgid "A magical knife conjured by Mataeus"
-msgstr ""
+msgstr "Магични нож који је направио Матеус"
 
 #: data/scripts/mataeus_boss_die.dat:1
 msgid "Magical Knife"
-msgstr ""
+msgstr "Магични Нож"
 
 #: data/maps/map11.dat:5217
 msgid "Third Floor Passage Key"
-msgstr ""
+msgstr "Кључ за Пролаз до Трећег Спрата"
 
 #: data/maps/map11.dat:7267
 msgid "Third Floor Keycard"
-msgstr ""
+msgstr "Кључна Карта Трећег Спрата"
 
 #: data/maps/map11.dat:9292
 msgid "Fourth Floor Keycard"
-msgstr ""
+msgstr "Кључна Карта Четвртог Спрата"
 
 #: data/maps/map11.dat:6368
 msgid "Anti-Gravity Switch Key 1"
-msgstr ""
+msgstr "Антигравитациони Прекидач Кључ 1"
 
 #: data/maps/map11.dat:6267
 msgid "Anti-Gravity Switch Key 2"
-msgstr ""
+msgstr "Антигравитациони Прекидач Кључ 2"
 
 #: data/scripts/cauldron.dat:147
 msgid "Old Shield"
-msgstr ""
+msgstr "Стари Штит"
 
 #: data/maps/map15.dat:2567
 msgid "Old Key"
-msgstr ""
+msgstr "Стари Кључ"
 
 #: data/maps/map09.dat:7793
 msgid "Lava Lift Key"
-msgstr ""
+msgstr "Лава Лифт Кључ"
 
 #: data/maps/map09.dat:5468
 msgid "Lift Key"
-msgstr ""
+msgstr "Лифт Кључ"
 
 #: data/maps/map09.dat:8967
 msgid "Study Lift Key"
-msgstr ""
+msgstr "Студија Лифт Кључ"
 
 #: data/maps/map17.dat:2942
 msgid "Conveyor Belt Key"
-msgstr ""
+msgstr "Транспортна Трака Кључ"
 
 #: data/maps/map11.dat:6817
 msgid "Instruction Room Key"
-msgstr ""
+msgstr "Соба Упутства Кључ"
 
 #: data/scripts/cauldron.dat:7
 msgid "Full Soul Bottle"
-msgstr ""
+msgstr "Флаша Пуна Душе"
 
 #: data/maps/map10.dat:3167
 msgid "Potion of Invisibility"
-msgstr ""
+msgstr "Напитак Невидљивости"
 
 #: data/scripts/slime_potion.dat:8
 msgid "Potion of Transmogrification"
-msgstr ""
+msgstr "Напитак Трансмогрификације"
 
 #: data/props/item/spike_ball.props:4
 msgid "Armadillo Spike Ball"
-msgstr ""
+msgstr "Армадило Шиљаста Лопта"
 
 #: data/scripts/cauldron.dat:153
 msgid "Gazer Eyeball"
-msgstr ""
+msgstr "Око Газера"
 
 #: src/item/apple_tree.h:20
 msgid "Apple"
-msgstr ""
+msgstr "Јабука"
 
 #: src/boss/evil_edgar.c:703
 msgid "Dud Exploding Gazer Eyeball"
-msgstr ""
+msgstr "Неисправно Експлодирајуће Око Газера"
 
 #: data/scripts/fireball_passage.dat:2
 msgid "Fire Shield"
-msgstr ""
+msgstr "Ватрени Штит"
 
 #: data/scripts/intro_part1.dat:12
 msgid "Edgar's_Father"
-msgstr ""
+msgstr "Едгаров_Отац"
 
 #: data/scripts/attribute.dat:2
 msgid ""
 "It's a book by Stephen J Sweeney called \"The Attribute of the Strong\""
 msgstr ""
+"То је књига Стивена Џ. Свинија под називом \"The Attribute of the Strong\""
 
 #: data/maps/map09.dat:1492
 msgid "Library Key"
-msgstr ""
+msgstr "Кључ Библиотеке"
 
 #: data/props/item/yellow_gem.props:4
 msgid "Yellow Gem"
-msgstr ""
+msgstr "Жути Драгуљ"
 
 #: data/props/item/cauldron.props:159
 msgid "Mandrake Root"
-msgstr ""
+msgstr "Корен Мандрагоре"
 
 #: data/props/item/cauldron.props:160
 msgid "Mantis Fat"
-msgstr ""
+msgstr "Mаст Богомољка"
 
 #: data/props/item/cauldron.props:161
 msgid "Condor Bones"
-msgstr ""
+msgstr "Кондорске Кости"
