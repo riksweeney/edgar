@@ -19,7 +19,6 @@ medaldata
 medalKey
 medals
 messages.po
-*.o
 pak*
 po_creator*
 readme_dfsg
@@ -33,3 +32,5 @@ tile_creator
 tmpdata
 tmpsave
 upload.sh
+obj
+*.exe

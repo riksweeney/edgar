@@ -1,12 +1,10 @@
 CHANGE LOG
 ----------
 
-Version 1.39
-* Updated Serbian translation
-* Fixed Rampaging Master Tortoise speed issue when saving during the fight
-
 Version 1.38
+* Added Serbian translation
 * Updated Greek and Esperanto translations
+* Fixed Rampaging Master Tortoise speed issue when saving during the fight
 * Moved from svn to git
 
 Version 1.37
