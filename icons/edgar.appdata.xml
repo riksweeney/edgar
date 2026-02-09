@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- Copyright 2014 Edgar Muniz Berlinck <edgar.vv@gmail.com> -->
-<component type="desktop">
+<component type="desktop-application">
   <id>uk.co.parallelrealities.games.edgar</id>
   <name>The Legend of Edgar</name>
   <summary>2D Adventure Platform Game</summary>
-  <developer_name>Parallel Realities</developer_name>
+  <developer id="uk.co.parallelrealities">
+    <name>Parallel Realities</name>
+  </developer>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0</project_license>
   <description>
@@ -16,16 +18,16 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image type="source">http://2.bp.blogspot.com/-kfnbzImCAjE/Tn9cLGchaHI/AAAAAAAAAyE/2JrSoBAjgU4/s320/edgar31.png</image>
+      <image type="source">https://2.bp.blogspot.com/-kfnbzImCAjE/Tn9cLGchaHI/AAAAAAAAAyE/2JrSoBAjgU4/s320/edgar31.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://4.bp.blogspot.com/-Qhby6FCqV0o/Tn9cKdIYWaI/AAAAAAAAAyA/qbaz8fgeZZg/s320/edgar25.png</image>
+      <image type="source">https://4.bp.blogspot.com/-Qhby6FCqV0o/Tn9cKdIYWaI/AAAAAAAAAyA/qbaz8fgeZZg/s320/edgar25.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://2.bp.blogspot.com/-mDf31lIEh0U/Tn9cLhPrKAI/AAAAAAAAAyI/O3nMO-9BueA/s320/edgar36.png</image>
+      <image type="source">https://2.bp.blogspot.com/-mDf31lIEh0U/Tn9cLhPrKAI/AAAAAAAAAyI/O3nMO-9BueA/s320/edgar36.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">http://1.bp.blogspot.com/-MGz0Fsc3HM4/Tn9cMfkvnMI/AAAAAAAAAyM/c9Elqdz2iGU/s320/edgar40.png</image>
+      <image type="source">https://1.bp.blogspot.com/-MGz0Fsc3HM4/Tn9cMfkvnMI/AAAAAAAAAyM/c9Elqdz2iGU/s320/edgar40.png</image>
     </screenshot>
   </screenshots>
   <releases>
@@ -83,6 +85,8 @@
   </releases>
   <url type="homepage">https://www.parallelrealities.co.uk/games/edgar/</url>
   <url type="bugtracker">https://github.com/riksweeney/edgar/issues</url>
+  <url type="vcs-browser">https://github.com/riksweeney/edgar</url>
+  <launchable type="desktop-id">uk.co.parallelrealities.games.edgar.desktop</launchable>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">mild</content_attribute>
   </content_rating>
