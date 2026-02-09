@@ -9,6 +9,13 @@
   </developer>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0</project_license>
+  <url type="homepage">https://www.parallelrealities.co.uk/games/edgar/</url>
+  <url type="bugtracker">https://github.com/riksweeney/edgar/issues</url>
+  <url type="vcs-browser">https://github.com/riksweeney/edgar</url>
+  <launchable type="desktop-id">uk.co.parallelrealities.games.edgar.desktop</launchable>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">mild</content_attribute>
+  </content_rating>
   <description>
     <p>The Legend of Edgar is a 2D platform game.
       Your hero must save his dad from the hands of the evil sorcerer.
@@ -31,6 +38,12 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.38" date="2023-01-08" type="stable">
+      <url>https://github.com/riksweeney/edgar/releases/tag/1.38</url>
+    </release>
+    <release version="1.37" date="2024-01-01" type="stable">
+      <url>https://github.com/riksweeney/edgar/releases/tag/1.37</url>
+    </release>
     <release version="1.36" date="2023-01-01" type="stable">
       <url>https://github.com/riksweeney/edgar/releases/tag/1.36</url>
     </release>
@@ -83,11 +96,4 @@
       <url>https://github.com/riksweeney/edgar/releases/tag/1.20</url>
     </release>
   </releases>
-  <url type="homepage">https://www.parallelrealities.co.uk/games/edgar/</url>
-  <url type="bugtracker">https://github.com/riksweeney/edgar/issues</url>
-  <url type="vcs-browser">https://github.com/riksweeney/edgar</url>
-  <launchable type="desktop-id">uk.co.parallelrealities.games.edgar.desktop</launchable>
-  <content_rating type="oars-1.1">
-    <content_attribute id="violence-cartoon">mild</content_attribute>
-  </content_rating>
 </component>
